@@ -2,11 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kine — BCI Human Augmentation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 :root {
@@ -172,12 +168,79 @@ CTRL-labs（Nature,
 Omni）学习人类运动流形本身——九种模态无缝切换。</p>
 <h3 id="pfedac联邦持续学习">3.3 pFedAC联邦持续学习</h3>
 <p>pFedAC（arXiv:2605.14423，CRO汪牧星第一作者）让每个用户的脑电和肌电模式在设备端被学习——原始神经数据永不离开设备。只上传模型梯度，满足全球数据隐私合规。随设备数K线性加速。你的Kine使用越久越懂你的神经模式。</p>
-<h3 id="kine的技术壁垒不来自单一技术来自跨学科整合难度">3.4
-Kine的技术壁垒不来自单一技术，来自跨学科整合难度</h3>
+<h3 id="混合式机械架构">3.4 混合式机械架构</h3>
+<p>可穿戴设备的机械架构存在根本性矛盾：刚性外骨骼（Ekso,
+HAL）力传输效率高但重12-25kg、关节压迫、穿戴耻感强。纯软体外骨骼（Harvard
+Wyss）轻便但55%的机械功率在软组织中损耗——电机发出100W，只有45W传到骨骼。</p>
+<p>Kine采用<strong>混合式架构</strong>解决这个矛盾：</p>
+<ul>
+<li><strong>碳纤维髋部锚定</strong>：力的起点。碳纤维比强度是钢的5倍、密度仅1.6g/cm³。3D打印成型，单件&lt;$150（qty
+100）。髋部是人体的”底盘”——从髋部传力到下肢，走最短的力传递路径，寄生扭矩最小</li>
+<li><strong>织物包裹</strong>：力的分布面。压缩织物将锚定点的集中力分散为皮肤可舒适承受的面压力（&lt;5
+kPa，远低于医用止血带的安全阈值）。嵌入的16通道sEMG电极与外层织物一体编织，无需单独佩戴传感器绑带</li>
+<li><strong>Bowden电缆驱动</strong>：力的传输路径。电缆模拟肌肉-肌腱的拉力路径——从髋部（起点）沿大腿外侧（力线）到膝关节上方（锚点）。电缆外鞘固定，内芯滑动，力只沿电缆方向传输，不产生横向寄生力。单个电缆组件$15-40</li>
+</ul>
+<p><strong>力传输效率对比</strong>：纯软体45%（Harvard实测）→
+混合架构&gt;70%（碳纤维锚定+最短路径）→
+纯刚性&gt;90%（但重12-25kg）。70%是穿戴体验与机械效率的最优平衡点。</p>
+<p><strong>驱动电机</strong>：AKE60-8一体化关节电机。260g，峰值扭矩12.5Nm，扭矩密度46Nm/kg。头部消费外骨骼通用方案——不自研电机，聚焦系统集成。qty
+1,000单价约$150。</p>
+<h3 id="传感器融合架构">3.5 传感器融合架构</h3>
+<p>Kine的传感器不是堆料——它们按延迟和功能形成三层互补架构：</p>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 25%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>传感器</th>
+<th>延迟</th>
+<th>功能</th>
+<th>失效模式</th>
+<th>冗余</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EEG（8ch干电极）</td>
+<td>0.5-1.5s（预判）</td>
+<td>宏观意图分类（走/停/方向）</td>
+<td>出汗、运动伪迹</td>
+<td>sEMG+IMU可独立运行</td>
+</tr>
+<tr class="even">
+<td>sEMG（16ch织物）</td>
+<td>&lt;100ms</td>
+<td>精细力矩解码</td>
+<td>皮肤接触不良</td>
+<td>IMU可降级为姿态触发</td>
+</tr>
+<tr class="odd">
+<td>IMU（6轴×4）</td>
+<td>&lt;10ms</td>
+<td>步态相位、关节角度</td>
+<td>漂移累积</td>
+<td>足底压力交叉校验</td>
+</tr>
+<tr class="even">
+<td>足底压力（4点）</td>
+<td>&lt;5ms</td>
+<td>地面接触检测</td>
+<td>鞋内位移</td>
+<td>IMU步态相位冗余</td>
+</tr>
+</tbody>
+</table>
+<p><strong>安全设计</strong>：任何单一传感器失效，系统降级运行而非停机。EEG失效→sEMG+IMU继续。sEMG失效→IMU触发基础助力。全传感器失效→无助力被动模式（等同于普通压缩裤）。</p>
+<h3 id="综合壁垒">3.6 综合壁垒</h3>
 <table>
 <thead>
 <tr class="header">
-<th>能力</th>
+<th>需要同时具备</th>
 <th>Kine</th>
 <th>极壳</th>
 <th>BrainCo</th>
@@ -193,7 +256,7 @@ Kine的技术壁垒不来自单一技术，来自跨学科整合难度</h3>
 <td>❌</td>
 </tr>
 <tr class="even">
-<td>sEMG神经接口</td>
+<td>sEMG织物神经接口</td>
 <td>✅</td>
 <td>❌</td>
 <td>✅</td>
@@ -227,9 +290,23 @@ Kine的技术壁垒不来自单一技术，来自跨学科整合难度</h3>
 <td>❌</td>
 <td>❌</td>
 </tr>
+<tr class="odd">
+<td>混合式机械架构</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>多层传感器融合与降级安全</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
 </tbody>
 </table>
-<p>极壳、Ekso是硬件公司。BrainCo是BCI公司。<strong>同时具备EEG+sEMG+数字孪生+RL+联邦学习的，全球只有Kine。</strong></p>
+<p>极壳、Ekso是硬件公司。BrainCo是BCI公司。<strong>同时覆盖神经接口、数字孪生、RL智能、混合机械、传感器融合五层的，全球只有Kine。</strong></p>
 <h2 id="产品形态与路线">4. 产品形态与路线</h2>
 <p><strong>Kine One（2027）</strong>由两个穿戴模块和一个软件组成：</p>
 <ul>
