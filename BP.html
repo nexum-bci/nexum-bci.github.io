@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>骨骼流形 Bones &amp; Manifold — Eesaa 物理AI人体增强机器人</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+:root {
+  --b: rgb(25, 152, 237);
+  --bb: #003070;
+  --w: #fff;
+  --d: #1a1f2e;
+  --td: #555;
+  --tm: #999;
+  --bg: #f5f7fa;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', -apple-system, sans-serif;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 60px 48px;
+  color: var(--d);
+  line-height: 1.85;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  background: var(--w);
+}
+h1 {
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-top: 0;
+  color: var(--b);
+  border-bottom: 3px solid var(--b);
+  padding-bottom: 12px;
+}
+h2 {
+  font-size: 26px;
+  font-weight: 800;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  color: var(--d);
+  border-bottom: 2px solid var(--b);
+  padding-bottom: 8px;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 36px;
+  margin-bottom: 12px;
+  color: var(--bb);
+}
+h4 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+p { margin: 14px 0; }
+strong { color: var(--bb); font-weight: 700; }
+em { color: var(--b); font-style: normal; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 13px;
+}
+th {
+  background: var(--b);
+  color: var(--w);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: top;
+  color: var(--td);
+}
+tr:nth-child(even) { background: var(--bg); }
+blockquote {
+  border-left: 4px solid var(--b);
+  padding: 12px 20px;
+  margin: 20px 0;
+  background: #f0f8ff;
+  border-radius: 0 8px 8px 0;
+  color: var(--td);
+}
+code {
+  background: #f0f4f8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+ul, ol { margin: 10px 0 10px 24px; }
+li { margin: 4px 0; }
+hr { border: none; border-top: 1px solid #e0e0e0; margin: 40px 0; }
+a { color: var(--b); text-decoration: none; }
+@media print {
+  body { padding: 20px 30px; font-size: 12px; }
+  h1 { font-size: 28px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 16px; }
+  table { font-size: 10px; }
+}
+</style>
+</head>
+<body>
+<div style="text-align:center;margin-bottom:48px;padding-bottom:24px;border-bottom:3px solid var(--b)">
+<p style="font-size:11px;color:var(--tm);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px">Confidential — For Investor Use Only</p>
+</div>
+<h1 id="骨骼流形-bones-manifold">骨骼流形 Bones &amp; Manifold</h1>
+<h2 id="物理ai人体增强机器人">物理AI人体增强机器人</h2>
+<p><strong>商业计划书</strong> | 2026年6月</p>
+<h2 id="愿景">1. 愿景</h2>
+<p><strong>“让十亿人拥有第二层肌肉。”</strong></p>
+<p>Bones &amp; Manifold
+是物理AI人体增强公司。我们研发可穿戴机器人——将脑机接口、柔性驱动、神经力学模型与强化学习运控集成为一件日常穿戴的智能衣物，帮助人类突破身体的生物学极限。</p>
+<p>这不是外骨骼。这是<strong>物理AI</strong>在人体的延伸。</p>
+<p>与宇树/Figure/特斯拉的人形机器人不同——他们建造独立行走的机器，我们建造<strong>与人融合的机器</strong>。物理AI的核心命题不只是”让机器像人一样运动”，更是”让机器理解人的运动意图并与之协同”。后者更难，也更大。</p>
+<h2 id="执行摘要">2. 执行摘要</h2>
+<p>全球<strong>10亿人</strong>（WHO
+2025）需要运动辅助——中风幸存者、脊髓损伤者、截肢者、肌少症老人。这个市场远大于人形机器人——后者2025年仅$1.8B，预计十年后$38B。而全球康复机器人+BCI+老龄化辅助市场的总和已超过<strong>$150B</strong>，且渗透率不足2%。</p>
+<p>Bones &amp; Manifold 首款产品 <strong>Eesaa One</strong>
+是一款面向全球市场的神经控制可穿戴康复机器人——通过非侵入式脑机接口（EEG头带）+
+肌电织物传感器（sEMG）+
+IMU感知运动意图，以电缆驱动辅助肢体运动，由全身神经力学肌骨模型（416肌肉+206骨骼，Hill型柔顺肌腱）为每位用户生成个性化RL康复方案。</p>
+<p>十五五规划将脑机接口列为”六大未来产业”之一，首次写入政府工作报告。具身智能同时被列为优先产业。<strong>Bones
+&amp; Manifold 恰好处于这两个国家战略的交汇点。</strong> 全球运营从Day
+1启动——中国NMPA、美国FDA、欧盟CE三条审批路径并行，临床数据跨国互认。</p>
+<h2 id="产品eesaa意识">3. 产品：Eesaa（意识）</h2>
+<h3 id="产品定义">3.1 产品定义</h3>
+<p><strong>Eesaa
+One</strong>（2027）是一件可日常穿戴的智能康复衣物。它不像医疗器械——它像高端运动装备。</p>
+<table>
+<colgroup>
+<col style="width: 62%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>组成部分</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>EEG头带</strong></td>
+<td>8通道干电极，&lt;80g，像Marshall耳机一样戴在头上。检测运动意图（走/停/方向），&lt;2秒窗口</td>
+</tr>
+<tr class="even">
+<td><strong>sEMG织物袖套</strong></td>
+<td>16通道织物电极（Nextiles方案），像压缩衣一样穿在大腿/小腿上。解码力矩需求，&lt;100ms延迟</td>
+</tr>
+<tr class="odd">
+<td><strong>IMU模组</strong></td>
+<td>6个9轴IMU嵌入织物，检测步态相位，&lt;10ms延迟。最可靠的底层传感器</td>
+</tr>
+<tr class="even">
+<td><strong>驱动腰带</strong></td>
+<td>腰部碳纤维腰带，内置伺服电机+电池+嵌入式控制器。像跑步腰包，&lt;1.5kg</td>
+</tr>
+<tr class="odd">
+<td><strong>电缆驱动</strong></td>
+<td>Bowden
+cable从腰带延伸到脚踝，模拟肌肉-肌腱拉力。无刚性外骨骼框架——运动完全自由</td>
+</tr>
+<tr class="even">
+<td><strong>智能核心</strong></td>
+<td>Manifold Omni芯片：全身MSK数字孪生 + RL康复策略 +
+pFedAC联邦学习</td>
+</tr>
+</tbody>
+</table>
+<p><strong>产品形态</strong>：当不启动时，Eesaa
+One是一件普通的压缩运动衣。启动后，EEG+sEMG检测到运动意图，驱动腰带上的电机通过电缆提供辅助力——你感觉不到机器在”推”你，而是感觉自己的肌肉变强了。</p>
+<p><strong>关键设计原则</strong>： -
+<strong>无刚性框架</strong>：电缆驱动+织物锚定。总重&lt;3kg（含电池），是EksoNR（12kg）的四分之一
+-
+<strong>多模态融合</strong>：IMU+EMG+EEG三者互补。IMU最快（10ms）但最浅（仅步态）；EEG最慢（2s）但最深（真实意图）
+-
+<strong>像iPhone一样设计</strong>：可拆卸模块化，Gen1→Gen2→Gen3硬件可升级</p>
+<h3 id="为什么是物理ai">3.2 为什么是物理AI</h3>
+<p>物理AI = 人工智能 +
+物理世界交互。人形机器人是物理AI在机器上的体现，Eesaa是物理AI在人体上的体现。</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>人形机器人（宇树/Figure/Tesla）</th>
+<th>Eesaa（Bones &amp; Manifold）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>交互对象</td>
+<td>独立环境</td>
+<td><strong>与人体耦合</strong></td>
+</tr>
+<tr class="even">
+<td>运动控制</td>
+<td>确定性系统</td>
+<td><strong>非线性、不确定的人体</strong></td>
+</tr>
+<tr class="odd">
+<td>感知输入</td>
+<td>视觉+IMU+力控</td>
+<td><strong>EEG+sEMG+IMU多模态意图</strong></td>
+</tr>
+<tr class="even">
+<td>AI模型</td>
+<td>世界模型（外部环境）</td>
+<td><strong>人体世界模型（内部生物力学）</strong></td>
+</tr>
+<tr class="odd">
+<td>安全问题</td>
+<td>碰撞检测</td>
+<td><strong>关节损伤、组织压迫、寄生力</strong></td>
+</tr>
+<tr class="even">
+<td>市场规模</td>
+<td>$1.8B→$38B（2035E）</td>
+<td><strong>$150B+（已存在，渗透率&lt;2%）</strong></td>
+</tr>
+</tbody>
+</table>
+<p>我们的MSK模型（416肌肉+206骨骼）本质上是一个<strong>人体物理世界的数字孪生</strong>——这和人形机器人的”世界模型”是同构的。联邦学习让每台设备的数据飞轮持续强化这个模型。</p>
+<h3 id="iphone式产品路线图">3.3 iPhone式产品路线图</h3>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 21%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>代际</th>
+<th>年份</th>
+<th>产品</th>
+<th>传感器</th>
+<th>用户</th>
+<th>定价</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Eesaa One</strong></td>
+<td>2027</td>
+<td>下肢康复套装（髋+膝）</td>
+<td>sEMG+IMU，EEG模块可选</td>
+<td>中风患者 B2B</td>
+<td>$18,000</td>
+</tr>
+<tr class="even">
+<td><strong>Eesaa One+</strong></td>
+<td>2028</td>
+<td>+EEG头带标配</td>
+<td>+EEG 8通道</td>
+<td>中风+SCI B2B</td>
+<td>$22,000</td>
+</tr>
+<tr class="odd">
+<td><strong>Eesaa Pro</strong></td>
+<td>2030</td>
+<td>全身套装（下肢+上肢）</td>
+<td>EEG+sEMG+织物力传感+眼动</td>
+<td>全面康复 B2B+B2C</td>
+<td>$28,000/$3,999</td>
+</tr>
+<tr class="even">
+<td><strong>Eesaa Air</strong></td>
+<td>2033</td>
+<td>织物人工肌肉日常穿戴</td>
+<td>全织物传感+驱动</td>
+<td>老龄化日常辅助 B2C</td>
+<td>$2,999</td>
+</tr>
+</tbody>
+</table>
+<p><strong>iPhone类比</strong>： - Eesaa One = iPhone
+1（定义了品类，但不完美） - Eesaa Pro = iPhone 4（真正成熟的产品） -
+Eesaa Air = iPhone X（全新的形态，织物化、日常化）</p>
+<h2 id="市场">4. 市场</h2>
+<h3 id="总目标市场150b">4.1 总目标市场：$150B+</h3>
+<p>2025年全球中风幸存者9,400万（年增1,200万），脊髓损伤1,540万，截肢6,500万，肌少症老人&gt;5亿。全球康复机器人+BCI+老龄化辅助市场总和&gt;$150B，渗透率不足2%。</p>
+<p><strong>为什么这个市场远大于人形机器人</strong>：人形机器人需要创造新需求（“你买个人形机器人干什么？”）；运动辅助市场<strong>已经存在</strong>——中风患者已经在花$3-12万买Ekso/ReWalk/Cyberdyne。我们的任务是：让产品更好、更轻、更便宜、有BCI。</p>
+<h3 id="中国市场测算">4.2 中国市场测算</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 19%" />
+<col style="width: 24%" />
+<col style="width: 15%" />
+<col style="width: 16%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>年份</th>
+<th>中国年新发中风</th>
+<th>可接受机器人康复</th>
+<th>B2B渗透率</th>
+<th>可触达台数</th>
+<th>收入（¥）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2027</td>
+<td>240万</td>
+<td>30% = 72万/年</td>
+<td>0.5%</td>
+<td>3,600台</td>
+<td>¥6.5亿</td>
+</tr>
+<tr class="even">
+<td>2029</td>
+<td>240万</td>
+<td>30% = 72万/年</td>
+<td>1.5%</td>
+<td>10,800台</td>
+<td>¥19.4亿</td>
+</tr>
+<tr class="odd">
+<td>2032</td>
+<td>252万</td>
+<td>32% = 80万/年</td>
+<td>3%</td>
+<td>24,000台</td>
+<td>¥43.2亿</td>
+</tr>
+</tbody>
+</table>
+<h3 id="全球市场">4.3 全球市场</h3>
+<table>
+<thead>
+<tr class="header">
+<th>区域</th>
+<th>2027目标</th>
+<th>2029目标</th>
+<th>策略</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>中国</td>
+<td>NMPA获批，100家医院</td>
+<td>300家医院</td>
+<td>十五五政策红利+医保准入</td>
+</tr>
+<tr class="even">
+<td>美国</td>
+<td>FDA 510(k)提交</td>
+<td>50家VA医院</td>
+<td>退伍军人事务部是最大康复采购方</td>
+</tr>
+<tr class="odd">
+<td>欧洲</td>
+<td>CE技术文档准备</td>
+<td>CE获批，德/英/法首批</td>
+<td>德国康复医院最密集</td>
+</tr>
+<tr class="even">
+<td>日本</td>
+<td>合作伙伴洽谈</td>
+<td>首批20家医院</td>
+<td>老龄化最严重，HAL已有医保先例</td>
+</tr>
+</tbody>
+</table>
+<h2 id="核心技术壁垒">5. 核心技术壁垒</h2>
+<h3 id="全身神经力学肌骨数字孪生">5.1 全身神经力学肌骨数字孪生</h3>
+<p>416肌肉+206骨骼+Hill型柔顺肌腱的全身模型。这不是学术玩具——它已经可以并行仿真2048个世界，日产53亿步态样本，零人工标注。每个用户的MSK数字孪生随使用持续更新。这是<strong>人体物理世界的世界模型</strong>。</p>
+<h3 id="多模态意图融合">5.2 多模态意图融合</h3>
+<p>IMU（&lt;10ms）+ sEMG（&lt;100ms）+
+EEG（&lt;2s）三模态互补。Transformer架构实现&lt;50ms端到端延迟。CMU验证非侵入EEG
+4状态&gt;85%在线精度——对康复场景完全够用。</p>
+<h3 id="pfedac联邦学习">5.3 pFedAC联邦学习</h3>
+<p>康复数据是医疗隐私，不能上传云端。pFedAC（arXiv:2605.14423）实现：设备端训练，只上传模型更新——不上传患者数据。患者越多，共享知识越强；单患者使用越久，个性方案越准。满足HIPAA/GDPR/PIPL全套合规。</p>
+<h3 id="为什么竞品难以复制">5.4 为什么竞品难以复制</h3>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>壁垒层次</th>
+<th>竞品可复制性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>硬件（电机+织物）</td>
+<td>容易（供应链）</td>
+</tr>
+<tr class="even">
+<td>sEMG传感器</td>
+<td>中等（Meta已开放方案）</td>
+</tr>
+<tr class="odd">
+<td>EEG运动意图解码</td>
+<td>中等（学术界方案公开）</td>
+</tr>
+<tr class="even">
+<td><strong>全身MSK模型仿真</strong></td>
+<td><strong>极难（需要3-5年积累，竞品没有肌肉级建模）</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>RL个性化康复策略</strong></td>
+<td><strong>极难（需要MSK模型+RL训练+临床数据闭环）</strong></td>
+</tr>
+<tr class="even">
+<td><strong>联邦学习数据飞轮</strong></td>
+<td><strong>极难（需要论文级算法+分布式系统+合规架构）</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>NMPA/FDA审批</strong></td>
+<td><strong>极难（3-5年时间壁垒）</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="竞争全景">6. 竞争全景</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>竞品</th>
+<th>类型</th>
+<th>核心能力</th>
+<th>核心短板</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Ekso/ReWalk/Cyberdyne</strong></td>
+<td>刚性外骨骼</td>
+<td>FDA批准</td>
+<td>重12-25kg，无BCI，无RL，$80-120K</td>
+</tr>
+<tr class="even">
+<td><strong>BrainCo</strong></td>
+<td>非侵入BCI</td>
+<td>BCI技术+量产</td>
+<td>只做假肢，不做外骨骼</td>
+</tr>
+<tr class="odd">
+<td><strong>ExoMuscle (RT HealthTech)</strong></td>
+<td>人工肌肉</td>
+<td>$150超低价</td>
+<td>寿命1万次，无BCI/RL，非医疗</td>
+</tr>
+<tr class="even">
+<td><strong>MARX (BIT)</strong></td>
+<td>BCI+外骨骼</td>
+<td>双侧上肢BCI</td>
+<td>实验室原型</td>
+</tr>
+<tr class="odd">
+<td><strong>Synchron/Neuralink</strong></td>
+<td>侵入BCI</td>
+<td>高带宽</td>
+<td>需开颅，10年内无法消费化</td>
+</tr>
+<tr class="even">
+<td><strong>宇树/Figure/特斯拉</strong></td>
+<td>人形机器人</td>
+<td>运控+AI</td>
+<td>做独立机器人，不做人机融合</td>
+</tr>
+<tr class="odd">
+<td><strong>Eesaa（我们）</strong></td>
+<td>物理AI可穿戴</td>
+<td>BCI+MSK+RL+联邦学习</td>
+<td>审批路径进行中</td>
+</tr>
+</tbody>
+</table>
+<p><strong>错位竞争</strong>：BrainCo做BCI但不做外骨骼；Ekso做外骨骼但不用BCI；宇树做人形机器人但那是独立机器。Eesaa是唯一将BCI+外骨骼+MSK模型RL个性化整合的产品。我们不是在现有品类中竞争——我们定义了新品类：<strong>物理AI可穿戴机器人</strong>。</p>
+<h2 id="商业模式">7. 商业模式</h2>
+<p><strong>B2B首发 → B2C放量 → 数据平台变现</strong></p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>阶段</th>
+<th>模式</th>
+<th>区域</th>
+<th>定价</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Phase 1</strong> (2027-29)</td>
+<td>B2B医院直销</td>
+<td>中国+美国+欧洲并行</td>
+<td>$18,000-25,000/台</td>
+</tr>
+<tr class="even">
+<td><strong>Phase 2</strong> (2029-32)</td>
+<td>B2B+B2C混合</td>
+<td>医院+家庭康复</td>
+<td>B2C $3,999 + $499/年订阅</td>
+</tr>
+<tr class="odd">
+<td><strong>Phase 3</strong> (2032-35)</td>
+<td>数据平台</td>
+<td>全球</td>
+<td>$康复AI服务、保险数据、药物辅助</td>
+</tr>
+</tbody>
+</table>
+<p><strong>全球运营从Day 1开始</strong>： -
+中国：南京总部（制造+供应链），利用江苏BCI创新园政策 -
+美国：波士顿办公室（临床+FDA），利用东北大学/MGH合作网络 -
+欧洲：通过德国康复医院网络切入，CE认证（2029）</p>
+<p><strong>为什么B2B而非直接B2C</strong>：
+ExoMuscle已验证$150消费外骨骼可行——但那只是简单助力，无BCI、无医疗、客单价太低。医疗器械级产品需要：①审批壁垒
+= 竞争壁垒；②临床数据 = 信任货币；③医保支付 =
+规模化前提。B2B建立这三者，B2C是水到渠成。</p>
+<h2 id="发展路径">8. 发展路径</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 30%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>时间</th>
+<th>里程碑</th>
+<th>融资</th>
+<th>团队</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>2026 H2</strong></td>
+<td>EEG+sEMG+软体样机完成。3家合作医院预临床</td>
+<td>种子轮 $1.5M</td>
+<td>8人</td>
+</tr>
+<tr class="even">
+<td><strong>2027 H1</strong></td>
+<td>NMPA创新器械申报。FDA pre-submission meeting</td>
+<td>天使轮 $3M</td>
+<td>15人</td>
+</tr>
+<tr class="odd">
+<td><strong>2027 H2</strong></td>
+<td>中国10台预临床。美国VA医院接洽</td>
+<td>—</td>
+<td>20人</td>
+</tr>
+<tr class="even">
+<td><strong>2028 H1</strong></td>
+<td>NMPA二类获批。首批B2B交付50台（中国30+美国20）</td>
+<td>Pre-A $8M</td>
+<td>30人</td>
+</tr>
+<tr class="odd">
+<td><strong>2028 H2</strong></td>
+<td>进入100家医院（中美欧日）。FDA 510(k)提交</td>
+<td>—</td>
+<td>40人</td>
+</tr>
+<tr class="even">
+<td><strong>2029</strong></td>
+<td>Eesaa Pro发布。B2C版启动。CE获批。年出货500台</td>
+<td>A轮 $25M</td>
+<td>80人</td>
+</tr>
+<tr class="odd">
+<td><strong>2030</strong></td>
+<td>年出货2,000台。B2C订阅收入&gt;$1M/年。全球最大康复AI数据库</td>
+<td>B轮</td>
+<td>150人</td>
+</tr>
+</tbody>
+</table>
+<h2 id="财务预测基准情景">9. 财务预测（基准情景）</h2>
+<table>
+<thead>
+<tr class="header">
+<th>年度</th>
+<th>B2B(台)</th>
+<th>B2C(台)</th>
+<th>收入</th>
+<th>毛利</th>
+<th>净利润</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2027</td>
+<td>50</td>
+<td>—</td>
+<td>$1.0M</td>
+<td>$0.4M</td>
+<td>-$2.5M</td>
+</tr>
+<tr class="even">
+<td>2028</td>
+<td>200</td>
+<td>—</td>
+<td>$4.0M</td>
+<td>$2.0M</td>
+<td>-$1.5M</td>
+</tr>
+<tr class="odd">
+<td>2029</td>
+<td>500</td>
+<td>100</td>
+<td>$11.5M</td>
+<td>$6.5M</td>
+<td>$0.5M</td>
+</tr>
+<tr class="even">
+<td>2030</td>
+<td>1,200</td>
+<td>800</td>
+<td>$30M</td>
+<td>$19M</td>
+<td>$8M</td>
+</tr>
+<tr class="odd">
+<td>2031</td>
+<td>2,500</td>
+<td>3,000</td>
+<td>$72M</td>
+<td>$49M</td>
+<td>$25M</td>
+</tr>
+<tr class="even">
+<td>2032</td>
+<td>5,000</td>
+<td>10,000</td>
+<td>$160M</td>
+<td>$110M</td>
+<td>$60M</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键假设</strong>： -
+B2B均价$20,000（从$25,000逐步降至$18,000） - B2C均价$3,999 +
+$499/年订阅（30%附着率） -
+硬件BOM：从$9,000/台（2027）降至$3,500/台（2032） -
+团队成本：从$1.5M/年（2027）增至$25M/年（2032）</p>
+<h2 id="团队">10. 团队</h2>
+<ul>
+<li><p><strong>赵子睿（CEO &amp;
+CTO）</strong>：哥伦比亚大学电子工程硕士（机器学习方向）。EF
+Boston、华为美国研究院Futurewei IoT
+Lab。人形机器人”小脑”（运动控制）背景——与Unitree（宇树）长期合作，将机器人运控方法论引入人机融合领域。江苏欣网（宇树金牌合作伙伴）、南京智擎机器人CTO八年。15年算法工程、具身智能运控与硬件落地。</p></li>
+<li><p><strong>汪牧星（CRO）</strong>：美国东北大学计算机工程博士候选人，爱丁堡大学统计学硕士（Distinction）。pFedAC联邦强化学习第一作者（arXiv:2605.14423）。</p></li>
+</ul>
+<p><strong>学术顾问</strong>：杨朋昆（清华统计，联邦学习/收敛理论）、苏丽丽（NEU，NSF
+CAREER，分布式ML/联邦学习）</p>
+<h2 id="十五五政策对齐">11. 十五五政策对齐</h2>
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>十五五优先产业</th>
+<th>Bones &amp; Manifold对齐</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>脑机接口</strong>（六大未来产业之一）</td>
+<td>Eesaa的非侵入EEG是BCI在康复领域的首个大规模商业应用</td>
+</tr>
+<tr class="even">
+<td><strong>具身智能/物理AI</strong></td>
+<td>全身MSK数字孪生是人体物理世界的世界模型</td>
+</tr>
+<tr class="odd">
+<td><strong>康复与养老</strong></td>
+<td>直接服务9,400万中风幸存者+5亿肌少症老人</td>
+</tr>
+<tr class="even">
+<td><strong>江苏BCI创新园区</strong></td>
+<td>南京总部位于政策核心区，享受9部门联合产业创新行动计划支持</td>
+</tr>
+<tr class="odd">
+<td><strong>国家医保BCI定价</strong></td>
+<td>非侵入BCI适配¥966/次已定价，为B2B医保准入铺路</td>
+</tr>
+</tbody>
+</table>
+<h2 id="愿景-1">12. 愿景</h2>
+<p><strong>Eesaa
+不是一家医疗器械公司。我们是一家物理AI公司。</strong></p>
+<p>第一阶段（3年）：Eesaa
+One成为全球100家医院的标配康复设备，定义”神经控制可穿戴机器人”品类。</p>
+<p>第二阶段（5年）：Eesaa
+Pro实现全身康复+日常辅助，年服务100万用户。全球最大的神经康复AI数据库。</p>
+<p>第三阶段（10年）：Eesaa
+Air演进为日常穿戴的”第二层肌肉”——轻至1kg以下的织物致动器，像穿一件优衣库发热衣一样简单。<strong>10亿用户。</strong>
+物理AI不再只是机器人的事——它是每个人的第二层肌肉。</p>
+<hr />
+<p><strong>保密声明</strong>：本BP仅限指定投资者阅读，未经许可不得传播。</p>
+
+<div style="text-align:center;margin-top:60px;padding-top:20px;border-top:1px solid #e0e0e0">
+<p style="font-size:11px;color:var(--tm)">保密声明：本BP仅限指定投资者阅读，未经许可不得传播。</p>
+<p style="font-size:11px;color:var(--tm);margin-top:4px">bones-manifold.com</p>
+</div>
+</body>
+</html>
