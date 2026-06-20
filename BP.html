@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>Kine — Modular Wearable Robotics</title>
+<title>Kine — Physical AI Human Augmentation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -117,394 +117,150 @@ a { color: var(--b); text-decoration: none; }
 <p style="font-size:11px;color:var(--tm);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px">Confidential — For Investor Use Only</p>
 </div>
 <h1 id="kine">Kine</h1>
-<h2 id="模块化可穿戴机器人">模块化可穿戴机器人</h2>
+<h2 id="物理ai人体增强">物理AI人体增强</h2>
 <p><strong>商业计划书</strong> | 2026年6月</p>
-<h2 id="执行摘要">1. 执行摘要</h2>
-<p><strong>Kine 让十亿人拥有第二层肌肉。</strong></p>
-<p>全球60岁以上人口超过10亿，中国超过3亿，其中50%存在肌少症。每年因跌倒导致的医疗费用超过500亿美元。青少年脊柱侧弯检出率超过15%。户外登山人群中约60%因腿部不适放弃登顶。</p>
-<p>与此同时，外骨骼市场在过去五年发生了根本性变化。极壳Hypershell从Kickstarter起步，五年内做到全球销量第一、B轮融资1.2亿美元、估值近4亿美元。程天科技消费级产品售价2,599元，上线15秒售罄。商务部数据显示，2026年1-4月智能助行外骨骼网零额同比增长785.5%。<strong>消费级外骨骼已经从概念进入大众消费验证期。</strong></p>
-<p>Kine的首款产品是<strong>模块化髋关节可穿戴机器人</strong>。它不像医疗器械——它像一副高端运动装备。3D打印碳纤维结构，AKE60电机驱动，重量1.5kg，IP67防水，热插拔电池。通过配套App切换户外/都市/活力老人三种软件模式。同一硬件平台可通过OTA升级实现不同助力策略。</p>
-<p>核心技术：全身神经力学肌骨模型（416肌肉+206骨骼，Hill型柔顺肌腱）日产53亿步态样本用于RL训练；pFedAC个性化联邦强化学习（arXiv:2605.14423）实现单用户持续个性化。相比竞品的模式识别方案，Kine从肌肉-肌腱层面理解运动意图——每一步的助力都基于生理可解释的模型决策。</p>
-<p>全球市场：<strong>可穿戴外骨骼2025年$33.7B（Research and
-Markets），CAGR 32.05%</strong>。其中消费级细分$200M，CAGR
-19.6%；全球消费级外骨骼市场$1.69B，CAGR
-19.6%。中国外骨骼市场2025年¥42B（中研普华），CAGR
-~50%。前装市场（B2B医疗康复）$5.6B（MarketsandMarkets），CAGR
-29.4%。总可寻址市场超过$40B。</p>
-<p><strong>融资</strong>：种子轮 ¥800万（原型+团队+认证准备）→ 天使轮
-¥2,500万（Kickstarter量产+首批交付）→ Pre-A ¥5,000万（规模化+海外+Gen
-2）。全球Kickstarter首发，B2C消费+B2B医疗双轨并行。</p>
+<h2 id="我们做什么">1. 我们做什么</h2>
+<p><strong>Kine
+构建物理AI——一种理解人体运动、增强人体运动的人造智能。</strong></p>
+<p>人形机器人是物理AI在机器上的体现。Kine是物理AI在人体上的体现。前者让机器独立行走。后者让机器理解人的运动意图并与人体协同发力。后者更难——因为人体不是确定性系统。人体是过驱动的、非线性的、每块肌肉每根肌腱都在参与。</p>
+<p>Kine的首个产品形态是可穿戴机器人。但Kine本质上是一家物理AI公司——我们构建人体运动的数字孪生，用强化学习训练它理解肌肉-肌腱层面的发力逻辑，然后把它嵌入一台你可以穿在身上的设备。</p>
+<ul>
+<li>竞品（极壳/程天/Ekso）做的是<strong>硬件</strong>——更轻的电机、更便宜的结构</li>
+<li>Kine做的是<strong>智能</strong>——从肌肉-肌腱层面理解”为什么这一步该帮、下一步该等”</li>
+<li>硬件会趋同。智能不会。</li>
+</ul>
 <h2 id="市场">2. 市场</h2>
-<h3 id="全球可穿戴外骨骼市场">2.1 全球可穿戴外骨骼市场</h3>
+<p>全球10亿人需要运动辅助。60岁以上人口超过10亿，中国超过3亿，其中50%存在肌少症。每年中风1,200万例，66%遗留运动障碍。每年因跌倒导致的医疗费用超过500亿美元。</p>
+<p>这个市场的规模不是$200M（消费外骨骼）——那是硬件视角的测算。物理AI可穿戴设备的总可寻址市场涵盖了所有需要运动辅助、运动增强、运动康复的人群。</p>
 <table>
 <thead>
 <tr class="header">
-<th>指标</th>
-<th>数据</th>
-<th>来源</th>
+<th>市场</th>
+<th>2025</th>
+<th>CAGR</th>
+<th>2030E</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>全球可穿戴外骨骼2025</td>
-<td><strong>$33.7B</strong></td>
-<td>Research and Markets</td>
+<td>全球可穿戴外骨骼</td>
+<td>$33.7B</td>
+<td>32%</td>
+<td>~$135B</td>
 </tr>
 <tr class="even">
-<td>CAGR (2025-2030)</td>
-<td><strong>32.05%</strong></td>
-<td>Research and Markets</td>
+<td>全球外骨骼（含医疗）</td>
+<td>$5.6B</td>
+<td>29%</td>
+<td>~$20B</td>
 </tr>
 <tr class="odd">
-<td>全球外骨骼（全品类）2025</td>
-<td><strong>$5.6B</strong></td>
-<td>MarketsandMarkets</td>
-</tr>
-<tr class="even">
-<td>全品类CAGR</td>
-<td><strong>29.4%</strong></td>
-<td>MarketsandMarkets</td>
-</tr>
-<tr class="odd">
-<td>消费级外骨骼细分2025</td>
-<td><strong>$200M</strong></td>
-<td>QYResearch</td>
-</tr>
-<tr class="even">
-<td>消费级CAGR</td>
-<td><strong>19.6%</strong></td>
-<td>QYResearch</td>
-</tr>
-<tr class="odd">
-<td>全球消费级外骨骼（含软体）2024</td>
-<td><strong>$1.69B</strong></td>
-<td>多来源</td>
-</tr>
-<tr class="even">
-<td>该细分CAGR</td>
-<td><strong>19.6%</strong></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>自底向上TAM测算</strong>：</p>
-<p>户外运动人群（全球）约5亿，其中装备消费者约2亿。渗透率假设：0.1%（保守）→
-0.5%（基准）→ 2%（乐观）。</p>
-<table>
-<thead>
-<tr class="header">
-<th>情景</th>
-<th>渗透率</th>
-<th>可触达用户</th>
-<th>均价</th>
-<th>TAM</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>保守</td>
-<td>0.1%</td>
-<td>200万</td>
-<td>$999</td>
-<td>$2.0B</td>
-</tr>
-<tr class="even">
-<td>基准</td>
-<td>0.5%</td>
-<td>1,000万</td>
-<td>$1,499</td>
-<td>$15.0B</td>
-</tr>
-<tr class="odd">
-<td>乐观</td>
-<td>2%</td>
-<td>4,000万</td>
-<td>$1,999</td>
-<td>$80.0B</td>
-</tr>
-</tbody>
-</table>
-<p>叠加活力老人（全球3亿60-75岁）+ 通勤人群（全球主要城市约4亿）=
-基准情景TAM <strong>$30-50B</strong>。</p>
-<h3 id="中国市场">2.2 中国市场</h3>
-<table>
-<thead>
-<tr class="header">
-<th>指标</th>
-<th>数据</th>
-<th>来源</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>中国外骨骼市场2025</td>
-<td><strong>¥42B ($5.8B)</strong></td>
-<td>中研普华</td>
-</tr>
-<tr class="even">
-<td>2018-2023 CAGR</td>
-<td><strong>88%</strong></td>
-<td>中研普华</td>
-</tr>
-<tr class="odd">
-<td>商务部2026年1-4月</td>
-<td>网零额同比+<strong>785.5%</strong></td>
-<td>商务部电子商务司</td>
-</tr>
-<tr class="even">
-<td>极壳</td>
-<td>累计出货超10万台，B轮$1.2亿</td>
-<td>公开报道</td>
-</tr>
-<tr class="odd">
-<td>程天科技</td>
-<td>消费级¥2,599，15秒售罄</td>
-<td>公开报道</td>
-</tr>
-<tr class="even">
-<td>泰山景区</td>
-<td>外骨骼租赁，老人用户占62%</td>
-<td>公开报道</td>
-</tr>
-</tbody>
-</table>
-<h3 id="海外b2b医疗市场第二曲线">2.3 海外B2B医疗市场（第二曲线）</h3>
-<p>美国Medicare已于2024年4月确立可穿戴外骨骼报销编码（K1007），ReWalk
-Personal 6.0获$91,032定额支付。Cyberdyne
-HAL在日本获医保覆盖。德国联邦社会法院2024年裁定扩大外骨骼覆盖范围。</p>
-<p>医疗外骨骼市场$5.6B（2025），CAGR
-29.4%。<strong>但现状是</strong>：Ekso
-FY2024营收$17.9M（降2%），亏损$11.3M。ReWalk/Lifeward营收$25.7M（靠并购增长85%），亏损$28.9M。Cyberdyne营收$29M，亏损缩小至$3.8M。<strong>纯医疗路线无一盈利</strong>——销售和市场费用占比40-70%。</p>
-<p>Kine的策略：B2C消费首发盈利 → 积累临床数据和品牌 →
-B2B医疗以软件授权模式切入（轻资产）。</p>
-<h2 id="产品">3. 产品</h2>
-<h3 id="kine-one-模块化髋关节可穿戴机器人">3.1 Kine One —
-模块化髋关节可穿戴机器人</h3>
-<p><strong>产品定义</strong>：一台3D打印碳纤维结构的可穿戴髋关节机器人。AKE60电机驱动，重1.5kg。一部iPhone的重量分布在髋部两侧。IP67防水防尘。热插拔电池，一块续航6小时。通过蓝牙连接手机App，在户外/都市/活力老人三种模式间切换。</p>
-<p><strong>这不是外骨骼——是可穿戴机器人</strong>。外骨骼暗示医疗、笨重、需要帮助。Kine
-One是一件你在户外、通勤、日常中都愿意穿着的科技装备。</p>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>模块</th>
-<th>方案</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>关节</td>
-<td>单髋关节，双侧辅助</td>
-<td>最轻、最易消费化的形态</td>
-</tr>
-<tr class="even">
-<td>动力</td>
-<td>CubeMars AKE60系列，每侧1台</td>
-<td>头部品牌通用方案，硬件不做无谓自研</td>
-</tr>
-<tr class="odd">
-<td>结构</td>
-<td>3D打印碳纤维框架 + 织物腰带</td>
-<td>原型快速迭代，量产前开模</td>
-</tr>
-<tr class="even">
-<td>感知</td>
-<td>BNO055 9轴IMU ×2（髋部）+ 足底压力传感器</td>
-<td>步态相位检测、意图预判</td>
-</tr>
-<tr class="odd">
-<td>智能</td>
-<td>Teensy 4.1嵌入式控制器 + Manifold Omni</td>
-<td>设备端推理&lt;0.5ms，无需云端</td>
-</tr>
-<tr class="even">
-<td>App</td>
-<td>蓝牙连接，户外/都市/老人三种模式切换</td>
-<td>OTA固件升级，个性化调参</td>
-</tr>
-</tbody>
-</table>
-<p><strong>定价路径</strong>：工程样机 $2,500 → DFM小批 $1,500 →
-量产综合均价 $1,499（户外套件$1,799，都市$1,099，老人$899）。</p>
-<h3 id="bom与毛利">3.2 BOM与毛利</h3>
-<table>
-<thead>
-<tr class="header">
-<th>产量</th>
-<th>BOM/台</th>
-<th>售价（户外套件）</th>
-<th>毛利率</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>原型（10台）</td>
-<td>~$3,000</td>
-<td>$2,500（测试价）</td>
-<td>—</td>
-</tr>
-<tr class="even">
-<td>DFM小批（100台）</td>
-<td>~$1,500</td>
-<td>$1,799</td>
-<td>16.6%</td>
-</tr>
-<tr class="odd">
-<td>量产（1,000台）</td>
-<td>~$900</td>
-<td>$1,799</td>
+<td>中国外骨骼</td>
+<td>¥42B ($5.8B)</td>
 <td>50%</td>
+<td>~¥320B</td>
 </tr>
 <tr class="even">
-<td>规模（10,000台）</td>
-<td>~$600</td>
-<td>$1,799</td>
-<td>66.7%</td>
+<td>全球康复机器人</td>
+<td>$1.8-2.3B</td>
+<td>22%</td>
+<td>~$4.9B</td>
+</tr>
+<tr class="odd">
+<td>全球BCI</td>
+<td>$2.2-2.6B</td>
+<td>11-16%</td>
+<td>~$4-5B</td>
+</tr>
+<tr class="even">
+<td>中国人形机器人</td>
+<td>¥63B ($8.8B)</td>
+<td>53%</td>
+<td>¥640B</td>
+</tr>
+<tr class="odd">
+<td><strong>中国银发经济</strong></td>
+<td>—</td>
+<td>—</td>
+<td><strong>$3.6T (2030)</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>BOM拆解（量产1,000台）</strong>： AKE60电机×2：$300 |
-碳纤维框架：$150 | 控制板+IMU+传感器：$80 | 电池：$60 |
-绑带+外壳+包装：$120 | 装配：$40 | 其他（线缆/紧固件等）：$150 |
-<strong>合计：~$900</strong>。</p>
-<h3 id="模块化路线图">3.3 模块化路线图</h3>
+<p>Kine处于物理AI × 可穿戴机器人 ×
+老龄化这三个国家战略的交汇点。中国十五五将脑机接口列为六大未来产业，将具身智能（物理AI的核心形态）列为优先产业，同时将应对老龄化作为国家战略。Kine的产品恰好在这三个方向的交汇点上。</p>
+<h2 id="技术">3. 技术</h2>
+<p>Kine的核心技术不是某一种硬件或某一种算法。Kine的核心技术是一套<strong>从仿真到穿戴的物理AI训练与部署架构</strong>。它由四层组成。</p>
+<h3
+id="第一层人体物理世界的数字孪生">第一层：人体物理世界的数字孪生</h3>
+<p>416条肌肉，206块骨骼，Hill型柔顺肌腱——完整的人体运动系统数学模型。每条肌肉有自己的兴奋-收缩动力学（dA/dt
+= (S−A)/τ，舒张比激活慢4倍）。每根肌腱是非线性弹簧（Fse = Fpe +
+Fce，fp64牛顿迭代求解）。</p>
+<p>这不是刚体连杆近似。这是真实人体生物力学的数字副本。竞品把人体简化成关节扭矩模型。Kine建模的是肌肉-肌腱-骨骼的完整链路。这两种建模方式的差距，相当于牛顿力学和量子力学之间的认识论鸿沟。</p>
+<p><strong>数字</strong>：2048个仿真世界并行运行，日产53亿步态样本，零人工标注。训练数据规模相当于传统动捕实验室数千名受试者的标注量——成本趋近于零。</p>
+<h3 id="第二层任务无关运动智能">第二层：任务无关运动智能</h3>
+<p>在第一层的数字孪生上，我们训练一个任务无关的运动策略（Manifold
+Omni）。它不学习”上楼的规则”或”跑步的规则”——它学习人体的运动流形本身。走、跑、上楼、下楼、蹲、停、转身、骑行——每个状态都是这个流形上的一个点，而不是一个独立的”模式”。</p>
+<p>单一神经网络覆盖9+种运动模态。无需人工切换。无需预设扭矩曲线。</p>
+<h3 id="第三层个性化联邦持续学习">第三层：个性化联邦持续学习</h3>
+<p>pFedAC（arXiv:2605.14423，CRO汪牧星第一作者）是一套单时间尺度联邦Actor-Critic算法。所有设备共享一个运动主干网络，同时保留各自本地的个性化策略头。设备只上传模型梯度，不上传原始运动数据——满足全球数据隐私合规要求。</p>
+<p>随设备数K线性加速。用户越多，共享知识越强。用户使用越久，个性化越准。</p>
+<h3 id="第四层人机协同hei交互奖励">第四层：人机协同——HEI交互奖励</h3>
+<p>个性化策略学习的不只是”走路”，而是”何时助力、何时等待”。HEI（人机交互奖励）让策略理解：用户想站起来时托住，想蹲下时支撑，想起步时推一把，想停下时立即松力。这不是开环扭矩曲线。这是学习型意图识别。</p>
+<h3 id="技术壁垒总结">技术壁垒总结</h3>
 <table>
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 42%" />
 </colgroup>
-<thead>
-<tr class="header">
-<th>产品</th>
-<th>时间</th>
-<th>模块</th>
-<th>用户</th>
-<th>定价</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Kine One</strong></td>
-<td>2027</td>
-<td>髋关节模块</td>
-<td>户外/都市/老人 B2C</td>
-<td>$1,499</td>
-</tr>
-<tr class="even">
-<td><strong>Kine One+</strong></td>
-<td>2028</td>
-<td>+膝关节模块（选购）</td>
-<td>B2C升级+B2B康复探索</td>
-<td>+$799</td>
-</tr>
-<tr class="odd">
-<td><strong>Kine Pro</strong></td>
-<td>2030</td>
-<td>髋+膝+踝全身套件</td>
-<td>B2C高端+B2B医疗</td>
-<td>$3,999</td>
-</tr>
-<tr class="even">
-<td><strong>Kine Air</strong></td>
-<td>2033</td>
-<td>织物驱动日常穿戴</td>
-<td>B2C大众</td>
-<td>$999</td>
-</tr>
-</tbody>
-</table>
-<p>Gen 1与Gen 2共用同一髋关节基座。膝关节模块为选购配件。Gen
-3起切换为下一代软体驱动平台。</p>
-<h3 id="与极壳的差异">3.4 与极壳的差异</h3>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th>极壳 Hypershell</th>
-<th>Kine</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>人体模型</td>
-<td>模式识别+预设助力</td>
-<td><strong>全身MSK模型，肌肉-肌腱级</strong></td>
-</tr>
-<tr class="even">
-<td>个性化</td>
-<td>通用策略</td>
-<td><strong>pFedAC联邦学习，千人千面</strong></td>
-</tr>
-<tr class="odd">
-<td>数据隐私</td>
-<td>云端处理</td>
-<td><strong>联邦学习，端侧数据不出设备</strong></td>
-</tr>
-<tr class="even">
-<td>产品定位</td>
-<td>户外装备</td>
-<td><strong>模块化可穿戴机器人平台</strong></td>
-</tr>
-<tr class="odd">
-<td>扩展性</td>
-<td>单关节</td>
-<td><strong>Gen1→Gen2→Gen3模块化升级</strong></td>
-</tr>
-</tbody>
-</table>
-<p>极壳验证了品类需求存在——5年做到全球第一、$1.2亿融资。Kine不是要复制极壳的硬件品牌路线，而是以MSK模型+RL运控的AI技术栈，建立更深的产品体验壁垒。</p>
-<h2 id="核心技术">4. 核心技术</h2>
-<h3 id="全身神经力学肌骨模型">4.1 全身神经力学肌骨模型</h3>
-<p>416条肌肉+206块骨骼，Hill型柔顺肌腱——捕捉肌腱弹性储能与释放。基于MyoSuite+MuJoCo
-Warp，myowarp支持2048个仿真世界并行运行，日产53亿步态样本，零人工标注。这比传统OpenSim单线程仿真快两个数量级，比竞品的动捕实验室数据采集便宜数个数量级。</p>
-<h3 id="pfedac个性化联邦强化学习">4.2 pFedAC个性化联邦强化学习</h3>
-<p>CRO汪牧星、杨朋昆、苏丽丽的论文（arXiv:2605.14423）提出单时间尺度联邦Actor-Critic算法。共享运动主干网络+本地个性化策略头。设备只上传模型更新不上传原始数据——满足GDPR/PIPL合规。随设备数K线性加速。</p>
-<h3 id="技术壁垒总结">4.3 技术壁垒总结</h3>
-<table>
 <thead>
 <tr class="header">
 <th>层次</th>
 <th>壁垒</th>
-<th>竞品可复制性</th>
+<th>可复制性</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>电机+结构</td>
-<td>AKE60+碳纤维3D打印</td>
-<td>容易（供应链通用）</td>
-</tr>
-<tr class="even">
-<td>传感器+嵌入式</td>
-<td>IMU+Teensy控制</td>
+<td>硬件（电机+结构+传感器）</td>
+<td>供应链通用</td>
 <td>容易</td>
 </tr>
+<tr class="even">
+<td>MSK数字孪生（416肌肉+206骨骼+柔顺肌腱+2048并行仿真）</td>
+<td>需要生物力学+高性能计算+RL三重交叉背景</td>
+<td><strong>极难（3-5年）</strong></td>
+</tr>
 <tr class="odd">
-<td><strong>MSK模型仿真</strong></td>
-<td>416肌肉+206骨骼数字孪生</td>
-<td><strong>极难（3-5年积累）</strong></td>
+<td>任务无关运动策略（单一网络覆盖9+模态）</td>
+<td>需要数字孪生作为训练环境</td>
+<td><strong>必须现有第一层</strong></td>
 </tr>
 <tr class="even">
-<td><strong>RL个性化</strong></td>
-<td>pFedAC联邦学习</td>
-<td><strong>极难（论文级算法+工程化）</strong></td>
+<td>pFedAC联邦持续学习</td>
+<td>论文级算法+分布式系统工程化</td>
+<td><strong>极难</strong></td>
 </tr>
 <tr class="odd">
-<td><strong>数据飞轮</strong></td>
-<td>联邦学习+端侧隐私合规</td>
-<td><strong>极难（网络效应）</strong></td>
+<td>HEI意图识别</td>
+<td>需要前三层作为基础</td>
+<td><strong>必须现有前三层</strong></td>
 </tr>
 </tbody>
 </table>
-<h2 id="竞争分析">5. 竞争分析</h2>
+<p>这不是单点技术。这是四层耦合的技术栈。每一层都是上一层的前提。这也是为什么极壳、程天、Ekso没有做也做不了——它们是硬件公司，要进入这四层技术栈需要同时补齐生物力学、强化学习、联邦学习、高性能仿真四个团队。能同时拥有这四个能力的团队，全球不超过三个。</p>
+<h2 id="产品">4. 产品</h2>
+<h3 id="产品定义">4.1 产品定义</h3>
+<p><strong>Kine
+One</strong>（2027）是一台可穿戴的物理AI设备。它不像医疗器械，不像工业装备——它像一件你会愿意穿出门的科技产品。</p>
+<p>产品形态：3D打印碳纤维髋部框架（&lt;1.5kg），AKE60电机双侧驱动，IP67防水防尘，热插拔电池续航6小时。配套App通过蓝牙切换三种模式（户外/都市/活力老人）。设备端嵌入式推理&lt;0.5ms。离线工作，无需网络。</p>
+<p><strong>Gen 1不是外骨骼——是可穿戴机器人的第一个形态。</strong>
+后续Gen 2增加膝关节模块（2028），Gen
+3增加踝关节模块（2030），最终演进为全身可穿戴机器人平台。</p>
+<h3 id="产品哲学">4.2 产品哲学</h3>
+<p>Kine的产品哲学是<strong>AI定义体验，硬件承载智能</strong>。同一套硬件，通过软件升级不断提升智能化程度。你今天买的Kine
+One，一年后的OTA固件会比今天更懂你——它学会了你的步幅、你的节奏、你最喜欢的那条路。这是物理AI的iPhone时刻：硬件不换，智能持续进化。</p>
+<h3 id="路线图">4.3 路线图</h3>
 <table>
 <colgroup>
 <col style="width: 20%" />
@@ -515,173 +271,194 @@ Warp，myowarp支持2048个仿真世界并行运行，日产53亿步态样本，
 </colgroup>
 <thead>
 <tr class="header">
-<th>竞品</th>
-<th>定位</th>
-<th>价格</th>
-<th>优势</th>
-<th>短板</th>
+<th></th>
+<th>Kine One (2027)</th>
+<th>Kine One+ (2028)</th>
+<th>Kine Pro (2030)</th>
+<th>Kine Air (2033)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>极壳 Hypershell</strong></td>
-<td>户外消费</td>
-<td>$299-999</td>
-<td>品牌、渠道、出货量</td>
-<td>模式识别+预设助力，无AI</td>
+<td>模块</td>
+<td>髋关节</td>
+<td>髋关节+膝关节</td>
+<td>髋+膝+踝</td>
+<td>全身织物驱动</td>
 </tr>
 <tr class="even">
-<td><strong>程天科技</strong></td>
-<td>消费+医疗</td>
-<td>¥2,599-8,599</td>
-<td>产品线覆盖广</td>
-<td>无个性化，无联邦学习</td>
+<td>传感器</td>
+<td>IMU+足底压力</td>
+<td>+sEMG织物</td>
+<td>+EEG（可选）</td>
+<td>全织物传感</td>
 </tr>
 <tr class="odd">
-<td><strong>Ekso/ReWalk</strong></td>
-<td>医疗B2B</td>
-<td>$80-225K</td>
-<td>FDA批，Medicare报销</td>
-<td>巨亏，S&amp;M占40-70%</td>
+<td>用户</td>
+<td>B2C户外/都市/老人</td>
+<td>+康复探索</td>
+<td>+B2B医疗</td>
+<td>B2C大众</td>
 </tr>
 <tr class="even">
-<td><strong>Cyberdyne HAL</strong></td>
-<td>医疗B2B</td>
-<td>$40-55K</td>
-<td>日本医保覆盖</td>
-<td>重14kg，无RL，无消费化</td>
+<td>价格</td>
+<td>$1,499</td>
+<td>+$799膝模块</td>
+<td>$3,999全套装</td>
+<td>$999</td>
 </tr>
 <tr class="odd">
-<td><strong>Kine</strong></td>
-<td>消费+可扩展医疗</td>
-<td>$899-1,799</td>
-<td>MSK模型+RL+联邦学习+T模块化</td>
-<td>品牌需要从0建立</td>
+<td>重量</td>
+<td>&lt;1.5kg</td>
+<td>&lt;2.5kg</td>
+<td>&lt;3.5kg</td>
+<td>&lt;1kg</td>
 </tr>
 </tbody>
 </table>
-<p>中国市场目前没有将MSK模型+RL运控应用于消费外骨骼的产品。全球也没有以模块化平台思路做可穿戴机器人的公司。Kine是第一个。</p>
-<h2 id="商业模式">6. 商业模式</h2>
-<p><strong>B2C消费首发 → B2B医疗跟进 → 数据飞轮变现</strong></p>
-<table style="width:100%;">
+<h2 id="竞争">5. 竞争</h2>
+<p>Kine不与硬件公司竞争。Kine与物理AI的空白竞争。</p>
+<table>
 <colgroup>
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
+<col style="width: 20%" />
+<col style="width: 27%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>公司</th>
+<th>做什么</th>
+<th>为什么不是Kine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>极壳 Hypershell</td>
+<td>消费髋关节硬件</td>
+<td>模式识别+预设助力。没有人体数字孪生。没有RL。没有联邦学习。</td>
+</tr>
+<tr class="even">
+<td>程天科技</td>
+<td>消费+医疗外骨骼</td>
+<td>产品线覆盖广。但仍然是硬件思维——价格从100万降到2,599，竞争的是供应链和渠道，不是智能。</td>
+</tr>
+<tr class="odd">
+<td>Ekso/ReWalk/Cyberdyne</td>
+<td>医疗外骨骼</td>
+<td>FDA批，Medicare报销。但人均亏损$10-30M/年。S&amp;M占比40-70%。商业模型不成立。</td>
+</tr>
+<tr class="even">
+<td>BrainCo</td>
+<td>非侵入BCI</td>
+<td>做脑机接口，不做全身运动增强。BCI是Kine的传感器之一，不是Kine的对手。</td>
+</tr>
+<tr class="odd">
+<td>宇树/Figure/特斯拉</td>
+<td>人形机器人</td>
+<td>做独立行走的机器。Kine做与人融合的机器。不竞争。互补。</td>
+</tr>
+<tr class="even">
+<td>Neuralink/Synchron</td>
+<td>侵入式BCI</td>
+<td>需要开颅。面向完全瘫痪的重度医疗。10年内不会进入消费市场。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kine定义了新品类：物理AI可穿戴设备。</strong>
+目前这个品类没有第二名。</p>
+<h2 id="为什么是现在">6. 为什么是现在</h2>
+<p>2025-2026年，三个趋势同时达到临界点：</p>
+<p><strong>技术临界</strong>：非侵入式EMG+IMU运动意图检测精度已达商用水平（Meta
+Nature
+2025）。嵌入式AI推理延迟降至&lt;0.5ms。联邦学习框架（pFedAC）已完成理论验证。</p>
+<p><strong>市场临界</strong>：极壳验证了消费外骨骼需求存在（5年全球第一、$1.2亿融资）。程天验证了老年用户愿意付费（15秒售罄）。中国商务部数据：智能助行外骨骼网零额同比增长785.5%。消费市场已经启动。</p>
+<p><strong>政策临界</strong>：中国十五五将脑机接口列为六大未来产业。具身智能列为优先产业。国家脑科学基金116亿。BCI首次写入政府工作报告。工信部/民政部养老机器人试点（2025-2027）。江苏省2026年具身机器人消费补贴15%。</p>
+<p><strong>物理AI赛道</strong>：人形机器人是2025年最热的投资赛道（宇树、Figure、1X、智元）。但所有人都在做”让机器独立行走”。没有人做”让机器理解人的运动并与人体协同”。后者是更大的市场，更深的壁垒，更根本的物理AI命题。Kine要做的是物理AI的另一个分支。</p>
+<h2 id="商业模式">7. 商业模式</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>阶段</th>
 <th>时间</th>
-<th>渠道</th>
-<th>产品</th>
-<th>定价</th>
+<th>模式</th>
 <th>目标</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Phase 1</strong></td>
+<td><strong>消费首发</strong></td>
 <td>2027</td>
-<td>Kickstarter+独立站</td>
-<td>Kine One</td>
-<td>$1,499</td>
-<td>1,000台，$1.5M</td>
+<td>Kickstarter全球发布 → DTC独立站 → 亚马逊/京东</td>
+<td>建立品牌，验证PMF，积累数据</td>
 </tr>
 <tr class="even">
-<td><strong>Phase 2</strong></td>
-<td>2028</td>
-<td>+亚马逊+京东</td>
-<td>+Kine One+</td>
-<td>+$799膝模块</td>
-<td>5,000台，$5M+</td>
+<td><strong>医疗跟进</strong></td>
+<td>2029</td>
+<td>美欧日B2B医院（利用消费端积累的临床数据和品牌）</td>
+<td>高客单价，监管壁垒，医保支付</td>
 </tr>
 <tr class="odd">
-<td><strong>Phase 3</strong></td>
-<td>2029</td>
-<td>+B2B医院（美欧日）</td>
-<td>Kine Pro Medical</td>
-<td>$25-40K</td>
-<td>200台医院，$5-8M</td>
-</tr>
-<tr class="even">
-<td><strong>Phase 4</strong></td>
-<td>2030</td>
-<td>全球DTC+医院+B2G</td>
-<td>全产品线</td>
-<td>—</td>
-<td>20,000台，$30M+</td>
+<td><strong>平台变现</strong></td>
+<td>2030+</td>
+<td>个性化订阅 + 数据服务 + 第三方模块生态</td>
+<td>LTV提升，网络效应</td>
 </tr>
 </tbody>
 </table>
-<p><strong>为何B2C先行而非B2B先行</strong>：Ekso/ReWalk/Cyberdyne证明了纯B2B医疗路线无法盈利（S&amp;M成本40-70%）。极壳证明了B2C消费路线可以快速放量。Kine以B2C建立品牌和现金流，以B2B追求更高客单价，以软件订阅提升LTV。</p>
-<h2 id="发展路径">7. 发展路径</h2>
+<h2 id="发展路径">8. 发展路径</h2>
 <table>
 <colgroup>
-<col style="width: 17%" />
-<col style="width: 23%" />
-<col style="width: 23%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>时间</th>
 <th>里程碑</th>
-<th>交付物</th>
 <th>融资</th>
-<th>团队</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>M1-M3</strong> (2026 Q3)</td>
-<td>3D打印原型完成，MSK模型验证</td>
-<td>2台功能原型</td>
+<td>2026 H2</td>
+<td>3D打印原型+MSK模型验证。Kickstarter页面+视频</td>
 <td>种子 ¥800万</td>
-<td>6人</td>
 </tr>
 <tr class="even">
-<td><strong>M4-M6</strong> (2026 Q4)</td>
-<td>DFM设计验证，Kickstarter页面准备</td>
-<td>10台DFM样机</td>
-<td>—</td>
-<td>8人</td>
-</tr>
-<tr class="odd">
-<td><strong>M7-M9</strong> (2027 Q1)</td>
-<td>Kickstarter上线</td>
-<td>首批100台预售</td>
+<td>2027 H1</td>
+<td>Kickstarter上线。量产开模</td>
 <td>天使 ¥2,500万</td>
-<td>12人</td>
-</tr>
-<tr class="even">
-<td><strong>M10-M12</strong> (2027 Q2)</td>
-<td>量产开模，供应链确认</td>
-<td>—</td>
-<td>—</td>
-<td>15人</td>
 </tr>
 <tr class="odd">
-<td><strong>Y2</strong> (2028)</td>
-<td>首批交付+第二代研发</td>
-<td>Kine One + Kine One+</td>
-<td>Pre-A $5,000万</td>
-<td>25人</td>
+<td>2027 H2</td>
+<td>首批500台交付。DTC独立站上线</td>
+<td>—</td>
 </tr>
 <tr class="even">
-<td><strong>Y3</strong> (2029)</td>
-<td>美股IPO前的A轮</td>
-<td>Kine Pro</td>
-<td>A轮 $1,500万</td>
-<td>50人</td>
+<td>2028</td>
+<td>Kine One+膝模块发布。年销2,000台</td>
+<td>Pre-A $7M</td>
+</tr>
+<tr class="odd">
+<td>2029</td>
+<td>年销5,000台。盈亏平衡。Kine Pro医疗版启动FDA 510(k)</td>
+<td>A轮 $20M</td>
+</tr>
+<tr class="even">
+<td>2030</td>
+<td>Kine Pro发布。年销15,000台。B2B医疗进入美欧日</td>
+<td>B轮</td>
 </tr>
 </tbody>
 </table>
-<h2 id="财务预测基准情景">8. 财务预测（基准情景）</h2>
+<h2 id="财务预测">9. 财务预测</h2>
 <table>
 <thead>
 <tr class="header">
@@ -689,8 +466,7 @@ Warp，myowarp支持2048个仿真世界并行运行，日产53亿步态样本，
 <th>销量(台)</th>
 <th>均价</th>
 <th>收入</th>
-<th>BOM</th>
-<th>毛利</th>
+<th>毛利率</th>
 <th>净利润</th>
 </tr>
 </thead>
@@ -700,8 +476,7 @@ Warp，myowarp支持2048个仿真世界并行运行，日产53亿步态样本，
 <td>500</td>
 <td>$1,499</td>
 <td>$0.75M</td>
-<td>$700</td>
-<td>$0.40M</td>
+<td>53%</td>
 <td>-$0.8M</td>
 </tr>
 <tr class="even">
@@ -709,8 +484,7 @@ Warp，myowarp支持2048个仿真世界并行运行，日产53亿步态样本，
 <td>2,000</td>
 <td>$1,399</td>
 <td>$2.8M</td>
-<td>$500</td>
-<td>$1.8M</td>
+<td>64%</td>
 <td>-$0.5M</td>
 </tr>
 <tr class="odd">
@@ -718,8 +492,7 @@ Warp，myowarp支持2048个仿真世界并行运行，日产53亿步态样本，
 <td>5,000</td>
 <td>$1,349</td>
 <td>$6.7M</td>
-<td>$380</td>
-<td>$4.8M</td>
+<td>72%</td>
 <td>$0.5M</td>
 </tr>
 <tr class="even">
@@ -727,8 +500,7 @@ Warp，myowarp支持2048个仿真世界并行运行，日产53亿步态样本，
 <td>15,000</td>
 <td>$1,249</td>
 <td>$18.7M</td>
-<td>$300</td>
-<td>$14.2M</td>
+<td>76%</td>
 <td>$4.0M</td>
 </tr>
 <tr class="odd">
@@ -736,91 +508,40 @@ Warp，myowarp支持2048个仿真世界并行运行，日产53亿步态样本，
 <td>40,000</td>
 <td>$1,099</td>
 <td>$44.0M</td>
-<td>$220</td>
-<td>$35.1M</td>
+<td>80%</td>
 <td>$15.0M</td>
 </tr>
 </tbody>
 </table>
-<p>BOM随产量从$700降至$220（电机降价+结构开模摊销+供应链议价）。毛利率从53%提升至80%。2029年实现盈亏平衡（5,000台/年）。</p>
-<h2 id="学术技术合作">9. 学术技术合作</h2>
-<table>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 53%" />
-<col style="width: 23%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>技术</th>
-<th>来源实验室/论文</th>
-<th>状态</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>全身MSK模型（416肌肉+206骨骼）</td>
-<td>MyoSuite + MuJoCo Warp + NEU NeuMove Lab</td>
-<td>已建立</td>
-</tr>
-<tr class="even">
-<td>pFedAC联邦强化学习</td>
-<td>Wang, Yang &amp; Su, arXiv:2605.14423</td>
-<td>论文验证</td>
-</tr>
-<tr class="odd">
-<td>TCN时序卷积控制基线</td>
-<td>Nature 2024, Molinaro et al. (25受试者×28活动)</td>
-<td>已复现</td>
-</tr>
-<tr class="even">
-<td>脑机接口运动意图解码</td>
-<td>CMU Bin He Lab, Nature Comms 2025</td>
-<td>关注，Gen 2集成</td>
-</tr>
-<tr class="odd">
-<td>织物传感器</td>
-<td>Nextiles (2024残奥会应用)</td>
-<td>Gen 2评估</td>
-</tr>
-<tr class="even">
-<td>电缆驱动软体外骨骼架构</td>
-<td>Harvard Wyss Lab (Science 2019)</td>
-<td>已参考设计</td>
-</tr>
-<tr class="odd">
-<td>港中文ExoMuscle人工肌肉</td>
-<td>Adv. Intelligent Systems 2023 (功率密度10.94 kW/kg)</td>
-<td>远期替代电机</td>
-</tr>
-</tbody>
-</table>
-<h2 id="团队">10. 团队</h2>
+<p>BOM从$700（原型）→
+$220（万级量产）。盈亏平衡点：5,000台/年（2029）。</p>
+<h2 id="团队与学术合作">10. 团队与学术合作</h2>
 <p><strong>赵子睿</strong>：哥伦比亚大学电子工程硕士（机器学习方向）。EF
 Boston、华为美国研究院Futurewei IoT
-Lab。江苏欣网（宇树金牌合作伙伴）、南京智擎机器人CTO八年。15年算法工程、具身智能运控与硬件落地。人形机器人”小脑”（运动控制）背景——与Unitree长期合作，将机器人运控方法论引入人机融合可穿戴设备。</p>
-<p><strong>汪牧星</strong>：美国东北大学计算机工程博士候选人，爱丁堡大学统计学硕士（Distinction）。pFedAC联邦强化学习第一作者（arXiv:2605.14423）。联邦学习、多智能体系统、多任务迁移学习。</p>
-<p><strong>学术顾问</strong>：杨朋昆（清华统计，联邦学习/收敛理论）、苏丽丽（美国东北大学，NSF
+Lab。江苏欣网（宇树金牌合作伙伴）、南京智擎机器人CTO八年。15年算法工程、具身智能运控与硬件落地。人形机器人”小脑”背景——将机器人运控方法论引入可穿戴设备。负责产品、技术、硬件、供应链。</p>
+<p><strong>汪牧星</strong>：美国东北大学计算机工程博士候选人，爱丁堡大学统计学硕士（Distinction）。pFedAC联邦强化学习第一作者（arXiv:2605.14423）。负责生物力学算法、联邦强化学习、个性化模型。</p>
+<p><strong>学术顾问</strong>：杨朋昆（清华统计，联邦学习/收敛理论/元学习）、苏丽丽（美国东北大学，NSF
 CAREER，分布式ML/联邦学习）。</p>
+<p><strong>关键技术合作</strong>：NEU NeuMove
+Lab（全身MSK模型仿真管线）、CMU Bin He Lab（非侵入EEG运动意图解码，Gen
+2集成）、Nextiles（织物传感器，Gen 2评估）。</p>
 <h2 id="融资需求">11. 融资需求</h2>
 <ul>
-<li><strong>种子轮</strong>：Month
-1，<strong>¥800万</strong>。3D打印原型、DFM验证、核心团队6-8人、Kickstarter准备</li>
-<li><strong>天使轮</strong>：Month
-7，<strong>¥2,500万</strong>。量产开模、首批1,000台BOM、Kickstarter交付、第二代研发</li>
-<li><strong>Pre-A轮</strong>：Month
-18，<strong>$7M（约¥5,000万）</strong>。规模化量产（月产500台）、海外渠道（美/欧/日）、Kine
-Pro B2B版开发、团队扩展至25人</li>
+<li><strong>种子轮</strong>：Month 1，<strong>¥800万
+($1.1M)</strong>。功能原型、DFM验证、团队6人、Kickstarter准备</li>
+<li><strong>天使轮</strong>：Month 7，<strong>¥2,500万
+($3.5M)</strong>。量产开模、首批BOM、Kickstarter交付</li>
+<li><strong>Pre-A</strong>：Month
+18，<strong>$7M</strong>。规模化量产、海外渠道、Gen 2研发、团队25人</li>
 </ul>
 <h2 id="愿景">12. 愿景</h2>
-<p><strong>Kine不是外骨骼公司。Kine是可穿戴机器人公司。</strong></p>
-<p>Gen 1（2027）：Kine
-One——模块化髋关节可穿戴机器人。Kickstarter全球首发。一件你会愿意在户外、通勤、日常中穿戴的科技装备。</p>
-<p>Gen 2（2030）：Kine
-Pro——髋+膝+踝全身套件。从消费进入医疗康复。同一平台，模块化升级。全球最大的运动数据联邦学习网络。</p>
-<p>Gen 3（2033）：Kine
-Air——织物驱动日常穿戴设备。像一件优衣库发热衣。十亿用户。</p>
-<p>第一阶段我们卖硬件。第二阶段我们卖个性化——每个用户的Kine都比昨天更懂自己。第三阶段我们卖第二层肌肉。</p>
+<p>Kine的使命：<strong>让十亿人拥有第二层肌肉。</strong></p>
+<p>第一阶段（1-3年）：Kine
+One。一台可穿戴的物理AI设备。Kickstarter全球首发。它不是外骨骼——它是你身体的一部分。</p>
+<p>第二阶段（3-7年）：Kine
+Pro。全身可穿戴机器人平台。从消费进入康复，从中国走向全球。百万用户。</p>
+<p>第三阶段（7-15年）：Kine
+Air。织物驱动。像一件发热衣。十亿用户。物理AI不再是机器人的专利——它是每个人的第二层肌肉。</p>
 <hr />
 <p><strong>保密声明</strong>：本BP仅限指定投资者阅读，未经许可不得传播。</p>
 
