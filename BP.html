@@ -2,19 +2,15 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kine — BCI Human Augmentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 :root {
-  --b: #0096f0;
-  --bl: #2ea8f0;
-  --bll: #80d0ff;
-  --bb: #0058b0;
-  --w: #fff;
-  --d: #1a1f2e;
-  --td: #555;
-  --tm: #999;
-  --bg: #f5f7fa;
+  --kine: #0096f0;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -22,22 +18,22 @@ body {
   max-width: 960px;
   margin: 0 auto;
   padding: 60px 48px;
-  color: var(--d);
+  color: #1a1f2e;
   line-height: 1.85;
   font-size: 15px;
   -webkit-font-smoothing: antialiased;
-  background: var(--w);
+  background: #fff;
 }
 h1 {
   font-size: 40px;
   font-weight: 900;
   letter-spacing: -1px;
   margin-top: 0;
-  background: linear-gradient(135deg, var(--b), var(--bl));
+  background: linear-gradient(135deg, #0096f0, #2ea8f0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  border-bottom: 3px solid var(--b);
+  border-bottom: 3px solid var(--kine);
   padding-bottom: 12px;
 }
 h2 {
@@ -45,59 +41,43 @@ h2 {
   font-weight: 800;
   margin-top: 48px;
   margin-bottom: 16px;
-  color: var(--d);
-  border-bottom: 2px solid var(--bll);
+  color: #1a1f2e;
+  border-bottom: 2px solid var(--kine);
   padding-bottom: 8px;
 }
-h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-top: 36px;
-  margin-bottom: 12px;
-  color: var(--bb);
-}
+h3 { font-size: 20px; font-weight: 700; margin-top: 36px; margin-bottom: 12px; color: var(--kine); }
 h4 { font-size: 17px; font-weight: 600; margin-top: 24px; margin-bottom: 8px; }
 p { margin: 14px 0; }
-strong { color: var(--bb); font-weight: 700; }
-em { color: var(--b); font-style: normal; }
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 13px;
-}
+strong { color: var(--kine); font-weight: 700; }
+em { color: var(--kine); font-style: normal; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
 th {
-  background: linear-gradient(135deg, var(--b), var(--bl));
-  color: var(--w);
+  background: linear-gradient(135deg, #0096f0, #2ea8f0);
+  color: #fff;
   padding: 10px 14px;
   text-align: left;
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.5px;
 }
-td {
-  padding: 10px 14px;
-  border-bottom: 1px solid #e0e0e0;
-  vertical-align: top;
-  color: var(--td);
-}
-tr:nth-child(even) { background: var(--bg); }
+td { padding: 10px 14px; border-bottom: 1px solid #e0e0e0; vertical-align: top; color: #555; }
+tr:nth-child(even) { background: #f5f7fa; }
 blockquote {
-  border-left: 4px solid var(--b);
+  border-left: 4px solid var(--kine);
   padding: 12px 20px;
   margin: 20px 0;
   background: #f0f8ff;
   border-radius: 0 8px 8px 0;
-  color: var(--td);
+  color: #555;
 }
 code { background: #f0f4f8; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
 ul, ol { margin: 10px 0 10px 24px; }
 li { margin: 4px 0; }
 hr { border: none; border-top: 1px solid #e0e0e0; margin: 40px 0; }
-a { color: var(--b); text-decoration: none; }
+a { color: var(--kine); text-decoration: none; }
 @media print {
   body { padding: 20px 30px; font-size: 12px; }
-  h1 { font-size: 28px; }
+  h1 { font-size: 28px; -webkit-text-fill-color: var(--kine); background: none; }
   h2 { font-size: 20px; }
   h3 { font-size: 16px; }
   table { font-size: 10px; }
@@ -105,8 +85,8 @@ a { color: var(--b); text-decoration: none; }
 </style>
 </head>
 <body>
-<div style="text-align:center;margin-bottom:48px;padding-bottom:24px;border-bottom:3px solid var(--b)">
-<p style="font-size:11px;color:var(--tm);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px">Confidential — For Investor Use Only</p>
+<div style="text-align:center;margin-bottom:48px;padding-bottom:24px;border-bottom:3px solid var(--kine)">
+<p style="font-size:11px;color:#999;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px">Confidential — For Investor Use Only</p>
 </div>
 <h1 id="kine">Kine</h1>
 <h2 id="脑机接口人体增强机器人">脑机接口人体增强机器人</h2>
@@ -544,8 +524,8 @@ Air。织物驱动，像一件发热衣。当你需要时，第二层肌肉自�
 <p><strong>保密声明</strong>：本BP仅限指定投资者阅读，未经许可不得传播。</p>
 
 <div style="text-align:center;margin-top:60px;padding-top:20px;border-top:1px solid #e0e0e0">
-<p style="font-size:11px;color:var(--tm)">保密声明：本BP仅限指定投资者阅读，未经许可不得传播。</p>
-<p style="font-size:11px;color:var(--tm);margin-top:4px">Kine</p>
+<p style="font-size:11px;color:#999">保密声明：本BP仅限指定投资者阅读，未经许可不得传播。</p>
+<p style="font-size:11px;color:#999;margin-top:4px">Kine</p>
 </div>
 </body>
 </html>
