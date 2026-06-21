@@ -256,12 +256,10 @@ td{padding:12px 16px;font-size:13px}
 
 /* Link underline — left-to-right Apple style */
 a:not(.nav-cta):not(.nav-logo):not(.btn):not(.footer-logo):not(.footer-social a):not(.footer-col a):not(.nav-links a):not(.portal-card){
-  background-image:linear-gradient(var(--accent),var(--accent));
-  background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;
-  transition:background-size .3s var(--ease-apple)
+  
 }
 a:not(.nav-cta):not(.nav-logo):not(.btn):not(.footer-logo):not(.footer-social a):not(.footer-col a):not(.nav-links a):not(.portal-card):hover{
-  background-size:100% 1px;opacity:1
+  opacity:.8
 }
 
 /* ============================================================
