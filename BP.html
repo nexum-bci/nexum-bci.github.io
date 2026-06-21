@@ -275,7 +275,7 @@ a { color: var(--nexum); text-decoration: none; }
 <h3 id="感知eeg-semg双模态神经接口">3.1 感知：EEG +
 sEMG双模态神经接口</h3>
 <p><strong>EEG-Sense</strong>：8通道干电极头带（80g）。核心技术原理：大脑在自主运动前0.5-2秒会产生运动准备电位（MRCP / Bereitschaftspotential），这是可以非侵入检测的。CMU Bin He实验室在Nature Communications（2025）发表了非侵入EEG解码精细运动意图（个体手指控制机械手）的突破性成果——证明了非侵入EEG提取离散运动意图的可行性。对于下肢康复，Nexum需要的不是手指级别的精细控制，而是更简单的<strong>步态阶段分类</strong>（"准备走/正在走/要停了/想站起来"）——这在EEG信号特征维度上比手指解码更易实现。</p>
-<p><strong>技术边界与架构选择</strong>：非侵入EEG的局限是真实的——它不能提供连续力矩控制，空间分辨率低于侵入式方案。但Nexum从设计第一天就不要求EEG做精确控制。Gwin et al.（2011, NeuroImage）和Wagner et al.（2012, NeuroImage）已在跑步机上检测到步态周期内的EEG调制，Sburlea et al.（2015, IEEE TNSRE）实现了对步行停止意图的在线检测——这些独立研究证明<strong>从非侵入EEG中提取离散步行意图（"走/停/起立"）在技术上已经可行</strong>。Nexum只要求EEG做到这一点。</p>
+<p><strong>技术边界与架构选择</strong>：非侵入EEG的局限是真实的——它不能提供连续力矩控制，空间分辨率低于侵入式方案。但Nexum从设计第一天就不要求EEG做精确控制。Gwin et al.（2011, NeuroImage）和Wagner et al.（2012, NeuroImage）已在跑步机上检测到步态周期内的EEG调制，Sburlea et al.（2015, IEEE TNSRE）实现了对步行停止意图的在线检测——这些独立研究证明<strong>从非侵入EEG中提取离散步行意图（"走/停"）在技术上已经可行</strong>——而Nexum只要求EEG做到这一点。更复杂的意图识别（如"起立"）可以通过EEG与IMU的传感器融合实现。</p>
 <p>Nexum的四子系统架构天然规避了EEG的精度瓶颈：<strong>EEG是意图开关，IMU是状态感知，肌骨模型是力矩生成，sEMG是精细调节</strong>。四个子系统各司其职，没有一个承担不可承受的精度要求。这与纯EEG方案（如脑控假肢）有本质区别——后者要求EEG输出连续控制信号，那是尚未解决的难题。Nexum的EEG只做离散分类，这是已被多篇独立文献验证的、更简单的任务。走路意图分类的空间分辨率要求远低于Bin He在Nature Comms（2025）中展示的手指个体控制——Nexum无需达到Bin He级别的精度即可满足临床需求。</p>
 <p><strong>NeuroSuit
 sEMG</strong>：16通道织物电极嵌入压缩裤（Nextiles等织物电极方案）。在患者仍有残余肌电信号时提供更精细的力矩解码（&lt;100ms）。随着康复进展，EMG信号逐渐恢复，EEG权重自动降低——这是Nexum个性化康复的核心逻辑。</p>
