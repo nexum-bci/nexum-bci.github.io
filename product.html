@@ -132,10 +132,10 @@ nav.scrolled {
   gap: 36px;
   list-style: none;
 }
-.nav-links a {
+.nav-links a:not(.nav-cta) {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.5px;
   transition: color 0.3s var(--ease-smooth);
@@ -143,7 +143,7 @@ nav.scrolled {
   padding: 4px 0;
   cursor: pointer;
 }
-.nav-links a::after {
+.nav-links a:not(.nav-cta)::after {
   content: '';
   position: absolute;
   bottom: -2px;
@@ -154,8 +154,8 @@ nav.scrolled {
   transition: width 0.35s var(--ease-out);
   border-radius: 1px;
 }
-.nav-links a:hover { color: var(--text-primary); }
-.nav-links a:hover::after { width: 100%; }
+.nav-links a:not(.nav-cta):hover { color: var(--text-primary); }
+.nav-links a:not(.nav-cta):hover::after { width: 100%; }
 .nav-links a.active { color: var(--text-primary); }
 .nav-links a.active::after { width: 100%; }
 .nav-cta {
@@ -176,7 +176,7 @@ nav.scrolled {
 .nav-cta:hover {
   background: #0080d0;
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(0,150,240,0.3);
+  box-shadow: 0 4px 12px rgba(0,150,240,0.12);
 }
 .nav-cta::after { display: none !important; }
 .nav-toggle {
@@ -221,12 +221,12 @@ nav.scrolled {
 .btn-primary {
   background: var(--accent);
   color: #fff;
-  box-shadow: 0 4px 24px rgba(0,150,240,0.25);
+  box-shadow: 0 4px 16px rgba(0,150,240,0.10);
 }
 .btn-primary:hover {
   background: #0080d0;
   transform: translateY(-2px);
-  box-shadow: 0 8px 40px rgba(0,150,240,0.35);
+  box-shadow: 0 8px 24px rgba(0,150,240,0.15);
 }
 .btn-secondary {
   background: transparent;
@@ -922,74 +922,135 @@ footer .footer-brand-desc {
 }
 
 /* ============================================================
-   LIGHT MODE
+   LIGHT MODE — CSS Variable Override
    ============================================================ */
-[data-theme="light"] body { background: #FAFAFA; color: #111; }
-[data-theme="light"] .section-label { color: var(--accent); }
-[data-theme="light"] h2, [data-theme="light"] h1 { color: #111; }
-[data-theme="light"] .section-sub, [data-theme="light"] p { color: #444; }
-[data-theme="light"] .card, [data-theme="light"] .detail-card,
-[data-theme="light"] .spec-card, [data-theme="light"] .phone-card,
-[data-theme="light"] .step-card, [data-theme="light"] .diagram-card,
-[data-theme="light"] .flow-card {
-  background: #fff;
-  border-color: rgba(0,0,0,0.06);
-  color: #111;
+[data-theme="light"] {
+  --bg: #FAFAFA;
+  --bg-elevated: #FFFFFF;
+  --bg-elevated-hover: rgba(0,0,0,0.03);
+  --border: rgba(0,0,0,0.06);
+  --border-hover: rgba(0,0,0,0.12);
+  --text-primary: #111111;
+  --text-body: #333333;
+  --text-secondary: #666666;
+  --text-tertiary: #888888;
+  --text-disabled: #AAAAAA;
 }
-[data-theme="light"] .card h3, [data-theme="light"] .card h4,
-[data-theme="light"] .detail-card h3, [data-theme="light"] .detail-card h4,
-[data-theme="light"] .spec-card h3, [data-theme="light"] .step-card h3,
-[data-theme="light"] .flow-card h3 {
-  color: #111;
-}
-[data-theme="light"] .card p, [data-theme="light"] .detail-card p,
-[data-theme="light"] .spec-card p, [data-theme="light"] .step-card p {
-  color: #555;
-}
-[data-theme="light"] .card:hover, [data-theme="light"] .detail-card:hover {
-  border-color: rgba(0,150,240,0.2);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
-}
+
 /* Nav light */
-[data-theme="light"] .site-nav, [data-theme="light"] nav {
-  background: rgba(255,255,255,0.85);
+[data-theme="light"] nav {
+  background: rgba(255,255,255,0.82);
   border-bottom-color: rgba(0,0,0,0.06);
 }
-[data-theme="light"] .site-nav a, [data-theme="light"] nav a {
-  color: #444;
+[data-theme="light"] nav.scrolled {
+  background: rgba(255,255,255,0.95);
+  border-bottom-color: rgba(0,0,0,0.1);
 }
-[data-theme="light"] .site-nav .nav-logo,
-[data-theme="light"] nav .nav-logo { color: #111; }
-[data-theme="light"] .site-nav .nav-links a,
-[data-theme="light"] nav .nav-links a { color: #555; }
-[data-theme="light"] .site-nav .nav-links a:hover,
-[data-theme="light"] nav .nav-links a:hover,
-[data-theme="light"] .site-nav .nav-links a.active,
-[data-theme="light"] nav .nav-links a.active { color: #111; }
+[data-theme="light"] .nav-logo { color: #111; }
+[data-theme="light"] .nav-logo span { color: var(--accent); }
+[data-theme="light"] .nav-links a:not(.nav-cta) { color: #555; }
+[data-theme="light"] .nav-links a:not(.nav-cta):hover,
+[data-theme="light"] .nav-links a:not(.nav-cta).active { color: #111; }
 [data-theme="light"] .nav-cta { color: #fff !important; }
-/* Footer */
-[data-theme="light"] footer { background: #111; }
-[data-theme="light"] footer, [data-theme="light"] footer p,
-[data-theme="light"] footer a, [data-theme="light"] footer h5 { color: #ccc; }
-[data-theme="light"] .footer-brand-desc { color: #999; }
-/* Hero */
-[data-theme="light"] .hero { background: #FAFAFA; }
+[data-theme="light"] .nav-toggle span { background: #333; }
+[data-theme="light"] .nav-links.open {
+  background: rgba(255,255,255,0.97);
+  border-bottom-color: rgba(0,0,0,0.08);
+}
+
+/* Hero light */
 [data-theme="light"] .hero h1 { color: #111; }
-[data-theme="light"] .hero-sub, [data-theme="light"] .hero p { color: #555; }
-/* Buttons */
+[data-theme="light"] .hero .tagline { color: #555; }
+[data-theme="light"] .hero-scroll span { color: #999; }
+[data-theme="light"] .hero-scroll-line {
+  background: linear-gradient(to bottom, #999, transparent);
+}
+
+/* Buttons light */
 [data-theme="light"] .btn-secondary {
   color: #333;
   border-color: rgba(0,0,0,0.12);
 }
-[data-theme="light"] .btn-outline-light {
-  color: #333;
-  border-color: rgba(0,0,0,0.08);
+[data-theme="light"] .btn-secondary:hover {
+  background: rgba(0,150,240,0.04);
 }
-/* Tables */
-[data-theme="light"] table { color: #333; }
-[data-theme="light"] th { color: #111; border-bottom-color: rgba(0,0,0,0.08); }
-[data-theme="light"] td { color: #555; border-bottom-color: rgba(0,0,0,0.04); }
-[data-theme="light"] tr:nth-child(even) { background: #f5f5f5; }
+
+/* Component cards light */
+[data-theme="light"] .comp-card {
+  background: #FFFFFF;
+  border-color: rgba(0,0,0,0.06);
+}
+[data-theme="light"] .comp-card:hover {
+  border-color: rgba(0,150,240,0.2);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.06);
+}
+[data-theme="light"] .comp-card h3 { color: #111; }
+[data-theme="light"] .comp-card .comp-en { color: #888; }
+[data-theme="light"] .comp-card .comp-desc { color: #555; }
+[data-theme="light"] .comp-specs li { color: #555; }
+[data-theme="light"] .comp-specs li strong { color: #111; }
+[data-theme="light"] .comp-outcome {
+  background: rgba(0,150,240,0.04);
+  color: #0096F0;
+}
+[data-theme="light"] .comp-card-img-placeholder {
+  background: linear-gradient(135deg, rgba(0,150,240,0.03), transparent);
+  color: #CCC;
+}
+
+/* Gallery light */
+[data-theme="light"] .gallery-item {
+  background: #fff;
+  border-color: rgba(0,0,0,0.06);
+}
+[data-theme="light"] .gallery-item:hover {
+  border-color: rgba(0,150,240,0.2);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+}
+[data-theme="light"] .gallery-item .gallery-label { color: #fff; }
+
+/* Spec table light */
+[data-theme="light"] .specs-table-wrap {
+  background: #FFFFFF;
+  border-color: rgba(0,0,0,0.06);
+}
+[data-theme="light"] .spec-table thead th {
+  background: rgba(0,150,240,0.04);
+  color: #0096F0;
+  border-bottom-color: rgba(0,0,0,0.06);
+}
+[data-theme="light"] .spec-table tbody td {
+  color: #555;
+  border-bottom-color: rgba(0,0,0,0.03);
+}
+[data-theme="light"] .spec-table tbody td:first-child {
+  color: #111;
+}
+[data-theme="light"] .spec-table tbody tr:hover td {
+  color: #333;
+  background: rgba(0,0,0,0.01);
+}
+
+/* Engineering preview light */
+[data-theme="light"] .eng-preview {
+  background: #FFFFFF;
+  border-color: rgba(0,0,0,0.06);
+}
+[data-theme="light"] .eng-preview:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+}
+[data-theme="light"] .eng-preview h3 { color: #111; }
+[data-theme="light"] .eng-preview p { color: #555; }
+
+/* Footer light */
+[data-theme="light"] footer {
+  border-top-color: rgba(0,0,0,0.06);
+}
+[data-theme="light"] footer h5 { color: #ccc; }
+[data-theme="light"] footer p, [data-theme="light"] footer a { color: #999; }
+[data-theme="light"] .footer-brand-desc { color: #999; }
+[data-theme="light"] .footer-bottom { border-top-color: rgba(0,0,0,0.04); }
+
 /* Theme toggle */
 .theme-toggle {
   background: none; border: none; cursor: pointer;

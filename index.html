@@ -1313,6 +1313,13 @@ nav.scrolled {
 [data-theme="light"] .phone-screen .app-metric .label { color: #888; }
 [data-theme="light"] .phone-screen { background: #fff; }
 [data-theme="light"] .phone-screen .app-badge { background: rgba(0,150,240,0.08); }
+[data-theme="light"] .ps-greeting { color: #888; }
+[data-theme="light"] .ps-ring-label { color: #888; }
+[data-theme="light"] .ps-gauge-label { color: #888; }
+[data-theme="light"] .ps-note-author { color: #666; }
+[data-theme="light"] .ps-note-body { color: #888; }
+[data-theme="light"] .phone-notch { background: #e8e8ec; }
+[data-theme="light"] .phone-notch-dot { background: #ccc; }
 
 /* ============================================================
    MARKET — Phase Cards + Effect Callout
@@ -1544,6 +1551,9 @@ nav.scrolled {
   border-color: var(--border-hover);
   border-style: dashed;
 }
+[data-theme="light"] .team-card.team-cta {
+  border-color: rgba(0,0,0,0.08);
+}
 .team-card.team-cta .team-avatar {
   border-style: dashed;
   border-color: rgba(0,150,240,0.15);
@@ -1663,6 +1673,23 @@ footer .footer-brand-desc {
 .footer-bottom p {
   font-size: 11px;
   color: var(--text-disabled);
+}
+[data-theme="light"] footer {
+  background: #111;
+  border-top-color: rgba(255,255,255,0.06);
+}
+[data-theme="light"] footer h5 {
+  color: #eee;
+}
+[data-theme="light"] footer p,
+[data-theme="light"] footer a {
+  color: #999;
+}
+[data-theme="light"] footer a:hover {
+  color: var(--accent);
+}
+[data-theme="light"] .footer-bottom {
+  border-top-color: rgba(255,255,255,0.06);
 }
 
 /* ============================================================
@@ -2492,13 +2519,13 @@ footer .footer-brand-desc {
         <div class="team-avatar">赵</div>
         <h3>赵子睿</h3>
         <div class="team-role">创始人 &amp; CEO</div>
-        <p class="team-bio">Columbia EE MSc (ML)。15年具身智能运控与硬件落地。FAI患者——产品原始驱动力。曾任职华为美国Futurewei IoT Lab。连续创业者，CTO经验8年。负责产品定义、系统架构、技术方向与融资。</p>
+        <p class="team-bio">Columbia EE MSc (ML)。15年具身智能运动控制与硬件落地经验。FAI患者，产品原始驱动力。前华为美国Futurewei IoT Lab工程师。连续创业者，8年CTO经验。负责产品定义、系统架构、技术方向与融资。</p>
       </div>
       <div class="team-card" data-reveal data-delay="2">
         <div class="team-avatar">牧</div>
         <h3>汪牧星</h3>
         <div class="team-role">首席研究官 CRO</div>
-        <p class="team-bio">NEU PhD Candidate · Edinburgh MSc Distinction。pFedAC第一作者。联邦学习与个性化AI。负责算法研究与联邦学习架构。NEU NeuMove Lab学术合作。</p>
+        <p class="team-bio">NEU PhD Candidate · Edinburgh MSc with Distinction。pFedAC联邦学习论文第一作者。专注联邦学习与个性化AI。负责核心算法研发与隐私保护联邦学习架构。NEU NeuMove Lab学术合作。</p>
       </div>
       <div class="team-card team-cta" data-reveal data-delay="3" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" role="button" tabindex="0">
         <div style="display:flex;flex-direction:column;align-items:center;">
