@@ -56,7 +56,6 @@ body {
   color: var(--text);
   font-size: 16px;
   line-height: 1.6;
-  padding-top: 80px;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -123,8 +122,6 @@ body {
 /* ============================================================
    NAV
    ============================================================ */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-[data-theme="dark"] nav{background:rgba(0,0,0,0.72)}
 
 /* ============================================================
    HERO
@@ -920,8 +917,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 .nav-links 
 .nav-links a:hover::after{transform:scaleX(1)}
 .nav-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.theme-btn{width:36px;height:36px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);cursor:pointer;font-size:16px;color:var(--text);display:flex;align-items:center;justify-content:center}
-.theme-btn:hover{background:var(--accent-subtle)}
 .nav-cta{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff!important;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none!important}
 .nav-cta:hover{opacity:.9}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px}
