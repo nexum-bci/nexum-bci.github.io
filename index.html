@@ -5,35 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nexum 逐念而行 — 定义人机共生</title>
 <meta name="description" content="Nexum One 神经重连AI系统：读取大脑运动意图，AI生成个性化助力策略，驱动轻量穿戴式外骨骼。从大脑到肌肉的AI，让9400万人重新行走。">
-<meta name="theme-color" content="#0a0f1a">
+<meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   ROOT & RESET
+   ROOT VARIABLES — Pure Black Design System
    ============================================================ */
 :root {
-  --bg: #0a0f1a;
-  --bg-alt: #0d1422;
-  --bg-card: rgba(21, 29, 46, 0.6);
-  --border-card: rgba(30, 41, 59, 0.5);
-  --border-card-hover: rgba(0, 150, 240, 0.3);
-  --accent: #0096f0;
-  --accent-light: #60a5fa;
-  --accent-glow: rgba(0, 150, 240, 0.12);
-  --accent-subtle: rgba(0, 150, 240, 0.06);
-  --text: #e5e7eb;
-  --text-secondary: #94a3b8;
-  --text-tertiary: #64748b;
-  --text-muted: #475569;
-  --section-gap: 140px;
+  --bg: #000000;
+  --bg-elevated: rgba(255,255,255,0.03);
+  --bg-elevated-hover: rgba(255,255,255,0.05);
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(255,255,255,0.12);
+  --text-primary: #FFFFFF;
+  --text-body: #CCCCCC;
+  --text-secondary: #999999;
+  --text-tertiary: #777777;
+  --text-disabled: #555555;
+  --accent: #0096F0;
+  --accent-glow: rgba(0,150,240,0.08);
   --nav-height: 64px;
   --max-width: 1200px;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 20px;
+  --section-gap: 120px;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -42,21 +41,16 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 body {
   font-family: 'Inter', 'PingFang SC', -apple-system, system-ui, 'Microsoft YaHei', sans-serif;
   background: var(--bg);
-  color: var(--text);
+  color: var(--text-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  line-height: 1.6;
+  line-height: 1.7;
 }
-::selection { background: rgba(0, 150, 240, 0.3); color: #fff; }
+::selection { background: rgba(0,150,240,0.3); color: #fff; }
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 3px; }
-
-/* ============================================================
-   TYPOGRAPHY TOKENS (for reference — sizes applied inline)
-   11 / 12 / 13 / 14 / 16 / 18 / 20 / 24 / 32 / 48 / 72
-   ============================================================ */
+::-webkit-scrollbar-thumb { background: var(--text-disabled); border-radius: 3px; }
 
 /* ============================================================
    NOISE OVERLAY
@@ -73,22 +67,22 @@ body {
 }
 
 /* ============================================================
-   NAV
+   NAV — Fixed, Glass Blur, 1px Border
    ============================================================ */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--nav-height);
   z-index: 1000;
-  background: rgba(10, 15, 26, 0.7);
+  background: rgba(0,0,0,0.7);
   backdrop-filter: blur(28px) saturate(1.3);
   -webkit-backdrop-filter: blur(28px) saturate(1.3);
-  border-bottom: 1px solid rgba(30, 41, 59, 0.3);
+  border-bottom: 1px solid var(--border);
   transition: background 0.5s var(--ease-smooth), border-color 0.5s var(--ease-smooth);
 }
 nav.scrolled {
-  background: rgba(10, 15, 26, 0.92);
-  border-bottom-color: rgba(30, 41, 59, 0.6);
+  background: rgba(0,0,0,0.92);
+  border-bottom-color: rgba(255,255,255,0.08);
 }
 .nav-inner {
   max-width: var(--max-width);
@@ -104,7 +98,7 @@ nav.scrolled {
   font-weight: 800;
   letter-spacing: 1.5px;
   text-decoration: none;
-  color: var(--text);
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -119,7 +113,7 @@ nav.scrolled {
   animation: pulse-dot 2.8s ease-in-out infinite;
 }
 @keyframes pulse-dot {
-  0%, 100% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(0,150,240,0.25); }
+  0%, 100% { opacity: 0.5; box-shadow: 0 0 0 0 var(--accent-glow); }
   50% { opacity: 1; box-shadow: 0 0 0 8px rgba(0,150,240,0); }
 }
 .nav-logo span { color: var(--accent); }
@@ -129,7 +123,7 @@ nav.scrolled {
   gap: 36px;
   list-style: none;
 }
-.nav-links a {
+.nav-links a:not(.nav-cta) {
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 13px;
@@ -140,7 +134,7 @@ nav.scrolled {
   padding: 4px 0;
   cursor: pointer;
 }
-.nav-links a::after {
+.nav-links a:not(.nav-cta)::after {
   content: '';
   position: absolute;
   bottom: -2px;
@@ -151,10 +145,10 @@ nav.scrolled {
   transition: width 0.35s var(--ease-out);
   border-radius: 1px;
 }
-.nav-links a:hover { color: var(--text); }
-.nav-links a:hover::after { width: 100%; }
-.nav-links a.active { color: var(--text); }
-.nav-links a.active::after { width: 100%; }
+.nav-links a:not(.nav-cta):hover { color: var(--text-primary); }
+.nav-links a:not(.nav-cta):hover::after { width: 100%; }
+.nav-links a.active { color: var(--text-primary) !important; }
+.nav-links a.active::after { width: 100% !important; }
 .nav-cta {
   display: inline-flex;
   align-items: center;
@@ -166,9 +160,9 @@ nav.scrolled {
   font-weight: 600;
   font-size: 13px;
   letter-spacing: 0.3px;
+  line-height: 1.4;
   transition: all 0.35s var(--ease-out);
   text-decoration: none;
-  line-height: 1.4;
 }
 .nav-cta:hover {
   background: #0080d0;
@@ -190,7 +184,7 @@ nav.scrolled {
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--text);
+  background: var(--text-primary);
   border-radius: 2px;
   transition: all 0.3s var(--ease-smooth);
 }
@@ -227,29 +221,17 @@ nav.scrolled {
 }
 .btn-secondary {
   background: transparent;
-  color: var(--text);
-  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
 }
 .btn-secondary:hover {
   border-color: var(--accent);
   background: rgba(0,150,240,0.06);
   transform: translateY(-2px);
 }
-.btn-outline-light {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 10px 24px;
-  font-size: 12px;
-}
-.btn-outline-light:hover {
-  border-color: rgba(255,255,255,0.25);
-  background: rgba(255,255,255,0.03);
-  transform: translateY(-1px);
-}
 
 /* ============================================================
-   HERO
+   HERO — Full Screen, Oversized Typography
    ============================================================ */
 .hero {
   min-height: 100vh;
@@ -293,8 +275,20 @@ nav.scrolled {
   right: -10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(ellipse at center, rgba(96,165,250,0.04) 0%, transparent 60%);
+  background: radial-gradient(ellipse at center, rgba(0,150,240,0.04) 0%, transparent 60%);
   pointer-events: none;
+}
+.hero-watermark {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse at bottom center, rgba(255,255,255,0.015) 0%, transparent 60%);
+  pointer-events: none;
+  mask-image: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
 }
 .hero-pre {
   font-size: 12px;
@@ -307,26 +301,27 @@ nav.scrolled {
   animation: fade-up 0.8s var(--ease-out) 0.15s forwards;
 }
 .hero h1 {
-  font-size: clamp(52px, 8vw, 96px);
-  font-weight: 900;
-  line-height: 1.02;
-  letter-spacing: -3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
   margin-bottom: 28px;
-  background: linear-gradient(135deg, #f0f4f8 0%, #60a5fa 35%, var(--accent) 55%, #60a5fa 75%, #f0f4f8 100%);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 6s ease-in-out infinite, fade-up 0.8s var(--ease-out) 0.3s forwards;
+}
+.hero-h1-line {
+  font-size: clamp(64px, 10vw, 120px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -3px;
+  color: var(--text-primary);
+  display: block;
   opacity: 0;
+  animation: fade-up 0.8s var(--ease-out) forwards;
 }
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
+.hero-h1-line:first-child { animation-delay: 0.25s; }
+.hero-h1-line:last-child { animation-delay: 0.35s; }
 .hero-sub {
   font-size: clamp(14px, 1.2vw, 18px);
-  color: #8899b0;
+  color: var(--text-secondary);
   max-width: 640px;
   line-height: 1.8;
   margin-bottom: 12px;
@@ -335,7 +330,7 @@ nav.scrolled {
   letter-spacing: 0.2px;
 }
 .hero-sub em {
-  color: var(--accent-light);
+  color: var(--accent);
   font-style: normal;
   font-weight: 500;
 }
@@ -373,10 +368,7 @@ nav.scrolled {
   display: block;
   font-size: 32px;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
   line-height: 1.15;
   letter-spacing: -0.5px;
 }
@@ -407,7 +399,7 @@ nav.scrolled {
 }
 .hero-scroll span {
   font-size: 10px;
-  color: var(--text-muted);
+  color: var(--text-disabled);
   letter-spacing: 2.5px;
   font-weight: 500;
 }
@@ -421,7 +413,7 @@ nav.scrolled {
 }
 
 /* ============================================================
-   SECTIONS — COMMON
+   SECTIONS — Common
    ============================================================ */
 .section {
   padding: var(--section-gap) 24px;
@@ -440,11 +432,12 @@ nav.scrolled {
   margin-bottom: 16px;
 }
 .section h2 {
-  font-size: clamp(28px, 3vw, 42px);
+  font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: 16px;
+  line-height: 1.1;
   letter-spacing: -0.5px;
+  color: var(--text-primary);
+  margin-bottom: 16px;
 }
 .section-sub {
   font-size: 15px;
@@ -487,16 +480,17 @@ nav.scrolled {
 [data-reveal][data-delay="5"] { transition-delay: 0.40s; }
 
 /* ============================================================
-   PROBLEM
+   PROBLEM — Left Text + Right Stat Cards
    ============================================================ */
 #problem {
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(255,255,255,0.01) 100%);
 }
 .problem-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: center;
+  margin-top: 48px;
 }
 .problem-statement {
   padding-right: 24px;
@@ -505,12 +499,12 @@ nav.scrolled {
   font-size: clamp(20px, 2vw, 26px);
   font-weight: 700;
   line-height: 1.5;
-  color: var(--text);
+  color: var(--text-primary);
   margin-bottom: 20px;
   letter-spacing: -0.3px;
 }
 .problem-statement .lead em {
-  color: var(--accent-light);
+  color: var(--accent);
   font-style: normal;
 }
 .problem-statement .sub {
@@ -527,8 +521,8 @@ nav.scrolled {
   display: flex;
   align-items: center;
   gap: 24px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 28px 32px;
   transition: all 0.4s var(--ease-out);
@@ -536,17 +530,14 @@ nav.scrolled {
   overflow: hidden;
 }
 .stat-card:hover {
-  border-color: var(--border-card-hover);
+  border-color: var(--border-hover);
   transform: translateX(4px);
-  background: rgba(21, 29, 46, 0.75);
+  background: var(--bg-elevated-hover);
 }
 .stat-card .stat-num {
   font-size: 36px;
   font-weight: 900;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
   line-height: 1;
   letter-spacing: -1px;
   min-width: 100px;
@@ -555,7 +546,7 @@ nav.scrolled {
 .stat-card .stat-info h4 {
   font-size: 15px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--text-primary);
   margin-bottom: 4px;
 }
 .stat-card .stat-info p {
@@ -565,7 +556,7 @@ nav.scrolled {
 }
 
 /* ============================================================
-   PRODUCT
+   PRODUCT — 3 Cards with Image Top + 3D Tilt
    ============================================================ */
 #product { background: var(--bg); }
 .product-grid {
@@ -574,13 +565,15 @@ nav.scrolled {
   gap: 24px;
 }
 .product-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  padding: 40px 32px;
-  transition: all 0.5s var(--ease-out);
+  padding: 0;
+  transition: border-color 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
   position: relative;
   overflow: hidden;
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: border-color 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out), transform 0.1s ease-out;
 }
 .product-card::before {
   content: '';
@@ -589,43 +582,42 @@ nav.scrolled {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  background: linear-gradient(90deg, var(--accent), transparent);
   opacity: 0;
   transition: opacity 0.5s var(--ease-smooth);
+  z-index: 2;
 }
 .product-card:hover {
-  border-color: var(--border-card-hover);
-  transform: translateY(-6px);
-  box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+  border-color: var(--border-hover);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4);
 }
 .product-card:hover::before { opacity: 1; }
-.product-card .icon-area {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: rgba(0,150,240,0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  transition: background 0.4s var(--ease-smooth);
+.product-card-img {
+  width: 100%;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255,255,255,0.02);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.6s var(--ease-out);
 }
-.product-card:hover .icon-area {
-  background: rgba(0,150,240,0.14);
+.product-card:hover .product-card-img {
+  transform: scale(1.02);
 }
-.product-card .icon-area svg {
-  width: 26px;
-  height: 26px;
+.product-card-body {
+  padding: 28px 28px 32px;
 }
 .product-card h3 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 4px;
   line-height: 1.3;
+  color: var(--text-primary);
 }
 .product-card .product-en {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--text-disabled);
   font-weight: 500;
   margin-bottom: 16px;
   letter-spacing: 0.3px;
@@ -659,7 +651,7 @@ nav.scrolled {
   flex-shrink: 0;
 }
 .specs-list li strong {
-  color: var(--text);
+  color: var(--text-primary);
   font-weight: 600;
 }
 .product-outcome {
@@ -669,22 +661,23 @@ nav.scrolled {
   border-left: 3px solid var(--accent);
   border-radius: 0 6px 6px 0;
   font-size: 13px;
-  color: var(--accent-light);
+  color: var(--accent);
   line-height: 1.6;
   font-weight: 500;
+  opacity: 0.85;
 }
 
 /* ============================================================
-   TECHNOLOGY
+   TECHNOLOGY — 4-Step SVG Loop + Latency Bar
    ============================================================ */
 #technology {
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(255,255,255,0.01) 100%);
 }
 .tech-loop {
   max-width: 960px;
   margin: 0 auto 56px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   padding: 48px 40px 56px;
   position: relative;
@@ -756,7 +749,285 @@ nav.scrolled {
 }
 
 /* ============================================================
-   MARKET
+   GALLERY — Sticky Horizontal Carousel
+   ============================================================ */
+#gallery {
+  height: 100vh;
+  padding: 0;
+  overflow: hidden;
+  background: var(--bg);
+  position: relative;
+}
+.gallery-sticky {
+  position: sticky;
+  top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 0 60px;
+}
+.gallery-header {
+  text-align: center;
+  padding: 0 24px 32px;
+}
+.gallery-header .section-label {
+  margin-bottom: 8px;
+}
+.gallery-header h2 {
+  font-size: clamp(24px, 2.5vw, 36px);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+.gallery-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 8px 48px;
+  flex: 1;
+  align-items: center;
+}
+.gallery-track::-webkit-scrollbar { display: none; }
+.gallery-slide {
+  flex: 0 0 75vw;
+  max-width: 900px;
+  height: 55vh;
+  scroll-snap-align: center;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border);
+  transition: border-color 0.4s var(--ease-out);
+}
+.gallery-slide:hover {
+  border-color: var(--border-hover);
+}
+.gallery-slide-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255,255,255,0.02);
+  transition: transform 0.7s var(--ease-out);
+}
+.gallery-slide:hover .gallery-slide-img {
+  transform: scale(1.03);
+}
+.gallery-slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 28px 24px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 0 0;
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+}
+.gallery-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-disabled);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  padding: 0;
+}
+.gallery-dot.active {
+  background: var(--accent);
+  width: 24px;
+  border-radius: 4px;
+}
+.gallery-dot:hover {
+  background: var(--text-secondary);
+}
+
+/* ============================================================
+   APP — Phone Frame Mockups
+   ============================================================ */
+#app {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, var(--bg) 100%);
+}
+.app-grid {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.phone-card {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.4s var(--ease-out);
+}
+.phone-card:hover {
+  transform: translateY(-8px);
+}
+.phone-frame {
+  width: 260px;
+  height: 520px;
+  background: #111;
+  border-radius: 36px;
+  border: 3px solid #222;
+  padding: 10px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+  overflow: hidden;
+  transition: box-shadow 0.4s var(--ease-out);
+}
+.phone-card:hover .phone-frame {
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,150,240,0.15);
+}
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 22px;
+  background: #111;
+  border-radius: 0 0 14px 14px;
+  z-index: 10;
+}
+.phone-notch-dot {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1a1a2a;
+  z-index: 11;
+}
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 26px;
+  background: #0a0a0a;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 16px 16px;
+}
+.phone-screen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.phone-screen-header span {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.phone-screen-header .time {
+  color: var(--text-secondary);
+}
+.phone-screen .app-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.2px;
+}
+.phone-screen .app-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.phone-screen .app-metric .label {
+  font-size: 10px;
+  color: var(--text-tertiary);
+}
+.phone-screen .app-metric .value {
+  font-size: 12px;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+.phone-screen .app-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(0,150,240,0.12);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 16px;
+}
+.phone-screen .app-graph {
+  width: 100%;
+  height: 80px;
+  margin: 12px 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+.phone-screen .app-graph .bar {
+  flex: 1;
+  background: var(--accent);
+  opacity: 0.3;
+  border-radius: 2px 2px 0 0;
+  transition: opacity 0.3s;
+  min-height: 8px;
+}
+.phone-screen .app-graph .bar:nth-child(2n) { opacity: 0.5; }
+.phone-screen .app-graph .bar:nth-child(3n) { opacity: 0.7; }
+.phone-screen .app-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+}
+.phone-screen .app-progress .track {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+.phone-screen .app-progress .track .fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  width: 60%;
+}
+.phone-screen .app-progress .pct {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 700;
+}
+.phone-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.3px;
+}
+
+/* ============================================================
+   MARKET — Phase Cards + Effect Callout
    ============================================================ */
 #market { background: var(--bg); }
 .market-phases {
@@ -766,8 +1037,8 @@ nav.scrolled {
   margin-bottom: 48px;
 }
 .market-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 36px 28px;
   transition: all 0.5s var(--ease-out);
@@ -787,9 +1058,9 @@ nav.scrolled {
   transition: opacity 0.4s;
 }
 .market-card:hover {
-  border-color: var(--border-card-hover);
+  border-color: var(--border-hover);
   transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
 }
 .market-card:hover::before { opacity: 1; }
 .market-card .phase-tag {
@@ -807,24 +1078,21 @@ nav.scrolled {
 .market-card .size {
   font-size: 40px;
   font-weight: 900;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
   line-height: 1.1;
   margin-bottom: 6px;
   letter-spacing: -1px;
 }
 .market-card .market-range {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--text-disabled);
   font-weight: 500;
   margin-bottom: 16px;
 }
 .market-card .market-name {
   font-size: 16px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--text-primary);
   margin-bottom: 10px;
 }
 .market-card .market-desc {
@@ -835,22 +1103,30 @@ nav.scrolled {
 .market-effect {
   margin-top: 16px;
   padding-top: 14px;
-  border-top: 1px solid rgba(30,41,59,0.3);
+  border-top: 1px solid var(--border);
   font-size: 12px;
-  color: var(--accent-light);
+  color: var(--accent);
   line-height: 1.6;
   font-weight: 500;
+  opacity: 0.85;
 }
 .market-effect sup {
   font-size: 9px;
-  color: var(--text-muted);
+  color: var(--text-tertiary);
+}
+.market-disclaimer {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  line-height: 1.6;
 }
 
 /* ============================================================
-   WHY NOW
+   WHY NOW — 4 Cards Grid
    ============================================================ */
 #why-now {
-  background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, var(--bg) 100%);
 }
 .why-grid {
   display: grid;
@@ -858,8 +1134,8 @@ nav.scrolled {
   gap: 20px;
 }
 .why-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 32px 28px;
   transition: all 0.4s var(--ease-out);
@@ -867,9 +1143,9 @@ nav.scrolled {
   overflow: hidden;
 }
 .why-card:hover {
-  border-color: var(--border-card-hover);
+  border-color: var(--border-hover);
   transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
 }
 .why-card .why-num {
   font-size: 11px;
@@ -882,7 +1158,7 @@ nav.scrolled {
 .why-card h4 {
   font-size: 16px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--text-primary);
   margin-bottom: 10px;
   line-height: 1.3;
 }
@@ -893,10 +1169,10 @@ nav.scrolled {
 }
 
 /* ============================================================
-   TEAM
+   TEAM — Core + Join Us Card
    ============================================================ */
 #team {
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(255,255,255,0.01) 100%);
 }
 .team-grid {
   display: grid;
@@ -906,8 +1182,8 @@ nav.scrolled {
   margin: 0 auto;
 }
 .team-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 40px 32px;
   transition: all 0.5s var(--ease-out);
@@ -925,21 +1201,21 @@ nav.scrolled {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  background: linear-gradient(90deg, var(--accent), transparent);
   opacity: 0;
   transition: opacity 0.4s;
 }
 .team-card:hover {
-  border-color: var(--border-card-hover);
+  border-color: var(--border-hover);
   transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
 }
 .team-card:hover::before { opacity: 1; }
 .team-avatar {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(0,150,240,0.12), rgba(96,165,250,0.08));
+  background: linear-gradient(135deg, rgba(0,150,240,0.12), transparent);
   border: 2px solid rgba(0,150,240,0.15);
   display: flex;
   align-items: center;
@@ -954,6 +1230,7 @@ nav.scrolled {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 4px;
+  color: var(--text-primary);
 }
 .team-card .team-role {
   font-size: 13px;
@@ -969,95 +1246,34 @@ nav.scrolled {
 }
 .team-card.team-cta {
   border-style: dashed;
-  border-color: rgba(30, 41, 59, 0.4);
+  border-color: rgba(255,255,255,0.08);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .team-card.team-cta:hover {
-  border-color: var(--border-card-hover);
+  border-color: var(--border-hover);
   border-style: dashed;
 }
 .team-card.team-cta .team-avatar {
   border-style: dashed;
   border-color: rgba(0,150,240,0.15);
 }
-
-/* ============================================================
-   DOCUMENTS
-   ============================================================ */
-#documents { background: var(--bg); }
-.doc-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+.team-join-text h3 {
+  color: var(--text-secondary) !important;
+  margin-bottom: 8px;
 }
-.doc-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-md);
-  padding: 20px;
-  text-decoration: none;
-  transition: all 0.35s var(--ease-out);
-}
-.doc-card:hover {
-  border-color: var(--border-card-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-}
-.doc-card .doc-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: rgba(0,150,240,0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--accent);
-  transition: background 0.3s;
-}
-.doc-card:hover .doc-icon { background: rgba(0,150,240,0.14); }
-.doc-card .doc-info { flex: 1; min-width: 0; }
-.doc-card .doc-info h4 {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 4px;
-  line-height: 1.3;
-}
-.doc-card .doc-info p {
-  font-size: 12px;
+.team-join-text p {
   color: var(--text-tertiary);
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.doc-card .doc-badge {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--accent);
-  background: rgba(0,150,240,0.08);
-  padding: 2px 8px;
-  border-radius: 4px;
-  white-space: nowrap;
-  flex-shrink: 0;
-  align-self: flex-start;
+  font-size: 14px;
 }
 
 /* ============================================================
-   CONTACT
+   CONTACT + FOOTER
    ============================================================ */
 #contact {
-  background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, var(--bg) 100%);
   position: relative;
 }
 #contact::before {
@@ -1104,18 +1320,15 @@ nav.scrolled {
   flex-shrink: 0;
 }
 .contact-item a {
-  color: var(--text);
+  color: var(--text-primary);
   text-decoration: none;
   transition: color 0.25s;
   font-weight: 500;
 }
 .contact-item a:hover { color: var(--accent); }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
 footer {
-  border-top: 1px solid rgba(30, 41, 59, 0.3);
+  border-top: 1px solid var(--border);
   padding: 64px 24px 32px;
 }
 .footer-inner {
@@ -1129,7 +1342,7 @@ footer {
 footer h5 {
   font-size: 12px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--text-primary);
   margin-bottom: 16px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
@@ -1157,23 +1370,24 @@ footer .footer-brand-desc {
 .footer-bottom {
   text-align: center;
   padding-top: 32px;
-  border-top: 1px solid rgba(30, 41, 59, 0.2);
+  border-top: 1px solid var(--border);
 }
 .footer-bottom p {
   font-size: 11px;
-  color: var(--text-muted);
+  color: var(--text-disabled);
 }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — Breakpoints at 1024px, 768px, 480px
    ============================================================ */
 @media (max-width: 1024px) {
   .product-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
   .market-phases { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto 40px; }
-  .doc-grid { grid-template-columns: 1fr 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
   .problem-grid { gap: 40px; }
   .problem-statement { padding-right: 0; }
+  .app-grid { gap: 24px; }
+  .phone-frame { width: 220px; height: 440px; }
 }
 
 @media (max-width: 768px) {
@@ -1181,29 +1395,39 @@ footer .footer-brand-desc {
 
   .nav-links {
     position: fixed;
-    top: var(--nav-height);
+    top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
     flex-direction: column;
-    background: rgba(10, 15, 26, 0.97);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    padding: 28px 32px;
-    gap: 22px;
-    border-bottom: 1px solid rgba(30, 41, 59, 0.4);
+    background: rgba(0,0,0,0.97);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
     transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
-    transition: all 0.4s var(--ease-out);
-    align-items: flex-start;
+    transition: all 0.5s var(--ease-out);
   }
   .nav-links.open {
     transform: translateY(0);
     opacity: 1;
     pointer-events: all;
   }
+  .nav-links a:not(.nav-cta) {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+  .nav-links a:not(.nav-cta):hover { color: var(--text-primary); }
   .nav-toggle { display: flex; }
-  .nav-cta { align-self: flex-start; }
+  .nav-cta {
+    font-size: 16px !important;
+    padding: 14px 40px !important;
+    margin-top: 8px;
+  }
 
   .hero-metrics { gap: 32px; }
   .metric-val { font-size: 26px; }
@@ -1212,35 +1436,46 @@ footer .footer-brand-desc {
   .stat-card { padding: 24px; }
   .stat-card .stat-num { font-size: 28px; min-width: 80px; }
 
-  .doc-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
 
   .why-grid { grid-template-columns: 1fr; }
 
   .tech-loop { padding: 32px 20px 40px; }
 
-  .breakdown-bars { gap: 10px; height: 150px; }
-  .breakdown-bar { max-width: 80px; }
-
   .team-grid { max-width: 100%; }
+
+  .gallery-slide { flex: 0 0 85vw; height: 45vh; }
+  .gallery-track { padding: 8px 16px; }
+
+  .app-grid { flex-direction: column; align-items: center; }
+  .phone-frame { width: 240px; height: 480px; }
+
+  .market-card { padding: 28px 24px; }
 }
 
 @media (max-width: 480px) {
   .hero-ctas { flex-direction: column; align-items: center; }
   .btn { width: 100%; justify-content: center; }
-  .product-card { padding: 28px 20px; }
+  .product-card-body { padding: 24px 20px 28px; }
+  .product-card-img { height: 180px; }
   .market-card { padding: 28px 20px; }
   .stat-card { flex-direction: column; text-align: center; gap: 12px; }
   .stat-card .stat-num { min-width: auto; }
   .nav-inner { padding: 0 20px; }
   .section { padding-left: 20px; padding-right: 20px; }
+  .gallery-slide { flex: 0 0 90vw; height: 40vh; }
+  .phone-frame { width: 200px; height: 400px; border-radius: 28px; }
+  .phone-notch { width: 80px; height: 18px; border-radius: 0 0 10px 10px; }
+  .hero h1 { gap: 0; }
+  .hero-h1-line { letter-spacing: -2px; }
 }
 
 /* ============================================================
    PRINT STYLES
    ============================================================ */
 @media print {
-  nav, .noise, .hero-scroll, .hero-bg-grid, .hero-glow, .hero-glow-2 {
+  nav, .noise, .hero-scroll, .hero-bg-grid, .hero-glow, .hero-glow-2, .hero-watermark,
+  .gallery-dots, .gallery-track::-webkit-scrollbar {
     display: none !important;
   }
   body {
@@ -1252,32 +1487,37 @@ footer .footer-brand-desc {
     min-height: auto !important;
     padding: 48px 24px !important;
   }
-  .hero h1 {
-    -webkit-text-fill-color: #0096f0 !important;
+  .hero h1, .hero-h1-line {
     color: #0096f0 !important;
-    background: none !important;
-  }
-  .metric-val {
     -webkit-text-fill-color: #0096f0 !important;
-    color: #0096f0 !important;
-    background: none !important;
   }
+  .hero-sub { color: #555 !important; }
+  .hero-tagline { color: #777 !important; }
+  .metric-val { color: #0096f0 !important; }
+  .metric-lbl { color: #666 !important; }
   .section { padding: 48px 24px !important; page-break-inside: avoid; }
   .section h2 { color: #111 !important; }
   .section-sub { color: #555 !important; }
-  .stat-card, .product-card, .market-card, .why-card, .team-card, .doc-card, .tech-loop {
+  .section-label { color: #0096f0 !important; }
+  .stat-card, .product-card, .market-card, .why-card, .team-card, .tech-loop,
+  .gallery-slide, .phone-frame {
     background: #f5f7fa !important;
     border-color: #d1d5db !important;
-    -webkit-text-fill-color: #111 !important;
     color: #111 !important;
     box-shadow: none !important;
   }
-  .stat-card .stat-num, .market-card .size, .stat-num, .size {
-    -webkit-text-fill-color: #0096f0 !important;
+  .stat-card .stat-num, .market-card .size {
     color: #0096f0 !important;
-    background: none !important;
   }
-  #problem, #technology, #why-now, #team, #contact {
+  .stat-card .stat-info h4, .market-card .market-name,
+  .product-card h3, .team-card h3, .why-card h4 {
+    color: #111 !important;
+  }
+  .stat-card .stat-info p, .market-card .market-desc,
+  .product-card .product-desc, .why-card p, .team-card .team-bio {
+    color: #555 !important;
+  }
+  #problem, #technology, #why-now, #team, #contact, #gallery, #app {
     background: #fff !important;
   }
   .btn-primary {
@@ -1292,8 +1532,27 @@ footer .footer-brand-desc {
   }
   footer { border-color: #d1d5db !important; }
   footer p, footer a { color: #666 !important; }
-  .section-label { color: #0096f0 !important; }
+  footer h5 { color: #111 !important; }
+  .product-outcome, .market-effect {
+    border-left-color: #0096f0 !important;
+    color: #0096f0 !important;
+    background: rgba(0,150,240,0.04) !important;
+  }
+  .product-card-img { background-color: #eee !important; }
+  .phone-screen { background: #f0f0f0 !important; }
+  .phone-screen .app-title { color: #111 !important; }
+  .phone-screen .app-metric .value { color: #111 !important; }
+  .phone-screen .app-metric .label { color: #666 !important; }
+  .gallery-slide-caption {
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent) !important;
+    color: #fff !important;
+  }
+  .latency-seg span { color: #fff !important; }
+  .latency-seg small { color: rgba(255,255,255,0.8) !important; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .hero-glow, .hero-glow-2, .hero-bg-grid { display: none !important; }
+  .hero-pre { color: #0096f0 !important; }
+  .team-avatar { border-color: #0096f0 !important; }
 }
 </style>
 </head>
@@ -1312,9 +1571,8 @@ footer .footer-brand-desc {
     <ul class="nav-links" id="navLinks">
       <li><a href="#product" class="nav-link">产品</a></li>
       <li><a href="#technology" class="nav-link">技术</a></li>
-      <li><a href="#market" class="nav-link">市场</a></li>
+      <li><a href="#app" class="nav-link">App</a></li>
       <li><a href="#team" class="nav-link">团队</a></li>
-      <li><a href="#contact" class="nav-link">联系</a></li>
       <li><a href="#contact" class="nav-cta">投资者入口</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="菜单">
@@ -1328,10 +1586,14 @@ footer .footer-brand-desc {
   <div class="hero-bg-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-glow-2"></div>
+  <div class="hero-watermark" aria-hidden="true"></div>
   <p class="hero-pre">定义人机共生</p>
-  <h1>逐念而行</h1>
+  <h1>
+    <span class="hero-h1-line">逐念</span>
+    <span class="hero-h1-line">而行</span>
+  </h1>
   <p class="hero-sub">
-    读取大脑运动意图 <em>→</em> AI生成个性化策略 <em>→</em> 驱动轻量级装置
+    读取大脑运动意图 <em>→</em> AI生成个性化策略 <em>→</em> 驱动轻量穿戴式外骨骼
   </p>
   <p class="hero-tagline">
     从大脑到肌肉的AI。让9400万神经损伤患者重新行走。
@@ -1360,7 +1622,7 @@ footer .footer-brand-desc {
       <p class="section-label">The Problem</p>
       <h2>9400万人等待重新行走</h2>
     </div>
-    <div class="problem-grid" style="margin-top:48px;">
+    <div class="problem-grid">
       <div class="problem-statement" data-reveal data-delay="1">
         <p class="lead">
           大脑还记得怎么走，但指令传不到肌肉。
@@ -1405,60 +1667,53 @@ footer .footer-brand-desc {
       <p class="section-sub center">从脑信号到身体动作的完整闭环 —— 三件套设计，每一件都追求极致的轻量与精准</p>
     </div>
     <div class="product-grid">
+      <!-- EEG-Sense -->
       <div class="product-card" data-reveal data-delay="1">
-        <div class="icon-area">
-          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M14 2C10 2 6 6 6 10c0 4 8 16 8 16s8-12 8-16c0-4-4-8-8-8z" stroke="#0096f0"/>
-            <circle cx="14" cy="10" r="3" stroke="#0096f0"/>
-          </svg>
+        <div class="product-card-img" style="background-image:url('docs/render_1_eeg.jpg');background-size:cover;background-position:center 30%;"></div>
+        <div class="product-card-body">
+          <h3>EEG-Sense 神经信号读取</h3>
+          <p class="product-en">Neural Signal Acquisition</p>
+          <p class="product-desc">8通道干电极EEG头带，实时检测运动准备电位，将大脑意图转化为数字信号。</p>
+          <ul class="specs-list">
+            <li><strong>80g</strong> 超轻设计，佩戴无感</li>
+            <li><strong>8通道</strong> 干电极，无需导电膏</li>
+            <li><strong>250SPS</strong> 采样率，精准捕捉</li>
+            <li><strong>蓝牙5.2</strong> 无线传输，8h续航</li>
+          </ul>
+          <p class="product-outcome">预期效果：运动意图检测准确率&gt;85%，为个性化策略提供精准输入</p>
         </div>
-        <h3>EEG-Sense 神经信号读取</h3>
-        <p class="product-en">Neural Signal Acquisition</p>
-        <p class="product-desc">8通道干电极EEG头带，实时检测运动准备电位，将大脑意图转化为数字信号。</p>
-        <ul class="specs-list">
-          <li><strong>80g</strong> 超轻设计，佩戴无感</li>
-          <li><strong>8通道</strong> 干电极，无需导电膏</li>
-          <li><strong>250SPS</strong> 采样率，精准捕捉</li>
-          <li><strong>蓝牙5.2</strong> 无线传输，8h续航</li>
-        </ul>
-        <p class="product-outcome">预期效果：运动意图检测准确率>85%，为个性化策略提供精准输入</p>
       </div>
+      <!-- NeuroSuit -->
       <div class="product-card" data-reveal data-delay="2">
-        <div class="icon-area">
-          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M4 10c0-4 4-6 10-6s10 2 10 6v8c0 4-4 6-10 6s-10-2-10-6v-8z" stroke="#0096f0"/>
-            <path d="M4 14c0 4 4 6 10 6s10-2 10-6" stroke="#0096f0"/>
-          </svg>
+        <div class="product-card-img" style="background-image:url('docs/render_3_neurosuit.jpg');background-size:cover;background-position:center 40%;"></div>
+        <div class="product-card-body">
+          <h3>NeuroSuit 智能肌动服</h3>
+          <p class="product-en">Intelligent Actuation Suit</p>
+          <p class="product-desc">鲍登线缆驱动系统，碳纤维锚定框架，精准的关节助力，正确的时间施加正确的力。</p>
+          <ul class="specs-list">
+            <li><strong>&lt;1.5kg</strong> 系统总重，真正可穿戴</li>
+            <li><strong>15Nm</strong> 峰值 / <strong>8Nm</strong> 持续扭矩</li>
+            <li><strong>鲍登线缆</strong> 驱动，静音运行</li>
+            <li><strong>10秒</strong> 穿脱，无需他人协助</li>
+          </ul>
+          <p class="product-outcome">预期效果：髋关节助力在正确时机输出，降低行走代谢消耗，辅助步态对称性改善</p>
         </div>
-        <h3>NeuroSuit 智能肌动服</h3>
-        <p class="product-en">Intelligent Actuation Suit</p>
-        <p class="product-desc">鲍登线缆驱动系统，碳纤维锚定框架，精准的关节助力，正确的时间施加正确的力。</p>
-        <ul class="specs-list">
-          <li><strong>&lt;1.5kg</strong> 系统总重，真正可穿戴</li>
-          <li><strong>15Nm</strong> 峰值 / <strong>8Nm</strong> 持续扭矩</li>
-          <li><strong>鲍登线缆</strong> 驱动，静音运行</li>
-          <li><strong>10秒</strong> 穿脱，无需他人协助</li>
-        </ul>
-        <p class="product-outcome">预期效果：髋关节助力在正确时机输出，降低行走代谢消耗，辅助步态对称性改善</p>
       </div>
+      <!-- Control Box -->
       <div class="product-card" data-reveal data-delay="3">
-        <div class="icon-area">
-          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="7" width="22" height="14" rx="3" stroke="#0096f0"/>
-            <circle cx="14" cy="14" r="2" stroke="#0096f0"/>
-            <path d="M9 21v2M19 21v2" stroke="#0096f0"/>
-          </svg>
+        <div class="product-card-img" style="background-image:url('docs/render_2_controlbox.jpg');background-size:cover;background-position:center 50%;"></div>
+        <div class="product-card-body">
+          <h3>Control Box 边缘AI处理器</h3>
+          <p class="product-en">Edge AI Processing Unit</p>
+          <p class="product-desc">实时推理引擎，416肌肉数字孪生模型，边缘端完成从意图识别到策略生成的完整闭环。</p>
+          <ul class="specs-list">
+            <li><strong>&lt;185ms</strong> 端到端延迟</li>
+            <li><strong>416肌肉</strong> 数字孪生模型</li>
+            <li><strong>强化学习</strong> 实时策略生成</li>
+            <li><strong>联邦学习</strong> 隐私保护持续进化</li>
+          </ul>
+          <p class="product-outcome">预期效果：每次训练AI学习你的身体变化，策略逐次优化——本周的辅助和上周不同</p>
         </div>
-        <h3>Control Box 边缘AI处理器</h3>
-        <p class="product-en">Edge AI Processing Unit</p>
-        <p class="product-desc">实时推理引擎，416肌肉数字孪生模型，边缘端完成从意图识别到策略生成的完整闭环。</p>
-        <ul class="specs-list">
-          <li><strong>&lt;185ms</strong> 端到端延迟</li>
-          <li><strong>416肌肉</strong> 数字孪生模型</li>
-          <li><strong>强化学习</strong> 实时策略生成</li>
-          <li><strong>联邦学习</strong> 隐私保护持续进化</li>
-        </ul>
-        <p class="product-outcome">预期效果：每次训练AI学习你的身体变化，策略逐次优化——本周的辅助和上周不同</p>
       </div>
     </div>
   </div>
@@ -1480,11 +1735,6 @@ footer .footer-brand-desc {
           <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stop-color="#0096f0"/>
             <stop offset="100%" stop-color="#60a5fa"/>
-          </linearGradient>
-          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#0096f0" stop-opacity="0.08"/>
-            <stop offset="50%" stop-color="#0096f0" stop-opacity="0.45"/>
-            <stop offset="100%" stop-color="#0096f0" stop-opacity="0.08"/>
           </linearGradient>
           <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="rgba(0,150,240,0.07)"/>
@@ -1515,30 +1765,30 @@ footer .footer-brand-desc {
         <circle cx="750" cy="72" r="28" fill="url(#cg)" filter="url(#glow)"/>
         <text x="750" y="79" fill="#fff" font-size="18" font-weight="900" text-anchor="middle">4</text>
 
-        <!-- Step titles -->
-        <text x="150" y="120" fill="#e5e7eb" font-size="16" font-weight="700" text-anchor="middle">读取意图</text>
-        <text x="150" y="143" fill="#94a3b8" font-size="12" font-weight="500" text-anchor="middle">Read</text>
-        <text x="150" y="172" fill="#64748b" font-size="11" text-anchor="middle">EEG采集运动准备电位</text>
-        <text x="150" y="192" fill="#475569" font-size="10" text-anchor="middle">8ch干电极 · 250SPS</text>
-        <text x="150" y="212" fill="#64748b" font-size="11" text-anchor="middle">~40ms</text>
+        <!-- Step titles — updated text colors for pure black bg -->
+        <text x="150" y="120" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle">读取意图</text>
+        <text x="150" y="143" fill="#999999" font-size="12" font-weight="500" text-anchor="middle">Read</text>
+        <text x="150" y="172" fill="#777777" font-size="11" text-anchor="middle">EEG采集运动准备电位</text>
+        <text x="150" y="192" fill="#555555" font-size="10" text-anchor="middle">8ch干电极 · 250SPS</text>
+        <text x="150" y="212" fill="#777777" font-size="11" text-anchor="middle">~40ms</text>
 
-        <text x="350" y="120" fill="#e5e7eb" font-size="16" font-weight="700" text-anchor="middle">生成策略</text>
-        <text x="350" y="143" fill="#94a3b8" font-size="12" font-weight="500" text-anchor="middle">Generate</text>
-        <text x="350" y="172" fill="#64748b" font-size="11" text-anchor="middle">AI推理个性化策略</text>
-        <text x="350" y="192" fill="#475569" font-size="10" text-anchor="middle">416肌数字孪生 · RL</text>
-        <text x="350" y="212" fill="#64748b" font-size="11" text-anchor="middle">~55ms</text>
+        <text x="350" y="120" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle">生成策略</text>
+        <text x="350" y="143" fill="#999999" font-size="12" font-weight="500" text-anchor="middle">Generate</text>
+        <text x="350" y="172" fill="#777777" font-size="11" text-anchor="middle">AI推理个性化策略</text>
+        <text x="350" y="192" fill="#555555" font-size="10" text-anchor="middle">416肌数字孪生 · RL</text>
+        <text x="350" y="212" fill="#777777" font-size="11" text-anchor="middle">~55ms</text>
 
-        <text x="550" y="120" fill="#e5e7eb" font-size="16" font-weight="700" text-anchor="middle">执行动作</text>
-        <text x="550" y="143" fill="#94a3b8" font-size="12" font-weight="500" text-anchor="middle">Execute</text>
-        <text x="550" y="172" fill="#64748b" font-size="11" text-anchor="middle">线缆驱动关节精准助力</text>
-        <text x="550" y="192" fill="#475569" font-size="10" text-anchor="middle">鲍登线缆 · 15Nm</text>
-        <text x="550" y="212" fill="#64748b" font-size="11" text-anchor="middle">~60ms</text>
+        <text x="550" y="120" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle">执行动作</text>
+        <text x="550" y="143" fill="#999999" font-size="12" font-weight="500" text-anchor="middle">Execute</text>
+        <text x="550" y="172" fill="#777777" font-size="11" text-anchor="middle">线缆驱动关节精准助力</text>
+        <text x="550" y="192" fill="#555555" font-size="10" text-anchor="middle">鲍登线缆 · 15Nm</text>
+        <text x="550" y="212" fill="#777777" font-size="11" text-anchor="middle">~60ms</text>
 
-        <text x="750" y="120" fill="#e5e7eb" font-size="16" font-weight="700" text-anchor="middle">持续进化</text>
-        <text x="750" y="143" fill="#94a3b8" font-size="12" font-weight="500" text-anchor="middle">Evolve</text>
-        <text x="750" y="172" fill="#64748b" font-size="11" text-anchor="middle">反馈闭环持续学习</text>
-        <text x="750" y="192" fill="#475569" font-size="10" text-anchor="middle">联邦学习 · 隐私保护</text>
-        <text x="750" y="212" fill="#64748b" font-size="11" text-anchor="middle">~10ms</text>
+        <text x="750" y="120" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle">持续进化</text>
+        <text x="750" y="143" fill="#999999" font-size="12" font-weight="500" text-anchor="middle">Evolve</text>
+        <text x="750" y="172" fill="#777777" font-size="11" text-anchor="middle">反馈闭环持续学习</text>
+        <text x="750" y="192" fill="#555555" font-size="10" text-anchor="middle">联邦学习 · 隐私保护</text>
+        <text x="750" y="212" fill="#777777" font-size="11" text-anchor="middle">~30ms</text>
 
         <!-- Forward arrows between steps -->
         <line x1="185" y1="72" x2="315" y2="72" stroke="#0096f0" stroke-width="2.5" marker-end="url(#arr)" opacity="0.7"/>
@@ -1548,27 +1798,207 @@ footer .footer-brand-desc {
         <!-- Feedback loop — curved path below -->
         <path d="M750 240 Q750 275 450 275 Q150 275 150 240" stroke="#0096f0" stroke-width="1.8" stroke-dasharray="6 5" fill="none" opacity="0.4" marker-end="url(#arr)"/>
         <rect x="390" y="262" width="120" height="22" rx="11" fill="rgba(0,150,240,0.1)" stroke="rgba(0,150,240,0.15)" stroke-width="1"/>
-        <text x="450" y="277" fill="#94a3b8" font-size="11" font-weight="600" text-anchor="middle">反馈闭环 ~30ms</text>
+        <text x="450" y="277" fill="#999999" font-size="11" font-weight="600" text-anchor="middle">反馈闭环 ~30ms</text>
       </svg>
     </div>
 
     <!-- Latency Breakdown -->
     <div class="tech-breakdown" data-reveal data-delay="2">
       <h4>端到端延迟分解 — 总计 ≈185ms</h4>
-      <div class="latency-hbar" id="latencyBar" style="height:72px;border-radius:10px;">
+      <div class="latency-hbar" id="latencyBar">
         <div class="latency-seg" style="flex:0 0 21.6%;background:linear-gradient(135deg,#0096f0,#0080d0);border-radius:6px 0 0 6px;" data-label="EEG采集"><span>40ms</span><small>EEG采集 + 预处理 + BLE发送</small></div>
         <div class="latency-seg" style="flex:0 0 29.7%;background:linear-gradient(135deg,#1080e0,#2088e0);" data-label="AI推理"><span>55ms</span><small>手机接收 + EEGNet推理 + 策略生成</small></div>
         <div class="latency-seg" style="flex:0 0 10.8%;background:linear-gradient(135deg,#2070d0,#3078d0);" data-label="BLE传输"><span>20ms</span><small>指令发送 + 控制盒接收</small></div>
         <div class="latency-seg" style="flex:0 0 32.4%;background:linear-gradient(135deg,#3060c0,#4068c0);" data-label="电机执行"><span>60ms</span><small>FOC控制 + 鲍登线缆 + 力输出</small></div>
         <div class="latency-seg" style="flex:0 0 5.4%;background:linear-gradient(135deg,#4050b0,#5060b8);border-radius:0 6px 6px 0;" data-label="传感反馈"><span>10ms</span><small>传感器融合 + 状态估计</small></div>
       </div>
-      <div class="latency-labels" style="font-weight:600;">
-        <div style="flex:0 0 21.6%;text-align:center;font-size:12px;color:var(--text2)">① EEG</div>
-        <div style="flex:0 0 29.7%;text-align:center;font-size:12px;color:var(--text2)">② AI推理</div>
-        <div style="flex:0 0 10.8%;text-align:center;font-size:12px;color:var(--text2)">③ BLE</div>
-        <div style="flex:0 0 32.4%;text-align:center;font-size:12px;color:var(--text2)">④ 执行</div>
-        <div style="flex:0 0 5.4%;text-align:center;font-size:12px;color:var(--text2)">⑤ 反馈</div>
+      <div class="latency-labels">
+        <div style="flex:0 0 21.6%;text-align:center;font-size:12px;color:var(--text-secondary)">① EEG</div>
+        <div style="flex:0 0 29.7%;text-align:center;font-size:12px;color:var(--text-secondary)">② AI推理</div>
+        <div style="flex:0 0 10.8%;text-align:center;font-size:12px;color:var(--text-secondary)">③ BLE</div>
+        <div style="flex:0 0 32.4%;text-align:center;font-size:12px;color:var(--text-secondary)">④ 执行</div>
+        <div style="flex:0 0 5.4%;text-align:center;font-size:12px;color:var(--text-secondary)">⑤ 反馈</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY — Sticky Horizontal Carousel ===== -->
+<section id="gallery">
+  <div class="gallery-sticky">
+    <div class="gallery-header" data-reveal>
+      <p class="section-label">产品渲染</p>
+      <h2>Form Meets Function</h2>
+    </div>
+    <div class="gallery-track" id="galleryTrack">
+      <div class="gallery-slide">
+        <div class="gallery-slide-img" style="background-image:url('docs/render_1_eeg.jpg');background-position:center 30%;"></div>
+        <div class="gallery-slide-caption">EEG-Sense 神经信号头带</div>
+      </div>
+      <div class="gallery-slide">
+        <div class="gallery-slide-img" style="background-image:url('docs/render_2_controlbox.jpg');background-position:center 40%;"></div>
+        <div class="gallery-slide-caption">Control Box 边缘AI处理器</div>
+      </div>
+      <div class="gallery-slide">
+        <div class="gallery-slide-img" style="background-image:url('docs/render_3_neurosuit.jpg');background-position:center 40%;"></div>
+        <div class="gallery-slide-caption">NeuroSuit 智能肌动服</div>
+      </div>
+      <div class="gallery-slide">
+        <div class="gallery-slide-img" style="background-image:url('docs/render_4_system.jpg');background-position:center 40%;"></div>
+        <div class="gallery-slide-caption">Nexum One 完整系统</div>
+      </div>
+      <div class="gallery-slide">
+        <div class="gallery-slide-img" style="background-image:url('docs/render_5_walking.jpg');background-position:center 30%;"></div>
+        <div class="gallery-slide-caption">自然步态 · 人机共生</div>
+      </div>
+    </div>
+    <div class="gallery-dots" id="galleryDots">
+      <button class="gallery-dot active" data-index="0" aria-label="Slide 1"></button>
+      <button class="gallery-dot" data-index="1" aria-label="Slide 2"></button>
+      <button class="gallery-dot" data-index="2" aria-label="Slide 3"></button>
+      <button class="gallery-dot" data-index="3" aria-label="Slide 4"></button>
+      <button class="gallery-dot" data-index="4" aria-label="Slide 5"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APP PREVIEW — 3 Phone Mockups ===== -->
+<section class="section" id="app">
+  <div class="section-inner" data-reveal>
+    <div class="text-center">
+      <p class="section-label">App</p>
+      <h2>你的每一步，清晰可见</h2>
+      <p class="section-sub center">配套App提供实时生物反馈、训练指导和长期追踪，让康复效果可视化</p>
+    </div>
+    <div class="app-grid">
+      <!-- Phone 1: 训练界面 -->
+      <a href="app.html" class="phone-card" data-reveal data-delay="1">
+        <div class="phone-frame">
+          <div class="phone-notch"><div class="phone-notch-dot"></div></div>
+          <div class="phone-screen">
+            <div class="phone-screen-header">
+              <span>9:41</span>
+              <span class="time">🔋 87%</span>
+            </div>
+            <div class="app-title">今日训练</div>
+            <div class="app-metric">
+              <span class="label">训练模式</span>
+              <span class="value">步态纠正</span>
+            </div>
+            <div class="app-metric">
+              <span class="label">完成度</span>
+              <span class="value" style="color:var(--accent)">64%</span>
+            </div>
+            <div class="app-metric">
+              <span class="label">时长</span>
+              <span class="value">18:24</span>
+            </div>
+            <div class="app-metric">
+              <span class="label">步数</span>
+              <span class="value">892</span>
+            </div>
+            <div class="app-progress">
+              <div class="track"><div class="fill" style="width:64%"></div></div>
+              <span class="pct">64%</span>
+            </div>
+            <div class="app-badge">继续训练 →</div>
+          </div>
+        </div>
+        <span class="phone-label">训练界面</span>
+      </a>
+
+      <!-- Phone 2: 生物反馈 -->
+      <a href="app.html" class="phone-card" data-reveal data-delay="2">
+        <div class="phone-frame">
+          <div class="phone-notch"><div class="phone-notch-dot"></div></div>
+          <div class="phone-screen">
+            <div class="phone-screen-header">
+              <span>9:41</span>
+              <span class="time">🔋 92%</span>
+            </div>
+            <div class="app-title">实时生物反馈</div>
+            <div class="phone-screen" style="padding:8px 0 0;background:transparent;">
+              <div class="app-graph">
+                <div class="bar" style="height:30%"></div>
+                <div class="bar" style="height:55%"></div>
+                <div class="bar" style="height:40%"></div>
+                <div class="bar" style="height:70%"></div>
+                <div class="bar" style="height:85%"></div>
+                <div class="bar" style="height:60%"></div>
+                <div class="bar" style="height:45%"></div>
+                <div class="bar" style="height:75%"></div>
+                <div class="bar" style="height:90%"></div>
+                <div class="bar" style="height:65%"></div>
+                <div class="bar" style="height:50%"></div>
+                <div class="bar" style="height:80%"></div>
+                <div class="bar" style="height:35%"></div>
+                <div class="bar" style="height:60%"></div>
+                <div class="bar" style="height:70%"></div>
+                <div class="bar" style="height:45%"></div>
+                <div class="bar" style="height:55%"></div>
+                <div class="bar" style="height:85%"></div>
+                <div class="bar" style="height:40%"></div>
+                <div class="bar" style="height:65%"></div>
+              </div>
+            </div>
+            <div class="app-metric" style="margin-top:8px;">
+              <span class="label">肌电信号</span>
+              <span class="value" style="color:#4ade80;">正常</span>
+            </div>
+            <div class="app-metric">
+              <span class="label">步态对称性</span>
+              <span class="value">87%</span>
+            </div>
+            <div class="app-metric">
+              <span class="label">助力效率</span>
+              <span class="value">92%</span>
+            </div>
+            <div class="app-badge">查看详情 →</div>
+          </div>
+        </div>
+        <span class="phone-label">生物反馈</span>
+      </a>
+
+      <!-- Phone 3: 进度报告 -->
+      <a href="app.html" class="phone-card" data-reveal data-delay="3">
+        <div class="phone-frame">
+          <div class="phone-notch"><div class="phone-notch-dot"></div></div>
+          <div class="phone-screen">
+            <div class="phone-screen-header">
+              <span>9:41</span>
+              <span class="time">🔋 76%</span>
+            </div>
+            <div class="app-title">本周报告</div>
+            <div class="app-graph" style="height:60px;">
+              <div class="bar" style="height:40%;opacity:0.4"></div>
+              <div class="bar" style="height:50%;opacity:0.4"></div>
+              <div class="bar" style="height:45%;opacity:0.4"></div>
+              <div class="bar" style="height:55%;opacity:0.5"></div>
+              <div class="bar" style="height:60%;opacity:0.5"></div>
+              <div class="bar" style="height:70%;opacity:0.7"></div>
+              <div class="bar" style="height:85%;opacity:1"></div>
+            </div>
+            <div class="app-metric">
+              <span class="label">本周训练</span>
+              <span class="value">7次</span>
+            </div>
+            <div class="app-metric">
+              <span class="label">平均步速</span>
+              <span class="value">+12%</span>
+            </div>
+            <div class="app-metric">
+              <span class="label">6MWT改善</span>
+              <span class="value" style="color:var(--accent)">+38m</span>
+            </div>
+            <div class="app-progress">
+              <div class="track"><div class="fill" style="width:85%;background:linear-gradient(90deg,var(--accent),#4ade80);"></div></div>
+              <span class="pct" style="color:#4ade80;">85%</span>
+            </div>
+            <div class="app-badge">完整报告 →</div>
+          </div>
+        </div>
+        <span class="phone-label">进度报告</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1608,7 +2038,7 @@ footer .footer-brand-desc {
         <p class="market-effect">已发表数据：代谢消耗降低10-23% · 髋关节辅助 ~0.7 W/kg<sup>*</sup></p>
       </div>
     </div>
-    <p style="text-align:center;margin-top:24px;font-size:11px;color:var(--text-muted);line-height:1.6"><sup>*</sup> 数据来源：Yang et al. 2024 (Frontiers in Neurology, 34 RCTs); JNER 2024 hip exo trial; Daliri et al. 2024 (BMC Musculoskeletal Disorders); Harvard Quinlivan et al. 2016; Stanford Bryan et al. 2021。以上为同类设备已发表临床/实验数据，非Nexum One自身临床结果。Nexum One临床研究待启动。</p>
+    <p class="market-disclaimer"><sup>*</sup> 数据来源：Yang et al. 2024 (Frontiers in Neurology, 34 RCTs); JNER 2024 hip exo trial; Daliri et al. 2024 (BMC Musculoskeletal Disorders); Harvard Quinlivan et al. 2016; Stanford Bryan et al. 2021。以上为同类设备已发表临床/实验数据，非Nexum One自身临床结果。Nexum One临床研究待启动。</p>
   </div>
 </section>
 
@@ -1669,95 +2099,12 @@ footer .footer-brand-desc {
       <div class="team-card team-cta" data-reveal data-delay="3" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" role="button" tabindex="0">
         <div style="display:flex;flex-direction:column;align-items:center;">
           <div class="team-avatar" style="border-style:dashed;border-color:rgba(0,150,240,0.15);font-size:32px;">+</div>
-          <h3 style="color:var(--text-secondary);margin-bottom:8px;">加入团队</h3>
-          <p style="color:var(--text-tertiary);font-size:14px;">我们正在寻找志同道合的伙伴<br>共同定义人机共生</p>
+          <div class="team-join-text">
+            <h3 style="color:var(--text-secondary);margin-bottom:8px;">加入团队</h3>
+            <p style="color:var(--text-tertiary);font-size:14px;">我们正在寻找志同道合的伙伴<br>共同定义人机共生</p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== DOCUMENTS ===== -->
-<section class="section" id="documents">
-  <div class="section-inner" data-reveal>
-    <div class="text-center">
-      <p class="section-label">Documents</p>
-      <h2>完整文档体系</h2>
-      <p class="section-sub center">从商业计划到工程图纸，从PRD到App UI —— 全部可落地、可审查</p>
-    </div>
-    <div class="doc-grid">
-      <a href="逐念而行_Nexum_BP.html" class="doc-card" data-reveal data-delay="1">
-        <div class="doc-icon">BP</div>
-        <div class="doc-info">
-          <h4>商业计划书</h4>
-          <p>12章完整BP：问题→方案→市场→技术→竞争→商业模式→团队→融资→愿景</p>
-        </div>
-        <span class="doc-badge">12章</span>
-      </a>
-      <a href="docs/Nexum_Pitch_Deck.pptx" class="doc-card" data-reveal data-delay="1">
-        <div class="doc-icon" style="color:#60a5fa;">PT</div>
-        <div class="doc-info">
-          <h4>路演演示文稿</h4>
-          <p>12页专业投资者级演示，暗色主题，数据驱动</p>
-        </div>
-        <span class="doc-badge">PPTX</span>
-      </a>
-      <a href="docs/Nexum_One_Product_Visualization.html" class="doc-card" data-reveal data-delay="2">
-        <div class="doc-icon" style="color:#60a5fa;">3D</div>
-        <div class="doc-info">
-          <h4>产品可视化</h4>
-          <p>Apple风格产品展示页，SVG架构图，控制盒爆炸视图</p>
-        </div>
-        <span class="doc-badge">交互式</span>
-      </a>
-      <a href="docs/Nexum_One_Product_Renders.html" class="doc-card" data-reveal data-delay="2">
-        <div class="doc-icon" style="color:#60a5fa;">VR</div>
-        <div class="doc-info">
-          <h4>产品渲染图集</h4>
-          <p>8张一致性AI渲染图：EEG头带、NeuroSuit、控制盒、完整系统</p>
-        </div>
-        <span class="doc-badge">8张</span>
-      </a>
-      <a href="docs/Nexum_System_Engineering_Diagrams.html" class="doc-card" data-reveal data-delay="2">
-        <div class="doc-icon" style="color:#60a5fa;">SG</div>
-        <div class="doc-info">
-          <h4>系统工程图</h4>
-          <p>系统框图、电源树、固件任务图、控制环路 SVG技术图表</p>
-        </div>
-        <span class="doc-badge">4组图</span>
-      </a>
-      <a href="docs/Nexum_App_UI_Mockups.html" class="doc-card" data-reveal data-delay="3">
-        <div class="doc-icon" style="color:#60a5fa;">AP</div>
-        <div class="doc-info">
-          <h4>App UI 设计</h4>
-          <p>患者端+治疗师端：训练界面、实时生物反馈、进度报告</p>
-        </div>
-        <span class="doc-badge">4屏</span>
-      </a>
-      <a href="docs/Nexum_One_Engineering_Architecture_v0.1.md" class="doc-card" data-reveal data-delay="3">
-        <div class="doc-icon" style="color:#60a5fa;">EA</div>
-        <div class="doc-info">
-          <h4>工程架构文档</h4>
-          <p>系统架构、数据流、器件选型、工程风险、6个月原型计划</p>
-        </div>
-        <span class="doc-badge">34KB</span>
-      </a>
-      <a href="docs/Nexum_One_PRD_v1.0.md" class="doc-card" data-reveal data-delay="3">
-        <div class="doc-icon" style="color:#60a5fa;">PR</div>
-        <div class="doc-info">
-          <h4>产品需求文档</h4>
-          <p>用户需求→工程需求→功能需求→非功能需求→竞品对标</p>
-        </div>
-        <span class="doc-badge">v1.0</span>
-      </a>
-      <a href="docs/README.md" class="doc-card" data-reveal data-delay="4">
-        <div class="doc-icon" style="color:#60a5fa;">IN</div>
-        <div class="doc-info">
-          <h4>全部文档索引</h4>
-          <p>完整工程文档清单：BOM、固件、PCB、装配、测试、临床、注册</p>
-        </div>
-        <span class="doc-badge">12文档</span>
-      </a>
     </div>
   </div>
 </section>
@@ -1809,9 +2156,8 @@ footer .footer-brand-desc {
       <ul class="footer-links">
         <li><a href="#product">产品</a></li>
         <li><a href="#technology">技术</a></li>
-        <li><a href="#market">市场</a></li>
+        <li><a href="#app">App</a></li>
         <li><a href="#team">团队</a></li>
-        <li><a href="#documents">文档</a></li>
         <li><a href="#contact">联系</a></li>
       </ul>
     </div>
@@ -1835,7 +2181,7 @@ footer .footer-brand-desc {
   </div>
   <div class="footer-bottom">
     <p>Confidential — For Investor Use Only</p>
-    <p style="margin-top:4px;font-size:10px;color:#475569;">&copy; 2026 逐念而行 Nexum. 人机共生 · Human-Machine Symbiosis</p>
+    <p style="margin-top:4px;font-size:10px;color:var(--text-disabled);">&copy; 2026 逐念而行 Nexum. 人机共生 · Human-Machine Symbiosis</p>
   </div>
 </footer>
 
@@ -1845,7 +2191,7 @@ footer .footer-brand-desc {
   'use strict';
 
   /* ============================================================
-     MOBILE NAV TOGGLE
+     MOBILE NAV TOGGLE — Full-Screen Overlay
      ============================================================ */
   var navToggle = document.getElementById('navToggle');
   var navLinks = document.getElementById('navLinks');
@@ -1853,11 +2199,13 @@ footer .footer-brand-desc {
     navToggle.addEventListener('click', function() {
       navLinks.classList.toggle('open');
       navToggle.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
     });
     navLinks.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
         navLinks.classList.remove('open');
         navToggle.classList.remove('active');
+        document.body.style.overflow = '';
       });
     });
   }
@@ -1940,6 +2288,62 @@ footer .footer-brand-desc {
       });
     }, { threshold: 0.3 });
     barObserver.observe(latencyBar);
+  }
+
+  /* ============================================================
+     3D TILT ON PRODUCT CARDS (~50 lines vanilla JS)
+     ============================================================ */
+  var tiltCards = document.querySelectorAll('.product-card');
+  tiltCards.forEach(function(card) {
+    var img = card.querySelector('.product-card-img');
+    card.addEventListener('mousemove', function(e) {
+      var rect = card.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width;
+      var y = (e.clientY - rect.top) / rect.height;
+      var rotateX = (y - 0.5) * -16;
+      var rotateY = (x - 0.5) * 16;
+      card.style.setProperty('--rx', rotateX + 'deg');
+      card.style.setProperty('--ry', rotateY + 'deg');
+      if (img) {
+        var ix = (x - 0.5) * 8;
+        var iy = (y - 0.5) * -8;
+        img.style.transform = 'translate(' + ix + 'px, ' + iy + 'px) scale(1.05)';
+      }
+    });
+    card.addEventListener('mouseleave', function() {
+      card.style.setProperty('--rx', '0deg');
+      card.style.setProperty('--ry', '0deg');
+      if (img) {
+        img.style.transform = '';
+      }
+    });
+  });
+
+  /* ============================================================
+     GALLERY DOT INDICATORS
+     ============================================================ */
+  var galleryTrack = document.getElementById('galleryTrack');
+  var galleryDots = document.querySelectorAll('.gallery-dot');
+  if (galleryTrack && galleryDots.length) {
+    function updateGalleryDots() {
+      var scrollLeft = galleryTrack.scrollLeft;
+      var slideWidth = galleryTrack.querySelector('.gallery-slide')?.offsetWidth + 24 || 1;
+      var activeIndex = Math.round(scrollLeft / slideWidth);
+      if (activeIndex >= galleryDots.length) activeIndex = galleryDots.length - 1;
+      if (activeIndex < 0) activeIndex = 0;
+      galleryDots.forEach(function(dot, i) {
+        dot.classList.toggle('active', i === activeIndex);
+      });
+    }
+    galleryTrack.addEventListener('scroll', updateGalleryDots, { passive: true });
+    galleryDots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        var index = parseInt(this.getAttribute('data-index'));
+        var slideWidth = galleryTrack.querySelector('.gallery-slide')?.offsetWidth + 24 || 0;
+        galleryTrack.scrollTo({ left: index * slideWidth, behavior: 'smooth' });
+      });
+    });
+    setTimeout(updateGalleryDots, 300);
   }
 
   /* ============================================================
