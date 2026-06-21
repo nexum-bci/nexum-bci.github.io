@@ -25,8 +25,8 @@ Pre-revenue。原型阶段。种子轮 2026 Q3。NMPA二类创新器械申报 20
 
 ## 文档
 
-- [商业计划书 (HTML)](BP.html)
-- [商业计划书 (PDF)](BP.pdf)
+- [商业计划书 (HTML)](逐念而行_Nexum_BP.html)
+- [商业计划书 (PDF)](逐念而行_Nexum_BP.pdf)
 
 ---
 
