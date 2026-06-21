@@ -683,7 +683,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
   display:flex;
   flex-direction:column;
   background:#000;
-  color:#fff
+  color:#fff;
+  /* Figure SVG colors (always on dark phone bg) */
+  --fig-body-fill: rgba(255,255,255,0.04);
+  --fig-body-stroke: rgba(255,255,255,0.08);
+  --fig-joint-fill: rgba(255,255,255,0.55);
+  --fig-joint-stroke: rgba(0,150,240,0.3);
+  --fig-text-color: rgba(255,255,255,0.3);
+  --fig-inactive-bg: rgba(255,255,255,0.06);
+  --fig-inactive-border: rgba(255,255,255,0.08);
 }
 .phone-screen-content{
   flex:1;
@@ -1452,7 +1460,7 @@ footer a:hover{color:var(--text)}
   <div class="container">
     <div class="section-title-center">
       <h2 class="section-title">Nexum App</h2>
-      <p class="section-sub section-sub-center">运行个性化AI策略引擎，提供实时生物反馈与康复进度追踪。三大核心界面覆盖训练全流程体验。</p>
+      <p class="section-sub section-sub-center">患者端 + 治疗师端，覆盖训练全流程</p>
     </div>
     <div class="app-mockups">
       <!-- Phone 1: Training Dashboard -->
@@ -1566,23 +1574,63 @@ footer a:hover{color:var(--text)}
               <div class="phone-train-metric"><div class="tm-v" style="color:#34c759">94%</div><div class="tm-l">对称性</div></div>
             </div>
             <!-- Muscle activation -->
-            <div style="font-size:8px;color:var(--text-secondary);margin-bottom:2px;letter-spacing:.3px;text-transform:uppercase">肌群激活</div>
+            <div style="font-size:8px;color:var(--text-secondary);margin-bottom:2px;letter-spacing:.3px;text-transform:uppercase">肌群激活热图</div>
             <div style="display:flex;align-items:center;gap:4px;margin-bottom:4px">
-              <div style="flex:1;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.02);border-radius:6px;position:relative">
-                <svg width="60" height="48" viewBox="0 0 60 48">
-                  <ellipse cx="30" cy="6" rx="8" ry="9" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                  <path d="M20 14h20l-5 22h-10z" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                  <rect x="24" y="20" width="12" height="6" rx="2" fill="rgba(0,150,240,0.15)"/>
-                  <rect x="18" y="34" width="10" height="8" rx="2" fill="rgba(255,159,10,0.2)"/>
-                  <rect x="32" y="34" width="10" height="8" rx="2" fill="rgba(52,199,89,0.25)"/>
+              <div style="display:flex;align-items:center;justify-content:center">
+                <svg width="76" height="100" viewBox="0 0 100 130">
+                  <defs>
+                    <linearGradient id="phHeatHigh" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#34c759" stop-opacity="0.5"/>
+                      <stop offset="100%" stop-color="#34c759" stop-opacity="0.15"/>
+                    </linearGradient>
+                    <linearGradient id="phHeatMid" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#ff9f0a" stop-opacity="0.5"/>
+                      <stop offset="100%" stop-color="#ff9f0a" stop-opacity="0.15"/>
+                    </linearGradient>
+                    <linearGradient id="phHeatLow" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#0096f0" stop-opacity="0.3"/>
+                      <stop offset="100%" stop-color="#0096f0" stop-opacity="0.08"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- Head -->
+                  <ellipse cx="50" cy="8" rx="14" ry="16" fill="var(--fig-body-fill)" stroke="var(--fig-body-stroke)" stroke-width="1"/>
+                  <!-- Neck -->
+                  <rect x="44" y="22" width="12" height="10" rx="3" fill="var(--fig-body-fill)" stroke="var(--fig-body-stroke)" stroke-width="1"/>
+                  <!-- Torso -->
+                  <path d="M 30 32 L 70 32 L 78 82 L 22 82 Z" fill="var(--fig-body-fill)" stroke="var(--fig-body-stroke)" stroke-width="1"/>
+                  <!-- Core -->
+                  <rect x="36" y="45" width="28" height="20" rx="4" fill="url(#phHeatLow)"/>
+                  <!-- Arms -->
+                  <path d="M 30 35 L 14 65 L 12 72" fill="none" stroke="var(--fig-body-stroke)" stroke-width="7" stroke-linecap="round"/>
+                  <path d="M 70 35 L 86 65 L 88 72" fill="none" stroke="var(--fig-body-stroke)" stroke-width="7" stroke-linecap="round"/>
+                  <!-- Quads -->
+                  <rect x="26" y="78" width="22" height="24" rx="5" fill="url(#phHeatMid)"/>
+                  <rect x="52" y="78" width="22" height="24" rx="5" fill="url(#phHeatHigh)"/>
+                  <!-- Calves -->
+                  <rect x="30" y="100" width="16" height="20" rx="4" fill="url(#phHeatLow)"/>
+                  <rect x="54" y="100" width="16" height="20" rx="4" fill="url(#phHeatHigh)"/>
+                  <!-- Feet -->
+                  <ellipse cx="38" cy="122" rx="10" ry="4" fill="var(--fig-body-fill)" stroke="var(--fig-body-stroke)" stroke-width="1"/>
+                  <ellipse cx="62" cy="122" rx="10" ry="4" fill="var(--fig-body-fill)" stroke="var(--fig-body-stroke)" stroke-width="1"/>
+                  <!-- Joints: Hip -->
+                  <circle cx="36" cy="78" r="2.5" fill="var(--fig-joint-fill)" stroke="var(--fig-joint-stroke)" stroke-width="0.8"/>
+                  <circle cx="64" cy="78" r="2.5" fill="var(--fig-joint-fill)" stroke="var(--fig-joint-stroke)" stroke-width="0.8"/>
+                  <!-- Joints: Knee -->
+                  <circle cx="37" cy="100" r="2.5" fill="var(--fig-joint-fill)" stroke="var(--fig-joint-stroke)" stroke-width="0.8"/>
+                  <circle cx="63" cy="100" r="2.5" fill="var(--fig-joint-fill)" stroke="var(--fig-joint-stroke)" stroke-width="0.8"/>
+                  <!-- Joints: Ankle -->
+                  <circle cx="38" cy="119" r="2" fill="var(--fig-joint-fill)" stroke="var(--fig-joint-stroke)" stroke-width="0.8"/>
+                  <circle cx="62" cy="119" r="2" fill="var(--fig-joint-fill)" stroke="var(--fig-joint-stroke)" stroke-width="0.8"/>
+                  <!-- Labels -->
+                  <text x="24" y="101" font-size="6" fill="var(--fig-text-color)">左</text>
+                  <text x="70" y="101" font-size="6" fill="var(--fig-text-color)">右</text>
                 </svg>
-                <span style="position:absolute;bottom:4px;left:6px;font-size:6px;color:var(--text-secondary);opacity:.5">左</span>
-                <span style="position:absolute;bottom:4px;right:6px;font-size:6px;color:var(--text-secondary);opacity:.5">右</span>
               </div>
-              <div style="display:flex;flex-direction:column;gap:2px;font-size:7px;color:var(--text-secondary)">
-                <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:#34c759;margin-right:3px;vertical-align:middle"></span>高度</span>
-                <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:#ff9f0a;margin-right:3px;vertical-align:middle"></span>中度</span>
-                <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:rgba(0,150,240,0.3);margin-right:3px;vertical-align:middle"></span>低度</span>
+              <div style="display:flex;flex-direction:column;gap:2px;font-size:7px;color:var(--text-secondary);flex-shrink:0">
+                <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:#34c759;margin-right:3px;vertical-align:middle"></span>高度激活</span>
+                <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:#ff9f0a;margin-right:3px;vertical-align:middle"></span>中度激活</span>
+                <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:rgba(0,150,240,0.45);margin-right:3px;vertical-align:middle"></span>低度激活</span>
+                <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:var(--fig-inactive-bg);border:1px solid var(--fig-inactive-border);margin-right:3px;vertical-align:middle"></span>未激活</span>
               </div>
             </div>
             <!-- Assist level -->
