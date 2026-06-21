@@ -510,6 +510,20 @@ nav .container{
 }
 .portal-card h3{font-size:18px;font-weight:600;margin-bottom:6px;color:var(--text)}
 .portal-card p{font-size:14px;color:var(--text-secondary);line-height:1.6}
+.portal-card .page-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  margin-top:12px;
+  font-size:11px;
+  font-weight:600;
+  color:var(--accent);
+  background:var(--accent-subtle);
+  padding:4px 10px;
+  border-radius:20px;
+  letter-spacing:.3px
+}
+.portal-card .page-badge svg{width:12px;height:12px;flex-shrink:0}
 .portal-card .arrow{
   display:inline-block;
   margin-top:12px;
@@ -862,7 +876,7 @@ footer a:hover{color:var(--text)}
   <div class="container">
     <a href="#" class="nav-logo">
       <img src="favicon.svg" width="24" height="24" alt="Nexum logo" decoding="async">
-      Nexum逐念而行
+      Nexum 逐念而行
     </a>
     <div class="nav-links">
       <a href="#product">产品</a>
@@ -1124,26 +1138,26 @@ footer a:hover{color:var(--text)}
 <section id="documents" class="section">
   <div class="container">
     <div class="section-title-center">
-      <h2 class="section-title">深入了解 Nexum One</h2>
-      <p class="section-sub section-sub-center">从产品设计到临床验证，每个维度都有完整的技术文档支撑</p>
+      <h2 class="section-title">文档门户</h2>
+      <p class="section-sub section-sub-center">每个文档都是独立完整页面 — 含完整导航、文档元信息与交叉引用，点击即可深入阅读</p>
     </div>
 
-    <!-- Row 1: Featured cards -->
+    <!-- Row 1: Featured L2 pages -->
     <div class="portal-grid portal-grid-featured">
       <a href="product.html" class="portal-card portal-card-featured" style="--accent:#0071e3">
-        <span class="portal-card-label">PRODUCT</span>
+        <span class="portal-card-label">L2 · PRODUCT</span>
         <h3>产品详情</h3>
         <p>三件套深度展示 · 渲染图集 · 规格对比 · 产品可视化</p>
         <span class="arrow">查看产品 →</span>
       </a>
       <a href="technology.html" class="portal-card portal-card-featured" style="--accent:#5e5ce6">
-        <span class="portal-card-label">TECHNOLOGY</span>
+        <span class="portal-card-label">L2 · TECHNOLOGY</span>
         <h3>技术架构</h3>
         <p>4步AI闭环 · 延迟分解 · 系统工程图 · AI流程图</p>
         <span class="arrow">查看技术 →</span>
       </a>
       <a href="app.html" class="portal-card portal-card-featured" style="--accent:#30d158">
-        <span class="portal-card-label">DESIGN</span>
+        <span class="portal-card-label">L2 · DESIGN</span>
         <h3>App 设计</h3>
         <p>患者端+治疗师端 · 7屏Mockup · 设计系统 · UI组件</p>
         <span class="arrow">查看设计 →</span>
@@ -1152,53 +1166,53 @@ footer a:hover{color:var(--text)}
 
     <!-- Row 2: Grid cards -->
     <div class="portal-grid portal-grid-secondary">
-      <a href="docs/Nexum_One_Product_Visualization.html" class="portal-card" style="--accent:#ff9f0a">
+      <a href="docs/product-visualization.html" class="portal-card" style="--accent:#ff9f0a">
         <span class="portal-card-label">VISUAL</span>
         <h3>产品可视化</h3>
         <p>Apple风格展示 · SVG架构图 · 爆炸视图</p>
-        <span class="arrow">View →</span>
+        <span class="page-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> 完整页面</span>
       </a>
-      <a href="docs/Nexum_One_Product_Renders.html" class="portal-card" style="--accent:#ff375f">
+      <a href="docs/product-renders.html" class="portal-card" style="--accent:#ff375f">
         <span class="portal-card-label">RENDERS</span>
         <h3>产品渲染图集</h3>
         <p>14张AI渲染图 · EEG头带 · 肌动服 · 系统</p>
-        <span class="arrow">View →</span>
+        <span class="page-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> 完整页面</span>
       </a>
-      <a href="docs/Nexum_System_Engineering_Diagrams.html" class="portal-card" style="--accent:#64d2ff">
+      <a href="docs/engineering-diagrams.html" class="portal-card" style="--accent:#64d2ff">
         <span class="portal-card-label">ENGINEERING</span>
         <h3>系统工程图</h3>
         <p>系统框图 · 电源树 · 固件 · 控制环路</p>
-        <span class="arrow">View →</span>
+        <span class="page-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> 完整页面</span>
       </a>
-      <a href="docs/Nexum_One_Engineering_Architecture.html" class="portal-card" style="--accent:#0071e3">
+      <a href="docs/engineering-architecture.html" class="portal-card" style="--accent:#0071e3">
         <span class="portal-card-label">ARCHITECTURE</span>
         <h3>工程架构</h3>
         <p>系统架构 · 数据流 · 器件选型 · 原型计划</p>
         <span class="badge">v0.1</span>
       </a>
-      <a href="docs/Nexum_One_Clinical_Protocol.html" class="portal-card" style="--accent:#30d158">
+      <a href="docs/clinical-protocol.html" class="portal-card" style="--accent:#30d158">
         <span class="portal-card-label">CLINICAL</span>
         <h3>临床方案</h3>
         <p>30例预临床 · 终点定义 · 统计分析计划</p>
-        <span class="badge">v1.0</span>
+        <span class="badge">v0.1</span>
       </a>
-      <a href="docs/Nexum_One_PRD.html" class="portal-card" style="--accent:#5856d6">
+      <a href="docs/prd.html" class="portal-card" style="--accent:#5856d6">
         <span class="portal-card-label">PRD</span>
         <h3>产品需求文档</h3>
         <p>用户需求→工程需求 · 竞品对标 · 功能需求</p>
         <span class="badge">v1.0</span>
       </a>
-      <a href="docs/Nexum_One_Production_BOM.html" class="portal-card" style="--accent:#8e8e93">
+      <a href="docs/production-bom.html" class="portal-card" style="--accent:#8e8e93">
         <span class="portal-card-label">BOM</span>
         <h3>生产BOM</h3>
         <p>物料清单 · 供应商 · 成本核算</p>
         <span class="badge">Draft</span>
       </a>
-      <a href="docs/Nexum_One_Regulatory_Strategy.html" class="portal-card" style="--accent:#af52de">
+      <a href="docs/regulatory-strategy.html" class="portal-card" style="--accent:#af52de">
         <span class="portal-card-label">REGULATORY</span>
         <h3>注册策略</h3>
         <p>NMPA二类创新器械 · 分类界定</p>
-        <span class="badge">Strategy</span>
+        <span class="badge">v0.1</span>
       </a>
     </div>
 
@@ -1461,7 +1475,7 @@ footer a:hover{color:var(--text)}
     <div class="footer-brand">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
         <img src="favicon.svg" width="24" height="24" alt="Nexum" loading="lazy" decoding="async">
-        <span style="font-weight:700;font-size:16px;color:var(--text)">Nexum逐念而行</span>
+        <span style="font-weight:700;font-size:16px;color:var(--text)">Nexum 逐念而行</span>
       </div>
       <p class="footer-tagline">从大脑到肌肉的AI。读取大脑运动意图，AI生成个性化策略，驱动轻量穿戴式外骨骼，持续进化——定义人机共生。</p>
       <div class="footer-social">
@@ -1479,9 +1493,9 @@ footer a:hover{color:var(--text)}
     <div>
       <h4>文档</h4>
       <a href="逐念而行_Nexum_BP.html">商业计划书</a>
-      <a href="docs/Nexum_One_PRD.html">产品需求文档</a>
-      <a href="docs/Nexum_One_Clinical_Protocol.html">临床方案</a>
-      <a href="docs/Nexum_One_Engineering_Architecture.html">工程架构</a>
+      <a href="docs/prd.html">产品需求文档</a>
+      <a href="docs/clinical-protocol.html">临床方案</a>
+      <a href="docs/engineering-architecture.html">工程架构</a>
       <a href="docs/README.md">文档索引</a>
     </div>
     <div>

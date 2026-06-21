@@ -47,14 +47,14 @@ nexum/
 ├── app.html                 L2: App UI showcase (patient + therapist screens)
 ├── 逐念而行_Nexum_BP.html   Independent: Investor BP (existing, sync theme)
 └── docs/                    L3: Document center (PRD, clinical, BOM, etc.)
-    ├── Nexum_One_PRD.html
-    ├── Nexum_One_Clinical_Protocol.html
-    ├── Nexum_One_Engineering_Architecture.html
-    ├── Nexum_One_Production_BOM.html
-    ├── Nexum_One_Regulatory_Strategy.html
-    ├── Nexum_One_Product_Renders.html
-    ├── Nexum_System_Engineering_Diagrams.html
-    └── Nexum_App_UI_Mockups.html
+    ├── prd.html
+    ├── clinical-protocol.html
+    ├── engineering-architecture.html
+    ├── production-bom.html
+    ├── regulatory-strategy.html
+    ├── product-renders.html
+    ├── engineering-diagrams.html
+    └── app-ui-mockups.html
 ```
 
 ## 3. Homepage Sections (index.html)
@@ -129,15 +129,15 @@ nexum/
 - `index.html` — full redesign with new theme, layout, animations
 
 ### Theme Sync (CSS-only update):
-- `docs/Nexum_One_PRD.html`
-- `docs/Nexum_One_Clinical_Protocol.html`
-- `docs/Nexum_One_Engineering_Architecture.html`
-- `docs/Nexum_One_Production_BOM.html`
-- `docs/Nexum_One_Regulatory_Strategy.html`
-- `docs/Nexum_One_Product_Visualization.html`
-- `docs/Nexum_One_Product_Renders.html`
-- `docs/Nexum_System_Engineering_Diagrams.html`
-- `docs/Nexum_App_UI_Mockups.html`
+- `docs/prd.html`
+- `docs/clinical-protocol.html`
+- `docs/engineering-architecture.html`
+- `docs/production-bom.html`
+- `docs/regulatory-strategy.html`
+- `docs/product-visualization.html`
+- `docs/product-renders.html`
+- `docs/engineering-diagrams.html`
+- `docs/app-ui-mockups.html`
 - `逐念而行_Nexum_BP.html`
 
 ## 9. Text Clarity Checklist (per page)
