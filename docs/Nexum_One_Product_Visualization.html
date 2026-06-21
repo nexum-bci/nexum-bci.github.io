@@ -682,7 +682,6 @@ footer .footer-divider {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 768px) {
-  nav .nav-links { display: none; }
   .hero { min-height: 90vh; padding: 60px 20px 40px; }
   .hero .hero-metrics { gap: 24px; }
   .hero .metric .value { font-size: 24px; }
@@ -1645,31 +1644,8 @@ SCRIPTS
   'use strict';
 
   // ============================================================
-  // NAVBAR HIDE/SHOW ON SCROLL
+  // NAV — always visible (simplified)
   // ============================================================
-  var navbar = document.getElementById('navbar');
-  var lastScrollY = 0;
-  var ticking = false;
-
-  function updateNav() {
-    var currentY = window.scrollY;
-    if (currentY < 80) {
-      navbar.classList.remove('hidden');
-    } else if (currentY > lastScrollY) {
-      navbar.classList.add('hidden');
-    } else {
-      navbar.classList.remove('hidden');
-    }
-    lastScrollY = currentY;
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(updateNav);
-      ticking = true;
-    }
-  }, { passive: true });
 
   // ============================================================
   // INTERSECTION OBSERVER — SCROLL REVEAL
@@ -1696,25 +1672,8 @@ SCRIPTS
   }
 
   // ============================================================
-  // SMOOTH SCROLL FOR NAV LINKS
+  // (smooth-scroll removed — nav simplified to portal link only)
   // ============================================================
-  var navLinks = document.querySelectorAll('.nav-links a');
-  navLinks.forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      var targetId = this.getAttribute('href');
-      if (targetId && targetId.startsWith('#')) {
-        var targetEl = document.querySelector(targetId);
-        if (targetEl) {
-          e.preventDefault();
-          var targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
-          window.scrollTo({
-            top: targetPos,
-            behavior: 'smooth'
-          });
-        }
-      }
-    });
-  });
 
 })();
 </script>

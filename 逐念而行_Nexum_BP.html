@@ -462,6 +462,58 @@ sEMG双模态神经接口</h3>
 <h3 id="nmpa路径">4.4 监管路径</h3>
 
 <p>NMPA二类创新器械路径。参考DAAI外骨骼先例，获批约15-18个月。非侵入BCI适配已进入国家医疗服务价格目录——湖北、江苏、浙江三省定价¥960-966/次，2025年3月国家医保局发布《神经系统类医疗服务价格项目立项指南》。</p>
+<h3 id="预期效果">4.5 预期临床效果：基于已发表文献的参考范围</h3>
+<p><strong>重要声明</strong>：以下数据为<strong>同类设备在已发表临床研究中的结果</strong>，非Nexum One自身临床数据。Nexum One临床研究待种子轮融资后启动。此处引用旨在提供"技术路线可触及的合理效果范围"参考。数值均标注原始研究来源与证据等级。</p>
+
+<h4>神经康复（中风/SCI）— 基于已发表RCT与荟萃分析</h4>
+<table>
+<thead><tr><th>指标</th><th>已发表效果</th><th>来源</th><th>证据等级</th></tr></thead>
+<tbody>
+<tr><td>6MWT（步行耐力）</td><td>+44 ~ +55.5 m</td><td>JNER 2024 (hip exo trial); Fang et al. 2020 meta (SCI, 18 studies)</td><td>RCT / Meta</td></tr>
+<tr><td>10MWT（步行速度）</td><td>+0.07 ~ +0.12 m/s</td><td>Yang et al. 2024 (Frontiers in Neurology, 34 RCTs, n=1,166); JNER 2024</td><td>Meta / RCT</td></tr>
+<tr><td>FMA-LE（下肢运动功能）</td><td>+1.15 ~ +2.59 分</td><td>Yang et al. 2024 (MD=1.15); JNER 2024 (+2.59)</td><td>Meta / RCT</td></tr>
+<tr><td>BBS（平衡能力）</td><td>+2.34 分</td><td>Yang et al. 2024 (MD=2.34, 95%CI 0.21-4.47)</td><td>Meta</td></tr>
+<tr><td>TUG（功能性移动）</td><td>改善趋势（多数研究为正向）</td><td>Daliri et al. 2024 hip exo meta</td><td>Meta</td></tr>
+<tr><td>步行独立性（FAC）</td><td>OR=2.01（机器人训练 vs 常规）</td><td>Cochrane 2020 (Mehrholz, 62 trials, n=2,440)</td><td>Cochrane</td></tr>
+<tr><td>HAL vs 被动外骨骼（6MWT）</td><td>HAL改善幅度高39%（78% vs 47%）</td><td>Chiu et al. 2025 (Global Spine Journal, 27 studies)</td><td>系统综述</td></tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>关键洞察</strong>：HAL（EMG主动驱动）在6MWT和10MWT上<strong>显著优于</strong>被动式外骨骼（ReWalk、Ekso）（Mann-Whitney U=20.00, p=0.023）。这验证了"意图驱动优于预设模式"的技术方向——逐念而行的EEG+AI策略属于更进一步的意图驱动范式。</p>
+</blockquote>
+
+<h4>老年行动力 — 基于已发表研究</h4>
+<table>
+<thead><tr><th>指标</th><th>已发表效果</th><th>来源</th></tr></thead>
+<tbody>
+<tr><td>最大步速</td><td>+0.13 m/s</td><td>Daliri et al. 2024 (BMC Musculoskeletal Disorders, 14 trials meta)</td></tr>
+<tr><td>氧消耗</td><td>-1.23 ml/min/kg</td><td>Daliri et al. 2024 meta</td></tr>
+<tr><td>能量运输成本（COT）</td><td>-25%（个体优化）</td><td>Lakmazaheri et al. 2024 (JNER, n=10, >65岁, 人-in-the-loop优化)</td></tr>
+<tr><td>代谢消耗</td><td>显著降低</td><td>Lee et al. 2023 (Scientific Reports, n=60, EX1 hip-assist robot)</td></tr>
+</tbody>
+</table>
+
+<h4>健康人群增强 — 基于已发表实验数据</h4>
+<table>
+<thead><tr><th>指标</th><th>已发表效果</th><th>来源</th></tr></thead>
+<tbody>
+<tr><td>代谢消耗降低（髋+踝）</td><td>-22.8%（-1.02 W/kg）</td><td>Quinlivan et al. 2016 (Harvard exosuit)</td></tr>
+<tr><td>代谢消耗降低（多关节最大）</td><td>-48%（-2.29 W/kg）</td><td>Bryan et al. 2021 (Stanford, JNER)</td></tr>
+<tr><td>单髋关节辅助代谢降低</td><td>~-22%（~-0.7 W/kg）</td><td>Stanford simulation study 2021</td></tr>
+</tbody>
+</table>
+
+<h4>Nexum One的差异化预期</h4>
+<p>基于上述已发表数据，Nexum One的AI个性化策略预期在以下维度产生增量改善：</p>
+<ul>
+<li><strong>效果提升机制</strong>：HAL（EMG主动）vs 被动外骨骼的荟萃分析已证明，意图驱动比被动模式在6MWT上改善高39%。Nexum One的EEG运动准备电位检测发生在肌肉激活前~0.5秒，比HAL的EMG检测更早、更直接，具备进一步缩小"意图→执行"延迟的理论优势。</li>
+<li><strong>个体化机制</strong>：Lakmazaheri et al. (2024)已证明人-in-the-loop优化可使老年人COT降低25%。Nexum One的持续AI学习可逼近这一优化过程，且不需要每次去医院重新校准。</li>
+<li><strong>数据飞轮机制</strong>：联邦学习架构使每台设备的使用数据持续优化共享模型——这是任何现有外骨骼不具备的能力。</li>
+</ul>
+<blockquote>
+<p><strong>诚实边界</strong>：Nexum One目前没有自己的临床数据。以上所有效果数字均来自已发表的同类设备研究，用来说明"技术路线可能达到什么效果"而非"Nexum One已经达到了什么效果"。预临床研究（30例）的首要终点为安全性+SADE率+意图检测AUC；效果终点（6MWT、10MWT、FMA-LE）为探索性分析。确证性临床效果需在NMPA注册研究中报告。</p>
+</blockquote>
+
 <h2 id="竞争">5. 竞争</h2>
 
 <h3 id="竞争全景">5.1 竞争全景</h3>
