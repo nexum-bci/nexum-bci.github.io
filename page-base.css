@@ -470,6 +470,96 @@ tbody tr:hover td{background:var(--accent-subtle)!important}
   background:rgba(0,0,0,0.01)
 }
 
+
+/* ============================================================
+   UNIFIED INTERACTION SYSTEM — Apple aesthetic
+   Hover: subtle lift + shadow. Active: press down.
+   Focus: visible ring. All transitions: spring easing.
+   ============================================================ */
+
+/* All interactive elements — spring transitions */
+a,button,.card,.portal-card,.product-card,.render-card,
+.market-card,.why-card,.team-card,.risk-card,.stat-card,
+.phone-mockup,.render-img img,.diagram-section,.content-card,
+.faq-question,.specs-group-title,.theme-btn,.nav-cta,.btt-btn{
+  -webkit-tap-highlight-color:transparent
+}
+
+/* Press state — universal scale-down feedback */
+button:active:not(.theme-btn):not(.nav-toggle),
+.btn:active,.nav-cta:active,.portal-card:active,
+.phone-mockup:active,.faq-question:active,.specs-group-title:active{
+  transform:scale(.97)!important;
+  transition:transform .1s var(--ease-apple)
+}
+
+/* Card universal hover — lift + shadow */
+.card:hover,.content-card:hover,.market-card:hover,.why-card:hover,
+.team-card:hover,.portal-card:hover,.product-card:hover,.render-card:hover,
+.risk-card:hover,.stat-card:hover,.diagram-section:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-lg);
+  transition:transform .4s var(--ease-apple),box-shadow .4s var(--ease-apple)
+}
+
+/* Dark mode hover — deeper shadow */
+[data-theme="dark"] .card:hover,[data-theme="dark"] .content-card:hover,
+[data-theme="dark"] .portal-card:hover{
+  box-shadow:0 8px 32px rgba(0,0,0,.5)
+}
+
+/* Nav link hover — smooth color shift */
+.nav-links a{transition:color .25s ease,opacity .25s ease}
+.nav-links a:hover{opacity:.85}
+
+/* Footer link hover — slide right */
+.footer-col a{transition:color .2s ease,transform .25s var(--ease-apple)}
+.footer-col a:hover{color:var(--accent);transform:translateX(3px)}
+
+/* Social icon hover — rotate + color */
+.footer-social a{transition:all .3s var(--ease-apple)}
+.footer-social a:hover{transform:translateY(-2px);color:var(--accent);border-color:var(--accent)}
+
+/* Theme toggle hover — subtle glow */
+.theme-btn{transition:all .25s ease}
+.theme-btn:hover{box-shadow:0 0 0 3px var(--accent-subtle)}
+
+/* Button hover — lift + shadow */
+.nav-cta{transition:all .3s var(--ease-apple)}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,113,227,.3)}
+
+/* Table row hover — smooth highlight */
+tbody tr{transition:background .15s ease}
+tbody tr:hover td{background:var(--accent-subtle)}
+
+/* FAQ/accordion hover — color shift */
+.faq-question,.specs-group-title{transition:color .25s ease,padding .25s ease}
+.faq-question:hover,.specs-group-title:hover{color:var(--accent)}
+
+/* Image hover zoom — smooth */
+.img-zoom img,.render-img img,.product-card-image img{
+  transition:transform .6s var(--ease-apple)
+}
+.img-zoom:hover img,.render-card:hover .render-img img,
+.product-card:hover .product-card-image img{
+  transform:scale(1.04)
+}
+
+/* Back-to-top hover — lift */
+.btt-btn{transition:all .35s var(--ease-apple)}
+.btt-btn:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
+
+/* Phone mockup hover — gentle lift */
+.phone-mockup{transition:transform .4s var(--ease-apple),box-shadow .4s var(--ease-apple)}
+.phone-mockup:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.15)}
+
+/* Disable hover on touch devices */
+@media(hover:none){
+  .card:hover,.content-card:hover,.portal-card:hover,.product-card:hover,
+  .phone-mockup:hover,.render-card:hover{transform:none!important;box-shadow:var(--shadow-sm)!important}
+  .card::before,.content-card::before{opacity:0!important}
+}
+
 /* ============================================================
    UNIFIED BORDER SYSTEM
    All borders use var(--border). No hardcoded colors.
