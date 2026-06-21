@@ -439,8 +439,8 @@ footer {
 <section class="hero">
  <div class="container">
  <h1>Nexum One 神经重连系统</h1>
- <p>从脑信号到身体动作的完整闭环。三个模块，无缝协作，重新定义神经损伤后的运动康复。</p>
- <p style="font-size:14px;color:var(--text-tertiary);max-width:560px;margin:-32px auto 48px;">EEG-Sense 读取运动意图，Control Box 生成AI辅助策略，NeuroSuit 精准执行关节助力。四个环节环环相扣，端到端延迟低于185毫秒，让你几乎感觉不到系统的存在，只感受到重新获得的身体控制力。</p>
+ <p>脑信号到身体动作的完整闭环。三个模块，无缝协作。</p>
+ <p style="font-size:14px;color:var(--text-tertiary);max-width:560px;margin:-32px auto 48px;">EEG-Sense 读取运动意图，Control Box 生成AI辅助策略，NeuroSuit 精准执行关节助力。端到端延迟 &lt;185ms。</p>
  <div class="hero-metrics">
  <div class="metric"><div class="metric-value">8ch</div><div class="metric-label">EEG 通道</div></div>
  <div class="metric"><div class="metric-value">&lt;80g</div><div class="metric-label">头带重量</div></div>
@@ -545,26 +545,26 @@ footer {
  <div class="pipeline">
  <div class="pipeline-step">
  <div class="step-icon">1</div>
- <h4>读取 Read</h4>
- <p>EEG-Sense 通过8通道干电极捕捉运动意图信号</p>
+ <h4>读取</h4>
+ <p>EEG-Sense 8通道干电极捕捉运动意图</p>
  </div>
  <div class="pipeline-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
  <div class="pipeline-step">
  <div class="step-icon">2</div>
- <h4>生成 Generate</h4>
- <p>Control Box 利用416肌肉数字孪生生成个性化辅助策略</p>
+ <h4>生成</h4>
+ <p>AI引擎基于416肌肉孪生生成个性化策略</p>
  </div>
  <div class="pipeline-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
  <div class="pipeline-step">
  <div class="step-icon">3</div>
- <h4>执行 Execute</h4>
- <p>NeuroSuit 鲍登线缆系统在正确的时间、正确的关节施加正确的力</p>
+ <h4>执行</h4>
+ <p>NeuroSuit 在正确的时间、关节施加正确的力</p>
  </div>
  <div class="pipeline-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
  <div class="pipeline-step evolve">
  <div class="step-icon">4</div>
- <h4>进化 Evolve</h4>
- <p>联邦学习让AI策略持续优化，每次使用都比上一次更懂你</p>
+ <h4>进化</h4>
+ <p>联邦学习让AI策略持续优化，每次使用都更懂你</p>
  </div>
  </div>
  </div>
@@ -621,7 +621,7 @@ footer {
  <div class="section-label">01 &#183; 读取 Read</div>
  <h3>EEG-Sense 神经信号读取</h3>
  <p class="en">Neural Signal Acquisition</p>
- <p class="desc">8通道干电极EEG头带，实时检测运动准备电位。在你产生运动意图的瞬间，EEG-Sense 已经开始捕捉神经信号。250SPS采样率和24bit ADC确保信号的高保真度，蓝牙5.2无线传输延迟低于20ms，为下游AI处理提供可靠的数据基础。</p>
+ <p class="desc">8通道干电极EEG头带，实时检测运动准备电位。250SPS采样率、24bit ADC、蓝牙5.2传输延迟&lt;20ms，为下游AI提供纯净信号基础。</p>
  <div class="spec-tags">
  <span class="spec-tag">80g</span>
  <span class="spec-tag">8通道干电极</span>
@@ -630,7 +630,7 @@ footer {
  <span class="spec-tag">8h续航</span>
  </div>
  <div class="component-connector">
- <strong>数据流向 Control Box：</strong>EEG-Sense 通过蓝牙5.2将原始脑电信号实时传输至 Control Box。端到端延迟低于20ms，确保AI能够在你的意图转化为动作之前完成识别和策略生成。头带内置9轴IMU辅助识别头部运动，进一步提升意图识别准确率。
+ <strong>数据流向 Control Box：</strong>蓝牙5.2实时传输原始脑电信号至 Control Box，延迟&lt;20ms。内置9轴IMU辅助识别头部运动，提升意图识别准确率。
  </div>
  <div class="outcome">运动意图在动作发生前约0.5秒被识别，准确率 &gt;85%</div>
  </div>
@@ -682,7 +682,7 @@ footer {
  <div class="section-label">02 &#183; 生成 Generate</div>
  <h3>Control Box 边缘AI处理器</h3>
  <p class="en">Edge AI Processing Unit</p>
- <p class="desc">Nexum One 的运算大脑。内置416肌肉数字孪生模型，基于强化学习的个性化策略每次使用都在进化。4 TOPS NPU加速器在边缘侧完成所有推理，无需云端连接，保障数据隐私和低延迟。3.5寸触摸屏提供实时系统状态显示和手动微调能力。</p>
+ <p class="desc">Nexum One 的运算大脑。416肌肉数字孪生 + 强化学习，每次使用都在进化。4 TOPS NPU边缘推理，无需云端，保障隐私和低延迟。3.5寸触摸屏支持实时状态显示和手动微调。</p>
  <div class="spec-tags">
  <span class="spec-tag">&lt;185ms</span>
  <span class="spec-tag">416肌肉孪生</span>
@@ -691,9 +691,9 @@ footer {
  <span class="spec-tag">4 TOPS NPU</span>
  </div>
  <div class="component-connector">
- <strong>从 EEG-Sense 接收 → 发送到 NeuroSuit：</strong>Control Box 接收来自 EEG-Sense 的脑电信号，经EEGNet解码运动意图，再由强化学习模型生成个性化辅助策略，最后通过蓝牙5.2将精确的驱动指令发送到 NeuroSuit 执行。三者之间形成毫秒级响应的实时控制环路。
+ <strong>从 EEG-Sense 接收 → 发送到 NeuroSuit：</strong>Control Box 接收脑电信号，经EEGNet解码意图，强化学习生成辅助策略，通过蓝牙5.2发送驱动指令至 NeuroSuit。毫秒级实时控制环路。
  </div>
- <div class="outcome">每次训练AI都在学习你的身体变化，本周的辅助策略和上周不同</div>
+ <div class="outcome">每次训练，AI都在学习你的身体变化。本周的策略和上周不同</div>
  </div>
  </div>
  </div>
@@ -751,7 +751,7 @@ footer {
  <span class="spec-tag">10秒穿脱</span>
  </div>
  <div class="component-connector">
- <strong>从 Control Box 接收驱动指令：</strong>NeuroSuit 接收来自 Control Box 的精确驱动指令，鲍登线缆系统在毫秒级响应时间内完成关节助力。内置磁编码器和6轴IMU传感器实时反馈关节角度和执行状态，形成闭环控制，确保辅助精度和安全性。
+ <strong>从 Control Box 接收驱动指令：</strong>鲍登线缆毫秒级响应，完成关节助力。内置磁编码器 + 6轴IMU实时反馈关节角度，闭环控制确保精度与安全。
  </div>
  <div class="outcome">在正确的时间、正确的关节、施加正确的力</div>
  </div>
@@ -765,8 +765,8 @@ footer {
  <div class="text-center section-label">完整系统</div>
  <h2 class="text-center">三位一体，无缝协作</h2>
  <p style="text-align:center;max-width:680px;margin:0 auto;font-size:15px;color:var(--text-secondary);line-height:1.7;">
-      EEG-Sense 读取脑信号 → Control Box 生成辅助策略 → NeuroSuit 执行关节助力 → 联邦学习让系统持续进化。
-      四个环节环环相扣，形成从脑信号到身体动作的完整神经重连闭环。
+      EEG-Sense 读取脑信号 → Control Box 生成辅助策略 → NeuroSuit 执行关节助力 → 联邦学习持续进化。
+      完整闭环，从意念到动作。
  </p>
  <div class="system-flow-diagram">
  <div class="sys-node">
@@ -828,14 +828,14 @@ footer {
  <div class="text-center section-label">核心特性</div>
  <h2 class="text-center">核心特性</h2>
  <div class="features-grid">
- <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg></div><div class="feature-text"><h4>毫秒级响应</h4><p>端到端延迟&lt;185ms，EEG到助力的流畅转换，人几乎感觉不到延迟的存在。</p></div></div>
- <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><path d="M12 2a4 4 0 014 4c0 2-4 6-4 6s-4-4-4-6a4 4 0 014-4z"/><circle cx="12" cy="6" r="1.5"/><path d="M9 20c-1-1-2-3-1-5l4-3 4 3c1 2 0 4-1 5"/></svg></div><div class="feature-text"><h4>个性化AI策略</h4><p>强化学习结合416肌肉数字孪生，为每位用户生成专属辅助方案，千人千面。</p></div></div>
- <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div><div class="feature-text"><h4>持续进化</h4><p>联邦学习框架让AI随使用而不断成长，本周的辅助策略和上周截然不同。</p></div></div>
- <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg></div><div class="feature-text"><h4>隐私安全</h4><p>神经数据本地处理，不上传云端。联邦学习仅交换加密模型梯度。</p></div></div>
- <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 14h5l-1 8 8-12h-5l1-8z"/><circle cx="17" cy="17" r="2"/><path d="M15 15l4 4"/></svg></div><div class="feature-text"><h4>轻量化设计</h4><p>系统总重&lt;1.5kg，鲍登线缆驱动减少穿戴负担，10秒快速穿脱。</p></div></div>
- <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="feature-text"><h4>临床验证</h4><p>与多家康复机构合作开展临床研究，首批数据验证系统有效性与安全性。</p></div></div>
- <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="7" y1="6" x2="7" y2="18"/><rect x="23" y="9" width="3" height="6" rx="1"/><line x1="20" y1="9" x2="20" y2="15"/></svg></div><div class="feature-text"><h4>三合一充电</h4><p>专属充电底座同时为三个模块充电，2小时满电，续航6-8小时满足全天训练。</p></div></div>
- <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="feature-text"><h4>模块化设计</h4><p>三大模块独立运作又紧密协作，任一模块可单独维护升级，不影响整体系统。</p></div></div>
+ <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg></div><div class="feature-text"><h4>毫秒级响应</h4><p>端到端延迟&lt;185ms，从意念到助力几乎无感。</p></div></div>
+ <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><path d="M12 2a4 4 0 014 4c0 2-4 6-4 6s-4-4-4-6a4 4 0 014-4z"/><circle cx="12" cy="6" r="1.5"/><path d="M9 20c-1-1-2-3-1-5l4-3 4 3c1 2 0 4-1 5"/></svg></div><div class="feature-text"><h4>个性化AI策略</h4><p>强化学习 + 416肌肉数字孪生，为每位用户生成专属方案。</p></div></div>
+ <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div><div class="feature-text"><h4>持续进化</h4><p>联邦学习随使用不断成长，越用越懂你。</p></div></div>
+ <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg></div><div class="feature-text"><h4>隐私安全</h4><p>神经数据本地处理，仅交换加密模型梯度。</p></div></div>
+ <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 14h5l-1 8 8-12h-5l1-8z"/><circle cx="17" cy="17" r="2"/><path d="M15 15l4 4"/></svg></div><div class="feature-text"><h4>轻量化设计</h4><p>系统总重&lt;1.5kg，10秒快速穿脱，鲍登线缆减少负担。</p></div></div>
+ <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="feature-text"><h4>临床验证</h4><p>与多家三甲医院合作临床研究，验证系统有效性与安全性。</p></div></div>
+ <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="7" y1="6" x2="7" y2="18"/><rect x="23" y="9" width="3" height="6" rx="1"/><line x1="20" y1="9" x2="20" y2="15"/></svg></div><div class="feature-text"><h4>三合一充电</h4><p>充电底座同时充三个模块，2小时满电，续航6-8小时。</p></div></div>
+ <div class="feature-item"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="feature-text"><h4>模块化设计</h4><p>三大模块独立运作，任一模块可单独维护升级。</p></div></div>
  </div>
  </div>
 </section>
@@ -846,12 +846,12 @@ footer {
  <div class="text-center section-label">包装内容</div>
  <h2 class="text-center">开箱即用</h2>
  <div class="box-grid">
- <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><path d="M6 2v6l3-2 3 2V2"/><rect x="1" y="10" width="22" height="10" rx="1"/><circle cx="12" cy="16" r="2"/><path d="M12 14v-1"/></svg></div><h4>EEG-Sense 头带</h4><p>8通道干电极EEG头带，可调节佩戴，内置蓝牙模块和充电电池</p></div>
- <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div><h4>NeuroSuit 肌动服</h4><p>碳纤维鲍登线缆系统，3个尺码可选，10秒穿脱设计</p></div>
- <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h4>Control Box 处理器</h4><p>边缘AI计算单元，内置416肌肉孪生模型，触摸屏操作</p></div>
- <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h4>充电底座</h4><p>三合一无线充电底座，同时为三个模块充电</p></div>
+ <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><path d="M6 2v6l3-2 3 2V2"/><rect x="1" y="10" width="22" height="10" rx="1"/><circle cx="12" cy="16" r="2"/><path d="M12 14v-1"/></svg></div><h4>EEG-Sense 头带</h4><p>8通道干电极EEG头带，可调节佩戴，内置蓝牙及电池</p></div>
+ <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div><h4>NeuroSuit 肌动服</h4><p>碳纤维 + 鲍登线缆，3个尺码，10秒穿脱</p></div>
+ <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h4>Control Box 处理器</h4><p>边缘AI计算单元，416肌肉孪生，触摸屏操作</p></div>
+ <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h4>充电底座</h4><p>三合一无线充电，同时为三个模块供电</p></div>
  <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M10 5v14"/><circle cx="7" cy="8" r="1"/><circle cx="15" cy="8" r="1"/></svg></div><h4>配件包</h4><p>备用干电极、绑带、线缆保护套、清洁工具</p></div>
- <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h4>快速入门指南</h4><p>图文并茂的部署指南，10分钟完成首次设置</p></div>
+ <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h4>快速入门指南</h4><p>图文部署指南，10分钟完成首次设置</p></div>
  </div>
  </div>
 </section>
@@ -911,11 +911,11 @@ footer {
  <div class="faq-list">
  <div class="faq-item">
  <button class="faq-question">Nexum One 适合哪些人群？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
- <div class="faq-answer">Nexum One 主要面向因神经损伤导致运动功能障碍的患者，包括脊髓损伤、脑卒中、多发性硬化等。系统适用于有残留运动意图但无法有效执行动作的用户。产品尚未获得医疗器械注册证，目前仅用于临床研究阶段，暂不对外销售。</div>
+ <div class="faq-answer">Nexum One 面向因神经损伤导致运动功能障碍的患者（脊髓损伤、脑卒中、多发性硬化等），适用于有残留运动意图但无法有效执行动作的用户。目前处于临床研究阶段，暂不对外销售。</div>
  </div>
  <div class="faq-item">
  <button class="faq-question">系统如何保证使用安全？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
- <div class="faq-answer">系统内置多重安全机制：扭矩限制保护防止过量助力，急停按钮可在任意时刻立即停止系统，软件层面的行程限位确保关节不超限运动，以及持续的传感器监控检测异常状态并在发现问题时自动进入安全模式。所有安全机制经过严格的硬件在环测试验证。</div>
+ <div class="faq-answer">多重安全机制：扭矩限制、急停按钮、软件行程限位、传感器持续监控。异常时自动进入安全模式。所有机制经过硬件在环测试验证。</div>
  </div>
  <div class="faq-item">
  <button class="faq-question">EEG 头带的准确率有多高？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>

@@ -29,9 +29,9 @@
 html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
 body{
   font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;
-  background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;
+  background:var(--bg-card);color:var(--text);font-size:16px;line-height:1.6;
   -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-  transition:background .35s ease,color .35s ease
+  transition:background .35s ease,color .35s ease,border-color .35s ease
 }
 img{max-width:100%;height:auto;display:block}
 a{color:var(--accent);text-decoration:none;transition:color .2s ease}
