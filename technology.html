@@ -427,6 +427,48 @@ footer {
   </div>
 </section>
 
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-label">系统架构总览</div>
+    <h2>Nexum One 四大模块协同</h2>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px;margin:32px 0 0">
+<svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bandMatte" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#2a2a2a"/>
+                <stop offset="100%" stop-color="#1a1a1a"/>
+              </linearGradient>
+              <linearGradient id="bandAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0096f0"/>
+                <stop offset="100%" stop-color="#60a5fa"/>
+              </linearGradient>
+            </defs>
+            <!-- Band body -->
+            <path d="M 40 60 Q 40 10 150 10 Q 260 10 260 60 Q 260 80 150 75 Q 40 80 40 60 Z" fill="url(#bandMatte)" stroke="#333" stroke-width="1"/>
+            <!-- Highlight -->
+            <path d="M 48 60 Q 48 18 150 18 Q 252 18 252 60" fill="none" stroke="#444" stroke-width="1.5"/>
+            <!-- Electrodes along inner edge -->
+            <circle cx="80" cy="64" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <circle cx="105" cy="68" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <circle cx="130" cy="71" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <circle cx="150" cy="72" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <circle cx="170" cy="71" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <circle cx="195" cy="68" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <circle cx="220" cy="64" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <circle cx="150" cy="74" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <!-- LED indicators -->
+            <circle cx="240" cy="32" r="4" fill="#0096f0" filter="url(#sysGlow)"/>
+            <circle cx="60" cy="32" r="4" fill="#0096f0" opacity="0.5"/>
+            <!-- PCB trace -->
+            <path d="M 80 60 Q 150 78 220 60" fill="none" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="3,2"/>
+            <!-- Label -->
+            <text x="150" y="102" text-anchor="middle" fill="#777777" font-size="9">8通道干电极 · 运动准备电位检测</text>
+            <text x="150" y="116" text-anchor="middle" fill="#666666" font-size="8">ADS1299 · nRF52832 · BLE 5.0</text>
+          </svg>
+    </div>
+  </div>
+</section>
+
 <!-- 4 STEP DETAIL CARDS -->
 <section class="section" id="steps">
   <div class="container">
