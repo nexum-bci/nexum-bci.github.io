@@ -279,15 +279,6 @@ p{color:var(--text-secondary);}
 .box-item p{font-size:13px;color:var(--text-tertiary);}
 @media(max-width:768px){.box-grid{grid-template-columns:1fr;max-width:360px;margin:48px auto 0;}}
 
-/* ===== HOW IT WORKS ===== */
-.steps-showcase{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px;}
-.steps-showcase .ss-item{text-align:center;padding:32px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);transition:transform var(--transition),box-shadow var(--transition);}
-.steps-showcase .ss-item:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
-.ss-num{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;margin-bottom:12px;}
-.ss-item h4{font-size:14px;margin-bottom:4px;}
-.ss-item p{font-size:12px;color:var(--text-tertiary);}
-@media(max-width:768px){.steps-showcase{grid-template-columns:repeat(2,1fr);}}
-
 /* ===== FEATURES LIST ===== */
 .features-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;}
 .feature-item{display:flex;gap:16px;padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);align-items:flex-start;transition:transform var(--transition),box-shadow var(--transition);}
@@ -429,8 +420,7 @@ img.loaded{opacity:1}
       <a href="product.html">产品</a>
       <a href="technology.html">技术</a>
       <a href="app.html">App</a>
-      <a href="index.html#documents">文档</a>
-      <a href="index.html#team">团队</a>
+            <a href="index.html#team">团队</a>
     </div>
     <div class="nav-actions">
       <button class="theme-btn" id="themeToggle" aria-label="切换主题"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
@@ -885,6 +875,7 @@ img.loaded{opacity:1}
   <img class="lightbox-img" id="lightboxImg" src="" alt="">
   <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
   <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
 
 <!-- EXPANDABLE SPECS -->
 <section class="section" id="specs-detail" style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
@@ -972,7 +963,7 @@ img.loaded{opacity:1}
       <a href="app.html">App</a>
     </div>
     <div>
-      <h5>文档</h5>
+      <h5>更多</h5>
       <a href="逐念而行_Nexum_BP.html">商业计划书</a>
       <a href="prd.html">产品需求文档</a>
       <a href="clinical-protocol.html">临床方案</a>
@@ -1102,7 +1093,7 @@ img.loaded{opacity:1}
    --------------------------------------------------------- */
 (function(){
   if (!('IntersectionObserver' in window)) return;
-  var t = document.querySelectorAll('.reveal, .card, .product-card, .box-item, .feature-item, .step-card, .ss-item, .test-card, .comp-card, .bench-card, .stack-card, .roadmap-item, .care-item, .safety-item, .specs-group, .specs-table tbody tr, .gallery-grid img, .compare-row, .hero-metrics');
+  var t = document.querySelectorAll('.reveal, .card, .product-card, .box-item, .feature-item, .step-card, .test-card, .bench-card, .stack-card, .roadmap-item, .care-item, .safety-item, .specs-group, .gallery-grid img, .hero-metrics, .pipeline-step, .flow-indicator, .system-spec-card, .req-card');
   if (!t.length) return;
   var o = new IntersectionObserver(function(e) {
     e.forEach(function(entry) {
