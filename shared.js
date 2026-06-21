@@ -47,7 +47,7 @@
         '</div>'+
       '</div>'+
       '<div class="footer-col">'+
-        '<h5>产品</h5>'+
+        '<h5>了解 Nexum</h5>'+
         '<a href="'+(isIndex?'product.html':'product.html')+'">产品概览</a>'+
         '<a href="'+(isIndex?'technology.html':'technology.html')+'">技术架构</a>'+
         '<a href="'+(isIndex?'app.html':'app.html')+'">App 设计</a>'+
@@ -58,12 +58,12 @@
         '<a href="'+(isIndex?'engineering.html':'engineering.html')+'">工程架构</a>'+
         '<a href="'+(isIndex?'clinical-protocol.html':'clinical-protocol.html')+'">临床方案</a>'+
         '<a href="'+(isIndex?'regulatory-strategy.html':'regulatory-strategy.html')+'">注册策略</a>'+
-        '<a href="'+(isIndex?'':'')+'逐念而行_Nexum_BP.html">商业计划书</a>'+
+        '<a href="'+(isIndex?'prd.html':'prd.html')+'">产品需求</a>'+
       '</div>'+
       '<div class="footer-col">'+
-        '<h5>资源</h5>'+
-        '<a href="'+(isIndex?'prd.html':'prd.html')+'">产品需求</a>'+
+        '<h5>更多</h5>'+
         '<a href="'+(isIndex?'production-bom.html':'production-bom.html')+'">生产 BOM</a>'+
+        '<a href="'+(isIndex?'':'')+'逐念而行_Nexum_BP.html">商业计划书</a>'+
         '<a href="https://github.com/nexum-bci" target="_blank" rel="noopener">GitHub</a>'+
         '<a href="mailto:hello@nexum.ai">hello@nexum.ai</a>'+
       '</div>'+
