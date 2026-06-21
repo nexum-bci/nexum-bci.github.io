@@ -10,14 +10,10 @@
   }
 })();
 </script>
+<link rel="stylesheet" href="page-base.css">
 <title>生产 BOM - Nexum 逐念而行</title>
 <style>
-:root {
-  --bg: #FAFAFA; --bg-card: #FFFFFF; --border: rgba(0,0,0,0.04);
-  --text: #1d1d1f; --text-secondary: #86868b; --text-tertiary: #6e6e73; --accent: #0071e3;
-  --accent-subtle: rgba(0,113,227,0.08); --radius: 18px; --radius-sm: 10px; --max-w: 980px;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04); --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-}
+
 [data-theme="dark"] {
   --bg: #000; --bg-card: #1c1c1e; --border: rgba(255,255,255,0.06);
   --text: #fff; --text-secondary: #a1a1a6; --text-tertiary: #6e6e73;
@@ -414,8 +410,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 </head>
 <body>
 
-<div class="container">
-<h1>生产 BOM</h1>
+<section class="page-header">
+  <div class="container">
+    <h1>生产BOM</h1>
+    <p class="page-sub">物料清单 · 供应商 · 成本核算</p>
+  </div>
+</section>
+
+<section class="page-section" style="padding-top:0">
+  <div class="container">
+    <div class="content-card">
 <p style="font-size:13px;color:var(--text-tertiary);">价格为参考价（原型为 1–10 件量，生产为 100+ 件量）。中国市场以人民币标价。所有供应商均为公开可查——除非另有说明，不存在预先建立的商业关系。</p>
 <hr />
 <h2>EEG-Sense 头带 BOM</h2>
@@ -1238,6 +1242,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 
 </div>
 
+
+    </div>
+  </div>
+</section>
 
 <script src="shared.js"></script>
 <script>

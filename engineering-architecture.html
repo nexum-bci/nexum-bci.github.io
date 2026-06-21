@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="page-base.css">
 <title>工程架构 - Nexum 逐念而行</title>
 <script>
 (function(){
@@ -12,12 +13,7 @@
 })();
 </script>
 <style>
-:root {
-  --bg: #FAFAFA; --bg-card: #FFFFFF; --border: rgba(0,0,0,0.04);
-  --text: #1d1d1f; --text-secondary: #86868b; --text-tertiary: #6e6e73; --accent: #0071e3;
-  --accent-subtle: rgba(0,113,227,0.08); --radius: 18px; --radius-sm: 10px; --max-w: 980px;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04); --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-}
+
 [data-theme="dark"] {
   --bg: #000; --bg-card: #1c1c1e; --border: rgba(255,255,255,0.06);
   --text: #fff; --text-secondary: #a1a1a6; --text-tertiary: #6e6e73;
@@ -26,12 +22,7 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;
-  background:var(--bg);color:var(--text);font-size:16px;line-height:1.8;
-  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-  padding-top:80px;transition:background .35s ease,color .35s ease
-}
+body{}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--accent);text-decoration:none;transition:color .2s ease}
 a:hover{opacity:.8}
@@ -122,8 +113,16 @@ footer a:hover{color:var(--text)}
 </head>
 <body>
 
-<div class="container">
-<h1>工程架构</h1>
+<section class="page-header">
+  <div class="container">
+    <h1>工程架构</h1>
+    <p class="page-sub">系统架构 · 数据流 · 器件选型 · 原型计划</p>
+  </div>
+</section>
+
+<section class="page-section" style="padding-top:0">
+  <div class="container">
+    <div class="content-card">
 <hr />
 <h2>系统架构与数据流</h2>
 <h3>高层次概览</h3>
@@ -1668,6 +1667,10 @@ BP 算法     │────────►│ 训练──►│ 测试──�
 
 </div>
 
+
+    </div>
+  </div>
+</section>
 
 <script src="shared.js"></script>
 <script>
