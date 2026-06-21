@@ -642,6 +642,40 @@ tbody tr:hover td{background:var(--accent-subtle)!important}
 /* Image alt fallback — show alt text if image fails */
 img:not([alt]){outline:2px solid var(--border);outline-offset:-2px}
 
+
+/* ============================================================
+   UNIFIED CURSOR + CLICKABLE EXPRESSION
+   cursor:pointer on all interactive elements
+   ============================================================ */
+a,button,summary,[onclick],
+.card,.portal-card,.product-card,.render-card,.phone-mockup,
+.market-card,.why-card,.team-card,.risk-card,.stat-card,
+.faq-question,.specs-group-title,
+.theme-btn,.nav-toggle,.btt-btn,
+.lightbox-close,.lightbox-nav,.modal-close,
+input[type=submit],input[type=button],input[type=reset],
+select,label[for],
+[role=button],[tabindex="0"]{
+  cursor:pointer
+}
+
+/* Non-interactive — default cursor */
+h1,h2,h3,h4,h5,h6,p,span,div:not([class*=card]):not([class*=btn]),
+body,section,header,footer,main,nav ul,nav li,img:not(a img){
+  cursor:default
+}
+
+/* Text selection cursor on editable text */
+input[type=text],input[type=email],input[type=password],
+textarea,[contenteditable]{
+  cursor:text
+}
+
+/* Disabled state */
+[disabled],.disabled,[aria-disabled=true]{
+  cursor:not-allowed;opacity:.5;pointer-events:none
+}
+
 /* ============================================================
    UNIFIED INTERACTION SYSTEM — Apple aesthetic
    Hover: subtle lift + shadow. Active: press down.
