@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexum One — Product Requirements Document v1.0</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+    background: #0a0f1a;
+    color: #e5e7eb;
+    font-size: 16px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Nav */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: rgba(10, 15, 26, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 150, 240, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0096f0;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar .logo::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #0096f0, #00d4ff);
+    border-radius: 6px;
+}
+
+.navbar .nav-link {
+    font-size: 14px;
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    border: 1px solid rgba(0, 150, 240, 0.2);
+    font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+    background: rgba(0, 150, 240, 0.1);
+    color: #0096f0;
+    border-color: rgba(0, 150, 240, 0.4);
+}
+
+/* Main content */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 32px 40px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #f1f5f9;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+    background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid rgba(0, 150, 240, 0.2);
+    color: #0096f0;
+    margin-top: 2.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-top: 1.8em;
+}
+
+h4 {
+    font-size: 1.05em;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-top: 1.5em;
+}
+
+p {
+    margin-bottom: 1em;
+    color: #e5e7eb;
+}
+
+a {
+    color: #0096f0;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #00b4ff;
+    text-decoration: underline;
+}
+
+strong {
+    color: #f1f5f9;
+    font-weight: 600;
+}
+
+em {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+/* Horizontal rule */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 150, 240, 0.3), transparent);
+    margin: 2.5em 0;
+}
+
+/* Code blocks */
+pre {
+    background: #0d1525;
+    border: 1px solid rgba(0, 150, 240, 0.12);
+    border-radius: 10px;
+    padding: 20px 24px;
+    overflow-x: auto;
+    margin: 1.2em 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    position: relative;
+}
+
+code {
+    font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-size: 0.92em;
+    background: rgba(0, 150, 240, 0.08);
+    color: #7dd3fc;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    color: #e2e8f0;
+    font-size: 13.5px;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid #0096f0;
+    background: rgba(0, 150, 240, 0.04);
+    padding: 12px 20px;
+    margin: 1.2em 0;
+    border-radius: 0 8px 8px 0;
+    color: #94a3b8;
+}
+
+blockquote p {
+    margin-bottom: 0.3em;
+    color: #94a3b8;
+}
+
+blockquote strong {
+    color: #cbd5e1;
+}
+
+/* Lists */
+ul, ol {
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+li {
+    margin-bottom: 0.4em;
+}
+
+li > ul, li > ol {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+/* Tables */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 1.2em 0;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 150, 240, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+thead {
+    background: linear-gradient(135deg, rgba(0, 150, 240, 0.15), rgba(0, 150, 240, 0.08));
+}
+
+th {
+    color: #0096f0;
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(0, 150, 240, 0.2);
+    font-size: 13.5px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #e5e7eb;
+    vertical-align: top;
+}
+
+tbody tr:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.015);
+}
+
+tbody tr:nth-child(even) {
+    background: rgba(0, 150, 240, 0.025);
+}
+
+tbody tr:hover {
+    background: rgba(0, 150, 240, 0.06);
+}
+
+/* Sub / sup for footnotes */
+sub, sup {
+    font-size: 0.75em;
+}
+
+/* Footnotes / meta text */
+.meta {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 0.5em;
+}
+
+/* Alert / note boxes */
+.alert {
+    background: rgba(0, 150, 240, 0.06);
+    border: 1px solid rgba(0, 150, 240, 0.15);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 1.2em 0;
+    color: #94a3b8;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 32px 24px;
+    margin-top: 48px;
+    color: #475569;
+    font-size: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    letter-spacing: 1px;
+}
+
+.footer span {
+    color: #0096f0;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: #fff;
+        color: #1a1a2e;
+        font-size: 12pt;
+    }
+    .navbar {
+        display: none;
+    }
+    .container {
+        max-width: 100%;
+        padding: 20px;
+    }
+    h1, h2, h3, h4 {
+        color: #1a1a2e;
+    }
+    h1 {
+        -webkit-text-fill-color: #1a1a2e;
+        background: none;
+    }
+    h2 {
+        color: #005fa3;
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+    a {
+        color: #005fa3;
+    }
+    pre {
+        background: #f5f5f5;
+        border-color: #ddd;
+    }
+    pre code {
+        color: #333;
+    }
+    code {
+        background: #f0f0f0;
+        color: #333;
+    }
+    blockquote {
+        border-left-color: #005fa3;
+        background: #f8f8f8;
+        color: #555;
+    }
+    table {
+        font-size: 10pt;
+    }
+    th {
+        color: #005fa3;
+        background: #e8f0f8;
+    }
+    tbody tr:nth-child(odd) {
+        background: #fafafa;
+    }
+    tbody tr:nth-child(even) {
+        background: #f0f5fa;
+    }
+    .footer {
+        color: #999;
+        border-top-color: #ddd;
+    }
+    .table-wrapper {
+        border-color: #ddd;
+    }
+    hr {
+        background: #ddd;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 72px 16px 32px;
+    }
+    h1 { font-size: 1.6em; }
+    h2 { font-size: 1.3em; }
+    h3 { font-size: 1.1em; }
+    table { font-size: 13px; }
+    th, td { padding: 8px 10px; }
+    pre { padding: 14px 16px; font-size: 12.5px; }
+}
+</style>
+</head>
+<body>
+<nav class="navbar">
+    <a href="../index.html" class="logo">Nexum One</a>
+    <a href="../index.html" class="nav-link">Portal</a>
+</nav>
+<div class="container">
+<h1>Nexum One — 产品需求文档</h1>
+<p><strong>版本 1.0</strong> · 2026-06-21<br />
+<strong>作者:</strong> 赵子睿 · 架构<br />
+<strong>密级:</strong> 内部 — 工程</p>
+<hr />
+<h2>1. 产品定义</h2>
+<p>Nexum One 是一套用于下肢运动功能重建的<strong>神经重连 AI 系统</strong>。它从大脑读取运动意图（非侵入式 EEG），生成个性化辅助策略（MSK 数字孪生 + RL），并在髋关节执行辅助力矩（Bowden 线缆驱动的 NeuroSuit）。</p>
+<p><strong>目标人群:</strong> 保留皮层功能但运动执行受损的脑卒中幸存者和不完全性 SCI 患者。</p>
+<p><strong>监管分类:</strong> 国家药监局 II 类创新医疗器械。</p>
+<hr />
+<h2>2. 用户需求 → 工程需求</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>用户需求</th>
+<th>工程需求</th>
+<th>验证方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>U1</td>
+<td>"我想走的时候就能走"</td>
+<td>系统检测运动意图灵敏度 ≥75%，特异度 ≥90%</td>
+<td>在 5 名受试者上进行 EEG 解码基准测试</td>
+</tr>
+<tr>
+<td>U2</td>
+<td>"我不想感觉像个机器人在推我"</td>
+<td>力矩上升时间 &lt;60ms，力矩纹波 &lt;±0.5 Nm</td>
+<td>在测试台上用拉力传感器测量</td>
+</tr>
+<tr>
+<td>U3</td>
+<td>"我想自己穿戴，不需要别人帮忙"</td>
+<td>穿戴/脱卸时间 &lt;3 分钟，单人操作</td>
+<td>对 5 名新手用户进行计时测试</td>
+</tr>
+<tr>
+<td>U4</td>
+<td>"我不想看起来像个病人"</td>
+<td>外衣类似运动紧身服；无可见刚性框架</td>
+<td>用户感知调查（n≥20）</td>
+</tr>
+<tr>
+<td>U5</td>
+<td>"我想在整个康复训练中都使用它"</td>
+<td>电池续航 ≥4 小时连续使用，平均功耗 8W</td>
+<td>电池放电测试（模拟负载）</td>
+</tr>
+<tr>
+<td>U6</td>
+<td>"我担心皮肤刺激"</td>
+<td>所有接触皮肤的材料通过 ISO 10993-10 认证；无压力点 &gt;32 mmHg</td>
+<td>压力分布图 + 生物相容性认证</td>
+</tr>
+<tr>
+<td>U7</td>
+<td>"我需要看到我的进步"</td>
+<td>App 显示每日步数、辅助力度趋势、肌肉激活对称性</td>
+<td>对 5 名患者 + 3 名治疗师进行可用性测试</td>
+</tr>
+<tr>
+<td>U8</td>
+<td>"我的状况会变化——设备应当适应"</td>
+<td>AI 模型在每次训练的前 10 分钟内自适应；策略逐周变化</td>
+<td>4 周前后适应对比</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>3. 功能需求</h2>
+<h3>3.1 EEG 采集</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>需求</th>
+<th>优先级</th>
+<th>目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EEG-01</td>
+<td>采集 8 通道 EEG，采样率 ≥250 SPS，24 位分辨率</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>EEG-02</td>
+<td>输入参考噪声 &lt;1 µV RMS（0.5–100 Hz）</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>EEG-03</td>
+<td>CMRR &gt;100 dB @ 50 Hz</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>EEG-04</td>
+<td>每通道电极-皮肤阻抗测量（范围: 1 kΩ–1 MΩ）</td>
+<td>P1</td>
+<td>应当</td>
+</tr>
+<tr>
+<td>EEG-05</td>
+<td>板载预处理: CAR、0.5–40 Hz 带通、50 Hz 陷波</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>EEG-06</td>
+<td>无线传输（BLE 5.0）预处理数据至手机</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>EEG-07</td>
+<td>头带重量 ≤80g，无需协助 30s 内完成佩戴</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>EEG-08</td>
+<td>使用干电极（无需导电膏、无需皮肤预处理）</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.2 运动控制</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>需求</th>
+<th>优先级</th>
+<th>目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MOT-01</td>
+<td>持续辅助力矩: 髋关节 8 Nm</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>MOT-02</td>
+<td>峰值辅助力矩: 15 Nm 持续 3s</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>MOT-03</td>
+<td>力矩控制带宽 ≥10 Hz</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>MOT-04</td>
+<td>力矩精度 ±0.5 Nm 稳态</td>
+<td>P1</td>
+<td>应当</td>
+</tr>
+<tr>
+<td>MOT-05</td>
+<td>急停: 故障检测后 50ms 内切断电机电源</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>MOT-06</td>
+<td>线缆力传感器: 在线拉力传感器 ±1% FS 精度，200 Hz</td>
+<td>P1</td>
+<td>应当</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.3 AI 推理</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>需求</th>
+<th>优先级</th>
+<th>目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI-01</td>
+<td>运动意图检测延迟 &lt;55ms（从 BLE RX 到指令 TX）</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>AI-02</td>
+<td>意图类别: "行走"、"停止"、"站起"、"坐下"、"休息"</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>AI-03</td>
+<td>假阳性率 &lt;10%（用户未意图时提供辅助）</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>AI-04</td>
+<td>假阴性率 &lt;25%（用户意图时未提供辅助）</td>
+<td>P1</td>
+<td>应当</td>
+</tr>
+<tr>
+<td>AI-05</td>
+<td>模型个性化: 在训练前 10 分钟内自适应</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>AI-06</td>
+<td>设备端推理（手机端 CoreML / ONNX，实时推理不依赖云端）</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.4 安全</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>需求</th>
+<th>优先级</th>
+<th>目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SAF-01</td>
+<td>三级降级: EEG+sEMG → sEMG+IMU → 被动支撑（不突然停止）</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>SAF-02</td>
+<td>关节角度限制: 髋屈曲 ≤90°，髋伸展 ≤20°（机械硬限位）</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>SAF-03</td>
+<td>线缆力限制: 800N 机械保险丝</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>SAF-04</td>
+<td>过温保护: 电机驱动器结温 &lt;125°C；外壳表面 &lt;48°C</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>SAF-05</td>
+<td>电池: 过充/过放/短路保护（BMS）</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>SAF-06</td>
+<td>IEC 60601-1（医用电气设备安全）合规</td>
+<td>P1</td>
+<td>应当</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.5 软件</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>需求</th>
+<th>优先级</th>
+<th>目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SW-01</td>
+<td>Nexum App: iOS 18+ 和 Android 15+</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>SW-02</td>
+<td>治疗师仪表盘: 查看 20+ 名患者，远程进度监控</td>
+<td>P1</td>
+<td>应当</td>
+</tr>
+<tr>
+<td>SW-03</td>
+<td>数据处理: 原始生理信号本地处理；仅上传去标识化的模型改进数据</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>SW-04</td>
+<td>训练日志: 日期、时长、步数、辅助力度、异常事件</td>
+<td>P0</td>
+<td>必须</td>
+</tr>
+<tr>
+<td>SW-05</td>
+<td>周度进展报告: 自动生成 PDF，供患者和临床医生使用</td>
+<td>P1</td>
+<td>应当</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>4. 非功能需求</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>需求</th>
+<th>目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可靠性</td>
+<td>MTBF（电子部分）</td>
+<td>&gt;5,000 小时</td>
+</tr>
+<tr>
+<td>耐久性</td>
+<td>电机更换周期</td>
+<td>&gt;10^6 次循环</td>
+</tr>
+<tr>
+<td>耐久性</td>
+<td>线缆更换周期</td>
+<td>&gt;5×10^5 次循环</td>
+</tr>
+<tr>
+<td>耐久性</td>
+<td>外衣洗涤次数（织物）</td>
+<td>&gt;100 次机洗</td>
+</tr>
+<tr>
+<td>环境</td>
+<td>工作温度</td>
+<td>10–40°C</td>
+</tr>
+<tr>
+<td>环境</td>
+<td>工作湿度</td>
+<td>20–80% RH 非冷凝</td>
+</tr>
+<tr>
+<td>环境</td>
+<td>防护等级</td>
+<td>IP22（控制盒）; IPX4（外衣）</td>
+</tr>
+<tr>
+<td>可维护性</td>
+<td>电池更换</td>
+<td>用户可更换，&lt;1 分钟</td>
+</tr>
+<tr>
+<td>可维护性</td>
+<td>电极更换</td>
+<td>每组电极 &gt;500 次使用</td>
+</tr>
+<tr>
+<td>可维护性</td>
+<td>固件更新</td>
+<td>通过 Nexum App OTA 更新</td>
+</tr>
+<tr>
+<td>易用性</td>
+<td>学习时间（首次使用）</td>
+<td>&lt;15 分钟（治疗师指导下）</td>
+</tr>
+<tr>
+<td>易用性</td>
+<td>设置时间（后续使用）</td>
+<td>&lt;3 分钟</td>
+</tr>
+<tr>
+<td>EMC</td>
+<td>辐射发射</td>
+<td>CISPR 11 第 1 组 B 类</td>
+</tr>
+<tr>
+<td>EMC</td>
+<td>抗扰度</td>
+<td>IEC 60601-1-2</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>5. Nexum One 不是什么（范围边界）</h2>
+<ul>
+<li><strong>不是全身外骨骼</strong> — V1 仅限髋关节。膝/踝关节为 V2 及以上版本。</li>
+<li><strong>不适用于完全瘫痪</strong> — 需要保留皮层运动功能。若患者无法形成运动意图，EEG 方案将无效。</li>
+<li><strong>不适用于认知障碍</strong> — 需要能够遵循基本指令。</li>
+<li><strong>不适用于儿童</strong> — V1 仅限成人尺寸（腰围 65–145 cm，大腿围 40–80 cm）。</li>
+<li><strong>不能替代物理治疗</strong> — 它是一种工具，使更多治疗能在更少治疗师监督下进行。</li>
+<li><strong>不是植入式</strong> — 完全非侵入式。</li>
+</ul>
+<hr />
+<h2>6. 竞品对标目标</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>Nexum One 目标</th>
+<th>EksoNR</th>
+<th>ReWalk Personal 6.0</th>
+<th>HAL Lower Limb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>系统重量</td>
+<td>&lt;2.5 kg</td>
+<td>~25 kg</td>
+<td>~13.5 kg</td>
+<td>~12 kg</td>
+</tr>
+<tr>
+<td>端到端延迟</td>
+<td>&lt;185 ms</td>
+<td>不适用（按钮控制）</td>
+<td>不适用（姿态偏移）</td>
+<td>~300 ms（EMG）</td>
+</tr>
+<tr>
+<td>设置时间</td>
+<td>&lt;3 min</td>
+<td>5–10 min</td>
+<td>5–10 min</td>
+<td>10–15 min</td>
+</tr>
+<tr>
+<td>价格（临床版）</td>
+<td>$18,000</td>
+<td>$75,000–95,000</td>
+<td>$85,000–100,000</td>
+<td>$60,000–80,000</td>
+</tr>
+<tr>
+<td>价格（家用版）</td>
+<td>$3,999 + $499/年</td>
+<td>不适用</td>
+<td>$70,000+</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>意图检测</td>
+<td>EEG + sEMG</td>
+<td>无</td>
+<td>倾斜传感器</td>
+<td>仅 sEMG</td>
+</tr>
+<tr>
+<td>个性化</td>
+<td>AI（MSK+RL）</td>
+<td>手动参数调整</td>
+<td>手动</td>
+<td>预编程模式</td>
+</tr>
+<tr>
+<td>数据网络效应</td>
+<td>是（联邦学习）</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>7. Phase 0 成功标准（原型）</h2>
+<p>首版原型在满足<strong>以下所有条件</strong>时视为成功：</p>
+<ol>
+<li><strong>数据流完整性</strong> — EEG 信号采集、通过 BLE 传输、解码为运动意图、转换为电机力矩、施加于髋关节。至少成功一次。暂不要求精度。</li>
+<li><strong>端到端延迟 &lt;200ms</strong> — 在测试台上使用模拟 EEG 信号（信号发生器输入 ADS1299）测量。</li>
+<li><strong>力矩控制 ±1 Nm</strong> — 稳态空载台架测试。</li>
+<li><strong>可穿戴 30 分钟</strong> — 无皮肤刺激，无电极脱落，外壳温度 &lt;48°C。</li>
+<li><strong>行走时 EEG 可检测</strong> — ≥3/5 名健康受试者中，Cz 电极处在 ≥50% 步幅中可见 Bereitschaftspotential。</li>
+</ol>
+<hr />
+<p><em>PRD v1.0 结束。Phase 0 原型结果出来后更新。</em></p>
+<div class="footer">逐念而行 &middot; Nexum One &middot; Confidential</div>
+</div>
+</body>
+</html>

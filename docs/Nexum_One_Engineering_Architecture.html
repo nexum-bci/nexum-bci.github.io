@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexum One — Engineering Architecture v0.1</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+    background: #0a0f1a;
+    color: #e5e7eb;
+    font-size: 16px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Nav */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: rgba(10, 15, 26, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 150, 240, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0096f0;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar .logo::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #0096f0, #00d4ff);
+    border-radius: 6px;
+}
+
+.navbar .nav-link {
+    font-size: 14px;
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    border: 1px solid rgba(0, 150, 240, 0.2);
+    font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+    background: rgba(0, 150, 240, 0.1);
+    color: #0096f0;
+    border-color: rgba(0, 150, 240, 0.4);
+}
+
+/* Main content */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 32px 40px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #f1f5f9;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+    background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid rgba(0, 150, 240, 0.2);
+    color: #0096f0;
+    margin-top: 2.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-top: 1.8em;
+}
+
+h4 {
+    font-size: 1.05em;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-top: 1.5em;
+}
+
+p {
+    margin-bottom: 1em;
+    color: #e5e7eb;
+}
+
+a {
+    color: #0096f0;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #00b4ff;
+    text-decoration: underline;
+}
+
+strong {
+    color: #f1f5f9;
+    font-weight: 600;
+}
+
+em {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+/* Horizontal rule */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 150, 240, 0.3), transparent);
+    margin: 2.5em 0;
+}
+
+/* Code blocks */
+pre {
+    background: #0d1525;
+    border: 1px solid rgba(0, 150, 240, 0.12);
+    border-radius: 10px;
+    padding: 20px 24px;
+    overflow-x: auto;
+    margin: 1.2em 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    position: relative;
+}
+
+code {
+    font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-size: 0.92em;
+    background: rgba(0, 150, 240, 0.08);
+    color: #7dd3fc;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    color: #e2e8f0;
+    font-size: 13.5px;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid #0096f0;
+    background: rgba(0, 150, 240, 0.04);
+    padding: 12px 20px;
+    margin: 1.2em 0;
+    border-radius: 0 8px 8px 0;
+    color: #94a3b8;
+}
+
+blockquote p {
+    margin-bottom: 0.3em;
+    color: #94a3b8;
+}
+
+blockquote strong {
+    color: #cbd5e1;
+}
+
+/* Lists */
+ul, ol {
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+li {
+    margin-bottom: 0.4em;
+}
+
+li > ul, li > ol {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+/* Tables */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 1.2em 0;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 150, 240, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+thead {
+    background: linear-gradient(135deg, rgba(0, 150, 240, 0.15), rgba(0, 150, 240, 0.08));
+}
+
+th {
+    color: #0096f0;
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(0, 150, 240, 0.2);
+    font-size: 13.5px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #e5e7eb;
+    vertical-align: top;
+}
+
+tbody tr:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.015);
+}
+
+tbody tr:nth-child(even) {
+    background: rgba(0, 150, 240, 0.025);
+}
+
+tbody tr:hover {
+    background: rgba(0, 150, 240, 0.06);
+}
+
+/* Sub / sup for footnotes */
+sub, sup {
+    font-size: 0.75em;
+}
+
+/* Footnotes / meta text */
+.meta {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 0.5em;
+}
+
+/* Alert / note boxes */
+.alert {
+    background: rgba(0, 150, 240, 0.06);
+    border: 1px solid rgba(0, 150, 240, 0.15);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 1.2em 0;
+    color: #94a3b8;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 32px 24px;
+    margin-top: 48px;
+    color: #475569;
+    font-size: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    letter-spacing: 1px;
+}
+
+.footer span {
+    color: #0096f0;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: #fff;
+        color: #1a1a2e;
+        font-size: 12pt;
+    }
+    .navbar {
+        display: none;
+    }
+    .container {
+        max-width: 100%;
+        padding: 20px;
+    }
+    h1, h2, h3, h4 {
+        color: #1a1a2e;
+    }
+    h1 {
+        -webkit-text-fill-color: #1a1a2e;
+        background: none;
+    }
+    h2 {
+        color: #005fa3;
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+    a {
+        color: #005fa3;
+    }
+    pre {
+        background: #f5f5f5;
+        border-color: #ddd;
+    }
+    pre code {
+        color: #333;
+    }
+    code {
+        background: #f0f0f0;
+        color: #333;
+    }
+    blockquote {
+        border-left-color: #005fa3;
+        background: #f8f8f8;
+        color: #555;
+    }
+    table {
+        font-size: 10pt;
+    }
+    th {
+        color: #005fa3;
+        background: #e8f0f8;
+    }
+    tbody tr:nth-child(odd) {
+        background: #fafafa;
+    }
+    tbody tr:nth-child(even) {
+        background: #f0f5fa;
+    }
+    .footer {
+        color: #999;
+        border-top-color: #ddd;
+    }
+    .table-wrapper {
+        border-color: #ddd;
+    }
+    hr {
+        background: #ddd;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 72px 16px 32px;
+    }
+    h1 { font-size: 1.6em; }
+    h2 { font-size: 1.3em; }
+    h3 { font-size: 1.1em; }
+    table { font-size: 13px; }
+    th, td { padding: 8px 10px; }
+    pre { padding: 14px 16px; font-size: 12.5px; }
+}
+</style>
+</head>
+<body>
+<nav class="navbar">
+    <a href="../index.html" class="logo">Nexum One</a>
+    <a href="../index.html" class="nav-link">Portal</a>
+</nav>
+<div class="container">
+<h1>Nexum One — 工程架构文档</h1>
+<p><strong>草案 v0.1</strong> · 2026-06-21<br />
+<strong>作者：</strong> 架构工作组<br />
+<strong>密级：</strong> 内部 — 工程</p>
+<hr />
+<h2>目录</h2>
+<ol>
+<li>系统架构与数据流</li>
+<li>优先锁定的技术规格</li>
+<li>组件选型指南</li>
+<li>关键工程风险（按严重程度排序）</li>
+<li>首批原型构建计划</li>
+<li>附录：通信协议汇总</li>
+</ol>
+<hr />
+<h2>1. 系统架构与数据流</h2>
+<h3>1.1 高层次概览</h3>
+<p>Nexum One 是一个闭环神经再连接系统，包含四个物理节点和一个逻辑控制回路：</p>
+<div class="codehilite"><pre><span></span><code>┌─────────────────────────────────────────────────────────────────────┐
+│                        NEXUM ONE 系统                                │
+│                                                                     │
+│  ┌──────────────┐    BLE     ┌──────────────┐    BLE     ┌───────┐ │
+│  │  EEG-Sense   │◄──────────►│  Nexum App   │◄──────────►│ 控制  │ │
+│  │  头带        │   (EEG)    │  (手机)      │  (指令)    │ 盒    │ │
+│  │  (80g, 8ch)  │            │ AI 推理      │            │       │ │
+│  └──────────────┘            │ + UI + 日志  │            │       │ │
+│                              └──────┬───────┘            │       │ │
+│                                     │                    │       │ │
+│                                     │ 有线 (UART)        │       │ │
+│                                     ▼                    │       │ │
+│                              ┌──────────────┐            │       │ │
+│                              │   控制盒     │◄───────────┘       │ │
+│                              │  (腰部)      │                    │ │
+│                              │  MCU + IMU   │                    │ │
+│                              │  + 电机驱动  │                    │ │
+│                              │  + 电池      │                    │ │
+│                              └───┬───┬───────┘                    │ │
+│                                  │   │                            │ │
+│                          电机    │   │ IMU                        │ │
+│                          (PWM)   │   │ (I2C)                      │ │
+│                                  ▼   ▼                            │ │
+│                              ┌──────────────┐                     │ │
+│                              │  NeuroSuit   │                     │ │
+│                              │  髋部模块    │                     │ │
+│                              │  鲍登线      │                     │ │
+│                              │  + 力传感器  │                     │ │
+│                              └──────────────┘                     │ │
+└─────────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+
+<h3>1.2 详细数据流（EEG 到力反馈）</h3>
+<p>系统分五个阶段运行，形成一个闭环：</p>
+<h4>阶段 1：神经信号采集（EEG-Sense 头带）</h4>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>动作</th>
+<th>组件</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.1</td>
+<td>干电极（8通道，Cz/C3/C4/FCz/FC3/FC4/Pz/P3/P4 或优化排列）采集皮层电位</td>
+<td>Ag/AgCl 或 Ag/AgCl 涂层干梳电极</td>
+<td>模拟信号：1–100 µV，DC–100 Hz</td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>仪表放大器 + 抗混叠滤波器（0.1–100 Hz 模拟带通）</td>
+<td>TI ADS1299（内置 PGA + 滤波器）</td>
+<td>模拟信号，增益=12 或 24</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>24位 delta-sigma ADC，每通道 250–500 SPS</td>
+<td>ADS1299 内置 ADC</td>
+<td>数字信号：8 × 24位采样 @ 250–500 Hz</td>
+</tr>
+<tr>
+<td>1.4</td>
+<td>共平均参考（CAR），带通（0.5–40 Hz 数字），陷波（50 Hz）</td>
+<td>nRF52832 MCU</td>
+<td>预处理后的 8 通道数据缓冲区</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>打包并通过 BLE 传输（Notify，20 ms 间隔，每间隔 5 包）</td>
+<td>nRF52832 BLE 射频</td>
+<td>BLE GATT 特征值更新</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>原始 BLE 吞吐量：</strong> 8 ch × 250 Hz × 3 bytes = 48,000 bps（48 kbps）<br />
+<strong>压缩后（可选）：</strong> 16 位分辨率 → 32 kbps，远低于 BLE 5.0 容量（2 Mbps PHY）。</p>
+<h4>阶段 2：意图解码（手机上的 Nexum App）</h4>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>动作</th>
+<th>组件</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.1</td>
+<td>从头带接收 BLE 数据包</td>
+<td>手机 BLE 协议栈</td>
+<td>200 ms 滑动缓冲（每通道 50–100 个采样）</td>
+</tr>
+<tr>
+<td>2.2</td>
+<td>特征提取：功率谱密度（mu/beta 频带），空间模式，CSP</td>
+<td>CoreML / ONNX runtime</td>
+<td>特征向量（32–64 维），每 40 ms 更新一次</td>
+</tr>
+<tr>
+<td>2.3</td>
+<td>推理：基于 MRCP（运动相关皮层电位）训练的 CNN 或 Transformer 模型</td>
+<td>神经网络加速器（ANE/GPU）</td>
+<td>意图概率 [0–1]，预期动作类别，起始时间戳</td>
+</tr>
+<tr>
+<td>2.4</td>
+<td>意图与控制盒传来的 IMU 上下文（步态相位，髋关节角度）融合</td>
+<td>App 融合层</td>
+<td>精炼的辅助指令 + 时序</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>目标推理延迟：</strong> 每窗口 &lt; 50 ms。<br />
+<strong>检测窗口：</strong> 准备电位在预期运动前约 500 ms 即可检测到。</p>
+<h4>阶段 3：指令中继（手机 → 控制盒）</h4>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>动作</th>
+<th>组件</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3.1</td>
+<td>编码辅助指令（期望扭矩曲线、时序、持续时间）</td>
+<td>App 指令编码器</td>
+<td>紧凑二进制指令（8–16 字节）</td>
+</tr>
+<tr>
+<td>3.2</td>
+<td>通过 BLE 传输到控制盒</td>
+<td>手机 BLE 协议栈</td>
+<td>BLE GATT write</td>
+</tr>
+<tr>
+<td>3.3</td>
+<td>接收、解析、优先级排序指令</td>
+<td>nRF5340 / 控制盒 MCU</td>
+<td>电机控制设定点</td>
+</tr>
+</tbody>
+</table></div>
+<h4>阶段 4：电机驱动（控制盒 + NeuroSuit）</h4>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>动作</th>
+<th>组件</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.1</td>
+<td>从扭矩设定点计算电机电流（带前馈的 PI 回路）</td>
+<td>STM32 MCU（M4/M7）</td>
+<td>PWM 占空比</td>
+</tr>
+<tr>
+<td>4.2</td>
+<td>驱动 BLDC 电机（磁场定向控制，PWM 20–50 kHz）</td>
+<td>TI DRV8316 / TMC6300 + 三相桥</td>
+<td>电机相电流</td>
+</tr>
+<tr>
+<td>4.3</td>
+<td>电机旋转 → 线轴缠绕 → 鲍登线缩短</td>
+<td>Maxon EC-i 40 或同级 BLDC</td>
+<td>直线线位移</td>
+</tr>
+<tr>
+<td>4.4</td>
+<td>缆线张力传递到髋部模块 → 髋关节屈曲/伸展辅助</td>
+<td>鲍登鞘 + 滑动机构</td>
+<td>髋关节辅助扭矩（~5–15 Nm）</td>
+</tr>
+<tr>
+<td>4.5</td>
+<td>缆线张力传感器（内联力传感器或霍尔效应）读取实际力</td>
+<td>应变片 / MLX91206</td>
+<td>模拟/数字张力反馈</td>
+</tr>
+</tbody>
+</table></div>
+<h4>阶段 5：状态反馈 + 闭环</h4>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>动作</th>
+<th>组件</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5.1</td>
+<td>IMU 读取髋关节角度、角速度、躯干方向</td>
+<td>控制盒上的 BMI270（6 轴 IMU）</td>
+<td>四元数 + 欧拉角 @ 100 Hz</td>
+</tr>
+<tr>
+<td>5.2</td>
+<td>电机编码器读取实际位置/速度</td>
+<td>磁编码器（AS5048 或 TLE5012）</td>
+<td>转子角度 @ 1 kHz</td>
+</tr>
+<tr>
+<td>5.3</td>
+<td>力传感器读取缆线张力</td>
+<td>应变片放大器（HX711 或 INA）</td>
+<td>张力值 @ 200 Hz</td>
+</tr>
+<tr>
+<td>5.4</td>
+<td>MCU 融合传感器数据 → 计算状态估计</td>
+<td>传感器融合（Mahony/Madgwick + 互补滤波）</td>
+<td>髋关节角度、步态相位、缆线力</td>
+</tr>
+<tr>
+<td>5.5</td>
+<td>通过 BLE 将状态发送到手机，用于日志记录和 AI 模型自适应</td>
+<td>BLE GATT notify</td>
+<td>状态数据包 @ 50 Hz</td>
+</tr>
+<tr>
+<td>5.6</td>
+<td>手机根据用户响应历史调整个性化模型</td>
+<td>App 后台 ML 管道</td>
+<td>更新后的模型权重</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>总闭环延迟预算（目标）：</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>组件</th>
+<th>延迟预算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>阶段 1</td>
+<td>EEG 采集 + 预处理 + BLE 发送</td>
+<td>&lt; 40 ms</td>
+</tr>
+<tr>
+<td>阶段 2</td>
+<td>手机 BLE 接收 + 推理 + 指令生成</td>
+<td>&lt; 55 ms</td>
+</tr>
+<tr>
+<td>阶段 3</td>
+<td>BLE 指令发送 → 控制盒接收</td>
+<td>&lt; 20 ms</td>
+</tr>
+<tr>
+<td>阶段 4</td>
+<td>电机控制回路 + 鲍登线机械响应</td>
+<td>&lt; 60 ms</td>
+</tr>
+<tr>
+<td>阶段 5</td>
+<td>传感器采集 + 状态估计</td>
+<td>&lt; 10 ms</td>
+</tr>
+<tr>
+<td><strong>总计</strong></td>
+<td><strong>EEG → 力反馈</strong></td>
+<td><strong>&lt; 185 ms</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>注：</strong> 原型阶段推荐采用简化数据流：在控制盒<strong>内部</strong>的 Raspberry Pi 5 或 Jetson Nano 上运行推理（有线连接至电机控制器），以消除手机延迟和 BLE 双跳。详见第 5 节。</p>
+<hr />
+<h2>2. 优先锁定的技术规格</h2>
+<p>以下参数必须在任何详细设计开始前冻结。冻结后的变更将级联影响多个子系统。</p>
+<h3>2.1 EEG 采集</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>目标</th>
+<th>理由 / 权衡</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>通道数</td>
+<td>8</td>
+<td>MRCP 源定位最低要求；更多通道 = 更高 BLE 带宽、更高功耗、更高成本</td>
+</tr>
+<tr>
+<td>采样率</td>
+<td>每通道 250 SPS</td>
+<td>MRCP 内容 &lt; 10 Hz；250 SPS 满足奈奎斯特且有裕量；更高速率浪费功耗</td>
+</tr>
+<tr>
+<td>ADC 分辨率</td>
+<td>24 位</td>
+<td>µV 级信号必需；ADS1299 原生支持</td>
+</tr>
+<tr>
+<td>输入范围</td>
+<td>±4.5 mV（可编程）</td>
+<td>干电极有较大 DC 偏移；需要余量</td>
+</tr>
+<tr>
+<td>输入噪声</td>
+<td>&lt; 1 µV RMS（0.5–100 Hz）</td>
+<td>MRCP 为 5–10 µV；SNR &gt; 10 dB 最低要求</td>
+</tr>
+<tr>
+<td>CMRR</td>
+<td>&gt; 100 dB</td>
+<td>50 Hz 共模抑制至关重要</td>
+</tr>
+<tr>
+<td>EEG 带宽</td>
+<td>0.3–40 Hz</td>
+<td>MRCP 为 DC 慢速；0.3 Hz HPF 是漂移与实用性的折中</td>
+</tr>
+<tr>
+<td>公共参考</td>
+<td>驱动右腿（DRL）或双极</td>
+<td>DRL 提高 CMRR 但增加电极；Phase 1 中评估</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.2 实时延迟预算</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>目标</th>
+<th>负责方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EEG 采集到 BLE 数据包</td>
+<td>&lt; 40 ms</td>
+<td>EE / FW 团队</td>
+</tr>
+<tr>
+<td>BLE 接收到推理输出</td>
+<td>&lt; 55 ms</td>
+<td>ML / App 团队</td>
+</tr>
+<tr>
+<td>BLE 指令到电机启动</td>
+<td>&lt; 20 ms</td>
+<td>FW 团队</td>
+</tr>
+<tr>
+<td>电机最大响应时间（0–额定扭矩）</td>
+<td>&lt; 60 ms</td>
+<td>ME / FW 团队</td>
+</tr>
+<tr>
+<td><strong>端到端延迟（EEG → 运动）</strong></td>
+<td><strong>&lt; 185 ms</strong>（原型验收 &lt;200 ms）</td>
+<td><strong>系统</strong></td>
+</tr>
+<tr>
+<td>目标：用户可感知延迟阈值</td>
+<td>&lt; 100 ms（无感）至 200 ms（可接受）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>这是最重要的单项规格。</strong> 每个子系统都必须设计以满足各自的分配指标。我们将在首次集成里程碑中测量端到端延迟。</p>
+<h3>2.3 电机与机械</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>目标</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>持续辅助扭矩</td>
+<td>8 Nm</td>
+<td>步态中典型髋关节屈曲扭矩的约 30%</td>
+</tr>
+<tr>
+<td>峰值辅助扭矩</td>
+<td>15 Nm（3 秒）</td>
+<td>坐站转换、上楼梯</td>
+</tr>
+<tr>
+<td>扭矩控制带宽</td>
+<td>&gt; 10 Hz</td>
+<td>步态周期中平滑辅助</td>
+</tr>
+<tr>
+<td>力控制精度</td>
+<td>±0.5 Nm</td>
+<td>太粗糙 → 感觉异常；太精细 → 过度设计</td>
+</tr>
+<tr>
+<td>缆线行程</td>
+<td>150 mm</td>
+<td>步态中典型髋关节屈曲 ROM（~35 度）</td>
+</tr>
+<tr>
+<td>缆线力（峰值）</td>
+<td>800 N</td>
+<td>基于 15 Nm 在 20 mm 力臂上计算</td>
+</tr>
+<tr>
+<td>鲍登鞘最小弯曲半径</td>
+<td>50 mm</td>
+<td>更小弯曲使摩擦力非线性增加</td>
+</tr>
+<tr>
+<td>系统重量（NeuroSuit + 控制盒）</td>
+<td>&lt; 2.5 kg</td>
+<td>用户对康复训练的耐受度</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.4 电源与电池</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>目标</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>电池容量</td>
+<td>48 Wh（1,250 mAh @ 38.4 V / 5,000 mAh @ 9.6 V）</td>
+<td>锂离子 4–6S，取决于电机电压</td>
+</tr>
+<tr>
+<td>持续功耗</td>
+<td>~8–12 W</td>
+<td>MCU + BLE + IMU ~1 W；电机 + 驱动平均 ~7–11 W</td>
+</tr>
+<tr>
+<td>峰值功耗</td>
+<td>~50 W（3 秒）</td>
+<td>电机峰值扭矩 + 加速</td>
+</tr>
+<tr>
+<td>连续使用电池续航</td>
+<td>&gt; 4 小时</td>
+<td>一次康复训练</td>
+</tr>
+<tr>
+<td>充电时间</td>
+<td>&lt; 2 小时</td>
+<td>USB-C PD（20 V / 3 A 输入）</td>
+</tr>
+<tr>
+<td>电池类型</td>
+<td>锂离子 18650 或软包</td>
+<td>原型使用 18650（便宜、安全、可更换）</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>关键权衡：</strong> 电机电压 vs 电池节数。更高电压（36–48 V）可在相同功率下降低电流（更细导线、更少 I²R 损耗、更快电机响应），但需要更多串联电池（10S–12S → 更重）。推荐：<strong>6S 锂离子（标称 21.6 V）</strong>——平衡电机响应与电池组重量（48 Wh 约 350 g）。</p>
+<h3>2.5 机械形态因素</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>控制盒尺寸</td>
+<td>120 × 80 × 30 mm（钱包大小）</td>
+</tr>
+<tr>
+<td>控制盒重量</td>
+<td>&lt; 400 g（含电池）</td>
+</tr>
+<tr>
+<td>髋部模块宽度</td>
+<td>&lt; 100 mm 横向（不干扰摆臂）</td>
+</tr>
+<tr>
+<td>套装总穿脱时间</td>
+<td>&lt; 3 分钟</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>3. 组件选型指南</h2>
+<h3>3.1 EEG 前端芯片</h3>
+<p>EEG 前端是对信号质量最关键的单个组件。该应用只有三款芯片可行：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>芯片</th>
+<th>优点</th>
+<th>缺点</th>
+<th>推荐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TI ADS1299</strong></td>
+<td>干式 EEG 行业标准；8 通道、24 位、集成 PGA + 偏置驱动 + 脱落检测；丰富的参考设计（OpenBCI 等）</td>
+<td>功耗较高（5 mW/ch）；输入带宽有限；约 $18/芯片</td>
+<td><strong>默认选择。</strong> 风险最低，社区支持最多，EE 招聘目标熟悉</td>
+</tr>
+<tr>
+<td>TI ADS1299-4</td>
+<td>上述芯片的 4 通道版本</td>
+<td>仅 4 通道；实现 8 通道需 2 颗芯片</td>
+<td>不推荐</td>
+</tr>
+<tr>
+<td>TI ADS131M08</td>
+<td>更低功耗（0.5 mW/ch）；24 位；8 通道同步</td>
+<td>较少 EEG 专用功能（无偏置驱动）；社区参考较少</td>
+<td>考虑用于 V2 功耗优化</td>
+</tr>
+<tr>
+<td>Maxim MAX30001</td>
+<td>超低功耗；单通道 ECG</td>
+<td>不适合多通道 EEG</td>
+<td>排除</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>决定：原型和 V1 生产采用 ADS1299。</strong></p>
+<h4>干电极</h4>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ag/AgCl 涂层梳状（g.tec g.GAMMAcap）</td>
+<td>性能已知；CE 标记</td>
+<td>约 $150/通道；专有</td>
+</tr>
+<tr>
+<td>OpenBCI 干电极</td>
+<td>研究中验证；约 $20/通道</td>
+<td>信噪比低于湿电极；需要皮肤准备</td>
+</tr>
+<tr>
+<td>定制 PCB 弹簧针</td>
+<td>便宜（约 $1/通道）；设计自由</td>
+<td>未经验证；接触阻抗不一致</td>
+</tr>
+<tr>
+<td>BrainProducts ActiCAP 干电极</td>
+<td>医疗级</td>
+<td>昂贵；面向 BCI</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>原型推荐：</strong> 从 OpenBCI 兼容干梳电极开始（$20/ch × 8 = $160）。V2 中经过阻抗测试后，转向定制弹簧针。</p>
+<h3>3.2 IMU</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>芯片</th>
+<th>优点</th>
+<th>缺点</th>
+<th>选择</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BMI270（Bosch）</strong></td>
+<td>6 轴，低功耗（0.6 mA），集成步进检测，3×3 mm</td>
+<td>无磁力计</td>
+<td><strong>首选</strong>——低功耗、小尺寸、文档齐全、便宜</td>
+</tr>
+<tr>
+<td>ICM-20948（TDK）</td>
+<td>9 轴（含磁力计），3×3 mm，0.7 mA</td>
+<td>室内航向角漂移仍然有问题；额外复杂性</td>
+<td>如需航向估计则考虑</td>
+</tr>
+<tr>
+<td>LSM6DSO（ST）</td>
+<td>6 轴，0.55 mA，2.5×2.5 mm</td>
+<td>库生态略不成熟</td>
+<td>备选</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>决定：控制盒采用 BMI270。</strong> 如需双侧髋关节角度（V2），在大腿段增加第二个 BMI270。</p>
+<h3>3.3 BLE 模块</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>芯片</th>
+<th>优点</th>
+<th>缺点</th>
+<th>选择</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nordic nRF52832</strong></td>
+<td>512 KB 闪存，64 KB RAM，Cortex-M4F（64 MHz）——可运行简单片上预处理；成熟 SDK；BLE 5.0；约 $3</td>
+<td>复杂推理 RAM 有限</td>
+<td><strong>EEG 头带</strong>——足以满足数据管道需求</td>
+</tr>
+<tr>
+<td><strong>Nordic nRF5340</strong></td>
+<td>双核：Cortex-M33 应用 + M33 网络；1 MB 闪存，512 KB RAM；BLE 5.3；约 $5</td>
+<td>用于头带则性能过剩</td>
+<td><strong>控制盒</strong>——足以满足电机控制 + 传感器融合</td>
+</tr>
+<tr>
+<td>Nordic nRF52840</td>
+<td>1 MB 闪存，256 KB RAM，USB；约 $4</td>
+<td>用于头带则超出需求</td>
+<td>控制盒备选</td>
+</tr>
+<tr>
+<td>TI CC2652R7</td>
+<td>良好射频性能，352 KB RAM；约 $4</td>
+<td>生态小于 Nordic</td>
+<td>不推荐</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>决定：</strong><br />
+- <strong>EEG-Sense 头带：</strong> nRF52832（SDK + 预处理能力足够）<br />
+- <strong>控制盒：</strong> nRF5340（双核可实现电机控制和 BLE 协议栈分离）</p>
+<h3>3.4 MCU / 主处理器</h3>
+<p>这是最困难的决定。"正确"的选择取决于<strong>推理运行位置</strong>：</p>
+<h4>选项 A：在手机上推理（原型快速路径）</h4>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>组件</th>
+<th>角色</th>
+<th>选型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>控制盒 MCU</td>
+<td>电机控制 + IMU + BLE 中继</td>
+<td><strong>nRF5340</strong>（已选择；M33 核足以运行 FOC + 传感器融合）</td>
+</tr>
+<tr>
+<td>手机</td>
+<td>AI 推理 + UI</td>
+<td><strong>任意现代 iPhone / Android</strong>（CoreML / TFLite / ONNX）</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>优点：</strong> 原型开发最快；无需嵌入式 ML 工程；利用手机 GPU/ANE。<br />
+<strong>缺点：</strong> BLE 双跳增加延迟；需始终携带手机；手机依赖性是家用版本的产品风险。</p>
+<h4>选项 B：控制盒边缘推理（生产目标）</h4>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>组件</th>
+<th>角色</th>
+<th>选型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>控制盒 MCU</td>
+<td>电机控制 + 传感器融合</td>
+<td><strong>STM32H743</strong>（Cortex-M7 @ 480 MHz，2 MB 闪存，1 MB RAM）或 <strong>NXP RT1064</strong></td>
+</tr>
+<tr>
+<td>ML 加速器</td>
+<td>实时 EEG 推理</td>
+<td><strong>Kendryte K230</strong>（RISC-V 双核 + NPU，1 TOPS）或 <strong>STM32N6</strong>（Neural-ART 加速器）</td>
+</tr>
+<tr>
+<td>BLE</td>
+<td>通信</td>
+<td>nRF5340（通过 UART/SPI 与推理 MCU 分离）</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>优点：</strong> 无需手机；更低端到端延迟；可作为独立医疗器械工作。<br />
+<strong>缺点：</strong> 固件复杂度显著增加；NPU 集成风险。</p>
+<h3>3.5 电机驱动</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>驱动</th>
+<th>优点</th>
+<th>缺点</th>
+<th>选择</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TI DRV8316</strong></td>
+<td>三相 BLDC 驱动，4.5–60 V，5 A RMS，集成电流检测（无感 FOC），SPI 接口，约 $5</td>
+<td>无集成 MOSFET RDS(on) 监测</td>
+<td><strong>原型首选</strong>（与 Maxon EC-i 40 匹配）</td>
+</tr>
+<tr>
+<td>Trinamic TMC6300</td>
+<td>超静音（StealthChop2），2–11 V，1.2 A RMS</td>
+<td>低电压限制电机选择</td>
+<td>电压过低，无法满足扭矩需求</td>
+</tr>
+<tr>
+<td>TI DRV8301</td>
+<td>6–60 V，高达 60 A；多用于机器人项目</td>
+<td>封装更大；更多外部组件</td>
+<td>原型过大</td>
+</tr>
+<tr>
+<td>AMT49400（Allegro）</td>
+<td>集成 FOC，4.5–36 V，2 A</td>
+<td>灵活性低于 TI</td>
+<td>备选</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>决定：原型采用 TI DRV8316。</strong> 它具有所需的电压范围（最高 60 V → 支持 6S 电池），足够电流（5 A 连续），集成电流检测无需外部分流电阻。</p>
+<h3>3.6 电机</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>电机</th>
+<th>优点</th>
+<th>缺点</th>
+<th>选择</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Maxon EC-i 40（60 W）</strong></td>
+<td>医疗级，0.15 Nm 连续 @ 4,000 RPM，直径 42 mm，150 g，可选霍尔传感器</td>
+<td>约 $300/个</td>
+<td><strong>V1 生产选择</strong>——原型成本过高</td>
+</tr>
+<tr>
+<td>T-motor AK80-9（或类似）</td>
+<td>约 $100，0.5 Nm @ ~2,000 RPM，12 V，集成编码器</td>
+<td>非医疗级；更大（60 mm）</td>
+<td><strong>原型选择</strong>——便宜、可得、易集成</td>
+</tr>
+<tr>
+<td>Faulhaber 3863H024C</td>
+<td>优异的扭矩密度，12 V，约 $500</td>
+<td>非常昂贵；交期长</td>
+<td>若重量关键，V2 考虑</td>
+</tr>
+<tr>
+<td>定制 BLDC（自行绕制）</td>
+<td>理论上最优</td>
+<td>巨大开发工作量；不现实</td>
+<td>排除</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>原型决定：</strong> <strong>T-motor AK80-9（或扭矩更大的 AK60-6）</strong>——$80–120/个，淘宝可购，交期 &lt; 1 周，12 V 或 24 V 版本，集成霍尔编码器。功能性原型可接受。临床验证升级为 Maxon EC-i 40。</p>
+<h3>3.7 电池</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>电池包配置</th>
+<th>标称电压</th>
+<th>能量</th>
+<th>重量（估计）</th>
+<th>电机匹配度</th>
+<th>推荐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4S 锂离子（14.8 V）</td>
+<td>14.8 V</td>
+<td>44 Wh（3,000 mAh）</td>
+<td>~280 g</td>
+<td>有限（低电压）</td>
+<td>最低可行</td>
+</tr>
+<tr>
+<td><strong>6S 锂离子（22.2 V）</strong></td>
+<td><strong>22.2 V</strong></td>
+<td><strong>50 Wh（2,250 mAh）</strong></td>
+<td><strong>~360 g</strong></td>
+<td><strong>良好</strong></td>
+<td><strong>首选</strong></td>
+</tr>
+<tr>
+<td>10S 锂离子（36 V）</td>
+<td>36 V</td>
+<td>54 Wh（1,500 mAh）</td>
+<td>~480 g</td>
+<td>优秀</td>
+<td>重量惩罚</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>决定：6S 锂离子，21700 电芯</strong>（Samsung 50E 或类似，每节 5,000 mAh → 6 × 5,000 mAh @ 22.2 V）。定制电池包，含 BMS（TI BQ76952 或类似）。</p>
+<hr />
+<h2>4. 关键工程风险（按严重程度排序）</h2>
+<h3>风险 1：运动过程中干式 EEG 信号质量</h3>
+<p><strong>严重程度：</strong> 致命 | <strong>概率：</strong> 高 | <strong>缓解成本：</strong> 高</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>因素</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>问题</td>
+<td>干电极比湿/凝胶电极噪声高 10–100 倍。运动伪迹（缆线摆动、电极位移、肌肉 EMG 串扰）与 MRCP 处于同一频段（0.1–10 Hz）。用户行走会产生巨大的运动伪迹。</td>
+</tr>
+<tr>
+<td>影响</td>
+<td>如果步态中干式 EEG 信噪比 &lt; 3 dB，则无法进行意图解码，产品无法工作。这是存亡风险。</td>
+</tr>
+<tr>
+<td>缓解措施</td>
+<td>(1) 优化电极机械设计：带独立悬挂的弹簧针；(2) 使用 IMU 参考进行自适应噪声消除（头带上加速计）；(3) 通过 DRL 电路进行主动噪声抑制；(4) 预处理中运行伪迹剔除算法（MARA、FASTER）；(5) 后备方案：如果步态伪迹无法克服，改用注视或残余 EMG 检测意图。</td>
+</tr>
+<tr>
+<td>解决阶段</td>
+<td><strong>立即。</strong> 原型第 1 天：使用运动模拟器进行电极测试台架。首月内若无量化运动下信噪比数据，不得继续推进。</td>
+</tr>
+</tbody>
+</table></div>
+<h3>风险 2：实时意图解码延迟与准确性</h3>
+<p><strong>严重程度：</strong> 致命 | <strong>概率：</strong> 中等 | <strong>缓解成本：</strong> 高</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>因素</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>问题</td>
+<td>Bereitschaftspotential（BP）峰值仅 5–10 µV。从 8 通道进行单次试验检测处于文献验证的边缘（受控实验室条件下单次 BP 检测准确率约 70–80%）。真实步态中且存在伪迹时，准确率可能降至可用阈值以下。</td>
+</tr>
+<tr>
+<td>影响</td>
+<td>假阳性（用户未意图时提供辅助）→ 感觉失控，安全风险。假阴性（意图时未辅助）→ 用户放弃设备。</td>
+</tr>
+<tr>
+<td>缓解措施</td>
+<td>(1) 使用在用户特定数据上训练的滑动窗口深度学习（EEGNet、浅层 ConvNet）；(2) 多模态融合：IMU 信号（重心转移预示迈步）提供第二路信号；(3) 主动个性化：模型在每次训练的前 10 分钟内自适应；(4) 保守阈值：早期版本优先考虑特异性而非灵敏度；(5) FDA 策略：初始审批定位为"按需辅助"而非"意图控制"。</td>
+</tr>
+<tr>
+<td>解决阶段</td>
+<td><strong>第 1–3 月。</strong> 算法开发 + 前 5 名健康受试者的数据采集。</td>
+</tr>
+</tbody>
+</table></div>
+<h3>风险 3：鲍登线摩擦与控制非线性</h3>
+<p><strong>严重程度：</strong> 高 | <strong>概率：</strong> 高 | <strong>缓解成本：</strong> 中等</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>因素</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>问题</td>
+<td>鲍登线摩擦随鞘弯曲曲率非线性增加。效率可能降至 40–70%。负载下缆线拉伸引入迟滞。这使得精确扭矩控制非常困难。</td>
+</tr>
+<tr>
+<td>影响</td>
+<td>辅助中的"间隙"感觉不自然。如果步态中摩擦随髋关节角度变化，控制器必须动态补偿——难以建模。</td>
+</tr>
+<tr>
+<td>缓解措施</td>
+<td>(1) 最小化鞘弯曲：尽可能直线布线；(2) 使用 PTFE 内衬鲍登鞘（低摩擦）；(3) 带内联力传感器的闭环力控制（补偿摩擦）；(4) 将摩擦建模为鞘角度的函数（实验表征）；(5) 备选：髋关节直驱电机（更重但更可控）——保留作为风险缓解策略。</td>
+</tr>
+<tr>
+<td>解决阶段</td>
+<td><strong>第 2–4 月。</strong> 搭建缆线测试台架，表征摩擦 vs 弯曲半径 vs 负载关系。</td>
+</tr>
+</tbody>
+</table></div>
+<h3>风险 4：系统集成复杂性</h3>
+<p><strong>严重程度：</strong> 高 | <strong>概率：</strong> 中等 | <strong>缓解成本：</strong> 中等</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>因素</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>问题</td>
+<td>五个子系统（EEG 头带、手机 App、控制盒、电机、套装机械）必须协同工作。每个都有独立的开发依赖（FW、EE、ME、ML）。集成通常会暴露时序错误、协议不匹配、电源时序问题和机械干涉。</td>
+</tr>
+<tr>
+<td>影响</td>
+<td>集成阶段超出计划；任何子系统的单点故障都会阻塞整个系统测试。</td>
+</tr>
+<tr>
+<td>缓解措施</td>
+<td>(1) 在任何编码开始前定义通信<strong>协议</strong>（见附录）；(2) 第 1 月构建集成测试平台；(3) 第 2 月起每周集成测试；(4) 在机械原型存在前，为控制盒固件搭建硬件在环（HIL）测试台架；(5) 指定一人作为<strong>集成负责人</strong>，有权阻止（而不仅仅是标记）破坏兼容性的变更。</td>
+</tr>
+<tr>
+<td>解决阶段</td>
+<td><strong>第 1 月（协议定义）+ 持续进行。</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>风险 5：实际使用中的电池续航</h3>
+<p><strong>严重程度：</strong> 中等 | <strong>概率：</strong> 中等 | <strong>缓解成本：</strong> 低</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>因素</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>问题</td>
+<td>电机驱动功耗取决于步态模式、用户体重和辅助级别。最坏情况（重型用户、高辅助、频繁坐站）可能消耗 25+ W，使 48 Wh 电池在 &lt; 2 小时内耗尽。</td>
+</tr>
+<tr>
+<td>影响</td>
+<td>临床可行性：康复训练应至少 45–60 分钟。2 小时可接受。&lt; 1 小时不可接受。</td>
+</tr>
+<tr>
+<td>缓解措施</td>
+<td>(1) 在首次电动原型上测量实际功耗；(2) 步幅间使用低功耗状态；(3) 如需将电池容量增至 60 Wh（约 +100 g，可接受的权衡）；(4) 充电底座支持热插拔电池，适用于临床环境。</td>
+</tr>
+<tr>
+<td>解决阶段</td>
+<td><strong>第 4–5 月</strong>，首次集成系统测试后。</td>
+</tr>
+</tbody>
+</table></div>
+<h3>风险 6：热管理</h3>
+<p><strong>严重程度：</strong> 中等 | <strong>概率：</strong> 低–中等 | <strong>缓解成本：</strong> 低</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>因素</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>问题</td>
+<td>电机驱动 + 电池 + MCU 位于腰部安装外壳（120 × 80 × 30 mm）内，气流有限。电机驱动（DRV8316）在 5 A 时可耗散 2–3 W。电池内阻在峰值功耗期间增加热量。</td>
+</tr>
+<tr>
+<td>影响</td>
+<td>过热 → 降频 → 辅助减少；最坏情况：训练中途热关断。</td>
+</tr>
+<tr>
+<td>缓解措施</td>
+<td>(1) 将驱动器热耦合至铝制外壳；(2) 增加导热垫 + 散热器；(3) 在最坏情况下测量结温；(4) 外壳温度 80°C 时软件电流限制。</td>
+</tr>
+<tr>
+<td>解决阶段</td>
+<td><strong>第 4 月</strong>，外壳设计期间。</td>
+</tr>
+</tbody>
+</table></div>
+<h3>风险 7：监管（NMPA Class II）</h3>
+<p><strong>严重程度：</strong> 中等（产品）/ 高（时间线） | <strong>概率：</strong> 中等 | <strong>缓解成本：</strong> 中等</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>因素</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>问题</td>
+<td>NMPA Class II 医疗器械要求：ISO 13485 质量管理体系、可用性工程（IEC 62366）、软件生命周期（IEC 62304）、风险管理（ISO 14971）、临床评价。这些都不是原型优先的工程方法所内置的。追溯合规成本高昂。</td>
+</tr>
+<tr>
+<td>影响</td>
+<td>如需重建设计历史档案，临床试验延迟 6–12 个月。</td>
+</tr>
+<tr>
+<td>缓解措施</td>
+<td>(1) 在原型<strong>之前</strong>聘请 NMPA 注册顾问（第 0 月）；(2) 从第 1 天起维护设计历史档案；(3) 记录所有设计决策及其理由；(4) 尽可能使用认证组件（ISO 10993）；(5) 争取"创新医疗器械"快速审批资格。</td>
+</tr>
+<tr>
+<td>解决阶段</td>
+<td><strong>第 0 月–持续。</strong> 监管是时间线关键路径项。</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>5. 首批原型构建计划</h2>
+<h3>5.1 指导原则</h3>
+<ol>
+<li><strong>优先降低延迟风险：</strong> 最大的未知因素在于运动过程中干式 EEG 是否可用。第 1 月使用有线 EEG + 运动模拟器进行测试，在任何无线或机械工作之前。</li>
+<li><strong>手机作为推理引擎（Phase 1）：</strong> 暂时跳过嵌入式 ML。手机处理让我们无需固件更新即可快速迭代 AI 模型。</li>
+<li><strong>原型使用现成电机：</strong> 不设计定制电机。首个原型购买 T-motor。</li>
+<li><strong>3D 打印所有机械件：</strong> CNC/碳纤维用于生产，不用于早期原型。</li>
+<li><strong>快速失败是目标：</strong> 首个集成原型（第 3 月）几乎肯定无法正常工作。这没关系——它告诉我们修复什么。</li>
+</ol>
+<h3>5.2 购买 vs 自建 vs 外包</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>决策</th>
+<th>供应商 / 方式</th>
+<th>预估成本（¥）</th>
+<th>时间线</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>EEG 前端</strong></td>
+<td>购买</td>
+<td>ADS1299 评估模块 + 定制载板</td>
+<td>8,000</td>
+<td>第 2 周</td>
+</tr>
+<tr>
+<td><strong>干电极（8 个）</strong></td>
+<td>购买</td>
+<td>OpenBCI 兼容干梳电极</td>
+<td>1,500</td>
+<td>第 1 周</td>
+</tr>
+<tr>
+<td><strong>EEG 头带 PCB + 组装</strong></td>
+<td>自建</td>
+<td>定制 PCB（ADS1299 + nRF52832 + 电源）</td>
+<td>20,000（首批 10 块）</td>
+<td>第 4–8 周</td>
+</tr>
+<tr>
+<td><strong>BLE 模块</strong></td>
+<td>购买</td>
+<td>Nordic nRF52832 DK（开发套件）× 2</td>
+<td>1,500</td>
+<td>第 1 周</td>
+</tr>
+<tr>
+<td><strong>BLE 模块</strong></td>
+<td>购买</td>
+<td>Nordic nRF5340 DK × 2</td>
+<td>1,200</td>
+<td>第 1 周</td>
+</tr>
+<tr>
+<td><strong>IMU</strong></td>
+<td>购买</td>
+<td>Bosch BMI270 分线板</td>
+<td>200</td>
+<td>第 1 周</td>
+</tr>
+<tr>
+<td><strong>电机（BLDC）</strong></td>
+<td>购买</td>
+<td>T-motor AK80-9（× 2，一块备用）</td>
+<td>3,000</td>
+<td>第 2 周</td>
+</tr>
+<tr>
+<td><strong>电机驱动</strong></td>
+<td>购买</td>
+<td>TI DRV8316 评估模块 + 定制板</td>
+<td>4,000</td>
+<td>第 3 周</td>
+</tr>
+<tr>
+<td><strong>电机驱动 PCB</strong></td>
+<td>自建</td>
+<td>DRV8316 + STM32H743 定制载板</td>
+<td>15,000</td>
+<td>第 4–8 周</td>
+</tr>
+<tr>
+<td><strong>MCU 开发板</strong></td>
+<td>购买</td>
+<td>STM32H743 Nucleo</td>
+<td>800</td>
+<td>第 1 周</td>
+</tr>
+<tr>
+<td><strong>电池（6S）</strong></td>
+<td>购买</td>
+<td>18650 供应商定制 6S 锂离子电池包</td>
+<td>3,000</td>
+<td>第 4 周</td>
+</tr>
+<tr>
+<td><strong>BMS</strong></td>
+<td>购买</td>
+<td>TI BQ76952 评估模块</td>
+<td>1,500</td>
+<td>第 4 周</td>
+</tr>
+<tr>
+<td><strong>力传感器（张力）</strong></td>
+<td>购买</td>
+<td>S 型力传感器 1000 N + HX711</td>
+<td>800</td>
+<td>第 3 周</td>
+</tr>
+<tr>
+<td><strong>髋关节机构</strong></td>
+<td>自建</td>
+<td>3D 打印（PLA/ABS）+ 铝轴</td>
+<td>2,000（材料费）</td>
+<td>第 4–6 周</td>
+</tr>
+<tr>
+<td><strong>碳纤维锚点</strong></td>
+<td>外包</td>
+<td>本地 CNC 工厂（碳纤维板 + 髋带框架）</td>
+<td>10,000</td>
+<td>第 6–8 周</td>
+</tr>
+<tr>
+<td><strong>套装布料</strong></td>
+<td>外包</td>
+<td>本地裁缝/服装厂（定制织带 + 氯丁橡胶）</td>
+<td>5,000</td>
+<td>第 6–8 周</td>
+</tr>
+<tr>
+<td><strong>鲍登线 + 鞘</strong></td>
+<td>购买</td>
+<td>标准自行车刹车线（PTFE 内衬）——便宜、可得</td>
+<td>200</td>
+<td>第 2 周</td>
+</tr>
+<tr>
+<td><strong>控制盒外壳</strong></td>
+<td>自建</td>
+<td>原型 3D 打印（PETG）；V2 CNC 铝制</td>
+<td>1,000（3D 打印）</td>
+<td>第 5–7 周</td>
+</tr>
+<tr>
+<td><strong>力传感器（缆线）</strong></td>
+<td>自建</td>
+<td>内联力传感器支架（3D 打印 + 应变片）</td>
+<td>500</td>
+<td>第 5 周</td>
+</tr>
+<tr>
+<td><strong>手机（测试用）</strong></td>
+<td>购买</td>
+<td>二手 iPhone SE（硬件 ML 测试设备）</td>
+<td>2,500</td>
+<td>第 1 周</td>
+</tr>
+<tr>
+<td><strong>示波器</strong></td>
+<td>购买</td>
+<td>Rigol DS1054Z（4 通道，50 MHz）</td>
+<td>2,500</td>
+<td>第 1 周</td>
+</tr>
+<tr>
+<td><strong>电源</strong></td>
+<td>购买</td>
+<td>Korad KA3005D（30 V，5 A）</td>
+<td>1,500</td>
+<td>第 1 周</td>
+</tr>
+<tr>
+<td><strong>信号发生器</strong></td>
+<td>购买</td>
+<td>JDS6600（EEG 模拟器用于测试）</td>
+<td>1,200</td>
+<td>第 2 周</td>
+</tr>
+<tr>
+<td><strong>工具</strong></td>
+<td>购买</td>
+<td>焊台、万用表、手工工具</td>
+<td>3,000</td>
+<td>第 1 周</td>
+</tr>
+<tr>
+<td><strong>3D 打印机</strong></td>
+<td>购买</td>
+<td>Bambu Lab P1S（快速原型）</td>
+<td>4,000</td>
+<td>第 1 周</td>
+</tr>
+<tr>
+<td><strong>应急储备金</strong></td>
+<td>—</td>
+<td>—</td>
+<td>93,300</td>
+<td>—</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>总计 ¥200,000</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>总计：约 ¥200,000</strong>（直接 BOM + 测试设备约 ¥93,900 + 应急储备金约 ¥93,300，用于 PCB 改版、机械重设计和意外费用）。剩余 ¥1,800,000 用于：6 个月团队工资、临床费用、办公/实验室空间和注册咨询。</p>
+<h3>5.3 团队分配（8 人，6 个月）</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>角色</th>
+<th>人数</th>
+<th>重点（第 1–3 月）</th>
+<th>重点（第 3–6 月）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>EE 硬件负责人</strong></td>
+<td>1</td>
+<td>EEG 头带 PCB 设计 + 电极测试台架 + 调试</td>
+<td>头带 V2，EMC 测试</td>
+</tr>
+<tr>
+<td><strong>嵌入式固件</strong></td>
+<td>1</td>
+<td>BLE 协议，电机控制固件，传感器驱动</td>
+<td>控制回路调优，传感器融合</td>
+</tr>
+<tr>
+<td><strong>机械工程师</strong></td>
+<td>1</td>
+<td>鲍登线测试台架，髋关节 CAD，套装集成</td>
+<td>面向制造的设计，碳纤维零件</td>
+</tr>
+<tr>
+<td><strong>算法 / ML</strong></td>
+<td>1</td>
+<td>EEG 数据采集管道，BP 检测模型训练</td>
+<td>手机实时推理，个性化</td>
+</tr>
+<tr>
+<td><strong>系统集成</strong></td>
+<td>1</td>
+<td>协议规范，集成测试平台，HIL 台架</td>
+<td>端到端验证，认证准备</td>
+</tr>
+<tr>
+<td><strong>产品 / PM</strong></td>
+<td>1</td>
+<td>用户测试协调，需求管理</td>
+<td>临床医生访谈，家用 vs 临床规格</td>
+</tr>
+<tr>
+<td><strong>临床 / 注册</strong></td>
+<td>1</td>
+<td>IRB 准备，NMPA 创新医疗器械申请</td>
+<td>临床方案设计，ISO 13485 差距分析</td>
+</tr>
+<tr>
+<td><strong>工业设计师</strong></td>
+<td>1</td>
+<td>可穿戴人机工程，头带形态，套装美学</td>
+<td>量产级工业设计</td>
+</tr>
+</tbody>
+</table></div>
+<h3>5.4 6 个月开发时间线</h3>
+<div class="codehilite"><pre><span></span><code>第 01 月 | 第 02 月 | 第 03 月 | 第 04 月 | 第 05 月 | 第 06 月
+─────────────────────────────────────────────────────────────────────
+EEG 测试    │         │         │         │         │
+台架 ───────►│         │         │         │         │
+ (有线)     │ PCB V1  │         │         │         │
+            │ ───────►│ FW+测试 │         │         │
+            │         │ ───────►│  PCB V2 │         │
+            │         │         │  ──────►│ 集成   │
+            │缆线     │         │         │ ───────►│
+电机测试    │台架     │ 原型    │         │         │
+台架 ──────►│────────►│ 套装 V1 │ 机构V2  │ 端到端  │
+            │         │ ───────►│────────►│ 测试──►│
+            │ML 数据   │         │         │         │
+            │采集     │ 模型    │ 手机上  │ 调优    │
+BP 算法     │────────►│ 训练──►│ 测试──►│ ───────►│
+            │         │         │         │         │
+协议        │ 集成    │         │         │         │
+规范 ──────►│ HIL     │ 子系统  │ 端到端V1│ 端到端V2│
+            │ ───────►│ 测试──►│ 测试──►│ ───────►│
+            │         │         │         │         │
+            │ IRB     │         │ 临床    │         │
+注册        │ 提交    │  NMPA   │ 数据    │ 报告    │
+───────────►│────────►│ ───────►│ 采集───│────────►│
+</code></pre></div>
+
+<p><strong>关键里程碑：</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>月份</th>
+<th>里程碑</th>
+<th>交付物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td>EEG 可行性确认</td>
+<td>信噪比报告：运动下干式 EEG ≥ 3 dB</td>
+</tr>
+<tr>
+<td>M1</td>
+<td>通信协议冻结</td>
+<td>所有团队签署的协议规范文档</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>电机 + 缆线特性完成</td>
+<td>扭矩控制传递函数；摩擦模型</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>头带 PCB V1 组装完成</td>
+<td>8 通道无线 EEG 流式传输到手机</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>首款集成原型（实验台）</td>
+<td>信号：EEG→手机→电机→力。尚不可穿戴。</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>可穿戴原型组装完成</td>
+<td>头带 + 控制盒 + 套装完全集成，仅调试用有线连接</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>ML 模型在 5 名受试者上达到 &gt; 75% BP 检测 AUC</td>
+<td>在采集的数据集上离线评估</td>
+</tr>
+<tr>
+<td>M5</td>
+<td>手机上实时意图解码</td>
+<td>测试台架上验证端到端延迟 &lt; 200 ms</td>
+</tr>
+<tr>
+<td>M5</td>
+<td>IRB 批准试点临床研究</td>
+<td>可开始招募</td>
+</tr>
+<tr>
+<td>M6</td>
+<td>端到端验证：5 名健康受试者，3 名脑卒中患者</td>
+<td>延迟 &lt; 200 ms，扭矩精度 &lt; ±0.5 Nm，无严重不良事件</td>
+</tr>
+<tr>
+<td>M6</td>
+<td>NMPA 创新医疗器械申请提交</td>
+<td>60 天内决定</td>
+</tr>
+</tbody>
+</table></div>
+<h3>5.5 原型成功标准</h3>
+<p>成功的首批原型必须证明：</p>
+<ol>
+<li><strong>数据流完整性：</strong> EEG 信号成功采集、传输、解码并转换为电机扭矩——无论效果多差——至少一次。</li>
+<li><strong>端到端延迟 &lt; 200 ms：</strong> 使用模拟 EEG 信号在台架上测量。</li>
+<li><strong>扭矩控制精度 &lt; ±1 Nm：</strong> 稳态、空载台架测试下。</li>
+<li><strong>可穿戴 30 分钟：</strong> 无皮肤刺激、无电极脱落、无过热。</li>
+<li><strong>步行中 EEG 可检测：</strong> 至少 3/5 名健康受试者在至少 50% 的步幅中可见 MRCP。</li>
+</ol>
+<hr />
+<h2>6. 附录：通信协议汇总</h2>
+<p>为避免最常见的集成失败（协议不匹配），以下接口预先定义：</p>
+<h3>6.1 EEG 头带 → 手机（BLE）</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传输方式</td>
+<td>BLE GATT Notify</td>
+</tr>
+<tr>
+<td>服务 UUID</td>
+<td><code>0xFEE0</code>（自定义）</td>
+</tr>
+<tr>
+<td>特征值</td>
+<td><code>EEG_DATA</code>（UUID：<code>EEG0-001</code>）</td>
+</tr>
+<tr>
+<td>数据包格式</td>
+<td>8 通道 × 2 字节（16 位）+ 8 字节电极状态 + 1 字节电量 + 2 字节序号 = <strong>每包 27 字节</strong></td>
+</tr>
+<tr>
+<td>数据包间隔</td>
+<td>20 ms（50 Hz 更新）</td>
+</tr>
+<tr>
+<td>电极阻抗特征值</td>
+<td><code>IMPEDANCE</code>（UUID：<code>EEG0-003</code>），读取，16 字节</td>
+</tr>
+<tr>
+<td>命令特征值</td>
+<td><code>CMD_RX</code>（UUID：<code>EEG0-004</code>），写入，3 字节</td>
+</tr>
+<tr>
+<td>电池特征值</td>
+<td>标准电池服务（UUID：<code>0x180F</code>）</td>
+</tr>
+</tbody>
+</table></div>
+<h3>6.2 手机 → 控制盒（BLE）</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传输方式</td>
+<td>BLE GATT Write</td>
+</tr>
+<tr>
+<td>服务 UUID</td>
+<td><code>0xFEE1</code>（自定义）</td>
+</tr>
+<tr>
+<td>特征值</td>
+<td><code>CMD_TORQUE</code>（UUID：<code>CTL0-001</code>）</td>
+</tr>
+<tr>
+<td>数据包格式</td>
+<td>2 字节扭矩设定点（0.01 Nm 分辨率）+ 1 字节命令类型 + 2 字节序号 = <strong>5 字节</strong></td>
+</tr>
+<tr>
+<td>命令类型</td>
+<td>0x01：扭矩曲线（设定点 + 持续时间），0x02：紧急停止，0x03：校准归零</td>
+</tr>
+</tbody>
+</table></div>
+<h3>6.3 控制盒 → 手机（BLE）</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传输方式</td>
+<td>BLE GATT Notify</td>
+</tr>
+<tr>
+<td>服务 UUID</td>
+<td><code>0xFEE2</code>（自定义）</td>
+</tr>
+<tr>
+<td>特征值</td>
+<td><code>STATE_VECTOR</code>（UUID：<code>CTL0-002</code>）</td>
+</tr>
+<tr>
+<td>数据包格式</td>
+<td>4 字节髋关节角度（浮点数，度）+ 4 字节角速度 + 4 字节缆线力（N）+ 2 字节电机位置 + 1 字节状态 = <strong>15 字节</strong>，@ 50 Hz</td>
+</tr>
+</tbody>
+</table></div>
+<h3>6.4 有线内部（控制盒内部）</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>接口</th>
+<th>协议</th>
+<th>引脚</th>
+<th>波特率 / 速度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MCU ↔ 电机驱动</td>
+<td>SPI / PWM</td>
+<td>SCK, MOSI, MISO, CS + 2 PWM</td>
+<td>10 MHz SPI, 50 kHz PWM</td>
+</tr>
+<tr>
+<td>MCU ↔ IMU</td>
+<td>I2C</td>
+<td>SCL, SDA</td>
+<td>400 kHz</td>
+</tr>
+<tr>
+<td>MCU ↔ 力传感器</td>
+<td>模拟（ADC）/ I2C</td>
+<td>AIN 或 I2C</td>
+<td>12 位, 200 Hz</td>
+</tr>
+<tr>
+<td>MCU ↔ BLE 模块</td>
+<td>UART</td>
+<td>TX, RX, RTS, CTS</td>
+<td>921600 波特</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<p><em>文档结束。此为活跃草案——随规格验证或变更更新。</em></p>
+<div class="footer">逐念而行 &middot; Nexum One &middot; Confidential</div>
+</div>
+</body>
+</html>
