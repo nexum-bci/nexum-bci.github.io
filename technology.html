@@ -886,31 +886,31 @@ footer {
     <h2 class="text-center">深入了解AI闭环</h2>
     <div class="faq-list" style="margin-top:48px;">
       <div class="faq-item">
-        <button class="faq-question">EEGNet相比传统CNN有什么优势？<span class="faq-arrow">&#9660;</span></button>
+        <button class="faq-question">EEGNet相比传统CNN有什么优势？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
         <div class="faq-answer">EEGNet是一种专为EEG信号设计的轻量级卷积神经网络架构。相比传统CNN，EEGNet使用深度可分离卷积大幅减少参数量（约90%），同时通过时空卷积核设计更好地捕捉EEG信号的时间和空间特征。这使得EEGNet在边缘设备上能够以极低功耗实现实时推理，推理时间小于30ms。</div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">416肌肉数字孪生模型是如何构建的？<span class="faq-arrow">&#9660;</span></button>
+        <button class="faq-question">416肌肉数字孪生模型是如何构建的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
         <div class="faq-answer">数字孪生模型基于OpenSim框架构建，涵盖全身416块肌肉的骨骼-肌肉拓扑、力-长度关系和力-速度关系。模型通过运动捕捉数据和表面EMG信号进行个性化校准。在强化学习训练中，数字孪生作为环境模型提供高保真仿真，使策略网络可以在虚拟环境中进行数百万次试错训练而无需真实用户参与。</div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">强化学习是如何在边缘设备上训练的？<span class="faq-arrow">&#9660;</span></button>
+        <button class="faq-question">强化学习是如何在边缘设备上训练的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
         <div class="faq-answer">强化学习采用分阶段策略：初始策略在云端使用数字孪生环境进行大规模预训练（约100万时间步）。部署到边缘设备后，使用PPO算法进行微调，仅更新策略网络的最后几层。每次使用后收集的轨迹数据（约5分钟/次）用于本地策略更新。联邦学习框架定期聚合各设备的梯度更新，形成全局基础策略。</div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">联邦学习如何保护用户隐私？<span class="faq-arrow">&#9660;</span></button>
+        <button class="faq-question">联邦学习如何保护用户隐私？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
         <div class="faq-answer">联邦学习采用四级隐私保护机制：第一，原始EEG数据和传感器数据始终存储在本地，不离开设备。第二，上传到聚合服务器的只有模型参数梯度而非原始数据。第三，梯度上传前经过差分隐私加噪（epsilon=4.0）。第四，聚合服务器仅接收加密梯度，无法追溯到个人。这种设计确保即使聚合服务器被攻破，单个用户的隐私数据也无法恢复。</div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">185ms延迟是怎么优化出来的？<span class="faq-arrow">&#9660;</span></button>
+        <button class="faq-question">185ms延迟是怎么优化出来的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
         <div class="faq-answer">延迟优化贯穿整个系统设计：EEG端采用硬件触发采样和DMA传输降低采集延迟（40ms）。AI推理通过模型量化（FP32→INT8）、算子融合和TensorRT优化将推理时间压缩至55ms。蓝牙5.2 LE Coded PHY将通信延迟降至20ms以下。执行器端采用前馈+反馈控制将机械响应控制在60ms。传感器反馈通过高速SPI总线实现10ms闭环。</div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">系统如何适应不同用户的肌肉状态差异？<span class="faq-arrow">&#9660;</span></button>
+        <button class="faq-question">系统如何适应不同用户的肌肉状态差异？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
         <div class="faq-answer">每个用户的肌肉状态（肌力、肌张力、萎缩程度、痉挛频率）都有显著差异。系统通过三阶段适配实现个性化：第一阶段（初始校准），系统执行一系列标准动作测量用户的被动和主动关节力矩范围，建立初始肌肉模型。第二阶段（在线适配），强化学习策略根据实时IMU和编码器反馈微调辅助力矩。第三阶段（长期进化），联邦学习跨用户聚合模型更新，同时保持本地个性化。整个过程无需用户手动配置。</div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">AI模型如何保证在不同环境下的鲁棒性？<span class="faq-arrow">&#9660;</span></button>
+        <button class="faq-question">AI模型如何保证在不同环境下的鲁棒性？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
         <div class="faq-answer">模型鲁棒性通过四层机制保证：第一，训练数据覆盖多种环境条件（不同光照、电磁干扰、皮肤阻抗水平）。第二，EEG信号预处理包含自适应噪声抑制算法，自动滤除运动伪迹和工频干扰。第三，策略网络输出经过安全限幅，确保在任何情况下输出扭矩不超过安全阈值。第四，系统连续监测信号质量和控制误差，当信号质量下降时自动增加辅助安全边界并提示用户调整。</div>
       </div>
     </div>
