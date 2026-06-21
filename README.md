@@ -1,157 +1,37 @@
-# Kine
-## 脑机接口康复机器人
+# Nexum
 
-**商业计划书** | 2026年6月
+**Human-Machine Symbiosis**
 
+Nexum builds the first neural intent-driven system that fuses brain and machine into one body — reading motor intention directly from the brain and translating it into movement.
 
-## 1. 产品
+## What
 
-全球9400万中风幸存者中，66%遗留运动功能障碍。每年1200万新发中风，其中约800万人需要下肢康复训练。中国每10万人口仅有1.7名康复治疗师（美国6.2名、日本40名）。77%的患者出院后无法获得有效康复。
+Nexum One is a human-machine symbiosis system for lower-limb motor function reconstruction after stroke and spinal cord injury. Three modules:
 
-**Kine是世界首台消费级脑机接口下肢康复机器人。** 它是为那些想动但是"大脑指令传不到肌肉"的人做的——中风后的偏瘫、不完全脊髓损伤。这些患者的肌肉信号太弱或不稳定，传统EMG无法可靠检测。而EEG可以在动作发生前0.5-1.5秒从大脑皮层直接读取运动准备电位——不需要肌肉参与。
+- **EEG-Sense** — non-invasive 8-channel dry-electrode headband that detects movement-related cortical potentials before movement begins
+- **NeuroSuit** — carbon-fiber anchored, fabric-wrapped, Bowden-cable-driven hip assistance (<1.5 kg)
+- **Nexum App** — continuously adapting personalized rehabilitation strategy
 
-Kine由三个模块组成：**EEG-Sense**（8通道干电极头带，80g）检测运动意图；**NeuroSuit**（碳纤维锚定+织物包裹+Bowden电缆驱动，<1.5kg）提供髋关节辅助；**Kine App**运行个性化康复AI。
+Two versions: Clinical ($18,000, hospital) and Home ($3,999 + $499/yr, post-discharge).
 
-它不是省力工具。它是重建大脑到肌肉的神经通路的训练器。
+## Category
 
+Nexum defines a new technology domain: **人机共生 (Human-Machine Symbiosis)** — not an exoskeleton company, not a BCI company, not a rehab robot company. A neural system and a machine system fused into one body.
 
-## 2. 市场
+## Team
 
-| 市场 | 规模 | CAGR | 来源 |
-|------|------|------|------|
-| 全球脑机接口 | $2.4B (2025) | 15% | Meticulous Research |
-| 中国脑机接口 | ¥40B (2025) | 25% | 中国信通院 |
-| 全球康复机器人 | $1.8B (2025) | 22% | TBRC |
-| 全球可穿戴外骨骼 | $33.7B (2025) | 32% | Research & Markets |
+- **Zirui Zhao** — Product, architecture, technical direction. Columbia EE MSc, Huawei Futurewei IoT Lab, 8yr CTO
+- **Muxing Wang** — Algorithms, federated learning. NEU PhD candidate, Edinburgh MSc (Distinction), pFedAC first author
 
-**自底向上TAM**：全球9400万中风幸存者×66%运动障碍×30%适合机器人康复×5%渗透率=93万人。×$3,999（家用版）=$3.7B家用TAM。医院版（$18,000/台，全球8000家康复医院×10%渗透率×2台=$2.9B）。**合计目标市场~$6.6B。**
+## Status
 
-**支付方**：美国Medicare K1007编码$91,032/台（2024年4月生效）。中国2025年3月发布非侵入BCI适配¥966/次定价标准。日本Cyberdyne HAL已纳入医保。德国2024年联邦社会法院裁定扩大外骨骼覆盖。
+Pre-revenue. Prototype phase. Seed round Q3 2026. NMPA Class II innovative device filing Q1 2027.
 
-**十五五**：脑机接口列入六大未来产业，写入政府工作报告。国家脑科学基金116亿。Kine是脑机接口+康复机器人双重政策受益者。
+## Documents
 
-
-## 3. 技术
-
-Kine组装了三项经过验证的成熟技术，用MSK模型和RL把它们整合成一个系统。
-
-### 3.1 感知：EEG + sEMG双模态神经接口
-
-**EEG-Sense**：8通道干电极头带（80g）。检测运动准备电位（MRCP）——中风患者残肢的肌肉信号太弱，但大脑皮层在试图运动时仍然产生准备电位。CMU Bin He实验室（Nature Comms, 2025）验证了非侵入EEG 2-4状态>85%在线精度。这是Kine最关键的传感器：当EMG不够用时，EEG是唯一的控制信号源。
-
-**NeuroSuit sEMG**：16通道织物电极嵌入压缩裤（Nextiles方案，残奥会部署）。在患者仍有残余肌电信号时提供更精细的力矩解码（<100ms）。随着康复进展，EMG信号逐渐恢复，EEG权重自动降低——这是Kine个性化康复的核心逻辑。
-
-**安全冗余**：EEG失效→sEMG+IMU降级运行。全传感器失效→无助力被动模式。康复设备不能停机。
-
-### 3.2 决策：MSK数字孪生 + 个性化RL康复
-
-每位中风患者的受损模式不同——有人是股四头肌无力，有人是踝背屈障碍，有人是骨盆代偿。Kine为每位患者构建个性化的MSK数字孪生（416肌肉+206骨骼+Hill型柔顺肌腱），在仿真中训练专属康复策略。
-
-这不是通用助力曲线。这是"你这个患者"的肌肉-肌腱模型。随着康复进展，数字孪生持续更新——本周的Kine策略和上周不同，因为你的肌肉在恢复。2048个仿真世界并行，日产53亿步态样本，零人工标注。
-
-### 3.3 执行：混合式机械架构
-
-纯软体55%功率在软组织中损耗（Harvard实测）。纯刚性12-25kg。Kine使用已验证的Harvard Wyss架构：碳纤维髋部锚定+织物包裹+Bowden电缆驱动+AKE60电机。力传输>70%，总重<1.5kg。电缆驱动已有20年临床使用历史，是最成熟的可穿戴驱动方案。
-
-### 3.4 壁垒
-
-| 能力 | Kine | Ekso | ReWalk | HAL | BrainCo |
-|------|------|------|--------|-----|---------|
-| EEG运动意图解码 | ✅ | ❌ | ❌ | ❌ | ✅ |
-| sEMG神经接口 | ✅ | ❌ | ❌ | ✅ | ✅ |
-| EEG+sEMG双模态融合 | ✅ | ❌ | ❌ | ❌ | ❌ |
-| MSK数字孪生+RL康复 | ✅ | ❌ | ❌ | ❌ | ❌ |
-| 联邦学习隐私合规 | ✅ | ❌ | ❌ | ❌ | ❌ |
-
-**关键差异**：Ekso/ReWalk/HAL是硬件公司——它们卖的是电机和结构。Kine卖的是康复智能——硬件是载体，AI是个性化康复的核心。这解释了为什么Ekso（53%毛利但亏损$11M）无法盈利——硬件差异化不够，S&M占41%收入。Kine的RL个性化康复方案是硬件无法复制的软件壁垒。
-
-
-## 4. 产品形态
-
-**Kine One**（2027年Q4交付）面向医院康复科和家庭康复两个场景。
-
-| 版本 | 用户 | 定价 | 渠道 |
-|------|------|------|------|
-| Kine One Clinical | 医院康复科 | $18,000/台 | 直销+经销商 |
-| Kine One Home | 出院患者家用 | $3,999/台 + $499/年订阅 | DTC+医院推荐 |
-
-**Clinical版**：含EEG-Sense+NeuroSuit+治疗师管理后台。治疗师可远程查看患者康复数据、调整康复目标。支持同时管理20+患者。
-
-**Home版**：含EEG-Sense+NeuroSuit+Kine App。患者在家进行每日康复训练。App提供实时生物反馈（"你今天比昨天多走了300步"）。联邦学习让康复数据不出家门。
-
-**NMPA路径**：二类创新器械（参考DAAI外骨骼先例，获批约15-18个月）。非侵入EEG已纳入国家医保定价（¥966/次适配）。
-
-
-## 5. 竞争
-
-**Ekso/ReWalk/Cyberdyne**：FDA批、医保覆盖。但每家年收入仅$18-29M，全员亏损。S&M占收入40-70%。问题是硬件差异化不够——三家做的是同一件事（刚性外骨骼），只是用不同品牌在卖。
-
-**BrainCo**：非侵入BCI技术领先（$500M+融资，HK IPO），但只做假肢控制不做康复训练。BCI传感器是我们的供应商，不是对手。
-
-**Kine vs 他们**：他们验证了需求（患者愿意用、医保愿意付）。但他们的产品是硬件。Kine的产品是个性化康复智能。同一台Kine One硬件，给患者A和患者B的康复方案完全不同——因为MSK数字孪生不同。这是Ekso做不到的。
-
-
-## 6. 商业模式
-
-**Phase 1（2027-28）：B2B医院首发**。NMPA获批后进入100家中国康复医院。Clinical版$18,000/台。同时启动FDA 510(k)和CE。
-
-**Phase 2（2029-30）：B2B2C家庭扩展**。通过医院推荐进入家庭康复。Home版$3,999 + $499/年订阅。同一患者从医院到家庭使用Kine——康复数据不中断。
-
-**Phase 3（2031+）：数据与服务**。10万患者×365天康复数据=全球最大的神经康复数据库。个性化康复方案、保险精算数据、药物临床试验辅助——软件收入占比提升至30%+。
-
-
-## 7. 发展路径
-
-| 时间 | 交付 | 团队 | 资金 |
-|------|------|------|------|
-| 2026 Q3-Q4 | EEG-Sense+NeuroSuit原型2台。合作医院预临床协议（3家） | 8人 | 种子¥800万 |
-| 2027 Q1-Q2 | 10台样机预临床（30例患者）。NMPA创新器械申报 | 12人 | 天使¥2,500万 |
-| 2027 Q3-Q4 | NMPA二类获证。首批30台Clinical版交付合作医院 | 20人 | — |
-| 2028 | 进入50家医院。Home版发布。年销150台Clinical+100台Home | 30人 | Pre-A $7M |
-| 2029 | 进入150家医院。FDA 510(k)提交。年销400台Clinical+500台Home | 50人 | A轮$20M |
-| 2030 | FDA获批。进入美国30家VA医院+欧洲20家。年销1,000+2,000台 | 80人 | B轮 |
-
-
-## 8. 财务预测
-
-| 年度 | Clinical | Home | 总收入 | 毛利率 | 净利润 |
-|------|---------|------|--------|--------|--------|
-| 2027 | 30台×$18K=$0.54M | — | $0.54M | 45% | -$1.5M |
-| 2028 | 150台×$16K=$2.4M | 100台×$4K=$0.4M | $2.8M | 52% | -$2.0M |
-| 2029 | 400台×$15K=$6.0M | 500台×$3.8K=$1.9M | $7.9M | 58% | -$0.5M |
-| 2030 | 1,000台×$14K=$14M | 2,000台×$3.5K=$7.0M | $21.0M | 63% | $3.0M |
-| 2031 | 2,500台×$13K=$32.5M | 8,000台×$3.2K=$25.6M | $58.1M | 68% | $15.0M |
-
-盈亏平衡：约700台/年（2029年Q3）。BOM（Clinical版）：EEG $200+sEMG $300+电机$300+碳纤维$150+织物+电缆+电池+控制器=$1,500-2,000（qty 100）。Home版精简传感器配置，BOM约$1,200。毛利率与Ekso（53%）、Cyberdyne（55%）可比，但Kine的B2B渠道S&M占比预计30%（vs竞品40-70%），因为产品差异化在软件而非硬件。
-
-
-## 9. 团队
-
-**赵子睿**：哥伦比亚大学电子工程硕士（ML）。EF Boston、华为美国研究院Futurewei IoT Lab。江苏欣网（宇树金牌合作伙伴）、南京智擎机器人CTO八年。15年算法工程、具身智能运控与硬件落地。
-
-**汪牧星**：美国东北大学计算机工程博士候选人。爱丁堡大学统计学硕士（Distinction）。pFedAC联邦强化学习第一作者（arXiv:2605.14423）。
-
-**学术顾问**：杨朋昆（清华统计系副教授）、苏丽丽（NEU助理教授，NSF CAREER）。
-
-**临床合作**：CMU Bin He Lab（EEG运动意图解码）、Nextiles（sEMG织物）、NEU NeuMove Lab（MSK仿真）。
-
-
-## 10. 融资
-
-- **种子轮**：2026 Q3，¥800万。原型+预临床准备+团队8人
-- **天使轮**：2027 Q1，¥2,500万。预临床30例+NMPA申报+10台样机
-- **Pre-A**：2028 Q1，$7M。量产+50家医院+Home版发布
-- **A轮**：2029 H2，$20M。FDA+海外+规模化
-
-
-## 11. 愿景
-
-2027年，Kine One进入中国100家医院。中风患者第一次可以通过脑机接口重新学习行走。
-
-2030年，Kine进入美国、欧洲、日本。全球最大的神经康复数据库。每个患者的康复方案都是为他们定制的——不是通用处方，是MSK数字孪生生成的个性化策略。
-
-2033年，百万患者。当你的大脑还记得如何行走，但神经通路被中风切断时，Kine是那座重建通路的桥。
+- [Business Plan (HTML)](BP.html)
+- [Business Plan (PDF)](BP.pdf)
 
 ---
 
-**保密声明**：本BP仅限指定投资者阅读，未经许可不得传播。
+*Confidential — For Investor Use Only*
