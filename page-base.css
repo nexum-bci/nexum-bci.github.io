@@ -58,7 +58,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 .nav-open .nav-toggle span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
 
 /* Footer (injected by shared.js) */
-footer{background:var(--bg-card);border-top:1px solid var(--border);padding:80px 24px 40px;margin-top:0}
+footer{width:100%;background:var(--bg-card);border-top:1px solid var(--border);padding:80px 24px 40px;margin:0}
 .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px}
 .footer-logo{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:700;color:var(--text);text-decoration:none;margin-bottom:12px}
 .footer-logo img{width:28px;height:28px}
