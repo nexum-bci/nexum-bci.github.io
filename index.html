@@ -812,66 +812,142 @@ nav.scrolled {
 }
 
 /* ============================================================
-   GALLERY — Full-Bleed Product Hero
+   GALLERY — Grid gallery with lightbox
    ============================================================ */
 #gallery {
-  height: 100vh;
-  padding: 0;
-  overflow: hidden;
-  position: relative;
+  background: var(--bg);
 }
-.gallery-hero {
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 16/10;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  transition: all 0.4s var(--ease-out);
+}
+.gallery-item:hover {
+  border-color: var(--border-hover);
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.gallery-item img {
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-color: var(--bg);
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease-out);
+}
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+.gallery-item .gallery-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  color: var(--text-body);
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.gallery-item:hover .gallery-label {
+  opacity: 1;
+}
+.gallery-item-wide {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0,0,0,0.95);
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-}
-.gallery-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 100%);
+  opacity: 0;
   pointer-events: none;
+  transition: opacity 0.4s var(--ease-out);
 }
-[data-theme="light"] .gallery-hero-overlay {
-  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.35) 100%);
+.lightbox.open {
+  opacity: 1;
+  pointer-events: all;
 }
-.gallery-hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 24px;
+.lightbox-img {
+  max-width: 85vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.5);
 }
-.gallery-hero-content .section-label {
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 12px;
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  color: var(--text-primary);
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.3s;
+  line-height: 1;
 }
-.gallery-hero-content h2 {
-  font-size: clamp(28px, 3vw, 42px);
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.5px;
-  margin-bottom: 8px;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
 }
-.gallery-hero-content p {
-  font-size: 14px;
-  color: rgba(255,255,255,0.55);
-  letter-spacing: 0.5px;
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 50%;
+  color: var(--text-primary);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  user-select: none;
 }
-[data-theme="light"] .gallery-hero-content .section-label {
-  color: rgba(255,255,255,0.7);
+.lightbox-nav:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.15);
 }
-[data-theme="light"] .gallery-hero-content h2 {
-  color: #fff;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-}
-[data-theme="light"] .gallery-hero-content p {
-  color: rgba(255,255,255,0.6);
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+.lightbox-counter {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-tertiary);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 /* ============================================================
@@ -1615,6 +1691,8 @@ footer .footer-brand-desc {
   .problem-statement { padding-right: 0; }
   .app-grid { gap: 24px; }
   .phone-frame { width: 220px; height: 440px; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .gallery-item-wide { grid-column: span 1; grid-row: span 1; }
 }
 
 @media (max-width: 768px) {
@@ -1675,6 +1753,11 @@ footer .footer-brand-desc {
   .phone-frame { width: 240px; height: 480px; }
 
   .market-card { padding: 28px 24px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .gallery-item-wide { grid-column: span 1; grid-row: span 1; }
+  .lightbox-prev { left: 12px; width: 40px; height: 40px; font-size: 16px; }
+  .lightbox-next { right: 12px; width: 40px; height: 40px; font-size: 16px; }
+  .lightbox-close { top: 16px; right: 16px; width: 40px; height: 40px; font-size: 18px; }
 }
 
 @media (max-width: 480px) {
@@ -2045,17 +2128,65 @@ footer .footer-brand-desc {
   </div>
 </section>
 
-<!-- ===== GALLERY — Full-Bleed Product Hero ===== -->
-<section id="gallery">
-  <div class="gallery-hero" style="background-image:url('docs/render_4_system.jpg');">
-    <div class="gallery-hero-overlay"></div>
-    <div class="gallery-hero-content" data-reveal>
+<!-- ===== GALLERY — Real Grid Gallery with Lightbox ===== -->
+<section class="section" id="gallery">
+  <div class="section-inner" data-reveal>
+    <div class="text-center">
       <p class="section-label">产品渲染</p>
       <h2>Nexum One 产品图集</h2>
-      <p>从EEG头带到完整系统 — 每一处设计都为功能服务</p>
+      <p class="section-sub center">从EEG头带到完整系统 — 每一处设计都为功能服务</p>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item gallery-item-wide" data-index="0" onclick="openLightbox(0)">
+        <img src="docs/render_4_system.jpg" alt="Nexum One 完整系统" loading="lazy">
+        <div class="gallery-label">完整系统渲染</div>
+      </div>
+      <div class="gallery-item" data-index="1" onclick="openLightbox(1)">
+        <img src="docs/render_1_eeg.jpg" alt="EEG-Sense 头带" loading="lazy">
+        <div class="gallery-label">EEG-Sense 头带</div>
+      </div>
+      <div class="gallery-item" data-index="2" onclick="openLightbox(2)">
+        <img src="docs/render_3_neurosuit.jpg" alt="NeuroSuit 智能肌动服" loading="lazy">
+        <div class="gallery-label">NeuroSuit 智能肌动服</div>
+      </div>
+      <div class="gallery-item" data-index="3" onclick="openLightbox(3)">
+        <img src="docs/render_2_controlbox.jpg" alt="Control Box 边缘AI处理器" loading="lazy">
+        <div class="gallery-label">Control Box</div>
+      </div>
+      <div class="gallery-item" data-index="4" onclick="openLightbox(4)">
+        <img src="docs/render_4_walking.jpg" alt="穿戴行走场景" loading="lazy">
+        <div class="gallery-label">穿戴行走场景</div>
+      </div>
+      <div class="gallery-item" data-index="5" onclick="openLightbox(5)">
+        <img src="docs/render_clinical_v2.jpg" alt="临床康复场景" loading="lazy">
+        <div class="gallery-label">临床康复场景</div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="关闭">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+  <button class="lightbox-nav lightbox-prev" onclick="prevLightbox()" aria-label="上一张">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+  <button class="lightbox-nav lightbox-next" onclick="nextLightbox()" aria-label="下一张">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="渲染图">
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
 
 <!-- ===== APP PREVIEW — 3 Phone Mockups ===== -->
 <section class="section" id="app">
@@ -2649,6 +2780,71 @@ footer .footer-brand-desc {
     if (grid) {
       grid.style.animationPlayState = document.hidden ? 'paused' : 'running';
     }
+  });
+
+  /* ============================================================
+     LIGHTBOX — Gallery Image Viewer
+     ============================================================ */
+  var galleryImages = [];
+  (function initGallery() {
+    var items = document.querySelectorAll('#galleryGrid .gallery-item');
+    items.forEach(function(item) {
+      var img = item.querySelector('img');
+      if (img) {
+        galleryImages.push({
+          src: img.getAttribute('src'),
+          label: item.querySelector('.gallery-label') ? item.querySelector('.gallery-label').textContent : ''
+        });
+      }
+    });
+  })();
+
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightboxImg');
+  var lightboxCounter = document.getElementById('lightboxCounter');
+  var currentIndex = 0;
+
+  window.openLightbox = function(index) {
+    currentIndex = index;
+    updateLightbox();
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeLightbox = function() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  window.nextLightbox = function() {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    updateLightbox();
+  };
+
+  window.prevLightbox = function() {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    updateLightbox();
+  };
+
+  function updateLightbox() {
+    if (galleryImages.length === 0) return;
+    var item = galleryImages[currentIndex];
+    lightboxImg.setAttribute('src', item.src);
+    lightboxImg.setAttribute('alt', item.label);
+    lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextLightbox();
+    if (e.key === 'ArrowLeft') prevLightbox();
+  });
+
+  // Click backdrop to close
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) closeLightbox();
   });
 
 })();
