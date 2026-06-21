@@ -3,304 +3,1545 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nexum One — 神经重连AI系统</title>
+<title>Nexum 逐念而行 — 定义人机共生</title>
+<meta name="description" content="Nexum One 神经重连AI系统：读取大脑运动意图，AI生成个性化助力，驱动轻量穿戴式外骨骼。">
 <style>
 :root {
-  --bg: #0a0f1a; --card: #151d2e; --accent: #0096f0;
-  --text: #e5e7eb; --t2: #94a3b8; --border: #1e293b;
-  --grad: linear-gradient(135deg, #0096f0, #60a5fa);
+  --bg: #0a0f1a;
+  --bg2: #0d1422;
+  --card: rgba(21, 29, 46, 0.7);
+  --card-border: rgba(30, 41, 59, 0.6);
+  --card-hover-border: rgba(0, 150, 240, 0.4);
+  --accent: #0096f0;
+  --accent2: #60a5fa;
+  --accent-glow: rgba(0, 150, 240, 0.15);
+  --text: #e5e7eb;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --section-gap: 140px;
+  --nav-h: 64px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
 body {
-  font-family: 'Inter', 'PingFang SC', -apple-system, sans-serif;
-  background: var(--bg); color: var(--text);
+  font-family: 'PingFang SC', 'Inter', -apple-system, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  line-height: 1.6;
 }
-/* NAV */
+
+/* ===== NAV ===== */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(10,15,26,0.85); backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(30,41,59,0.5);
-  padding: 0 24px; height: 56px;
-  display: flex; align-items: center; justify-content: center;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  z-index: 1000;
+  background: rgba(10, 15, 26, 0.75);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  border-bottom: 1px solid rgba(30, 41, 59, 0.4);
+  transition: background 0.4s;
+}
+nav.scrolled {
+  background: rgba(10, 15, 26, 0.92);
+  border-bottom-color: rgba(30, 41, 59, 0.7);
 }
 .nav-inner {
-  width: 100%; max-width: 1200px;
-  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.logo { font-size: 15px; font-weight: 800; letter-spacing: 1px; text-decoration: none; color: var(--text); }
-.logo span { color: var(--accent); }
-.nav-links { display: flex; gap: 24px; list-style: none; }
-.nav-links a { color: var(--t2); text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.3px; transition: color 0.2s; }
-.nav-links a:hover { color: var(--text); }
+.nav-logo {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-logo .logo-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse-dot 2.5s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.6; box-shadow: 0 0 0 0 rgba(0,150,240,0.3); }
+  50% { opacity: 1; box-shadow: 0 0 0 6px rgba(0,150,240,0); }
+}
+.nav-logo span { color: var(--accent); }
 
-/* HERO */
-.hero {
-  min-height: 100vh; display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center; padding: 100px 24px 80px;
-  position: relative; overflow: hidden;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
 }
-.hero::before {
-  content: ''; position: absolute; top: -40%; left: 50%;
-  width: 900px; height: 900px; transform: translate(-50%, -20%);
-  background: radial-gradient(ellipse at center, rgba(0,150,240,0.06) 0%, transparent 70%);
+.nav-links a {
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: color 0.25s;
+  position: relative;
+  padding: 4px 0;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s var(--ease-out);
+  border-radius: 1px;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--text); }
+.nav-links a.active::after { width: 100%; }
+.nav-cta {
+  display: inline-flex;
+  padding: 8px 20px;
+  background: var(--accent);
+  color: #fff !important;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.nav-cta:hover {
+  background: #0080d0;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,150,240,0.3);
+}
+.nav-cta::after { display: none !important; }
+
+/* Mobile menu toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--nav-h) + 48px) 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,150,240,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,150,240,0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
   pointer-events: none;
 }
-.hero .pre { font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: 4px; margin-bottom: 24px; }
+.hero-glow {
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  width: 900px;
+  height: 900px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(0,150,240,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-pre {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fade-up 0.8s var(--ease-out) 0.2s forwards;
+}
 .hero h1 {
-  font-size: clamp(52px, 8vw, 96px); font-weight: 900;
-  background: linear-gradient(135deg, #e5e7eb 0%, #0096f0 50%, #60a5fa 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  line-height: 1.05; margin-bottom: 20px; letter-spacing: -2px;
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #f0f4f8 0%, var(--accent) 50%, var(--accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  animation: fade-up 0.8s var(--ease-out) 0.35s forwards;
 }
-.hero .tagline { font-size: 20px; color: var(--t2); max-width: 560px; line-height: 1.6; margin-bottom: 48px; }
-.hero .metrics { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; margin-bottom: 56px; }
-.hero .metric { text-align: center; }
-.hero .metric .val { font-size: 28px; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.hero .metric .lbl { font-size: 12px; color: var(--t2); margin-top: 4px; }
+.hero-tagline {
+  font-size: clamp(16px, 1.4vw, 20px);
+  color: var(--text2);
+  max-width: 620px;
+  line-height: 1.7;
+  margin-bottom: 44px;
+  opacity: 0;
+  animation: fade-up 0.8s var(--ease-out) 0.5s forwards;
+}
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 60px;
+  opacity: 0;
+  animation: fade-up 0.8s var(--ease-out) 0.65s forwards;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s var(--ease-out);
+  letter-spacing: 0.3px;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0,150,240,0.25);
+}
+.btn-primary:hover {
+  background: #0080d0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,150,240,0.35);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.btn-secondary:hover {
+  border-color: var(--accent);
+  background: rgba(0,150,240,0.06);
+  transform: translateY(-2px);
+}
 
-/* SECTIONS */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-.section { padding: 80px 0; }
-.section h2 { font-size: 28px; font-weight: 800; color: var(--text); margin-bottom: 12px; }
-.section .sub { font-size: 14px; color: var(--t2); margin-bottom: 40px; }
+.hero-metrics {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  animation: fade-up 0.8s var(--ease-out) 0.8s forwards;
+}
+.metric {
+  text-align: center;
+}
+.metric-val {
+  display: block;
+  font-size: 30px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+.metric-lbl {
+  font-size: 12px;
+  color: var(--text3);
+  margin-top: 4px;
+  letter-spacing: 0.3px;
+}
 
-/* HUB CARDS */
-.hub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.hub-card {
-  background: var(--card); border-radius: 14px; padding: 28px;
-  border: 1px solid var(--border); text-decoration: none;
-  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  display: flex; flex-direction: column; gap: 12px;
-  position: relative; overflow: hidden;
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.4;
+  animation: fade-up 0.8s var(--ease-out) 1.2s forwards;
 }
-.hub-card:hover {
-  border-color: var(--accent); transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,150,240,0.1);
+.hero-scroll-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, var(--text3), transparent);
+  animation: scroll-pulse 2s ease-in-out infinite;
 }
-.hub-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: var(--grad); opacity: 0; transition: opacity 0.3s;
+.hero-scroll span {
+  font-size: 10px;
+  color: var(--text3);
+  letter-spacing: 2px;
 }
-.hub-card:hover::before { opacity: 1; }
-.hub-card .icon { font-size: 32px; }
-.hub-card h3 { font-size: 17px; font-weight: 700; color: var(--text); }
-.hub-card p { font-size: 13px; color: var(--t2); line-height: 1.5; flex: 1; }
-.hub-card .badge {
-  display: inline-block; font-size: 11px; font-weight: 600;
-  padding: 4px 10px; border-radius: 6px;
-  background: rgba(0,150,240,0.1); color: var(--accent);
+@keyframes scroll-pulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.3); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== SECTIONS COMMON ===== */
+.section {
+  padding: var(--section-gap) 24px;
+}
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section h2 {
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+.section-sub {
+  font-size: 16px;
+  color: var(--text2);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 56px;
+}
+.section-sub.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.text-center { text-align: center; }
+
+/* ===== REVEAL ANIMATIONS ===== */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-reveal][data-delay="1"] { transition-delay: 0.1s; }
+[data-reveal][data-delay="2"] { transition-delay: 0.2s; }
+[data-reveal][data-delay="3"] { transition-delay: 0.3s; }
+[data-reveal][data-delay="4"] { transition-delay: 0.4s; }
+[data-reveal][data-delay="5"] { transition-delay: 0.5s; }
+
+/* ===== PROBLEM ===== */
+#problem { background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%); }
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+.problem-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  transition: all 0.4s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+.problem-card:hover {
+  border-color: var(--card-hover-border);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+}
+.problem-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.problem-card:hover::before { opacity: 1; }
+.problem-card .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(0,150,240,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.problem-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.problem-card p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+.problem-conclusion {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 40px;
+  background: rgba(0,150,240,0.04);
+  border: 1px solid rgba(0,150,240,0.12);
+  border-radius: 12px;
+}
+.problem-conclusion p {
+  font-size: 17px;
+  color: var(--text);
+  font-weight: 500;
+  line-height: 1.7;
+}
+.problem-conclusion em {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ===== PRODUCT ===== */
+#product {
+  background: var(--bg);
+}
+.product-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.product-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 40px 32px;
+  transition: all 0.4s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+.product-card:hover {
+  border-color: var(--card-hover-border);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.product-card:hover::before { opacity: 1; }
+.product-card .icon-area {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(0,150,240,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.product-card .icon-area svg {
+  width: 28px;
+  height: 28px;
+}
+.product-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.product-card .product-en {
+  font-size: 13px;
+  color: var(--text3);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.product-card .product-desc {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.specs-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.specs-list li {
+  font-size: 13px;
+  color: var(--text2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.specs-list li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.specs-list li strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ===== TECHNOLOGY ===== */
+#technology {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+}
+.tech-loop-svg {
+  max-width: 900px;
+  margin: 0 auto 48px;
+}
+.tech-loop-svg svg {
+  width: 100%;
+  height: auto;
+}
+.tech-breakdown {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.tech-breakdown h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text2);
+  text-align: center;
+  margin-bottom: 24px;
+}
+.breakdown-bars {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  justify-content: center;
+}
+.breakdown-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.breakdown-bar .bar {
+  width: 60px;
+  border-radius: 6px 6px 0 0;
+  transition: height 1.2s var(--ease-out);
+  position: relative;
+}
+.breakdown-bar .bar-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: -22px;
+}
+.breakdown-bar .bar-label {
+  font-size: 11px;
+  color: var(--text3);
+  text-align: center;
+  max-width: 80px;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+/* ===== MARKET ===== */
+#market {
+  background: var(--bg);
+}
+.market-timeline-svg {
+  max-width: 880px;
+  margin: 0 auto 56px;
+}
+.market-timeline-svg svg {
+  width: 100%;
+  height: auto;
+}
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.market-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  transition: all 0.4s var(--ease-out);
+  text-align: center;
+}
+.market-card:hover {
+  border-color: var(--card-hover-border);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+}
+.market-card .phase {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+.market-card .size {
+  font-size: 38px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.market-card .market-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.market-card .market-desc {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+/* ===== TEAM ===== */
+#team {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.team-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  transition: all 0.4s var(--ease-out);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.team-card:hover {
+  border-color: var(--card-hover-border);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+}
+.team-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0,150,240,0.15), rgba(96,165,250,0.1));
+  border: 2px solid rgba(0,150,240,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.team-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.team-card .team-role {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.team-card .team-bio {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+.team-card.team-cta {
+  border-style: dashed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.team-card.team-cta h3 {
+  color: var(--text2);
+  margin-bottom: 8px;
+}
+.team-card.team-cta p {
+  color: var(--text3);
+  font-size: 14px;
+}
+
+/* ===== DOCUMENTS ===== */
+#documents {
+  background: var(--bg);
+}
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.doc-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  transition: all 0.3s var(--ease-out);
+}
+.doc-card:hover {
+  border-color: var(--card-hover-border);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+.doc-card .doc-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(0,150,240,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.doc-card .doc-info { flex: 1; min-width: 0; }
+.doc-card .doc-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.doc-card .doc-info p {
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.doc-card .doc-badge {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(0,150,240,0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
   align-self: flex-start;
 }
 
-/* 4-STEP LOOP */
-.loop { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; padding: 24px 0; }
-.loop-step {
-  background: var(--card); border-radius: 14px; padding: 28px 24px;
-  border: 1px solid var(--border); text-align: center; width: 220px;
-  transition: border-color 0.3s;
+/* ===== CONTACT ===== */
+#contact {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
 }
-.loop-step:hover { border-color: var(--accent); }
-.loop-step .num {
-  width: 44px; height: 44px; border-radius: 50%;
-  background: var(--grad); color: #fff; font-weight: 800; font-size: 20px;
-  display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;
+.contact-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
 }
-.loop-step h4 { font-size: 16px; color: var(--text); margin-bottom: 6px; }
-.loop-step p { font-size: 12px; color: var(--t2); line-height: 1.4; }
-.loop-arrow { color: var(--accent); font-size: 28px; font-weight: 300; }
+.contact-content .section-sub {
+  margin-bottom: 40px;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--text2);
+}
+.contact-item .contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(0,150,240,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact-item a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-item a:hover { color: var(--accent); }
 
-/* TIMELINE */
-.timeline { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
-.tl-card {
-  background: var(--card); border-radius: 14px; padding: 28px 24px;
-  border: 1px solid var(--border); text-align: center; flex: 1; min-width: 280px;
-  max-width: 370px; transition: border-color 0.3s;
-}
-.tl-card:hover { border-color: var(--accent); }
-.tl-card .phase { font-size: 12px; color: var(--accent); font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
-.tl-card .size { font-size: 36px; font-weight: 900; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 4px; }
-.tl-card .market { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
-.tl-card .desc { font-size: 12px; color: var(--t2); line-height: 1.5; }
-
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer {
-  text-align: center; padding: 48px 24px;
-  border-top: 1px solid var(--border); color: var(--t2); font-size: 12px;
+  border-top: 1px solid rgba(30, 41, 59, 0.4);
+  padding: 48px 24px 32px;
 }
-footer a { color: var(--accent); text-decoration: none; }
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 40px;
+}
+footer h5 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+footer p, footer a {
+  font-size: 13px;
+  color: var(--text3);
+  line-height: 1.8;
+  text-decoration: none;
+}
+footer a:hover { color: var(--accent); }
+footer .footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.footer-bottom {
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(30, 41, 59, 0.3);
+}
+.footer-bottom p {
+  font-size: 11px;
+  color: var(--text3);
+}
 
-@media (max-width: 900px) {
-  .hub-grid { grid-template-columns: 1fr; }
-  .loop { flex-direction: column; }
-  .loop-arrow { transform: rotate(90deg); }
-  .nav-links { display: none; }
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .problem-grid { grid-template-columns: 1fr; }
+  .product-grid { grid-template-columns: 1fr; }
+  .market-grid { grid-template-columns: 1fr; }
+  .doc-grid { grid-template-columns: 1fr 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  :root { --section-gap: 80px; }
+
+  .nav-links {
+    position: fixed;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 15, 26, 0.96);
+    backdrop-filter: blur(24px);
+    padding: 24px 32px;
+    gap: 20px;
+    border-bottom: 1px solid rgba(30, 41, 59, 0.4);
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s var(--ease-out);
+    align-items: flex-start;
+  }
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  .nav-toggle { display: flex; }
+  .nav-cta { align-self: flex-start; }
+
+  .hero-metrics { gap: 28px; }
+  .metric-val { font-size: 24px; }
+
+  .doc-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .breakdown-bars { gap: 4px; }
+  .breakdown-bar .bar { width: 48px; }
+}
+
+@media (max-width: 480px) {
+  .hero-ctas { flex-direction: column; align-items: center; }
+  .btn { width: 100%; justify-content: center; }
+  .product-card { padding: 28px 20px; }
+  .problem-card { padding: 28px 20px; }
 }
 </style>
 </head>
 <body>
 
-<nav>
+<!-- ===== NAV ===== -->
+<nav id="navbar">
   <div class="nav-inner">
-    <a href="/" class="logo">Nexum<span>One</span></a>
-    <ul class="nav-links">
-      <li><a href="#hub">文档</a></li>
-      <li><a href="#loop">技术</a></li>
-      <li><a href="#market">市场</a></li>
-      <li><a href="docs/Nexum_One_Product_Visualization.html">可视化</a></li>
-      <li><a href="docs/Nexum_One_Product_Renders.html">渲染</a></li>
-      <li><a href="逐念而行_Nexum_BP.html">BP</a></li>
+    <a href="#" class="nav-logo">
+      <span class="logo-dot"></span>
+      Nexum<span>逐念而行</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#product" class="nav-link">产品</a></li>
+      <li><a href="#technology" class="nav-link">技术</a></li>
+      <li><a href="#market" class="nav-link">市场</a></li>
+      <li><a href="#team" class="nav-link">团队</a></li>
+      <li><a href="#documents" class="nav-link">文档</a></li>
+      <li><a href="#contact" class="nav-cta">联系投资</a></li>
     </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<section class="hero">
-  <div class="pre">人机共生 · 赛道定义者</div>
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow"></div>
+  <p class="hero-pre">赛道定义者 · 人机共生</p>
   <h1>逐念而行</h1>
-  <p class="tagline">
-    神经重连AI系统——读取大脑运动意图，生成个性化助力策略，<br>驱动轻量级身体装置执行，根据恢复进展持续自适应
+  <p class="hero-tagline">
+    神经重连AI系统 —— 读取大脑运动意图，AI生成个性化助力策略，<br>
+    驱动轻量可穿戴外骨骼，让9400万人重新行走
   </p>
-  <div class="metrics">
-    <div class="metric"><div class="val">8ch</div><div class="lbl">干电极通道</div></div>
-    <div class="metric"><div class="val">80g</div><div class="lbl">头带重量</div></div>
-    <div class="metric"><div class="val">&lt;1.5kg</div><div class="lbl">系统总重</div></div>
-    <div class="metric"><div class="val">&lt;185ms</div><div class="lbl">端到端延迟</div></div>
-    <div class="metric"><div class="val">15Nm</div><div class="lbl">峰值扭矩</div></div>
+  <div class="hero-ctas">
+    <a href="逐念而行_Nexum_BP.html" class="btn btn-primary">查看商业计划书</a>
+    <a href="#contact" class="btn btn-secondary">联系团队</a>
+  </div>
+  <div class="hero-metrics">
+    <div class="metric"><span class="metric-val">94M</span><span class="metric-lbl">中风幸存者</span></div>
+    <div class="metric"><span class="metric-val">&lt;185ms</span><span class="metric-lbl">端到端延迟</span></div>
+    <div class="metric"><span class="metric-val">8ch</span><span class="metric-lbl">干电极EEG</span></div>
+    <div class="metric"><span class="metric-val">&lt;1.5kg</span><span class="metric-lbl">系统总重</span></div>
+  </div>
+  <div class="hero-scroll">
+    <span>向下滚动</span>
+    <div class="hero-scroll-line"></div>
   </div>
 </section>
 
-<!-- HUB -->
-<section class="section container" id="hub">
-  <h2>文档与工具</h2>
-  <p class="sub">Nexum One 完整工程体系 — 从商业计划到PCB设计，全部可落地</p>
-
-  <div class="hub-grid">
-    <a href="逐念而行_Nexum_BP.html" class="hub-card">
-      <div class="icon">📄</div>
-      <h3>商业计划书</h3>
-      <p>12章完整BP：问题→方案→市场→技术→竞争→商业模式→团队→融资→愿景。投资人就绪。</p>
-      <span class="badge">BP · PDF可用</span>
-    </a>
-    <a href="docs/Nexum_Pitch_Deck.pptx" class="hub-card">
-      <div class="icon">📊</div>
-      <h3>路演PPT</h3>
-      <p>12页专业投资者级演示：暗色主题、度量卡片、数据表格、愿景路线图。190KB。</p>
-      <span class="badge">PPTX · 190KB</span>
-    </a>
-    <a href="docs/Nexum_One_Product_Visualization.html" class="hub-card">
-      <div class="icon">🔬</div>
-      <h3>产品工程可视化</h3>
-      <p>Apple风格产品展示页：SVG架构图、控制盒爆炸视图、闭环数据流、完整规格表。1753行。</p>
-      <span class="badge">HTML · 交互式</span>
-    </a>
-    <a href="docs/Nexum_One_Product_Renders.html" class="hub-card">
-      <div class="icon">🎨</div>
-      <h3>产品渲染图集</h3>
-      <p>8张一致性AI渲染图：EEG头带、NeuroSuit、控制盒、完整系统、使用场景。</p>
-      <span class="badge">图集 · 8张</span>
-    </a>
-    <a href="docs/Nexum_System_Engineering_Diagrams.html" class="hub-card">
-      <div class="icon">⚡</div>
-      <h3>系统工程图</h3>
-      <p>系统框图、电源树、固件任务图、控制环路 — 全SVG技术图表。工程师就绪。</p>
-      <span class="badge">SVG · 4组图</span>
-    </a>
-    <a href="docs/Nexum_App_UI_Mockups.html" class="hub-card">
-      <div class="icon">📱</div>
-      <h3>App UI设计</h3>
-      <p>患者端+治疗师端：训练界面、实时生物反馈、进度报告、患者管理仪表盘。</p>
-      <span class="badge">HTML · 4屏</span>
-    </a>
-    <a href="docs/Nexum_One_Engineering_Architecture_v0.1.md" class="hub-card">
-      <div class="icon">🏗️</div>
-      <h3>工程架构文档</h3>
-      <p>系统架构、数据流、器件选型、工程风险、6个月原型计划。34KB完整文档。</p>
-      <span class="badge">MD · 34KB</span>
-    </a>
-    <a href="docs/Nexum_One_PRD_v1.0.md" class="hub-card">
-      <div class="icon">📋</div>
-      <h3>产品需求文档</h3>
-      <p>用户需求→工程需求→功能需求→非功能需求→竞品对标→Phase 0成功标准。</p>
-      <span class="badge">PRD · v1.0</span>
-    </a>
-    <a href="docs/README.md" class="hub-card">
-      <div class="icon">🗂️</div>
-      <h3>全部文档索引</h3>
-      <p>12份工程文档完整清单：BOM、固件、PCB、装配、测试、临床、注册……全部中文。</p>
-      <span class="badge">索引 · 12文档</span>
-    </a>
-  </div>
-</section>
-
-<!-- 4-STEP LOOP -->
-<section class="section container" id="loop">
-  <h2>AI驱动的神经重连闭环</h2>
-  <p class="sub">四个阶段，端到端延迟 &lt;185ms — 大脑意图直接驱动身体动作</p>
-  <div class="loop">
-    <div class="loop-step">
-      <div class="num">1</div>
-      <h4>读取意图</h4>
-      <p>EEG-Sense头带<br>8ch干电极 @250SPS<br>检测运动准备电位<br>~40ms</p>
+<!-- ===== PROBLEM ===== -->
+<section class="section" id="problem">
+  <div class="section-inner" data-reveal>
+    <div class="text-center">
+      <p class="section-label">The Problem</p>
+      <h2>9400万人，等待重新行走</h2>
+      <p class="section-sub center">每年全球新增1500万中风患者，但现有康复体系远远不足以满足需求</p>
     </div>
-    <div class="loop-arrow">→</div>
-    <div class="loop-step">
-      <div class="num">2</div>
-      <h4>生成策略</h4>
-      <p>个性化AI引擎<br>416肌肉数字孪生<br>RL最优策略生成<br>~55ms</p>
+    <div class="problem-grid">
+      <div class="problem-card" data-reveal data-delay="1">
+        <div class="icon">01</div>
+        <h3>时间窗口紧迫</h3>
+        <p>神经康复的黄金窗口仅6个月。错过这个时期，运动功能恢复的可能性急剧下降。大多数患者无法在窗口期内获得足够强度的训练。</p>
+      </div>
+      <div class="problem-card" data-reveal data-delay="2">
+        <div class="icon">02</div>
+        <h3>资源严重不足</h3>
+        <p>每名患者年均康复费用超$30,000，而专业治疗师缺口巨大。现有方案依赖人工，难以规模化，多数患者无法负担。</p>
+      </div>
+      <div class="problem-card" data-reveal data-delay="3">
+        <div class="icon">03</div>
+        <h3>技术断层</h3>
+        <p>现有外骨骼笨重、昂贵，无法读取神经意图。它们只是被动的"抬腿机器"，而非真正理解大脑运动意图的智能系统。</p>
+      </div>
     </div>
-    <div class="loop-arrow">→</div>
-    <div class="loop-step">
-      <div class="num">3</div>
-      <h4>执行动作</h4>
-      <p>NeuroSuit线缆驱动<br>碳纤维锚定·8Nm持续<br>鲍登线缆·<1.5kg<br>~60ms</p>
-    </div>
-    <div class="loop-arrow">→</div>
-    <div class="loop-step">
-      <div class="num">4</div>
-      <h4>持续进化</h4>
-      <p>传感器反馈闭环<br>策略每周自适应<br>联邦学习隐私保护<br>~10ms</p>
+    <div class="problem-conclusion" data-reveal data-delay="4">
+      <p>需要一个全新的范式 —— 直接从大脑读取运动意图，让 AI 生成个性化助力方案，<br>
+      <em>让意图与行动重新连接。</em></p>
     </div>
   </div>
 </section>
 
-<!-- MARKET -->
-<section class="section container" id="market">
-  <h2>三阶段市场扩展</h2>
-  <p class="sub">从医疗康复起步，经老年行动力，到全人群增强——TAM随每阶段解锁指数级扩大</p>
-  <div class="timeline">
-    <div class="tl-card">
-      <div class="phase">PHASE 1 · 2028–2030</div>
-      <div class="size">$6.6B</div>
-      <div class="market">全球神经康复</div>
-      <p class="desc">9400万中风+SCI患者<br>医疗康复是最高壁垒的入口<br>NMPA获证后进入100+医院<br>建立临床证据链</p>
+<!-- ===== PRODUCT ===== -->
+<section class="section" id="product">
+  <div class="section-inner" data-reveal>
+    <div class="product-header">
+      <p class="section-label">Our Product</p>
+      <h2>Nexum One 神经重连系统</h2>
+      <p class="section-sub center">从脑信号到身体动作的完整闭环 —— 三件套设计，每一件都追求极致的轻量与精准</p>
     </div>
-    <div class="tl-card">
-      <div class="phase">PHASE 2 · 2030–2033</div>
-      <div class="size">$15B</div>
-      <div class="market">全球老年行动力</div>
-      <p class="desc">中国3亿60+人口·20%肌少症<br>医院→家庭闭环完成<br>从神经重连到通用意图驱动助力<br>启动FDA+CE海外准入</p>
-    </div>
-    <div class="tl-card">
-      <div class="phase">PHASE 3 · 2033+</div>
-      <div class="size">$33.7B+</div>
-      <div class="market">全人群行动增强</div>
-      <p class="desc">可穿戴外骨骼CAGR 32%<br>百万用户数据飞轮<br>户外·通勤·职业防护<br>人机共生成为基础设施</p>
+    <div class="product-grid">
+      <div class="product-card" data-reveal data-delay="1">
+        <div class="icon-area">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2C10 2 6 6 6 10c0 4 8 16 8 16s8-12 8-16c0-4-4-8-8-8z" stroke="#0096f0"/><circle cx="14" cy="10" r="3" stroke="#0096f0"/></svg>
+        </div>
+        <h3>EEG-Sense 神经信号读取</h3>
+        <p class="product-en">Neural Signal Acquisition</p>
+        <p class="product-desc">8通道干电极EEG头带，250SPS高采样率，实时检测运动准备电位，将大脑意图转化为数字信号。</p>
+        <ul class="specs-list">
+          <li><strong>80g</strong> 超轻设计，佩戴无感</li>
+          <li><strong>8通道</strong> 干电极，无需导电膏</li>
+          <li><strong>250SPS</strong> 采样率，精准捕捉MP</li>
+          <li><strong>蓝牙5.2</strong> 无线传输，8h续航</li>
+        </ul>
+      </div>
+      <div class="product-card" data-reveal data-delay="2">
+        <div class="icon-area">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10c0-4 4-6 10-6s10 2 10 6v8c0 4-4 6-10 6s-10-2-10-6v-8z" stroke="#0096f0"/><path d="M4 14c0 4 4 6 10 6s10-2 10-6" stroke="#0096f0"/></svg>
+        </div>
+        <h3>NeuroSuit 智能肌动服</h3>
+        <p class="product-en">Intelligent Actuation Suit</p>
+        <p class="product-desc">线缆驱动系统，碳纤维锚定框架，提供精准的关节助力。在正确的时间施加正确的力。</p>
+        <ul class="specs-list">
+          <li><strong>&lt;1.5kg</strong> 系统总重，真正可穿戴</li>
+          <li><strong>15Nm</strong> 峰值 / <strong>8Nm</strong> 持续扭矩</li>
+          <li><strong>鲍登线缆</strong> 驱动，静音运行</li>
+          <li><strong>10秒</strong> 穿脱，无需他人协助</li>
+        </ul>
+      </div>
+      <div class="product-card" data-reveal data-delay="3">
+        <div class="icon-area">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="22" height="14" rx="3" stroke="#0096f0"/><circle cx="14" cy="14" r="2" stroke="#0096f0"/><path d="M9 21v2M19 21v2" stroke="#0096f0"/></svg>
+        </div>
+        <h3>Control Box 边缘AI处理器</h3>
+        <p class="product-en">Edge AI Processing Unit</p>
+        <p class="product-desc">实时推理引擎，搭载416肌肉数字孪生模型，在边缘端完成从意图识别到策略生成的完整闭环。</p>
+        <ul class="specs-list">
+          <li><strong>&lt;185ms</strong> 端到端延迟</li>
+          <li><strong>416肌肉</strong> 数字孪生模型</li>
+          <li><strong>强化学习</strong> 实时策略生成</li>
+          <li><strong>联邦学习</strong> 隐私保护持续进化</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ===== TECHNOLOGY ===== -->
+<section class="section" id="technology">
+  <div class="section-inner" data-reveal>
+    <div class="text-center">
+      <p class="section-label">Technology</p>
+      <h2>AI闭环：读 → 生 → 执 → 进</h2>
+      <p class="section-sub center">四个阶段，端到端延迟 &lt;185ms —— 大脑意图直接驱动身体动作</p>
+    </div>
+
+    <!-- 4-Step Loop SVG -->
+    <div class="tech-loop-svg" data-reveal data-delay="1">
+      <svg viewBox="0 0 880 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="circleGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0096f0"/>
+            <stop offset="100%" stop-color="#60a5fa"/>
+          </linearGradient>
+          <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#0096f0" stop-opacity="0.3"/>
+            <stop offset="50%" stop-color="#0096f0" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#0096f0" stop-opacity="0.3"/>
+          </linearGradient>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10" fill="#0096f0"/>
+          </marker>
+        </defs>
+
+        <!-- Connecting line -->
+        <line x1="120" y1="70" x2="770" y2="70" stroke="url(#lineGrad)" stroke-width="2"/>
+
+        <!-- Arrow segments -->
+        <line x1="150" y1="70" x2="285" y2="70" stroke="#0096f0" stroke-width="2" marker-end="url(#arrow)"/>
+        <line x1="365" y1="70" x2="500" y2="70" stroke="#0096f0" stroke-width="2" marker-end="url(#arrow)"/>
+        <line x1="580" y1="70" x2="715" y2="70" stroke="#0096f0" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <!-- Latency labels on arrows -->
+        <text x="218" y="58" fill="#64748b" font-size="12" text-anchor="middle" font-weight="600">~40ms</text>
+        <text x="433" y="58" fill="#64748b" font-size="12" text-anchor="middle" font-weight="600">~55ms</text>
+        <text x="648" y="58" fill="#64748b" font-size="12" text-anchor="middle" font-weight="600">~60ms</text>
+
+        <!-- Step 1 -->
+        <circle cx="120" cy="70" r="30" fill="url(#circleGrad)"/>
+        <text x="120" y="76" fill="#fff" font-size="18" font-weight="800" text-anchor="middle">1</text>
+        <text x="120" y="118" fill="#e5e7eb" font-size="15" font-weight="700" text-anchor="middle">读取意图</text>
+        <text x="120" y="136" fill="#94a3b8" font-size="12" text-anchor="middle">Read</text>
+        <text x="120" y="156" fill="#64748b" font-size="11" text-anchor="middle">EEG → 运动准备电位</text>
+
+        <!-- Step 2 -->
+        <circle cx="365" cy="70" r="30" fill="url(#circleGrad)"/>
+        <text x="365" y="76" fill="#fff" font-size="18" font-weight="800" text-anchor="middle">2</text>
+        <text x="365" y="118" fill="#e5e7eb" font-size="15" font-weight="700" text-anchor="middle">生成策略</text>
+        <text x="365" y="136" fill="#94a3b8" font-size="12" text-anchor="middle">Generate</text>
+        <text x="365" y="156" fill="#64748b" font-size="11" text-anchor="middle">AI → 416肌数字孪生</text>
+
+        <!-- Step 3 -->
+        <circle cx="610" cy="70" r="30" fill="url(#circleGrad)"/>
+        <text x="610" y="76" fill="#fff" font-size="18" font-weight="800" text-anchor="middle">3</text>
+        <text x="610" y="118" fill="#e5e7eb" font-size="15" font-weight="700" text-anchor="middle">执行动作</text>
+        <text x="610" y="136" fill="#94a3b8" font-size="12" text-anchor="middle">Execute</text>
+        <text x="610" y="156" fill="#64748b" font-size="11" text-anchor="middle">线缆驱动 → 关节助力</text>
+
+        <!-- Step 4 -->
+        <circle cx="770" cy="70" r="30" fill="url(#circleGrad)"/>
+        <text x="770" y="76" fill="#fff" font-size="18" font-weight="800" text-anchor="middle">4</text>
+        <text x="770" y="118" fill="#e5e7eb" font-size="15" font-weight="700" text-anchor="middle">持续进化</text>
+        <text x="770" y="136" fill="#94a3b8" font-size="12" text-anchor="middle">Evolve</text>
+        <text x="770" y="156" fill="#64748b" font-size="11" text-anchor="middle">反馈 → 联邦学习</text>
+      </svg>
+    </div>
+
+    <!-- Latency Breakdown -->
+    <div class="tech-breakdown" data-reveal data-delay="2">
+      <h4>完整的延迟分解</h4>
+      <div class="breakdown-bars">
+        <div class="breakdown-bar">
+          <div class="bar" style="height: 76px; background: linear-gradient(to top, #0096f0, #60a5fa);"></div>
+          <span class="bar-val">40ms</span>
+          <span class="bar-label">EEG读取</span>
+        </div>
+        <div class="breakdown-bar">
+          <div class="bar" style="height: 104px; background: linear-gradient(to top, #0096f0, #60a5fa);"></div>
+          <span class="bar-val">55ms</span>
+          <span class="bar-label">AI策略生成</span>
+        </div>
+        <div class="breakdown-bar">
+          <div class="bar" style="height: 114px; background: linear-gradient(to top, #0096f0, #60a5fa);"></div>
+          <span class="bar-val">60ms</span>
+          <span class="bar-label">执行机构</span>
+        </div>
+        <div class="breakdown-bar">
+          <div class="bar" style="height: 56px; background: linear-gradient(to top, #0096f0, #60a5fa);"></div>
+          <span class="bar-val">30ms</span>
+          <span class="bar-label">反馈闭环</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MARKET ===== -->
+<section class="section" id="market">
+  <div class="section-inner" data-reveal>
+    <div class="text-center">
+      <p class="section-label">Market Opportunity</p>
+      <h2>三阶段市场扩展</h2>
+      <p class="section-sub center">从医疗康复起步，经老年行动力，到全人群增强 —— TAM随每阶段解锁指数级扩大</p>
+    </div>
+
+    <!-- Market Timeline SVG -->
+    <div class="market-timeline-svg" data-reveal data-delay="1">
+      <svg viewBox="0 0 880 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ph1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0096f0" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#0096f0" stop-opacity="0.08"/>
+          </linearGradient>
+          <linearGradient id="ph2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0096f0" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#0096f0" stop-opacity="0.1"/>
+          </linearGradient>
+          <linearGradient id="ph3" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0096f0" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#0096f0" stop-opacity="0.12"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Timeline base line -->
+        <line x1="40" y1="50" x2="840" y2="50" stroke="#1e293b" stroke-width="2"/>
+
+        <!-- Phase 1 -->
+        <rect x="60" y="22" width="200" height="56" rx="8" fill="url(#ph1)" stroke="rgba(0,150,240,0.25)" stroke-width="1"/>
+        <line x1="60" y1="50" x2="40" y2="50" stroke="#0096f0" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="160" y="44" fill="#fff" font-size="18" font-weight="800" text-anchor="middle">$6.6B</text>
+        <text x="160" y="92" fill="#0096f0" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="2">PHASE 1</text>
+        <text x="160" y="106" fill="#64748b" font-size="11" text-anchor="middle">2028 – 2030</text>
+
+        <!-- Phase 2 -->
+        <rect x="330" y="14" width="240" height="72" rx="8" fill="url(#ph2)" stroke="rgba(0,150,240,0.3)" stroke-width="1"/>
+        <line x1="260" y1="50" x2="330" y2="50" stroke="#0096f0" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="450" y="38" fill="#fff" font-size="20" font-weight="800" text-anchor="middle">$15B</text>
+        <text x="450" y="98" fill="#0096f0" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="2">PHASE 2</text>
+        <text x="450" y="112" fill="#64748b" font-size="11" text-anchor="middle">2030 – 2033</text>
+
+        <!-- Phase 3 -->
+        <rect x="630" y="6" width="200" height="88" rx="8" fill="url(#ph3)" stroke="rgba(0,150,240,0.35)" stroke-width="1"/>
+        <line x1="570" y1="50" x2="630" y2="50" stroke="#0096f0" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="730" y="32" fill="#fff" font-size="20" font-weight="800" text-anchor="middle">$33.7B+</text>
+        <text x="730" y="104" fill="#0096f0" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="2">PHASE 3</text>
+        <text x="730" y="118" fill="#64748b" font-size="11" text-anchor="middle">2033+</text>
+      </svg>
+    </div>
+
+    <div class="market-grid">
+      <div class="market-card" data-reveal data-delay="2">
+        <div class="phase">PHASE 1 · 2028–2030</div>
+        <div class="size">$6.6B</div>
+        <div class="market-name">全球神经康复</div>
+        <p class="market-desc">9400万中风+SCI患者。医疗康复是最高壁垒的入口，NMPA获证后进入100+医院，建立临床证据链。</p>
+      </div>
+      <div class="market-card" data-reveal data-delay="3">
+        <div class="phase">PHASE 2 · 2030–2033</div>
+        <div class="size">$15B</div>
+        <div class="market-name">全球老年行动力</div>
+        <p class="market-desc">中国3亿60+人口，20%肌少症。从医院到家庭闭环完成，启动FDA+CE海外准入。</p>
+      </div>
+      <div class="market-card" data-reveal data-delay="4">
+        <div class="phase">PHASE 3 · 2033+</div>
+        <div class="size">$33.7B+</div>
+        <div class="market-name">全人群行动增强</div>
+        <p class="market-desc">可穿戴外骨骼CAGR 32%。百万用户数据飞轮。户外·通勤·职业防护。人机共生成为基础设施。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section class="section" id="team">
+  <div class="section-inner" data-reveal>
+    <div class="text-center">
+      <p class="section-label">Team</p>
+      <h2>核心团队</h2>
+      <p class="section-sub center">一群相信人机共生不是遥远未来的实干者</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card" data-reveal data-delay="1">
+        <div class="team-avatar">赵</div>
+        <h3>赵子睿</h3>
+        <div class="team-role">Founder &amp; CEO</div>
+        <p class="team-bio">Columbia EE 硕士 (ML方向)。具身智能+算法+硬件 15 年经验。FAI 患者 —— 外骨骼创业的原始驱动力。前欣网互联 CTO。</p>
+      </div>
+      <div class="team-card" data-reveal data-delay="2">
+        <div class="team-avatar">牧</div>
+        <h3>牧星</h3>
+        <div class="team-role">Co-founder &amp; CTO</div>
+        <p class="team-bio">专注人工智能与机器人系统架构。主导Nexum One AI引擎与边缘计算平台的设计与实现。</p>
+      </div>
+      <div class="team-card team-cta" data-reveal data-delay="3" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        <div class="team-avatar" style="border-style:dashed; border-color:rgba(0,150,240,0.2);">+</div>
+        <h3 style="color:var(--text2)">加入团队</h3>
+        <p style="color:var(--text3); font-size:14px;">我们正在寻找志同道合的伙伴<br>共同定义人机共生</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOCUMENTS ===== -->
+<section class="section" id="documents">
+  <div class="section-inner" data-reveal>
+    <div class="text-center">
+      <p class="section-label">Documents</p>
+      <h2>完整文档体系</h2>
+      <p class="section-sub center">从商业计划到工程图纸，从PRD到App UI —— 全部可落地、可审查</p>
+    </div>
+    <div class="doc-grid">
+      <a href="逐念而行_Nexum_BP.html" class="doc-card" data-reveal data-delay="1">
+        <div class="doc-icon">BP</div>
+        <div class="doc-info">
+          <h4>商业计划书</h4>
+          <p>12章完整BP：问题→方案→市场→技术→竞争→商业模式→团队→融资→愿景</p>
+        </div>
+        <span class="doc-badge">12章</span>
+      </a>
+      <a href="docs/Nexum_Pitch_Deck.pptx" class="doc-card" data-reveal data-delay="1">
+        <div class="doc-icon" style="color:#60a5fa;">PPT</div>
+        <div class="doc-info">
+          <h4>路演演示文稿</h4>
+          <p>12页专业投资者级演示，暗色主题，数据驱动</p>
+        </div>
+        <span class="doc-badge">PPTX</span>
+      </a>
+      <a href="docs/Nexum_One_Product_Visualization.html" class="doc-card" data-reveal data-delay="2">
+        <div class="doc-icon" style="color:#60a5fa;">3D</div>
+        <div class="doc-info">
+          <h4>产品可视化</h4>
+          <p>Apple风格产品展示页，SVG架构图，控制盒爆炸视图</p>
+        </div>
+        <span class="doc-badge">交互式</span>
+      </a>
+      <a href="docs/Nexum_One_Product_Renders.html" class="doc-card" data-reveal data-delay="2">
+        <div class="doc-icon" style="color:#60a5fa;">VR</div>
+        <div class="doc-info">
+          <h4>产品渲染图集</h4>
+          <p>8张一致性AI渲染图：EEG头带、NeuroSuit、控制盒、完整系统</p>
+        </div>
+        <span class="doc-badge">8张</span>
+      </a>
+      <a href="docs/Nexum_System_Engineering_Diagrams.html" class="doc-card" data-reveal data-delay="2">
+        <div class="doc-icon" style="color:#60a5fa;">SG</div>
+        <div class="doc-info">
+          <h4>系统工程图</h4>
+          <p>系统框图、电源树、固件任务图、控制环路 SVG技术图表</p>
+        </div>
+        <span class="doc-badge">4组图</span>
+      </a>
+      <a href="docs/Nexum_App_UI_Mockups.html" class="doc-card" data-reveal data-delay="3">
+        <div class="doc-icon" style="color:#60a5fa;">AP</div>
+        <div class="doc-info">
+          <h4>App UI 设计</h4>
+          <p>患者端+治疗师端：训练界面、实时生物反馈、进度报告</p>
+        </div>
+        <span class="doc-badge">4屏</span>
+      </a>
+      <a href="docs/Nexum_One_Engineering_Architecture_v0.1.md" class="doc-card" data-reveal data-delay="3">
+        <div class="doc-icon" style="color:#60a5fa;">EA</div>
+        <div class="doc-info">
+          <h4>工程架构文档</h4>
+          <p>系统架构、数据流、器件选型、工程风险、6个月原型计划</p>
+        </div>
+        <span class="doc-badge">34KB</span>
+      </a>
+      <a href="docs/Nexum_One_PRD_v1.0.md" class="doc-card" data-reveal data-delay="3">
+        <div class="doc-icon" style="color:#60a5fa;">PR</div>
+        <div class="doc-info">
+          <h4>产品需求文档</h4>
+          <p>用户需求→工程需求→功能需求→非功能需求→竞品对标</p>
+        </div>
+        <span class="doc-badge">v1.0</span>
+      </a>
+      <a href="docs/README.md" class="doc-card" data-reveal data-delay="4">
+        <div class="doc-icon" style="color:#60a5fa;">IN</div>
+        <div class="doc-info">
+          <h4>全部文档索引</h4>
+          <p>完整工程文档清单：BOM、固件、PCB、装配、测试、临床、注册</p>
+        </div>
+        <span class="doc-badge">12文档</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section" id="contact">
+  <div class="section-inner" data-reveal>
+    <div class="contact-content">
+      <p class="section-label">Contact</p>
+      <h2>投资与合作</h2>
+      <p class="section-sub center">
+        我们正在开启种子轮融资，欢迎对人机共生赛道有远见的投资者<br>
+        和愿意加入这场革命的工程师与我们联系
+      </p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <a href="mailto:hello@nexum.ai">hello@nexum.ai</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span>中国 · 南京</span>
+        </div>
+      </div>
+      <a href="mailto:hello@nexum.ai" class="btn btn-primary">发送邮件</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
 <footer>
-  <p>Nexum One · 逐念而行 · 人机共生赛道定义者</p>
-  <p style="margin-top:6px">
-    <a href="逐念而行_Nexum_BP.html">商业计划书</a> ·
-    <a href="docs/Nexum_One_Product_Visualization.html">工程可视化</a> ·
-    <a href="docs/README.md">文档索引</a> ·
-    <a href="https://github.com/bones-manifold/nexum">GitHub</a>
-  </p>
-  <p style="margin-top:16px;color:#475569">Confidential — For Investor Use Only · © 2026 逐念而行</p>
+  <div class="footer-inner">
+    <div>
+      <h5>Nexum · 逐念而行</h5>
+      <p>定义人机共生赛道。Nexum One 神经重连AI系统，从大脑读取运动意图，让身体重新行动。</p>
+    </div>
+    <div>
+      <h5>导航</h5>
+      <ul class="footer-links">
+        <li><a href="#product">产品</a></li>
+        <li><a href="#technology">技术</a></li>
+        <li><a href="#market">市场</a></li>
+        <li><a href="#team">团队</a></li>
+        <li><a href="#documents">文档</a></li>
+        <li><a href="#contact">联系</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>文档</h5>
+      <ul class="footer-links">
+        <li><a href="逐念而行_Nexum_BP.html">商业计划书</a></li>
+        <li><a href="docs/Nexum_One_Product_Visualization.html">产品可视化</a></li>
+        <li><a href="docs/Nexum_One_Engineering_Architecture_v0.1.md">工程架构</a></li>
+        <li><a href="docs/README.md">文档索引</a></li>
+        <li><a href="https://github.com/bones-manifold/nexum">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Confidential — For Investor Use Only · &copy; 2026 逐念而行 Nexum. All rights reserved.</p>
+    <p style="margin-top:4px;font-size:10px;color:#475569;">人机共生 · Human-Machine Symbiosis</p>
+  </div>
 </footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  'use strict';
+
+  // --- Mobile nav toggle ---
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+    });
+    // Close when a link is clicked
+    navLinks.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+
+  // --- Navbar scroll effect ---
+  const navbar = document.getElementById('navbar');
+  let lastScrollY = 0;
+  window.addEventListener('scroll', function() {
+    var scrollY = window.scrollY;
+    if (scrollY > 80) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    lastScrollY = scrollY;
+  }, { passive: true });
+
+  // --- Active nav link on scroll ---
+  const navLinkEls = document.querySelectorAll('.nav-link');
+  var sections = [];
+  navLinkEls.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      var section = document.querySelector(href);
+      if (section) sections.push({ el: section, link: link });
+    }
+  });
+
+  function updateActiveNav() {
+    var scrollPos = window.scrollY + 120;
+    var current = null;
+    sections.forEach(function(item) {
+      var top = item.el.offsetTop;
+      var bottom = top + item.el.offsetHeight;
+      if (scrollPos >= top && scrollPos < bottom) {
+        current = item.link;
+      }
+    });
+    navLinkEls.forEach(function(link) { link.classList.remove('active'); });
+    if (current) current.classList.add('active');
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  window.addEventListener('load', updateActiveNav);
+
+  // --- Intersection Observer for reveal animations ---
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('[data-reveal]').forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+  // --- Animate breakdown bars on reveal ---
+  var barSection = document.querySelector('.breakdown-bars');
+  if (barSection) {
+    var barObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var bars = entry.target.querySelectorAll('.bar');
+          bars.forEach(function(bar, i) {
+            var targetHeight = bar.style.height;
+            bar.style.height = '0px';
+            setTimeout(function() {
+              bar.style.height = targetHeight;
+            }, 200 + i * 100);
+          });
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    barObserver.observe(barSection);
+  }
+
+  // --- Smooth scroll for all anchor links (fallback) ---
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+})();
+</script>
 
 </body>
 </html>
