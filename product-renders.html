@@ -15,12 +15,12 @@
 :root {
   --bg: #FAFAFA; --bg-card: #FFFFFF; --card-bg: #FFFFFF;
   --accent: #0096f0; --text: #111; --text2: #555;
-  --border: rgba(0,0,0,0.08);
+  --border: rgba(0,0,0,0.08); --accent-subtle: rgba(0,150,240,0.08);
 }
 [data-theme="dark"] {
   --bg: #000000; --bg-card: #1c1c1e; --card-bg: #1c1c1e;
   --accent: #0096f0; --text: #FFFFFF; --text2: #a1a1a6;
-  --border: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.06); --accent-subtle: rgba(0,150,240,0.12);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -91,16 +91,6 @@ footer {
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
 }
 
-/* ============================================================
-   PAGE HERO, BREADCRUMB, RELATED PAGES
-   ============================================================ */
-.page-hero { padding: 60px 0 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
-.page-eyebrow { font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
-.page-hero h1 { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; color: var(--text); background: none; -webkit-text-fill-color: var(--text); }
-.page-sub { font-size: 16px; color: var(--text2); max-width: 600px; }
-.page-meta { display: flex; gap: 24px; margin-top: 16px; font-size: 13px; color: var(--text2); }
-
-}
 a{text-decoration:none!important}
 
 /* ===== NAV ===== */
