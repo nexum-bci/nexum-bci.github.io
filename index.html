@@ -41,8 +41,10 @@ body{
 img{max-width:100%;height:auto;display:block;opacity:0;transition:opacity .5s ease}
 img.loaded{opacity:1}
 a{color:var(--accent);text-decoration:none;transition:color .2s ease}
-a:hover{opacity:.8}
+a:hover{text-decoration:underline;text-underline-offset:2px;opacity:.8}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+nav a,.card a,.portal-card a,footer a{text-decoration:none!important}
+nav a:hover,.card a:hover,.portal-card a:hover,footer a:hover{text-decoration:none;opacity:.8}
 ul{list-style:none}
 
 /* Selection */
@@ -341,130 +343,321 @@ nav .container{
 .hero-metrics .metric{min-width:100px}
 
 /* ============================================================
-   PROBLEM
+   PROBLEM — Redesigned: Impact-driven, Apple-style
    ============================================================ */
-#problem{background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+#problem{
+  background:var(--bg-card);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  text-align:center
+}
 [data-theme="dark"] #problem{background:var(--bg-card)}
-.problem-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+.problem-lead{margin-bottom:64px}
+.problem-badge{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--accent);
+  text-transform:uppercase;
+  margin-bottom:20px;
+  display:block
+}
+.problem-headline{
+  font-size:52px;
+  font-weight:800;
+  line-height:1.08;
+  letter-spacing:-1.5px;
+  margin-bottom:20px;
+  color:var(--text)
+}
+.problem-sub{
+  font-size:17px;
+  color:var(--text-secondary);
+  max-width:600px;
+  margin:0 auto;
+  line-height:1.7
+}
+.problem-stats{
+  display:flex;
+  gap:32px;
+  justify-content:center;
+  margin-bottom:48px
+}
 .problem-stat{
-  padding:36px;
+  flex:1;
+  max-width:300px;
+  padding:40px 28px;
   border-radius:var(--radius);
   background:var(--bg);
-  border:1px solid var(--border);
-  transition:transform .25s ease,box-shadow .25s ease
+  transition:transform .3s var(--ease-apple)
 }
 [data-theme="dark"] .problem-stat{background:var(--bg)}
-.problem-stat:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
-.problem-stat .metric-num{font-size:42px;font-weight:700}
-.problem-text p{margin-bottom:16px}
-.problem-text p:last-child{margin-bottom:0}
+.problem-stat:hover{transform:translateY(-4px)}
+.problem-stat-num{
+  font-size:52px;
+  font-weight:800;
+  color:var(--accent);
+  letter-spacing:-2px;
+  line-height:1;
+  margin-bottom:12px
+}
+.problem-stat-label{
+  font-size:17px;
+  font-weight:600;
+  color:var(--text);
+  margin-bottom:8px
+}
+.problem-stat-desc{
+  font-size:13px;
+  color:var(--text-tertiary);
+  line-height:1.5;
+  max-width:240px;
+  margin:0 auto
+}
+.problem-context{
+  font-size:14px;
+  color:var(--text-secondary);
+  max-width:580px;
+  margin:0 auto;
+  line-height:1.7;
+  font-style:italic;
+  border-top:1px solid var(--border);
+  padding-top:28px
+}
 
 /* ============================================================
-   PRODUCT
+   PRODUCT — Redesigned: Apple-style premium showcase
    ============================================================ */
-.product-card .product-icon{
-  width:100%;
-  height:190px;
-  border-radius:var(--radius);
-  background:var(--bg);
-  margin-bottom:16px;
-  overflow:hidden;
-  border:1px solid var(--border)
+.product-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:28px
 }
-.product-card .product-icon img{
+.product-card{
+  background:var(--bg-card);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow-sm);
+  transition:transform .4s var(--ease-apple),box-shadow .4s var(--ease-apple);
+  cursor:default
+}
+.product-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg)
+}
+[data-theme="dark"] .product-card{
+  border:1px solid rgba(255,255,255,0.06);
+  box-shadow:none
+}
+[data-theme="dark"] .product-card:hover{
+  border-color:rgba(255,255,255,0.12);
+  transform:translateY(-4px)
+}
+.product-card-image{
+  width:100%;
+  height:220px;
+  overflow:hidden;
+  position:relative
+}
+.product-card-image img{
   width:100%;
   height:100%;
   object-fit:cover;
-  transition:transform .4s ease
+  transition:transform .6s var(--ease-apple)
 }
-.product-card:hover .product-icon img{transform:scale(1.05)}
-.product-card h3{font-size:20px;font-weight:600;margin-bottom:8px}
-.product-card .product-desc{font-size:14px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px}
-.product-specs{font-size:12px;color:var(--text-tertiary);display:flex;flex-wrap:wrap;gap:6px}
-.product-specs span{
-  padding:3px 10px;
-  border-radius:4px;
-  background:var(--bg);
-  border:1px solid var(--border);
-  font-family:inherit
+.product-card:hover .product-card-image img{transform:scale(1.07)}
+.product-card-body{padding:28px 28px 32px}
+.product-card-name{
+  font-size:21px;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:2px
 }
-.product-versions{margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
-.product-versions .version-row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0}
-.product-versions .version-row .label{color:var(--text-tertiary)}
-.product-versions .version-row .value{font-weight:600}
+.product-card-sub{
+  font-size:12px;
+  font-weight:500;
+  color:var(--text-tertiary);
+  margin-bottom:12px;
+  letter-spacing:.5px;
+  text-transform:uppercase
+}
+.product-card-outcome{
+  font-size:14px;
+  color:var(--text-secondary);
+  line-height:1.65;
+  margin-bottom:18px
+}
+.product-card-specs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px
+}
+.product-card-specs .spec-tag{
+  display:inline-block;
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:600;
+  background:var(--accent-subtle);
+  color:var(--accent);
+  letter-spacing:.2px
+}
 .section-footer{text-align:center;margin-top:56px}
 .section-footer a{font-size:14px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:4px}
 .section-footer a:hover{gap:8px}
 
 /* ============================================================
-   TECHNOLOGY
+   TECHNOLOGY — Redesigned: Fluid horizontal flow with gradients
    ============================================================ */
-.tech-section .section-sub{margin-bottom:36px}
+.tech-section .section-sub{margin-bottom:48px}
 .tech-flow{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-  margin-bottom:40px
+  display:flex;
+  gap:0;
+  margin-bottom:40px;
+  position:relative;
+  justify-content:center
 }
 .tech-step{
+  flex:1;
+  max-width:220px;
   text-align:center;
-  padding:32px 20px 24px;
-  background:var(--bg-card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
+  padding:36px 22px 32px;
   position:relative;
-  transition:transform .25s ease,box-shadow .25s ease
+  transition:transform .3s var(--ease-apple);
+  border:none
 }
-.tech-step:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
-.tech-step::after{
-  content:'→';
+.tech-step:hover{transform:translateY(-6px)}
+/* Blue gradient across 4 steps — light to dark */
+.tech-step:nth-child(1){
+  background:linear-gradient(180deg,rgba(0,150,240,0.07) 0%,rgba(0,150,240,0.02) 100%);
+  border-radius:var(--radius) 0 0 var(--radius)
+}
+.tech-step:nth-child(2){
+  background:linear-gradient(180deg,rgba(0,112,192,0.07) 0%,rgba(0,112,192,0.02) 100%)
+}
+.tech-step:nth-child(3){
+  background:linear-gradient(180deg,rgba(0,80,160,0.07) 0%,rgba(0,80,160,0.02) 100%)
+}
+.tech-step:nth-child(4){
+  background:linear-gradient(180deg,rgba(0,32,96,0.07) 0%,rgba(0,32,96,0.02) 100%);
+  border-radius:0 var(--radius) var(--radius) 0
+}
+[data-theme="dark"] .tech-step:nth-child(1){
+  background:linear-gradient(180deg,rgba(0,150,240,0.10) 0%,rgba(0,150,240,0.03) 100%)
+}
+[data-theme="dark"] .tech-step:nth-child(2){
+  background:linear-gradient(180deg,rgba(0,112,192,0.10) 0%,rgba(0,112,192,0.03) 100%)
+}
+[data-theme="dark"] .tech-step:nth-child(3){
+  background:linear-gradient(180deg,rgba(0,80,160,0.10) 0%,rgba(0,80,160,0.03) 100%)
+}
+[data-theme="dark"] .tech-step:nth-child(4){
+  background:linear-gradient(180deg,rgba(0,32,96,0.10) 0%,rgba(0,32,96,0.03) 100%)
+}
+/* Subtle connecting dots between steps */
+.tech-step:not(:last-child)::after{
+  content:'';
   position:absolute;
-  right:-13px;
+  right:-3px;
   top:50%;
   transform:translateY(-50%);
-  font-size:22px;
-  color:var(--text-tertiary);
-  font-weight:300
-}
-.tech-step:last-child::after{display:none}
-.tech-step .step-num{font-size:30px;font-weight:700;color:var(--accent);margin-bottom:8px}
-.tech-step .step-title{font-size:15px;font-weight:600;margin-bottom:8px}
-.tech-step .step-desc{font-size:12px;color:var(--text-tertiary);line-height:1.5;max-width:200px;margin:0 auto}
-.tech-step .step-time{
-  display:inline-block;
-  font-size:11px;
-  color:#fff;
-  font-weight:700;
+  width:6px;
+  height:6px;
+  border-radius:50%;
   background:var(--accent);
-  padding:2px 10px;
-  border-radius:10px;
-  margin-top:10px
+  opacity:.15;
+  z-index:2
 }
+.tech-step .step-num{
+  font-size:30px;
+  font-weight:800;
+  margin-bottom:10px;
+  line-height:1
+}
+.tech-step:nth-child(1) .step-num{color:#0096F0}
+.tech-step:nth-child(2) .step-num{color:#0070C0}
+.tech-step:nth-child(3) .step-num{color:#0050A0}
+.tech-step:nth-child(4) .step-num{color:#002060}
+.tech-step .step-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:10px
+}
+.tech-step .step-desc{
+  font-size:12px;
+  color:var(--text-tertiary);
+  line-height:1.6;
+  margin-bottom:16px
+}
+.tech-step .step-time{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  font-size:11px;
+  font-weight:700;
+  padding:4px 12px;
+  border-radius:20px;
+  background:var(--bg-card);
+  color:var(--accent);
+  box-shadow:var(--shadow-sm);
+  letter-spacing:.2px
+}
+[data-theme="dark"] .tech-step .step-time{
+  border:1px solid rgba(255,255,255,0.08)
+}
+.latency-summary{
+  text-align:center;
+  margin-bottom:20px
+}
+.latency-summary span{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:13px;
+  color:var(--text-secondary);
+  background:var(--bg);
+  padding:8px 20px;
+  border-radius:20px
+}
+.latency-summary strong{color:var(--accent);font-size:16px}
 .latency-bar{
-  height:44px;
+  height:40px;
   border-radius:var(--radius-sm);
   overflow:hidden;
   display:flex;
-  margin-bottom:8px;
+  margin-bottom:6px;
   box-shadow:var(--shadow-sm)
 }
 .latency-bar span{
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:12px;
-  font-weight:600;
+  font-size:11px;
+  font-weight:700;
   color:#fff;
-  transition:flex .3s ease;
+  letter-spacing:.3px;
   white-space:nowrap;
-  padding:0 6px
+  padding:0 8px;
+  position:relative;
+  transition:flex .3s ease
 }
 .latency-bar span:first-child{border-radius:var(--radius-sm) 0 0 var(--radius-sm)}
 .latency-bar span:last-child{border-radius:0 var(--radius-sm) var(--radius-sm) 0}
-.latency-eeg{background:#0096F0;flex:40}
-.latency-ai{background:#0070C0;flex:55}
-.latency-act{background:#0050A0;flex:60}
-.latency-learn{background:#002060;flex:10}
+.latency-bar span:not(:last-child)::after{
+  content:'';
+  position:absolute;
+  right:0;
+  top:10px;
+  bottom:10px;
+  width:1px;
+  background:rgba(255,255,255,0.2)
+}
+.latency-eeg{background:linear-gradient(90deg,#0096F0,#0096F0);flex:40}
+.latency-pre{background:linear-gradient(90deg,#0096F0,#00A8FF);flex:20}
+.latency-ai{background:linear-gradient(90deg,#0070C0,#0088E0);flex:55}
+.latency-act{background:linear-gradient(90deg,#0050A0,#0068C0);flex:60}
+.latency-learn{background:linear-gradient(90deg,#002060,#003080);flex:10}
 .latency-labels{display:flex;justify-content:space-between;font-size:12px;color:var(--text-tertiary);padding:0 4px}
 
 /* ============================================================
@@ -716,39 +909,31 @@ nav .container{
 .phone-train-metric .tm-l{font-size:8px;color:rgba(255,255,255,0.45);margin-top:1px}
 .phone-assist{
   padding:8px 10px;margin-bottom:4px;
-  background:rgba(255,255,255,0.8);border-radius:10px;
-  box-shadow:0 1px 3px rgba(0,0,0,0.03)
+  background:rgba(255,255,255,0.04);border-radius:10px;
+  box-shadow:none
 }
-[data-theme="dark"] .phone-assist{background:rgba(255,255,255,0.04);box-shadow:none}
 .phone-assist-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
-.phone-assist-lbl{font-size:9px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.3px}
-[data-theme="dark"] .phone-assist-lbl{color:rgba(255,255,255,0.45)}
+.phone-assist-lbl{font-size:9px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:.3px}
 .phone-assist-level{font-size:12px;font-weight:700;color:#0096f0}
-.phone-assist-bar{height:4px;background:rgba(0,0,0,0.06);border-radius:2px;overflow:hidden}
-[data-theme="dark"] .phone-assist-bar{background:rgba(255,255,255,0.08)}
+.phone-assist-bar{height:4px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden}
 .phone-assist-fill{height:100%;width:40%;background:linear-gradient(90deg,#0096f0,#00b4d8);border-radius:2px}
 .phone-report-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
 .phone-report-title{font-size:14px;font-weight:700}
-.phone-report-date{font-size:9px;color:var(--text-secondary);margin-top:1px}
-[data-theme="dark"] .phone-report-date{color:rgba(255,255,255,0.45)}
+.phone-report-date{font-size:9px;color:rgba(255,255,255,0.45);margin-top:1px}
 .phone-report-badge{padding:3px 8px;background:rgba(0,150,240,0.1);border-radius:100px;font-size:9px;font-weight:600;color:#0096f0}
 .phone-report-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:6px}
 .phone-report-card{
-  background:rgba(255,255,255,0.8);border-radius:8px;padding:6px 4px;text-align:center;
-  box-shadow:0 1px 3px rgba(0,0,0,0.03)
+  background:rgba(255,255,255,0.04);border-radius:8px;padding:6px 4px;text-align:center;
+  box-shadow:none
 }
-[data-theme="dark"] .phone-report-card{background:rgba(255,255,255,0.04);box-shadow:none}
 .phone-report-card .rc-v{font-size:14px;font-weight:700;line-height:1.2}
-.phone-report-card .rc-l{font-size:8px;color:var(--text-secondary);margin-top:1px}
-[data-theme="dark"] .phone-report-card .rc-l{color:rgba(255,255,255,0.45)}
+.phone-report-card .rc-l{font-size:8px;color:rgba(255,255,255,0.45);margin-top:1px}
 .phone-chart{
   padding:8px 10px;margin-bottom:4px;
-  background:rgba(255,255,255,0.8);border-radius:10px;
-  box-shadow:0 1px 3px rgba(0,0,0,0.03)
+  background:rgba(255,255,255,0.04);border-radius:10px;
+  box-shadow:none
 }
-[data-theme="dark"] .phone-chart{background:rgba(255,255,255,0.04);box-shadow:none}
-.phone-chart-title{font-size:9px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px}
-[data-theme="dark"] .phone-chart-title{color:rgba(255,255,255,0.45)}
+.phone-chart-title{font-size:9px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px}
 .phone-chart-bars{display:flex;align-items:flex-end;gap:4px;height:48px}
 .phone-chart-bar{
   flex:1;border-radius:3px 3px 0 0;
@@ -763,8 +948,7 @@ nav .container{
 .phone-chart-bars .bar-6{height:42px}
 .phone-chart-bars .bar-7{height:44px;opacity:1}
 .phone-chart-days{display:flex;justify-content:space-between;margin-top:3px;padding:0 1px}
-.phone-chart-days span{font-size:7px;color:var(--text-secondary);font-feature-settings:"tnum"}
-[data-theme="dark"] .phone-chart-days span{color:rgba(255,255,255,0.35)}
+.phone-chart-days span{font-size:7px;color:rgba(255,255,255,0.35);font-feature-settings:"tnum"}
 .phone-compare{
   display:flex;align-items:center;gap:6px;
   padding:6px 10px;margin-bottom:4px;
@@ -772,13 +956,10 @@ nav .container{
   border-radius:8px;font-size:10px;color:#34c759;font-weight:500
 }
 .phone-compare-sub{font-size:9px;color:rgba(52,199,89,0.6);margin-left:auto}
-.phone-note{padding:6px 10px;background:rgba(0,0,0,0.02);border-left:2px solid #0096f0;border-radius:0 6px 6px 0;font-size:9px;color:var(--text-secondary);line-height:1.5;margin-bottom:4px}
-[data-theme="dark"] .phone-note{background:rgba(255,255,255,0.02);color:rgba(255,255,255,0.5)}
+.phone-note{padding:6px 10px;background:rgba(255,255,255,0.02);border-left:2px solid #0096f0;border-radius:0 6px 6px 0;font-size:9px;color:rgba(255,255,255,0.5);line-height:1.5;margin-bottom:4px}
 .phone-note-hdr{display:flex;justify-content:space-between;margin-bottom:2px}
-.phone-note-author{font-size:9px;font-weight:600;color:#1d1d1f}
-[data-theme="dark"] .phone-note-author{color:rgba(255,255,255,0.7)}
-.phone-note-date{font-size:8px;color:var(--text-secondary)}
-[data-theme="dark"] .phone-note-date{color:rgba(255,255,255,0.35)}
+.phone-note-author{font-size:9px;font-weight:600;color:rgba(255,255,255,0.7)}
+.phone-note-date{font-size:8px;color:rgba(255,255,255,0.35)}
 .app-features{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:48px;max-width:800px;margin-left:auto;margin-right:auto}
 .app-feature{text-align:center;padding:16px}
 .app-feature .app-feature-icon{font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:8px}
@@ -866,20 +1047,6 @@ nav .container{
 .team-card .role{font-size:13px;color:var(--accent);font-weight:600;margin-bottom:10px}
 .team-card .bio{font-size:13px;color:var(--text-secondary);line-height:1.65}
 .team-card .bio + .bio{margin-top:8px}
-.team-card-join{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  border:2px dashed var(--border);
-  background:transparent;
-  padding:28px;
-  cursor:default
-}
-.team-card-join:hover{transform:none;box-shadow:none}
-.team-card-join h3{font-size:17px;font-weight:700;margin-bottom:8px;color:var(--text-secondary)}
-.team-card-join p{font-size:13px;color:var(--text-tertiary);margin-bottom:20px;max-width:220px}
 
 /* ============================================================
    FOOTER
@@ -940,12 +1107,14 @@ footer a:hover{color:var(--text)}
   .section-title{font-size:26px}
   .section-sub{font-size:14px;margin-bottom:32px}
   .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;gap:20px}
-  .problem-stats{grid-template-columns:1fr}
+  .problem-stats{flex-direction:column;align-items:center;gap:20px}
   .portal-grid-featured{grid-template-columns:1fr}
 .portal-grid-secondary{grid-template-columns:1fr 1fr}
-  .tech-flow{grid-template-columns:1fr 1fr;gap:12px}
-  .tech-step::after{display:none}
-  .tech-step .step-desc{max-width:100%}
+  .tech-flow{flex-direction:column;align-items:center;gap:4px}
+  .tech-step{max-width:360px;width:100%;border-radius:var(--radius)!important}
+  .tech-step:nth-child(1){border-radius:var(--radius)!important}
+  .tech-step:nth-child(4){border-radius:var(--radius)!important}
+  .tech-step:not(:last-child)::after{display:none}
   .latency-bar{height:36px;border-radius:6px}
   .latency-bar span{font-size:10px}
   .app-mockups{grid-template-columns:1fr;max-width:240px}
@@ -960,13 +1129,14 @@ footer a:hover{color:var(--text)}
   .hero-metrics .metric{min-width:80px}
   .metric-num{font-size:28px}
   .market-card .market-num{font-size:30px}
-  .problem-stat .metric-num{font-size:34px}
+  .problem-stat-num{font-size:40px}
+  .problem-headline{font-size:36px}
   .hero-actions{gap:10px}
   .btn{padding:10px 22px;font-size:14px}
 }
 @media(max-width:768px) and (hover:none){
-  .card:hover,.market-card:hover,.tech-step:hover,.phone-mockup:hover{transform:none;box-shadow:none}
-  .product-card:hover .product-icon img{transform:none}
+  .card:hover,.market-card:hover,.tech-step:hover,.phone-mockup:hover,.product-card:hover,.problem-stat:hover{transform:none!important;box-shadow:none!important}
+  .product-card:hover .product-card-image img{transform:none}
 }
 
 /* ============================================================
@@ -986,8 +1156,9 @@ footer a:hover{color:var(--text)}
   .footer-bottom{flex-direction:column;gap:8px;text-align:center}
   .hero-actions{flex-direction:column;align-items:center}
   .hero-actions .btn{width:100%;justify-content:center}
-  .tech-flow{grid-template-columns:1fr;gap:16px}
+  .tech-flow{flex-direction:column;gap:6px}
   .latency-bar span{font-size:9px}
+  .problem-headline{font-size:30px}
   .phone-mockup{max-width:220px}
   nav .container{gap:12px}
 }
@@ -999,11 +1170,12 @@ footer a:hover{color:var(--text)}
   *,*::before,*::after{background:transparent!important;color:#000!important;box-shadow:none!important;text-shadow:none!important}
   nav{position:static;backdrop-filter:none;background:#fff!important;border-bottom:1px solid #ddd;height:auto;padding:12px 0}
   #hero{min-height:auto;padding:48px 0;background:#fff!important}
-  .card,.team-card,.market-card,.why-card,.portal-card,.product-card .product-icon,
+  .card,.team-card,.market-card,.why-card,.portal-card,.product-card,
   .phone-mockup,.tech-step,.latency-bar,.problem-stat{break-inside:avoid}
   #themeToggle,.nav-cta,.mobile-menu-btn,.section-footer,.app-features{display:none!important}
   .latency-bar span{color:#000!important;background:#ddd!important}
   .latency-eeg{background:#B3D9F2!important}
+  .latency-pre{background:#C0E0F5!important}
   .latency-ai{background:#99C9E8!important}
   .latency-act{background:#80B8DE!important}
   .latency-learn{background:#66A8D4!important}
@@ -1013,7 +1185,6 @@ footer a:hover{color:var(--text)}
   .section{padding:32px 0!important}
   .grid-2,.grid-3,.grid-4{display:block!important}
   .grid-2>*,.grid-3>*,.grid-4>*{margin-bottom:16px!important}
-  .team-card-join{display:none!important}
   .footer-bottom{flex-direction:row}
   .problem-stats{display:block!important}
   .problem-stat{display:inline-block!important;width:30%!important;margin-right:2%!important;page-break-inside:avoid}
@@ -1063,35 +1234,20 @@ footer a:hover{color:var(--text)}
      NAV
      ============================================================ -->
 <nav>
-  <div class="container">
-    <a href="#" class="nav-logo">
-      <img src="favicon.svg" width="24" height="24" alt="Nexum logo" decoding="async">
-      Nexum 逐念而行
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:64px;gap:24px">
+    <a href="index.html" style="display:flex;align-items:center;gap:8px;font-weight:700;color:var(--text);text-decoration:none">
+      <img src="favicon.svg" width="24" height="24"> Nexum 逐念而行
     </a>
-    <div class="nav-links">
-      <a href="#product">产品</a>
-      <a href="#technology">技术</a>
-      <a href="#app">App</a>
-      <a href="#documents">文档</a>
-      <a href="#team">团队</a>
+    <div style="flex:1;display:flex;gap:20px">
+      <a href="product.html" style="color:var(--text-secondary);text-decoration:none;font-size:14px">产品</a>
+      <a href="technology.html" style="color:var(--text-secondary);text-decoration:none;font-size:14px">技术</a>
+      <a href="app.html" style="color:var(--text-secondary);text-decoration:none;font-size:14px">App</a>
+      <a href="index.html#documents" style="color:var(--text-secondary);text-decoration:none;font-size:14px">文档</a>
+      <a href="index.html#team" style="color:var(--text-secondary);text-decoration:none;font-size:14px">团队</a>
     </div>
-    <div class="nav-actions">
-      <button id="themeToggle" aria-label="切换明暗主题" title="切换主题">
-        <span id="themeIcon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
-      </button>
-      <a href="#contact" class="nav-cta">投资者入口</a>
-    </div>
-    <button class="mobile-menu-btn" aria-label="打开菜单" onclick="toggleMobileMenu()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-  </div>
-  <!-- Mobile menu -->
-  <div id="mobileMenu" style="display:none;padding:16px 24px 24px;border-top:1px solid var(--border);background:var(--bg-card)">
-    <div style="display:flex;flex-direction:column;gap:12px">
-      <a href="#product" onclick="closeMobileMenu()" style="font-size:15px;font-weight:500;color:var(--text);padding:8px 0;border-bottom:1px solid var(--border)">产品 Product</a>
-      <a href="#technology" onclick="closeMobileMenu()" style="font-size:15px;font-weight:500;color:var(--text);padding:8px 0;border-bottom:1px solid var(--border)">技术 Technology</a>
-      <a href="#app" onclick="closeMobileMenu()" style="font-size:15px;font-weight:500;color:var(--text);padding:8px 0;border-bottom:1px solid var(--border)">App</a>
-      <a href="#documents" onclick="closeMobileMenu()" style="font-size:15px;font-weight:500;color:var(--text);padding:8px 0;border-bottom:1px solid var(--border)">文档 Documents</a>
-      <a href="#team" onclick="closeMobileMenu()" style="font-size:15px;font-weight:500;color:var(--text);padding:8px 0;border-bottom:1px solid var(--border)">团队 Team</a>
-      <a href="#contact" onclick="closeMobileMenu()" class="btn btn-primary" style="text-align:center;justify-content:center;margin-top:8px;display:flex">投资者入口</a>
+    <div style="display:flex;align-items:center;gap:12px">
+      <button id="themeToggle" style="width:36px;height:36px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);cursor:pointer;font-size:16px;color:var(--text)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+      <a href="index.html#contact" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff!important;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none">投资者入口</a>
     </div>
   </div>
 </nav>
@@ -1142,49 +1298,43 @@ footer a:hover{color:var(--text)}
 </section>
 
 <!-- ============================================================
-     PROBLEM
+     PROBLEM — Redesigned: Impact-driven
      ============================================================ -->
 <section id="problem" class="section">
   <div class="container">
-    <div class="grid-2">
-      <div class="problem-text">
-        <h2 class="section-title">全球康复危机</h2>
-        <p>
-          脑卒中（中风）已成为全球致残率最高的疾病之一。根据WHO 2024全球疾病负担报告，全球现有9400万中风存活者，每年新增1500万患者。其中约60%的患者遗留不同程度的运动功能障碍，需要长期康复训练。
-        </p>
-        <p>
-          传统康复依赖康复治疗师一对一、手把手训练，效率低下、成本高昂。在美国，人均年康复费用超过30,000美元，且医保覆盖有限。在中国，康复医师缺口超过10万人，大量患者无法获得及时有效的康复治疗。
-        </p>
-        <p>
-          患者等待的不是康复——是重新开始生活的权利。现有的康复技术停留在被动训练阶段，缺乏对大脑运动意图的理解和主动响应。神经可塑性原理告诉我们：主动参与是康复的关键。而这正是Nexum的技术切入点。
-        </p>
+    <!-- Lead statement -->
+    <div class="problem-lead reveal">
+      <span class="problem-badge">GLOBAL CRISIS</span>
+      <h2 class="problem-headline">9400万人<br>等待重新行走</h2>
+      <p class="problem-sub">
+        脑卒中已成为全球致残率最高的疾病之一。全球9400万中风存活者中，约60%遗留运动功能障碍。传统康复依赖治疗师一对一训练，效率低下且成本高昂——患者等待的不是康复，而是重新开始生活的权利。
+      </p>
+    </div>
+    <!-- Stats -->
+    <div class="problem-stats">
+      <div class="problem-stat reveal">
+        <div class="problem-stat-num">9400万</div>
+        <div class="problem-stat-label">全球中风存活者</div>
+        <div class="problem-stat-desc">WHO 2024全球疾病负担报告 · 约60%遗留运动功能障碍</div>
       </div>
-      <div class="problem-stats">
-        <div class="problem-stat">
-          <div class="metric-num">9400万</div>
-          <div class="metric-label" style="margin-top:8px;font-size:15px;font-weight:600">全球中风存活者</div>
-          <p style="font-size:12px;color:var(--text-tertiary);margin-top:8px">WHO 2024全球疾病负担报告</p>
-          <p style="font-size:12px;color:var(--text-tertiary);margin-top:4px">约60%遗留运动功能障碍</p>
-        </div>
-        <div class="problem-stat">
-          <div class="metric-num">1500万</div>
-          <div class="metric-label" style="margin-top:8px;font-size:15px;font-weight:600">每年新增中风患者</div>
-          <p style="font-size:12px;color:var(--text-tertiary);margin-top:8px">全球每年新增，且持续增长</p>
-          <p style="font-size:12px;color:var(--text-tertiary);margin-top:4px">预计2030年突破2000万/年</p>
-        </div>
-        <div class="problem-stat">
-          <div class="metric-num">$30,000+</div>
-          <div class="metric-label" style="margin-top:8px;font-size:15px;font-weight:600">人均年康复费用</div>
-          <p style="font-size:12px;color:var(--text-tertiary);margin-top:8px">美国市场数据，医保覆盖有限</p>
-          <p style="font-size:12px;color:var(--text-tertiary);margin-top:4px">中国市场等效约¥8-15万/年</p>
-        </div>
+      <div class="problem-stat reveal">
+        <div class="problem-stat-num">1500万</div>
+        <div class="problem-stat-label">每年新增中风患者</div>
+        <div class="problem-stat-desc">全球每年新增 · 预计2030年突破2000万/年</div>
+      </div>
+      <div class="problem-stat reveal">
+        <div class="problem-stat-num">$30,000+</div>
+        <div class="problem-stat-label">人均年康复费用</div>
+        <div class="problem-stat-desc">美国市场数据 · 医保覆盖有限 · 中国等效约¥8-15万/年</div>
       </div>
     </div>
+    <!-- Context -->
+    <p class="problem-context reveal">现有康复技术停留在被动训练阶段，缺乏对大脑运动意图的理解和主动响应。Nexum让每一位患者重新开始行走。</p>
   </div>
 </section>
 
 <!-- ============================================================
-     PRODUCT
+     PRODUCT — Redesigned: Apple-style premium showcase
      ============================================================ -->
 <section id="product" class="section">
   <div class="container">
@@ -1192,75 +1342,57 @@ footer a:hover{color:var(--text)}
       <h2 class="section-title">Nexum One 产品系统</h2>
       <p class="section-sub section-sub-center">首款神经重连AI系统，三大模块协同工作，覆盖从信号采集到运动执行的完整闭环。两个版本满足医院与居家不同场景。</p>
     </div>
-    <div class="grid-3">
-      <div class="card product-card">
-        <div class="product-icon">
+    <div class="product-grid">
+      <!-- EEG-Sense -->
+      <div class="product-card reveal">
+        <div class="product-card-image">
           <img src="docs/render_1_eeg.jpg" alt="EEG-Sense 8通道干电极头带" loading="lazy" decoding="async">
         </div>
-        <h3>EEG-Sense</h3>
-        <p class="product-desc">8通道干电极头带，检测运动准备电位（MRP），实时捕捉大脑运动意图。采用TI ADS1299方案，医用级信号质量，消费级佩戴体验。</p>
-        <div class="product-specs">
-          <span>8ch干电极</span>
-          <span>80g</span>
-          <span>250SPS</span>
-          <span>蓝牙5.2</span>
-          <span>24bit ADC</span>
-        </div>
-        <div class="product-versions">
-          <div class="version-row">
-            <span class="label">Clinical版</span>
-            <span class="value">32ch可选</span>
-          </div>
-          <div class="version-row">
-            <span class="label">Home版</span>
-            <span class="value">8ch标准</span>
+        <div class="product-card-body">
+          <div class="product-card-name">EEG-Sense</div>
+          <div class="product-card-sub">Brain Signal Interface</div>
+          <p class="product-card-outcome">8通道干电极头带，实时捕捉大脑运动意图。医用级信号质量，消费级佩戴体验——仅80g，让大脑与机器无缝对话。</p>
+          <div class="product-card-specs">
+            <span class="spec-tag">8ch干电极</span>
+            <span class="spec-tag">80g</span>
+            <span class="spec-tag">250 SPS</span>
+            <span class="spec-tag">蓝牙 5.2</span>
+            <span class="spec-tag">24-bit ADC</span>
           </div>
         </div>
       </div>
-      <div class="card product-card">
-        <div class="product-icon">
+      <!-- NeuroSuit -->
+      <div class="product-card reveal">
+        <div class="product-card-image">
           <img src="docs/render_3_neurosuit.jpg" alt="NeuroSuit 轻量化外骨骼" loading="lazy" decoding="async">
         </div>
-        <h3>NeuroSuit</h3>
-        <p class="product-desc">碳纤维锚定框架 + 柔性织物包裹 + 鲍登线缆驱动，轻量化髋关节辅助外骨骼。10秒快速穿脱，日常居家也可独立使用。</p>
-        <div class="product-specs">
-          <span>&lt;1.5kg</span>
-          <span>15Nm</span>
-          <span>鲍登线缆</span>
-          <span>10s穿脱</span>
-          <span>碳纤维</span>
-        </div>
-        <div class="product-versions">
-          <div class="version-row">
-            <span class="label">Clinical版</span>
-            <span class="value">双侧助力</span>
-          </div>
-          <div class="version-row">
-            <span class="label">Home版</span>
-            <span class="value">单侧可选</span>
+        <div class="product-card-body">
+          <div class="product-card-name">NeuroSuit</div>
+          <div class="product-card-sub">Lightweight Exoskeleton</div>
+          <p class="product-card-outcome">碳纤维锚定框架与柔性织物包裹，鲍登线缆精准驱动。轻量化设计仅1.5kg，10秒快速穿脱——康复融入日常，而非打断生活。</p>
+          <div class="product-card-specs">
+            <span class="spec-tag">&lt;1.5 kg</span>
+            <span class="spec-tag">15 Nm</span>
+            <span class="spec-tag">鲍登线缆</span>
+            <span class="spec-tag">10 s 穿脱</span>
+            <span class="spec-tag">碳纤维</span>
           </div>
         </div>
       </div>
-      <div class="card product-card">
-        <div class="product-icon">
+      <!-- Control Box -->
+      <div class="product-card reveal">
+        <div class="product-card-image">
           <img src="docs/render_2_controlbox.jpg" alt="Control Box AI策略控制器" loading="lazy" decoding="async">
         </div>
-        <h3>Control Box</h3>
-        <p class="product-desc">运行个性化AI策略引擎，基于416肌肉骨骼孪生模型，强化学习实时生成最优助力策略。端到端延迟控制在185ms以内。</p>
-        <div class="product-specs">
-          <span>&lt;185ms</span>
-          <span>416肌肉孪生</span>
-          <span>RL策略</span>
-          <span>联邦学习</span>
-        </div>
-        <div class="product-versions">
-          <div class="version-row">
-            <span class="label">Clinical版</span>
-            <span class="value">$18,000</span>
-          </div>
-          <div class="version-row">
-            <span class="label">Home版</span>
-            <span class="value">$3,999 + $499/年</span>
+        <div class="product-card-body">
+          <div class="product-card-name">Control Box</div>
+          <div class="product-card-sub">AI Strategy Engine</div>
+          <p class="product-card-outcome">运行个性化AI策略引擎，基于416肌肉骨骼孪生模型，强化学习实时生成最优助力方案。端到端延迟控制在185ms以内，响应如本能。</p>
+          <div class="product-card-specs">
+            <span class="spec-tag">&lt;185 ms</span>
+            <span class="spec-tag">416 肌肉孪生</span>
+            <span class="spec-tag">RL 策略</span>
+            <span class="spec-tag">联邦学习</span>
           </div>
         </div>
       </div>
@@ -1272,49 +1404,54 @@ footer a:hover{color:var(--text)}
 </section>
 
 <!-- ============================================================
-     TECHNOLOGY
+     TECHNOLOGY — Redesigned: Fluid horizontal flow
      ============================================================ -->
 <section id="technology" class="section tech-section" style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="container">
     <div class="section-title-center">
-      <h2 class="section-title">技术架构</h2>
+      <h2 class="section-title">AI闭环 · 从大脑到肌肉</h2>
       <p class="section-sub section-sub-center">四步闭环流水线，从大脑信号到肌肉动作，端到端延迟控制在185ms以内。每一步都在持续优化。</p>
     </div>
     <div class="tech-flow">
-      <div class="tech-step">
-        <div class="step-num">①</div>
+      <div class="tech-step reveal">
+        <div class="step-num">01</div>
         <div class="step-title">读取意图</div>
         <div class="step-desc">EEG-Sense采集运动准备电位（MRP），经自适应滤波和空间谱特征提取，实时解码大脑运动意图</div>
         <div class="step-time">~40ms</div>
       </div>
-      <div class="tech-step">
-        <div class="step-num">②</div>
+      <div class="tech-step reveal">
+        <div class="step-num">02</div>
         <div class="step-title">生成策略</div>
         <div class="step-desc">AI策略引擎基于416肌肉骨骼孪生模型，通过强化学习为每位患者生成个性化最优助力方案</div>
         <div class="step-time">~55ms</div>
       </div>
-      <div class="tech-step">
-        <div class="step-num">③</div>
+      <div class="tech-step reveal">
+        <div class="step-num">03</div>
         <div class="step-title">执行动作</div>
         <div class="step-desc">鲍登线缆驱动系统以最小延迟执行髋关节辅助力矩，碳纤维结构确保力传导效率</div>
         <div class="step-time">~60ms</div>
       </div>
-      <div class="tech-step">
-        <div class="step-num">④</div>
+      <div class="tech-step reveal">
+        <div class="step-num">04</div>
         <div class="step-title">持续进化</div>
         <div class="step-desc">联邦学习框架持续从多中心临床数据中优化策略模型，适应每位患者恢复进度的动态变化</div>
-        <div class="step-time">~10ms</div>
+        <div class="step-time">~30ms</div>
       </div>
     </div>
-    <div class="latency-bar">
-      <span class="latency-eeg" style="flex:40">EEG采集解码 ~40ms</span>
-      <span class="latency-ai" style="flex:55">AI策略生成 ~55ms</span>
-      <span class="latency-act" style="flex:60">执行驱动 ~60ms</span>
-      <span class="latency-learn" style="flex:10">进化反馈 ~10ms</span>
+    <!-- Latency breakdown -->
+    <div class="latency-summary reveal">
+      <span>端到端系统延迟 <strong>&lt;185ms</strong></span>
+    </div>
+    <div class="latency-bar reveal">
+      <span class="latency-eeg">EEG采集 40ms</span>
+      <span class="latency-pre">预处理 20ms</span>
+      <span class="latency-ai">AI策略 55ms</span>
+      <span class="latency-act">执行 60ms</span>
+      <span class="latency-learn">学习 10ms</span>
     </div>
     <div class="latency-labels">
       <span>0ms</span>
-      <span>185ms 端到端延迟</span>
+      <span>185ms 端到端</span>
     </div>
     <div class="section-footer" style="margin-top:36px">
       <a href="technology.html">查看技术架构详情 →</a>
@@ -1453,7 +1590,7 @@ footer a:hover{color:var(--text)}
             <div class="phone-ring-section">
               <div class="phone-ring-wrap">
                 <svg viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="8"/>
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"/>
                   <circle cx="50" cy="50" r="42" fill="none" stroke="#0096f0" stroke-width="8"
                     stroke-dasharray="263.9" stroke-dashoffset="58.1" stroke-linecap="round" transform="rotate(-90 50 50)"/>
                 </svg>
@@ -1514,7 +1651,7 @@ footer a:hover{color:var(--text)}
                       <stop offset="100%" stop-color="#34c759"/>
                     </linearGradient>
                   </defs>
-                  <path d="M 15 75 A 55 55 0 0 1 115 75" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="10" stroke-linecap="round"/>
+                  <path d="M 15 75 A 55 55 0 0 1 115 75" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="10" stroke-linecap="round"/>
                   <path d="M 15 75 A 55 55 0 0 1 115 75" fill="none" stroke="url(#phoneGaugeGrad)" stroke-width="10" stroke-linecap="round" stroke-dasharray="162 172.8"/>
                   <line x1="65" y1="75" x2="112" y2="63" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
                   <circle cx="65" cy="75" r="4" fill="#fff"/>
@@ -1537,8 +1674,8 @@ footer a:hover{color:var(--text)}
             <div style="display:flex;align-items:center;gap:4px;margin-bottom:4px">
               <div style="flex:1;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.02);border-radius:6px;position:relative">
                 <svg width="60" height="48" viewBox="0 0 60 48">
-                  <ellipse cx="30" cy="6" rx="8" ry="9" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
-                  <path d="M20 14h20l-5 22h-10z" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+                  <ellipse cx="30" cy="6" rx="8" ry="9" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                  <path d="M20 14h20l-5 22h-10z" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
                   <rect x="24" y="20" width="12" height="6" rx="2" fill="rgba(0,150,240,0.15)"/>
                   <rect x="18" y="34" width="10" height="8" rx="2" fill="rgba(255,159,10,0.2)"/>
                   <rect x="32" y="34" width="10" height="8" rx="2" fill="rgba(52,199,89,0.25)"/>
@@ -1659,7 +1796,7 @@ footer a:hover{color:var(--text)}
   <div class="container">
     <div class="section-title-center">
       <h2 class="section-title">市场路线</h2>
-      <p class="section-sub section-sub-center">从神经康复切入，逐步拓展至老年行动力辅助，最终实现全人群运动增强。三阶段路线图覆盖十年增长路径。</p>
+      <p class="section-sub section-sub-center">神经康复 → 老年行动力 → 全人群增强。三阶段覆盖十年增长路径。</p>
     </div>
     <div class="grid-3">
       <div class="market-card">
@@ -1667,7 +1804,7 @@ footer a:hover{color:var(--text)}
         <h3>神经康复</h3>
         <div class="market-num">$6.6B</div>
         <p class="market-desc">
-          中风后康复市场。NMPA二类医疗器械认证，Clinical版本（$18,000）进入医院康复科，Home版本（$3,999 + $499/年）覆盖居家康复场景。初期以中国长三角地区三甲医院康复科为切入点，逐步拓展至全国。
+          中风后康复。NMPA二类认证。Clinical版（$18,000）进医院，Home版（$3,999+$499/年）覆盖居家。长三角三甲医院切入。
         </p>
         <div class="market-year"> 2028 – 2030</div>
       </div>
@@ -1676,7 +1813,7 @@ footer a:hover{color:var(--text)}
         <h3>老年行动力</h3>
         <div class="market-num">$15B</div>
         <p class="market-desc">
-          全球老龄化加速，65岁以上人口占比持续攀升。从康复扩展到预防性穿戴，覆盖社区养老和居家养老场景。产品线从Nexum One Clinical/Home拓展至消费级助行产品。
+          从康复到预防。65+人口持续攀升，社区和居家养老驱动。产品线向消费级助行拓展。
         </p>
         <div class="market-year"> 2030 – 2033</div>
       </div>
@@ -1685,7 +1822,7 @@ footer a:hover{color:var(--text)}
         <h3>全人群增强</h3>
         <div class="market-num">$33.7B+</div>
         <p class="market-desc">
-          从康复到增强：体力劳动者助力、运动表现提升、健康人群日常穿戴。人机共生从医疗应用走向大众消费，技术壁垒转化为品牌护城河。
+          从医疗到消费。体力劳动者助力、运动表现提升、健康人群日常穿戴。技术壁垒转化为品牌护城河。
         </p>
         <div class="market-year"> 2033+</div>
       </div>
@@ -1700,32 +1837,32 @@ footer a:hover{color:var(--text)}
   <div class="container">
     <div class="section-title-center">
       <h2 class="section-title">为什么是现在</h2>
-      <p class="section-sub section-sub-center">四大趋势汇聚于2025-2028窗口期，为神经重连AI系统创造了历史性机遇。此时不入，更待何时。</p>
+      <p class="section-sub section-sub-center">四大趋势汇聚于2025-2028窗口期，创造历史性机遇。</p>
     </div>
     <div class="grid-4">
       <div class="why-card">
         <div class="why-icon">AI</div>
         <div class="why-stat">10x/年</div>
-        <h3>AI推理成本下降</h3>
-        <p>大语言模型与强化学习在医疗领域的突破性进展使个性化策略生成成为可能。AI推理成本以每年10倍速度下降，2026年已达实用临界点。</p>
+        <h3>AI能力爆发</h3>
+        <p>AI推理成本每年10倍下降，2026年已达临界点。大模型+RL使个性化策略生成走向临床。</p>
       </div>
       <div class="why-card">
         <div class="why-icon">BCI</div>
         <div class="why-stat">8ch</div>
-        <h3>干电极EEG成熟</h3>
-        <p>消费级干电极EEG精度达到临床可用水平。TI ADS1299等医用级芯片成本降至$15以下。实时信号处理算力满足嵌入式部署需求。</p>
+        <h3>脑机接口实用化</h3>
+        <p>干电极EEG精度达临床可用水平，医用级ADC芯片成本降至$15以下，嵌入式算力满足实时处理。</p>
       </div>
       <div class="why-card">
         <div class="why-icon">GLOBAL</div>
         <div class="why-stat">2.1B</div>
-        <h3>全球65岁+人口</h3>
-        <p>2050年全球65岁以上人口预计达21亿。中风发病率随年龄增长呈指数上升，康复医疗需求爆发式增长，供给端严重不足。</p>
+        <h3>全球老龄化加速</h3>
+        <p>全球65+人口2050年将达21亿，中风发病率随年龄指数上升。康复供需缺口持续扩大。</p>
       </div>
       <div class="why-card">
         <div class="why-icon">NMPA</div>
         <div class="why-stat">创新通道</div>
-        <h3>NMPA政策红利</h3>
-        <p>中国NMPA创新医疗器械特别审批程序将二类器械审评周期缩短至6-9个月。多地医保新增康复项目覆盖，政策环境空前有利。</p>
+        <h3>康复医疗政策红利</h3>
+        <p>创新医疗器械审评缩至6-9个月，多地医保新增康复项目。政策窗口空前有利。</p>
       </div>
     </div>
   </div>
@@ -1738,7 +1875,7 @@ footer a:hover{color:var(--text)}
   <div class="container">
     <div class="section-title-center">
       <h2 class="section-title">核心团队</h2>
-      <p class="section-sub section-sub-center">六人核心团队，兼具算法研究、硬件工程、临床注册与产品设计能力。优先级逻辑：临床决定产品能否通过NMPA；EEG决定传感器量产；注册决定审评速度；设计决定用户留存。</p>
+      <p class="section-sub section-sub-center">兼具算法研究、硬件工程、临床注册与产品设计能力。</p>
     </div>
     <div class="team-grid">
       <!-- 赵子睿 -->
@@ -1747,10 +1884,7 @@ footer a:hover{color:var(--text)}
         <h3>赵子睿</h3>
         <div class="role">Founder &amp; CEO</div>
         <div class="bio">
-          哥伦比亚大学EE硕士。华为美国研究院Futurewei IoT Lab，8年CTO经验。15年具身智能与算法硬件落地经验。
-        </div>
-        <div class="bio">
-          FAI（股骨头坏死）患者，外骨骼创业的原始驱动力。产品定义、系统架构、技术方向决策。
+          Columbia EE MSc。15年具身智能与算法硬件落地。8年CTO（Futurewei IoT Lab）。FAI患者驱动，定义产品与系统架构。
         </div>
       </div>
       <!-- 汪牧星 -->
@@ -1759,52 +1893,7 @@ footer a:hover{color:var(--text)}
         <h3>汪牧星</h3>
         <div class="role">CRO</div>
         <div class="bio">
-          美国东北大学博士候选人（联邦学习方向），爱丁堡大学统计学硕士。pFedAC（Personalized Federated Learning via Adaptive Collaboration）第一作者。
-        </div>
-        <div class="bio">
-          主导AI策略引擎与联邦学习架构设计，负责个性化算法研发与临床数据分析。
-        </div>
-      </div>
-      <!-- Join us -->
-      <div class="team-card team-card-join">
-        <div style="font-size:24px;font-weight:300;margin-bottom:12px;color:var(--text-secondary)">+</div>
-        <h3>加入我们</h3>
-        <p>我们正在寻找以下核心成员：临床负责人、EEG硬件工程师、NMPA注册专家、产品设计师。</p>
-        <a href="#contact" class="btn btn-primary">查看开放职位</a>
-      </div>
-    </div>
-    <div style="margin-top:48px;max-width:700px;margin-left:auto;margin-right:auto">
-      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px">
-        <h3 style="font-size:15px;font-weight:700;margin-bottom:12px">团队招募优先级</h3>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:24px;font-weight:800;color:var(--accent);min-width:32px">1</span>
-            <div>
-              <div style="font-size:14px;font-weight:600">临床负责人</div>
-              <div style="font-size:12px;color:var(--text-tertiary)">康复医学背景，主导NMPA临床试验方案设计与执行</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:24px;font-weight:800;color:var(--accent);min-width:32px">2</span>
-            <div>
-              <div style="font-size:14px;font-weight:600">EEG硬件负责人</div>
-              <div style="font-size:12px;color:var(--text-tertiary)">脑电采集系统设计、干电极优化，TI ADS1299方案经验</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:24px;font-weight:800;color:var(--accent);min-width:32px">3</span>
-            <div>
-              <div style="font-size:14px;font-weight:600">NMPA注册负责人</div>
-              <div style="font-size:12px;color:var(--text-tertiary)">医疗器械注册、质量管理体系ISO 13485、创新器械申报</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:8px 0">
-            <span style="font-size:24px;font-weight:800;color:var(--accent);min-width:32px">4</span>
-            <div>
-              <div style="font-size:14px;font-weight:600">产品设计师</div>
-              <div style="font-size:12px;color:var(--text-tertiary)">可穿戴设备工业设计、用户体验。穿戴舒适性是留存关键</div>
-            </div>
-          </div>
+          NEU PhD Candidate（联邦学习方向）。Edinburgh MSc Distinction。pFedAC第一作者。主导AI策略引擎与联邦学习架构。
         </div>
       </div>
     </div>
@@ -1814,47 +1903,40 @@ footer a:hover{color:var(--text)}
 <!-- ============================================================
      CONTACT / FOOTER
      ============================================================ -->
-<section id="contact" style="padding:0">
 <footer>
-  <div class="footer-grid">
+  <div class="footer-inner">
     <div class="footer-brand">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-        <img src="favicon.svg" width="24" height="24" alt="Nexum" loading="lazy" decoding="async">
-        <span style="font-weight:700;font-size:16px;color:var(--text)">Nexum 逐念而行</span>
-      </div>
-      <p class="footer-tagline">从大脑到肌肉的AI。读取大脑运动意图，AI生成个性化策略，驱动轻量穿戴式外骨骼，持续进化——定义人机共生。</p>
-      <div class="footer-social">
-        <a href="mailto:hello@nexum.ai" aria-label="Email" title="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 9L2 4"/></svg></a>
-      </div>
+      <a href="index.html" class="nav-logo">
+        <img src="favicon.svg" width="24" height="24" alt="Nexum"> Nexum 逐念而行
+      </a>
+      <p>定义人机共生赛道</p>
+      <p style="font-size:12px;color:var(--text-tertiary);margin-top:16px">&copy; 2026 逐念而行 Nexum</p>
     </div>
     <div>
-      <h4>导航</h4>
+      <h5>页面</h5>
       <a href="index.html">首页</a>
       <a href="product.html">产品</a>
       <a href="technology.html">技术</a>
       <a href="app.html">App</a>
-      <a href="index.html#team">团队</a>
     </div>
     <div>
-      <h4>文档</h4>
+      <h5>文档</h5>
       <a href="逐念而行_Nexum_BP.html">商业计划书</a>
       <a href="prd.html">产品需求文档</a>
       <a href="clinical-protocol.html">临床方案</a>
       <a href="engineering-architecture.html">工程架构</a>
-      <a href="docs/README.md">文档索引</a>
     </div>
     <div>
-      <h4>联系</h4>
+      <h5>联系</h5>
       <a href="mailto:hello@nexum.ai">hello@nexum.ai</a>
       <p>中国 · 上海</p>
+      <a href="https://github.com/nexum-bci" target="_blank">GitHub</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2026 逐念而行 Nexum. All rights reserved.</span>
-    <span>Confidential — For Investor Use Only</span>
+    &copy; 2026 逐念而行 Nexum. All rights reserved.
   </div>
 </footer>
-</section>
 
 <!-- ============================================================
      JAVASCRIPT
@@ -1954,7 +2036,7 @@ footer a:hover{color:var(--text)}
   if ('IntersectionObserver' in window) {
     var observeTargets = document.querySelectorAll(
       '.reveal, .card, .team-card, .market-card, .why-card, .portal-card, ' +
-      '.phone-mockup, .tech-step, .problem-stat, .app-feature'
+      '.phone-mockup, .tech-step, .product-card, .problem-stat, .problem-context, .app-feature'
     );
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
