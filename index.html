@@ -783,32 +783,26 @@ nav.scrolled {
 }
 .latency-hbar {
   display: flex;
-  height: 64px;
+  height: 48px;
   border-radius: 8px;
   overflow: hidden;
-  margin: 32px 0 12px;
+  margin: 24px 0 16px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.3);
 }
 .latency-seg {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
-  min-width: 0;
 }
-.latency-seg span {
-  font-size: 14px;
-  font-weight: 700;
-  color: #fff;
-  white-space: nowrap;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-}
-.latency-seg small {
-  display: none;
-}
+.latency-seg span { display: none; }
+.latency-seg small { display: none; }
 .latency-labels {
   display: flex;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+}
+.latency-labels div {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0 4px;
+  text-align: center;
 }
 
 /* ============================================================
@@ -819,7 +813,7 @@ nav.scrolled {
 }
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 .gallery-item {
@@ -827,14 +821,14 @@ nav.scrolled {
   border-radius: var(--radius-md);
   overflow: hidden;
   cursor: pointer;
-  aspect-ratio: 16/10;
+  aspect-ratio: 4/3;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   transition: all 0.4s var(--ease-out);
 }
 .gallery-item:hover {
-  border-color: var(--border-hover);
-  transform: scale(1.02);
+  border-color: var(--accent);
+  transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0,0,0,0.3);
 }
 .gallery-item img {
@@ -845,28 +839,19 @@ nav.scrolled {
   transition: transform 0.6s var(--ease-out);
 }
 .gallery-item:hover img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 .gallery-item .gallery-label {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 12px 16px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.85));
-  color: var(--text-body);
-  font-size: 11px;
-  font-weight: 500;
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-.gallery-item:hover .gallery-label {
-  opacity: 1;
-}
-.gallery-item-wide {
-  grid-column: span 2;
-  grid-row: span 2;
-  aspect-ratio: auto;
+  padding: 10px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 /* Lightbox */
@@ -1691,8 +1676,7 @@ footer .footer-brand-desc {
   .problem-statement { padding-right: 0; }
   .app-grid { gap: 24px; }
   .phone-frame { width: 220px; height: 440px; }
-  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-  .gallery-item-wide { grid-column: span 1; grid-row: span 1; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -1754,7 +1738,6 @@ footer .footer-brand-desc {
 
   .market-card { padding: 28px 24px; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .gallery-item-wide { grid-column: span 1; grid-row: span 1; }
   .lightbox-prev { left: 12px; width: 40px; height: 40px; font-size: 16px; }
   .lightbox-next { right: 12px; width: 40px; height: 40px; font-size: 16px; }
   .lightbox-close { top: 16px; right: 16px; width: 40px; height: 40px; font-size: 18px; }
@@ -2072,25 +2055,25 @@ footer .footer-brand-desc {
 
         <!-- Step titles — updated text colors for pure black bg -->
         <text x="150" y="120" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle">读取意图</text>
-        <text x="150" y="143" fill="#999999" font-size="12" font-weight="500" text-anchor="middle">Read</text>
+        <text x="150" y="143" fill="#999999" font-size="12" font-weight="500" text-anchor="middle">信号采集</text>
         <text x="150" y="172" fill="#777777" font-size="11" text-anchor="middle">EEG采集运动准备电位</text>
         <text x="150" y="192" fill="#555555" font-size="10" text-anchor="middle">8ch干电极 · 250SPS</text>
         <text x="150" y="212" fill="#777777" font-size="11" text-anchor="middle">~40ms</text>
 
         <text x="350" y="120" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle">生成策略</text>
-        <text x="350" y="143" fill="#999999" font-size="12" font-weight="500" text-anchor="middle">Generate</text>
+        <text x="350" y="143" fill="#999999" font-size="12" font-weight="500" text-anchor="middle">策略生成</text>
         <text x="350" y="172" fill="#777777" font-size="11" text-anchor="middle">AI推理个性化策略</text>
         <text x="350" y="192" fill="#555555" font-size="10" text-anchor="middle">416肌数字孪生 · RL</text>
         <text x="350" y="212" fill="#777777" font-size="11" text-anchor="middle">~55ms</text>
 
         <text x="550" y="120" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle">执行动作</text>
-        <text x="550" y="143" fill="#999999" font-size="12" font-weight="500" text-anchor="middle">Execute</text>
+        <text x="550" y="143" fill="#999999" font-size="12" font-weight="500" text-anchor="middle">动作执行</text>
         <text x="550" y="172" fill="#777777" font-size="11" text-anchor="middle">线缆驱动关节精准助力</text>
         <text x="550" y="192" fill="#555555" font-size="10" text-anchor="middle">鲍登线缆 · 15Nm</text>
         <text x="550" y="212" fill="#777777" font-size="11" text-anchor="middle">~60ms</text>
 
         <text x="750" y="120" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle">持续进化</text>
-        <text x="750" y="143" fill="#999999" font-size="12" font-weight="500" text-anchor="middle">Evolve</text>
+        <text x="750" y="143" fill="#999999" font-size="12" font-weight="500" text-anchor="middle">持续进化</text>
         <text x="750" y="172" fill="#777777" font-size="11" text-anchor="middle">反馈闭环持续学习</text>
         <text x="750" y="192" fill="#555555" font-size="10" text-anchor="middle">联邦学习 · 隐私保护</text>
         <text x="750" y="212" fill="#777777" font-size="11" text-anchor="middle">~30ms</text>
@@ -2111,18 +2094,18 @@ footer .footer-brand-desc {
     <div class="tech-breakdown" data-reveal data-delay="2">
       <h4>端到端延迟分解 — 总计 ≈185ms</h4>
       <div class="latency-hbar" id="latencyBar">
-        <div class="latency-seg" style="flex:0 0 21.6%;background:linear-gradient(135deg,#0096f0,#0080d0);border-radius:6px 0 0 6px;" data-label="EEG采集"><span>40ms</span><small>EEG采集 + 预处理 + BLE发送</small></div>
-        <div class="latency-seg" style="flex:0 0 29.7%;background:linear-gradient(135deg,#1080e0,#2088e0);" data-label="AI推理"><span>55ms</span><small>手机接收 + EEGNet推理 + 策略生成</small></div>
-        <div class="latency-seg" style="flex:0 0 10.8%;background:linear-gradient(135deg,#2070d0,#3078d0);" data-label="BLE传输"><span>20ms</span><small>指令发送 + 控制盒接收</small></div>
-        <div class="latency-seg" style="flex:0 0 32.4%;background:linear-gradient(135deg,#3060c0,#4068c0);" data-label="电机执行"><span>60ms</span><small>FOC控制 + 鲍登线缆 + 力输出</small></div>
-        <div class="latency-seg" style="flex:0 0 5.4%;background:linear-gradient(135deg,#4050b0,#5060b8);border-radius:0 6px 6px 0;" data-label="传感反馈"><span>10ms</span><small>传感器融合 + 状态估计</small></div>
+        <div class="latency-seg" style="flex:0 0 21.6%;background:linear-gradient(135deg,#0096f0,#0080d0);border-radius:6px 0 0 6px;" data-label="EEG采集"></div>
+        <div class="latency-seg" style="flex:0 0 29.7%;background:linear-gradient(135deg,#1080e0,#2088e0);" data-label="AI推理"></div>
+        <div class="latency-seg" style="flex:0 0 10.8%;background:linear-gradient(135deg,#2070d0,#3078d0);" data-label="BLE传输"></div>
+        <div class="latency-seg" style="flex:0 0 32.4%;background:linear-gradient(135deg,#3060c0,#4068c0);" data-label="电机执行"></div>
+        <div class="latency-seg" style="flex:0 0 5.4%;background:linear-gradient(135deg,#4050b0,#5060b8);border-radius:0 6px 6px 0;" data-label="传感反馈"></div>
       </div>
       <div class="latency-labels">
-        <div style="flex:0 0 21.6%;text-align:center;font-size:12px;color:var(--text-secondary)">① EEG</div>
-        <div style="flex:0 0 29.7%;text-align:center;font-size:12px;color:var(--text-secondary)">② AI推理</div>
-        <div style="flex:0 0 10.8%;text-align:center;font-size:12px;color:var(--text-secondary)">③ BLE</div>
-        <div style="flex:0 0 32.4%;text-align:center;font-size:12px;color:var(--text-secondary)">④ 执行</div>
-        <div style="flex:0 0 5.4%;text-align:center;font-size:12px;color:var(--text-secondary)">⑤ 反馈</div>
+        <div style="flex:0 0 21.6%;text-align:center;color:var(--text-secondary)"><span style="color:var(--text-primary);font-weight:700">40ms</span><br>① EEG采集</div>
+        <div style="flex:0 0 29.7%;text-align:center;color:var(--text-secondary)"><span style="color:var(--text-primary);font-weight:700">55ms</span><br>② AI推理</div>
+        <div style="flex:0 0 10.8%;text-align:center;color:var(--text-secondary)"><span style="color:var(--text-primary);font-weight:700">20ms</span><br>③ BLE</div>
+        <div style="flex:0 0 32.4%;text-align:center;color:var(--text-secondary)"><span style="color:var(--text-primary);font-weight:700">60ms</span><br>④ 执行</div>
+        <div style="flex:0 0 5.4%;text-align:center;color:var(--text-secondary)"><span style="color:var(--text-primary);font-weight:700">10ms</span><br>⑤ 反馈</div>
       </div>
     </div>
   </div>
@@ -2138,7 +2121,7 @@ footer .footer-brand-desc {
     </div>
 
     <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-item gallery-item-wide" data-index="0" onclick="openLightbox(0)">
+      <div class="gallery-item" data-index="0" onclick="openLightbox(0)">
         <img src="docs/render_4_system.jpg" alt="Nexum One 完整系统" loading="lazy">
         <div class="gallery-label">完整系统渲染</div>
       </div>
