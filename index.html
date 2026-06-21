@@ -1145,6 +1145,10 @@ footer a:hover{color:var(--text)}
 .hero-sub{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) .2s both}
 .hero-actions{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) .3s both}
 .hero-metrics{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) .4s both}
+
+/* Phone side buttons */
+.side-btn{position:absolute;right:-2px;width:3px;height:24px;background:rgba(0,0,0,0.5);border-radius:2px 0 0 2px;z-index:11}
+.sb1{top:100px;height:28px}.sb2{top:140px;height:36px}.sb3{top:185px;height:36px}
 </style>
 </head>
 <body>
@@ -1392,7 +1396,7 @@ footer a:hover{color:var(--text)}
     <div class="app-mockups">
       <!-- Phone 1: Training Dashboard -->
       <div class="phone-mockup">
-        <div class="phone-notch"></div>
+        <div class="side-btn sb1"></div><div class="side-btn sb2"></div><div class="side-btn sb3"></div><div class="phone-notch"></div>
         <div class="phone-screen">
           <div class="phone-screen-content" style="padding-top:34px">
             <!-- Status bar -->
@@ -1453,7 +1457,7 @@ footer a:hover{color:var(--text)}
       </div>
       <!-- Phone 2: Real-time Biofeedback -->
       <div class="phone-mockup">
-        <div class="phone-notch"></div>
+        <div class="side-btn sb1"></div><div class="side-btn sb2"></div><div class="side-btn sb3"></div><div class="phone-notch"></div>
         <div class="phone-screen">
           <div class="phone-screen-content" style="padding-top:34px;gap:6px">
             <!-- Status bar -->
@@ -1578,7 +1582,7 @@ footer a:hover{color:var(--text)}
       </div>
       <!-- Phone 3: Progress Report -->
       <div class="phone-mockup">
-        <div class="phone-notch"></div>
+        <div class="side-btn sb1"></div><div class="side-btn sb2"></div><div class="side-btn sb3"></div><div class="phone-notch"></div>
         <div class="phone-screen">
           <div class="phone-screen-content" style="padding-top:34px;gap:6px">
             <!-- Status bar -->
