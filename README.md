@@ -14,49 +14,34 @@
 
 两个版本：Clinical（$18,000，医院）和 Home（$3,999 + $499/年，家用）。
 
+## Repo 结构
+
+逐念而行已拆分为 7 个独立 repo：
+
+| Repo | 说明 |
+|------|------|
+| [nexum-bci.github.io](https://github.com/nexum-bci/nexum-bci.github.io) | 主站（本 repo） |
+| [product](https://github.com/nexum-bci/product) | 产品渲染、可视化 |
+| [bp](https://github.com/nexum-bci/bp) | 商业计划书、Pitch Deck |
+| [docs](https://github.com/nexum-bci/docs) | 工程/临床/注册文档 |
+| [algorithms](https://github.com/nexum-bci/algorithms) | 肌骨仿真、TCN、联邦学习 |
+| [hardware](https://github.com/nexum-bci/hardware) | PCB、机械、BOM |
+| [firmware](https://github.com/nexum-bci/firmware) | 嵌入式固件 |
+
 ## 团队
 
-六人核心。优先级逻辑：**临床决定产品能否通过NMPA；EEG决定核心传感器能否量产；注册决定审评速度；设计决定用户留存。**
+六人核心。
 
 - **赵子睿** — 产品定义、系统架构、技术方向。哥伦比亚大学EE硕士，华为美国研究院Futurewei IoT Lab，8年CTO
 - **汪牧星** — 算法研究与联邦学习架构。美国东北大学博士候选人，爱丁堡大学统计学硕士。pFedAC第一作者
-- **临床负责人**（招募中）— 康复医学背景，主导NMPA临床试验方案设计与执行。优先级最高
-- **EEG硬件负责人**（招募中）— 脑电采集系统设计、干电极优化、信号处理。TI ADS1299方案经验
-- **NMPA注册负责人**（招募中）— 医疗器械注册、质量管理体系（ISO 13485）、创新器械申报
-- **产品设计师**（招募中）— 可穿戴设备工业设计、用户体验。康复患者穿戴体验是留存关键
+- **临床负责人**（招募中）— 康复医学背景，主导NMPA临床试验方案设计与执行
+- **EEG硬件负责人**（招募中）— 脑电采集系统设计、干电极优化、信号处理
+- **NMPA注册负责人**（招募中）— 医疗器械注册、质量管理体系（ISO 13485）
+- **产品设计师**（招募中）— 可穿戴设备工业设计、用户体验
 
 ## 状态
 
 Pre-revenue。原型阶段。种子轮 2026 Q3。NMPA二类创新器械申报 2027 Q1。
-
-## 文档
-
-### 商业
-- [商业计划书 (HTML)](逐念而行_Nexum_BP.html)
-- [商业计划书 (PDF)](逐念而行_Nexum_BP.pdf)
-
-### 工程
-- [工程架构文档 v0.1](docs/Nexum_One_Engineering_Architecture_v0.1.md)
-- [产品需求文档 PRD v1.0](docs/Nexum_One_PRD_v1.0.md)
-- [生产BOM与供应商指南 v0.1](docs/Nexum_One_Production_BOM_v0.1.md)
-- [固件架构 v0.1](docs/Nexum_One_Firmware_Architecture_v0.1.md)
-- [集成测试计划 v0.1](docs/Nexum_One_Integration_Test_Plan_v0.1.md)
-
-### 硬件
-- [PCB设计笔记 v0.1](docs/Nexum_One_PCB_Design_Notes_v0.1.md)
-- [机械装配指南 v0.1](docs/Nexum_One_Mechanical_Assembly_Guide_v0.1.md)
-
-### 临床与注册
-- [临床方案 v0.1](docs/Nexum_One_Clinical_Protocol_v0.1.md)
-- [注册策略 v0.1](docs/Nexum_One_Regulatory_Strategy_v0.1.md)
-
-### 设计
-- [产品可视化渲染 (SVG/HTML)](product-visualization.html)
-- [AI产品渲染图 (6张)](product-renders.html)
-- [AI图像生成提示词](docs/Nexum_One_Product_Renderings_Prompts.md)
-
-### 文档索引
-- [docs/README.md](docs/README.md)
 
 ---
 
