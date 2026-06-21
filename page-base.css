@@ -643,6 +643,39 @@ tbody tr:hover td{background:var(--accent-subtle)!important}
 img:not([alt]){outline:2px solid var(--border);outline-offset:-2px}
 
 
+
+/* ============================================================
+   PERFORMANCE OPTIMIZATION — reduce jank, faster rendering
+   ============================================================ */
+
+/* Hint browser for smooth animations */
+.card,.portal-card,.product-card,.phone-mockup,
+.theme-btn,.nav-cta,.btt-btn,.render-img img{
+  will-change:transform
+}
+
+/* Reduce animation work on mobile */
+@media(max-width:768px){
+  .card::before,.content-card::before{display:none}
+  .page-header::before{animation-duration:30s}
+  .reveal{transition-duration:.4s}
+  .card,.portal-card,.product-card{transition-duration:.25s}
+}
+
+/* Instant rendering for above-fold content */
+.page-header,.hero,.section:first-of-type{content-visibility:visible}
+
+/* Font rendering optimization */
+body{text-rendering:optimizeSpeed}
+h1,h2,h3,h4{text-rendering:optimizeLegibility}
+
+/* Reduce paint areas */
+.diagram-section svg{contain:layout style}
+.card,.content-card{contain:layout style paint}
+
+/* No repaint on scroll for fixed nav */
+nav{will-change:transform;transform:translateZ(0)}
+
 /* ============================================================
    UNIFIED CURSOR + CLICKABLE EXPRESSION
    cursor:pointer on all interactive elements

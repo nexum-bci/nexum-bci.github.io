@@ -90,7 +90,31 @@
     if (savedTheme === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
     }
-  })();
+  
+  // ===== SPA ENHANCEMENTS =====
+  
+  // Prefetch links on hover for instant navigation
+  document.querySelectorAll('a[href*=".html"]').forEach(function(link){
+    var prefetched = false;
+    link.addEventListener('mouseenter',function(){
+      if(!prefetched){
+        var prefetch = document.createElement('link');
+        prefetch.rel = 'prefetch';
+        prefetch.href = link.href;
+        document.head.appendChild(prefetch);
+        prefetched = true;
+      }
+    },{once:true});
+  });
+
+  // Update nav active state on page load
+  document.querySelectorAll('.nav-links a').forEach(function(link){
+    if(link.getAttribute('href') && page.indexOf(link.getAttribute('href').replace('.html','')) > -1){
+      link.classList.add('active');
+    }
+  });
+
+})();
 
   var toggle = document.getElementById('themeToggle');
   if (toggle) {
@@ -130,7 +154,31 @@
         navEl.classList.remove('nav-open');
       }, { passive: true });
     }
-  })();
+  
+  // ===== SPA ENHANCEMENTS =====
+  
+  // Prefetch links on hover for instant navigation
+  document.querySelectorAll('a[href*=".html"]').forEach(function(link){
+    var prefetched = false;
+    link.addEventListener('mouseenter',function(){
+      if(!prefetched){
+        var prefetch = document.createElement('link');
+        prefetch.rel = 'prefetch';
+        prefetch.href = link.href;
+        document.head.appendChild(prefetch);
+        prefetched = true;
+      }
+    },{once:true});
+  });
+
+  // Update nav active state on page load
+  document.querySelectorAll('.nav-links a').forEach(function(link){
+    if(link.getAttribute('href') && page.indexOf(link.getAttribute('href').replace('.html','')) > -1){
+      link.classList.add('active');
+    }
+  });
+
+})();
 
   // ===== ACTIVE NAV LINK =====
   (function() {
@@ -141,7 +189,31 @@
         link.classList.add('active');
       }
     });
-  })();
+  
+  // ===== SPA ENHANCEMENTS =====
+  
+  // Prefetch links on hover for instant navigation
+  document.querySelectorAll('a[href*=".html"]').forEach(function(link){
+    var prefetched = false;
+    link.addEventListener('mouseenter',function(){
+      if(!prefetched){
+        var prefetch = document.createElement('link');
+        prefetch.rel = 'prefetch';
+        prefetch.href = link.href;
+        document.head.appendChild(prefetch);
+        prefetched = true;
+      }
+    },{once:true});
+  });
+
+  // Update nav active state on page load
+  document.querySelectorAll('.nav-links a').forEach(function(link){
+    if(link.getAttribute('href') && page.indexOf(link.getAttribute('href').replace('.html','')) > -1){
+      link.classList.add('active');
+    }
+  });
+
+})();
 
   // ===== NAV SCROLL BEHAVIOR =====
   // Adds .nav-scrolled for opacity change and .nav-shrink for height reduction
@@ -184,7 +256,31 @@
         ticking = true;
       }
     }, { passive: true });
-  })();
+  
+  // ===== SPA ENHANCEMENTS =====
+  
+  // Prefetch links on hover for instant navigation
+  document.querySelectorAll('a[href*=".html"]').forEach(function(link){
+    var prefetched = false;
+    link.addEventListener('mouseenter',function(){
+      if(!prefetched){
+        var prefetch = document.createElement('link');
+        prefetch.rel = 'prefetch';
+        prefetch.href = link.href;
+        document.head.appendChild(prefetch);
+        prefetched = true;
+      }
+    },{once:true});
+  });
+
+  // Update nav active state on page load
+  document.querySelectorAll('.nav-links a').forEach(function(link){
+    if(link.getAttribute('href') && page.indexOf(link.getAttribute('href').replace('.html','')) > -1){
+      link.classList.add('active');
+    }
+  });
+
+})();
 
   // ===== PAGE TRANSITION =====
   var style = document.createElement('style');
@@ -228,6 +324,30 @@
   window.addEventListener('scroll',function(){
     if(window.scrollY>400){btt.style.opacity='1';btt.style.pointerEvents='auto'}
     else{btt.style.opacity='0';btt.style.pointerEvents='none'}
+  });
+
+
+  // ===== SPA ENHANCEMENTS =====
+  
+  // Prefetch links on hover for instant navigation
+  document.querySelectorAll('a[href*=".html"]').forEach(function(link){
+    var prefetched = false;
+    link.addEventListener('mouseenter',function(){
+      if(!prefetched){
+        var prefetch = document.createElement('link');
+        prefetch.rel = 'prefetch';
+        prefetch.href = link.href;
+        document.head.appendChild(prefetch);
+        prefetched = true;
+      }
+    },{once:true});
+  });
+
+  // Update nav active state on page load
+  document.querySelectorAll('.nav-links a').forEach(function(link){
+    if(link.getAttribute('href') && page.indexOf(link.getAttribute('href').replace('.html','')) > -1){
+      link.classList.add('active');
+    }
   });
 
 })();
