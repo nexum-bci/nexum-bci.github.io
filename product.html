@@ -589,7 +589,40 @@ footer {
     </div>
     <div class="product-card" style="border-bottom:none;padding-top:0;">
       <div class="card-image">
-        <img src="docs/render_1_eeg.jpg" alt="EEG-Sense 神经信号读取头带" loading="lazy" decoding="async">
+        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bandMatte" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#2a2a2a"/>
+                <stop offset="100%" stop-color="#1a1a1a"/>
+              </linearGradient>
+              <linearGradient id="bandAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0096f0"/>
+                <stop offset="100%" stop-color="#60a5fa"/>
+              </linearGradient>
+            </defs>
+            <!-- Band body -->
+            <path d="M 40 60 Q 40 10 150 10 Q 260 10 260 60 Q 260 80 150 75 Q 40 80 40 60 Z" fill="url(#bandMatte)" stroke="#333" stroke-width="1"/>
+            <!-- Highlight -->
+            <path d="M 48 60 Q 48 18 150 18 Q 252 18 252 60" fill="none" stroke="#444" stroke-width="1.5"/>
+            <!-- Electrodes along inner edge -->
+            <circle cx="80" cy="64" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <circle cx="105" cy="68" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <circle cx="130" cy="71" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <circle cx="150" cy="72" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <circle cx="170" cy="71" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <circle cx="195" cy="68" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <circle cx="220" cy="64" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <circle cx="150" cy="74" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+            <!-- LED indicators -->
+            <circle cx="240" cy="32" r="4" fill="#0096f0" filter="url(#sysGlow)"/>
+            <circle cx="60" cy="32" r="4" fill="#0096f0" opacity="0.5"/>
+            <!-- PCB trace -->
+            <path d="M 80 60 Q 150 78 220 60" fill="none" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="3,2"/>
+            <!-- Label -->
+            <text x="150" y="102" text-anchor="middle" fill="#777777" font-size="9">8通道干电极 · 运动准备电位检测</text>
+            <text x="150" y="116" text-anchor="middle" fill="#666666" font-size="8">ADS1299 · nRF52832 · BLE 5.0</text>
+          </svg>
+              <img src="docs/render_1_eeg.jpg" alt="EEG-Sense 神经信号读取头带" loading="lazy" decoding="async">
       </div>
       <div class="card-content">
         <div class="section-label">01 &#183; 读取 Read</div>
@@ -624,7 +657,33 @@ footer {
     </div>
     <div class="product-card reverse" style="border-bottom:none;padding-top:0;">
       <div class="card-image">
-        <img src="docs/render_2_controlbox.jpg" alt="Control Box 边缘AI处理器" loading="lazy" decoding="async">
+        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg">
+            <!-- Waist anchor area -->
+            <ellipse cx="150" cy="50" rx="80" ry="25" fill="none" stroke="#334155" stroke-width="2"/>
+            <!-- Carbon fiber anchors -->
+            <rect x="58" y="30" width="20" height="40" rx="5" fill="rgba(0,150,240,0.1)" stroke="#0096f0" stroke-width="1.2"/>
+            <rect x="222" y="30" width="20" height="40" rx="5" fill="rgba(0,150,240,0.1)" stroke="#0096f0" stroke-width="1.2"/>
+            <text x="68" y="72" text-anchor="middle" fill="#0096f0" font-size="7" font-weight="600">CF</text>
+            <text x="232" y="72" text-anchor="middle" fill="#0096f0" font-size="7" font-weight="600">CF</text>
+            <!-- Bowden cables -->
+            <path d="M 68 70 L 68 130" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 232 70 L 232 130" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 68 70 L 68 130" stroke="#777777" stroke-width="2.5" stroke-dasharray="4,3"/>
+            <path d="M 232 70 L 232 130" stroke="#777777" stroke-width="2.5" stroke-dasharray="4,3"/>
+            <!-- Fabric -->
+            <path d="M 90 75 Q 150 85 210 75 L 210 130 Q 150 145 90 130 Z" fill="rgba(0,150,240,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <!-- sEMG patches -->
+            <ellipse cx="120" cy="108" rx="14" ry="20" fill="none" stroke="#60a5fa" stroke-width="1" stroke-dasharray="3,2"/>
+            <ellipse cx="180" cy="108" rx="14" ry="20" fill="none" stroke="#60a5fa" stroke-width="1" stroke-dasharray="3,2"/>
+            <text x="120" y="112" text-anchor="middle" fill="#60a5fa" font-size="6">sEMG</text>
+            <text x="180" y="112" text-anchor="middle" fill="#60a5fa" font-size="6">sEMG</text>
+            <!-- Fabric texture lines -->
+            <line x1="100" y1="80" x2="200" y2="80" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+            <line x1="100" y1="90" x2="200" y2="90" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+            <line x1="100" y1="100" x2="200" y2="100" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+            <text x="150" y="148" text-anchor="middle" fill="#777777" font-size="9">碳纤维髋部锚定 · 鲍登线缆 · &lt;1.5kg</text>
+          </svg>
+              <img src="docs/render_2_controlbox.jpg" alt="Control Box 边缘AI处理器" loading="lazy" decoding="async">
       </div>
       <div class="card-content">
         <div class="section-label">02 &#183; 生成 Generate</div>
@@ -659,7 +718,32 @@ footer {
     </div>
     <div class="product-card" style="border-bottom:none;padding-top:0;">
       <div class="card-image">
-        <img src="docs/render_3_neurosuit.jpg" alt="NeuroSuit 智能肌动服" loading="lazy" decoding="async">
+        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg">
+            <!-- Enclosure -->
+            <rect x="60" y="15" width="180" height="110" rx="16" fill="rgba(255,255,255,0.05)" stroke="#334155" stroke-width="2"/>
+            <rect x="60" y="15" width="180" height="30" rx="16" fill="rgba(0,150,240,0.06)"/>
+            <rect x="60" y="25" width="180" height="20" fill="rgba(0,150,240,0.06)"/>
+            <!-- Top surface branding -->
+            <rect x="80" y="30" width="140" height="18" rx="4" fill="#0f172a" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+            <text x="150" y="43" text-anchor="middle" fill="#0096f0" font-size="10" font-weight="700" letter-spacing="2">NEXUM ONE</text>
+            <!-- LED indicator -->
+            <circle cx="240" cy="28" r="5" fill="#0096f0" opacity="0.8" filter="url(#sysGlow)"/>
+            <!-- Bottom ports -->
+            <rect x="110" y="112" width="36" height="10" rx="3" fill="#0f172a" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+            <text x="128" y="119" text-anchor="middle" fill="#777777" font-size="6">USB-C</text>
+            <rect x="170" y="112" width="24" height="8" rx="3" fill="#0f172a" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+            <!-- Heat dissipation hint -->
+            <rect x="70" y="60" width="50" height="20" rx="3" fill="rgba(0,150,240,0.04)" stroke="rgba(0,150,240,0.1)" stroke-width="0.5"/>
+            <text x="95" y="73" text-anchor="middle" fill="#666666" font-size="6">STM32H743</text>
+            <rect x="130" y="60" width="50" height="20" rx="3" fill="rgba(0,150,240,0.04)" stroke="rgba(0,150,240,0.1)" stroke-width="0.5"/>
+            <text x="155" y="73" text-anchor="middle" fill="#666666" font-size="6">nRF5340</text>
+            <rect x="190" y="60" width="40" height="20" rx="3" fill="rgba(0,150,240,0.04)" stroke="rgba(0,150,240,0.1)" stroke-width="0.5"/>
+            <text x="210" y="73" text-anchor="middle" fill="#666666" font-size="6">BMI270</text>
+            <text x="150" y="100" text-anchor="middle" fill="#334155" font-size="7">DRV8316 · FOC · 48Wh 6S</text>
+            <!-- Dimensions -->
+            <text x="150" y="147" text-anchor="middle" fill="#666666" font-size="9">120 × 80 × 30 mm · 铝合金</text>
+          </svg>
+              <img src="docs/render_3_neurosuit.jpg" alt="NeuroSuit 智能肌动服" loading="lazy" decoding="async">
       </div>
       <div class="card-content">
         <div class="section-label">03 &#183; 执行 Execute</div>
