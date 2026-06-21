@@ -213,7 +213,7 @@
   <g filter="url(#shadow)">
     <rect x="240" y="140" width="130" height="52" rx="8" fill="url(#grad-sub)" stroke="#475569" stroke-width="1"/>
     <text x="305" y="162" text-anchor="middle" font-size="11" fill="#60a5fa">nRF52832</text>
-    <text x="305" y="178" text-anchor="middle" font-size="10" fill="#64748b">Cortex-M4F · 64MHz · BLE 5.2</text>
+    <text x="305" y="178" text-anchor="middle" font-size="10" fill="#64748b">Cortex-M4F · 64MHz · BLE 5.0</text>
   </g>
   <!-- SPI between ADS1299 and nRF52832 -->
   <line x1="220" y1="166" x2="240" y2="166" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)"/>
@@ -277,7 +277,7 @@
   <!-- BLE arrow: Headband → Phone -->
   <line x1="400" y1="120" x2="500" y2="120" stroke="#7dd3fc" stroke-width="2.5" marker-end="url(#arrow-cyan)" stroke-dasharray="6,3"/>
   <rect x="420" y="106" width="60" height="16" rx="4" fill="#0a0f1a" stroke="#7dd3fc" stroke-width="0.5"/>
-  <text x="450" y="118" text-anchor="middle" font-size="9" fill="#7dd3fc">BLE 5.2</text>
+  <text x="450" y="118" text-anchor="middle" font-size="9" fill="#7dd3fc">BLE 5.0</text>
   <text x="450" y="173" text-anchor="middle" font-size="9" fill="#94a3b8">EEG 数据流</text>
 
   <!-- ===== MIDDLE: BLE from Phone → Control Box ===== -->
@@ -285,7 +285,7 @@
   <!-- BLE arrow: Phone → Control Box -->
   <path d="M660,330 L660,375 L400,375 L400,400" fill="none" stroke="#fbbf24" stroke-width="2.5" marker-end="url(#arrow-amber)"/>
   <rect x="440" y="361" width="60" height="16" rx="4" fill="#0a0f1a" stroke="#fbbf24" stroke-width="0.5"/>
-  <text x="470" y="373" text-anchor="middle" font-size="9" fill="#fbbf24">BLE 5.2</text>
+  <text x="470" y="373" text-anchor="middle" font-size="9" fill="#fbbf24">BLE 5.3</text>
 
   <!-- ===== BOTTOM ROW: Control Box + Suit ===== -->
 
@@ -323,7 +323,7 @@
     <rect x="400" y="505" width="85" height="55" rx="8" fill="url(#grad-sub)" stroke="#475569" stroke-width="1"/>
     <text x="442" y="525" text-anchor="middle" font-size="11" fill="#fbbf24">DRV8316</text>
     <text x="442" y="540" text-anchor="middle" font-size="10" fill="#64748b">三相门驱</text>
-    <text x="442" y="553" text-anchor="middle" font-size="10" fill="#64748b">8A · 4.5-60V</text>
+    <text x="442" y="553" text-anchor="middle" font-size="10" fill="#64748b">5A RMS · 4.5-60V</text>
   </g>
 
   <!-- Gate Drive PWM -->
@@ -333,7 +333,7 @@
   <g filter="url(#shadow)">
     <rect x="85" y="610" width="185" height="50" rx="8" fill="url(#grad-sub)" stroke="#475569" stroke-width="1"/>
     <text x="177" y="630" text-anchor="middle" font-size="11" fill="#60a5fa">6S Li-ion 电池包</text>
-    <text x="177" y="646" text-anchor="middle" font-size="10" fill="#64748b">22.2V · 3000mAh · 66.6Wh</text>
+    <text x="177" y="646" text-anchor="middle" font-size="10" fill="#64748b">22.2V · 2250mAh · 50Wh</text>
   </g>
   <g filter="url(#shadow)">
     <rect x="290" y="610" width="195" height="50" rx="8" fill="url(#grad-sub)" stroke="#475569" stroke-width="1"/>
@@ -348,7 +348,7 @@
   <!-- IMU / Sensor annotation -->
   <g filter="url(#shadow)">
     <rect x="85" y="680" width="185" height="46" rx="8" fill="url(#grad-sub)" stroke="#475569" stroke-width="1"/>
-    <text x="177" y="700" text-anchor="middle" font-size="11" fill="#a78bfa">IMU 处理 (ICM-20948)</text>
+    <text x="177" y="700" text-anchor="middle" font-size="11" fill="#a78bfa">IMU 处理 (BMI270)</text>
     <text x="177" y="716" text-anchor="middle" font-size="10" fill="#64748b">I²C · 磁偏角补偿 · 航姿参考</text>
   </g>
   <g filter="url(#shadow)">
@@ -375,8 +375,8 @@
   <g filter="url(#shadow)">
     <rect x="630" y="505" width="175" height="65" rx="8" fill="url(#grad-sub)" stroke="#475569" stroke-width="1"/>
     <text x="717" y="527" text-anchor="middle" font-size="11" fill="#a78bfa">无刷电机 (左/右)</text>
-    <text x="717" y="543" text-anchor="middle" font-size="10" fill="#64748b">DJI M3508 · 最大 4.5N·m</text>
-    <text x="717" y="559" text-anchor="middle" font-size="10" fill="#64748b">KV 350 · 霍尔传感器</text>
+    <text x="717" y="543" text-anchor="middle" font-size="10" fill="#64748b">T-motor AK80-9 · 0.5Nm/rotor</text>
+    <text x="717" y="559" text-anchor="middle" font-size="10" fill="#64748b">9:1 减速 · 霍尔传感器</text>
   </g>
   <!-- Bowden cable arrow -->
   <line x1="805" y1="520" x2="850" y2="520" stroke="#f472b6" stroke-width="2.5" marker-end="url(#arrow-pink)"/>
@@ -386,14 +386,14 @@
   <g filter="url(#shadow)">
     <rect x="850" y="505" width="175" height="65" rx="8" fill="url(#grad-sub)" stroke="#475569" stroke-width="1"/>
     <text x="937" y="527" text-anchor="middle" font-size="11" fill="#a78bfa">髋关节执行器</text>
-    <text x="937" y="543" text-anchor="middle" font-size="10" fill="#64748b">伸髋辅助 · 0-45° 运动范围</text>
-    <text x="937" y="559" text-anchor="middle" font-size="10" fill="#64748b">Bowden 缆线 · 助力皮带</text>
+    <text x="937" y="543" text-anchor="middle" font-size="10" fill="#64748b">8Nm 持续 / 15Nm 峰值 · 0-45°</text>
+    <text x="937" y="559" text-anchor="middle" font-size="10" fill="#64748b">Bowden 缆线 · 碳纤维锚定</text>
   </g>
 
   <!-- IMU feedback -->
   <g filter="url(#shadow)">
     <rect x="630" y="590" width="175" height="50" rx="8" fill="url(#grad-sub)" stroke="#475569" stroke-width="1"/>
-    <text x="717" y="610" text-anchor="middle" font-size="11" fill="#a78bfa">IMU 反馈 (ICM-20948)</text>
+    <text x="717" y="610" text-anchor="middle" font-size="11" fill="#a78bfa">IMU 反馈 (BMI270)</text>
     <text x="717" y="626" text-anchor="middle" font-size="10" fill="#64748b">I²C · 200Hz 姿态更新</text>
   </g>
   <g filter="url(#shadow)">
@@ -505,7 +505,7 @@
     <rect x="527" y="73" width="6" height="10" rx="1" fill="#fbbf24"/>
     <rect x="508" y="73" width="20" height="4" rx="1" fill="#fbbf24" opacity="0.4"/>
     <text x="590" y="82" font-size="15" font-weight="600" fill="#fbbf24" filter="url(#glow2)">6S Li-ion 电池包</text>
-    <text x="590" y="120" font-size="11" fill="#94a3b8">22.2V 标称 (25.2V 满电) · 3000mAh · 66.6Wh · 15A 持续放电</text>
+    <text x="590" y="120" font-size="11" fill="#94a3b8">22.2V 标称 (25.2V 满电) · 2250mAh · 50Wh · 15A 持续放电</text>
   </g>
 
   <!-- Power from battery flowing down -->
@@ -539,7 +539,7 @@
   <path d="M260,340 L260,390" fill="none" stroke="#f472b6" stroke-width="1.5" marker-end="url(#pwr-arrow)"/>
   <g filter="url(#shadow2)">
     <rect x="180" y="390" width="160" height="44" rx="8" fill="url(#grad-load)" stroke="#475569" stroke-width="1"/>
-    <text x="260" y="410" text-anchor="middle" font-size="11" fill="#e2e8f0">无刷电机 (M3508)</text>
+    <text x="260" y="410" text-anchor="middle" font-size="11" fill="#e2e8f0">无刷电机 (AK80-9)</text>
     <text x="260" y="426" text-anchor="middle" font-size="10" fill="#64748b">3相 · 最大 150W</text>
   </g>
 
@@ -651,7 +651,7 @@
     <text x="80" y="115" font-size="11" fill="#f472b6">电机 22.2V</text>
     <text x="240" y="115" font-size="11" fill="#94a3b8">RAW 直通</text>
     <text x="400" y="115" font-size="11" fill="#94a3b8">12A</text>
-    <text x="560" y="115" font-size="11" fill="#94a3b8">DRV8316 → M3508</text>
+    <text x="560" y="115" font-size="11" fill="#94a3b8">DRV8316 → AK80-9</text>
     <text x="740" y="115" font-size="11" fill="#94a3b8">—</text>
     <text x="920" y="115" font-size="11" fill="#94a3b8">过流检测 · 软件限幅</text>
 
@@ -803,7 +803,7 @@
     <rect x="490" y="205" width="340" height="70" rx="8" fill="url(#grad-task-high)" stroke="#fbbf24" stroke-width="1"/>
     <rect x="490" y="205" width="8" height="70" rx="4" fill="#fbbf24"/>
     <text x="510" y="228" font-size="12" font-weight="600" fill="#fbbf24">IMU 姿态融合</text>
-    <text x="510" y="245" font-size="10" fill="#94a3b8">I²C 读取 ICM-20948 · AHRS 算法</text>
+    <text x="510" y="245" font-size="10" fill="#94a3b8">I²C 读取 BMI270 · AHRS 算法</text>
     <text x="510" y="262" font-size="10" fill="#64748b">优先级: 3 (高) · 周期: 5ms (200Hz)</text>
   </g>
 
@@ -1132,7 +1132,7 @@
     <rect x="1080" y="240" width="200" height="75" rx="12" fill="url(#grad-plant)" stroke="#f472b6" stroke-width="1.5"/>
     <rect x="1080" y="240" width="200" height="24" rx="12" fill="#f472b6" opacity="0.1"/>
     <text x="1180" y="259" text-anchor="middle" font-size="12" font-weight="600" fill="#f472b6">无刷电机 + 髋关节</text>
-    <text x="1180" y="278" text-anchor="middle" font-size="10" fill="#94a3b8">M3508 · Bowden 传动</text>
+    <text x="1180" y="278" text-anchor="middle" font-size="10" fill="#94a3b8">AK80-9 · Bowden 传动</text>
     <text x="1180" y="296" text-anchor="middle" font-size="10" fill="#64748b">J = 0.002 kg·m² · B = 0.001 N·m·s</text>
   </g>
 
