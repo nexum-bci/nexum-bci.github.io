@@ -2,1550 +2,532 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexum One 产品 - Nexum逐念而行</title>
+<link rel="icon" href="favicon.svg">
 <script>
 (function(){
-  var t = localStorage.getItem('nexum-theme');
-  if (t === 'dark') document.documentElement.setAttribute('data-theme','dark');
+  if (localStorage.getItem('nexum-theme') === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
 })();
 </script>
-
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="apple-touch-icon" href="favicon.svg">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nexum One 神经重连系统 — 产品详情</title>
-<meta name="description" content="Nexum One 三件套设计：EEG-Sense 神经信号读取、NeuroSuit 智能肌动服、Control Box 边缘AI处理器。从脑信号到身体动作的完整闭环。">
-<meta name="theme-color" content="#000000">
 <style>
-/* ============================================================
-   ROOT & RESET
-   ============================================================ */
 :root {
-  --nav-bg: rgba(255,255,255,0.85);
-  --nav-bg-scrolled: rgba(255,255,255,0.95);
-  --nav-border: rgba(0,0,0,0.06);
-
-  --bg: #FAFAFA;
-  --bg-alt: #F0F0F0;
-  --bg-elevated: #FFFFFF;
-  --bg-elevated-hover: #F5F5F5;
-  --border: rgba(0,0,0,0.06);
-  --border-hover: rgba(0,0,0,0.12);
-  --text-primary: #111111;
-  --text-body: #333333;
-  --text-secondary: #666666;
-  --text-tertiary: #888888;
-  --text-disabled: #AAAAAA;
-  --accent: #0096F0;
-  --accent-glow: rgba(0,150,240,0.06);
-  --accent-soft: #3B82F6;
-  --section-gap: 120px;
-  --nav-height: 64px;
-  --max-width: 1200px;
+  --bg: #FAFAFA; --bg-card: #FFFFFF; --border: rgba(0,0,0,0.06);
+  --text: #111; --text-secondary: #555; --text-tertiary: #888; --accent: #0096F0;
+  --nav-bg: rgba(255,255,255,0.8);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-lg: 20px;
+  --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
 }
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 [data-theme="dark"] {
-  --nav-bg: rgba(0,0,0,0.7);
-  --nav-bg-scrolled: rgba(0,0,0,0.92);
-  --nav-border: rgba(255,255,255,0.08);
-
-  --bg: #000000;
-  --bg-alt: #080808;
-  --bg-elevated: rgba(255,255,255,0.03);
-  --bg-elevated-hover: rgba(255,255,255,0.05);
-  --border: rgba(255,255,255,0.06);
-  --border-hover: rgba(255,255,255,0.12);
-  --text-primary: #FFFFFF;
-  --text-body: #CCCCCC;
-  --text-secondary: #999999;
-  --text-tertiary: #777777;
-  --text-disabled: #555555;
-  --accent: #0096F0;
-  --accent-glow: rgba(0,150,240,0.08);
-  --accent-soft: #60A5FA;
-}
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-body {
-  font-family: 'Inter', 'PingFang SC', -apple-system, system-ui, 'Microsoft YaHei', sans-serif;
-  background: var(--bg);
-  color: var(--text-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  line-height: 1.7;
-}
-::selection { background: rgba(0,150,240,0.3); color: #fff; }
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--text-disabled); border-radius: 3px; }
-
-/* ============================================================
-   NOISE OVERLAY
-   ============================================================ */
-.noise {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
+  --bg: #000; --bg-card: #111; --border: rgba(255,255,255,0.08);
+  --text: #fff; --text-secondary: #aaa; --text-tertiary: #777;
+  --nav-bg: rgba(0,0,0,0.8);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.4);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
 }
 
-/* ============================================================
-   NAV
-   ============================================================ */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: var(--nav-height);
-  z-index: 1000;
-  background: var(--nav-bg);
-  backdrop-filter: blur(28px) saturate(1.3);
-  -webkit-backdrop-filter: blur(28px) saturate(1.3);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.5s var(--ease-smooth), border-color 0.5s var(--ease-smooth);
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:15px;line-height:1.7;color:var(--text);background:var(--bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  transition:background var(--transition),color var(--transition);
 }
-nav.scrolled {
-  background: var(--nav-bg-scrolled);
-  border-bottom-color: var(--nav-border);
-}
-.nav-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 32px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.nav-logo {
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  text-decoration: none;
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  user-select: none;
-}
-.nav-logo .logo-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  animation: pulse-dot 2.8s ease-in-out infinite;
-}
-@keyframes pulse-dot {
-  0%, 100% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(0,150,240,0.25); }
-  50% { opacity: 1; box-shadow: 0 0 0 8px rgba(0,150,240,0); }
-}
-.nav-logo span { color: var(--accent); }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 36px;
-  list-style: none;
-}
-.nav-links a:not(.nav-cta) {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  transition: color 0.3s var(--ease-smooth);
-  position: relative;
-  padding: 4px 0;
-  cursor: pointer;
-}
-.nav-links a:not(.nav-cta)::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: width 0.35s var(--ease-out);
-  border-radius: 1px;
-}
-.nav-links a:not(.nav-cta):hover { color: var(--text-primary); }
-.nav-links a:not(.nav-cta):hover::after { width: 100%; }
-.nav-links a.active { color: var(--text-primary); }
-.nav-links a.active::after { width: 100%; }
-.nav-cta {
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-  padding: 12px 22px;
-  background: var(--accent);
-  color: #fff !important;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-  transition: all 0.35s var(--ease-out);
-  text-decoration: none;
-  line-height: 1.5;
-}
-.nav-cta:hover {
-  background: #0080d0;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,150,240,0.12);
-}
-.nav-cta::after { display: none !important; }
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 4px;
-  z-index: 1001;
-}
-.nav-toggle span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--text-primary);
-  border-radius: 2px;
-  transition: all 0.3s var(--ease-smooth);
-}
-.nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-toggle.active span:nth-child(2) { opacity: 0; }
-.nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-/* ============================================================
-   BUTTONS
-   ============================================================ */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 32px;
-  border-radius: var(--radius-sm);
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.4s var(--ease-out);
-  letter-spacing: 0.3px;
-  cursor: pointer;
-  border: none;
-}
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(0,150,240,0.10);
-}
-.btn-primary:hover {
-  background: #0080d0;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,150,240,0.15);
-}
-.btn-secondary {
-  background: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--border-hover);
-}
-.btn-secondary:hover {
-  border-color: var(--accent);
-  background: rgba(0,150,240,0.06);
-  transform: translateY(-2px);
+a{color:var(--accent);text-decoration:none;transition:color var(--transition);}
+a:hover{opacity:0.8;}
+img{max-width:100%;height:auto;display:block;}
+h1,h2,h3,h4{line-height:1.3;font-weight:600;}
+h1{font-size:clamp(32px,4vw,56px);}
+h2{font-size:clamp(24px,3vw,40px);margin-bottom:16px;}
+h3{font-size:clamp(18px,1.8vw,24px);}
+p{color:var(--text-secondary);}
+.container{max-width:1100px;margin:0 auto;padding:0 24px;}
+.section{padding:100px 0;}
+.section-label{
+  display:inline-block;font-size:12px;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--accent);margin-bottom:12px;
 }
 
-/* ============================================================
-   REVEAL ANIMATIONS
-   ============================================================ */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+/* ===== NAV ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  background:var(--nav-bg);border-bottom:1px solid var(--border);
+  transition:background var(--transition),border-color var(--transition);
 }
-[data-reveal].revealed {
-  opacity: 1;
-  transform: translateY(0);
+.nav-inner{
+  max-width:1100px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;height:60px;gap:32px;
 }
-[data-reveal][data-delay="1"] { transition-delay: 0.08s; }
-[data-reveal][data-delay="2"] { transition-delay: 0.16s; }
-[data-reveal][data-delay="3"] { transition-delay: 0.24s; }
-[data-reveal][data-delay="4"] { transition-delay: 0.32s; }
-[data-reveal][data-delay="5"] { transition-delay: 0.40s; }
+.nav-logo{
+  display:flex;align-items:center;gap:8px;
+  color:var(--text);font-weight:600;font-size:16px;white-space:nowrap;
+}
+.nav-logo img{width:24px;height:24px;flex-shrink:0;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{
+  color:var(--text-secondary);font-size:14px;font-weight:500;
+  transition:color var(--transition);position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;
+  background:var(--accent);transform:scaleX(0);transition:transform var(--transition);
+}
+.nav-links a:hover{color:var(--text);}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-actions{margin-left:auto;display:flex;align-items:center;gap:16px;}
+.theme-btn{
+  background:none;border:none;cursor:pointer;font-size:18px;padding:4px;
+  line-height:1;border-radius:6px;transition:background var(--transition);
+}
+.theme-btn:hover{background:var(--border);}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--accent);color:#fff !important;padding:6px 16px;
+  border-radius:20px;font-size:13px;font-weight:600;
+  transition:opacity var(--transition);
+}
+.nav-cta:hover{opacity:0.9;}
 
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ============================================================
-   SECTIONS — COMMON
-   ============================================================ */
-.section {
-  padding: var(--section-gap) 24px;
-  position: relative;
-}
-.section-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-.section-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-.section-title {
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 800;
-  color: var(--text-primary);
-  line-height: 1.15;
-  margin-bottom: 16px;
-  letter-spacing: -0.5px;
-}
-.section-sub {
-  font-size: 15px;
-  color: var(--text-secondary);
-  max-width: 640px;
-  line-height: 1.7;
-  margin-bottom: 56px;
-}
-.section-sub.center {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-.text-center { text-align: center; }
-
-/* ============================================================
-   HERO
-   ============================================================ */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: calc(var(--nav-height) + 48px) 24px 80px;
-  position: relative;
-  overflow: hidden;
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 30%, rgba(0,150,240,0.04) 0%, transparent 60%);
-  pointer-events: none;
-}
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(0,150,240,0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,150,240,0.015) 1px, transparent 1px);
-  background-size: 64px 64px;
-  pointer-events: none;
-}
-.hero-glow-2 {
-  position: absolute;
-  bottom: -10%;
-  right: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(ellipse at center, rgba(0,150,240,0.03) 0%, transparent 60%);
-  pointer-events: none;
-}
-.hero-pre {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-  opacity: 0;
-  animation: fade-up 0.8s var(--ease-out) 0.15s forwards;
-}
-.hero h1 {
-  font-size: clamp(44px, 6vw, 72px);
-  font-weight: 900;
-  color: var(--text-primary);
-  line-height: 1.05;
-  letter-spacing: -2px;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: fade-up 0.8s var(--ease-out) 0.3s forwards;
-}
-.hero .tagline {
-  font-size: clamp(16px, 1.3vw, 20px);
-  color: var(--text-secondary);
-  max-width: 640px;
-  line-height: 1.6;
-  margin-bottom: 48px;
-  opacity: 0;
-  animation: fade-up 0.8s var(--ease-out) 0.45s forwards;
-}
-.hero-metrics {
-  display: flex;
-  gap: 56px;
-  flex-wrap: wrap;
-  justify-content: center;
-  opacity: 0;
-  animation: fade-up 0.8s var(--ease-out) 0.6s forwards;
-}
-.metric {
-  text-align: center;
-}
-.metric-val {
-  display: block;
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--accent);
-  line-height: 1.15;
-  letter-spacing: -0.5px;
-}
-.metric-lbl {
-  font-size: 12px;
-  color: var(--text-tertiary);
-  margin-top: 6px;
-  letter-spacing: 0.5px;
-  font-weight: 500;
-}
-/* ============================================================
-   SCROLL INDICATOR
-   ============================================================ */
-.hero-scroll {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  opacity: 0;
-  animation: fade-up 0.8s var(--ease-out) 1s forwards;
-}
-.hero-scroll-line {
-  width: 1px;
-  height: 32px;
-  background: linear-gradient(to bottom, var(--text-tertiary), transparent);
-  animation: scroll-pulse 2.4s ease-in-out infinite;
-}
-.hero-scroll span {
-  font-size: 10px;
-  color: var(--text-disabled);
-  letter-spacing: 2.5px;
-  font-weight: 500;
-}
-@keyframes scroll-pulse {
-  0%, 100% { opacity: 0.25; transform: scaleY(1); }
-  50% { opacity: 1; transform: scaleY(1.5); }
-}
-
-/* ============================================================
-   COMPONENT CARDS
-   ============================================================ */
-.component-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.comp-card {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  transition: all 0.5s var(--ease-out);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.comp-card:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-6px);
-  box-shadow: 0 24px 64px rgba(0,0,0,0.4);
-}
-.comp-card:hover .comp-card-accent {
-  opacity: 1;
-}
-.comp-card-accent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-  opacity: 0;
-  transition: opacity 0.5s var(--ease-smooth);
-  z-index: 2;
-}
-.comp-card-img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  display: block;
-  background: var(--bg-elevated);
-}
-.comp-card-img-placeholder {
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: linear-gradient(135deg, rgba(0,150,240,0.04), rgba(0,150,240,0.01));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 48px;
-  color: var(--text-disabled);
-  font-weight: 800;
-}
-.comp-card-body {
-  padding: 32px 28px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.comp-card h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-  line-height: 1.3;
-}
-.comp-card .comp-en {
-  font-size: 12px;
-  color: var(--text-tertiary);
-  font-weight: 500;
-  margin-bottom: 16px;
-  letter-spacing: 0.3px;
-}
-.comp-card .comp-desc {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 24px;
-}
-.comp-specs {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 0;
-  margin-bottom: auto;
-}
-.comp-specs li {
-  font-size: 13px;
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.comp-specs li::before {
-  content: '';
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
-}
-.comp-specs li strong {
-  color: var(--text-primary);
-  font-weight: 600;
-}
-.comp-outcome {
-  margin-top: 20px;
-  padding: 12px 16px;
-  background: rgba(0,150,240,0.05);
-  border-left: 3px solid var(--accent);
-  border-radius: 0 6px 6px 0;
-  font-size: 13px;
-  color: var(--accent);
-  line-height: 1.6;
-  font-weight: 500;
-}
-
-/* ============================================================
-   GALLERY / RENDER GRID
-   ============================================================ */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-.gallery-item {
-  position: relative;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  cursor: pointer;
-  aspect-ratio: 16/10;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  transition: all 0.4s var(--ease-out);
-}
-.gallery-item:hover {
-  border-color: var(--border-hover);
-  transform: scale(1.02);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-}
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s var(--ease-out);
-}
-.gallery-item:hover img {
-  transform: scale(1.08);
-}
-.gallery-item .gallery-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 12px 16px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.85));
-  color: var(--text-body);
-  font-size: 11px;
-  font-weight: 500;
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-.gallery-item:hover .gallery-label {
-  opacity: 1;
-}
-.gallery-item-wide {
-  grid-column: span 2;
-  grid-row: span 2;
-  aspect-ratio: auto;
-}
-
-/* ============================================================
-   LIGHTBOX
-   ============================================================ */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  background: rgba(0,0,0,0.95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s var(--ease-out);
-}
-.lightbox.open {
-  opacity: 1;
-  pointer-events: all;
-}
-.lightbox-img {
-  max-width: 85vw;
-  max-height: 85vh;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 20px 80px rgba(0,0,0,0.5);
-}
-.lightbox-close {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 50%;
-  color: var(--text-primary);
-  font-size: 22px;
-  cursor: pointer;
-  transition: all 0.3s;
-  line-height: 1;
-}
-.lightbox-close:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.2);
-}
-.lightbox-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.04);
-  border: 1px solid var(--border-hover);
-  border-radius: 50%;
-  color: var(--text-primary);
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s;
-  user-select: none;
-}
-.lightbox-nav:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(0,0,0,0.10);
-}
-.lightbox-prev { left: 24px; }
-.lightbox-next { right: 24px; }
-.lightbox-counter {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--text-tertiary);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-
-/* ============================================================
-   SPECS TABLE
-   ============================================================ */
-.specs-table-wrap {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-}
-.spec-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-.spec-table thead th {
-  background: rgba(0,150,240,0.06);
-  color: var(--accent);
-  padding: 16px 20px;
-  text-align: left;
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border-bottom: 1px solid var(--border);
-}
-.spec-table tbody td {
-  padding: 14px 20px;
-  border-bottom: 1px solid rgba(0,0,0,0.03);
-  color: var(--text-secondary);
-  transition: color 0.2s;
-  vertical-align: top;
-}
-.spec-table tbody tr:hover td {
-  color: var(--text-body);
-  background: rgba(0,0,0,0.01);
-}
-.spec-table tbody td:first-child {
-  font-weight: 600;
-  color: var(--text-primary);
-  white-space: nowrap;
-}
-.spec-table tbody tr:last-child td { border-bottom: none; }
-
-/* ============================================================
-   ENGINEERING PREVIEW
-   ============================================================ */
-.eng-preview {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  padding: 48px 40px;
-  text-align: center;
-  transition: all 0.5s var(--ease-out);
-  position: relative;
-  overflow: hidden;
-}
-.eng-preview::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(ellipse at 50% 50%, rgba(0,150,240,0.02) 0%, transparent 50%);
-  pointer-events: none;
-}
-.eng-preview:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
-}
-.eng-preview h3 {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 16px;
-}
-.eng-preview p {
-  font-size: 15px;
-  color: var(--text-secondary);
-  max-width: 560px;
-  margin: 0 auto 32px;
-  line-height: 1.7;
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-footer {
-  background: #111;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 64px 24px 32px;
-}
-.footer-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
-  gap: 40px;
-  margin-bottom: 48px;
-}
-footer h5 {
-  font-size: 12px;
-  font-weight: 700;
-  color: #eee;
-  margin-bottom: 16px;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-}
-footer p, footer a {
-  font-size: 13px;
-  color: #999;
-  line-height: 1.8;
-  text-decoration: none;
-  transition: color 0.25s;
-}
-footer a:hover { color: var(--accent); }
-footer .footer-links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-footer .footer-brand-desc {
-  font-size: 13px;
-  color: var(--text-tertiary);
-  line-height: 1.8;
-  max-width: 320px;
-}
-.footer-bottom {
-  text-align: center;
-  padding-top: 32px;
-  border-top: 1px solid rgba(0,0,0,0.04);
-}
-.footer-bottom p {
-  font-size: 11px;
-  color: #777;
-}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (max-width: 1024px) {
-  .component-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
-  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-  .gallery-item-wide { grid-column: span 1; grid-row: span 1; }
-  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
-}
-
-@media (max-width: 768px) {
-  :root {
-  --nav-bg: rgba(255,255,255,0.85);
-  --nav-bg-scrolled: rgba(255,255,255,0.95);
-  --nav-border: rgba(0,0,0,0.06); --section-gap: 80px; }
-
-  .nav-links {
-    position: fixed;
-    top: var(--nav-height);
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    background: rgba(0,0,0,0.97);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    padding: 28px 32px;
-    gap: 22px;
-    border-bottom: 1px solid var(--border);
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.4s var(--ease-out);
-    align-items: flex-start;
+/* Mobile nav */
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px;margin-left:0;}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--text);margin:4px 0;border-radius:1px;transition:var(--transition);}
+.nav-open .nav-toggle span:nth-child(1){transform:rotate(45deg) translate(4px,4px);}
+.nav-open .nav-toggle span:nth-child(2){opacity:0;}
+.nav-open .nav-toggle span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px);}
+@media(max-width:768px){
+  .nav-toggle{display:block;}
+  .nav-links{
+    position:fixed;top:60px;left:0;right:0;background:var(--bg-card);
+    flex-direction:column;padding:16px 24px;gap:4px;
+    border-bottom:1px solid var(--border);
+    transform:translateY(-120%);opacity:0;pointer-events:none;
+    transition:var(--transition);
   }
-  .nav-links.open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: all;
-  }
-  .nav-toggle { display: flex; }
-  .nav-cta { align-self: flex-start; }
-
-  .hero-metrics { gap: 32px; }
-  .metric-val { font-size: 26px; }
-
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-
-  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-
-  .eng-preview { padding: 32px 24px; }
+  .nav-open .nav-links{transform:translateY(0);opacity:1;pointer-events:auto;}
+  .nav-links a{padding:12px 0;display:block;font-size:15px;}
 }
 
-@media (max-width: 480px) {
-  .btn { width: 100%; justify-content: center; }
-  .comp-card-body { padding: 24px 20px; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
-  .nav-inner { padding: 0 20px; }
-  .section { padding-left: 20px; padding-right: 20px; }
-  .lightbox-prev { left: 12px; width: 40px; height: 40px; font-size: 16px; }
-  .lightbox-next { right: 12px; width: 40px; height: 40px; font-size: 16px; }
-  .lightbox-close { top: 16px; right: 16px; width: 40px; height: 40px; font-size: 18px; }
+/* ===== HERO ===== */
+.hero{
+  padding:140px 24px 80px;text-align:center;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(ellipse at 50% 40%,rgba(0,150,240,0.03) 0%,transparent 60%);
+  pointer-events:none;
+}
+.hero h1{margin-bottom:16px;letter-spacing:-0.5px;}
+.hero p{font-size:clamp(16px,1.6vw,20px);max-width:640px;margin:0 auto 48px;
+  color:var(--text-secondary);}
+.hero-metrics{
+  display:flex;justify-content:center;gap:40px;flex-wrap:wrap;
+  max-width:900px;margin:0 auto;
+}
+.metric{text-align:center;}
+.metric-value{
+  font-size:clamp(24px,2.5vw,36px);font-weight:700;color:var(--accent);
+  line-height:1.2;
+}
+.metric-label{font-size:13px;color:var(--text-tertiary);margin-top:4px;}
+
+/* ===== PRODUCT CARDS ===== */
+.product-card{
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  padding:80px 0;border-bottom:1px solid var(--border);
+}
+.product-card:last-child{border-bottom:none;}
+.product-card.reverse .card-image{order:1;}
+.card-image{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);
+  transition:transform var(--transition);background:var(--bg-card);}
+.card-image:hover{transform:scale(1.01);}
+.card-image img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+.card-content h3{margin-bottom:8px;}
+.card-content .en{font-size:13px;color:var(--text-tertiary);margin-bottom:12px;
+  font-weight:400;}
+.card-content .desc{color:var(--text-secondary);margin-bottom:24px;font-size:14px;}
+.spec-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+.spec-tag{
+  padding:4px 12px;border:1px solid var(--border);border-radius:16px;
+  font-size:12px;color:var(--text-secondary);background:var(--bg-card);
+}
+.outcome{
+  padding:16px;background:var(--bg);border-radius:var(--radius-sm);
+  border-left:3px solid var(--accent);font-size:14px;color:var(--text-secondary);
+  font-style:italic;
+}
+@media(max-width:768px){
+  .product-card{grid-template-columns:1fr;gap:32px;padding:48px 0;}
+  .product-card.reverse .card-image{order:0;}
 }
 
-/* ============================================================
-   PRINT STYLES
-   ============================================================ */
-@media print {
-  nav, .noise, .hero-scroll, .hero-bg, .hero-glow-2, .lightbox {
-    display: none !important;
-  }
-  body {
-    background: #fff !important;
-    color: #111 !important;
-    font-family: 'Inter', 'PingFang SC', system-ui, sans-serif;
-  }
-  .hero {
-    min-height: auto !important;
-    padding: 48px 24px !important;
-  }
-  .hero h1 { color: #0096f0 !important; }
-  .section { padding: 48px 24px !important; page-break-inside: avoid; }
-  .section-title { color: #111 !important; }
-  .section-sub { color: #555 !important; }
-  .comp-card, .eng-preview, .specs-table-wrap {
-    background: #f5f7fa !important;
-    border-color: #d1d5db !important;
-    color: #111 !important;
-    box-shadow: none !important;
-  }
-  .comp-card h3, .spec-table tbody td:first-child { color: #111 !important; }
-  .spec-table thead th { background: #e5e7eb !important; color: #0096f0 !important; }
-  .spec-table tbody td { color: #555 !important; }
-  footer { border-color: #d1d5db !important; }
-  footer p, footer a { color: #666 !important; }
-  .section-label { color: #0096f0 !important; }
-  [data-reveal] { opacity: 1 !important; transform: none !important; }
-  .comp-outcome { border-color: #0096f0 !important; color: #0096f0 !important; }
+/* ===== GALLERY ===== */
+.gallery-section{background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+.gallery-grid img{
+  width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-sm);
+  cursor:pointer;transition:transform 0.4s ease,box-shadow 0.4s ease;
+}
+.gallery-grid img:hover{transform:scale(1.03);box-shadow:var(--shadow-md);}
+@media(max-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* ===== LIGHTBOX ===== */
+.lightbox{
+  position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0.92);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity 0.4s ease;
+}
+.lightbox.active{opacity:1;pointer-events:auto;}
+.lightbox-img{max-width:90vw;max-height:85vh;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+.lightbox-close{
+  position:absolute;top:24px;right:24px;background:none;border:none;
+  color:#fff;font-size:36px;cursor:pointer;padding:8px;line-height:1;
+  opacity:0.6;transition:opacity var(--transition);z-index:1;
+}
+.lightbox-close:hover{opacity:1;}
+.lightbox-nav{
+  position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;
+  color:#fff;font-size:44px;cursor:pointer;padding:16px;line-height:1;
+  opacity:0.4;transition:opacity var(--transition);z-index:1;
+}
+.lightbox-nav:hover{opacity:1;}
+.lightbox-prev{left:16px;}
+.lightbox-next{right:16px;}
+.lightbox-counter{
+  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  color:rgba(255,255,255,0.4);font-size:14px;z-index:1;
 }
 
+/* ===== SPECS TABLE ===== */
+.specs-table-wrap{overflow-x:auto;border-radius:var(--radius-md);border:1px solid var(--border);}
+.specs-table{width:100%;border-collapse:collapse;font-size:14px;min-width:600px;}
+.specs-table th,.specs-table td{padding:14px 20px;text-align:left;
+  border-bottom:1px solid var(--border);}
+.specs-table th{background:var(--bg-card);font-weight:600;color:var(--text);font-size:13px;}
+.specs-table td{color:var(--text-secondary);}
+.specs-table tr:last-child td{border-bottom:none;}
+.specs-table tbody tr{transition:background var(--transition);}
+.specs-table tbody tr:hover{background:var(--bg);}
+.specs-table .spec-cat{font-weight:500;color:var(--text);white-space:nowrap;}
+.specs-table td:first-child{white-space:nowrap;}
 
-/* Theme toggle */
-.theme-toggle {
-  background: none; border: none; cursor: pointer;
-  color: var(--text-secondary); padding: 6px;
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  transition: color 0.3s var(--ease-smooth);
-  width: 32px; height: 32px;
+/* ===== FOOTER ===== */
+.footer{
+  border-top:1px solid var(--border);padding:60px 0 40px;
+  margin-top:40px;
 }
-.theme-toggle:hover { color: var(--text-primary); background: var(--bg-elevated); }
-.theme-toggle .sun-icon { display: none; }
-.theme-toggle .moon-icon { display: block; }
-[data-theme="dark"] .theme-toggle .sun-icon { display: block; }
-[data-theme="dark"] .theme-toggle .moon-icon { display: none; }
-[data-theme="dark"] .phone-notch-dot { background: #1a1a1a; }
-[data-theme="dark"] .home-indicator { background: rgba(255,255,255,0.3); }
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;}
+.footer-brand p{font-size:13px;color:var(--text-tertiary);margin-top:8px;max-width:280px;}
+.footer-col h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;
+  color:var(--text);margin-bottom:16px;}
+.footer-col a{display:block;font-size:13px;color:var(--text-secondary);padding:4px 0;}
+.footer-col a:hover{color:var(--accent);}
+.footer-bottom{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);
+  font-size:12px;color:var(--text-tertiary);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}
 
+/* ===== UTILITY ===== */
+.text-center{text-align:center;}
+.mt-12{margin-top:12px;}
+.mt-24{margin-top:24px;}
+.mt-48{margin-top:48px;}
+.mb-48{margin-bottom:48px;}
 </style>
 </head>
 <body>
 
-<!-- ===== NOISE OVERLAY ===== -->
-<div class="noise" aria-hidden="true"></div>
-
-<!-- ===== NAV ===== -->
-<nav id="navbar">
+<!-- NAV -->
+<nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img loading="lazy" decoding="async" src="favicon.svg" alt="Nexum" class="nav-logo-icon" style="width:24px;height:24px;flex-shrink:0;">
-      Nexum<span>逐念而行</span>
+      <img src="favicon.svg" width="24" height="24" alt="Nexum">Nexum逐念而行
     </a>
-    <ul class="nav-links" id="navLinks">
-      <li><button id="themeToggle" class="theme-toggle" aria-label="切换主题">
-        <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button></li>
-      <li><a href="index.html#product" class="nav-link active">产品</a></li>
-      <li><a href="index.html#technology" class="nav-link">技术</a></li>
-      <li><a href="index.html#app" class="nav-link">App</a></li>
-      <li><a href="index.html#team" class="nav-link">团队</a></li>
-      <li><a href="index.html#contact" class="nav-cta">投资者入口</a></li>
+    <ul class="nav-links">
+      <li><a href="product.html">产品</a></li>
+      <li><a href="technology.html">技术</a></li>
+      <li><a href="app.html">App</a></li>
+      <li><a href="index.html#documents">文档</a></li>
+      <li><a href="index.html#team">团队</a></li>
     </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="菜单">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-actions">
+      <button class="theme-btn" id="themeToggle" aria-label="切换主题">☀️</button>
+      <a href="index.html#contact" class="nav-cta">投资者入口</a>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
-<section class="hero" id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-glow-2"></div>
-  <p class="hero-pre">Nexum One · 产品详情</p>
-  <h1>Nexum One 神经重连系统</h1>
-  <p class="tagline">
-    三件套设计，从脑信号到身体动作的完整闭环 —— <br>
-    每一件都追求极致的轻量与精准
-  </p>
-  <div class="hero-metrics">
-    <div class="metric"><span class="metric-val">8ch</span><span class="metric-lbl">干电极 EEG</span></div>
-    <div class="metric"><span class="metric-val">&lt;80g</span><span class="metric-lbl">头带重量</span></div>
-    <div class="metric"><span class="metric-val">&lt;1.5kg</span><span class="metric-lbl">系统总重</span></div>
-    <div class="metric"><span class="metric-val">&lt;185ms</span><span class="metric-lbl">端到端延迟</span></div>
-    <div class="metric"><span class="metric-val">15Nm</span><span class="metric-lbl">峰值助力</span></div>
-  </div>
-  <div class="hero-scroll">
-    <span>向下探索</span>
-    <div class="hero-scroll-line"></div>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Nexum One 神经重连系统</h1>
+    <p>三件套设计，从脑信号到身体动作的完整闭环。重新定义神经损伤后的运动康复。</p>
+    <div class="hero-metrics">
+      <div class="metric"><div class="metric-value">8ch</div><div class="metric-label">EEG 通道</div></div>
+      <div class="metric"><div class="metric-value">&lt;80g</div><div class="metric-label">头带重量</div></div>
+      <div class="metric"><div class="metric-value">&lt;1.5kg</div><div class="metric-label">系统总重</div></div>
+      <div class="metric"><div class="metric-value">&lt;185ms</div><div class="metric-label">端到端延迟</div></div>
+      <div class="metric"><div class="metric-value">15Nm</div><div class="metric-label">峰值助力</div></div>
+    </div>
   </div>
 </section>
 
-<!-- ===== PRODUCT OVERVIEW: 3 COMPONENTS ===== -->
+<!-- PRODUCT COMPONENTS -->
 <section class="section" id="components">
-  <div class="section-inner">
-    <div class="text-center" data-reveal>
-      <p class="section-label">Product Architecture</p>
-      <h2 class="section-title">三大硬件模块</h2>
-      <p class="section-sub center">
-        从神经信号采集到运动输出，每个模块都经过精密工程设计，<br>
-        在轻量化与高性能之间做到极致
-      </p>
+  <div class="container">
+    <div class="text-center section-label">产品组件</div>
+    <h2 class="text-center mb-48">三大模块，无缝协作</h2>
+
+    <!-- Card 1: EEG-Sense -->
+    <div class="product-card">
+      <div class="card-image">
+        <img src="docs/render_1_eeg.jpg" alt="EEG-Sense 神经信号读取头带" loading="lazy" decoding="async">
+      </div>
+      <div class="card-content">
+        <div class="section-label">Neural Signal Acquisition</div>
+        <h3>EEG-Sense 神经信号读取</h3>
+        <p class="en">Neural Signal Acquisition</p>
+        <p class="desc">8通道干电极EEG头带，实时检测运动准备电位。在你有意识的动作意图转化为神经信号的那一刻，系统已经开始工作。</p>
+        <div class="spec-tags">
+          <span class="spec-tag">80g</span>
+          <span class="spec-tag">8通道干电极</span>
+          <span class="spec-tag">250SPS</span>
+          <span class="spec-tag">蓝牙5.2</span>
+          <span class="spec-tag">8h续航</span>
+        </div>
+        <div class="outcome">运动意图在动作发生前约0.5秒被识别，准确率>85%</div>
+      </div>
     </div>
 
-    <div class="component-grid">
-
-      <!-- Component 1: EEG-Sense -->
-      <div class="comp-card" data-reveal data-delay="1">
-        <div class="comp-card-accent"></div>
-        <img class="comp-card-img" src="docs/render_1_eeg.jpg" alt="EEG-Sense 神经信号读取" loading="lazy"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="comp-card-img-placeholder" style="display:none;">EEG</div>
-        <div class="comp-card-body">
-          <h3>EEG-Sense 神经信号读取</h3>
-          <p class="comp-en">Neural Signal Acquisition</p>
-          <p class="comp-desc">8通道干电极EEG头带，实时检测运动准备电位（MRCP），将大脑意图转化为数字信号。</p>
-          <ul class="comp-specs">
-            <li><strong>8通道</strong> 干电极，无需导电膏</li>
-            <li><strong>80g</strong> 超轻设计，佩戴如运动头带</li>
-            <li><strong>250SPS</strong> 采样率，24-bit ADC 精准捕捉</li>
-            <li><strong>蓝牙5.2</strong> 无线传输，8小时续航</li>
-          </ul>
-          <p class="comp-outcome">运动意图检测准确率 &gt;85%，为个性化策略提供精准输入</p>
-        </div>
+    <!-- Card 2: NeuroSuit -->
+    <div class="product-card reverse">
+      <div class="card-image">
+        <img src="docs/render_3_neurosuit.jpg" alt="NeuroSuit 智能肌动服" loading="lazy" decoding="async">
       </div>
-
-      <!-- Component 2: NeuroSuit -->
-      <div class="comp-card" data-reveal data-delay="2">
-        <div class="comp-card-accent"></div>
-        <img class="comp-card-img" src="docs/render_3_neurosuit.jpg" alt="NeuroSuit 智能肌动服" loading="lazy"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="comp-card-img-placeholder" style="display:none;">SUIT</div>
-        <div class="comp-card-body">
-          <h3>NeuroSuit 智能肌动服</h3>
-          <p class="comp-en">Intelligent Actuation Suit</p>
-          <p class="comp-desc">鲍登线缆驱动系统搭配碳纤维髋部锚定框架，精准的关节助力，在正确的时间施加正确的力。</p>
-          <ul class="comp-specs">
-            <li><strong>&lt;1.5kg</strong> 系统总重，真正可穿戴</li>
-            <li><strong>15Nm</strong> 峰值 / <strong>8Nm</strong> 持续扭矩</li>
-            <li><strong>鲍登线缆</strong> 驱动，静音运行</li>
-            <li><strong>10秒</strong> 穿脱，无需他人协助</li>
-          </ul>
-          <p class="comp-outcome">髋关节助力在正确时机输出，降低行走代谢消耗，辅助步态对称性改善</p>
+      <div class="card-content">
+        <div class="section-label">Intelligent Actuation Suit</div>
+        <h3>NeuroSuit 智能肌动服</h3>
+        <p class="en">Intelligent Actuation Suit</p>
+        <p class="desc">鲍登线缆驱动系统配合碳纤维锚定结构，在正确的时间、正确的关节施加正确的力。轻量化设计让你几乎感受不到它的存在。</p>
+        <div class="spec-tags">
+          <span class="spec-tag">&lt;1.5kg</span>
+          <span class="spec-tag">15Nm峰值</span>
+          <span class="spec-tag">8Nm持续</span>
+          <span class="spec-tag">鲍登线缆</span>
+          <span class="spec-tag">10秒穿脱</span>
         </div>
+        <div class="outcome">在正确的时间、正确的关节、施加正确的力</div>
       </div>
+    </div>
 
-      <!-- Component 3: Control Box -->
-      <div class="comp-card" data-reveal data-delay="3">
-        <div class="comp-card-accent"></div>
-        <img class="comp-card-img" src="docs/render_2_controlbox.jpg" alt="Control Box 边缘AI处理器" loading="lazy"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="comp-card-img-placeholder" style="display:none;">AI</div>
-        <div class="comp-card-body">
-          <h3>Control Box 边缘AI处理器</h3>
-          <p class="comp-en">Edge AI Processing Unit</p>
-          <p class="comp-desc">实时推理引擎，416肌肉数字孪生模型，边缘端完成从意图识别到策略生成的完整闭环。</p>
-          <ul class="comp-specs">
-            <li><strong>&lt;185ms</strong> 端到端延迟</li>
-            <li><strong>416肌肉</strong> 数字孪生模型</li>
-            <li><strong>强化学习</strong> 实时策略生成</li>
-            <li><strong>联邦学习</strong> 隐私保护持续进化</li>
-          </ul>
-          <p class="comp-outcome">每次训练AI学习你的身体变化，策略逐次优化 —— 本周的辅助和上周不同</p>
+    <!-- Card 3: Control Box -->
+    <div class="product-card">
+      <div class="card-image">
+        <img src="docs/render_2_controlbox.jpg" alt="Control Box 边缘AI处理器" loading="lazy" decoding="async">
+      </div>
+      <div class="card-content">
+        <div class="section-label">Edge AI Processing Unit</div>
+        <h3>Control Box 边缘AI处理器</h3>
+        <p class="en">Edge AI Processing Unit</p>
+        <p class="desc">实时推理引擎，内置416肌肉数字孪生模型。基于强化学习的个性化策略，每次使用都在进化。</p>
+        <div class="spec-tags">
+          <span class="spec-tag">&lt;185ms</span>
+          <span class="spec-tag">416肌肉孪生</span>
+          <span class="spec-tag">强化学习</span>
+          <span class="spec-tag">联邦学习</span>
         </div>
+        <div class="outcome">每次训练AI都在学习你的身体变化，本周的辅助策略和上周不同</div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ===== RENDER GALLERY ===== -->
-<section class="section" id="gallery">
-  <div class="section-inner" data-reveal>
-    <div class="text-center">
-      <p class="section-label">Render Gallery</p>
-      <h2 class="section-title">产品渲染图集</h2>
-      <p class="section-sub center">
-        14张一致性AI渲染图 —— 从组件到完整系统，从穿戴场景到工程结构
-      </p>
-    </div>
-
+<!-- GALLERY -->
+<section class="section gallery-section" id="gallery">
+  <div class="container">
+    <div class="text-center section-label">产品渲染</div>
+    <h2 class="text-center mb-48">全方位展示</h2>
     <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-item gallery-item-wide" data-index="0" onclick="openLightbox(0)">
-        <img src="docs/render_4_system.jpg" alt="Nexum One 完整系统" loading="lazy">
-        <div class="gallery-label">完整系统渲染</div>
-      </div>
-      <div class="gallery-item" data-index="1" onclick="openLightbox(1)">
-        <img src="docs/render_1_eeg.jpg" alt="EEG-Sense 头带" loading="lazy">
-        <div class="gallery-label">EEG-Sense 头带</div>
-      </div>
-      <div class="gallery-item" data-index="2" onclick="openLightbox(2)">
-        <img src="docs/render_2_controlbox.jpg" alt="Control Box 控制盒" loading="lazy">
-        <div class="gallery-label">Control Box</div>
-      </div>
-      <div class="gallery-item" data-index="3" onclick="openLightbox(3)">
-        <img src="docs/render_3_neurosuit.jpg" alt="NeuroSuit 智能肌动服" loading="lazy">
-        <div class="gallery-label">NeuroSuit</div>
-      </div>
-      <div class="gallery-item" data-index="4" onclick="openLightbox(4)">
-        <img src="docs/render_3_system.jpg" alt="系统三件套" loading="lazy">
-        <div class="gallery-label">系统三件套</div>
-      </div>
-      <div class="gallery-item" data-index="5" onclick="openLightbox(5)">
-        <img src="docs/render_4_walking.jpg" alt="行走场景" loading="lazy">
-        <div class="gallery-label">行走场景</div>
-      </div>
-      <div class="gallery-item" data-index="6" onclick="openLightbox(6)">
-        <img src="docs/render_5_walking.jpg" alt="行走场景侧面" loading="lazy">
-        <div class="gallery-label">行走场景侧面</div>
-      </div>
-      <div class="gallery-item" data-index="7" onclick="openLightbox(7)">
-        <img src="docs/render_clinical_v2.jpg" alt="临床场景" loading="lazy">
-        <div class="gallery-label">临床场景</div>
-      </div>
-      <div class="gallery-item" data-index="8" onclick="openLightbox(8)">
-        <img src="docs/render_neurosuit.jpg" alt="NeuroSuit 细节" loading="lazy">
-        <div class="gallery-label">NeuroSuit 细节</div>
-      </div>
-      <div class="gallery-item" data-index="9" onclick="openLightbox(9)">
-        <img src="docs/ppt_render_1_system.jpg" alt="系统渲染 PPT" loading="lazy">
-        <div class="gallery-label">系统渲染</div>
-      </div>
-      <div class="gallery-item" data-index="10" onclick="openLightbox(10)">
-        <img src="docs/ppt_render_2_headband.jpg" alt="头带渲染 PPT" loading="lazy">
-        <div class="gallery-label">头带渲染</div>
-      </div>
-      <div class="gallery-item" data-index="11" onclick="openLightbox(11)">
-        <img src="docs/ppt_render_3_suit.jpg" alt="肌动服渲染 PPT" loading="lazy">
-        <div class="gallery-label">肌动服渲染</div>
-      </div>
-      <div class="gallery-item" data-index="12" onclick="openLightbox(12)">
-        <img src="docs/ppt_render_4_flow.jpg" alt="数据流渲染 PPT" loading="lazy">
-        <div class="gallery-label">数据流</div>
-      </div>
-      <div class="gallery-item" data-index="13" onclick="openLightbox(13)">
-        <img src="docs/ppt_render_5_market.jpg" alt="市场渲染 PPT" loading="lazy">
-        <div class="gallery-label">市场渲染</div>
-      </div>
+      <img src="docs/render_4_system.jpg" alt="Nexum One 系统全览" loading="lazy" decoding="async">
+      <img src="docs/render_1_eeg.jpg" alt="EEG-Sense 头带特写" loading="lazy" decoding="async">
+      <img src="docs/render_3_neurosuit.jpg" alt="NeuroSuit 肌动服穿戴" loading="lazy" decoding="async">
+      <img src="docs/render_2_controlbox.jpg" alt="Control Box 处理器" loading="lazy" decoding="async">
+      <img src="docs/render_4_walking.jpg" alt="行走辅助场景" loading="lazy" decoding="async">
+      <img src="docs/render_clinical_v2.jpg" alt="临床使用场景" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
 
-<!-- ===== LIGHTBOX ===== -->
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
-  <button class="lightbox-close" onclick="closeLightbox()" aria-label="关闭">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <line x1="18" y1="6" x2="6" y2="18"></line>
-      <line x1="6" y1="6" x2="18" y2="18"></line>
-    </svg>
-  </button>
-  <button class="lightbox-nav lightbox-prev" onclick="prevLightbox()" aria-label="上一张">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="15 18 9 12 15 6"></polyline>
-    </svg>
-  </button>
-  <button class="lightbox-nav lightbox-next" onclick="nextLightbox()" aria-label="下一张">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="9 18 15 12 9 6"></polyline>
-    </svg>
-  </button>
-  <img loading="lazy" decoding="async" class="lightbox-img" id="lightboxImg" src="" alt="渲染图">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
   <div class="lightbox-counter" id="lightboxCounter"></div>
 </div>
 
-<!-- ===== TECHNICAL SPECS TABLE ===== -->
+<!-- SPECS TABLE -->
 <section class="section" id="specs">
-  <div class="section-inner" data-reveal>
-    <div class="text-center">
-      <p class="section-label">Technical Specs</p>
-      <h2 class="section-title">完整技术参数</h2>
-      <p class="section-sub center">
-        Nexum One 的每一项指标都经过反复验证，确保在临床康复场景中的安全性与有效性
-      </p>
-    </div>
-
-    <div class="specs-table-wrap" data-reveal data-delay="1">
-      <table class="spec-table">
+  <div class="container">
+    <div class="text-center section-label">技术规格</div>
+    <h2 class="text-center mb-48">详细参数对比</h2>
+    <div class="specs-table-wrap">
+      <table class="specs-table">
         <thead>
           <tr>
-            <th>指标</th>
-            <th>EEG-Sense 头带</th>
-            <th>NeuroSuit 肌动服</th>
-            <th>Control Box 处理器</th>
+            <th>参数</th>
+            <th>EEG-Sense</th>
+            <th>NeuroSuit</th>
+            <th>Control Box</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>重量</td>
-            <td>80g</td>
-            <td>&lt; 1.5kg（含系统）</td>
-            <td>—</td>
-          </tr>
-          <tr>
-            <td>尺寸</td>
-            <td>运动头带式</td>
-            <td>碳纤维髋部锚定</td>
-            <td>120 × 80 × 30 mm</td>
-          </tr>
-          <tr>
-            <td>材质</td>
-            <td>织物 + 干电极</td>
-            <td>压缩织物 + 碳纤维</td>
-            <td>铝合金 CNC</td>
-          </tr>
-          <tr>
-            <td>传感器</td>
-            <td>8ch EEG (ADS1299)</td>
-            <td>多通道织物 sEMG</td>
-            <td>BMI270 六轴 IMU</td>
-          </tr>
-          <tr>
-            <td>采样 / 控制</td>
-            <td>250 SPS · 24-bit</td>
-            <td>1 kHz · 实时</td>
-            <td>FOC · 1 kHz 环路</td>
-          </tr>
-          <tr>
-            <td>无线通信</td>
-            <td>BLE 5.2 (nRF52832)</td>
-            <td>—</td>
-            <td>BLE 5.0 (nRF5340)</td>
-          </tr>
-          <tr>
-            <td>主控芯片</td>
-            <td>nRF52832</td>
-            <td>—</td>
-            <td>STM32H743 + nRF5340</td>
-          </tr>
-          <tr>
-            <td>电机驱动</td>
-            <td>—</td>
-            <td>鲍登线缆 × 4</td>
-            <td>TI DRV8316 × 2</td>
-          </tr>
-          <tr>
-            <td>扭矩</td>
-            <td>—</td>
-            <td>8 Nm 持续 / 15 Nm 峰值</td>
-            <td>—</td>
-          </tr>
-          <tr>
-            <td>电池</td>
-            <td>内置锂电</td>
-            <td>—</td>
-            <td>48 Wh · 6S Li-ion · 21700 × 6</td>
-          </tr>
-          <tr>
-            <td>续航</td>
-            <td>8 小时</td>
-            <td>—</td>
-            <td>&gt; 4 小时连续使用</td>
-          </tr>
-          <tr>
-            <td>延迟</td>
-            <td>采集 ~40ms</td>
-            <td>执行 ~60ms</td>
-            <td>AI 推理 ~55ms</td>
-          </tr>
-          <tr>
-            <td>穿戴方式</td>
-            <td>额前佩戴</td>
-            <td>10 秒穿脱</td>
-            <td>腰间固定</td>
-          </tr>
-          <tr>
-            <td>AI 能力</td>
-            <td>MRCP 检测</td>
-            <td>—</td>
-            <td>416肌数字孪生 · RL · 联邦学习</td>
-          </tr>
-          <tr>
-            <td>安全冗余</td>
-            <td>信号质量自检</td>
-            <td>力传感器实时监控</td>
-            <td>三级降级：EEG→sEMG→无助力</td>
-          </tr>
+          <tr><td class="spec-cat">重量</td><td>80g</td><td>&lt;1.5kg</td><td>120g</td></tr>
+          <tr><td class="spec-cat">传感器</td><td>8ch干电极</td><td>编码器+IMU</td><td>—</td></tr>
+          <tr><td class="spec-cat">无线</td><td>蓝牙5.2</td><td>—</td><td>蓝牙5.2</td></tr>
+          <tr><td class="spec-cat">驱动</td><td>—</td><td>鲍登线缆</td><td>—</td></tr>
+          <tr><td class="spec-cat">扭矩</td><td>—</td><td>15Nm / 8Nm</td><td>—</td></tr>
+          <tr><td class="spec-cat">AI</td><td>—</td><td>—</td><td>EEGNet+RL</td></tr>
+          <tr><td class="spec-cat">续航</td><td>8h</td><td>6h</td><td>8h</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<!-- ===== ENGINEERING ARCHITECTURE PREVIEW ===== -->
-<section class="section" id="engineering">
-  <div class="section-inner" data-reveal>
-    <div class="text-center" data-reveal>
-      <p class="section-label">Engineering</p>
-      <h2 class="section-title">工程架构预览</h2>
-    </div>
-    <div class="eng-preview" data-reveal data-delay="1">
-      <h3>毫秒级闭环 · 意图即行动</h3>
-      <p>
-        从大脑到肌肉的神经通路被阻断时，Nexum One 重建了一条高速数字旁路 ——
-        读取意图、生成策略、执行动作、持续进化。四步闭环端到端延迟小于185ms。
-      </p>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:32px;margin-bottom:32px;">
-        <div>
-          <div style="font-size:28px;font-weight:800;color:var(--accent);">01</div>
-          <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">读取意图 ~40ms</div>
-        </div>
-        <div>
-          <div style="font-size:28px;font-weight:800;color:var(--accent);">02</div>
-          <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">生成策略 ~55ms</div>
-        </div>
-        <div>
-          <div style="font-size:28px;font-weight:800;color:var(--accent);">03</div>
-          <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">执行动作 ~60ms</div>
-        </div>
-        <div>
-          <div style="font-size:28px;font-weight:800;color:var(--accent);">04</div>
-          <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">持续进化 ~10ms</div>
-        </div>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:8px;display:inline-flex;">
+          <img src="favicon.svg" width="24" height="24" alt="Nexum">Nexum逐念而行
+        </a>
+        <p>用神经科技重塑人类运动能力边界。Bones &amp; Manifold 旗下人机共生项目。</p>
       </div>
-      <a href="technology.html" class="btn btn-primary">
-        查看完整技术架构
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:4px;">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </a>
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="product.html">Nexum One</a>
+        <a href="product.html#components">EEG-Sense</a>
+        <a href="product.html#components">NeuroSuit</a>
+        <a href="product.html#components">Control Box</a>
+        <a href="app.html">移动应用</a>
+      </div>
+      <div class="footer-col">
+        <h4>技术</h4>
+        <a href="technology.html">AI 闭环</a>
+        <a href="technology.html#latency">延迟分析</a>
+        <a href="technology.html#diagrams">系统架构</a>
+        <a href="index.html#documents">技术文档</a>
+      </div>
+      <div class="footer-col">
+        <h4>联系</h4>
+        <a href="mailto:contact@bones-manifold.com">contact@bones-manifold.com</a>
+        <a href="index.html#contact">投资者入口</a>
+        <a href="index.html#team">团队</a>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="footer-inner">
-    <div>
-      <h5>Nexum · 逐念而行</h5>
-      <p class="footer-brand-desc">定义人机共生赛道。Nexum One 神经重连AI系统，从大脑读取运动意图，让身体重新行动。</p>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Bones &amp; Manifold. All rights reserved.</span>
+      <span>立足南京，面向全球</span>
     </div>
-    <div>
-      <h5>导航</h5>
-      <ul class="footer-links">
-        <li><a href="product.html">产品</a></li>
-        <li><a href="technology.html">技术</a></li>
-        <li><a href="app.html">App</a></li>
-        <li><a href="index.html#team">团队</a></li>
-        <li><a href="index.html#contact">联系</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>文档</h5>
-      <ul class="footer-links">
-        <li><a href="逐念而行_Nexum_BP.html">商业计划书</a></li>
-        <li><a href="docs/Nexum_One_Product_Visualization.html">产品可视化</a></li>
-        <li><a href="docs/Nexum_One_Engineering_Architecture_v0.1.md">工程架构</a></li>
-        <li><a href="docs/README.md">文档索引</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>联系</h5>
-      <ul class="footer-links">
-        <li><a href="mailto:hello@nexum.ai">hello@nexum.ai</a></li>
-        <li><span style="color:var(--text-tertiary);font-size:13px;">中国 · 上海</span></li>
-        <li style="margin-top:12px;"><a href="https://github.com/nexum-bci/nexum-bci.github.io">GitHub →</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>Confidential — For Investor Use Only</p>
-    <p style="margin-top:4px;font-size:10px;color:var(--text-disabled);">&copy; 2026 逐念而行 Nexum. 人机共生 · Human-Machine Symbiosis</p>
   </div>
 </footer>
 
-<!-- ===== JAVASCRIPT ===== -->
 <script>
-(function() {
-  'use strict';
-
-  /* ============================================================
-     LIGHTBOX
-     ============================================================ */
-  var galleryImages = [];
-  (function initGallery() {
-    var items = document.querySelectorAll('#galleryGrid .gallery-item');
-    items.forEach(function(item) {
-      var img = item.querySelector('img');
-      if (img) {
-        var src = img.getAttribute('src');
-        var label = item.querySelector('.gallery-label');
-        galleryImages.push({
-          src: src,
-          label: label ? label.textContent : ''
-        });
-      }
-    });
-  })();
-
-  var lightbox = document.getElementById('lightbox');
-  var lightboxImg = document.getElementById('lightboxImg');
-  var lightboxCounter = document.getElementById('lightboxCounter');
-  var currentIndex = 0;
-
-  window.openLightbox = function(index) {
-    currentIndex = index;
-    updateLightbox();
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  };
-
-  window.closeLightbox = function() {
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-  };
-
-  window.nextLightbox = function() {
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-    updateLightbox();
-  };
-
-  window.prevLightbox = function() {
-    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-    updateLightbox();
-  };
-
-  function updateLightbox() {
-    if (galleryImages.length === 0) return;
-    var item = galleryImages[currentIndex];
-    lightboxImg.setAttribute('src', item.src);
-    lightboxImg.setAttribute('alt', item.label);
-    lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
-  }
-
-  // Keyboard navigation
-  document.addEventListener('keydown', function(e) {
-    if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') nextLightbox();
-    if (e.key === 'ArrowLeft') prevLightbox();
-  });
-
-  // Click backdrop to close
-  lightbox.addEventListener('click', function(e) {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  /* ============================================================
-     MOBILE NAV TOGGLE
-     ============================================================ */
-  var navToggle = document.getElementById('navToggle');
-  var navLinks = document.getElementById('navLinks');
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', function() {
-      navLinks.classList.toggle('open');
-      navToggle.classList.toggle('active');
-    });
-    navLinks.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        navLinks.classList.remove('open');
-        navToggle.classList.remove('active');
-      });
-    });
-  }
-
-  /* ============================================================
-     NAVBAR SCROLL EFFECT
-     ============================================================ */
-  var navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 60) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  }, { passive: true });
-
-  /* ============================================================
-     INTERSECTION OBSERVER FOR REVEAL ANIMATIONS
-     ============================================================ */
-  var revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('[data-reveal]').forEach(function(el) {
-    revealObserver.observe(el);
-  });
-
-  /* ============================================================
-     SMOOTH SCROLL FOR ANCHOR LINKS
-     ============================================================ */
-  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(e) {
-      var target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
-
-})();
-</script>
-
-
-<script>
+// Theme toggle
 (function(){
   var toggle = document.getElementById('themeToggle');
-  if (!toggle) return;
-  function setTheme(theme) {
-    if (theme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-    }
-    localStorage.setItem('nexum-theme', theme === 'dark' ? 'dark' : 'light');
+  function setTheme(t){
+    if(t==='dark') document.documentElement.setAttribute('data-theme','dark');
+    else document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('nexum-theme',t);
   }
   var saved = localStorage.getItem('nexum-theme');
-  if (saved === 'dark') setTheme('dark');
-  toggle.addEventListener('click', function(){
-    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    setTheme(isDark ? 'light' : 'dark');
+  if(saved==='dark') setTheme('dark');
+  if(document.documentElement.hasAttribute('data-theme')) toggle.textContent = '☀️';
+  else toggle.textContent = '🌙';
+  toggle.addEventListener('click',function(){
+    var isDark = document.documentElement.hasAttribute('data-theme');
+    setTheme(isDark?'light':'dark');
+    toggle.textContent = isDark?'🌙':'☀️';
+  });
+})();
+
+// Mobile nav
+(function(){
+  var btn = document.getElementById('navToggle');
+  var nav = document.getElementById('nav');
+  btn.addEventListener('click',function(){
+    nav.classList.toggle('nav-open');
+  });
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.addEventListener('click',function(){nav.classList.remove('nav-open');});
+  });
+})();
+
+// Lightbox
+(function(){
+  var images = document.querySelectorAll('#galleryGrid img');
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbCounter = document.getElementById('lightboxCounter');
+  var current = 0;
+  if(!images.length) return;
+  function open(idx){
+    current = idx;
+    lbImg.src = images[current].src;
+    lbImg.alt = images[current].alt;
+    lbCounter.textContent = (current+1)+' / '+images.length;
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function prev(){
+    current = (current-1+images.length)%images.length;
+    lbImg.src = images[current].src;
+    lbImg.alt = images[current].alt;
+    lbCounter.textContent = (current+1)+' / '+images.length;
+  }
+  function next(){
+    current = (current+1)%images.length;
+    lbImg.src = images[current].src;
+    lbImg.alt = images[current].alt;
+    lbCounter.textContent = (current+1)+' / '+images.length;
+  }
+  images.forEach(function(img,i){
+    img.addEventListener('click',function(){open(i);});
+  });
+  document.getElementById('lightboxClose').addEventListener('click',close);
+  document.getElementById('lightboxPrev').addEventListener('click',prev);
+  document.getElementById('lightboxNext').addEventListener('click',next);
+  lb.addEventListener('click',function(e){
+    if(e.target===lb) close();
+  });
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('active')) return;
+    if(e.key==='Escape') close();
+    if(e.key==='ArrowLeft') prev();
+    if(e.key==='ArrowRight') next();
   });
 })();
 </script>
-
 </body>
 </html>

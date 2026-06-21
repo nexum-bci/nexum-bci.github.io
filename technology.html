@@ -2,1113 +2,635 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技术架构 - Nexum逐念而行</title>
+<link rel="icon" href="favicon.svg">
 <script>
 (function(){
-  var t = localStorage.getItem('nexum-theme');
-  if (t === 'dark') document.documentElement.setAttribute('data-theme','dark');
+  if (localStorage.getItem('nexum-theme') === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
 })();
 </script>
-
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="apple-touch-icon" href="favicon.svg">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nexum 技术 — AI闭环：读取意图 → 生成策略 → 执行动作 → 持续进化</title>
-<meta name="description" content="Nexum One 技术深度解析：EEG神经信号读取、AI策略生成、鲍登线缆驱动、联邦学习持续进化。端到端延迟<185ms。">
-<meta name="theme-color" content="#000000">
 <style>
-/* ============================================================
-   ROOT VARIABLES - Light Default, Dark Override
-   ============================================================ */
 :root {
-  --bg: #FAFAFA;
-  --bg-alt: #F0F0F0;
-  --bg-elevated: #FFFFFF;
-  --bg-elevated-hover: #F5F5F5;
-  --border: rgba(0,0,0,0.06);
-  --border-hover: rgba(0,0,0,0.12);
-  --text-primary: #111111;
-  --text-body: #333333;
-  --text-secondary: #666666;
-  --text-tertiary: #888888;
-  --text-disabled: #AAAAAA;
-  --accent: #0096F0;
-  --accent-glow: rgba(0,150,240,0.06);
-  --accent-soft: #60A5FA;
-  --nav-bg: rgba(255,255,255,0.85);
-  --nav-bg-scrolled: rgba(255,255,255,0.95);
-  --nav-height: 64px;
-  --max-width: 1200px;
+  --bg: #FAFAFA; --bg-card: #FFFFFF; --border: rgba(0,0,0,0.06);
+  --text: #111; --text-secondary: #555; --text-tertiary: #888; --accent: #0096F0;
+  --nav-bg: rgba(255,255,255,0.8);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --section-gap: 120px;
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-lg: 20px;
+  --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 [data-theme="dark"] {
-  --bg: #000000;
-  --bg-alt: #080808;
-  --bg-elevated: rgba(255,255,255,0.03);
-  --bg-elevated-hover: rgba(255,255,255,0.05);
-  --border: rgba(255,255,255,0.06);
-  --border-hover: rgba(255,255,255,0.12);
-  --text-primary: #FFFFFF;
-  --text-body: #CCCCCC;
-  --text-secondary: #999999;
-  --text-tertiary: #777777;
-  --text-disabled: #555555;
-  --accent: #0096F0;
-  --accent-glow: rgba(0,150,240,0.08);
-  --accent-soft: #60A5FA;
-  --nav-bg: rgba(0,0,0,0.7);
-  --nav-bg-scrolled: rgba(0,0,0,0.92);
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-body {
-  font-family: 'Inter', 'PingFang SC', -apple-system, system-ui, 'Microsoft YaHei', sans-serif;
-  background: var(--bg);
-  color: var(--text-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  line-height: 1.7;
-}
-::selection { background: rgba(0,150,240,0.3); color: #fff; }
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--text-disabled); border-radius: 3px; }
-
-.noise {
-  position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat; background-size: 256px 256px;
+  --bg: #000; --bg-card: #111; --border: rgba(255,255,255,0.08);
+  --text: #fff; --text-secondary: #aaa; --text-tertiary: #777;
+  --nav-bg: rgba(0,0,0,0.8);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.4);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
 }
 
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height); z-index: 1000;
-  background: var(--nav-bg);
-  backdrop-filter: blur(28px) saturate(1.3);
-  -webkit-backdrop-filter: blur(28px) saturate(1.3);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.5s var(--ease-smooth), border-color 0.5s var(--ease-smooth);
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:15px;line-height:1.7;color:var(--text);background:var(--bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  transition:background var(--transition),color var(--transition);
 }
-nav.scrolled { background: var(--nav-bg-scrolled); border-bottom-color: var(--border); }
-.nav-inner {
-  max-width: var(--max-width); margin: 0 auto; padding: 0 32px; height: 100%;
-  display: flex; align-items: center; justify-content: space-between;
+a{color:var(--accent);text-decoration:none;transition:color var(--transition);}
+a:hover{opacity:0.8;}
+img{max-width:100%;height:auto;display:block;}
+h1,h2,h3,h4{line-height:1.3;font-weight:600;}
+h1{font-size:clamp(28px,3.6vw,48px);}
+h2{font-size:clamp(24px,3vw,40px);margin-bottom:16px;}
+h3{font-size:clamp(18px,1.8vw,24px);}
+p{color:var(--text-secondary);}
+.container{max-width:1100px;margin:0 auto;padding:0 24px;}
+.section{padding:100px 0;}
+.section-label{
+  display:inline-block;font-size:12px;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--accent);margin-bottom:12px;
 }
-.nav-logo { font-size: 18px; font-weight: 800; letter-spacing: 1.5px; text-decoration: none; color: var(--text-primary); display: flex; align-items: center; gap: 10px; user-select: none; }
-.nav-logo span { color: var(--accent); }
-.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-.nav-links a:not(.nav-cta) { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.3s var(--ease-smooth); position: relative; padding: 4px 0; cursor: pointer; }
-.nav-links a:not(.nav-cta)::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.35s var(--ease-out); border-radius: 1px; }
-.nav-links a:not(.nav-cta):hover { color: var(--text-primary); }
-.nav-links a:not(.nav-cta):hover::after { width: 100%; }
-.nav-links a.active { color: var(--text-primary); }
-.nav-links a.active::after { width: 100%; }
-.nav-cta { display: inline-flex; align-items: center; white-space: nowrap; padding: 12px 22px; background: var(--accent); color: #fff !important; border-radius: var(--radius-sm); font-weight: 600; font-size: 14px; letter-spacing: 0.5px; transition: all 0.35s var(--ease-out); text-decoration: none; line-height: 1.5; }
-.nav-cta:hover { background: #0080d0; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,150,240,0.12); }
-.nav-cta::after { display: none !important; }
-.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 1001; }
-.nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text-primary); border-radius: 2px; transition: all 0.3s var(--ease-smooth); }
-.nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-toggle.active span:nth-child(2) { opacity: 0; }
-.nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* THEME TOGGLE */
-.theme-toggle { background: none; border: none; cursor: pointer; color: var(--text-secondary); padding: 6px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: color 0.3s var(--ease-smooth); width: 32px; height: 32px; }
-.theme-toggle:hover { color: var(--text-primary); background: var(--bg-elevated); }
-.theme-toggle .sun-icon { display: none; }
-.theme-toggle .moon-icon { display: block; }
-[data-theme="dark"] .theme-toggle .sun-icon { display: block; }
-[data-theme="dark"] .theme-toggle .moon-icon { display: none; }
-
-/* BUTTONS */
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.4s var(--ease-out); letter-spacing: 0.3px; cursor: pointer; border: none; }
-.btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 16px rgba(0,150,240,0.10); }
-.btn-primary:hover { background: #0080d0; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,150,240,0.15); }
-.btn-secondary { background: transparent; color: var(--text-primary); border: 1px solid var(--border); }
-.btn-secondary:hover { border-color: var(--accent); background: rgba(0,150,240,0.06); transform: translateY(-2px); }
-
-/* REVEAL ANIMATIONS */
-[data-reveal] { opacity: 0; transform: translateY(40px); transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out); }
-[data-reveal].revealed { opacity: 1; transform: translateY(0); }
-[data-reveal][data-delay="1"] { transition-delay: 0.08s; }
-[data-reveal][data-delay="2"] { transition-delay: 0.16s; }
-[data-reveal][data-delay="3"] { transition-delay: 0.24s; }
-[data-reveal][data-delay="4"] { transition-delay: 0.32s; }
-[data-reveal][data-delay="5"] { transition-delay: 0.40s; }
-@keyframes fade-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-
-/* SECTIONS */
-.section { padding: var(--section-gap) 24px; position: relative; }
-.section-inner { max-width: var(--max-width); margin: 0 auto; }
-.section-label { font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 16px; }
-h2, .section h2 { font-size: clamp(32px, 3.5vw, 48px); font-weight: 800; line-height: 1.1; letter-spacing: -0.5px; color: var(--text-primary); margin-bottom: 16px; }
-.section-sub { font-size: 15px; color: var(--text-secondary); max-width: 600px; line-height: 1.7; margin-bottom: 56px; }
-.section-sub.center { text-align: center; margin-left: auto; margin-right: auto; }
-.text-center { text-align: center; }
-
-/* HERO */
-.hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: calc(var(--nav-height) + 48px) 24px 80px; position: relative; overflow: hidden; }
-.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(0,150,240,0.04) 0%, transparent 60%); pointer-events: none; }
-.hero-bg::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(0,150,240,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(0,150,240,0.015) 1px, transparent 1px); background-size: 64px 64px; pointer-events: none; }
-.hero-glow { position: absolute; top: -25%; left: 50%; width: 900px; height: 900px; transform: translateX(-50%); background: radial-gradient(ellipse at center, rgba(0,150,240,0.06) 0%, transparent 60%); pointer-events: none; }
-.hero-inner { position: relative; z-index: 2; max-width: 800px; }
-.hero h1 { font-size: clamp(44px, 6vw, 72px); font-weight: 900; color: var(--text-primary); line-height: 1.05; letter-spacing: -2px; margin-bottom: 20px; opacity: 0; animation: fade-up 0.8s var(--ease-out) 0.3s forwards; }
-.hero h1 .highlight { background: linear-gradient(135deg, var(--accent), #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.hero-sub { font-size: clamp(16px, 1.3vw, 20px); color: var(--text-secondary); max-width: 640px; line-height: 1.6; margin-bottom: 48px; opacity: 0; animation: fade-up 0.8s var(--ease-out) 0.45s forwards; }
-.hero-metrics { display: flex; gap: 56px; flex-wrap: wrap; justify-content: center; opacity: 0; animation: fade-up 0.8s var(--ease-out) 0.6s forwards; }
-.hero-metric { text-align: center; }
-.hm-num { display: block; font-size: 32px; font-weight: 800; color: var(--accent); line-height: 1.15; letter-spacing: -0.5px; }
-.hm-label { font-size: 12px; color: var(--text-tertiary); margin-top: 6px; letter-spacing: 0.5px; font-weight: 500; }
-
-/* TECH LOOP */
-.tech-loop-wrap { max-width: 960px; margin: 0 auto 56px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 48px 40px 56px; position: relative; overflow: hidden; }
-.tech-loop-wrap::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 50% 30%, rgba(0,150,240,0.03) 0%, transparent 50%); pointer-events: none; }
-.tech-loop-svg { width: 100%; height: auto; display: block; }
-[data-theme="dark"] .svg-title { fill: #FFFFFF !important; }
-[data-theme="dark"] .svg-body { fill: #CCCCCC !important; }
-[data-theme="dark"] .svg-secondary { fill: #999999 !important; }
-[data-theme="dark"] .svg-tertiary { fill: #777777 !important; }
-
-/* STEP CARDS */
-.step-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
-.step-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 28px 24px; position: relative; overflow: hidden; transition: all 0.4s var(--ease-out); }
-.step-card:hover { border-color: var(--border-hover); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
-.step-number { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 14px; font-weight: 800; margin-bottom: 14px; }
-.step-card h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
-.step-en { font-size: 11px; color: var(--text-tertiary); font-weight: 500; margin-bottom: 14px; letter-spacing: 0.3px; }
-.step-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
-.step-specs { list-style: none; display: flex; flex-direction: column; gap: 6px; padding: 0; }
-.step-specs li { font-size: 12px; color: var(--text-secondary); display: flex; align-items: center; gap: 8px; }
-.step-specs li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-.step-latency { display: inline-block; margin-top: 16px; padding: 4px 12px; background: var(--accent-glow); border-radius: 100px; font-size: 12px; font-weight: 700; color: var(--accent); }
-
-/* LATENCY */
-.breakdown-wrap { max-width: 860px; margin: 0 auto; }
-.breakdown-wrap h4 { font-size: 14px; font-weight: 600; color: var(--text-tertiary); text-align: center; margin-bottom: 28px; letter-spacing: 1px; }
-.latency-hbar { display: flex; height: 48px; border-radius: 8px; overflow: hidden; margin: 24px 0 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
-.latency-seg { position: relative; }
-.latency-seg span { display: none; }
-.latency-seg small { display: none; }
-.latency-labels { display: flex; margin-bottom: 4px; }
-.latency-labels div { font-size: 13px; font-weight: 600; padding: 0 4px; text-align: center; }
-
-/* DIAGRAMS */
-.diagram-section { max-width: 960px; margin: 0 auto; }
-.diagram-header { text-align: center; margin-bottom: 40px; }
-.diagram-header h3 { font-size: clamp(28px, 3vw, 40px); font-weight: 800; color: var(--text-primary); margin-bottom: 12px; }
-.diagram-header p { font-size: 15px; color: var(--text-secondary); max-width: 560px; margin: 0 auto; }
-.diagram-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px; margin-bottom: 28px; overflow: hidden; transition: all 0.5s var(--ease-out); }
-.diagram-card:hover { border-color: var(--border-hover); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
-.diagram-card svg { width: 100%; height: auto; display: block; }
-.diag-title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 24px; letter-spacing: -0.2px; }
-
-/* AI FLOW */
-.ai-flow { display: flex; align-items: flex-start; justify-content: center; gap: 4px; flex-wrap: wrap; max-width: 960px; margin: 0 auto; }
-.ai-step { text-align: center; width: 110px; flex-shrink: 0; }
-.ai-icon { width: 48px; height: 48px; margin: 0 auto 10px; background: var(--accent-glow); border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0,150,240,0.1); }
-.ai-icon svg { width: 24px; height: 24px; }
-.ai-name { font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
-.ai-desc { font-size: 10px; color: var(--text-tertiary); line-height: 1.5; }
-.ai-arrow { display: flex; align-items: center; padding-top: 14px; opacity: 0.5; }
-
-/* FOOTER */
-footer { border-top: 1px solid var(--border); padding: 64px 24px 32px; }
-.footer-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 48px; }
-footer h5 { font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; letter-spacing: 0.8px; text-transform: uppercase; }
-footer p, footer a { font-size: 13px; color: var(--text-tertiary); line-height: 1.8; text-decoration: none; transition: color 0.25s; }
-footer a:hover { color: var(--accent); }
-footer .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-footer .footer-brand-desc { font-size: 13px; color: var(--text-tertiary); line-height: 1.8; max-width: 320px; }
-.footer-bottom { text-align: center; padding-top: 32px; border-top: 1px solid rgba(0,0,0,0.04); }
-.footer-bottom p { font-size: 11px; color: var(--text-disabled); }
-
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-  .step-cards { grid-template-columns: repeat(2, 1fr); }
-  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+/* ===== NAV ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  background:var(--nav-bg);border-bottom:1px solid var(--border);
+  transition:background var(--transition),border-color var(--transition);
 }
-@media (max-width: 768px) {
-  :root { --section-gap: 80px; }
-  .nav-links { position: fixed; top: 0; left: 0; right: 0; bottom: 0; flex-direction: column; background: rgba(0,0,0,0.97); backdrop-filter: blur(40px); justify-content: center; align-items: center; gap: 36px; transform: translateY(-100%); opacity: 0; pointer-events: none; transition: all 0.5s var(--ease-out); }
-  .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: all; }
-  .nav-links a:not(.nav-cta) { font-size: 22px; font-weight: 600; color: var(--text-secondary); }
-  .nav-links a:not(.nav-cta):hover { color: var(--text-primary); }
-  .nav-toggle { display: flex; }
-  .nav-cta { font-size: 16px !important; padding: 14px 40px !important; margin-top: 8px; }
-  .hero-metrics { gap: 32px; }
-  .hm-num { font-size: 26px; }
-  .step-cards { grid-template-columns: 1fr; }
-  .tech-loop-wrap { padding: 32px 20px 40px; }
-  .diagram-card { padding: 24px 16px; }
-  .ai-flow { flex-direction: column; align-items: center; }
-  .ai-arrow { transform: rotate(90deg); }
-  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+.nav-inner{
+  max-width:1100px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;height:60px;gap:32px;
 }
-@media (max-width: 480px) {
-  .btn { width: 100%; justify-content: center; }
-  .nav-inner { padding: 0 20px; }
-  .section { padding-left: 20px; padding-right: 20px; }
+.nav-logo{
+  display:flex;align-items:center;gap:8px;
+  color:var(--text);font-weight:600;font-size:16px;white-space:nowrap;
 }
-[data-theme="dark"] .screen { background: #000; }
-[data-theme="dark"] .phone-frame { background: linear-gradient(180deg, #3a3a3c 0%, #1c1c1e 100%); }
-[data-theme="dark"] .phone-notch { background: #000; }
-[data-theme="dark"] .phone-notch-dot { background: #1a1a1a; }
-[data-theme="dark"] .home-indicator { background: rgba(255,255,255,0.3); }
-@media print {
-  nav, .noise, .hero-bg, .hero-glow, .hero-bg-grid, .hero-bg::after { display: none !important; }
-  body { background: #fff !important; color: #111 !important; }
-  .hero { min-height: auto !important; padding: 48px 24px !important; }
-  .section { padding: 48px 24px !important; page-break-inside: avoid; }
-  [data-reveal] { opacity: 1 !important; transform: none !important; }
-  .diagram-card, .tech-loop-wrap, .step-card { background: #f5f7fa !important; border-color: #d1d5db !important; box-shadow: none !important; }
+.nav-logo img{width:24px;height:24px;flex-shrink:0;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{
+  color:var(--text-secondary);font-size:14px;font-weight:500;
+  transition:color var(--transition);position:relative;
 }
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;
+  background:var(--accent);transform:scaleX(0);transition:transform var(--transition);
+}
+.nav-links a:hover{color:var(--text);}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-actions{margin-left:auto;display:flex;align-items:center;gap:16px;}
+.theme-btn{
+  background:none;border:none;cursor:pointer;font-size:18px;padding:4px;
+  line-height:1;border-radius:6px;transition:background var(--transition);
+}
+.theme-btn:hover{background:var(--border);}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--accent);color:#fff !important;padding:6px 16px;
+  border-radius:20px;font-size:13px;font-weight:600;
+  transition:opacity var(--transition);
+}
+.nav-cta:hover{opacity:0.9;}
+
+/* Mobile nav */
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px;margin-left:0;}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--text);margin:4px 0;border-radius:1px;transition:var(--transition);}
+.nav-open .nav-toggle span:nth-child(1){transform:rotate(45deg) translate(4px,4px);}
+.nav-open .nav-toggle span:nth-child(2){opacity:0;}
+.nav-open .nav-toggle span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px);}
+@media(max-width:768px){
+  .nav-toggle{display:block;}
+  .nav-links{
+    position:fixed;top:60px;left:0;right:0;background:var(--bg-card);
+    flex-direction:column;padding:16px 24px;gap:4px;
+    border-bottom:1px solid var(--border);
+    transform:translateY(-120%);opacity:0;pointer-events:none;
+    transition:var(--transition);
+  }
+  .nav-open .nav-links{transform:translateY(0);opacity:1;pointer-events:auto;}
+  .nav-links a{padding:12px 0;display:block;font-size:15px;}
+}
+
+/* ===== HERO ===== */
+.hero{
+  padding:140px 24px 80px;text-align:center;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(ellipse at 50% 40%,rgba(0,150,240,0.03) 0%,transparent 60%);
+  pointer-events:none;
+}
+.hero h1{margin-bottom:16px;letter-spacing:-0.3px;max-width:800px;margin-left:auto;margin-right:auto;}
+.hero p{font-size:clamp(16px,1.6vw,20px);max-width:600px;margin:0 auto;color:var(--text-secondary);}
+
+/* ===== 4-STEP LOOP ===== */
+.loop-section{text-align:center;}
+.loop-svg-wrap{
+  max-width:860px;margin:0 auto;overflow:visible;
+}
+.loop-svg-wrap svg{width:100%;height:auto;display:block;}
+.step-circle{cursor:default;}
+.step-circle circle{transition:fill 0.3s ease;}
+
+/* ===== STEP CARDS ===== */
+.steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;}
+.step-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:32px;transition:transform var(--transition),box-shadow var(--transition);
+}
+.step-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+.step-card .step-icon{
+  display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;
+  border-radius:50%;background:var(--accent);color:#fff;font-size:16px;font-weight:700;
+  margin-bottom:16px;
+}
+.step-card h3{margin-bottom:8px;}
+.step-card p{font-size:14px;color:var(--text-secondary);}
+.step-card .tech-detail{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px;}
+.step-card .tech-detail span{
+  padding:3px 10px;background:var(--bg);border-radius:12px;font-size:12px;
+  color:var(--text-secondary);border:1px solid var(--border);
+}
+@media(max-width:768px){.steps-grid{grid-template-columns:1fr;}}
+
+/* ===== LATENCY BREAKDOWN ===== */
+.latency-bar{
+  display:flex;height:48px;border-radius:24px;overflow:hidden;
+  margin:32px 0 12px;background:var(--bg-card);
+}
+.latency-seg{
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:600;color:#fff;
+  transition:flex var(--transition);
+  position:relative;
+}
+.latency-seg span{position:relative;z-index:1;text-shadow:0 1px 2px rgba(0,0,0,0.3);}
+.latency-seg.s1{background:#6366f1;}
+.latency-seg.s2{background:#0096F0;}
+.latency-seg.s3{background:#06b6d4;}
+.latency-seg.s4{background:#10b981;}
+.latency-seg.s5{background:#f59e0b;}
+.latency-labels{display:flex;margin-bottom:24px;font-size:12px;color:var(--text-tertiary);}
+.latency-labels > div{text-align:center;}
+.latency-details{display:flex;flex-direction:column;gap:8px;}
+.latency-row{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 16px;background:var(--bg-card);border-radius:var(--radius-sm);
+  border:1px solid var(--border);font-size:14px;
+}
+.latency-row .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.latency-row .label{flex:1;color:var(--text);font-weight:500;}
+.latency-row .ms{color:var(--text-secondary);font-weight:600;}
+
+/* ===== ENGINEERING DIAGRAMS ===== */
+.diagram-section{background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.diagram-wrap{
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:40px 24px;margin-bottom:32px;overflow-x:auto;
+}
+.diagram-wrap:last-child{margin-bottom:0;}
+.diagram-wrap svg{width:100%;height:auto;max-width:1000px;display:block;margin:0 auto;}
+.diagram-wrap h3{text-align:center;margin-bottom:24px;font-size:16px;font-weight:600;}
+
+/* SVG diagram styles */
+[data-theme="dark"] .diagram-box{fill:var(--bg-card);}
+
+/* ===== FOOTER ===== */
+.footer{
+  border-top:1px solid var(--border);padding:60px 0 40px;
+  margin-top:40px;
+}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;}
+.footer-brand p{font-size:13px;color:var(--text-tertiary);margin-top:8px;max-width:280px;}
+.footer-col h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;
+  color:var(--text);margin-bottom:16px;}
+.footer-col a{display:block;font-size:13px;color:var(--text-secondary);padding:4px 0;}
+.footer-col a:hover{color:var(--accent);}
+.footer-bottom{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);
+  font-size:12px;color:var(--text-tertiary);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}
+
+/* ===== UTILITY ===== */
+.text-center{text-align:center;}
+.mt-12{margin-top:12px;}
+.mt-24{margin-top:24px;}
+.mt-48{margin-top:48px;}
+.mb-48{margin-bottom:48px;}
 </style>
 </head>
 <body>
-<div class="noise"></div>
 
-<!-- ===== NAV ===== -->
-<nav id="navbar">
+<!-- NAV -->
+<nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img loading="lazy" decoding="async" src="favicon.svg" alt="Nexum" class="nav-logo-icon" style="width:24px;height:24px;flex-shrink:0;">
-      Nexum<span>逐念而行</span>
+      <img src="favicon.svg" width="24" height="24" alt="Nexum">Nexum逐念而行
     </a>
-    <ul class="nav-links" id="navLinks">
-      <li><button id="themeToggle" class="theme-toggle" aria-label="切换主题">
-        <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button></li>
-      <li><a href="index.html#product" class="nav-link">产品</a></li>
-      <li><a href="index.html#technology" class="nav-link active">技术</a></li>
-      <li><a href="index.html#app" class="nav-link">App</a></li>
-      <li><a href="index.html#team" class="nav-link">团队</a></li>
-      <li><a href="index.html#contact" class="nav-cta">投资者入口</a></li>
+    <ul class="nav-links">
+      <li><a href="product.html">产品</a></li>
+      <li><a href="technology.html">技术</a></li>
+      <li><a href="app.html">App</a></li>
+      <li><a href="index.html#documents">文档</a></li>
+      <li><a href="index.html#team">团队</a></li>
     </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-actions">
+      <button class="theme-btn" id="themeToggle" aria-label="切换主题">☀️</button>
+      <a href="index.html#contact" class="nav-cta">投资者入口</a>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg">
-    <div class="hero-bg-grid"></div>
-    <div class="hero-glow"></div>
+  <div class="container">
+    <h1>AI闭环：读取意图 → 生成策略 → 执行动作 → 持续进化</h1>
+    <p>四个阶段，端到端延迟 &lt;185ms。从神经信号到物理助力的每一次飞跃，都在毫秒间完成。</p>
   </div>
-  <div class="hero-inner">
-    <p class="section-label" style="margin-bottom:20px;">Technology</p>
-    <h1>AI闭环：<span class="highlight">读取意图 → 生成策略 → 执行动作 → 持续进化</span></h1>
-    <p class="hero-sub">四个阶段，端到端延迟 <strong style="color:var(--text-primary);">&lt;185ms</strong> — 从大脑意图到身体动作的完整闭环</p>
-    <div class="hero-metrics">
-      <div class="hero-metric">
-        <div class="hm-num">185ms</div>
-        <div class="hm-label">端到端延迟</div>
+</section>
+
+<!-- 4-STEP LOOP SVG -->
+<section class="section loop-section" id="loop">
+  <div class="container">
+    <div class="section-label">AI 闭环流程</div>
+    <h2>从意图到动作的四个阶段</h2>
+    <div class="loop-svg-wrap">
+      <svg viewBox="0 0 860 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI闭环四阶段流程图">
+        <defs>
+          <marker id="arrMain" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 9 3.5, 0 7" fill="#999"/>
+          </marker>
+          <marker id="arrFeed" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 9 3.5, 0 7" fill="var(--accent)"/>
+          </marker>
+        </defs>
+
+        <!-- Step 1 -->
+        <g class="step-circle">
+          <circle cx="120" cy="100" r="44" fill="var(--accent)" opacity="0.9"/>
+          <text x="120" y="100" text-anchor="middle" dominant-baseline="central" fill="#fff" font-size="22" font-weight="700">1</text>
+          <text x="120" y="168" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">读取意图</text>
+          <text x="120" y="186" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">~40ms</text>
+        </g>
+
+        <!-- Arrow 1→2 -->
+        <line x1="164" y1="100" x2="196" y2="100" stroke="#999" stroke-width="2"/>
+        <polygon points="196,96 205,100 196,104" fill="#999"/>
+
+        <!-- Step 2 -->
+        <g class="step-circle">
+          <circle cx="260" cy="100" r="44" fill="var(--accent)" opacity="0.85"/>
+          <text x="260" y="100" text-anchor="middle" dominant-baseline="central" fill="#fff" font-size="22" font-weight="700">2</text>
+          <text x="260" y="168" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">生成策略</text>
+          <text x="260" y="186" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">~55ms</text>
+        </g>
+
+        <!-- Arrow 2→3 -->
+        <line x1="304" y1="100" x2="336" y2="100" stroke="#999" stroke-width="2"/>
+        <polygon points="336,96 345,100 336,104" fill="#999"/>
+
+        <!-- Step 3 -->
+        <g class="step-circle">
+          <circle cx="400" cy="100" r="44" fill="var(--accent)" opacity="0.8"/>
+          <text x="400" y="100" text-anchor="middle" dominant-baseline="central" fill="#fff" font-size="22" font-weight="700">3</text>
+          <text x="400" y="168" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">执行动作</text>
+          <text x="400" y="186" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">~60ms</text>
+        </g>
+
+        <!-- Arrow 3→4 -->
+        <line x1="444" y1="100" x2="476" y2="100" stroke="#999" stroke-width="2"/>
+        <polygon points="476,96 485,100 476,104" fill="#999"/>
+
+        <!-- Step 4 -->
+        <g class="step-circle">
+          <circle cx="540" cy="100" r="44" fill="var(--accent)" opacity="0.75"/>
+          <text x="540" y="100" text-anchor="middle" dominant-baseline="central" fill="#fff" font-size="22" font-weight="700">4</text>
+          <text x="540" y="168" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">持续进化</text>
+          <text x="540" y="186" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">~10ms</text>
+        </g>
+
+        <!-- Feedback loop arrow from 4 back to 1 -->
+        <path d="M540,144 C540,218 120,218 120,144" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="7,5" fill="none"/>
+        <polygon points="124,146 120,138 116,146" fill="var(--accent)"/>
+        <text x="330" y="230" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="600">联邦学习反馈闭环</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 4 STEP DETAIL CARDS -->
+<section class="section" id="steps">
+  <div class="container">
+    <div class="text-center section-label">阶段详解</div>
+    <h2 class="text-center">每一步的技术细节</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-icon">1</div>
+        <h3>读取意图</h3>
+        <p>EEG采集运动准备电位（RP），在用户意识到动作之前捕捉神经信号。8通道干电极以250SPS采样率实时传输。</p>
+        <div class="tech-detail">
+          <span>EEG</span>
+          <span>运动准备电位</span>
+          <span>8ch干电极</span>
+          <span>250SPS</span>
+          <span>蓝牙5.2</span>
+        </div>
       </div>
-      <div class="hero-metric">
-        <div class="hm-num">4</div>
-        <div class="hm-label">闭环阶段</div>
+      <div class="step-card">
+        <div class="step-icon">2</div>
+        <h3>生成策略</h3>
+        <p>AI推理引擎基于EEGNet提取特征，通过强化学习策略网络生成个性化辅助方案。416肌肉数字孪生模型实时仿真。</p>
+        <div class="tech-detail">
+          <span>EEGNet</span>
+          <span>强化学习</span>
+          <span>416肌肉孪生</span>
+          <span>策略网络</span>
+        </div>
       </div>
-      <div class="hero-metric">
-        <div class="hm-num">416</div>
-        <div class="hm-label">肌肉数字孪生</div>
+      <div class="step-card">
+        <div class="step-icon">3</div>
+        <h3>执行动作</h3>
+        <p>鲍登线缆驱动系统精准控制每个关节的辅助力。碳纤维锚定结构保证力传输效率，15Nm峰值扭矩覆盖日常生活需求。</p>
+        <div class="tech-detail">
+          <span>鲍登线缆</span>
+          <span>碳纤维锚定</span>
+          <span>15Nm峰值</span>
+          <span>8Nm持续</span>
+        </div>
       </div>
-      <div class="hero-metric">
-        <div class="hm-num">&lt;1.5kg</div>
-        <div class="hm-label">系统总重</div>
+      <div class="step-card">
+        <div class="step-icon">4</div>
+        <h3>持续进化</h3>
+        <p>联邦学习框架在保护用户隐私的前提下持续优化模型。每次使用数据都在改进辅助策略，适应肌肉状态和康复进展的变化。</p>
+        <div class="tech-detail">
+          <span>联邦学习</span>
+          <span>隐私保护</span>
+          <span>模型优化</span>
+          <span>个性化适配</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== 4-STEP LOOP SVG ===== -->
-<section class="section">
-  <div class="section-inner">
-    <div class="text-center">
-      <p class="section-label">闭环架构</p>
-      <h2>从大脑到肌肉的AI</h2>
-      <p class="section-sub center">四个阶段构成完整神经重连闭环，每个环节都经过极致优化</p>
+<!-- LATENCY BREAKDOWN -->
+<section class="section" id="latency">
+  <div class="container">
+    <div class="text-center section-label">延迟分析</div>
+    <h2 class="text-center">185ms 端到端延迟分解</h2>
+    <div class="latency-bar">
+      <div class="latency-seg s1" style="flex:4;"><span>40ms</span></div>
+      <div class="latency-seg s2" style="flex:5.5;"><span>55ms</span></div>
+      <div class="latency-seg s3" style="flex:2;"><span>20ms</span></div>
+      <div class="latency-seg s4" style="flex:6;"><span>60ms</span></div>
+      <div class="latency-seg s5" style="flex:1;"><span>10ms</span></div>
     </div>
+    <div class="latency-labels">
+      <div style="flex:4;">EEG采集</div>
+      <div style="flex:5.5;">AI推理</div>
+      <div style="flex:2;">通信</div>
+      <div style="flex:6;">执行器</div>
+      <div style="flex:1;">反馈</div>
+    </div>
+    <div class="latency-details">
+      <div class="latency-row"><span class="dot" style="background:#6366f1;"></span><span class="label">EEG信号采集与预处理</span><span class="ms">40ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;min-width:40px;">21.6%</span></div>
+      <div class="latency-row"><span class="dot" style="background:#0096F0;"></span><span class="label">AI推理与策略生成</span><span class="ms">55ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;">29.7%</span></div>
+      <div class="latency-row"><span class="dot" style="background:#06b6d4;"></span><span class="label">蓝牙通信与数据传输</span><span class="ms">20ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;">10.8%</span></div>
+      <div class="latency-row"><span class="dot" style="background:#10b981;"></span><span class="label">执行器响应与机械动作</span><span class="ms">60ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;">32.4%</span></div>
+      <div class="latency-row"><span class="dot" style="background:#f59e0b;"></span><span class="label">传感器反馈与闭环调整</span><span class="ms">10ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;">5.4%</span></div>
+    </div>
+  </div>
+</section>
 
-    <div class="tech-loop-wrap">
-      <svg class="tech-loop-svg" viewBox="0 0 880 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- ENGINEERING DIAGRAMS -->
+<section class="section diagram-section" id="diagrams">
+  <div class="container">
+    <div class="text-center section-label">系统架构</div>
+    <h2 class="text-center">工程原理图</h2>
+
+    <!-- System Block Diagram -->
+    <div class="diagram-wrap">
+      <h3>系统模块框图</h3>
+      <svg viewBox="0 0 960 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="系统模块框图">
         <defs>
-          <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#0096f0"/>
-            <stop offset="100%" stop-color="#60a5fa"/>
-          </linearGradient>
-          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#0096f0" stop-opacity="0.08"/>
-            <stop offset="50%" stop-color="#0096f0" stop-opacity="0.45"/>
-            <stop offset="100%" stop-color="#0096f0" stop-opacity="0.08"/>
-          </linearGradient>
-          <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="rgba(0,150,240,0.07)"/>
-            <stop offset="100%" stop-color="rgba(0,150,240,0.02)"/>
-          </linearGradient>
-          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-            <path d="M0,0 L10,5 L0,10" fill="#0096f0"/>
+          <marker id="sArr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#888"/>
           </marker>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
+          <marker id="fArr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="var(--accent)"/>
+          </marker>
         </defs>
 
-        <!-- Background cards -->
-        <rect x="60" y="30" width="180" height="200" rx="14" fill="url(#cardBg)" stroke="rgba(0,150,240,0.08)" stroke-width="1"/>
-        <rect x="260" y="30" width="180" height="200" rx="14" fill="url(#cardBg)" stroke="rgba(0,150,240,0.08)" stroke-width="1"/>
-        <rect x="460" y="30" width="180" height="200" rx="14" fill="url(#cardBg)" stroke="rgba(0,150,240,0.08)" stroke-width="1"/>
-        <rect x="660" y="30" width="180" height="200" rx="14" fill="url(#cardBg)" stroke="rgba(0,150,240,0.08)" stroke-width="1"/>
+        <!-- Box 1: EEG -->
+        <rect x="10" y="50" width="120" height="60" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="70" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="13" font-weight="600">EEG Sensor</text>
+        <text x="70" y="90" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">8ch 250SPS</text>
 
-        <!-- Step numbers -->
-        <circle cx="150" cy="72" r="28" fill="url(#cg)" filter="url(#glow)"/>
-        <text x="150" y="79" fill="#fff" font-size="18" font-weight="900" text-anchor="middle">1</text>
-        <circle cx="350" cy="72" r="28" fill="url(#cg)" filter="url(#glow)"/>
-        <text x="350" y="79" fill="#fff" font-size="18" font-weight="900" text-anchor="middle">2</text>
-        <circle cx="550" cy="72" r="28" fill="url(#cg)" filter="url(#glow)"/>
-        <text x="550" y="79" fill="#fff" font-size="18" font-weight="900" text-anchor="middle">3</text>
-        <circle cx="750" cy="72" r="28" fill="url(#cg)" filter="url(#glow)"/>
-        <text x="750" y="79" fill="#fff" font-size="18" font-weight="900" text-anchor="middle">4</text>
+        <line x1="130" y1="80" x2="158" y2="80" stroke="#888" stroke-width="2"/>
+        <polygon points="158,76 166,80 158,84" fill="#888"/>
 
-        <!-- Step titles & content -->
-        <text x="150" y="120" fill="#111111" class="svg-title" font-size="16" font-weight="700" text-anchor="middle">读取意图</text>
-        <text x="150" y="143" fill="#666666" class="svg-secondary" font-size="12" font-weight="500" text-anchor="middle">Read</text>
-        <text x="150" y="172" fill="#333333" class="svg-body" font-size="11" text-anchor="middle">EEG采集运动准备电位</text>
-        <text x="150" y="192" fill="#888888" class="svg-tertiary" font-size="10" text-anchor="middle">8ch干电极 · 250SPS</text>
-        <text x="150" y="212" fill="#333333" class="svg-body" font-size="11" text-anchor="middle">~40ms</text>
+        <!-- Box 2: Phone -->
+        <rect x="170" y="50" width="110" height="60" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="225" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="13" font-weight="600">Phone App</text>
+        <text x="225" y="90" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">Edge Relay</text>
 
-        <text x="350" y="120" fill="#111111" class="svg-title" font-size="16" font-weight="700" text-anchor="middle">生成策略</text>
-        <text x="350" y="143" fill="#666666" class="svg-secondary" font-size="12" font-weight="500" text-anchor="middle">Generate</text>
-        <text x="350" y="172" fill="#333333" class="svg-body" font-size="11" text-anchor="middle">AI推理个性化策略</text>
-        <text x="350" y="192" fill="#888888" class="svg-tertiary" font-size="10" text-anchor="middle">416肌数字孪生 · RL</text>
-        <text x="350" y="212" fill="#333333" class="svg-body" font-size="11" text-anchor="middle">~55ms</text>
+        <line x1="280" y1="80" x2="308" y2="80" stroke="#888" stroke-width="2"/>
+        <polygon points="308,76 316,80 308,84" fill="#888"/>
 
-        <text x="550" y="120" fill="#111111" class="svg-title" font-size="16" font-weight="700" text-anchor="middle">执行动作</text>
-        <text x="550" y="143" fill="#666666" class="svg-secondary" font-size="12" font-weight="500" text-anchor="middle">Execute</text>
-        <text x="550" y="172" fill="#333333" class="svg-body" font-size="11" text-anchor="middle">线缆驱动关节精准助力</text>
-        <text x="550" y="192" fill="#888888" class="svg-tertiary" font-size="10" text-anchor="middle">鲍登线缆 · 15Nm</text>
-        <text x="550" y="212" fill="#333333" class="svg-body" font-size="11" text-anchor="middle">~60ms</text>
+        <!-- Box 3: Control Box -->
+        <rect x="320" y="50" width="130" height="60" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="385" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="13" font-weight="600">Control Box</text>
+        <text x="385" y="90" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">EEGNet + RL</text>
 
-        <text x="750" y="120" fill="#111111" class="svg-title" font-size="16" font-weight="700" text-anchor="middle">持续进化</text>
-        <text x="750" y="143" fill="#666666" class="svg-secondary" font-size="12" font-weight="500" text-anchor="middle">Evolve</text>
-        <text x="750" y="172" fill="#333333" class="svg-body" font-size="11" text-anchor="middle">反馈闭环持续学习</text>
-        <text x="750" y="192" fill="#888888" class="svg-tertiary" font-size="10" text-anchor="middle">联邦学习 · 隐私保护</text>
-        <text x="750" y="212" fill="#333333" class="svg-body" font-size="11" text-anchor="middle">~10ms</text>
+        <line x1="450" y1="80" x2="478" y2="80" stroke="#888" stroke-width="2"/>
+        <polygon points="478,76 486,80 478,84" fill="#888"/>
 
-        <!-- Arrows -->
-        <line x1="185" y1="72" x2="315" y2="72" stroke="#0096f0" stroke-width="2.5" marker-end="url(#arr)" opacity="0.7"/>
-        <line x1="385" y1="72" x2="515" y2="72" stroke="#0096f0" stroke-width="2.5" marker-end="url(#arr)" opacity="0.7"/>
-        <line x1="585" y1="72" x2="715" y2="72" stroke="#0096f0" stroke-width="2.5" marker-end="url(#arr)" opacity="0.7"/>
+        <!-- Box 4: Motor -->
+        <rect x="490" y="50" width="120" height="60" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="550" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="13" font-weight="600">Motor Driver</text>
+        <text x="550" y="90" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">鲍登线缆</text>
 
-        <!-- Feedback loop -->
-        <path d="M750 240 Q750 275 450 275 Q150 275 150 240" stroke="#0096f0" stroke-width="1.8" stroke-dasharray="6 5" fill="none" opacity="0.4" marker-end="url(#arr)"/>
-        <rect x="390" y="262" width="120" height="22" rx="11" fill="rgba(0,150,240,0.1)" stroke="rgba(0,150,240,0.15)" stroke-width="1"/>
-        <text x="450" y="277" fill="#999999" font-size="11" font-weight="600" text-anchor="middle">反馈闭环 ~30ms</text>
+        <line x1="610" y1="80" x2="638" y2="80" stroke="#888" stroke-width="2"/>
+        <polygon points="638,76 646,80 638,84" fill="#888"/>
+
+        <!-- Box 5: Body -->
+        <rect x="650" y="50" width="110" height="60" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="705" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="13" font-weight="600">Human Body</text>
+        <text x="705" y="90" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">关节助力</text>
+
+        <line x1="760" y1="80" x2="788" y2="80" stroke="#888" stroke-width="2"/>
+        <polygon points="788,76 796,80 788,84" fill="#888"/>
+
+        <!-- Box 6: Feedback -->
+        <rect x="800" y="50" width="130" height="60" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="865" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="13" font-weight="600">Feedback Loop</text>
+        <text x="865" y="90" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">IMU + Encoder</text>
+
+        <!-- Feedback arrow -->
+        <path d="M865,110 L865,140 L385,140 L385,110" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6,4" fill="none"/>
+        <polygon points="389,112 385,104 381,112" fill="var(--accent)"/>
+        <text x="625" y="155" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="500">状态反馈 (IMU/编码器)</text>
       </svg>
     </div>
 
-    <!-- Step Detail Cards -->
-    <div class="step-cards">
-      <!-- Step 1 -->
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <h3>读取意图</h3>
-        <div class="step-en">Read Neural Intent</div>
-        <p>EEG头带实时采集大脑运动准备电位（Bereitschaftspotential），在患者意识到动作之前约200ms检测到运动意图。</p>
-        <ul class="step-specs">
-          <li>8通道干电极（Cz, C3, C4, FCz, FC3, FC4, Pz, P3）</li>
-          <li>ADS1299 24bit ΔΣ ADC · 250SPS 采样率</li>
-          <li>模拟前端 CMRR &gt; 110dB · 50Hz 陷波</li>
-          <li>nRF52832 BLE 5.0 无线传输至手机</li>
-        </ul>
-        <span class="step-latency">~40ms</span>
-      </div>
+    <!-- AI Architecture Diagram -->
+    <div class="diagram-wrap">
+      <h3>AI 架构流程图</h3>
+      <svg viewBox="0 0 960 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI架构流程图">
+        <defs>
+          <marker id="aArr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#888"/>
+          </marker>
+          <marker id="aArrF" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="var(--accent)"/>
+          </marker>
+        </defs>
 
-      <!-- Step 2 -->
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <h3>生成策略</h3>
-        <div class="step-en">Generate Strategy</div>
-        <p>手机端CoreML/ONNX推理引擎运行EEGNet模型，结合416肌肉数字孪生体，通过强化学习生成个性化助力策略。</p>
-        <ul class="step-specs">
-          <li>CSP · FBCSP 空间滤波 · LDA 线性判别</li>
-          <li>100ms 滑动窗 · 步进 20ms</li>
-          <li>3类意图：行走 / 上楼梯 / 停止</li>
-          <li>强化学习策略持续适配患者步态</li>
-        </ul>
-        <span class="step-latency">~55ms</span>
-      </div>
+        <!-- Layer 1: EEG Signal -->
+        <rect x="20" y="30" width="120" height="70" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="80" y="55" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="12" font-weight="600">EEG Signal</text>
+        <text x="80" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">8ch 原始信号</text>
+        <text x="80" y="86" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">运动准备电位</text>
 
-      <!-- Step 3 -->
-      <div class="step-card">
-        <div class="step-number">3</div>
-        <h3>执行动作</h3>
-        <div class="step-en">Execute Motion</div>
-        <p>控制箱接收策略指令，STM32H743运行FOC（Field-Oriented Control）算法，驱动无刷电机通过鲍登线缆精准输出关节助力。</p>
-        <ul class="step-specs">
-          <li>FOC 20kHz 电流环 · 2kHz 扭矩环</li>
-          <li>T-motor AK80-9 · 9:1 减速 · 霍尔传感器</li>
-          <li>15Nm 峰值 / 8Nm 持续扭矩</li>
-          <li>DRV8316 三相门极驱动器</li>
-        </ul>
-        <span class="step-latency">~60ms</span>
-      </div>
+        <line x1="140" y1="65" x2="168" y2="65" stroke="#888" stroke-width="2"/>
+        <polygon points="168,61 176,65 168,69" fill="#888"/>
 
-      <!-- Step 4 -->
-      <div class="step-card">
-        <div class="step-number">4</div>
-        <h3>持续进化</h3>
-        <div class="step-en">Evolve Continuously</div>
-        <p>每次训练产生的数据通过联邦学习框架聚合，在保护患者隐私的前提下持续优化模型。本周的辅助和上周不同。</p>
-        <ul class="step-specs">
-          <li>联邦学习 · 数据不出设备</li>
-          <li>传感器融合 · 姿态/步态估计</li>
-          <li>安全看门狗 · 扭矩限幅 · 急停保护</li>
-          <li>模型每轮训练后增量更新</li>
-        </ul>
-        <span class="step-latency">~10ms</span>
-      </div>
+        <!-- Layer 2: EEGNet -->
+        <rect x="180" y="30" width="120" height="70" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="240" y="55" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="12" font-weight="600">EEGNet</text>
+        <text x="240" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">特征提取</text>
+        <text x="240" y="86" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">卷积神经网络</text>
+
+        <line x1="300" y1="65" x2="328" y2="65" stroke="#888" stroke-width="2"/>
+        <polygon points="328,61 336,65 328,69" fill="#888"/>
+
+        <!-- Layer 3: RL Policy -->
+        <rect x="340" y="30" width="120" height="70" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="400" y="55" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="12" font-weight="600">RL Policy</text>
+        <text x="400" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">强化学习策略</text>
+        <text x="400" y="86" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">416肌肉孪生</text>
+
+        <line x1="460" y1="65" x2="488" y2="65" stroke="#888" stroke-width="2"/>
+        <polygon points="488,61 496,65 488,69" fill="#888"/>
+
+        <!-- Layer 4: Motor Control -->
+        <rect x="500" y="30" width="120" height="70" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="560" y="55" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="12" font-weight="600">Motor Control</text>
+        <text x="560" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">鲍登线缆驱动</text>
+        <text x="560" y="86" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">15Nm 扭矩</text>
+
+        <line x1="620" y1="65" x2="648" y2="65" stroke="#888" stroke-width="2"/>
+        <polygon points="648,61 656,65 648,69" fill="#888"/>
+
+        <!-- Layer 5: Physical Feedback -->
+        <rect x="660" y="30" width="130" height="70" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="725" y="55" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="12" font-weight="600">Physical Fdbk</text>
+        <text x="725" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">IMU + 编码器</text>
+        <text x="725" y="86" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">关节角度/力矩</text>
+
+        <line x1="790" y1="65" x2="818" y2="65" stroke="#888" stroke-width="2"/>
+        <polygon points="818,61 826,65 818,69" fill="#888"/>
+
+        <!-- Layer 6: Federated Learning -->
+        <rect x="830" y="30" width="110" height="70" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5,3"/>
+        <text x="885" y="55" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="11" font-weight="600">Federated</text>
+        <text x="885" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">Learning</text>
+
+        <!-- Feedback arrow -->
+        <path d="M885,100 L885,130 L240,130 L240,100" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6,4" fill="none"/>
+        <polygon points="244,102 240,94 236,102" fill="var(--accent)"/>
+
+        <text x="560" y="148" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="500">模型参数同步 | 隐私保护更新</text>
+
+        <!-- Deployment label -->
+        <rect x="340" y="170" width="280" height="30" rx="6" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
+        <text x="480" y="185" text-anchor="middle" dominant-baseline="central" fill="var(--text-secondary)" font-size="11">Edge Deployment on Control Box</text>
+
+        <line x1="480" y1="100" x2="480" y2="170" stroke="#aaa" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <polygon points="476,170 480,178 484,170" fill="#aaa"/>
+      </svg>
     </div>
   </div>
 </section>
 
-<!-- ===== LATENCY BREAKDOWN ===== -->
-<section class="section" style="padding-top:0;">
-  <div class="section-inner">
-    <div class="breakdown-wrap">
-      <h4>端到端延迟分解 — 总计 ≈185ms</h4>
-      <div class="latency-hbar" id="latencyBar">
-        <div class="latency-seg" style="flex:0 0 21.6%;background:linear-gradient(135deg,#0096f0,#0080d0);border-radius:6px 0 0 6px;" data-label="EEG采集">
-          <span>40ms</span>
-          <small>EEG采集 + 预处理 + BLE发送</small>
-        </div>
-        <div class="latency-seg" style="flex:0 0 29.7%;background:linear-gradient(135deg,#1080e0,#2088e0);" data-label="AI推理">
-          <span>55ms</span>
-          <small>手机接收 + EEGNet推理 + 策略生成</small>
-        </div>
-        <div class="latency-seg" style="flex:0 0 10.8%;background:linear-gradient(135deg,#2070d0,#3078d0);" data-label="BLE传输">
-          <span>20ms</span>
-          <small>指令发送 + 控制盒接收</small>
-        </div>
-        <div class="latency-seg" style="flex:0 0 32.4%;background:linear-gradient(135deg,#3060c0,#4068c0);" data-label="电机执行">
-          <span>60ms</span>
-          <small>FOC控制 + 鲍登线缆 + 力输出</small>
-        </div>
-        <div class="latency-seg" style="flex:0 0 5.4%;background:linear-gradient(135deg,#4050b0,#5060b8);border-radius:0 6px 6px 0;" data-label="传感反馈">
-          <span>10ms</span>
-          <small>传感器融合 + 状态估计</small>
-        </div>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:8px;display:inline-flex;">
+          <img src="favicon.svg" width="24" height="24" alt="Nexum">Nexum逐念而行
+        </a>
+        <p>用神经科技重塑人类运动能力边界。Bones &amp; Manifold 旗下人机共生项目。</p>
       </div>
-      <div class="latency-labels">
-        <div style="flex:0 0 21.6%;">① EEG采集</div>
-        <div style="flex:0 0 29.7%;">② AI推理</div>
-        <div style="flex:0 0 10.8%;">③ BLE传输</div>
-        <div style="flex:0 0 32.4%;">④ 电机执行</div>
-        <div style="flex:0 0 5.4%;">⑤ 传感反馈</div>
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="product.html">Nexum One</a>
+        <a href="product.html#components">EEG-Sense</a>
+        <a href="product.html#components">NeuroSuit</a>
+        <a href="product.html#components">Control Box</a>
+        <a href="app.html">移动应用</a>
       </div>
-      <div style="text-align:center;font-size:13px;color:var(--text-tertiary);line-height:1.6;max-width:700px;margin:0 auto;">
-        每个阶段的延迟都经过极致优化。从EEG采集到运动输出的完整闭环在185ms内完成，人几乎无法感知延迟，实现自然流畅的人机协同。
+      <div class="footer-col">
+        <h4>技术</h4>
+        <a href="technology.html">AI 闭环</a>
+        <a href="technology.html#latency">延迟分析</a>
+        <a href="technology.html#diagrams">系统架构</a>
+        <a href="index.html#documents">技术文档</a>
+      </div>
+      <div class="footer-col">
+        <h4>联系</h4>
+        <a href="mailto:contact@bones-manifold.com">contact@bones-manifold.com</a>
+        <a href="index.html#contact">投资者入口</a>
+        <a href="index.html#team">团队</a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ===== ENGINEERING DIAGRAMS ===== -->
-<section class="section" style="padding-top:0;">
-  <div class="section-inner">
-    <div class="diagram-section">
-      <div class="diagram-header">
-        <p class="section-label">Engineering</p>
-        <h3>系统工程图</h3>
-        <p>Nexum One 硬件架构、电源分配、固件结构与控制系统</p>
-      </div>
-
-      <!-- System Block Diagram -->
-      <div class="diagram-card">
-        <div class="diag-title">系统框图 — 数据流与协议</div>
-        <svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" style="max-width:960px;">
-          <defs>
-            <filter id="diag-shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.5"/></filter>
-            <filter id="diag-glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            <marker id="diag-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0096f0"/></marker>
-            <pattern id="diag-grid" width="30" height="30" patternUnits="userSpaceOnUse">
-              <path d="M30 0 L0 0 0 30" fill="none" stroke="rgba(0,0,0,0.02)" stroke-width="0.5"/>
-            </pattern>
-          </defs>
-          <rect width="960" height="600" fill="#000" rx="8"/>
-          <rect width="960" height="600" fill="url(#diag-grid)" rx="8"/>
-
-          <!-- EEG Headband -->
-          <g filter="url(#diag-shadow)">
-            <rect x="40" y="30" width="260" height="220" rx="12" fill="rgba(0,0,0,0.03)" stroke="var(--border-hover)" stroke-width="1"/>
-            <rect x="40" y="30" width="260" height="32" rx="12" fill="rgba(0,150,240,0.1)"/>
-            <text x="170" y="52" text-anchor="middle" font-size="13" font-weight="600" fill="#0096f0" filter="url(#diag-glow)">EEG-Sense 头带</text>
-          </g>
-          <g filter="url(#diag-shadow)">
-            <rect x="55" y="80" width="110" height="45" rx="6" fill="rgba(0,0,0,0.04)" stroke="var(--border)" stroke-width="1"/>
-            <text x="110" y="98" text-anchor="middle" font-size="10" fill="#60a5fa">ADS1299</text>
-            <text x="110" y="114" text-anchor="middle" font-size="9" fill="#777">8ch ΔΣ ADC</text>
-          </g>
-          <g filter="url(#diag-shadow)">
-            <rect x="180" y="80" width="105" height="45" rx="6" fill="rgba(0,0,0,0.04)" stroke="var(--border)" stroke-width="1"/>
-            <text x="232" y="98" text-anchor="middle" font-size="10" fill="#60a5fa">nRF52832</text>
-            <text x="232" y="114" text-anchor="middle" font-size="9" fill="#777">BLE 5.0</text>
-          </g>
-          <line x1="165" y1="102" x2="180" y2="102" stroke="#34d399" stroke-width="1.5"/>
-          <text x="172" y="96" text-anchor="middle" font-size="8" fill="#34d399">SPI</text>
-          <!-- Electrode dots -->
-          <circle cx="70" cy="150" r="5" fill="none" stroke="#f472b6" stroke-width="1"/>
-          <circle cx="100" cy="160" r="5" fill="none" stroke="#f472b6" stroke-width="1"/>
-          <circle cx="130" cy="148" r="5" fill="none" stroke="#f472b6" stroke-width="1"/>
-          <circle cx="160" cy="158" r="5" fill="none" stroke="#f472b6" stroke-width="1"/>
-          <circle cx="190" cy="150" r="5" fill="none" stroke="#f472b6" stroke-width="1"/>
-          <text x="170" y="200" text-anchor="middle" font-size="9" fill="#777">干电极 × 8</text>
-
-          <!-- BLE arrow to Phone -->
-          <line x1="300" y1="90" x2="380" y2="90" stroke="#7dd3fc" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#diag-arr)"/>
-          <text x="340" y="82" text-anchor="middle" font-size="9" fill="#7dd3fc">BLE 5.0</text>
-
-          <!-- Phone App -->
-          <g filter="url(#diag-shadow)">
-            <rect x="390" y="30" width="260" height="220" rx="12" fill="rgba(0,0,0,0.03)" stroke="var(--border-hover)" stroke-width="1"/>
-            <rect x="390" y="30" width="260" height="32" rx="12" fill="rgba(96,165,250,0.08)"/>
-            <text x="520" y="52" text-anchor="middle" font-size="13" font-weight="600" fill="#60a5fa" filter="url(#diag-glow)">Nexum App (手机)</text>
-          </g>
-          <g filter="url(#diag-shadow)">
-            <rect x="410" y="80" width="220" height="36" rx="6" fill="rgba(0,0,0,0.04)" stroke="var(--border)" stroke-width="1"/>
-            <text x="520" y="94" text-anchor="middle" font-size="10" fill="#60a5fa">BLE 接收 · 数据缓存</text>
-            <text x="520" y="108" text-anchor="middle" font-size="9" fill="#777">降采样 250→50Hz</text>
-          </g>
-          <g filter="url(#diag-shadow)">
-            <rect x="410" y="125" width="220" height="36" rx="6" fill="rgba(0,0,0,0.04)" stroke="var(--border)" stroke-width="1"/>
-            <text x="520" y="139" text-anchor="middle" font-size="10" fill="#60a5fa">CoreML / ONNX 推理</text>
-            <text x="520" y="153" text-anchor="middle" font-size="9" fill="#777">EEGNet · FBCSP · LDA</text>
-          </g>
-          <g filter="url(#diag-shadow)">
-            <rect x="410" y="170" width="220" height="36" rx="6" fill="rgba(0,0,0,0.04)" stroke="var(--border)" stroke-width="1"/>
-            <text x="520" y="184" text-anchor="middle" font-size="10" fill="#60a5fa">BLE 指令发送</text>
-            <text x="520" y="198" text-anchor="middle" font-size="9" fill="#777">意图编码 · 模式管理</text>
-          </g>
-
-          <!-- BLE to Control Box -->
-          <line x1="600" y1="250" x2="600" y2="300" stroke="#fbbf24" stroke-width="2" marker-end="url(#diag-arr)"/>
-          <text x="610" y="280" font-size="9" fill="#fbbf24">BLE 5.3</text>
-
-          <!-- Control Box -->
-          <g filter="url(#diag-shadow)">
-            <rect x="40" y="310" width="440" height="250" rx="12" fill="rgba(0,0,0,0.03)" stroke="var(--border-hover)" stroke-width="1"/>
-            <rect x="40" y="310" width="440" height="32" rx="12" fill="rgba(251,191,36,0.08)"/>
-            <text x="260" y="332" text-anchor="middle" font-size="13" font-weight="600" fill="#fbbf24" filter="url(#diag-glow)">控制箱 · 腰包式</text>
-          </g>
-          <g filter="url(#diag-shadow)">
-            <rect x="60" y="360" width="120" height="50" rx="6" fill="rgba(0,0,0,0.04)" stroke="var(--border)" stroke-width="1"/>
-            <text x="120" y="380" text-anchor="middle" font-size="10" fill="#fbbf24">nRF5340</text>
-            <text x="120" y="396" text-anchor="middle" font-size="9" fill="#777">Dual M33 · 安全</text>
-          </g>
-          <g filter="url(#diag-shadow)">
-            <rect x="195" y="360" width="130" height="50" rx="6" fill="rgba(0,0,0,0.04)" stroke="var(--border)" stroke-width="1"/>
-            <text x="260" y="380" text-anchor="middle" font-size="10" fill="#fbbf24">STM32H743</text>
-            <text x="260" y="396" text-anchor="middle" font-size="9" fill="#777">M7 · 480MHz · FOC</text>
-          </g>
-          <g filter="url(#diag-shadow)">
-            <rect x="340" y="360" width="120" height="50" rx="6" fill="rgba(0,0,0,0.04)" stroke="var(--border)" stroke-width="1"/>
-            <text x="400" y="380" text-anchor="middle" font-size="10" fill="#fbbf24">DRV8316</text>
-            <text x="400" y="396" text-anchor="middle" font-size="9" fill="#777">三相门驱 · 5A</text>
-          </g>
-          <line x1="180" y1="385" x2="195" y2="385" stroke="#34d399" stroke-width="1.5"/>
-          <text x="187" y="377" text-anchor="middle" font-size="8" fill="#34d399">UART</text>
-          <line x1="325" y1="385" x2="340" y2="385" stroke="#34d399" stroke-width="1.5"/>
-          <text x="332" y="377" text-anchor="middle" font-size="8" fill="#34d399">SPI</text>
-          <!-- Battery -->
-          <g filter="url(#diag-shadow)">
-            <rect x="60" y="430" width="180" height="42" rx="6" fill="rgba(0,0,0,0.04)" stroke="var(--border)" stroke-width="1"/>
-            <text x="150" y="448" text-anchor="middle" font-size="10" fill="#60a5fa">6S Li-ion · 22.2V · 50Wh</text>
-            <text x="150" y="463" text-anchor="middle" font-size="9" fill="#777">USB-C PD 20V 3A</text>
-          </g>
-          <g filter="url(#diag-shadow)">
-            <rect x="260" y="430" width="200" height="42" rx="6" fill="rgba(0,0,0,0.04)" stroke="var(--border)" stroke-width="1"/>
-            <text x="360" y="448" text-anchor="middle" font-size="10" fill="#a78bfa">IMU (BMI270) + 安全看门狗</text>
-            <text x="360" y="463" text-anchor="middle" font-size="9" fill="#777">I²C · 步态检测 · 扭矩限幅</text>
-          </g>
-
-          <!-- NeuroSuit -->
-          <g filter="url(#diag-shadow)">
-            <rect x="540" y="310" width="380" height="250" rx="12" fill="rgba(0,0,0,0.03)" stroke="var(--border-hover)" stroke-width="1"/>
-            <rect x="540" y="310" width="380" height="32" rx="12" fill="rgba(167,139,250,0.08)"/>
-            <text x="730" y="332" text-anchor="middle" font-size="13" font-weight="600" fill="#a78bfa" filter="url(#diag-glow)">NeuroSuit 外骨骼服</text>
-          </g>
-          <g filter="url(#diag-shadow)">
-            <rect x="560" y="360" width="160" height="55" rx="6" fill="rgba(0,0,0,0.04)" stroke="var(--border)" stroke-width="1"/>
-            <text x="640" y="379" text-anchor="middle" font-size="10" fill="#a78bfa">无刷电机 (AK80-9)</text>
-            <text x="640" y="395" text-anchor="middle" font-size="9" fill="#777">0.5Nm/rotor · 9:1减速</text>
-            <text x="640" y="409" text-anchor="middle" font-size="9" fill="#777">霍尔传感器</text>
-          </g>
-          <g filter="url(#diag-shadow)">
-            <rect x="740" y="360" width="160" height="55" rx="6" fill="rgba(0,0,0,0.04)" stroke="var(--border)" stroke-width="1"/>
-            <text x="820" y="379" text-anchor="middle" font-size="10" fill="#a78bfa">髋关节执行器</text>
-            <text x="820" y="395" text-anchor="middle" font-size="9" fill="#777">8Nm 持续 / 15Nm 峰值</text>
-            <text x="820" y="409" text-anchor="middle" font-size="9" fill="#777">Bowden 缆线</text>
-          </g>
-          <!-- Motor cable -->
-          <line x1="480" y1="385" x2="560" y2="385" stroke="#f472b6" stroke-width="2" marker-end="url(#diag-arr)"/>
-          <text x="520" y="377" text-anchor="middle" font-size="9" fill="#f472b6">三相动力线</text>
-          <!-- Human silhouette -->
-          <g transform="translate(800, 440)" opacity="0.3">
-            <circle cx="0" cy="-40" r="15" fill="none" stroke="#777" stroke-width="1.5"/>
-            <path d="M0,-25 L0,10 M0,-5 L-20,25 M0,-5 L20,25 M0,10 L-15,45 M0,10 L15,45" fill="none" stroke="#777" stroke-width="1.5"/>
-          </g>
-          <text x="800" y="500" text-anchor="middle" font-size="10" fill="#555">穿戴者</text>
-
-          <!-- Connection from control box to suit -->
-          <line x1="400" y1="480" x2="560" y2="480" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4,2"/>
-          <text x="480" y="495" text-anchor="middle" font-size="9" fill="#a78bfa">I²C 传感器反馈</text>
-
-          <!-- Legend -->
-          <g transform="translate(40, 570)">
-            <text x="0" y="0" font-size="10" font-weight="600" fill="#999">协议图例:</text>
-            <line x1="90" y1="-3" x2="120" y2="-3" stroke="#34d399" stroke-width="1.5"/>
-            <text x="124" y="0" font-size="9" fill="#777">SPI/UART</text>
-            <line x1="180" y1="-3" x2="210" y2="-3" stroke="#7dd3fc" stroke-width="1.5" stroke-dasharray="5,3"/>
-            <text x="214" y="0" font-size="9" fill="#777">BLE</text>
-            <line x1="260" y1="-3" x2="290" y2="-3" stroke="#f472b6" stroke-width="1.5"/>
-            <text x="294" y="0" font-size="9" fill="#777">动力线</text>
-            <line x1="350" y1="-3" x2="380" y2="-3" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4,2"/>
-            <text x="384" y="0" font-size="9" fill="#777">传感器</text>
-          </g>
-        </svg>
-      </div>
-
-      <!-- Power Tree (simplified) -->
-      <div class="diagram-card">
-        <div class="diag-title">电源树 — 电压轨与功耗分配</div>
-        <svg viewBox="0 0 860 500" xmlns="http://www.w3.org/2000/svg" style="max-width:860px;">
-          <defs>
-            <filter id="pshadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.5"/></filter>
-            <marker id="parr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#fbbf24"/></marker>
-            <marker id="parr-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#60a5fa"/></marker>
-          </defs>
-          <rect width="860" height="500" fill="#000" rx="8"/>
-
-          <!-- Battery -->
-          <g filter="url(#pshadow)">
-            <rect x="300" y="30" width="260" height="60" rx="10" fill="rgba(0,0,0,0.03)" stroke="#fbbf24" stroke-width="1.2"/>
-            <text x="430" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#fbbf24">6S Li-ion 电池包</text>
-            <text x="430" y="75" text-anchor="middle" font-size="10" fill="#999">22.2V · 2250mAh · 50Wh · 15A持续</text>
-          </g>
-
-          <!-- RAW bus -->
-          <line x1="430" y1="90" x2="430" y2="120" stroke="#fbbf24" stroke-width="2" marker-end="url(#parr)"/>
-          <rect x="230" y="120" width="400" height="36" rx="6" fill="rgba(0,0,0,0.03)" stroke="rgba(251,191,36,0.3)" stroke-width="1"/>
-          <text x="430" y="143" text-anchor="middle" font-size="11" font-weight="600" fill="#fbbf24">22.2V RAW 总线 · 15A 保险丝</text>
-
-          <!-- Three branches -->
-          <path d="M280,156 L280,200" stroke="#f472b6" stroke-width="2" marker-end="url(#parr)"/>
-          <path d="M430,156 L430,200" stroke="#60a5fa" stroke-width="2" marker-end="url(#parr-blue)"/>
-          <path d="M580,156 L580,200" stroke="#34d399" stroke-width="2" marker-end="url(#parr)"/>
-
-          <!-- Motor Rail -->
-          <g filter="url(#pshadow)">
-            <rect x="110" y="200" width="340" height="50" rx="8" fill="rgba(0,0,0,0.03)" stroke="#f472b6" stroke-width="1"/>
-            <text x="280" y="222" text-anchor="middle" font-size="11" font-weight="600" fill="#f472b6">电机驱动轨 · 22.2V 直驱</text>
-            <text x="280" y="240" text-anchor="middle" font-size="10" fill="#999">DRV8316 · 最大12A · 150W</text>
-          </g>
-
-          <!-- 12V Rail -->
-          <g filter="url(#pshadow)">
-            <rect x="260" y="260" width="340" height="50" rx="8" fill="rgba(0,0,0,0.03)" stroke="#60a5fa" stroke-width="1"/>
-            <text x="430" y="282" text-anchor="middle" font-size="11" font-weight="600" fill="#60a5fa">12V 中间轨 · 22.2V→12V Buck</text>
-            <text x="430" y="300" text-anchor="middle" font-size="10" fill="#999">最大3A · 纹波&lt;50mVpp</text>
-          </g>
-
-          <!-- USB-C -->
-          <g filter="url(#pshadow)">
-            <rect x="410" y="200" width="340" height="50" rx="8" fill="rgba(0,0,0,0.03)" stroke="#34d399" stroke-width="1"/>
-            <text x="580" y="222" text-anchor="middle" font-size="11" font-weight="600" fill="#34d399">USB-C PD 充电</text>
-            <text x="580" y="240" text-anchor="middle" font-size="10" fill="#999">20V · 3A (60W) · BQ25713</text>
-          </g>
-
-          <!-- 12V lower branches -->
-          <path d="M340,310 L340,350" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#parr-blue)"/>
-          <path d="M520,310 L520,350" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#parr-blue)"/>
-
-          <!-- 5V Rail -->
-          <g filter="url(#pshadow)">
-            <rect x="120" y="350" width="440" height="46" rx="8" fill="rgba(0,0,0,0.03)" stroke="#34d399" stroke-width="1"/>
-            <text x="340" y="370" text-anchor="middle" font-size="11" font-weight="600" fill="#34d399">5V · LDO · 最大500mA</text>
-            <text x="340" y="387" text-anchor="middle" font-size="10" fill="#999">LED指示灯 · 散热风扇</text>
-          </g>
-
-          <!-- 3.3V Rail -->
-          <g filter="url(#pshadow)">
-            <rect x="300" y="350" width="440" height="46" rx="8" fill="rgba(0,0,0,0.03)" stroke="#7dd3fc" stroke-width="1"/>
-            <text x="520" y="370" text-anchor="middle" font-size="11" font-weight="600" fill="#7dd3fc">3.3V · Buck · 最大1.2A</text>
-            <text x="520" y="387" text-anchor="middle" font-size="10" fill="#999">nRF5340 · STM32H743 · IMU</text>
-          </g>
-
-          <!-- Power budget table -->
-          <g transform="translate(40, 420)">
-            <rect x="0" y="0" width="780" height="70" rx="8" fill="rgba(0,0,0,0.02)" stroke="var(--border)" stroke-width="1"/>
-            <text x="390" y="20" text-anchor="middle" font-size="11" font-weight="600" fill="#999">电源预算汇总</text>
-            <text x="40" y="42" font-size="9" fill="#f472b6">22.2V 电机</text>
-            <text x="200" y="42" font-size="9" fill="#999">12A / 150W</text>
-            <text x="340" y="42" font-size="9" fill="#60a5fa">12V 中间</text>
-            <text x="460" y="42" font-size="9" fill="#999">3A / 36W</text>
-            <text x="580" y="42" font-size="9" fill="#34d399">5V</text>
-            <text x="640" y="42" font-size="9" fill="#999">500mA / 2.5W</text>
-            <text x="40" y="60" font-size="9" fill="#7dd3fc">3.3V 数字</text>
-            <text x="200" y="60" font-size="9" fill="#999">1.2A / 4W</text>
-            <text x="340" y="60" font-size="9" fill="#60a5fa">3.3V 模拟</text>
-            <text x="460" y="60" font-size="9" fill="#999">50mA / 0.17W</text>
-            <text x="580" y="60" font-size="9" fill="#777">总计 ~193W 峰值</text>
-          </g>
-        </svg>
-      </div>
-
-      <!-- Control Loop Diagram -->
-      <div class="diagram-card">
-        <div class="diag-title">闭环控制系统 — EEG意图到电机扭矩</div>
-        <svg viewBox="0 0 960 480" xmlns="http://www.w3.org/2000/svg" style="max-width:960px;">
-          <defs>
-            <filter id="cshadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.5"/></filter>
-            <marker id="carr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#60a5fa"/></marker>
-            <marker id="carr-amber" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#fbbf24"/></marker>
-            <marker id="carr-pink" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#f472b6"/></marker>
-            <marker id="carr-purple" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#a78bfa"/></marker>
-          </defs>
-          <rect width="960" height="480" fill="#000" rx="8"/>
-
-          <!-- Row 1: EEG Processing -->
-          <g transform="translate(20, 30)">
-            <!-- EEG Input -->
-            <g filter="url(#cshadow)">
-              <rect x="0" y="0" width="150" height="65" rx="8" fill="rgba(0,0,0,0.03)" stroke="#7dd3fc" stroke-width="1"/>
-              <text x="75" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#7dd3fc">EEG 信号输入</text>
-              <text x="75" y="38" text-anchor="middle" font-size="9" fill="#999">8ch · 250SPS · 24bit</text>
-              <text x="75" y="54" text-anchor="middle" font-size="9" fill="#777">Cz, C3, C4, Fz...</text>
-            </g>
-            <line x1="150" y1="32" x2="180" y2="32" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#carr)"/>
-
-            <!-- Preprocess + CSP -->
-            <g filter="url(#cshadow)">
-              <rect x="180" y="0" width="160" height="65" rx="8" fill="rgba(0,0,0,0.03)" stroke="#60a5fa" stroke-width="1"/>
-              <text x="260" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#60a5fa">预处理 + CSP</text>
-              <text x="260" y="38" text-anchor="middle" font-size="9" fill="#999">0.5-45Hz BP · 50Hz Notch</text>
-              <text x="260" y="54" text-anchor="middle" font-size="9" fill="#777">CSP 8→2通道 · 100ms窗</text>
-            </g>
-            <line x1="340" y1="32" x2="370" y2="32" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#carr)"/>
-
-            <!-- FBCSP + LDA -->
-            <g filter="url(#cshadow)">
-              <rect x="370" y="0" width="170" height="65" rx="8" fill="rgba(0,0,0,0.03)" stroke="#60a5fa" stroke-width="1"/>
-              <text x="455" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#60a5fa">FBCSP + LDA</text>
-              <text x="455" y="38" text-anchor="middle" font-size="9" fill="#999">5频带 0.5-40Hz</text>
-              <text x="455" y="54" text-anchor="middle" font-size="9" fill="#777">分类: 走/上楼梯/停</text>
-            </g>
-            <line x1="540" y1="32" x2="570" y2="32" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#carr)"/>
-
-            <!-- Intention -->
-            <g filter="url(#cshadow)">
-              <rect x="570" y="0" width="150" height="65" rx="8" fill="rgba(0,0,0,0.03)" stroke="#7dd3fc" stroke-width="1"/>
-              <text x="645" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#7dd3fc">意图解码</text>
-              <text x="645" y="38" text-anchor="middle" font-size="9" fill="#999">指数滑动平均</text>
-              <text x="645" y="54" text-anchor="middle" font-size="9" fill="#777">α=0.3 · 滞后100ms</text>
-            </g>
-          </g>
-
-          <!-- Down arrow -->
-          <path d="M740,95 L740,130" stroke="#fbbf24" stroke-width="2" marker-end="url(#carr-amber)"/>
-          <text x="750" y="118" font-size="9" fill="#fbbf24">意图 τ*</text>
-
-          <!-- Row 2: Torque → Motor -->
-          <g transform="translate(20, 140)">
-            <!-- Gait Phase -->
-            <g filter="url(#cshadow)">
-              <rect x="0" y="0" width="140" height="60" rx="8" fill="rgba(0,0,0,0.03)" stroke="#a78bfa" stroke-width="1"/>
-              <text x="70" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#a78bfa">步态相位检测</text>
-              <text x="70" y="38" text-anchor="middle" font-size="9" fill="#999">IMU · 髋关节角度</text>
-              <text x="70" y="52" text-anchor="middle" font-size="9" fill="#777">着地/离地/摆动/站立</text>
-            </g>
-            <line x1="140" y1="30" x2="170" y2="30" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#carr-purple)"/>
-
-            <!-- Torque Setpoint -->
-            <g filter="url(#cshadow)">
-              <rect x="170" y="0" width="150" height="60" rx="8" fill="rgba(0,0,0,0.03)" stroke="#fbbf24" stroke-width="1"/>
-              <text x="245" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#fbbf24">扭矩设定值</text>
-              <text x="245" y="38" text-anchor="middle" font-size="9" fill="#999">τ* = f(意图, 步态)</text>
-              <text x="245" y="52" text-anchor="middle" font-size="9" fill="#777">查表 + 线性插值</text>
-            </g>
-            <line x1="320" y1="30" x2="350" y2="30" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#carr-amber)"/>
-
-            <!-- PI Torque -->
-            <g filter="url(#cshadow)">
-              <rect x="350" y="0" width="160" height="60" rx="8" fill="rgba(0,0,0,0.03)" stroke="#f472b6" stroke-width="1"/>
-              <text x="430" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#f472b6">PI 扭矩控制</text>
-              <text x="430" y="38" text-anchor="middle" font-size="9" fill="#999">τ_err → i_q*</text>
-              <text x="430" y="52" text-anchor="middle" font-size="9" fill="#777">Kp=0.5 · Ki=20</text>
-            </g>
-            <line x1="510" y1="30" x2="540" y2="30" stroke="#f472b6" stroke-width="1.5" marker-end="url(#carr-pink)"/>
-
-            <!-- PI Current -->
-            <g filter="url(#cshadow)">
-              <rect x="540" y="0" width="160" height="60" rx="8" fill="rgba(0,0,0,0.03)" stroke="#f472b6" stroke-width="1"/>
-              <text x="620" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#f472b6">PI 电流环</text>
-              <text x="620" y="38" text-anchor="middle" font-size="9" fill="#999">i_q_err → V_q</text>
-              <text x="620" y="52" text-anchor="middle" font-size="9" fill="#777">Kp=0.3 · Ki=200</text>
-            </g>
-            <line x1="700" y1="30" x2="730" y2="30" stroke="#f472b6" stroke-width="1.5" marker-end="url(#carr-pink)"/>
-
-            <!-- SVPWM -->
-            <g filter="url(#cshadow)">
-              <rect x="730" y="0" width="140" height="60" rx="8" fill="rgba(0,0,0,0.03)" stroke="#34d399" stroke-width="1"/>
-              <text x="800" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#34d399">SVPWM</text>
-              <text x="800" y="38" text-anchor="middle" font-size="9" fill="#999">V_αβ → 占空比</text>
-              <text x="800" y="52" text-anchor="middle" font-size="9" fill="#777">20kHz · 7段式</text>
-            </g>
-          </g>
-
-          <!-- Motor block -->
-          <g filter="url(#cshadow)">
-            <rect x="740" y="215" width="180" height="60" rx="10" fill="rgba(0,0,0,0.03)" stroke="#f472b6" stroke-width="1.2"/>
-            <text x="830" y="237" text-anchor="middle" font-size="11" font-weight="600" fill="#f472b6">无刷电机 + 髋关节</text>
-            <text x="830" y="255" text-anchor="middle" font-size="9" fill="#999">AK80-9 · Bowden传动</text>
-            <text x="830" y="271" text-anchor="middle" font-size="9" fill="#777">J=0.002 · B=0.001</text>
-          </g>
-          <path d="M800,200 L800,215" stroke="#34d399" stroke-width="1.5" marker-end="url(#carr)"/>
-
-          <!-- Feedback paths -->
-          <path d="M830,275 L830,320 L630,320 L630,260" stroke="#a78bfa" stroke-width="1.2" fill="none" stroke-dasharray="5,3" marker-end="url(#carr-purple)"/>
-          <text x="700" y="314" text-anchor="middle" font-size="8" fill="#a78bfa">扭矩反馈</text>
-
-          <path d="M70,200 L70,350 L245,350 L245,260" stroke="#a78bfa" stroke-width="1.2" fill="none" stroke-dasharray="5,3" marker-end="url(#carr-purple)"/>
-          <text x="160" y="345" text-anchor="middle" font-size="8" fill="#a78bfa">IMU反馈</text>
-
-          <path d="M830,275 L830,370 L620,370 L620,260" stroke="#fbbf24" stroke-width="1.2" fill="none" stroke-dasharray="4,2" marker-end="url(#carr-amber)"/>
-          <text x="700" y="365" text-anchor="middle" font-size="8" fill="#fbbf24">速度反馈</text>
-
-          <!-- Feedback legend -->
-          <g transform="translate(20, 400)">
-            <text x="0" y="0" font-size="10" font-weight="600" fill="#999">反馈:</text>
-            <line x1="60" y1="-3" x2="85" y2="-3" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
-            <text x="88" y="0" font-size="9" fill="#777">扭矩/IMU</text>
-            <line x1="170" y1="-3" x2="195" y2="-3" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4,2"/>
-            <text x="198" y="0" font-size="9" fill="#777">速度</text>
-            <line x1="260" y1="-3" x2="285" y2="-3" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="3,2"/>
-            <text x="288" y="0" font-size="9" fill="#777">电流</text>
-          </g>
-        </svg>
-      </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Bones &amp; Manifold. All rights reserved.</span>
+      <span>立足南京，面向全球</span>
     </div>
-  </div>
-</section>
-
-<!-- ===== AI ARCHITECTURE ===== -->
-<section class="section" style="padding-top:0;">
-  <div class="section-inner">
-    <div class="text-center">
-      <p class="section-label">AI Architecture</p>
-      <h2>数据流水线</h2>
-      <p class="section-sub center">从EEG信号采集到联邦学习模型更新，完整的AI数据管道</p>
-    </div>
-
-    <div class="ai-flow">
-      <div class="ai-step">
-        <div class="ai-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <div class="ai-name">EEG采集</div>
-        <div class="ai-desc">8ch 干电极<br>250SPS · 24bit</div>
-      </div>
-      <div class="ai-arrow">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </div>
-      <div class="ai-step">
-        <div class="ai-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2" stroke-linecap="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-        </div>
-        <div class="ai-name">EEGNet</div>
-        <div class="ai-desc">CSP · FBCSP<br>LDA 分类器</div>
-      </div>
-      <div class="ai-arrow">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </div>
-      <div class="ai-step">
-        <div class="ai-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M16.24 7.76l-8.48 8.48"/><path d="M7.76 7.76l8.48 8.48"/></svg>
-        </div>
-        <div class="ai-name">RL Policy</div>
-        <div class="ai-desc">强化学习策略<br>416肌数字孪生</div>
-      </div>
-      <div class="ai-arrow">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </div>
-      <div class="ai-step">
-        <div class="ai-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg>
-        </div>
-        <div class="ai-name">Motor Control</div>
-        <div class="ai-desc">FOC 20kHz<br>PI 扭矩控制</div>
-      </div>
-      <div class="ai-arrow">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </div>
-      <div class="ai-step">
-        <div class="ai-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        </div>
-        <div class="ai-name">Sensor Feedback</div>
-        <div class="ai-desc">IMU · 扭矩传感器<br>步态/姿态估计</div>
-      </div>
-      <div class="ai-arrow">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </div>
-      <div class="ai-step">
-        <div class="ai-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="ai-name">Federated Learning</div>
-        <div class="ai-desc">隐私保护 · 增量更新<br>模型持续优化</div>
-      </div>
-    </div>
-
-    <div style="text-align:center;max-width:700px;margin:32px auto 0;font-size:13px;color:var(--text-tertiary);line-height:1.7;">
-      数据流水线在手机端完成前向推理，仅将脱敏的训练梯度上传至联邦学习服务器。原始EEG数据和患者个人信息始终不出设备，从架构层面保障用户隐私。
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="footer-inner">
-    <div>
-      <h5>Nexum · 逐念而行</h5>
-      <p class="footer-brand-desc">定义人机共生赛道。Nexum One 神经重连AI系统，从大脑读取运动意图，让身体重新行动。</p>
-    </div>
-    <div>
-      <h5>导航</h5>
-      <ul class="footer-links">
-        <li><a href="product.html">产品</a></li>
-        <li><a href="technology.html">技术</a></li>
-        <li><a href="app.html">App</a></li>
-        <li><a href="index.html#team">团队</a></li>
-        <li><a href="index.html#contact">联系</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>文档</h5>
-      <ul class="footer-links">
-        <li><a href="逐念而行_Nexum_BP.html">商业计划书</a></li>
-        <li><a href="docs/Nexum_One_Product_Visualization.html">产品可视化</a></li>
-        <li><a href="docs/Nexum_System_Engineering_Diagrams.html">系统工程图</a></li>
-        <li><a href="docs/README.md">文档索引</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>联系</h5>
-      <ul class="footer-links">
-        <li><a href="mailto:hello@nexum.ai">hello@nexum.ai</a></li>
-        <li><span style="color:var(--text-tertiary);font-size:13px;">中国 · 上海</span></li>
-        <li style="margin-top:12px;"><a href="https://github.com/nexum-bci/nexum-bci.github.io">GitHub →</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>Confidential — For Investor Use Only</p>
-    <p style="margin-top:4px;font-size:10px;color:var(--text-disabled);">&copy; 2026 逐念而行 Nexum. 人机共生 · Human-Machine Symbiosis</p>
   </div>
 </footer>
 
-<!-- ===== JAVASCRIPT ===== -->
 <script>
-(function() {
-  'use strict';
-
-  /* Mobile Nav */
-  var navToggle = document.getElementById('navToggle');
-  var navLinks = document.getElementById('navLinks');
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', function() {
-      navLinks.classList.toggle('open');
-      navToggle.classList.toggle('active');
-    });
-    navLinks.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        navLinks.classList.remove('open');
-        navToggle.classList.remove('active');
-      });
-    });
-  }
-
-  /* Navbar scroll effect */
-  var navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 60) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  }, { passive: true });
-
-  /* Latency bar animation */
-  var latencyBar = document.getElementById('latencyBar');
-  if (latencyBar) {
-    var barObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var segs = entry.target.querySelectorAll('.latency-seg');
-          segs.forEach(function(seg, i) {
-            setTimeout(function() { seg.classList.add('revealed'); }, 100 + i * 100);
-          });
-          barObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    barObserver.observe(latencyBar);
-  }
-
-  /* Intersection Observer for reveal animations */
-  var revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('[data-reveal]').forEach(function(el) {
-    revealObserver.observe(el);
-  });
-})();
-</script>
-
-<script>
+// Theme toggle
 (function(){
   var toggle = document.getElementById('themeToggle');
-  if (!toggle) return;
-  function setTheme(theme) {
-    if (theme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-    }
-    localStorage.setItem('nexum-theme', theme === 'dark' ? 'dark' : 'light');
+  function setTheme(t){
+    if(t==='dark') document.documentElement.setAttribute('data-theme','dark');
+    else document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('nexum-theme',t);
   }
   var saved = localStorage.getItem('nexum-theme');
-  if (saved === 'dark') setTheme('dark');
-  toggle.addEventListener('click', function(){
-    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    setTheme(isDark ? 'light' : 'dark');
+  if(saved==='dark') setTheme('dark');
+  if(document.documentElement.hasAttribute('data-theme')) toggle.textContent = '☀️';
+  else toggle.textContent = '🌙';
+  toggle.addEventListener('click',function(){
+    var isDark = document.documentElement.hasAttribute('data-theme');
+    setTheme(isDark?'light':'dark');
+    toggle.textContent = isDark?'🌙':'☀️';
+  });
+})();
+
+// Mobile nav
+(function(){
+  var btn = document.getElementById('navToggle');
+  var nav = document.getElementById('nav');
+  btn.addEventListener('click',function(){
+    nav.classList.toggle('nav-open');
+  });
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.addEventListener('click',function(){nav.classList.remove('nav-open');});
   });
 })();
 </script>
-
 </body>
 </html>
