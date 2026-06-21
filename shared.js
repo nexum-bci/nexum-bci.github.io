@@ -95,4 +95,19 @@
   var style = document.createElement('style');
   style.textContent = 'body{opacity:0;animation:fadeIn .25s ease forwards}@keyframes fadeIn{to{opacity:1}}';
   document.head.appendChild(style);
+
+  // Back-to-top button
+  var btt = document.createElement('button');
+  btt.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>';
+  btt.setAttribute('aria-label', '回到顶部');
+  btt.style.cssText = 'position:fixed;bottom:28px;right:28px;z-index:999;width:44px;height:44px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:all 0.3s ease;opacity:0;pointer-events:none';
+  btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+  btt.addEventListener('mouseenter',function(){this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.12)'});
+  btt.addEventListener('mouseleave',function(){this.style.transform='translateY(0)';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.08)'});
+  document.body.appendChild(btt);
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>400){btt.style.opacity='1';btt.style.pointerEvents='auto'}
+    else{btt.style.opacity='0';btt.style.pointerEvents='none'}
+  });
+
 })();
