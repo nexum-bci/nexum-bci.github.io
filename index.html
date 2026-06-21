@@ -553,42 +553,245 @@ nav .container{
   margin:0 auto
 }
 .phone-mockup{
-  aspect-ratio:9/19.5;
-  max-width:260px;
   width:100%;
+  max-width:240px;
+  height:480px;
   margin:0 auto;
-  background:var(--bg-card);
-  border:3px solid var(--border);
-  border-radius:32px;
-  padding:16px 12px;
+  background:linear-gradient(145deg,#2c2c32,#1a1a20);
+  border:none;
+  border-radius:36px;
+  padding:8px;
   position:relative;
-  overflow:hidden;
-  transition:transform .3s ease,box-shadow .3s ease
+  overflow:visible;
+  transition:transform .3s ease,box-shadow .3s ease;
+  box-shadow:0 8px 32px rgba(0,0,0,0.12),inset 0 1px 0 rgba(255,255,255,0.06);
+  flex-shrink:0
 }
-.phone-mockup:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-[data-theme="dark"] .phone-mockup:hover{transform:translateY(-2px);box-shadow:none}
-.phone-mockup .phone-notch{
+.phone-mockup:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.2)}
+[data-theme="dark"] .phone-mockup{box-shadow:0 8px 32px rgba(0,0,0,0.5)}
+[data-theme="dark"] .phone-mockup:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.6)}
+.phone-notch{
   position:absolute;
-  top:0;
+  top:8px;
   left:50%;
   transform:translateX(-50%);
-  width:80px;
-  height:18px;
-  background:var(--border);
-  border-radius:0 0 12px 12px;
-  z-index:1
+  width:90px;
+  height:22px;
+  background:#000;
+  border-radius:14px;
+  z-index:10;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.06)
 }
-.phone-mockup .phone-screen{
+.phone-screen{
+  width:100%;
   height:100%;
+  border-radius:30px;
+  overflow:hidden;
+  position:relative;
   display:flex;
   flex-direction:column;
-  gap:8px;
-  padding-top:10px
+  transition:background .35s ease;
+  background:#f5f5f7;
+  color:#1d1d1f
 }
-.phone-mockup .phone-body{flex:1;border-radius:8px;display:flex;flex-direction:column;gap:6px}
-.phone-mockup .phone-row{height:40px;border-radius:6px;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--text-tertiary)}
-.phone-mockup .phone-row-lg{flex:1;border-radius:6px;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-tertiary);text-align:center;padding:6px}
-.phone-mockup .phone-label{margin-bottom:4px;font-size:11px;font-weight:600;text-align:center;color:var(--text-secondary)}
+[data-theme="dark"] .phone-screen{
+  background:#000;
+  color:#fff
+}
+.phone-screen-content{
+  flex:1;
+  padding:38px 12px 12px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  gap:8px
+}
+.phone-status-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:2px 4px;
+  position:relative;
+  z-index:5;
+  flex-shrink:0;
+  margin-bottom:4px
+}
+.phone-status-time{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.3px;
+  color:#1d1d1f
+}
+[data-theme="dark"] .phone-status-time{color:#fff}
+.phone-status-icons{display:flex;gap:4px;align-items:center}
+.phone-status-icons svg{display:block}
+.phone-greeting{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:6px
+}
+.phone-greeting-text{font-size:16px;font-weight:700;line-height:1.3}
+.phone-greeting-sub{font-size:11px;font-weight:400;color:var(--text-secondary);display:block;margin-bottom:1px}
+.phone-avatar{
+  width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,#0096f0,#0055aa);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:600;color:#fff;flex-shrink:0
+}
+.phone-stats{
+  display:flex;align-items:center;gap:12px;
+  padding:6px 10px;
+  background:rgba(0,0,0,0.03);border-radius:100px;
+  font-size:11px;color:var(--text-secondary);margin-bottom:6px
+}
+[data-theme="dark"] .phone-stats{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.6)}
+.phone-stats strong{color:#1d1d1f}
+[data-theme="dark"] .phone-stats strong{color:#fff}
+.phone-stats-div{width:1px;height:12px;background:rgba(0,0,0,0.08);flex-shrink:0}
+[data-theme="dark"] .phone-stats-div{background:rgba(255,255,255,0.1)}
+.phone-ring-section{
+  position:relative;display:flex;flex-direction:column;align-items:center;
+  padding:12px;margin-bottom:4px;
+  background:rgba(255,255,255,0.8);border-radius:12px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.04)
+}
+[data-theme="dark"] .phone-ring-section{background:rgba(255,255,255,0.04);box-shadow:none}
+.phone-ring-wrap{position:relative;width:100px;height:100px}
+.phone-ring-wrap svg{width:100%;height:100%;display:block}
+.phone-ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.phone-ring-pct{font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.phone-ring-label{font-size:9px;color:var(--text-secondary);margin-top:1px}
+[data-theme="dark"] .phone-ring-label{color:rgba(255,255,255,0.45)}
+.phone-metrics{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px
+}
+.phone-metric{
+  background:rgba(255,255,255,0.8);border-radius:8px;padding:8px 4px;text-align:center;
+  box-shadow:0 1px 3px rgba(0,0,0,0.03)
+}
+[data-theme="dark"] .phone-metric{background:rgba(255,255,255,0.04);box-shadow:none}
+.phone-metric-val{font-size:15px;font-weight:700;line-height:1.2}
+.phone-metric-lbl{font-size:8px;color:var(--text-secondary);margin-top:1px}
+[data-theme="dark"] .phone-metric-lbl{color:rgba(255,255,255,0.45)}
+.phone-btn{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  width:100%;padding:10px;
+  background:linear-gradient(135deg,#0096f0,#00b4d8);
+  border:none;border-radius:10px;
+  color:#fff;font-size:13px;font-weight:600;font-family:inherit;
+  cursor:pointer;
+  box-shadow:0 3px 12px rgba(0,150,240,.25);
+  transition:all .2s ease;flex-shrink:0
+}
+.phone-btn-2{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  flex:1;padding:8px 10px;
+  background:rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.08);
+  border-radius:10px;color:var(--text-secondary);font-size:11px;font-weight:500;font-family:inherit;
+  cursor:pointer
+}
+[data-theme="dark"] .phone-btn-2{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);color:rgba(255,255,255,0.6)}
+.phone-btn-row{display:flex;gap:6px;flex-shrink:0}
+.phone-mockup-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;flex-shrink:0}
+.phone-mockup-title{font-size:14px;font-weight:700}
+.phone-live-badge{
+  display:flex;align-items:center;gap:4px;
+  padding:3px 8px;background:rgba(255,69,58,0.1);
+  border:1px solid rgba(255,69,58,0.2);border-radius:100px;
+  font-size:10px;font-weight:600;color:#ff453a
+}
+.phone-live-dot{width:5px;height:5px;border-radius:50%;background:#ff453a;animation:pulse 1.5s ease-in-out infinite}
+.phone-gauge-wrap{
+  position:relative;display:flex;flex-direction:column;align-items:center;
+  padding:8px 12px;margin-bottom:4px;
+  background:rgba(255,255,255,0.8);border-radius:12px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.04)
+}
+[data-theme="dark"] .phone-gauge-wrap{background:rgba(255,255,255,0.04);box-shadow:none}
+.phone-gauge-svg{position:relative;width:130px;height:80px;overflow:hidden}
+.phone-gauge-svg svg{width:100%;height:100%;display:block}
+.phone-gauge-center{position:absolute;bottom:2px;left:50%;transform:translateX(-50%);text-align:center}
+.phone-gauge-val{font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1;color:#34c759}
+.phone-gauge-lbl{font-size:8px;color:var(--text-secondary);letter-spacing:.2px}
+[data-theme="dark"] .phone-gauge-lbl{color:rgba(255,255,255,0.45)}
+.phone-train-metrics{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:6px
+}
+.phone-train-metric{
+  background:rgba(255,255,255,0.8);border-radius:8px;padding:6px 4px;text-align:center;
+  box-shadow:0 1px 3px rgba(0,0,0,0.03)
+}
+[data-theme="dark"] .phone-train-metric{background:rgba(255,255,255,0.04);box-shadow:none}
+.phone-train-metric .tm-v{font-size:13px;font-weight:700;line-height:1.2;color:#1d1d1f}
+[data-theme="dark"] .phone-train-metric .tm-v{color:#fff}
+.phone-train-metric .tm-l{font-size:8px;color:var(--text-secondary);margin-top:1px}
+[data-theme="dark"] .phone-train-metric .tm-l{color:rgba(255,255,255,0.45)}
+.phone-assist{
+  padding:8px 10px;margin-bottom:4px;
+  background:rgba(255,255,255,0.8);border-radius:10px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.03)
+}
+[data-theme="dark"] .phone-assist{background:rgba(255,255,255,0.04);box-shadow:none}
+.phone-assist-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.phone-assist-lbl{font-size:9px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.3px}
+[data-theme="dark"] .phone-assist-lbl{color:rgba(255,255,255,0.45)}
+.phone-assist-level{font-size:12px;font-weight:700;color:#0096f0}
+.phone-assist-bar{height:4px;background:rgba(0,0,0,0.06);border-radius:2px;overflow:hidden}
+[data-theme="dark"] .phone-assist-bar{background:rgba(255,255,255,0.08)}
+.phone-assist-fill{height:100%;width:40%;background:linear-gradient(90deg,#0096f0,#00b4d8);border-radius:2px}
+.phone-report-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.phone-report-title{font-size:14px;font-weight:700}
+.phone-report-date{font-size:9px;color:var(--text-secondary);margin-top:1px}
+[data-theme="dark"] .phone-report-date{color:rgba(255,255,255,0.45)}
+.phone-report-badge{padding:3px 8px;background:rgba(0,150,240,0.1);border-radius:100px;font-size:9px;font-weight:600;color:#0096f0}
+.phone-report-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:6px}
+.phone-report-card{
+  background:rgba(255,255,255,0.8);border-radius:8px;padding:6px 4px;text-align:center;
+  box-shadow:0 1px 3px rgba(0,0,0,0.03)
+}
+[data-theme="dark"] .phone-report-card{background:rgba(255,255,255,0.04);box-shadow:none}
+.phone-report-card .rc-v{font-size:14px;font-weight:700;line-height:1.2}
+.phone-report-card .rc-l{font-size:8px;color:var(--text-secondary);margin-top:1px}
+[data-theme="dark"] .phone-report-card .rc-l{color:rgba(255,255,255,0.45)}
+.phone-chart{
+  padding:8px 10px;margin-bottom:4px;
+  background:rgba(255,255,255,0.8);border-radius:10px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.03)
+}
+[data-theme="dark"] .phone-chart{background:rgba(255,255,255,0.04);box-shadow:none}
+.phone-chart-title{font-size:9px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px}
+[data-theme="dark"] .phone-chart-title{color:rgba(255,255,255,0.45)}
+.phone-chart-bars{display:flex;align-items:flex-end;gap:4px;height:48px}
+.phone-chart-bar{
+  flex:1;border-radius:3px 3px 0 0;
+  background:#0096f0;opacity:.7;
+  min-height:8px;transition:opacity .2s
+}
+.phone-chart-bars .bar-1{height:28px}
+.phone-chart-bars .bar-2{height:40px}
+.phone-chart-bars .bar-3{height:32px}
+.phone-chart-bars .bar-4{height:48px}
+.phone-chart-bars .bar-5{height:36px}
+.phone-chart-bars .bar-6{height:42px}
+.phone-chart-bars .bar-7{height:44px;opacity:1}
+.phone-chart-days{display:flex;justify-content:space-between;margin-top:3px;padding:0 1px}
+.phone-chart-days span{font-size:7px;color:var(--text-secondary);font-feature-settings:"tnum"}
+[data-theme="dark"] .phone-chart-days span{color:rgba(255,255,255,0.35)}
+.phone-compare{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 10px;margin-bottom:4px;
+  background:rgba(52,199,89,0.08);border:1px solid rgba(52,199,89,0.12);
+  border-radius:8px;font-size:10px;color:#34c759;font-weight:500
+}
+.phone-compare-sub{font-size:9px;color:rgba(52,199,89,0.6);margin-left:auto}
+.phone-note{padding:6px 10px;background:rgba(0,0,0,0.02);border-left:2px solid #0096f0;border-radius:0 6px 6px 0;font-size:9px;color:var(--text-secondary);line-height:1.5;margin-bottom:4px}
+[data-theme="dark"] .phone-note{background:rgba(255,255,255,0.02);color:rgba(255,255,255,0.5)}
+.phone-note-hdr{display:flex;justify-content:space-between;margin-bottom:2px}
+.phone-note-author{font-size:9px;font-weight:600;color:#1d1d1f}
+[data-theme="dark"] .phone-note-author{color:rgba(255,255,255,0.7)}
+.phone-note-date{font-size:8px;color:var(--text-secondary)}
+[data-theme="dark"] .phone-note-date{color:rgba(255,255,255,0.35)}
 .app-features{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:48px;max-width:800px;margin-left:auto;margin-right:auto}
 .app-feature{text-align:center;padding:16px}
 .app-feature .app-feature-icon{font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:8px}
@@ -758,7 +961,7 @@ footer a:hover{color:var(--text)}
   .tech-step .step-desc{max-width:100%}
   .latency-bar{height:36px;border-radius:6px}
   .latency-bar span{font-size:10px}
-  .app-mockups{grid-template-columns:1fr;max-width:260px}
+  .app-mockups{grid-template-columns:1fr;max-width:240px}
   .app-features{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}
   .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
@@ -1232,54 +1435,209 @@ footer a:hover{color:var(--text)}
       <p class="section-sub section-sub-center">运行个性化AI策略引擎，提供实时生物反馈与康复进度追踪。三大核心界面覆盖训练全流程体验。</p>
     </div>
     <div class="app-mockups">
-      <!-- Phone 1: 训练首页 -->
+      <!-- Phone 1: Training Dashboard -->
       <div class="phone-mockup">
         <div class="phone-notch"></div>
         <div class="phone-screen">
-          <div class="phone-label">训练首页</div>
-          <div style="display:flex;gap:4px;justify-content:center;margin:2px 0 6px">
-            <span class="tag tag-accent">今日训练</span>
-            <span class="tag">25min</span>
-          </div>
-          <div class="phone-body">
-            <div class="phone-row-lg">训练状态仪表盘<br>实时功率 | 步数 | 平衡度</div>
-            <div class="phone-row">髋关节力矩 12Nm</div>
-            <div class="phone-row">步态对称性 87%</div>
-            <div class="phone-row" style="height:48px;background:var(--accent);color:#fff;font-weight:600">开始训练</div>
+          <div class="phone-screen-content" style="padding-top:34px">
+            <!-- Status bar -->
+            <div class="phone-status-bar">
+              <span class="phone-status-time">9:41</span>
+              <div class="phone-status-icons">
+                <svg width="14" height="10" viewBox="0 0 14 10"><rect x="0" y="6" width="2.5" height="4" rx="0.5" fill="currentColor" opacity=".3"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5" fill="currentColor" opacity=".5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5" fill="currentColor"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5" fill="currentColor"/></svg>
+                <svg width="18" height="10" viewBox="0 0 18 10"><rect x="0" y="1" width="14" height="8" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="2" y="3" width="8" height="4" rx="1" fill="#34c759"/></svg>
+              </div>
+            </div>
+            <!-- Greeting -->
+            <div class="phone-greeting">
+              <div class="phone-greeting-text">
+                <span class="phone-greeting-sub">早上好</span>
+                李明
+              </div>
+              <div class="phone-avatar">李</div>
+            </div>
+            <!-- Stats -->
+            <div class="phone-stats">
+              <span><strong>8,472</strong> 步</span>
+              <span class="phone-stats-div"></span>
+              <span>连续 <strong>12</strong> 天</span>
+            </div>
+            <!-- Progress Ring -->
+            <div class="phone-ring-section">
+              <div class="phone-ring-wrap">
+                <svg viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="8"/>
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="#0096f0" stroke-width="8"
+                    stroke-dasharray="263.9" stroke-dashoffset="58.1" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+                </svg>
+                <div class="phone-ring-center">
+                  <span class="phone-ring-pct" style="color:#0096f0">78%</span>
+                  <span class="phone-ring-label">本周目标</span>
+                </div>
+              </div>
+            </div>
+            <!-- Metrics -->
+            <div class="phone-metrics">
+              <div class="phone-metric">
+                <div class="phone-metric-val" style="color:#0096f0">45</div>
+                <div class="phone-metric-lbl">训练(分钟)</div>
+              </div>
+              <div class="phone-metric">
+                <div class="phone-metric-val" style="color:#ff9f0a">320</div>
+                <div class="phone-metric-lbl">消耗(千卡)</div>
+              </div>
+              <div class="phone-metric">
+                <div class="phone-metric-val" style="color:#34c759">87%</div>
+                <div class="phone-metric-lbl">完成率</div>
+              </div>
+            </div>
+            <!-- Start Training -->
+            <button class="phone-btn" style="margin-top:auto">开始训练</button>
           </div>
         </div>
       </div>
-      <!-- Phone 2: 实时生物反馈 -->
+      <!-- Phone 2: Real-time Biofeedback -->
       <div class="phone-mockup">
         <div class="phone-notch"></div>
         <div class="phone-screen">
-          <div class="phone-label">实时生物反馈</div>
-          <div style="display:flex;gap:4px;justify-content:center;margin:2px 0 6px">
-            <span class="tag tag-accent">EEG</span>
-            <span class="tag">EMG</span>
-          </div>
-          <div class="phone-body">
-            <div class="phone-row-lg">脑电信号实时图谱<br>α波 | β波 | MRP</div>
-            <div class="phone-row">运动准备电位检测</div>
-            <div class="phone-row">肌电信号同步显示</div>
-            <div class="phone-row" style="height:48px;background:var(--accent-subtle);color:var(--accent);font-weight:600;font-size:10px">信号质量: 优</div>
+          <div class="phone-screen-content" style="padding-top:34px;gap:6px">
+            <!-- Status bar -->
+            <div class="phone-status-bar">
+              <span class="phone-status-time">9:41</span>
+              <div class="phone-status-icons">
+                <svg width="14" height="10" viewBox="0 0 14 10"><rect x="0" y="6" width="2.5" height="4" rx="0.5" fill="currentColor" opacity=".3"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5" fill="currentColor" opacity=".5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5" fill="currentColor"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5" fill="currentColor"/></svg>
+                <svg width="18" height="10" viewBox="0 0 18 10"><rect x="0" y="1" width="14" height="8" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="2" y="3" width="8" height="4" rx="1" fill="#34c759"/></svg>
+              </div>
+            </div>
+            <!-- Header -->
+            <div class="phone-mockup-header">
+              <span class="phone-mockup-title">实时训练</span>
+              <span class="phone-live-badge"><span class="phone-live-dot"></span>同步中</span>
+            </div>
+            <!-- Gauge -->
+            <div class="phone-gauge-wrap">
+              <div class="phone-gauge-svg">
+                <svg viewBox="0 0 130 80">
+                  <defs>
+                    <linearGradient id="phoneGaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#ff453a"/>
+                      <stop offset="40%" stop-color="#ff9f0a"/>
+                      <stop offset="70%" stop-color="#ffd60a"/>
+                      <stop offset="85%" stop-color="#34c759"/>
+                      <stop offset="100%" stop-color="#34c759"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M 15 75 A 55 55 0 0 1 115 75" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="10" stroke-linecap="round"/>
+                  <path d="M 15 75 A 55 55 0 0 1 115 75" fill="none" stroke="url(#phoneGaugeGrad)" stroke-width="10" stroke-linecap="round" stroke-dasharray="162 172.8"/>
+                  <line x1="65" y1="75" x2="112" y2="63" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="65" cy="75" r="4" fill="#fff"/>
+                  <circle cx="65" cy="75" r="2" fill="#0096f0"/>
+                </svg>
+                <div class="phone-gauge-center">
+                  <div class="phone-gauge-val">94%</div>
+                  <div class="phone-gauge-lbl">步态对称性</div>
+                </div>
+              </div>
+            </div>
+            <!-- Training metrics -->
+            <div class="phone-train-metrics">
+              <div class="phone-train-metric"><div class="tm-v">112</div><div class="tm-l">步频(步/分)</div></div>
+              <div class="phone-train-metric"><div class="tm-v">0.72</div><div class="tm-l">步幅(m)</div></div>
+              <div class="phone-train-metric"><div class="tm-v" style="color:#34c759">94%</div><div class="tm-l">对称性</div></div>
+            </div>
+            <!-- Muscle activation -->
+            <div style="font-size:8px;color:var(--text-secondary);margin-bottom:2px;letter-spacing:.3px;text-transform:uppercase">肌群激活</div>
+            <div style="display:flex;align-items:center;gap:4px;margin-bottom:4px">
+              <div style="flex:1;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.02);border-radius:6px;position:relative">
+                <svg width="60" height="48" viewBox="0 0 60 48">
+                  <ellipse cx="30" cy="6" rx="8" ry="9" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+                  <path d="M20 14h20l-5 22h-10z" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+                  <rect x="24" y="20" width="12" height="6" rx="2" fill="rgba(0,150,240,0.15)"/>
+                  <rect x="18" y="34" width="10" height="8" rx="2" fill="rgba(255,159,10,0.2)"/>
+                  <rect x="32" y="34" width="10" height="8" rx="2" fill="rgba(52,199,89,0.25)"/>
+                </svg>
+                <span style="position:absolute;bottom:4px;left:6px;font-size:6px;color:var(--text-secondary);opacity:.5">左</span>
+                <span style="position:absolute;bottom:4px;right:6px;font-size:6px;color:var(--text-secondary);opacity:.5">右</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;font-size:7px;color:var(--text-secondary)">
+                <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:#34c759;margin-right:3px;vertical-align:middle"></span>高度</span>
+                <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:#ff9f0a;margin-right:3px;vertical-align:middle"></span>中度</span>
+                <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:rgba(0,150,240,0.3);margin-right:3px;vertical-align:middle"></span>低度</span>
+              </div>
+            </div>
+            <!-- Assist level -->
+            <div class="phone-assist">
+              <div class="phone-assist-hdr">
+                <span class="phone-assist-lbl">辅助等级</span>
+                <span class="phone-assist-level">Level 2</span>
+              </div>
+              <div class="phone-assist-bar"><div class="phone-assist-fill"></div></div>
+            </div>
+            <!-- Buttons -->
+            <div class="phone-btn-row" style="margin-top:2px">
+              <button class="phone-btn-2">暂停</button>
+              <button class="phone-btn" style="font-size:11px;padding:8px 10px">结束训练</button>
+            </div>
           </div>
         </div>
       </div>
-      <!-- Phone 3: 进度报告 -->
+      <!-- Phone 3: Progress Report -->
       <div class="phone-mockup">
         <div class="phone-notch"></div>
         <div class="phone-screen">
-          <div class="phone-label">进度报告</div>
-          <div style="display:flex;gap:4px;justify-content:center;margin:2px 0 6px">
-            <span class="tag tag-accent">本周</span>
-            <span class="tag">+12%</span>
-          </div>
-          <div class="phone-body">
-            <div class="phone-row-lg">6分钟步行测试趋势<br>基线 → 当前: +44m*</div>
-            <div class="phone-row">本周训练 7次/7天</div>
-            <div class="phone-row">平均步速提升 8%</div>
-            <div class="phone-row" style="height:48px;background:var(--accent-subtle);color:var(--accent);font-weight:600;font-size:10px">AI训练报告已生成</div>
+          <div class="phone-screen-content" style="padding-top:34px;gap:6px">
+            <!-- Status bar -->
+            <div class="phone-status-bar">
+              <span class="phone-status-time">9:41</span>
+              <div class="phone-status-icons">
+                <svg width="14" height="10" viewBox="0 0 14 10"><rect x="0" y="6" width="2.5" height="4" rx="0.5" fill="currentColor" opacity=".3"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5" fill="currentColor" opacity=".5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5" fill="currentColor"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5" fill="currentColor"/></svg>
+                <svg width="18" height="10" viewBox="0 0 18 10"><rect x="0" y="1" width="14" height="8" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="2" y="3" width="10" height="4" rx="1" fill="#34c759"/></svg>
+              </div>
+            </div>
+            <!-- Header -->
+            <div class="phone-report-hdr">
+              <div>
+                <div class="phone-report-title">周度报告</div>
+                <div class="phone-report-date">6月15日 - 6月21日</div>
+              </div>
+              <span class="phone-report-badge">第25周</span>
+            </div>
+            <!-- Summary cards -->
+            <div class="phone-report-cards">
+              <div class="phone-report-card"><div class="rc-v">58,240</div><div class="rc-l">总步数</div></div>
+              <div class="phone-report-card"><div class="rc-v">6<span style="font-size:10px;font-weight:400;color:var(--text-secondary)">/7</span></div><div class="rc-l">训练天数</div></div>
+              <div class="phone-report-card"><div class="rc-v" style="color:#34c759">91%</div><div class="rc-l">平均对称性</div></div>
+            </div>
+            <!-- Chart -->
+            <div class="phone-chart">
+              <div class="phone-chart-title">每日步数趋势</div>
+              <div class="phone-chart-bars">
+                <div class="phone-chart-bar bar-1"></div>
+                <div class="phone-chart-bar bar-2"></div>
+                <div class="phone-chart-bar bar-3"></div>
+                <div class="phone-chart-bar bar-4"></div>
+                <div class="phone-chart-bar bar-5"></div>
+                <div class="phone-chart-bar bar-6"></div>
+                <div class="phone-chart-bar bar-7"></div>
+              </div>
+              <div class="phone-chart-days">
+                <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+              </div>
+            </div>
+            <!-- Comparison -->
+            <div class="phone-compare">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34c759" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              较上周提升 12%
+              <span class="phone-compare-sub">步态对称性</span>
+            </div>
+            <!-- Note -->
+            <div class="phone-note">
+              <div class="phone-note-hdr">
+                <span class="phone-note-author">王医生</span>
+                <span class="phone-note-date">6月21日</span>
+              </div>
+              本周对称性持续改善，左腿负重比例87%，建议下周辅助等级升至Level 3。
+            </div>
           </div>
         </div>
       </div>
