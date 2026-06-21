@@ -285,7 +285,7 @@ nav.scrolled {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: calc(var(--nav-height) + 48px) 24px 80px;
+  padding: calc(var(--nav-height) + 48px) 24px 120px;
   position: relative;
   overflow: hidden;
 }
@@ -426,7 +426,8 @@ nav.scrolled {
 }
 .hero-scroll {
   position: absolute;
-  bottom: 40px;
+  bottom: 24px;
+  opacity: 0.6;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -2080,11 +2081,11 @@ footer .footer-brand-desc {
         <div class="latency-seg" style="flex:0 0 5.4%;background:linear-gradient(135deg,#4050b0,#5060b8);border-radius:0 6px 6px 0;" data-label="传感反馈"></div>
       </div>
       <div class="latency-labels">
-        <div style="flex:0 0 21.6%;text-align:center;color:var(--text-secondary)"><span style="color:var(--text-primary);font-weight:700">40ms</span><br>① EEG采集</div>
-        <div style="flex:0 0 29.7%;text-align:center;color:var(--text-secondary)"><span style="color:var(--text-primary);font-weight:700">55ms</span><br>② AI推理</div>
-        <div style="flex:0 0 10.8%;text-align:center;color:var(--text-secondary)"><span style="color:var(--text-primary);font-weight:700">20ms</span><br>③ BLE</div>
-        <div style="flex:0 0 32.4%;text-align:center;color:var(--text-secondary)"><span style="color:var(--text-primary);font-weight:700">60ms</span><br>④ 执行</div>
-        <div style="flex:0 0 5.4%;text-align:center;color:var(--text-secondary)"><span style="color:var(--text-primary);font-weight:700">10ms</span><br>⑤ 反馈</div>
+        <div style="flex:0 0 21.6%;text-align:center;color:var(--text-secondary);white-space:nowrap"><span style="color:var(--text-primary);font-weight:700">40ms</span><br>① EEG采集</div>
+        <div style="flex:0 0 29.7%;text-align:center;color:var(--text-secondary);white-space:nowrap"><span style="color:var(--text-primary);font-weight:700">55ms</span><br>② AI推理</div>
+        <div style="flex:0 0 10.8%;text-align:center;color:var(--text-secondary);white-space:nowrap"><span style="color:var(--text-primary);font-weight:700">20ms</span><br>③ BLE</div>
+        <div style="flex:0 0 32.4%;text-align:center;color:var(--text-secondary);white-space:nowrap"><span style="color:var(--text-primary);font-weight:700">60ms</span><br>④ 执行</div>
+        <div style="flex:0 0 5.4%;text-align:center;color:var(--text-secondary);white-space:nowrap"><span style="color:var(--text-primary);font-weight:700">10ms</span><br>⑤ 反馈</div>
       </div>
     </div>
   </div>
