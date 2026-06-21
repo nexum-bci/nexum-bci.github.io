@@ -369,6 +369,12 @@ footer {
   font-size:14px;color:var(--text-secondary);line-height:1.7;padding:0
 }
 .faq-item.open .faq-answer{max-height:400px;padding:0 0 20px}
+
+/* Dual-mode: system SVG */
+.system-svg svg text[fill="#FFFFFF"],
+.system-svg svg text[fill="#ffffff"] { fill: #1d1d1f !important }
+[data-theme="dark"] .system-svg svg text[fill="#FFFFFF"],
+[data-theme="dark"] .system-svg svg text[fill="#ffffff"] { fill: #f5f5f7 !important }
 </style>
 </head>
 <body>
@@ -432,39 +438,142 @@ footer {
     <div class="section-label">系统架构总览</div>
     <h2>Nexum One 四大模块协同</h2>
     <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px;margin:32px 0 0">
-<svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="bandMatte" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#2a2a2a"/>
-                <stop offset="100%" stop-color="#1a1a1a"/>
-              </linearGradient>
-              <linearGradient id="bandAccent" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#0096f0"/>
-                <stop offset="100%" stop-color="#60a5fa"/>
-              </linearGradient>
-            </defs>
-            <!-- Band body -->
-            <path d="M 40 60 Q 40 10 150 10 Q 260 10 260 60 Q 260 80 150 75 Q 40 80 40 60 Z" fill="url(#bandMatte)" stroke="#333" stroke-width="1"/>
-            <!-- Highlight -->
-            <path d="M 48 60 Q 48 18 150 18 Q 252 18 252 60" fill="none" stroke="#444" stroke-width="1.5"/>
-            <!-- Electrodes along inner edge -->
-            <circle cx="80" cy="64" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
-            <circle cx="105" cy="68" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
-            <circle cx="130" cy="71" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
-            <circle cx="150" cy="72" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
-            <circle cx="170" cy="71" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
-            <circle cx="195" cy="68" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
-            <circle cx="220" cy="64" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
-            <circle cx="150" cy="74" r="5" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
-            <!-- LED indicators -->
-            <circle cx="240" cy="32" r="4" fill="#0096f0" filter="url(#sysGlow)"/>
-            <circle cx="60" cy="32" r="4" fill="#0096f0" opacity="0.5"/>
-            <!-- PCB trace -->
-            <path d="M 80 60 Q 150 78 220 60" fill="none" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="3,2"/>
-            <!-- Label -->
-            <text x="150" y="102" text-anchor="middle" fill="#777777" font-size="9">8通道干电极 · 运动准备电位检测</text>
-            <text x="150" y="116" text-anchor="middle" fill="#666666" font-size="8">ADS1299 · nRF52832 · BLE 5.0</text>
-          </svg>
+      <svg class="system-svg" viewBox="0 0 1000 680" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sysBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0096f0"/>
+            <stop offset="100%" stop-color="#60a5fa"/>
+          </linearGradient>
+          <linearGradient id="sysDim" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0096f0" stop-opacity="0.08"/>
+            <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.05"/>
+          </linearGradient>
+          <filter id="sysGlow">
+            <feGaussianBlur stdDeviation="3" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <marker id="sysArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0 0 L10 5 L0 10" fill="#0096f0"/>
+          </marker>
+          <marker id="sysArrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0 0 L10 5 L0 10" fill="#777777"/>
+          </marker>
+        </defs>
+
+        <!-- Background -->
+        <rect x="0" y="0" width="1000" height="680" rx="20" fill="url(#sysDim)"/>
+
+        <!-- ========== Person Figure ========== -->
+        <g transform="translate(440, 60)">
+          <!-- Head -->
+          <ellipse cx="60" cy="35" rx="28" ry="35" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+          <!-- EEG headband -->
+          <rect x="22" y="12" width="76" height="13" rx="6.5" fill="none" stroke="#0096f0" stroke-width="2.5" filter="url(#sysGlow)"/>
+          <text x="60" y="22" text-anchor="middle" fill="#0096f0" font-size="7" font-weight="700">EEG</text>
+          <!-- Body -->
+          <line x1="60" y1="70" x2="60" y2="230" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
+          <!-- Arms -->
+          <line x1="60" y1="100" x2="10" y2="180" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
+          <line x1="60" y1="100" x2="110" y2="180" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
+          <!-- Legs -->
+          <line x1="60" y1="230" x2="30" y2="380" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
+          <line x1="60" y1="230" x2="90" y2="380" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
+          <!-- NeuroSuit -->
+          <ellipse cx="60" cy="165" rx="38" ry="75" fill="none" stroke="#0096f0" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
+          <text x="60" y="170" text-anchor="middle" fill="#0096f0" font-size="7" opacity="0.6">神经服系统</text>
+          <!-- Control Box at belt -->
+          <rect x="40" y="290" width="40" height="25" rx="5" fill="rgba(255,255,255,0.05)" stroke="#0096f0" stroke-width="1.5"/>
+          <text x="60" y="307" text-anchor="middle" fill="#0096f0" font-size="6" font-weight="700">控制</text>
+          <!-- Bowden cables -->
+          <path d="M 60 315 L 60 380" stroke="#777777" stroke-width="2" stroke-dasharray="4,2" opacity="0.4"/>
+        </g>
+
+        <!-- ========== 1. EEG-Sense Box ========== -->
+        <g transform="translate(60, 40)">
+          <rect x="0" y="0" width="220" height="260" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(0,150,240,0.25)" stroke-width="1"/>
+          <rect x="0" y="0" width="220" height="44" rx="16" fill="rgba(0,150,240,0.1)"/>
+          <rect x="0" y="28" width="220" height="16" fill="rgba(0,150,240,0.1)"/>
+          <text x="110" y="28" text-anchor="middle" fill="#0096f0" font-size="13" font-weight="700">1. EEG-Sense 头带</text>
+          <circle cx="18" cy="68" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="72" fill="#999999" font-size="11">8通道干电极 EEG</text>
+          <circle cx="18" cy="92" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="96" fill="#999999" font-size="11">总重 80g · 佩戴如运动头带</text>
+          <circle cx="18" cy="116" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="120" fill="#999999" font-size="11">ADS1299 + nRF52832</text>
+          <circle cx="18" cy="140" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="144" fill="#999999" font-size="11">250 SPS · 24-bit ADC</text>
+          <circle cx="18" cy="164" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="168" fill="#999999" font-size="11">运动准备电位 (MRCP) 检测</text>
+          <circle cx="18" cy="188" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="192" fill="#999999" font-size="11">BLE 5.0 实时传输</text>
+
+          <!-- Mini headband -->
+          <ellipse cx="110" cy="228" rx="40" ry="18" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <rect x="70" y="215" width="80" height="12" rx="6" fill="none" stroke="#0096f0" stroke-width="2" filter="url(#sysGlow)"/>
+          <circle cx="90" cy="232" r="3" fill="#c0c0c0"/>
+          <circle cx="110" cy="234" r="3" fill="#c0c0c0"/>
+          <circle cx="130" cy="232" r="3" fill="#c0c0c0"/>
+        </g>
+
+        <!-- ========== 2. Nexum App Box ========== -->
+        <g transform="translate(60, 340)">
+          <rect x="0" y="0" width="220" height="170" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(0,150,240,0.25)" stroke-width="1"/>
+          <rect x="0" y="0" width="220" height="44" rx="16" fill="rgba(0,150,240,0.1)"/>
+          <rect x="0" y="28" width="220" height="16" fill="rgba(0,150,240,0.1)"/>
+          <text x="110" y="28" text-anchor="middle" fill="#0096f0" font-size="13" font-weight="700">2. Nexum App</text>
+          <circle cx="18" cy="68" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="72" fill="#999999" font-size="11">个性化 AI 推理引擎</text>
+          <circle cx="18" cy="92" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="96" fill="#999999" font-size="11">CoreML / ONNX Runtime</text>
+          <circle cx="18" cy="116" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="120" fill="#999999" font-size="11">EEG + IMU 多模态融合</text>
+          <circle cx="18" cy="140" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="144" fill="#999999" font-size="11">实时生物反馈 + 康复报告</text>
+        </g>
+
+        <!-- ========== 3. NeuroSuit + Control Box ========== -->
+        <g transform="translate(720, 40)">
+          <rect x="0" y="0" width="220" height="260" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(0,150,240,0.25)" stroke-width="1"/>
+          <rect x="0" y="0" width="220" height="44" rx="16" fill="rgba(0,150,240,0.1)"/>
+          <rect x="0" y="28" width="220" height="16" fill="rgba(0,150,240,0.1)"/>
+          <text x="110" y="28" text-anchor="middle" fill="#0096f0" font-size="13" font-weight="700">3. NeuroSuit + 控制盒</text>
+          <circle cx="18" cy="68" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="72" fill="#999999" font-size="11">压缩织物 · 碳纤维髋部锚定</text>
+          <circle cx="18" cy="92" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="96" fill="#999999" font-size="11">鲍登线缆力传输</text>
+          <circle cx="18" cy="116" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="120" fill="#999999" font-size="11">多通道织物 sEMG</text>
+          <circle cx="18" cy="140" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="144" fill="#999999" font-size="11">总重 ≈ 1.5 kg（含控制盒）</text>
+          <circle cx="18" cy="164" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="168" fill="#999999" font-size="11">8 Nm 持续 / 15 Nm 峰值</text>
+          <circle cx="18" cy="188" r="4" fill="#0096f0" opacity="0.5"/>
+          <text x="30" y="192" fill="#999999" font-size="11">48Wh 6S Li-ion 电池</text>
+
+          <!-- Suit mini illustration -->
+          <ellipse cx="110" cy="232" rx="35" ry="18" fill="none" stroke="#334155" stroke-width="1.5"/>
+          <rect x="80" y="218" width="14" height="28" rx="3" fill="rgba(0,150,240,0.15)" stroke="#0096f0" stroke-width="0.8"/>
+          <rect x="126" y="218" width="14" height="28" rx="3" fill="rgba(0,150,240,0.15)" stroke="#0096f0" stroke-width="0.8"/>
+          <path d="M 87 246 L 87 260" stroke="#777777" stroke-width="2" stroke-dasharray="3,2"/>
+          <path d="M 133 246 L 133 260" stroke="#777777" stroke-width="2" stroke-dasharray="3,2"/>
+        </g>
+
+        <!-- ========== Data Flow Arrows ========== -->
+        <!-- EEG → App -->
+        <path d="M 280 170 Q 280 350 280 425" fill="none" stroke="#0096f0" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#sysArrow)"/>
+        <rect x="250" y="280" width="60" height="20" rx="10" fill="rgba(0,150,240,0.15)" stroke="rgba(0,150,240,0.3)" stroke-width="0.5"/>
+        <text x="280" y="294" text-anchor="middle" fill="#0096f0" font-size="9" font-weight="600">BLE</text>
+
+        <!-- App → Control Box (via curved path going right) -->
+        <path d="M 280 510 Q 500 580 740 425" fill="none" stroke="#0096f0" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#sysArrow)"/>
+        <text x="520" y="548" text-anchor="middle" fill="#0096f0" font-size="9" font-weight="600">BLE 指令 · 8-16 字节</text>
+
+        <!-- Control Box → Suit (internal connection in the figure) -->
+
+        <!-- Suit → App feedback -->
+        <path d="M 720 170 Q 560 80 280 425" fill="none" stroke="#777777" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#sysArrowG)"/>
+        <text x="470" y="140" text-anchor="middle" fill="#777777" font-size="9">状态反馈 (IMU/编码器/力传感)</text>
+      </svg>
     </div>
   </div>
 </section>
