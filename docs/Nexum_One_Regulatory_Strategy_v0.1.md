@@ -1,509 +1,508 @@
-# Nexum One — NMPA Regulatory Strategy
+# Nexum One — NMPA 注册策略
 
-**Version 0.1** · 2026-06-21
-**Author:** Zirui Zhao · Architecture
-**Classification:** Internal — Regulatory / Confidential
-**References:** [PRD v1.0](Nexum_One_PRD_v1.0.md), [Engineering Architecture v0.1](Nexum_One_Engineering_Architecture_v0.1.md), [Clinical Protocol v0.1](Nexum_One_Clinical_Protocol_v0.1.md)
-
----
-
-## Table of Contents
-
-1. Classification Rationale
-2. Innovative Device Fast-Track Pathway Requirements
-3. Predicate Device Analysis
-4. Technical Standard Checklist
-5. Required Testing
-6. Clinical Evaluation Pathway
-7. Estimated Timeline
-8. Key Risks
-9. Budget Estimate for Regulatory Work
-10. Recommended Regulatory Consultant Qualifications
+**版本 0.1** · 2026-06-21
+**作者：** 赵子睿 · 架构
+**密级：** 内部 — 注册 / 保密
+**参考：** [PRD v1.0](Nexum_One_PRD_v1.0.md), [工程架构 v0.1](Nexum_One_Engineering_Architecture_v0.1.md), [临床方案 v0.1](Nexum_One_Clinical_Protocol_v0.1.md)
 
 ---
 
-## 1. Classification Rationale
+## 目录
 
-### 1.1 Classification Determination
-
-Nexum One is a **combination product** comprising three elements with different NMPA classification characteristics:
-
-| Component | Nature | Standalone Class | Combined Class Rationale |
-|-----------|--------|-----------------|-------------------------|
-| **EEG headband** | Non-invasive neurophysiological recording device (脑电采集设备) | Class II (non-invasive, not implantable, no energy delivery to patient) | The combined product's risk is bounded by the highest-risk component. Since no component delivers significant energy to the patient and the system is non-invasive, the overall risk profile is consistent with Class II. |
-| **Hip exosuit (Bowden cable-driven)** | Rehabilitation training device / walking aid (康复训练设备 / 步行辅助) | Class II (powered, non-invasive, external body-worn, no bone fixation) | |
-| **AI inference software** | Decision-support / intention-detection software (决策支持软件 / 意图识别) | Class II (provides clinically significant information for treatment decision, but in a "assist-as-needed" role, not autonomous diagnosis) | |
-
-### 1.2 Class II Justification (Why Not Class III)
-
-Nexum One should be classified as **Class II (第二类医疗器械)** based on the following rationale:
-
-| Criterion | Nexum One Status | Class II Threshold | Risk of Class III |
-|-----------|-----------------|-------------------|------------------|
-| **Invasiveness** | Entirely non-invasive — electrodes contact intact skin only; no percutaneous or implanted components | Non-invasive → Class I–II | If classified as active implantable → Class III (not applicable) |
-| **Energy delivery to patient** | Mechanical torque at hip (<15 Nm); electrical stimulation: NONE | Passive/non-harmful → Class I–II | If E-stim combined → Class III |
-| **Duration of use** | Intermittent (rehab sessions, <4h/day), not continuous 24/7 | Short-term (<30 days) → Class I–II; Long-term → Class II–III | If classified as life-supporting → Class III |
-| **Effect on patient** | Assist-as-needed; patient initiates; device augments, does not replace physiological function | Therapy aid → Class II | If autonomous diagnostic/therapeutic decision → Class III |
-| **Biological risk** | Skin contact only; no breach of skin barrier | External surface → Class I–II | If implantable → Class III |
-
-**Key argument for Class II:** Nexum One does **not**:
-- Deliver electrical stimulation to the brain or nerves (not a neural stimulator)
-- Penetrate the skin or body cavity (not invasive)
-- Make autonomous clinical decisions (the AI provides **assistance recommendations**, not diagnoses)
-- Sustain vital physiological functions (not life-supporting)
-
-### 1.3 Classification Reference (existing NMPA examples)
-
-| Product | NMPA Class | Nexum One Parallel |
-|---------|-----------|-------------------|
-| 程天科技 UGO (powered lower-limb exoskeleton for rehab) | Class II (valid) | Same mechanical category; Nexum One adds EEG but EEG alone is Class II |
-| 大艾外骨骼 (DAAI exoskeleton, powered walking aid) | Class II | Same |
-| 博睿康 Neuro-EEG (脑电图机) | Class II | EEG component equivalent |
-| NEOFECT Smart Glove (rehabilitation robot) | Class II | Similar combined "sensor + actuator" paradigm |
-| 强脑科技 (BrainCo) 智能义肢 | Class II | EEG-controlled prosthesis — precedent for EEG-based actuation as Class II |
-| YBrain Cerebro (BCI rehabilitation system) | Class II | Direct precedent: EEG + exoskeleton/powered orthosis combination |
-
-**Recommendation:** File a **分类界定申请** (Classification Determination Application) to NMPA before proceeding with full regulatory submission. This is a pre-submission inquiry that:
-- Takes 20–30 working days for a formal response
-- Provides binding classification determination
-- Eliminates downstream risk of re-classification
-- Estimated cost: ¥10,000–20,000 (via NMPA administrative service)
-
-**Fallback position:** If NMPA determines Class III (e.g., due to "BCI + motor actuation" being considered a novel combination with no precedent), the submission pathway changes significantly:
-- Must conduct a full clinical trial (not just clinical evaluation via CER)
-- Requires GCP-compliant multi-site trial (at least 2 sites)
-- Timeline extends by 12–18 months
-- Regulatory cost increases by ¥2,000,000–3,000,000
+1. 分类理由
+2. 创新医疗器械快速审查通道要求
+3. 对比器械分析
+4. 技术标准清单
+5. 所需检验
+6. 临床评价路径
+7. 预估时间线
+8. 关键风险
+9. 注册工作预算估算
+10. 推荐注册顾问资质
 
 ---
 
-## 2. Innovative Device Fast-Track Pathway Requirements
+## 1. 分类理由
 
-### 2.1 创新医疗器械特别审查程序 (Innovative Medical Device Special Review Procedure)
+### 1.1 分类确定
 
-This is a fast-track program established by NMPA Order No. 83 (2018 revision) for devices that meet ALL of the following criteria:
+Nexum One 是一个**组合产品**，包含三个具有不同 NMPA 分类特征的要素：
 
-| Criterion # | Requirement | Nexum One Status | Evidence Needed |
-|-------------|-------------|-------------------|-----------------|
-| **1. Patent ownership** | Applicant holds core technology invention patent (发明专利); patent is granted or at least in substantive examination; the patent covers the core structure/mechanism of the device | Core patents: nerve-muscle intention decoding method, EEG + force feedback closed-loop control, Bowden-cable suit architecture | Pat. 1: "基于脑电和肌电融合的运动意图识别方法" (filing date); Pat. 2: "鲍登线驱动髋关节助力外骨骼结构" (filing date); Patent assignment from inventor to Nexum company |
-| **2. Domestic debut** | The product has not been marketed in China previously; there is no identical or equivalent product approved in China | No EEG + exosuit combination product has been NMPA-approved. Individual components (EEG, exoskeleton) exist separately, but the combined "neural reconnection AI system" is novel in the Chinese market | Market research report confirming no identical product; PubMed/CNKI literature search showing no approved product of this combination |
-| **3. Significant clinical advantage** | The product has clear clinical advantages over existing treatments (better efficacy, safety, convenience, or cost) | Intended advantages: (a) EEG-based intention enables faster, more natural gait initiation vs postural-shift-based exoskeletons; (b) non-invasive BCI avoids surgical risk of implantable systems; (c) 80%+ cost reduction vs imported exoskeletons | Clinical literature comparing intention detection latency; cost-benefit analysis; expert review letter from 2–3 tertiary hospital rehabilitation directors |
-| **4. Substantial R&D investment** | The applicant has performed substantial R&D in China, including design, testing, and preliminary validation | Prototype BOM ≥¥200k; team of 8 engineers × 6 months; pre-clinical study (n=30) | R&D documentation; prototype photos/videos; pre-clinical data; R&D expense summary audited by accountant |
+| 组件 | 性质 | 独立类别 | 组合类别理由 |
+|------|------|---------|-------------|
+| **EEG 头带** | 非侵入性神经生理记录设备（脑电采集设备） | Class II（非侵入性、非植入式、不向患者输送能量） | 组合产品的风险由最高风险组件界定。由于无组件向患者输送显著能量且系统为非侵入性，整体风险特征与 Class II 一致。 |
+| **髋部外骨骼（鲍登线驱动）** | 康复训练设备 / 步行辅助（康复训练设备 / 步行辅助） | Class II（动力型、非侵入性、体外穿戴、无骨固定） | |
+| **AI 推理软件** | 决策支持 / 意图检测软件（决策支持软件 / 意图识别） | Class II（提供具有临床意义的信息用于治疗决策，但为"按需辅助"角色，非自主诊断） | |
 
-### 2.2 Innovative Application Procedure
+### 1.2 Class II 论证（为何不是 Class III）
+
+Nexum One 应归为 **Class II（第二类医疗器械）**，基于以下理由：
+
+| 标准 | Nexum One 状态 | Class II 阈值 | 归为 Class III 的风险 |
+|------|---------------|--------------|----------------------|
+| **侵入性** | 完全非侵入性——电极仅接触完整皮肤；无经皮或植入组件 | 非侵入性 → Class I–II | 如归为有源植入 → Class III（不适用） |
+| **向患者输送能量** | 髋部机械扭矩（<15 Nm）；电刺激：无 | 被动/无伤害 → Class I–II | 如联合电刺激 → Class III |
+| **使用时长** | 间歇性（康复训练，<4h/天），非连续 24/7 | 短期（<30 天）→ Class I–II；长期 → Class II–III | 如归为生命支持 → Class III |
+| **对患者的影响** | 按需辅助；患者发起；设备增强而非替代生理功能 | 治疗辅助 → Class II | 如自主诊断/治疗决策 → Class III |
+| **生物风险** | 仅皮肤接触；不突破皮肤屏障 | 外表面 → Class I–II | 如植入式 → Class III |
+
+**Class II 的关键论证：** Nexum One **不**：
+- 向大脑或神经输送电刺激（非神经刺激器）
+- 穿透皮肤或体腔（非侵入性）
+- 做出自主临床决策（AI 提供**辅助建议**，而非诊断）
+- 维持重要生理功能（非生命支持）
+
+### 1.3 分类参考（现有 NMPA 实例）
+
+| 产品 | NMPA 类别 | Nexum One 类比 |
+|------|---------|---------------|
+| 程天科技 UGO（动力下肢外骨骼用于康复） | Class II（已确认） | 相同机械类别；Nexum One 增加 EEG，但 EEG 单独即为 Class II |
+| 大艾外骨骼（DAAI exoskeleton，动力步行辅助） | Class II | 相同 |
+| 博睿康 Neuro-EEG（脑电图机） | Class II | EEG 组件等同 |
+| NEOFECT 智能康复手套（康复机器人） | Class II | 类似的"传感器 + 执行器"组合范式 |
+| 强脑科技（BrainCo）智能义肢 | Class II | EEG 控制的假肢——基于 EEG 执行器作为 Class II 的先例 |
+| YBrain Cerebro（BCI 康复系统） | Class II | 直接先例：EEG + 外骨骼/动力矫形器组合 |
+
+**建议：** 在提交完整注册申报前，向 NMPA 提交**分类界定申请**（Classification Determination Application）。这是一项上市前咨询，其特点：
+- 正式答复需 20–30 个工作日
+- 提供有约束力的分类界定
+- 消除后期重新分类的风险
+- 预估费用：¥10,000–20,000（通过 NMPA 行政服务）
+
+**后备方案：** 如果 NMPA 确定为 Class III（例如因"BCI + 电机驱动"被视为无先例的新型组合），申报路径将发生显著变化：
+- 必须进行完整临床试验（而不仅仅通过 CER 进行临床评价）
+- 需要符合 GCP 的多中心试验（至少 2 个中心）
+- 时间线延长 12–18 个月
+- 注册成本增加 ¥2,000,000–3,000,000
+
+---
+
+## 2. 创新医疗器械快速审查通道要求
+
+### 2.1 创新医疗器械特别审查程序
+
+这是 NMPA 第 83 号令（2018 年修订）设立的快速通道项目，适用于满足**所有**以下标准的器械：
+
+| 标准 # | 要求 | Nexum One 状态 | 所需证据 |
+|--------|------|---------------|---------|
+| **1. 专利所有权** | 申请人持有核心技术发明专利；专利已授权或至少已进入实质审查阶段；专利涵盖器械的核心结构/机制 | 核心专利：神经-肌肉意图解码方法，EEG + 力反馈闭环控制，鲍登线驱动髋关节助力外骨骼架构 | 专利 1："基于脑电和肌电融合的运动意图识别方法"（申请日）；专利 2："鲍登线驱动髋关节助力外骨骼结构"（申请日）；发明人向 Nexum 公司的专利转让 |
+| **2. 国内首创** | 该产品此前未在中国上市；中国无相同或等同产品获批 | 尚无 EEG + 外骨骼组合产品获得 NMPA 批准。单个组件（EEG、外骨骼）分别存在，但"神经再连接 AI 系统"这一组合在中国市场是新颖的 | 市场调研报告确认无相同产品；PubMed/CNKI 文献搜索显示该组合无已批准产品 |
+| **3. 显著的临床优势** | 该产品相比现有治疗具有明确的临床优势（更好的疗效、安全性、便利性或成本） | 预期优势：(a) 基于 EEG 的意图检测相比基于重心偏移的外骨骼可实现更快、更自然的步态启动；(b) 非侵入性 BCI 避免植入式系统的外科手术风险；(c) 比进口外骨骼降低 80%+ 成本 | 比较意图检测延迟的临床文献；成本效益分析；2–3 位三甲医院康复科主任的专家推荐信 |
+| **4. 实质性研发投入** | 申请人在中国进行了实质性研发，包括设计、测试和初步验证 | 原型 BOM ≥¥200k；8 名工程师 × 6 个月团队；临床前研究（n=30） | 研发文档；原型照片/视频；临床前数据；会计师审计的研发费用汇总 |
+
+### 2.2 创新申请程序
 
 ```
-Application Submission → Formal Review (CMDE, 5 working days) → Expert Review (60 working days) → Decision (10 working days)
-       ↓                         ↓                            ↓                          ↓
-    Materials to               Check                      Panel of 3–5                Final
-    CMDE (Center for           completeness               experts from                 notification
-    Medical Device             and fee                    clinical + technical
-    Evaluation)                                           fields
+提交申请 → 正式审查（CMDE，5 个工作日）→ 专家审查（60 个工作日）→ 决定（10 个工作日）
+     ↓               ↓                          ↓                     ↓
+  提交材料至       检查完备性                 由 3–5 名               最终
+  CMDE（医疗器械    和费用                    临床 + 技术              通知
+  技术审评中心）                               领域专家组成的
+                                             专家组评审
 ```
 
-**Total review time for innovative designation:** Approximately **75 working days** (~15 weeks).
+**创新认定总审查时间：** 约 **75 个工作日**（约 15 周）。
 
-### 2.3 Benefits of Innovative Device Status
+### 2.3 创新器械身份的好处
 
-1. **Priority review:** Registration application is reviewed within 60 working days (vs standard 120+ working days)
-2. **Dedicated communication channel:** Direct dialogue with CMDE reviewers during the evaluation process
-3. **Streamlined clinical evaluation:** May accept clinical evaluation report (CER) instead of full clinical trial, if sufficient evidence of safety and efficacy exists
-4. **Conditional approval pathway:** Can obtain conditional registration with commitment to post-market clinical study (上市后临床研究)
-5. **No extra cost:** The innovative device review fee is the same as standard registration (¥72,300 for Class II in 2024); additional fee only for expert panel if required
+1. **优先审查：** 注册申请在 60 个工作日内完成审查（标准为 120+ 个工作日）
+2. **专属沟通通道：** 在评估过程中与 CMDE 审评员直接对话
+3. **简化的临床评价：** 如有充分的安全性和有效性证据，可接受临床评价报告（CER）替代完整临床试验
+4. **有条件批准路径：** 可通过承诺开展上市后临床研究获得有条件注册
+5. **无额外费用：** 创新器械审查费与标准注册相同（2024 年 Class II 为 ¥72,300）；仅当需要专家评审时才产生额外费用
 
-### 2.4 Timeline and Probability
+### 2.4 时间线与概率
 
-| Item | Optimistic | Realistic | Probability of Success |
-|------|-----------|-----------|----------------------|
-| Classification determination (分类界定) | 1 month | 2 months | 90% (Class II) |
-| Innovative device application (创新医疗器械特别审查) | 4 months | 6 months | 60% (given BCI novelty — depends on patent strength and expert panel impression) |
-| Alternative: Standard Class II path (no innovation designation) | N/A | 8–10 months longer for review | 100% fallback |
+| 项目 | 乐观 | 现实 | 成功概率 |
+|------|------|------|---------|
+| 分类界定 | 1 个月 | 2 个月 | 90%（Class II） |
+| 创新医疗器械特别审查申请 | 4 个月 | 6 个月 | 60%（鉴于 BCI 新颖性——取决于专利强度和专家评审印象） |
+| 替代方案：标准 Class II 路径（无创新认定） | 不适用 | 审查多出 8–10 个月 | 100% 后备 |
 
-**Recommendation:** File classification determination AND innovative device application simultaneously — the applications are independent and both benefit from early submission.
-
----
-
-## 3. Predicate Device Analysis
-
-### 3.1 Direct Competitors (NMPA-Registered Products)
-
-| Product | Manufacturer | NMPA Registration No. | Class | Intended Use | Key Technology | Analysis for Nexum One |
-|---------|-------------|----------------------|-------|-------------|----------------|------------------------|
-| **UGO康复训练外骨骼** | 程天科技 (ChengTian Tech) | 浙械注准2021219xxxx (verify exact number) | II | Lower limb rehabilitation training for stroke/SCI patients | Powered hip-knee exoskeleton; IMU-based gait phase detection; pre-programmed assistance profiles | **Closest predicate** for mechanical structure. Can reference safety data (falls, skin, joint ROM limits). No EEG — intentional difference to claim novelty. |
-| **大艾外骨骼康复机器人** | 大艾科技 (DAAI Tech) | 京械注准2021219xxxx (verify) | II | Walking aid for SCI/hemiplegia patients | Motor-driven hip/knee; multi-mode training; body-weight support interface | **Predicate for torque levels and joint safety limits.** Clinical data on 10MWT and 6MWT outcomes can support Nexum One's performance claims. |
-| **杭州程天Waker外骨骼** | 程天科技 | 浙械注准2022219xxxx | II | Gait training | Similar to UGO, lighter version | Reference for home-use safety documentation. |
-| **NEOFECT智能康复手套** | NEOFECT (Korea/NMPA filing) | 国械注进2022xxxxxx | II | Hand rehabilitation for stroke | sEMG + IMU intent detection; game-based training | **Predicate for sensor-based intent detection software** (SaMD component). Reference for AI-based assisted training software certification pathway. |
-| **BrainCo智能仿生义肢** | 强脑科技 (BrainCo) | 国械注准2022xxxxxx | II | Prosthesis control for amputees | EEG + sEMG pattern recognition for motor intent | **Closest predicate for EEG-based motor control.** BrainCo's Class II designation for EEG-controlled prosthesis is the strongest regulatory precedent for Nexum One's EEG-to-actuation paradigm. |
-
-### 3.2 Predicate Device Mapping for Substantial Equivalence
-
-For the clinical evaluation report (CER), Nexum One should claim substantial equivalence via a **modular comparison**:
-
-| Subsystem | Predicate | Basis of Equivalence |
-|-----------|-----------|---------------------|
-| **Mechanical safety** (joint limits, torque range, cable safety, suit attachment) | UGO / DAAI exoskeleton | Same mechanical principles; comparable torque and ROM limits; same patient population; same clinical environment |
-| **EEG acquisition** (electrode type, amplification, filtering) | BrainCo prosthetic / Conventional EEG (博睿康, 理邦) | Industry-standard ADS1299-based EEG; BrainCo's precedent confirms Class II for motor-control EEG |
-| **Intention detection software** | BrainCo pattern recognition / NEOFECT intent detection | SaMD with similar risk profile (assist-as-needed, not autonomous); comparable input data (EEG + sEMG) |
-| **Combined system** | Novel — no direct predicate | Argument for innovative device classification; CER uses component-level equivalence for safety and performance modules |
-
-### 3.3 Key Differences from Predicates (To Be Addressed in CER)
-
-1. **EEG + exosuit combination** — No predicate product has this exact combination. Address this through: (a) demonstrating each component's safety individually via predicate equivalence, (b) showing that the combination does not create new safety risks not already covered by component-level risk analysis.
-
-2. **Closed-loop AI adaptation** — None of the predicate devices have real-time, subject-specific model adaptation. Address this by: (a) positioning the AI as "assistance level adjustment" (which is a feature of many Class II devices), not "autonomous diagnostic/control" (which would be Class III); (b) limiting the AI to providing percentage-assistance modification (scaling factor), not generating new torque patterns.
+**建议：** 同时提交分类界定申请和创新医疗器械申请——两者相互独立，且均受益于尽早提交。
 
 ---
 
-## 4. Technical Standard Checklist
+## 3. 对比器械分析
 
-### 4.1 Mandatory Standards for Class II Medical Devices
+### 3.1 直接竞品（NMPA 已注册产品）
 
-| Standard | Title | Applicable To | Nexum One Status |
-|----------|-------|--------------|------------------|
-| **GB 9706.1-2020** | Medical electrical equipment — Part 1: General requirements for basic safety and essential performance (equivalent to IEC 60601-1:2012, 3rd edition) | Full system (control box, battery, motor drive) | **Must comply.** Key clauses: leakage current (8.7), dielectric strength (8.8), mechanical hazards (9), temperature limits (11), marking/labels (7). |
-| **YY 9706.102-2021** | Medical electrical equipment — Electromagnetic compatibility (equivalent to IEC 60601-1-2:2014) | Full system | **Must comply.** Emissions (Group 1, Class B) → CISPR 11; immunity → Table 4/9 requirements. |
-| **IEC 62304 / YY/T 0664-2020** | Medical device software — Software life cycle processes | Nexum App, AI inference module, firmware | **Mandatory for SaMD.** Software safety classification for Nexum One: likely **Class B** (can lead to injury if defective — incorrect torque level could cause fall). Determine software safety class early. |
-| **ISO 14971 / YY/T 0316-2016** (updated to YY/T 14971-2022) | Medical devices — Application of risk management | Full system | **Mandatory.** Risk management file must cover all components: electrical, mechanical, software, biological, usability. |
-| **IEC 62366 / YY/T 1474-2016** | Medical devices — Application of usability engineering | Full system (especially don/doff, emergency stop, alarm management) | **Mandatory.** Usability testing required: 15 representative users (mix of patients and therapists) for summative evaluation. |
-| **ISO 13485 / YY/T 0287-2017** | Quality management systems | Manufacturing facility / QMS | **Mandatory.** Must have ISO 13485 QMS in place before submission (or at least under implementation with 3 months of internal audit records). |
-| **GB/T 25000.51-2016** | Software product quality | Nexum App, AI inference | **Required for software quality measurement.** Functional suitability, reliability, usability, efficiency, maintainability, portability. |
-| **YY 9706.108-2021** | Alarm systems (equivalent to IEC 60601-1-8) | Device alarms (battery low, motor fault, EEG disconnect) | **Must comply** if alarm functionality is included. |
+| 产品 | 制造商 | NMPA 注册号 | 类别 | 预期用途 | 关键技术 | 对 Nexum One 的分析 |
+|------|--------|-----------|------|---------|---------|---------------------|
+| **UGO 康复训练外骨骼** | 程天科技（ChengTian Tech） | 浙械注准2021219xxxx（核实准确号码） | II | 脑卒中/SCI 患者下肢康复训练 | 动力髋-膝外骨骼；基于 IMU 的步态相位检测；预设辅助曲线 | **机械结构最接近的对比器械。** 可参考其安全性数据（跌倒、皮肤、关节活动范围限制）。无 EEG——这一有意差异可用于主张新颖性。 |
+| **大艾外骨骼康复机器人** | 大艾科技（DAAI Tech） | 京械注准2021219xxxx（核实） | II | SCI/偏瘫患者步行辅助 | 电机驱动髋/膝；多模式训练；体重支持接口 | **扭矩水平和关节安全限值的对比器械。** 关于 10MWT 和 6MWT 结果的临床数据可支持 Nexum One 的性能声明。 |
+| **杭州程天 Waker 外骨骼** | 程天科技 | 浙械注准2022219xxxx | II | 步态训练 | 类似于 UGO，更轻版本 | 家庭使用安全文档参考。 |
+| **NEOFECT 智能康复手套** | NEOFECT（韩国/NMPA 申报） | 国械注进2022xxxxxx | II | 脑卒中手部康复 | sEMG + IMU 意图检测；游戏化训练 | **基于传感器的意图检测软件（SaMD 组件）的对比器械。** 基于 AI 的辅助训练软件认证路径参考。 |
+| **BrainCo 智能仿生义肢** | 强脑科技（BrainCo） | 国械注准2022xxxxxx | II | 截肢者假肢控制 | EEG + sEMG 模式识别用于运动意图 | **基于 EEG 的运动控制最接近的对比器械。** BrainCo 的 EEG 控制假肢获得 Class II 认定是 Nexum One 的 EEG 到驱动范式的最强监管先例。 |
 
-### 4.2 Recommended Standards (Best Practice)
+### 3.2 对比器械映射以证明实质等同
 
-| Standard | Title | Rationale |
-|----------|-------|-----------|
-| **YY/T 0933-2014** | Rehabilitation robots — General safety requirements | Directly applicable to exoskeleton structure; covers joint limits, emergency stop, speed limiting |
-| **YY/T 1635-2018** | Exoskeleton gait rehabilitation robot — Technical requirements | More specific than YY/T 0933; for CE marking reference |
-| **GB/T 36001-2018** | EEG measurement equipment — General technical requirements | For EEG headband component |
-| **IEC 62304 Class B documentation** | Software lifecycle documentation | Required for SaMD — ensures traceability from requirements to tests |
-| **ISO 10993-10 / GB/T 16886.10** | Biological evaluation — Sensitization | For skin-contact materials in suit and headband |
-| **ISO 10993-5 / GB/T 16886.5** | Biological evaluation — Cytotoxicity | Same as above |
-| **ISO 10993-1 / GB/T 16886.1** | Biological evaluation framework | Overall biocompatibility strategy for skin-contact materials |
+对于临床评价报告（CER），Nexum One 应通过**模块化比较**主张实质等同：
+
+| 子系统 | 对比器械 | 等同基础 |
+|--------|---------|---------|
+| **机械安全性**（关节限位、扭矩范围、缆线安全、套装固定） | UGO / DAAI 外骨骼 | 相同机械原理；可比的扭矩和活动范围限值；相同患者群体；相同临床环境 |
+| **EEG 采集**（电极类型、放大、滤波） | BrainCo 假肢 / 传统 EEG（博睿康、理邦） | 行业标准 ADS1299 基 EEG；BrainCo 的先例确认了运动控制 EEG 的 Class II 分类 |
+| **意图检测软件** | BrainCo 模式识别 / NEOFECT 意图检测 | 风险特征相似的 SaMD（按需辅助，非自主）；可比的输入数据（EEG + sEMG） |
+| **组合系统** | 新颖——无直接对比器械 | 主张创新器械分类的理由；CER 使用组件级等同进行安全和性能模块分析 |
+
+### 3.3 与对比器械的关键差异（需在 CER 中处理）
+
+1. **EEG + 外骨骼组合** — 无对比器械具有这一精确组合。通过以下方式处理：(a) 通过对比器械等同性逐个展示每个组件独立的安全性，(b) 展示该组合不会产生组件级风险分析尚未覆盖的新安全风险。
+
+2. **闭环 AI 自适应** — 对比器械均无实时、受试者特定的模型自适应。通过以下方式处理：(a) 将 AI 定位为"辅助水平调整"（这是许多 Class II 设备的功能），而非"自主诊断/控制"（这将属于 Class III）；(b) 将 AI 限制为提供百分比辅助修改（缩放因子），而非生成新的扭矩模式。
 
 ---
 
-## 5. Required Testing
+## 4. 技术标准清单
 
-### 5.1 Type Testing (型式检验)
+### 4.1 Class II 医疗器械强制性标准
 
-Type testing must be performed at an NMPA-accredited testing laboratory (国家药品监督管理局认可的检验机构). The test plan covers the following areas:
+| 标准 | 标题 | 适用范围 | Nexum One 状态 |
+|------|------|---------|--------------|
+| **GB 9706.1-2020** | 医用电气设备 第 1 部分：基本安全和基本性能通用要求（等同 IEC 60601-1:2012，第 3 版） | 全系统（控制盒、电池、电机驱动） | **必须符合。** 关键条款：漏电流（8.7）、介电强度（8.8）、机械危险（9）、温度限值（11）、标记/标签（7）。 |
+| **YY 9706.102-2021** | 医用电气设备 电磁兼容（等同 IEC 60601-1-2:2014） | 全系统 | **必须符合。** 发射（1 组，B 类）→ CISPR 11；抗扰度 → 表 4/9 要求。 |
+| **IEC 62304 / YY/T 0664-2020** | 医疗器械软件 软件生命周期过程 | Nexum App，AI 推理模块，固件 | **SaMD 强制要求。** Nexum One 的软件安全分类：可能为 **Class B**（缺陷可能导致伤害——不正确的扭矩水平可能导致跌倒）。尽早确定软件安全等级。 |
+| **ISO 14971 / YY/T 0316-2016**（更新至 YY/T 14971-2022） | 医疗器械 风险管理应用 | 全系统 | **强制要求。** 风险管理文件必须涵盖所有组件：电气、机械、软件、生物、可用性。 |
+| **IEC 62366 / YY/T 1474-2016** | 医疗器械 可用性工程应用 | 全系统（特别是穿脱、急停、报警管理） | **强制要求。** 需要进行可用性测试：15 名代表性用户（患者和治疗师混合）进行总结性评估。 |
+| **ISO 13485 / YY/T 0287-2017** | 质量管理体系 | 生产设施 / QMS | **强制要求。** 在提交前必须已建立 ISO 13485 QMS（或至少正在实施且有 3 个月内审记录）。 |
+| **GB/T 25000.51-2016** | 软件产品质量 | Nexum App，AI 推理 | **软件质量测量要求。** 功能适用性、可靠性、可用性、效率、维护性、可移植性。 |
+| **YY 9706.108-2021** | 报警系统（等同 IEC 60601-1-8） | 设备报警（电量低、电机故障、EEG 断开） | **如包含报警功能则必须符合。** |
 
-| Test Category | Standard | Key Tests | Estimated Cost (¥) | Duration |
-|--------------|----------|-----------|-------------------|----------|
-| **Electrical Safety** | GB 9706.1-2020 | Leakage current (normal + single fault), dielectric strength, protective earth, input power, temperature rise, enclosure protection (IP22) | 80,000–120,000 | 4–6 weeks |
-| **EMC** | YY 9706.102-2021 | Radiated emissions (30 MHz–1 GHz), conducted emissions (150 kHz–30 MHz), ESD (±8 kV contact, ±15 kV air), radiated RF immunity, conducted RF immunity, power frequency magnetic field, voltage dips/interruptions | 60,000–100,000 | 4–6 weeks |
-| **Mechanical Safety** | GB 9706.1 + YY/T 0933 | Joint angle limiting verification, emergency stop function, cable force limit, structural integrity under static load | 30,000–50,000 | 2–4 weeks |
-| **Software Evaluation** | GB/T 25000.51 | Functional testing (all user stories), performance testing (latency, throughput), reliability testing (stress test), usability inspection | 50,000–80,000 | 6–8 weeks |
-| **Biocompatibility** | GB/T 16886 series | Skin irritation (patch test, GB/T 16886.10), cytotoxicity (GB/T 16886.5), sensitization (GB/T 16886.10) — testing on representative materials from suit + headband | 40,000–60,000 | 4–6 weeks (accelerated: 2 weeks for cytotoxicity) |
-| **Battery Safety** | GB 9706.1 (battery section) + GB 31241 (portable Li-ion) | Overcharge test, overdischarge test, short circuit test, external short circuit, crush test (limited scope for medical device) | 20,000–30,000 | 2–3 weeks |
-| **Environmental** | GB 9706.1 (environmental) | Operating temperature (10–40°C), humidity (20–80%), vibration, transport simulation | 15,000–25,000 | 2–3 weeks |
-| **Total (Type Testing)** | | | **¥295,000–465,000** | **12–16 weeks (parallel execution)** |
+### 4.2 推荐标准（最佳实践）
 
-### 5.2 Recommended Testing Laboratories
+| 标准 | 标题 | 理由 |
+|------|------|------|
+| **YY/T 0933-2014** | 康复机器人 通用安全要求 | 直接适用于外骨骼结构；涵盖关节限位、急停、限速 |
+| **YY/T 1635-2018** | 外骨骼步态康复机器人 技术要求 | 比 YY/T 0933 更具体；用于 CE 标志参考 |
+| **GB/T 36001-2018** | 脑电测量设备 通用技术要求 | 用于 EEG 头带组件 |
+| **IEC 62304 Class B 文档** | 软件生命周期文档 | SaMD 要求——确保从需求到测试的可追溯性 |
+| **ISO 10993-10 / GB/T 16886.10** | 生物学评价 致敏试验 | 用于套装和头带的皮肤接触材料 |
+| **ISO 10993-5 / GB/T 16886.5** | 生物学评价 细胞毒性试验 | 同上 |
+| **ISO 10993-1 / GB/T 16886.1** | 生物学评价框架 | 皮肤接触材料整体生物相容性策略 |
 
-| Laboratory | Location | Accreditation | Advantages | Lead Time |
-|------------|----------|--------------|------------|-----------|
-| **国家药品监督管理局医疗器械技术审评中心 (CMDE)** — not a testing lab but coordinating body | Beijing | NMPA | Final reviewer — use their listed labs |
-| **中国食品药品检定研究院 (中检院, CFDI)** | Beijing | NMPA, CNAS | Most authoritative; accepted by all provinces | 6–8 weeks scheduling |
-| **上海医疗器械检验研究院** | Shanghai | NMPA, CNAS | Faster turnaround; good for software testing | 4–6 weeks |
-| **北京医疗器械检验研究院** | Beijing | NMPA, CNAS | Similar to Shanghai; preferred for northern sites | 4–6 weeks |
-| **深圳医疗器械检测中心** | Shenzhen | NMPA, CNAS | Fastest in southern China; good for electronics | 3–5 weeks |
+---
 
-**Recommendation:** Start with Shanghai or Beijing institute for EMC + electrical safety (longest lead time items). Negotiate parallel testing for mechanical + biocompatibility + software at different labs simultaneously.
+## 5. 所需检验
 
-### 5.3 Type Testing Schedule
+### 5.1 型式检验
+
+型式检验必须在 NMPA 认可的检验机构进行。检验计划涵盖以下领域：
+
+| 检验类别 | 标准 | 关键项目 | 预估费用（¥） | 时长 |
+|---------|------|---------|--------------|------|
+| **电气安全** | GB 9706.1-2020 | 漏电流（正常 + 单一故障），介电强度，保护接地，输入功率，温升，外壳防护（IP22） | 80,000–120,000 | 4–6 周 |
+| **EMC** | YY 9706.102-2021 | 辐射发射（30 MHz–1 GHz），传导发射（150 kHz–30 MHz），ESD（±8 kV 接触，±15 kV 空气），辐射射频抗扰度，传导射频抗扰度，工频磁场，电压暂降/中断 | 60,000–100,000 | 4–6 周 |
+| **机械安全** | GB 9706.1 + YY/T 0933 | 关节角度限制验证，急停功能，缆线力限制，静载结构完整性 | 30,000–50,000 | 2–4 周 |
+| **软件评估** | GB/T 25000.51 | 功能测试（所有用户故事），性能测试（延迟、吞吐量），可靠性测试（压力测试），可用性检查 | 50,000–80,000 | 6–8 周 |
+| **生物相容性** | GB/T 16886 系列 | 皮肤刺激（斑贴试验，GB/T 16886.10），细胞毒性（GB/T 16886.5），致敏（GB/T 16886.10）——对套装 + 头带的代表性材料进行检验 | 40,000–60,000 | 4–6 周（加急：细胞毒性 2 周） |
+| **电池安全** | GB 9706.1（电池部分）+ GB 31241（便携式锂离子电池） | 过充试验，过放试验，短路试验，外部短路，挤压试验（医疗器械有限范围） | 20,000–30,000 | 2–3 周 |
+| **环境** | GB 9706.1（环境部分） | 工作温度（10–40°C），湿度（20–80%），振动，运输模拟 | 15,000–25,000 | 2–3 周 |
+| **型式检验总计** | | | **¥295,000–465,000** | **12–16 周（并行执行）** |
+
+### 5.2 推荐检验机构
+
+| 机构 | 地点 | 资质 | 优势 | 交期 |
+|------|------|------|------|------|
+| **国家药品监督管理局医疗器械技术审评中心（CMDE）**——非检验机构，为协调机构 | 北京 | NMPA | 最终审评方——使用其认可实验室清单 |
+| **中国食品药品检定研究院（中检院，CFDI）** | 北京 | NMPA, CNAS | 最具权威；各省均认可 | 6–8 周排期 |
+| **上海医疗器械检验研究院** | 上海 | NMPA, CNAS | 更快周转；适合软件测试 | 4–6 周 |
+| **北京医疗器械检验研究院** | 北京 | NMPA, CNAS | 类似上海；北方机构首选 | 4–6 周 |
+| **深圳医疗器械检测中心** | 深圳 | NMPA, CNAS | 华南最快；适合电子产品 | 3–5 周 |
+
+**建议：** 从上海或北京机构开始进行 EMC + 电气安全（交期最长的项目）。在不同实验室同时协商并行进行机械 + 生物相容性 + 软件测试。
+
+### 5.3 型式检验时间表
 
 ```
-Month 1      Month 2      Month 3      Month 4      Month 5      Month 6
+第 1 月      第 2 月      第 3 月      第 4 月      第 5 月      第 6 月
 ─────────────────────────────────────────────────────────────────────────────
-Electrical Safety ──────────────────────────►
+电气安全 ──────────────────────────►
 EMC ───────────────────────────────────►
-Mechanical ──────────►
-Software Eval ─────────────────────────────────────────►
-Biocompatibility ──────────►
-Battery ──────►
-Environmental ──►
-          Report compilation ────────────────────►
+机械 ──────────►
+软件评估 ─────────────────────────────────────────►
+生物相容性 ──────────►
+电池 ──────►
+环境 ──►
+          报告汇编 ────────────────────►
 ```
 
-**Critical path:** EMC and Software evaluation have the longest durations and highest risk of re-test. Start these first.
+**关键路径：** EMC 和软件评估时长最长且复测风险最高。优先启动这些项目。
 
 ---
 
-## 6. Clinical Evaluation Pathway
+## 6. 临床评价路径
 
-### 6.1 Pathway Selection
+### 6.1 路径选择
 
-For NMPA Class II devices, there are three possible clinical evaluation pathways:
+对于 NMPA Class II 器械，有三种可能的临床评价路径：
 
-| Pathway | Description | Suitable For Nexum One? | Risk Level |
-|---------|-------------|------------------------|------------|
-| **Pathway A — Waiver (免于进行临床试验)** | Device is listed on NMPA's "豁免临床试验目录" (exemption list). Requires only clinical evaluation report (CER) with literature + predicate comparison. | **No.** Nexum One's EEG + exosuit combination is not on any current exemption list. Individual components (EEG, exoskeleton) may be listed, but the combined system requires clinical data. | Low if on list |
-| **Pathway B — Clinical Evaluation Report (CER)** | CER based on: (a) predicate device clinical data, (b) published literature, (c) own pre-clinical study data. Does not require de novo clinical trial. | **Yes — primary target.** If CER + pre-clinical (n=30) data + predicate equivalence is accepted. Supported by innovative device fast-track review if granted. | Medium |
-| **Pathway C — Clinical Trial (临床试验)** | Full GCP-compliant clinical trial, multi-site, randomized or well-controlled design. | **Fallback.** Required only if NMPA determines CER insufficient. More likely for Class III devices, or if BCI component is considered novel enough to require de novo clinical evidence. | High |
+| 路径 | 描述 | 适用于 Nexum One？ | 风险等级 |
+|------|------|-------------------|---------|
+| **路径 A — 豁免临床（免于进行临床试验）** | 器械列入 NMPA 的"豁免临床试验目录"。仅需临床评价报告（CER），包含文献 + 对比器械比较。 | **否。** Nexum One 的 EEG + 外骨骼组合不在当前任何豁免目录上。单个组件（EEG、外骨骼）可能在目录上，但组合系统需要临床数据。 | 如在目录上则低风险 |
+| **路径 B — 临床评价报告（CER）** | 基于以下内容的 CER：(a) 对比器械临床数据，(b) 发表文献，(c) 自身临床前研究数据。不需要重新进行临床试验。 | **是——主要目标。** 如果 CER + 临床前（n=30）数据 + 对比器械等同性被接受。如获得批准，受创新器械快速审查支持。 | 中等 |
+| **路径 C — 临床试验（临床试验）** | 符合 GCP 的完整临床试验，多中心，随机或良好对照设计。 | **后备。** 仅在 NMPA 认定 CER 不足时要求。对于 Class III 器械更可能，或如果 BCI 组件被认为新颖到需要重新进行临床证据。 | 高 |
 
-**Recommended strategy:** Target **Pathway B** (CER + pre-clinical study), with clear contingency planning for Pathway C.
+**推荐策略：** 以 **路径 B**（CER + 临床前研究）为目标，为路径 C 制定明确的应急计划。
 
-### 6.2 CER Structure (Pathway B)
+### 6.2 CER 结构（路径 B）
 
-The Clinical Evaluation Report must follow NMPA's 《医疗器械临床评价技术指导原则》(2021 revision):
+临床评价报告须遵循 NMPA《医疗器械临床评价技术指导原则》（2021 年修订版）：
 
-| Section | Content | Source |
-|---------|---------|--------|
-| **1. Device description** | Nexum One system composition, intended use, indications, contraindications, technical specifications | PRD v1.0, Engineering Architecture v0.1 |
-| **2. Clinical claims** | Claims about safety, performance, and clinical benefit | PRD v1.0 (user needs table) |
-| **3. Predicate device analysis** | Modular equivalence mapping to UGO, DAAI, BrainCo, NEOFECT (see Section 3 of this document) | Literature + NMPA databases |
-| **4. Literature review** | Systematic review of published clinical data for: (a) EEG-based intention detection, (b) powered exoskeleton gait training, (c) combined BCI-robot systems | PubMed, CNKI, Cochrane 10-year search |
-| **5. Pre-clinical study data** | Nexum One pre-clinical study results (n=30, safety + performance) | Clinical Protocol v0.1 + study report |
-| **6. Risk-benefit analysis** | Summarize risks identified in ISO 14971 HFMEA, compare to clinical benefits from literature + pre-clinical data | Risk management file |
-| **7. Conclusions** | The clinical evidence demonstrates that the device is safe and effective for its intended use | Summary |
-| **8. Post-market surveillance plan** | Plans for continued monitoring after market entry | Regulatory team |
+| 章节 | 内容 | 来源 |
+|------|------|------|
+| **1. 器械描述** | Nexum One 系统组成、预期用途、适应证、禁忌证、技术规格 | PRD v1.0，工程架构 v0.1 |
+| **2. 临床声称** | 关于安全性、性能和临床获益的声称 | PRD v1.0（用户需求表） |
+| **3. 对比器械分析** | 模块化等同性映射至 UGO、DAAI、BrainCo、NEOFECT（见本文档第 3 节） | 文献 + NMPA 数据库 |
+| **4. 文献综述** | 针对以下方面的已发表临床数据进行系统综述：(a) 基于 EEG 的意图检测，(b) 动力外骨骼步态训练，(c) 组合 BCI-机器人系统 | PubMed、CNKI、Cochrane 10 年检索 |
+| **5. 临床前研究数据** | Nexum One 临床前研究结果（n=30，安全性 + 性能） | 临床方案 v0.1 + 研究报告 |
+| **6. 风险收益分析** | 总结 ISO 14971 HFMEA 中识别出的风险，与文献 + 临床前数据中的临床获益进行比较 | 风险管理文件 |
+| **7. 结论** | 临床证据表明该器械对其预期用途是安全有效的 | 总结 |
+| **8. 上市后监督计划** | 上市后持续监测的计划 | 注册团队 |
 
-### 6.3 Literature Review Strategy (CER Section 4)
+### 6.3 文献综述策略（CER 第 4 节）
 
-| Topic | Search Strategy | Expected Yield | Key Papers |
-|-------|-----------------|----------------|------------|
-| EEG-based gait intention detection | "EEG movement intention" AND "gait" AND "rehabilitation" | 30–50 papers | Jiang et al. (2015) on BP detection during walking; Shurlea et al. (2015) on foot movement intention from EEG |
-| Exoskeleton gait training efficacy | "powered exoskeleton" AND "gait training" AND "stroke/SCI" | 100+ papers | Esquenazi et al. (2012) — ReWalk pivotal; Louie et al. (2015) — exoskeleton meta-analysis; Fisahn et al. (2016) |
-| BCI + exoskeleton combined | "brain-computer interface" AND "exoskeleton" AND "rehabilitation" | 15–30 papers | Donati et al. (2016) — BCI + exoskeleton for SCI; Bundy et al. (2017) — EEG exoskeleton feasibility |
-| Nexum One specific | Search in CNKI for Chinese exoskeleton clinical data (程天科技, 大艾科技 clinical publications) | 5–15 Chinese papers | ChengTian UGO clinical study publications; DAAI clinical outcome reports |
+| 主题 | 检索策略 | 预期产出 | 关键论文 |
+|------|---------|---------|---------|
+| 基于 EEG 的步态意图检测 | "EEG movement intention" AND "gait" AND "rehabilitation" | 30–50 篇论文 | Jiang 等（2015）关于步行中 BP 检测；Shurlea 等（2015）关于基于 EEG 的足部运动意图 |
+| 外骨骼步态训练疗效 | "powered exoskeleton" AND "gait training" AND "stroke/SCI" | 100+ 篇论文 | Esquenazi 等（2012）——ReWalk 关键性试验；Louie 等（2015）——外骨骼 Meta 分析；Fisahn 等（2016） |
+| BCI + 外骨骼组合 | "brain-computer interface" AND "exoskeleton" AND "rehabilitation" | 15–30 篇论文 | Donati 等（2016）——BCI + 外骨骼用于 SCI；Bundy 等（2017）——EEG 外骨骼可行性 |
+| Nexum One 特定 | 在 CNKI 中检索中国外骨骼临床数据（程天科技、大艾科技临床发表） | 5–15 篇中文论文 | 程天科技 UGO 临床研究发表；大艾科技临床结果报告 |
 
-### 6.4 NMPA Consultation Mechanism (咨询)
+### 6.4 NMPA 咨询机制
 
-Before finalizing the CER, Nexum should request a **pre-submission meeting** (医疗器械注册申报前咨询) with CMDE. This is a formal mechanism where:
+在定稿 CER 之前，Nexum 应向 CMDE 申请**注册申报前咨询**（医疗器械注册申报前咨询）。这是一种正式机制，其中：
+- Nexum 介绍器械描述、对比器械比较和临床评价计划
+- CMDE 审评员就拟议的 CER 方法是否可接受提供书面反馈
+- 反馈不具有约束力，但对最终批准具有高度指示性
 
-- Nexum presents the device description, predicate comparison, and clinical evaluation plan
-- CMDE reviewers provide written feedback on whether the proposed CER approach is acceptable
-- Feedback is non-binding but highly indicative of eventual approval
-
-**Timeline:** Pre-submission meetings are offered quarterly; application deadline 1 month before meeting.
+**时间线：** 上市前咨询每季度提供一次；申请截止日期为会议前 1 个月。
 
 ---
 
-## 7. Estimated Timeline
+## 7. 预估时间线
 
-### 7.1 Overall Regulatory Timeline (Optimistic: ~18 months)
+### 7.1 注册总时间线（乐观：约 18 个月）
 
 ```
-Phase 1: Pre-Engagement (Month 1–4)
-├── Classification determination (分类界定) .......................... 2 months
-├── Innovative device application preparation ..................... 2 months
-├── ISO 13485 QMS implementation ................................. 4 months (ongoing)
-├── Risk management file (ISO 14971) ............................. 3 months
-└── Regulatory consultant onboarding .............................. 1 month
+Phase 1：前期准备（第 1–4 月）
+├── 分类界定 ........................................... 2 个月
+├── 创新医疗器械申请准备 ................................ 2 个月
+├── ISO 13485 QMS 实施 .................................. 4 个月（持续）
+├── 风险管理文件（ISO 14971）............................ 3 个月
+└── 注册顾问入职 ........................................ 1 个月
 
-Phase 2: Testing (Month 3–8)
-├── Type testing — electrical safety (GB 9706.1) .................. 2 months
-├── Type testing — EMC (YY 9706.102) ............................. 2 months
-├── Type testing — mechanical safety ............................. 2 months
-├── Biocompatibility (GB/T 16886) ................................ 2 months
-└── Software evaluation (GB/T 25000.51) .......................... 3 months
+Phase 2：检验（第 3–8 月）
+├── 型式检验 — 电气安全（GB 9706.1）.................... 2 个月
+├── 型式检验 — EMC（YY 9706.102）....................... 2 个月
+├── 型式检验 — 机械安全 ................................ 2 个月
+├── 生物相容性（GB/T 16886）............................ 2 个月
+└── 软件评估（GB/T 25000.51）........................... 3 个月
 
-Phase 3: Clinical Evaluation (Month 4–12)
-├── Pre-clinical study (IRB + recruitment + data collection) ....... 6 months
-├── CER writing + literature review .............................. 3 months
-└── CER finalization (incorporate clinical study results) .......... 1 month
+Phase 3：临床评价（第 4–12 月）
+├── 临床前研究（IRB + 招募 + 数据采集）.................. 6 个月
+├── CER 撰写 + 文献综述 ................................. 3 个月
+└── CER 定稿（纳入临床研究结果）......................... 1 个月
 
-Phase 4: Submission (Month 12–18)
-├── Submission dossier compilation ............................... 2 months
-├── Formal review (形式审查) ...................................... 5 working days
-├── Technical review (技术审评) — standard: 120 working days ....... 6 months
-│   └── (With innovation fast-track: 60 working days) ............ 3 months
-├── Supplementary materials (发补) ................................ 2 months
-├── Expert review (专家评审, if needed) ........................... 1 month
-└── Registration certificate issuance ............................ 1 month
+Phase 4：申报（第 12–18 月）
+├── 申报资料汇编 ........................................ 2 个月
+├── 形式审查 ............................................ 5 个工作日
+├── 技术审评 — 标准：120 个工作日 ....................... 6 个月
+│   └── （创新快速通道：60 个工作日）.................... 3 个月
+├── 发补 ................................................ 2 个月
+├── 专家评审（如需）..................................... 1 个月
+└── 注册证发放 .......................................... 1 个月
 
-TOTAL: 18 months (20–24 months with supplements)
+总计：18 个月（含发补为 20–24 个月）
 ```
 
-### 7.2 Gantt Chart Summary
+### 7.2 甘特图汇总
 
 ```
-Month:  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
-        │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │
-Class det│██│██│  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │
-Innovativ│  │  │██│██│██│██│  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │
-QMS set  │  │██│██│██│██│  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │
-Risk mgmt│  │██│██│██│  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │
-Type test│  │  │  │██│██│██│██│██│  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │
-Clin stud│  │  │  │  │██│██│██│██│██│██│██│██│  │  │  │  │  │  │  │  │  │  │  │
-CER write│  │  │  │  │  │  │  │  │  │██│██│██│  │  │  │  │  │  │  │  │  │  │  │
-Dossier  │  │  │  │  │  │  │  │  │  │  │  │██│██│  │  │  │  │  │  │  │  │  │  │
-Submission│  │  │  │  │  │  │  │  │  │  │  │  │  │██│  │  │  │  │  │  │  │  │  │
-Review   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │██│██│██│██│██│██│  │  │  │
-Supplement│  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │██│██│  │  │  │  │
-Approval  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │██│  │  │
+月份：1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
+       │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │
+分类   │██│██│  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │
+创新   │  │  │██│██│██│██│  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │
+QMS 建立│  │██│██│██│██│  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │
+风险管理│  │██│██│██│  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │
+型式检验│  │  │  │██│██│██│██│██│  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │
+临床研究│  │  │  │  │██│██│██│██│██│██│██│██│  │  │  │  │  │  │  │  │  │  │  │
+CER 撰写│  │  │  │  │  │  │  │  │  │██│██│██│  │  │  │  │  │  │  │  │  │  │  │
+资料汇编│  │  │  │  │  │  │  │  │  │  │  │██│██│  │  │  │  │  │  │  │  │  │  │
+申报    │  │  │  │  │  │  │  │  │  │  │  │  │  │██│  │  │  │  │  │  │  │  │  │
+审评    │  │  │  │  │  │  │  │  │  │  │  │  │  │  │██│██│██│██│██│██│  │  │  │
+发补    │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │██│██│  │  │  │  │
+获批    │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │██│  │  │
 ```
 
 ---
 
-## 8. Key Risks
+## 8. 关键风险
 
-### 8.1 Risk Register for Regulatory Pathway
+### 8.1 注册路径风险登记册
 
-| # | Risk | Probability | Impact | Mitigation | Contingency |
-|---|------|------------|--------|------------|-------------|
-| **R1** | NMPA classifies Nexum One as Class III (novel BCI device) | Medium | High (timeline +12–18 months; cost +¥2–3M) | Pre-submission classification determination (分类界定); strong Class II rationale document; legal argument referencing BrainCo precedent | Accept Class III path; shift to full clinical trial; raise additional funding for regulatory work |
-| **R2** | Innovative device application rejected | Medium–High | Medium (lose fast-track, timeline +4–6 months) | Ensure strong patent portfolio; obtain expert letters from 2–3 academic thought leaders; document clinical advantage in writing | Proceed with standard Class II path — timeline impact manageable |
-| **R3** | Type testing failure — EMC or electrical safety | Medium | Medium (re-test takes 4–8 weeks) | Pre-compliance testing at non-certified lab before formal submission; design margin (e.g., 6 dB margin on EMC); retain EMC consultant | Budget for 2 rounds of formal testing; ensure design allows quick fixes (shield can, ferrite bead, filter redesign) |
-| **R4** | SaMD (AI software) reclassified as Class III | Low–Medium | High (software pathway changes entirely) | Limit AI role to "assistance level adjustment" — does not make autonomous clinical decisions; ensure IEC 62304 Class B documentation is rigorous; avoid claims of "diagnosis" in labeling | Re-label software as "patient-specific parameter tuning tool" rather than "clinical decision support" |
-| **R5** | Pre-clinical study fails to meet safety endpoint | Low | Critical (device redesign or study restart) | Robust risk management before study; thorough bench testing of all failure modes; conservative inclusion criteria; DSMB review at n=10 interim | Pause submission; redesign the specific safety-critical sub-system; conduct additional bench tests |
-| **R6** | Clinical evaluation (CER) rejected — requires full clinical trial | Medium | High (timeline +12 months; cost +¥1.5–2M) | CER must be comprehensive — cover all predicate data + literature + own study data; pre-submission meeting to validate CER approach with CMDE before final submission | Switch to Pathway C; leverage pre-clinical site relationships to accelerate multi-site trial setup |
-| **R7** | ISO 13485 certification delayed | Medium | Medium (cannot submit without QMS) | Start QMS implementation early (Month 1); hire experienced QMS consultant; use ISO 13485:2016 template from medical device industry partner | Submit with QMS under implementation + certification audit scheduled within 3 months (NMPA may accept) |
-| **R8** | Biocompatibility test failure (skin irritation) | Low | Medium | Pre-screen all skin-contact materials with ISO 10993 test lab before finalizing design; obtain material certificates from fabric supplier; keep 3 candidate materials for each contact surface | Switch to alternative material with existing biocompatibility certification; accelerate re-test (2 weeks) |
+| # | 风险 | 概率 | 影响 | 缓解措施 | 应急方案 |
+|---|------|------|------|---------|---------|
+| **R1** | NMPA 将 Nexum One 归类为 Class III（新型 BCI 设备） | 中等 | 高（时间线 +12–18 个月；成本 +¥2–3M） | 提交前分类界定；强有力的 Class II 理由文档；引用 BrainCo 先例的法律论证 | 接受 Class III 路径；转向完整临床试验；筹措额外注册资金 |
+| **R2** | 创新器械申请被驳回 | 中–高 | 中等（失去快速通道，时间线 +4–6 个月） | 确保强大的专利组合；获取 2–3 名学术思想领袖的专家函；书面记录临床优势 | 按标准 Class II 路径推进——时间线影响可控 |
+| **R3** | 型式检验失败——EMC 或电气安全 | 中等 | 中等（复测需 4–8 周） | 在正式提交前于非认证实验室进行预合规测试；设计裕量（例如 EMC 6 dB 裕量）；聘请 EMC 顾问 | 预算预留 2 轮正式检验费用；确保设计允许快速修复（屏蔽罩、铁氧体磁珠、滤波器重设计） |
+| **R4** | SaMD（AI 软件）被重新归类为 Class III | 低–中等 | 高（软件路径完全改变） | 将 AI 角色限制为"辅助水平调整"——不做出自主临床决策；确保 IEC 62304 Class B 文档严谨；避免在标签中使用"诊断"字样 | 将软件重新标记为"患者特定参数调节工具"而非"临床决策支持" |
+| **R5** | 临床前研究未达到安全性终点 | 低 | 致命（设备重设计或研究重做） | 研究前进行稳健的风险管理；对所有故障模式进行彻底的台架测试；保守的入选标准；n=10 中期 DSMB 审查 | 暂停申报；重新设计具体的安全关键子系统；进行额外台架测试 |
+| **R6** | 临床评价（CER）被驳回——需要完整临床试验 | 中等 | 高（时间线 +12 个月；成本 +¥1.5–2M） | CER 必须全面——涵盖所有对比器械数据 + 文献 + 自身研究数据；在最终提交前通过提交前咨询验证 CER 方法与 CMDE | 切换到路径 C；利用临床前中心关系加速多中心试验建立 |
+| **R7** | ISO 13485 认证延迟 | 中等 | 中等（无 QMS 不能提交） | 尽早启动 QMS 实施（第 1 月）；聘请有经验的 QMS 顾问；使用医疗器械行业合作伙伴的 ISO 13485:2016 模板 | 以 QMS 正在实施 + 3 个月内已安排认证审核的状态提交（NMPA 可能接受） |
+| **R8** | 生物相容性测试失败（皮肤刺激） | 低 | 中等 | 在最终确定设计前，用 ISO 10993 检验实验室预筛选所有皮肤接触材料；从织物供应商获取材料证书；为每个接触表面保留 3 种候选材料 | 切换到具有现有生物相容性认证的替代材料；加急复测（2 周） |
 
-### 8.2 Critical Risk: BCI Novelty and Clinical Trial Requirement
+### 8.2 关键风险：BCI 新颖性与临床试验要求
 
-This is the single highest regulatory risk for Nexum One. The issue:
+这是 Nexum One 最高单项注册风险。问题：
 
-**Problem:** NMPA has limited experience reviewing BCI-based medical devices. The regulatory framework for "neural reconnection systems" does not exist as a defined category. Reviewers may lack familiarity with EEG intention-detection technologies and may default to requiring a full clinical trial.
+**问题：** NMPA 审查基于 BCI 的医疗器械经验有限。"神经再连接系统"的监管框架尚未作为定义类别存在。审评员可能缺乏对 EEG 意图检测技术的熟悉度，并可能默认要求完整临床试验。
 
-**Evidence for optimistic outcome:**
-- BrainCo's 智能仿生义肢 (EEG-controlled prosthetic hand) was approved as Class II without a full clinical trial — establishing a precedent for EEG-based motor control
-- Multiple EEG-only devices (脑电图机, 博睿康, 理邦) are Class II with only CER
-- The exosuit mechanical component has established predicates (UGO, DAAI)
+**乐观结果的证据：**
+- BrainCo 的智能仿生义肢（EEG 控制的假手）在无完整临床试验的情况下获批为 Class II——为基于 EEG 的运动控制建立了先例
+- 多个纯 EEG 设备（脑电图机、博睿康、理邦）仅通过 CER 即为 Class II
+- 外骨骼机械组件已建立对比器械（UGO、DAAI）
 
-**Risk reduction strategies:**
-1. **Pre-submission meeting** — the single most effective risk mitigation. Present the proposed CER pathway to CMDE and secure feedback before investing in a full submission.
-2. **Engage a BCI-experienced NMPA consultant** who has worked on BrainCo's submission or similar products.
-3. **Academic endorsement** — obtain a letter from a Chinese BCI expert (e.g., Prof. 高上凯 at Tsinghua, or Prof. 明东 at Tianjin University) explaining that the technology is well-established in literature and not experimental.
-4. **Limit clinical claims** — position the device as "gait training aid with adaptive assistance," not "intention-driven neural reconnection system," to reduce perceived novelty risk.
-
----
-
-## 9. Budget Estimate for Regulatory Work
-
-### 9.1 Direct Regulatory Costs
-
-| Item | Estimated Cost (¥) | Notes |
-|------|-------------------|-------|
-| **Classification determination** | 10,000–20,000 | Application fee + legal service if filed via agent |
-| **Innovative device application** | 30,000–50,000 | Application fee + patent analysis + expert letter procurement |
-| **Type testing (all categories)** | 300,000–500,000 | 4–6 accredited lab tests; includes re-test contingency |
-| **Biocompatibility testing** | 50,000–80,000 | GB/T 16886 series |
-| **Software evaluation** | 60,000–100,000 | GB/T 25000.51 |
-| **ISO 13485 certification** | 80,000–120,000 | Certification body audit + preparation (NQA/TÜV/SGS) |
-| **Clinical study (pre-clinical, n=30)** | 500,000–1,000,000 | IRB fees, subject stipends, site fees, insurance, data management |
-| **CER writing** | 100,000–200,000 | Consultant fees for literature review + writing + translation |
-| **Registration fee** | 72,300 | NMPA fixed fee for Class II (as of 2024) |
-| **Submission dossier preparation** | 50,000–100,000 | Documentation compilation, format conversion, QC |
-| **Supplement (发补) response** | 30,000–80,000 | Additional testing or documentation on reviewer request |
-| **Post-market surveillance plan** | 20,000–40,000 | PV system setup + annual reporting mechanism |
-| **Total direct costs** | **¥1,302,300–2,390,000** | |
-
-### 9.2 Regulatory Personnel Costs
-
-| Role | Time Required | Cost (¥) |
-|------|--------------|----------|
-| **Regulatory consultant (full-time)** | 12–18 months | 500,000–750,000 |
-| **QMS specialist** | 6 months (initial setup) | 200,000–350,000 |
-| **Clinical research coordinator** | 8 months | 160,000–240,000 |
-| **Legal counsel (medical device regulatory)** | On retainer | 100,000–200,000 |
-| **Total personnel costs** | | **¥960,000–1,540,000** |
-
-### 9.3 Grand Total
-
-| Category | Low Estimate (¥) | High Estimate (¥) |
-|----------|-----------------|-------------------|
-| Direct costs | 1,302,300 | 2,390,000 |
-| Personnel costs | 960,000 | 1,540,000 |
-| **Total** | **¥2,262,300** | **¥3,930,000** |
-
-**Recommended budget allocation:** ¥3,000,000 (approximately USD $420,000 at 2026 exchange rate).
-
-**Significant budget risks:**
-- If full clinical trial (Pathway C) is required: add ¥1,500,000–2,000,000
-- If 2 rounds of type testing needed: add ¥200,000–300,000
-- If re-classification as Class III: add ¥2,000,000–3,000,000
+**风险降低策略：**
+1. **提交前咨询**——最有效的单项风险缓解措施。向 CMDE 介绍拟议的 CER 路径，在投入完整申报前获得反馈。
+2. **聘请具有 BCI 经验的 NMPA 顾问**——曾参与 BrainCo 申报或类似产品的人员。
+3. **学术背书**——获取中国 BCI 专家（例如清华大学高上凯教授、天津大学明东教授）的信函，说明该技术在文献中已有充分论证，并非实验性。
+4. **限制临床声称**——将设备定位为"具有自适应辅助的步态训练辅助工具"，而非"意图驱动的神经再连接系统"，以降低感知新颖性风险。
 
 ---
 
-## 10. Recommended Regulatory Consultant Qualifications
+## 9. 注册工作预算估算
 
-### 10.1 Consultant Requirements
+### 9.1 直接注册成本
 
-| Criteria | Minimum Requirement | Preferred |
-|----------|-------------------|-----------|
-| **Experience** | ≥5 years in NMPA medical device registration | ≥10 years; ≥5 Class II device submissions |
-| **Track record** | ≥3 successful Class II submissions to NMPA | ≥1 successful exoskeleton or BCI submission |
-| **Exoskeleton experience** | Familiarity with YY/T 0933, GB 9706.1 for powered exoskeletons | Direct experience with UGO or DAAI submission |
-| **AI/software experience** | Knowledge of IEC 62304, GB/T 25000.51 | Experience with SaMD classification negotiation |
-| **Language** | Fluent Chinese (written) + English (technical documents) | NMPA review documentation drafting experience in Chinese |
-| **Location** | Beijing preferred (near CMDE); Shanghai acceptable | Possibility for in-person meetings with CMDE within 48h |
-| **Network** | Familiar with CMDE reviewers and process | Personal relationships with rehabilitation device reviewers |
+| 项目 | 预估费用（¥） | 备注 |
+|------|-------------|------|
+| **分类界定** | 10,000–20,000 | 申请费 + 如通过代理提交的法律服务费 |
+| **创新器械申请** | 30,000–50,000 | 申请费 + 专利分析 + 专家信函获取 |
+| **型式检验（所有类别）** | 300,000–500,000 | 4–6 项认可实验室测试；含复测储备金 |
+| **生物相容性测试** | 50,000–80,000 | GB/T 16886 系列 |
+| **软件评估** | 60,000–100,000 | GB/T 25000.51 |
+| **ISO 13485 认证** | 80,000–120,000 | 认证机构审核 + 准备（NQA/TÜV/SGS） |
+| **临床研究（临床前，n=30）** | 500,000–1,000,000 | IRB 费用、受试者补贴、中心费用、保险、数据管理 |
+| **CER 撰写** | 100,000–200,000 | 文献综述 + 撰写 + 翻译的顾问费 |
+| **注册费** | 72,300 | NMPA Class II 固定费用（截至 2024 年） |
+| **申报资料准备** | 50,000–100,000 | 文档汇编、格式转换、QC |
+| **发补回复** | 30,000–80,000 | 根据审评员要求进行额外测试或文档工作 |
+| **上市后监督计划** | 20,000–40,000 | PV 系统建立 + 年度报告机制 |
+| **直接成本合计** | **¥1,302,300–2,390,000** | |
 
-### 10.2 Recommended Regulatory Consulting Firms in China
+### 9.2 注册人员成本
 
-| Firm | Headquarters | Exoskeleton Experience | BCI/AI Experience | Estimated Rate |
-|------|-------------|----------------------|-------------------|----------------|
-| **江苏煜博医疗科技** | Nanjing | Yes (worked with rehab robot companies) | Moderate | ¥1,500–2,500/day |
-| **北京华睿卓信** | Beijing | Yes (worked with ChengTian UGO team) | Moderate | ¥2,000–3,000/day |
-| **上海祺晟医疗** | Shanghai | Limited | Limited (but strong SaMD) | ¥1,500–2,500/day |
-| **深圳迈瑞思** | Shenzhen | Yes (general medical device) | Limited | ¥1,200–2,000/day |
-| **TÜV Rheinland (China)** | Shanghai/Beijing | Yes (ISO 13485 + CE) | Strong AI regulatory | ¥3,000–5,000/day |
-| **BSI China** | Shanghai | Yes | Strong AI/software | ¥3,000–5,000/day |
+| 角色 | 所需时间 | 费用（¥） |
+|------|---------|---------|
+| **注册顾问（全职）** | 12–18 个月 | 500,000–750,000 |
+| **QMS 专员** | 6 个月（初始建立） | 200,000–350,000 |
+| **临床研究协调员** | 8 个月 | 160,000–240,000 |
+| **法律顾问（医疗器械注册）** | 按聘期 | 100,000–200,000 |
+| **人员成本合计** | | **¥960,000–1,540,000** |
 
-**Recommendation:** Hire a hybrid team:
-1. **Primary regulatory consultant** from a Chinese firm with exoskeleton submission experience (either 煜博 or 华睿卓信) — this person handles the day-to-day submission work, communicates with testing labs, manages the dossier
-2. **Specialized SaMD/AI consultant** — part-time, for the software evaluation and CER sections related to AI
-3. **Backup:** TÜV or BSI for ISO 13485 certification and international harmonization (if CE marking is also planned)
+### 9.3 总计
 
-### 10.3 Consultant Work Plan
+| 类别 | 低估值（¥） | 高估值（¥） |
+|------|-----------|-----------|
+| 直接成本 | 1,302,300 | 2,390,000 |
+| 人员成本 | 960,000 | 1,540,000 |
+| **总计** | **¥2,262,300** | **¥3,930,000** |
 
-| Month | Consultant Tasks | Deliverable |
-|-------|-----------------|-------------|
-| **M1–2** | Classification determination application; QMS gap analysis; risk management file template | Application submitted; QMS gap report |
-| **M3–4** | Innovative device application; type testing lab selection + scheduling; IEC 62304 gap analysis | Innovative application submitted; test lab booked |
-| **M5–6** | QMS implementation support; type testing supervision (pre-compliance before official); IRB package review | QMS ready for audit; pre-compliance test report |
-| **M7–8** | CER literature review initiation; clinical protocol refinement; test lab management (re-test if needed) | Literature review outline; clinical study active |
-| **M9–10** | CER draft writing; dossier template; ISO 13485 certification audit support | CER draft v1; dossier template ready |
-| **M11–12** | CER finalization (incorporate clinical study results); dossier compilation | Submission-ready dossier |
-| **M13–15** | Submission + review period liaison; supplement response preparation | Supplement response within 60-day deadline |
-| **M16+** | Expert review support (if needed); certificate receipt | Registration certificate |
+**推荐预算分配：** ¥3,000,000（按 2026 年汇率约合 USD $420,000）。
 
----
-
-## Appendix A — Key Chinese Regulatory Terminology Reference
-
-| English | Chinese | Abbreviation | Notes |
-|---------|---------|-------------|-------|
-| National Medical Products Administration | 国家药品监督管理局 | NMPA | Formerly CFDA |
-| Center for Medical Device Evaluation | 医疗器械技术审评中心 | CMDE | NMPA's device review arm |
-| China Food and Drug Administration Institute | 中国食品药品检定研究院 | CFDI | Testing lab |
-| Class II medical device | 第二类医疗器械 | Class II | Moderate risk |
-| Classification determination | 分类界定 | 分类界定 | Pre-submission classification |
-| Innovative medical device special review | 创新医疗器械特别审查程序 | 创新通道 | Fast-track pathway |
-| Type testing | 型式检验 | 型检 | Mandatory product testing |
-| Clinical evaluation report | 临床评价报告 | CER | Literature + predicate analysis |
-| Clinical trial | 临床试验 | 试验 | De novo patient study |
-| Clinical trial exemption | 免于进行临床试验目录 | 豁免目录 | Devices not requiring separate clinical trial |
-| Quality management system | 质量管理体系 | QMS | ISO 13485-based |
-| Risk management | 风险管理 | RM | ISO 14971-based |
-| Registration certificate | 医疗器械注册证 | 注册证 | Market approval document |
-| Supplement / deficiency response | 发补 | 发补 | Reviewer request for additional data |
-
-## Appendix B — Checklist: Readiness for Submission
-
-Before submitting the registration dossier, verify the following items are complete:
-
-- [ ] Classification determination letter confirming Class II (分类界定通知书)
-- [ ] Innovative device approval (if filed and approved)
-- [ ] GB 9706.1 type test report (full pass)
-- [ ] YY 9706.102 EMC test report (full pass)
-- [ ] GB/T 16886 biocompatibility test report (skin contact materials)
-- [ ] GB/T 25000.51 software evaluation report
-- [ ] ISO 13485 certification (or scheduled audit within 3 months)
-- [ ] ISO 14971 risk management file (complete, reviewed, signed)
-- [ ] IEC 62304 software lifecycle documentation (Class B level)
-- [ ] IEC 62366 usability engineering file (including summative evaluation report)
-- [ ] Clinical Evaluation Report (CER) — reviewed by CMDE pre-submission if possible
-- [ ] Pre-clinical study report (n=30)
-- [ ] Device labeling: IFU (使用说明书), packaging labels, quick-start guide (Chinese)
-- [ ] Production quality inspection certificate (出厂检验报告)
-- [ ] Post-market surveillance plan (上市后监督计划)
-- [ ] Authorization letter from patent holder (if patent not owned by applicant)
+**重大预算风险：**
+- 如需完整临床试验（路径 C）：增加 ¥1,500,000–2,000,000
+- 如需 2 轮型式检验：增加 ¥200,000–300,000
+- 如需重新分类为 Class III：增加 ¥2,000,000–3,000,000
 
 ---
 
-*End of Regulatory Strategy v0.1. This is a living draft — update after CMDE consultation and regulatory consultant input.*
+## 10. 推荐注册顾问资质
+
+### 10.1 顾问要求
+
+| 标准 | 最低要求 | 优先 |
+|------|---------|------|
+| **经验** | ≥5 年 NMPA 医疗器械注册经验 | ≥10 年；≥5 次 Class II 器械申报 |
+| **业绩记录** | ≥3 次成功的 NMPA Class II 申报 | ≥1 次成功的外骨骼或 BCI 申报 |
+| **外骨骼经验** | 熟悉 YY/T 0933、GB 9706.1 用于动力外骨骼 | 直接参与过 UGO 或 DAAI 申报 |
+| **AI/软件经验** | 了解 IEC 62304、GB/T 25000.51 | 有 SaMD 分类谈判经验 |
+| **语言能力** | 流利中文（书面）+ 英文（技术文档） | 有中文 NMPA 审评文档撰写经验 |
+| **所在地** | 北京优先（靠近 CMDE）；上海可接受 | 能在 48 小时内与 CMDE 当面会晤 |
+| **人脉** | 熟悉 CMDE 审评员和流程 | 与康复器械审评员有个人关系 |
+
+### 10.2 中国推荐注册咨询公司
+
+| 公司 | 总部 | 外骨骼经验 | BCI/AI 经验 | 预估费率 |
+|------|------|-----------|------------|---------|
+| **江苏煜博医疗科技** | 南京 | 有（与康复机器人公司合作过） | 中等 | ¥1,500–2,500/天 |
+| **北京华睿卓信** | 北京 | 有（与程天科技 UGO 团队合作过） | 中等 | ¥2,000–3,000/天 |
+| **上海祺晟医疗** | 上海 | 有限 | 有限（但 SaMD 能力强） | ¥1,500–2,500/天 |
+| **深圳迈瑞思** | 深圳 | 有（通用医疗器械） | 有限 | ¥1,200–2,000/天 |
+| **TÜV Rheinland（中国）** | 上海/北京 | 有（ISO 13485 + CE） | AI 注册能力强 | ¥3,000–5,000/天 |
+| **BSI 中国** | 上海 | 有 | AI/软件能力强 | ¥3,000–5,000/天 |
+
+**建议：** 聘请混合团队：
+1. **主要注册顾问**——来自有外骨骼申报经验的中国公司（煜博或华睿卓信）——该人员处理日常申报工作，与检验机构沟通，管理资料汇编
+2. **专业 SaMD/AI 顾问**——兼职，负责软件评估和 CER 中与 AI 相关的章节
+3. **后备：** TÜV 或 BSI 用于 ISO 13485 认证和国际协调（如需 CE 标志）
+
+### 10.3 顾问工作计划
+
+| 月份 | 顾问任务 | 交付物 |
+|------|---------|--------|
+| **M1–2** | 分类界定申请；QMS 差距分析；风险管理文件模板 | 申请已提交；QMS 差距报告 |
+| **M3–4** | 创新器械申请；型式检验实验室选择 + 排期；IEC 62304 差距分析 | 创新申请已提交；检验实验室已预约 |
+| **M5–6** | QMS 实施支持；型式检验监督（正式前预合规）；IRB 包审查 | QMS 可接受审核；预合规检验报告 |
+| **M7–8** | CER 文献综述启动；临床方案细化；检验实验室管理（如需复测） | 文献综述大纲；临床研究已启动 |
+| **M9–10** | CER 初稿撰写；资料汇编模板；ISO 13485 认证审核支持 | CER 草案 v1；资料汇编模板就绪 |
+| **M11–12** | CER 定稿（纳入临床研究结果）；资料汇编 | 可提交的完整资料 |
+| **M13–15** | 申报 + 审评期联络；发补回复准备 | 60 天期限内发补回复 |
+| **M16+** | 专家评审支持（如需）；证书领取 | 注册证 |
+
+---
+
+## 附录 A — 关键中国注册术语参考
+
+| 英文 | 中文 | 缩写 | 备注 |
+|------|------|------|------|
+| National Medical Products Administration | 国家药品监督管理局 | NMPA | 前身为 CFDA |
+| Center for Medical Device Evaluation | 医疗器械技术审评中心 | CMDE | NMPA 的器械审评部门 |
+| China Food and Drug Administration Institute | 中国食品药品检定研究院 | CFDI | 检验机构 |
+| Class II medical device | 第二类医疗器械 | Class II | 中等风险 |
+| Classification determination | 分类界定 | 分类界定 | 提交前分类 |
+| Innovative medical device special review | 创新医疗器械特别审查程序 | 创新通道 | 快速通道 |
+| Type testing | 型式检验 | 型检 | 强制性产品检验 |
+| Clinical evaluation report | 临床评价报告 | CER | 文献 + 对比器械分析 |
+| Clinical trial | 临床试验 | 试验 | 全新患者研究 |
+| Clinical trial exemption | 免于进行临床试验目录 | 豁免目录 | 无需单独临床试验的器械 |
+| Quality management system | 质量管理体系 | QMS | 基于 ISO 13485 |
+| Risk management | 风险管理 | RM | 基于 ISO 14971 |
+| Registration certificate | 医疗器械注册证 | 注册证 | 市场准入文件 |
+| Supplement / deficiency response | 发补 | 发补 | 审评员要求补充数据 |
+
+## 附录 B — 申报就绪检查清单
+
+在提交注册资料前，确认以下项目完整：
+
+- [ ] 确认 Class II 的分类界定通知书
+- [ ] 创新器械批准（如已申请并获批）
+- [ ] GB 9706.1 型式检验报告（全部通过）
+- [ ] YY 9706.102 EMC 检验报告（全部通过）
+- [ ] GB/T 16886 生物相容性检验报告（皮肤接触材料）
+- [ ] GB/T 25000.51 软件评估报告
+- [ ] ISO 13485 认证（或 3 个月内已安排审核）
+- [ ] ISO 14971 风险管理文件（完整、已审阅、已签署）
+- [ ] IEC 62304 软件生命周期文档（Class B 级别）
+- [ ] IEC 62366 可用性工程文件（含总结性评估报告）
+- [ ] 临床评价报告（CER）——如可能，经 CMDE 提交前咨询审查
+- [ ] 临床前研究报告（n=30）
+- [ ] 设备标签：使用说明书、包装标签、快速入门指南（中文）
+- [ ] 出厂检验报告
+- [ ] 上市后监督计划
+- [ ] 专利持有人的授权书（如专利非申请人所有）
+
+---
+
+*注册策略 v0.1 结束。此为活跃草案——在 CMDE 咨询和注册顾问意见后更新。*
