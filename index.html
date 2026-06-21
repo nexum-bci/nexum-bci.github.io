@@ -583,9 +583,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 /* ============================================================
    PORTAL (DOCUMENTS)
    ============================================================ */
-.portal-grid{display:grid;gap:20px}
-.{grid-template-columns:1fr 1fr 1fr;margin-bottom:20px}
-.{grid-template-columns:1fr 1fr 1fr}
+.portal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1024px){.portal-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.portal-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.portal-grid{grid-template-columns:1fr}}
 .portal-card{
   background:var(--bg-card);
   border:1px solid var(--border);
