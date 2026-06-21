@@ -524,7 +524,7 @@ footer a:hover{color:var(--text)}
 <tbody>
 <tr>
 <td>系统重量</td>
-<td>2.5 kg</td>
+<td>&lt;2.5 kg</td>
 <td>~25 kg</td>
 <td>~13.5 kg</td>
 <td>~12 kg</td>
@@ -532,8 +532,8 @@ footer a:hover{color:var(--text)}
 <tr>
 <td>端到端延迟</td>
 <td>&lt;185 ms</td>
-<td>不适用（按钮控制）</td>
-<td>不适用（姿态偏移）</td>
+<td>N/A（按钮控制）</td>
+<td>N/A（姿态偏移）</td>
 <td>~300 ms（EMG）</td>
 </tr>
 <tr>
@@ -582,13 +582,13 @@ footer a:hover{color:var(--text)}
 </table></div>
 <hr />
 <h2>原型验收标准</h2>
-<p>首版原型在满足<strong>以下所有条件</strong>时视为成功：</p>
+<p>首版原型须满足<strong>以下全部条件</strong>方为成功：</p>
 <ol>
-<li><strong>数据流完整性</strong> — EEG 信号采集、通过 BLE 传输、解码为运动意图、转换为电机力矩、施加于髋关节。至少成功一次。暂不要求精度。</li>
-<li><strong>端到端延迟 &lt;200ms</strong> — 在测试台上使用模拟 EEG 信号（信号发生器输入 ADS1299）测量。</li>
+<li><strong>数据流完整性</strong> — EEG 采集 → BLE 传输 → 意图解码 → 电机力矩 → 髋关节施加。至少成功一次。精度暂不要求。</li>
+<li><strong>端到端延迟 &lt;200ms</strong> — 测试台模拟 EEG 信号（信号发生器输入 ADS1299）测量。</li>
 <li><strong>力矩控制 ±1 Nm</strong> — 稳态空载台架测试。</li>
 <li><strong>可穿戴 30 分钟</strong> — 无皮肤刺激，无电极脱落，外壳温度 &lt;48°C。</li>
-<li><strong>行走时 EEG 可检测</strong> — ≥3/5 名健康受试者中，Cz 电极处在 ≥50% 步幅中可见 Bereitschaftspotential。</li>
+<li><strong>行走时 EEG 可检测</strong> — ≥3/5 健康受试者中，Cz 电极处在 ≥50% 步幅中可见 Bereitschaftspotential。</li>
 </ol>
 
 </div>
