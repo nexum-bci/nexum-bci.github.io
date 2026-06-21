@@ -751,6 +751,94 @@ footer p, footer li {
   .section-inner { padding: 0 20px; }
   .nav-inner { padding: 0 20px; }
 }
+
+/* ============================================================
+   LIGHT MODE
+   ============================================================ */
+[data-theme="light"] body { background: #FAFAFA; color: #111; }
+[data-theme="light"] .section-label { color: var(--accent); }
+[data-theme="light"] h2, [data-theme="light"] h1 { color: #111; }
+[data-theme="light"] .section-sub, [data-theme="light"] p { color: #444; }
+[data-theme="light"] .card, [data-theme="light"] .detail-card,
+[data-theme="light"] .spec-card, [data-theme="light"] .phone-card,
+[data-theme="light"] .step-card, [data-theme="light"] .diagram-card,
+[data-theme="light"] .flow-card {
+  background: #fff;
+  border-color: rgba(0,0,0,0.06);
+  color: #111;
+}
+[data-theme="light"] .card h3, [data-theme="light"] .card h4,
+[data-theme="light"] .detail-card h3, [data-theme="light"] .detail-card h4,
+[data-theme="light"] .spec-card h3, [data-theme="light"] .step-card h3,
+[data-theme="light"] .flow-card h3 {
+  color: #111;
+}
+[data-theme="light"] .card p, [data-theme="light"] .detail-card p,
+[data-theme="light"] .spec-card p, [data-theme="light"] .step-card p {
+  color: #555;
+}
+[data-theme="light"] .card:hover, [data-theme="light"] .detail-card:hover {
+  border-color: rgba(0,150,240,0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+}
+/* Nav light */
+[data-theme="light"] .site-nav, [data-theme="light"] nav {
+  background: rgba(255,255,255,0.85);
+  border-bottom-color: rgba(0,0,0,0.06);
+}
+[data-theme="light"] .site-nav a, [data-theme="light"] nav a {
+  color: #444;
+}
+[data-theme="light"] .site-nav .nav-logo,
+[data-theme="light"] nav .nav-logo { color: #111; }
+[data-theme="light"] .site-nav .nav-links a,
+[data-theme="light"] nav .nav-links a { color: #555; }
+[data-theme="light"] .site-nav .nav-links a:hover,
+[data-theme="light"] nav .nav-links a:hover,
+[data-theme="light"] .site-nav .nav-links a.active,
+[data-theme="light"] nav .nav-links a.active { color: #111; }
+[data-theme="light"] .nav-cta { color: #fff !important; }
+/* Footer */
+[data-theme="light"] footer { background: #111; }
+[data-theme="light"] footer, [data-theme="light"] footer p,
+[data-theme="light"] footer a, [data-theme="light"] footer h5 { color: #ccc; }
+[data-theme="light"] .footer-brand-desc { color: #999; }
+/* Hero */
+[data-theme="light"] .hero { background: #FAFAFA; }
+[data-theme="light"] .hero h1 { color: #111; }
+[data-theme="light"] .hero-sub, [data-theme="light"] .hero p { color: #555; }
+/* Buttons */
+[data-theme="light"] .btn-secondary {
+  color: #333;
+  border-color: rgba(0,0,0,0.12);
+}
+[data-theme="light"] .btn-outline-light {
+  color: #333;
+  border-color: rgba(0,0,0,0.08);
+}
+/* Tables */
+[data-theme="light"] table { color: #333; }
+[data-theme="light"] th { color: #111; border-bottom-color: rgba(0,0,0,0.08); }
+[data-theme="light"] td { color: #555; border-bottom-color: rgba(0,0,0,0.04); }
+[data-theme="light"] tr:nth-child(even) { background: #f5f5f5; }
+/* Theme toggle */
+.theme-toggle {
+  background: none; border: 1px solid rgba(255,255,255,0.15);
+  color: #fff; cursor: pointer; font-size: 16px;
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s; flex-shrink: 0; line-height: 1; padding: 0;
+}
+.theme-toggle:hover { border-color: rgba(255,255,255,0.4); }
+[data-theme="light"] .theme-toggle {
+  border-color: rgba(0,0,0,0.12); color: #333;
+}
+[data-theme="light"] .theme-toggle:hover { border-color: rgba(0,0,0,0.3); }
+.theme-toggle .sun-icon { display: none; }
+.theme-toggle .moon-icon { display: block; }
+[data-theme="light"] .theme-toggle .sun-icon { display: block; }
+[data-theme="light"] .theme-toggle .moon-icon { display: none; }
+
 </style>
 </head>
 <body>
@@ -1766,5 +1854,23 @@ footer p, footer li {
   });
 })();
 </script>
+
+<script>
+(function(){
+  var toggle = document.getElementById('themeToggle');
+  if (!toggle) return;
+  function setTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('nexum-theme', t);
+  }
+  var saved = localStorage.getItem('nexum-theme');
+  if (!saved || saved === 'light') setTheme('light');
+  toggle.addEventListener('click', function(){
+    var cur = document.documentElement.getAttribute('data-theme');
+    setTheme(cur === 'light' ? '' : 'light');
+  });
+})();
+</script>
+
 </body>
 </html>
