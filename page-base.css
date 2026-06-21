@@ -180,6 +180,74 @@ tr:hover td{background:var(--accent-subtle)}
 .content-card h2{margin-top:40px}
 .content-card hr{border:none;height:1px;background:var(--border);margin:32px 0}
 
+
+/* ============================================================
+   TESLA/APPLE REFINED CARDS & RENDERS
+   ============================================================ */
+
+/* Universal card refinement — softer borders, cleaner shadows */
+.card,.content-card{
+  border:1px solid transparent;
+  box-shadow:0 0 0 0.5px rgba(0,0,0,0.04),0 2px 8px rgba(0,0,0,0.04);
+}
+[data-theme="dark"] .card,[data-theme="dark"] .content-card{
+  border-color:rgba(255,255,255,0.04);
+  box-shadow:none;
+}
+
+/* Card images — no clipping, consistent radius */
+.product-card-image img,.render-img img,.card img[src]{
+  border-radius:var(--radius-sm);
+}
+
+/* Prevent SVG overflow clipping */
+.diagram-section svg,.content-card svg,.card svg{
+  overflow:visible;
+}
+
+/* Remove extra borders from diagram sections */
+.diagram-section{
+  border:1px solid rgba(0,0,0,0.04);
+  box-shadow:0 2px 12px rgba(0,0,0,0.03);
+}
+[data-theme="dark"] .diagram-section{
+  border-color:rgba(255,255,255,0.04);
+  box-shadow:none;
+}
+
+/* Refined portal card — Tesla minimalist */
+.portal-card{
+  border:1px solid rgba(0,0,0,0.03);
+  box-shadow:none;
+  transition:border-color .4s ease,transform .4s var(--ease-apple),box-shadow .4s var(--ease-apple);
+}
+.portal-card:hover{
+  border-color:rgba(0,113,227,0.15);
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+}
+[data-theme="dark"] .portal-card{
+  border-color:rgba(255,255,255,0.03);
+  box-shadow:none;
+}
+[data-theme="dark"] .portal-card:hover{
+  border-color:rgba(0,113,227,0.2);
+  box-shadow:0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* Product card — premium feel */
+.product-card{
+  border:1px solid rgba(0,0,0,0.03);
+  box-shadow:0 1px 4px rgba(0,0,0,0.04);
+}
+.product-card:hover{
+  box-shadow:0 8px 30px rgba(0,0,0,0.08);
+}
+
+/* Image loading prevention — avoid flash of missing image */
+img:not([src]),img[src=""]{visibility:hidden}
+img{transition:opacity .4s ease}
+img.loaded{opacity:1}
+
 /* ============================================================
    APPLE-STYLE ANIMATIONS
    ============================================================ */
