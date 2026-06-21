@@ -1438,7 +1438,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 .nav-open .nav-toggle span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
 @media(max-width:768px){.nav-toggle{display:block}.nav-links{position:fixed;top:64px;left:0;right:0;background:var(--bg-card);flex-direction:column;padding:16px 24px;gap:4px;border-bottom:1px solid var(--border);transform:translateY(-120%);opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.16,1,.3,1)}.nav-open .nav-links{transform:translateY(0);opacity:1;pointer-events:auto}.nav-links a{padding:12px 0;display:block;font-size:15px}.nav-cta{font-size:12px;padding:6px 14px}}
 
-
 .footer-bottom {
   max-width: 980px;
   margin: 48px auto 0;
@@ -2184,25 +2183,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 
   </div><!-- end mockup-grid -->
 
-  
-
 </div><!-- end container -->
 
 <script>
-document.getElementById('themeToggle').addEventListener('click',function(){
-  var isDark=document.documentElement.hasAttribute('data-theme');
-  if(isDark){document.documentElement.removeAttribute('data-theme');localStorage.setItem('nexum-theme','light')}
-  else{document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('nexum-theme','dark')}
-});
-
-  // Active nav link
+// Active nav link
   (function(){
     var p = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav-links a').forEach(function(a){
-      var h = a.getAttribute('href') || '';
-      if(h === p || (h.indexOf('#') > 0 && h.split('#')[0] === p)) a.style.color = 'var(--accent)';
-    });
-  })();
+    })();
 </script>
 <script src="shared.js"></script>
 </body>

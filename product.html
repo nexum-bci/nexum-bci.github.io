@@ -434,7 +434,6 @@ footer {
 
 <!-- NAV -->
 
-
 <!-- HERO -->
 <section class="hero">
   <div class="container">
@@ -949,12 +948,8 @@ footer {
   </div>
 </section>
 
-
-
 <script>
-// Theme toggle
 (function(){
-  var toggle = document.getElementById('themeToggle');
   function setTheme(t){
     if(t==='dark') document.documentElement.setAttribute('data-theme','dark');
     else document.documentElement.removeAttribute('data-theme');
@@ -971,15 +966,11 @@ footer {
   });
 })();
 
-// Mobile nav
 (function(){
   var btn = document.getElementById('navToggle');
   var nav = document.querySelector('nav');
   btn.addEventListener('click',function(){
-    nav.classList.toggle('nav-open');
-  });
-  document.querySelectorAll('.nav-links a').forEach(function(a){
-    a.addEventListener('click',function(){nav.classList.remove('nav-open');});
+    });
   });
 })();
 
@@ -1097,11 +1088,7 @@ footer {
   // Active nav link
   (function(){
     var p = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav-links a').forEach(function(a){
-      var h = a.getAttribute('href') || '';
-      if(h === p || (h.indexOf('#') > 0 && h.split('#')[0] === p)) a.style.color = 'var(--accent)';
-    });
-  })();
+    })();
 </script>
 <script src="shared.js"></script>
 </body>

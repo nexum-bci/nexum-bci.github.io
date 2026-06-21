@@ -13,12 +13,15 @@
 <title>生产 BOM - Nexum 逐念而行</title>
 <style>
 :root {
-  --bg: #FAFAFA; --bg-card: #FFFFFF; --border: rgba(0,0,0,0.06);
-  --text: #111; --text-secondary: #555; --text-tertiary: #888; --accent: #0096F0; --accent-subtle: rgba(0,150,240,0.08);
+  --bg: #FAFAFA; --bg-card: #FFFFFF; --border: rgba(0,0,0,0.04);
+  --text: #1d1d1f; --text-secondary: #86868b; --text-tertiary: #6e6e73; --accent: #0071e3;
+  --accent-subtle: rgba(0,113,227,0.08); --radius: 18px; --radius-sm: 10px; --max-w: 980px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04); --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
 }
 [data-theme="dark"] {
   --bg: #000; --bg-card: #1c1c1e; --border: rgba(255,255,255,0.06);
-  --text: #fff; --text-secondary: #aaa; --text-tertiary: #777; --accent-subtle: rgba(0,150,240,0.12);
+  --text: #fff; --text-secondary: #a1a1a6; --text-tertiary: #6e6e73;
+  --accent-subtle: rgba(0,113,227,0.12); --shadow-sm: none; --shadow-md: none;
 }
 
 *, *::before, *::after {
@@ -397,7 +400,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 .nav-open .nav-toggle span:nth-child(2){opacity:0}
 .nav-open .nav-toggle span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
 @media(max-width:768px){.nav-toggle{display:block}.nav-links{position:fixed;top:64px;left:0;right:0;background:var(--bg-card);flex-direction:column;padding:16px 24px;gap:4px;border-bottom:1px solid var(--border);transform:translateY(-120%);opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.16,1,.3,1)}.nav-open .nav-links{transform:translateY(0);opacity:1;pointer-events:auto}.nav-links a{padding:12px 0;display:block;font-size:15px}.nav-cta{font-size:12px;padding:6px 14px}}
-
 
 .footer-bottom {
   max-width: 980px;
@@ -1234,12 +1236,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 </tbody>
 </table></div>
 
-
 </div>
 
 <script>
 (function(){
-  var toggle = document.getElementById('themeToggle');
   function setTheme(t){
     if(t==='dark') document.documentElement.setAttribute('data-theme','dark');
     else document.documentElement.removeAttribute('data-theme');
@@ -1254,12 +1254,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
     setTheme(isDark?'light':'dark');
     toggle.innerHTML = isDark?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
   });
-  var navToggle = document.getElementById('navToggle');
-  if(navToggle) {
-    var nav = document.querySelector('nav');
-    navToggle.addEventListener('click',function(){ nav.classList.toggle('nav-open'); });
-    document.querySelectorAll('.nav-links a').forEach(function(a){
-      a.addEventListener('click',function(){ nav.classList.remove('nav-open'); });
+  document.getElementById('navToggle');
+  );
     });
   }
 })();
@@ -1267,11 +1263,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
   // Active nav link
   (function(){
     var p = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav-links a').forEach(function(a){
-      var h = a.getAttribute('href') || '';
-      if(h === p || (h.indexOf('#') > 0 && h.split('#')[0] === p)) a.style.color = 'var(--accent)';
-    });
-  })();
+    })();
 </script>
 <script src="shared.js"></script>
 </body>

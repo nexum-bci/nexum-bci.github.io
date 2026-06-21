@@ -930,7 +930,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 .nav-open .nav-toggle span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
 @media(max-width:768px){.nav-toggle{display:block}.nav-links{position:fixed;top:64px;left:0;right:0;background:var(--bg-card);flex-direction:column;padding:16px 24px;gap:4px;border-bottom:1px solid var(--border);transform:translateY(-120%);opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.16,1,.3,1)}.nav-open .nav-links{transform:translateY(0);opacity:1;pointer-events:auto}.nav-links a{padding:12px 0;display:block;font-size:15px}.nav-cta{font-size:12px;padding:6px 14px}}
 
-
 .footer-bottom {
   max-width: 980px;
   margin: 48px auto 0;
@@ -1857,7 +1856,6 @@ SECTION: SPECS TABLE
 FOOTER
 ============================================================ -->
 
-
 <!-- ============================================================
 SCRIPTS
 ============================================================ -->
@@ -1902,7 +1900,6 @@ SCRIPTS
 
 <script>
 (function(){
-  var toggle = document.getElementById('themeToggle');
   function setTheme(t){
     if(t==='dark') document.documentElement.setAttribute('data-theme','dark');
     else document.documentElement.removeAttribute('data-theme');
@@ -1917,12 +1914,8 @@ SCRIPTS
     setTheme(isDark?'light':'dark');
     toggle.innerHTML = isDark?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
   });
-  var navToggle = document.getElementById('navToggle');
-  if(navToggle) {
-    var nav = document.querySelector('nav');
-    navToggle.addEventListener('click',function(){ nav.classList.toggle('nav-open'); });
-    document.querySelectorAll('.nav-links a').forEach(function(a){
-      a.addEventListener('click',function(){ nav.classList.remove('nav-open'); });
+  document.getElementById('navToggle');
+  );
     });
   }
 })();
@@ -1930,11 +1923,7 @@ SCRIPTS
   // Active nav link
   (function(){
     var p = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav-links a').forEach(function(a){
-      var h = a.getAttribute('href') || '';
-      if(h === p || (h.indexOf('#') > 0 && h.split('#')[0] === p)) a.style.color = 'var(--accent)';
-    });
-  })();
+    })();
 </script>
 <script src="shared.js"></script>
 </body>
