@@ -70,14 +70,14 @@ ul{list-style:none}
   --accent: #0071e3;
   --accent-hover: #0077ED;
   --accent-subtle: rgba(0,113,227,0.08);
-  --radius: 18px;
-  --radius-sm: 10px;
+  --radius: 20px;
+  --radius-sm: 12px;
   --radius-pill: 999px;
   --max-w: 980px;
   --section-p: 120px 24px;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.06);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.08);
   --nav-h: 64px;
   --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -102,7 +102,7 @@ ul{list-style:none}
    ============================================================ */
 .container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
 .section{padding:var(--section-p)}
-.section-title{font-size:32px;font-weight:700;margin-bottom:12px;letter-spacing:-.5px}
+.section-title{font-size:36px;font-weight:700;margin-bottom:12px;letter-spacing:-.5px;line-height:1.15}
 .section-sub{font-size:16px;color:var(--text-secondary);margin-bottom:56px;max-width:600px;line-height:1.6}
 .section-title-center{text-align:center}
 .section-sub-center{text-align:center;margin-left:auto;margin-right:auto}
@@ -113,21 +113,21 @@ ul{list-style:none}
 
 .card{
   background:var(--bg-card);
-  border:none;
+  border:1px solid transparent;
   border-radius:var(--radius);
   padding:32px;
   box-shadow:var(--shadow-sm);
-  transition:transform 0.3s var(--ease-apple),box-shadow 0.3s var(--ease-apple),background .35s ease
+  transition:transform 0.4s var(--ease-apple),box-shadow 0.4s var(--ease-apple),border-color 0.4s var(--ease-apple),background .35s ease
 }
-.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--border)}
 [data-theme="dark"] .card{
   border:1px solid rgba(255,255,255,0.06);
   box-shadow:none
 }
 [data-theme="dark"] .card:hover{
-  border-color:rgba(255,255,255,0.12);
-  transform:translateY(-1px);
-  box-shadow:none
+  border-color:rgba(255,255,255,0.15);
+  transform:translateY(-3px);
+  box-shadow:0 4px 24px rgba(0,0,0,0.4)
 }
 
 .btn{
@@ -233,11 +233,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
   margin-bottom:20px
 }
 .hero-title{
-  font-size:56px;
+  font-size:64px;
   font-weight:700;
-  line-height:1.1;
-  letter-spacing:-0.8px;
-  margin-bottom:20px
+  line-height:1.08;
+  letter-spacing:-1.2px;
+  margin-bottom:16px
 }
 .hero-tagline{font-size:15px;color:var(--text-secondary);max-width:560px;margin:0 auto 36px;line-height:1.6}
 .hero-sub{
@@ -283,10 +283,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
   display:block
 }
 .problem-headline{
-  font-size:52px;
-  font-weight:800;
+  font-size:56px;
+  font-weight:700;
   line-height:1.08;
-  letter-spacing:-1.5px;
+  letter-spacing:-1.2px;
   margin-bottom:20px;
   color:var(--text)
 }
@@ -375,9 +375,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 }
 .product-card-image{
   width:100%;
-  height:220px;
+  height:240px;
   overflow:hidden;
-  position:relative
+  position:relative;
+  background:var(--bg)
 }
 .product-card-image img{
   width:100%;
@@ -624,10 +625,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 }
 .portal-card h3{font-size:18px;font-weight:600;margin-bottom:6px;color:var(--text)}
 .portal-card p{font-size:14px;color:var(--text-secondary);line-height:1.6}
-.portal-card 
-.portal-card 
-.portal-card 
-.portal-card 
 
 /* ============================================================
    APP
@@ -644,21 +641,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
   max-width:240px;
   height:480px;
   margin:0 auto;
-  background:linear-gradient(145deg,#2c2c32,#1a1a20);
-  border:none;
-  border-radius:36px;
+  background:linear-gradient(160deg,#2c2c32,#1c1c22);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:32px;
   padding:8px;
   position:relative;
   overflow:visible;
-  transition:transform .3s ease,box-shadow .3s ease;
-  box-shadow:0 8px 32px rgba(0,0,0,0.12),inset 0 1px 0 rgba(255,255,255,0.06);
+  transition:transform 0.4s var(--ease-apple),box-shadow 0.4s var(--ease-apple);
+  box-shadow:0 8px 40px rgba(0,0,0,0.1),inset 0 1px 0 rgba(255,255,255,0.06),0 0 0 2px rgba(0,0,0,0.02);
   flex-shrink:0
 }
-.phone-mockup:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.2)}
-[data-theme="dark"] .phone-mockup{box-shadow:0 8px 32px rgba(0,0,0,0.5)}
-[data-theme="dark"] .phone-mockup:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.6)}
-[data-theme="dark"] .phone-mockup .phone-ring-wrap svg circle[stroke*="rgba(0,0,0,0.06"] { stroke: rgba(255,255,255,0.1); }
-[data-theme="dark"] .phone-mockup .phone-gauge-svg svg path[stroke*="rgba(0,0,0,0.06"] { stroke: rgba(255,255,255,0.1); }
+.phone-mockup:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,0.18),inset 0 1px 0 rgba(255,255,255,0.06),0 0 0 2px rgba(0,0,0,0.04)}
+[data-theme="dark"] .phone-mockup{box-shadow:0 8px 40px rgba(0,0,0,0.5)}
+[data-theme="dark"] .phone-mockup:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.7)}
+[data-theme="dark"] .phone-mockup .phone-ring-wrap svg circle[stroke*="rgba(0,0,0,0.06)"] { stroke: rgba(255,255,255,0.08); }
+[data-theme="dark"] .phone-mockup .phone-gauge-svg svg path[stroke*="rgba(0,0,0,0.06)"] { stroke: rgba(255,255,255,0.08); }
 [data-theme="dark"] .phone-mockup .phone-gauge-svg svg line { stroke: #f5f5f7; }
 [data-theme="dark"] .phone-mockup .phone-gauge-svg svg circle { fill: #f5f5f7; }
 [data-theme="dark"] .phone-mockup .phone-screen .phone-stats { color: rgba(255,255,255,0.5); }
@@ -872,14 +869,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
    MARKET
    ============================================================ */
 .market-card{
-  padding:32px;
+  padding:36px;
   background:var(--bg-card);
   border:1px solid var(--border);
   border-radius:var(--radius);
   position:relative;
-  transition:transform .25s ease,box-shadow .25s ease
+  transition:transform 0.35s var(--ease-apple),box-shadow 0.35s var(--ease-apple)
 }
-.market-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.market-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 .market-card .phase-tag{
   position:absolute;
   top:16px;
@@ -1033,8 +1030,6 @@ footer a:hover{color:var(--text)}
   .section-sub{font-size:14px;margin-bottom:32px}
   .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;gap:20px}
   .problem-stats{flex-direction:column;align-items:center;gap:20px}
-  .{grid-template-columns:1fr}
-.{grid-template-columns:1fr 1fr}
   .tech-flow{flex-direction:column;align-items:center;gap:4px}
   .tech-step{max-width:360px;width:100%;border-radius:var(--radius)!important}
   .tech-step:nth-child(1){border-radius:var(--radius)!important}
@@ -1074,8 +1069,6 @@ footer a:hover{color:var(--text)}
   .hero-title{font-size:28px}
   .hero-tagline{font-size:15px;color:var(--text-secondary);max-width:560px;margin:0 auto 36px;line-height:1.6}
 .hero-sub{font-size:15px}
-  .{grid-template-columns:1fr}
-.{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .grid-2{grid-template-columns:1fr}
   .hero-metrics{gap:12px}
@@ -1147,7 +1140,7 @@ footer a:hover{color:var(--text)}
    ============================================================ */
 .hero-label{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) 0s both}
 .hero-title{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) .1s both}
-.hero-tagline{font-size:15px;color:var(--text-secondary);max-width:560px;margin:0 auto 36px;line-height:1.6}
+.hero-tagline{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) .15s both}
 .hero-sub{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) .2s both}
 .hero-actions{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) .3s both}
 .hero-metrics{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) .4s both}
@@ -1165,40 +1158,20 @@ footer a:hover{color:var(--text)}
      ============================================================ -->
 <section id="hero">
   <div class="container" style="max-width:800px">
-    <div class="hero-label">定义人机共生 · Human-Machine Symbiosis</div>
+    <div class="hero-label">Human-Machine Symbiosis</div>
     <h1 class="hero-title">逐念而行</h1>
     <p class="hero-sub">从大脑到肌肉的AI</p>
-    <p class="hero-tagline">读取大脑运动意图，AI生成个性化策略，驱动轻量穿戴式外骨骼。<br>让每一位患者重新开始行走。</p>
+    <p class="hero-tagline">读取运动意图，AI生成策略，驱动穿戴式外骨骼。<br>让每一位患者重新行走。</p>
     <div class="hero-actions">
-      <a href="逐念而行_Nexum_BP.html" class="btn btn-primary">查看商业计划书</a>
-      <a href="#contact" class="btn btn-outline">联系团队</a>
+      <a href="逐念而行_Nexum_BP.html" class="btn btn-primary">商业计划书</a>
+      <a href="#product" class="btn btn-outline">了解产品</a>
     </div>
     <div class="hero-metrics">
-      <div class="metric">
-        <div class="metric-num">9400万</div>
-        <div class="metric-label">全球患者</div>
-        <div class="metric-sub">中风存活者基数</div>
-      </div>
-      <div class="metric">
-        <div class="metric-num">&lt;185ms</div>
-        <div class="metric-label">系统延迟</div>
-        <div class="metric-sub">端到端闭环</div>
-      </div>
-      <div class="metric">
-        <div class="metric-num">8ch</div>
-        <div class="metric-label">EEG通道</div>
-        <div class="metric-sub">干电极采集</div>
-      </div>
-      <div class="metric">
-        <div class="metric-num">&lt;1.5kg</div>
-        <div class="metric-label">穿戴重量</div>
-        <div class="metric-sub">碳纤维结构</div>
-      </div>
-      <div class="metric">
-        <div class="metric-num">+44m*</div>
-        <div class="metric-label">6MWT提升</div>
-        <div class="metric-sub">临床验证中</div>
-      </div>
+      <div class="metric"><div class="metric-num">9400万</div><div class="metric-label">全球患者</div><div class="metric-sub">中风存活者</div></div>
+      <div class="metric"><div class="metric-num">&lt;185ms</div><div class="metric-label">系统延迟</div><div class="metric-sub">端到端闭环</div></div>
+      <div class="metric"><div class="metric-num">8ch</div><div class="metric-label">EEG通道</div><div class="metric-sub">干电极</div></div>
+      <div class="metric"><div class="metric-num">&lt;1.5kg</div><div class="metric-label">穿戴重量</div><div class="metric-sub">碳纤维</div></div>
+      <div class="metric"><div class="metric-num">+44m*</div><div class="metric-label">6MWT提升</div><div class="metric-sub">临床验证中</div></div>
     </div>
   </div>
 </section>
@@ -1208,34 +1181,17 @@ footer a:hover{color:var(--text)}
      ============================================================ -->
 <section id="problem" class="section">
   <div class="container">
-    <!-- Lead statement -->
     <div class="problem-lead reveal">
-      <span class="problem-badge">GLOBAL CRISIS</span>
+      <span class="problem-badge">The Problem</span>
       <h2 class="problem-headline">9400万人<br>等待重新行走</h2>
-      <p class="problem-sub">
-        脑卒中已成为全球致残率最高的疾病之一。全球9400万中风存活者中，约60%遗留运动功能障碍。传统康复依赖治疗师一对一训练，效率低下且成本高昂——患者等待的不是康复，而是重新开始生活的权利。
-      </p>
+      <p class="problem-sub">脑卒中全球致残率第一。9400万存活者中60%遗留运动障碍。传统康复依赖治疗师一对一——效率低、费用高、不可持续。</p>
     </div>
-    <!-- Stats -->
     <div class="problem-stats">
-      <div class="problem-stat reveal">
-        <div class="problem-stat-num">9400万</div>
-        <div class="problem-stat-label">全球中风存活者</div>
-        <div class="problem-stat-desc">WHO 2024全球疾病负担报告 · 约60%遗留运动功能障碍</div>
-      </div>
-      <div class="problem-stat reveal">
-        <div class="problem-stat-num">1500万</div>
-        <div class="problem-stat-label">每年新增中风患者</div>
-        <div class="problem-stat-desc">全球每年新增 · 预计2030年突破2000万/年</div>
-      </div>
-      <div class="problem-stat reveal">
-        <div class="problem-stat-num">$30,000+</div>
-        <div class="problem-stat-label">人均年康复费用</div>
-        <div class="problem-stat-desc">美国市场数据 · 医保覆盖有限 · 中国等效约¥8-15万/年</div>
-      </div>
+      <div class="problem-stat reveal"><div class="problem-stat-num">9400万</div><div class="problem-stat-label">全球中风存活者</div><div class="problem-stat-desc">WHO 2024 · 60%遗留运动功能障碍</div></div>
+      <div class="problem-stat reveal"><div class="problem-stat-num">1500万</div><div class="problem-stat-label">每年新增患者</div><div class="problem-stat-desc">年增5% · 2030年突破2000万</div></div>
+      <div class="problem-stat reveal"><div class="problem-stat-num">$30,000+</div><div class="problem-stat-label">人均年康复费用</div><div class="problem-stat-desc">美国 · 中国等效¥8-15万/年</div></div>
     </div>
-    <!-- Context -->
-    <p class="problem-context reveal">现有康复技术停留在被动训练阶段，缺乏对大脑运动意图的理解和主动响应。Nexum让每一位患者重新开始行走。</p>
+    <p class="problem-context reveal">现有康复停留在被动训练阶段——缺乏对运动意图的理解与主动响应。Nexum改变了这一点。</p>
   </div>
 </section>
 
@@ -1245,8 +1201,8 @@ footer a:hover{color:var(--text)}
 <section id="product" class="section">
   <div class="container">
     <div class="section-title-center">
-      <h2 class="section-title">Nexum One 产品系统</h2>
-      <p class="section-sub section-sub-center">首款神经重连AI系统，三大模块协同工作，覆盖从信号采集到运动执行的完整闭环。两个版本满足医院与居家不同场景。</p>
+      <h2 class="section-title">Nexum One</h2>
+      <p class="section-sub section-sub-center">首款神经重连AI系统。三大模块协同，从脑信号到肌肉动作的完整闭环。Clinical版（医院）与Home版（居家）双版本。</p>
     </div>
     <div class="product-grid">
       <!-- EEG-Sense -->
@@ -1257,7 +1213,7 @@ footer a:hover{color:var(--text)}
         <div class="product-card-body">
           <div class="product-card-name">EEG-Sense</div>
           <div class="product-card-sub">Brain Signal Interface</div>
-          <p class="product-card-outcome">8通道干电极头带，实时捕捉大脑运动意图。医用级信号质量，消费级佩戴体验——仅80g，让大脑与机器无缝对话。</p>
+          <p class="product-card-outcome">8通道干电极头带，实时捕捉运动意图。医用级信号，消费级佩戴——仅80g。</p>
           <div class="product-card-specs">
             <span class="spec-tag">8ch干电极</span>
             <span class="spec-tag">80g</span>
@@ -1275,7 +1231,7 @@ footer a:hover{color:var(--text)}
         <div class="product-card-body">
           <div class="product-card-name">NeuroSuit</div>
           <div class="product-card-sub">Lightweight Exoskeleton</div>
-          <p class="product-card-outcome">碳纤维锚定框架与柔性织物包裹，鲍登线缆精准驱动。轻量化设计仅1.5kg，10秒快速穿脱——康复融入日常，而非打断生活。</p>
+          <p class="product-card-outcome">碳纤维框架 + 柔性织物包裹。鲍登线缆驱动，1.5kg。10秒穿脱——康复融入生活。</p>
           <div class="product-card-specs">
             <span class="spec-tag">&lt;1.5 kg</span>
             <span class="spec-tag">15 Nm</span>
@@ -1293,7 +1249,7 @@ footer a:hover{color:var(--text)}
         <div class="product-card-body">
           <div class="product-card-name">Control Box</div>
           <div class="product-card-sub">AI Strategy Engine</div>
-          <p class="product-card-outcome">运行个性化AI策略引擎，基于416肌肉骨骼孪生模型，强化学习实时生成最优助力方案。端到端延迟控制在185ms以内，响应如本能。</p>
+          <p class="product-card-outcome">运行个性化AI策略引擎。416肌肉骨骼孪生模型 + 强化学习，实时生成最优助力。端到端 &lt;185ms。</p>
           <div class="product-card-specs">
             <span class="spec-tag">&lt;185 ms</span>
             <span class="spec-tag">416 肌肉孪生</span>
@@ -1316,7 +1272,7 @@ footer a:hover{color:var(--text)}
   <div class="container">
     <div class="section-title-center">
       <h2 class="section-title">AI闭环 · 从大脑到肌肉</h2>
-      <p class="section-sub section-sub-center">四步闭环流水线，从大脑信号到肌肉动作，端到端延迟控制在185ms以内。每一步都在持续优化。</p>
+      <p class="section-sub section-sub-center">四步流水线，端到端 &lt;185ms。每一步持续优化。</p>
     </div>
     <div class="tech-flow">
       <div class="tech-step reveal">
@@ -1720,16 +1676,14 @@ footer a:hover{color:var(--text)}
   <div class="container">
     <div class="section-title-center">
       <h2 class="section-title">市场路线</h2>
-      <p class="section-sub section-sub-center">神经康复 → 老年行动力 → 全人群增强。三阶段覆盖十年增长路径。</p>
+      <p class="section-sub section-sub-center">康复 → 老年 → 全人群。三阶段十年增长。</p>
     </div>
     <div class="grid-3">
       <div class="market-card">
         <span class="phase-tag">Phase 1</span>
         <h3>神经康复</h3>
         <div class="market-num">$6.6B</div>
-        <p class="market-desc">
-          中风后康复。NMPA二类认证。Clinical版（$18,000）进医院，Home版（$3,999+$499/年）覆盖居家。长三角三甲医院切入。
-        </p>
+        <p class="market-desc">中风后康复。NMPA二类。Clinical版$18,000进医院，Home版$3,999+$499/年居家。长三角三甲切入。</p>
         <div class="market-year"> 2028 – 2030</div>
       </div>
       <div class="market-card">
@@ -1761,7 +1715,7 @@ footer a:hover{color:var(--text)}
   <div class="container">
     <div class="section-title-center">
       <h2 class="section-title">为什么是现在</h2>
-      <p class="section-sub section-sub-center">四大趋势汇聚于2025-2028窗口期，创造历史性机遇。</p>
+      <p class="section-sub section-sub-center">四大趋势汇聚于 2025-2028 窗口期。</p>
     </div>
     <div class="grid-4">
       <div class="why-card">
