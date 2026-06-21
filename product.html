@@ -429,21 +429,6 @@ footer {
   border-top: 1px solid var(--border); text-align: center;
   font-size: 12px; color: var(--text-tertiary);
 }
-/* Dual-mode: hero + exploded SVGs (dark-themed, need light-mode fixes) */
-.hero svg text[fill="#FFFFFF"],
-.hero svg text[fill="#ffffff"],
-.exploded-svg text[fill="#FFFFFF"],
-.exploded-svg text[fill="#ffffff"] { fill: #1d1d1f !important }
-[data-theme="dark"] .hero svg text[fill="#FFFFFF"],
-[data-theme="dark"] .hero svg text[fill="#ffffff"],
-[data-theme="dark"] .exploded-svg text[fill="#FFFFFF"],
-[data-theme="dark"] .exploded-svg text[fill="#ffffff"] { fill: #f5f5f7 !important }
-.hero svg text[fill="#999999"],
-.exploded-svg text[fill="#999999"] { fill: #86868b !important }
-[data-theme="dark"] .hero svg text[fill="#999999"],
-[data-theme="dark"] .exploded-svg text[fill="#999999"] { fill: #6e6e73 !important }
-.hero svg > rect[fill="none"]:first-of-type,
-.exploded-svg > rect:first-child { fill: #f5f5f7 !important }
 </style>
 </head>
 <body>
