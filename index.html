@@ -1789,5 +1789,16 @@ footer a:hover{color:var(--text)}
 
 
 <script src="shared.js"></script>
+<script>
+// Scroll reveal — all .reveal elements animate in when visible
+(function(){
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+})();
+</script>
 </body>
 </html>
