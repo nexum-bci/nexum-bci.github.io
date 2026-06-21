@@ -185,6 +185,17 @@ tr:hover td{background:var(--accent-subtle)}
 .diagram-section svg,.content-card svg,.card svg{overflow:visible}
 img:not([src]),img[src=""]{visibility:hidden}
 
+
+/* ============================================================
+   UNIFIED DIAGRAM DESIGN LANGUAGE
+   Lines: 1.5-2px, arrows: 7px triangle, boxes: rx=10-14,
+   Titles: 13-15px bold, Body: 11-12px, Caption: 10px.
+   Padding: 16-20px internal, gap: 6-8px related, 20-24px sections.
+   ============================================================ */
+.diagram-section svg text{font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.diagram-section svg line,.diagram-section svg path{stroke-linecap:round;stroke-linejoin:round}
+.diagram-section svg rect[fill="var(--bg-card)"]{stroke:var(--border);stroke-width:1.5}
+
 /* Diagram frame — clean minimal */
 .diagram-section{
   border:1px solid rgba(0,0,0,0.04);border-radius:var(--radius);
