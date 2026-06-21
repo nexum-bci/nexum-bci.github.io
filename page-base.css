@@ -140,6 +140,38 @@ ul li::marker{color:var(--accent)}
 ol li::marker{color:var(--accent);font-weight:600}
 
 
+
+/* ============================================================
+   HEADING → CONTENT SPACING — cards, grids, diagrams, tables
+   Standard gap: h2→content 32px, h3→content 24px
+   ============================================================ */
+
+/* When heading is directly followed by a grid/diagram/table container */
+h2 + .portal-grid,h2 + .product-grid,h2 + .gallery,
+h2 + .mockup-grid,h2 + .comp-grid,h2 + .steps-grid,
+h2 + .diagram-section,h2 + .table-wrap,h2 + .risk-grid,
+h2 + .stat-grid,h2 + .check-grid,h2 + .timeline,
+h2 + .g2,h2 + .g3,h2 + .g4,h2 + .grid-2,h2 + .grid-3,h2 + .grid-4,
+h2 + div > .portal-grid:first-child,
+h2 + div > .product-grid:first-child{
+  margin-top:32px
+}
+
+h3 + .portal-grid,h3 + .product-grid,h3 + .gallery,
+h3 + .mockup-grid,h3 + .comp-grid,h3 + .steps-grid,
+h3 + .diagram-section,h3 + .table-wrap,h3 + .risk-grid,
+h3 + .stat-grid,h3 + .check-grid,.h3 + .timeline,
+h3 + .g2,h3 + .g3,h3 + .g4,h3 + .grid-2,h3 + .grid-3,h3 + .grid-4{
+  margin-top:24px
+}
+
+/* When there's a section-label between heading and content */
+.section-label + h2{margin-top:4px}
+.section-label + h2 + *{margin-top:32px}
+
+/* Section footer link spacing */
+.section-footer{margin-top:24px;display:block}
+
 /* ============================================================
    PRECISION TYPOGRAPHY — spacing, weights, line heights
    ============================================================ */
