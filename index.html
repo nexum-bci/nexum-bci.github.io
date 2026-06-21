@@ -41,7 +41,7 @@ body{
 img{max-width:100%;height:auto;display:block;opacity:0;transition:opacity .5s ease}
 img.loaded{opacity:1}
 a{color:var(--accent);text-decoration:none;transition:color .2s ease}
-a:hover{text-decoration:underline;text-underline-offset:2px;opacity:.8}
+a:hover{opacity:.8}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
 nav a,.card a,.portal-card a,footer a{text-decoration:none!important}
 nav a:hover,.card a:hover,.portal-card a:hover,footer a:hover{text-decoration:none;opacity:.8}
@@ -186,107 +186,26 @@ ul{list-style:none}
 /* ============================================================
    NAV
    ============================================================ */
-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:1000;
-  background:rgba(255,255,255,0.72);
-  backdrop-filter:blur(20px) saturate(180%);
-  -webkit-backdrop-filter:blur(20px) saturate(180%);
-  border-bottom:1px solid var(--border);
-  transition:background .35s ease,backdrop-filter .35s ease;
-  height:var(--nav-h)
-}
-[data-theme="dark"] nav{background:rgba(0,0,0,.8)}
-nav .container{
-  display:flex;
-  align-items:center;
-  height:var(--nav-h);
-  gap:32px
-}
-.nav-logo{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  font-weight:700;
-  font-size:16px;
-  color:var(--text);
-  flex-shrink:0
-}
-.nav-links{display:flex;gap:24px;flex:1}
-.nav-links a{
-  font-size:14px;
-  color:var(--text-secondary);
-  font-weight:500;
-  position:relative;
-  padding:4px 0
-}
-.nav-links a::after{
-  content:'';
-  position:absolute;
-  bottom:-2px;
-  left:0;
-  width:0;
-  height:2px;
-  background:var(--accent);
-  transition:width .25s ease;
-  border-radius:2px
-}
-.nav-links a:hover::after{width:100%}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);background:rgba(255,255,255,0.72);border-bottom:1px solid var(--border);height:64px;transition:background .35s ease,border-color .35s ease}
+[data-theme="dark"] nav{background:rgba(0,0,0,0.8)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:64px;gap:24px}
+.nav-logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;color:var(--text);text-decoration:none;flex-shrink:0}
+.nav-links{display:flex;gap:20px;flex:1}
+.nav-links a{font-size:14px;font-weight:500;color:var(--text-secondary);text-decoration:none;position:relative;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
 
+
 .nav-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
-#themeToggle{
-  width:36px;height:36px;border-radius:50%;
-  border:1px solid var(--border);
-  background:rgba(0,0,0,0.02);
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:16px;
-  transition:all 0.3s var(--ease-apple);
-  color:var(--text);
-  flex-shrink:0;
-  line-height:1
-}
-#themeToggle:hover{background:var(--accent-subtle);border-color:var(--accent)}
-#themeToggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-[data-theme="dark"] #themeToggle{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1)}
-[data-theme="dark"] #themeToggle:hover{background:var(--accent-subtle);border-color:var(--accent)}
+.theme-btn,.nav-toggle{width:36px;height:36px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text);transition:all .2s}
+.theme-btn:hover{background:var(--accent-subtle)}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff!important;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none}
+.nav-cta:hover{opacity:.9}
+.nav-toggle{display:none;flex-shrink:0;padding:4px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--text);margin:4px 0;border-radius:1px;transition:all .3s cubic-bezier(.16,1,.3,1)}
+.nav-open .nav-toggle span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.nav-open .nav-toggle span:nth-child(2){opacity:0}
+.nav-open .nav-toggle span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
 
-.nav-cta{
-  padding:8px 20px;
-  border-radius:var(--radius-sm);
-  background:var(--accent);
-  color:#fff;
-  font-size:13px;
-  font-weight:600;
-  border:none;
-  cursor:pointer;
-  transition:all .2s ease;
-  font-family:inherit;
-  line-height:1.2;
-  flex-shrink:0
-}
-.nav-cta:hover{opacity:.92;transform:translateY(-1px)}
-
-.mobile-menu-btn{
-  display:none;
-  width:36px;
-  height:36px;
-  border:none;
-  background:none;
-  cursor:pointer;
-  color:var(--text);
-  font-size:22px;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-  line-height:1
-}
 
 /* ============================================================
    HERO
@@ -320,6 +239,7 @@ nav .container{
   letter-spacing:-0.8px;
   margin-bottom:20px
 }
+.hero-tagline{font-size:15px;color:var(--text-secondary);max-width:560px;margin:0 auto 36px;line-height:1.6}
 .hero-sub{
   font-size:18px;
   color:var(--text-secondary);
@@ -1103,7 +1023,8 @@ footer a:hover{color:var(--text)}
 @media(max-width:768px){
   :root{--section-p:80px 20px}
   .hero-title{font-size:36px;letter-spacing:-1px}
-  .hero-sub{font-size:16px}
+  .hero-tagline{font-size:15px;color:var(--text-secondary);max-width:560px;margin:0 auto 36px;line-height:1.6}
+.hero-sub{font-size:16px}
   .section-title{font-size:26px}
   .section-sub{font-size:14px;margin-bottom:32px}
   .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;gap:20px}
@@ -1122,8 +1043,10 @@ footer a:hover{color:var(--text)}
   .team-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}
   .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
   .footer-grid>div:first-child{grid-column:1/-1}
-  nav .nav-links{display:none}
-  .mobile-menu-btn{display:flex}
+  .nav-toggle{display:flex}
+  .nav-links{position:fixed;top:64px;left:0;right:0;background:var(--bg-card);flex-direction:column;padding:16px 24px;gap:4px;border-bottom:1px solid var(--border);transform:translateY(-120%);opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.16,1,.3,1)}
+  .nav-open .nav-links{transform:translateY(0);opacity:1;pointer-events:auto}
+  .nav-links a{padding:12px 0;display:block;font-size:15px}
   .nav-cta{font-size:12px;padding:6px 14px}
   .hero-metrics{gap:16px}
   .hero-metrics .metric{min-width:80px}
@@ -1144,7 +1067,8 @@ footer a:hover{color:var(--text)}
    ============================================================ */
 @media(max-width:480px){
   .hero-title{font-size:28px}
-  .hero-sub{font-size:15px}
+  .hero-tagline{font-size:15px;color:var(--text-secondary);max-width:560px;margin:0 auto 36px;line-height:1.6}
+.hero-sub{font-size:15px}
   .portal-grid-featured{grid-template-columns:1fr}
 .portal-grid-secondary{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
@@ -1160,7 +1084,7 @@ footer a:hover{color:var(--text)}
   .latency-bar span{font-size:9px}
   .problem-headline{font-size:30px}
   .phone-mockup{max-width:220px}
-  nav .container{gap:12px}
+  .nav-inner{gap:12px}
 }
 
 /* ============================================================
@@ -1172,7 +1096,7 @@ footer a:hover{color:var(--text)}
   #hero{min-height:auto;padding:48px 0;background:#fff!important}
   .card,.team-card,.market-card,.why-card,.portal-card,.product-card,
   .phone-mockup,.tech-step,.latency-bar,.problem-stat{break-inside:avoid}
-  #themeToggle,.nav-cta,.mobile-menu-btn,.section-footer,.app-features{display:none!important}
+  .theme-btn,.nav-cta,.nav-toggle,.section-footer,.app-features{display:none!important}
   .latency-bar span{color:#000!important;background:#ddd!important}
   .latency-eeg{background:#B3D9F2!important}
   .latency-pre{background:#C0E0F5!important}
@@ -1188,10 +1112,7 @@ footer a:hover{color:var(--text)}
   .footer-bottom{flex-direction:row}
   .problem-stats{display:block!important}
   .problem-stat{display:inline-block!important;width:30%!important;margin-right:2%!important;page-break-inside:avoid}
-  a{text-decoration:underline!important}
-  .portal-card{border:1px solid #ddd!important}
-  .portal-card .badge,.portal-card .arrow,.why-card .why-icon{filter:grayscale(1)}
-  .phase-tag{background:#eee!important;color:#333!important}
+  a{color:#333!important}
   .tag-accent{background:#eee!important;color:#333!important}
 }
 
@@ -1209,8 +1130,6 @@ footer a:hover{color:var(--text)}
 .fade-in{animation:fadeUp .6s ease forwards}
 .pulse{animation:pulse 2s ease-in-out infinite}
 
-/* Mobile nav animation */
-#mobileMenu{transition:all .3s ease}
 
 /* ============================================================
    SCROLL REVEAL
@@ -1223,6 +1142,7 @@ footer a:hover{color:var(--text)}
    ============================================================ */
 .hero-label{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) 0s both}
 .hero-title{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) .1s both}
+.hero-tagline{font-size:15px;color:var(--text-secondary);max-width:560px;margin:0 auto 36px;line-height:1.6}
 .hero-sub{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) .2s both}
 .hero-actions{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) .3s both}
 .hero-metrics{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) .4s both}
@@ -1234,20 +1154,24 @@ footer a:hover{color:var(--text)}
      NAV
      ============================================================ -->
 <nav>
-  <div style="max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:64px;gap:24px">
-    <a href="index.html" style="display:flex;align-items:center;gap:8px;font-weight:700;color:var(--text);text-decoration:none">
-      <img src="favicon.svg" width="24" height="24"> Nexum 逐念而行
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="favicon.svg" width="24" height="24" alt="Nexum"> Nexum 逐念而行
     </a>
-    <div style="flex:1;display:flex;gap:20px">
-      <a href="product.html" style="color:var(--text-secondary);text-decoration:none;font-size:14px">产品</a>
-      <a href="technology.html" style="color:var(--text-secondary);text-decoration:none;font-size:14px">技术</a>
-      <a href="app.html" style="color:var(--text-secondary);text-decoration:none;font-size:14px">App</a>
-      <a href="index.html#documents" style="color:var(--text-secondary);text-decoration:none;font-size:14px">文档</a>
-      <a href="index.html#team" style="color:var(--text-secondary);text-decoration:none;font-size:14px">团队</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="product.html">产品</a>
+      <a href="technology.html">技术</a>
+      <a href="app.html">App</a>
+      <a href="index.html#documents">文档</a>
+      <a href="index.html#team">团队</a>
     </div>
-    <div style="display:flex;align-items:center;gap:12px">
-      <button id="themeToggle" style="width:36px;height:36px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);cursor:pointer;font-size:16px;color:var(--text)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
-      <a href="index.html#contact" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff!important;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none">投资者入口</a>
+    <div class="nav-actions">
+      <button class="theme-btn" id="themeToggle" aria-label="切换主题"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+      <a href="index.html#contact" class="nav-cta">投资者入口</a>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
@@ -1257,12 +1181,10 @@ footer a:hover{color:var(--text)}
      ============================================================ -->
 <section id="hero">
   <div class="container" style="max-width:800px">
-    <div class="hero-label">定义人机共生 · Defining Human-Machine Symbiosis</div>
+    <div class="hero-label">定义人机共生 · Human-Machine Symbiosis</div>
     <h1 class="hero-title">逐念而行</h1>
-    <p class="hero-sub">
-      读取大脑运动意图 → AI生成个性化助力策略 → 驱动轻量穿戴式外骨骼<br>
-      从大脑到肌肉的AI，让每一位患者重新开始行走。
-    </p>
+    <p class="hero-sub">从大脑到肌肉的AI</p>
+    <p class="hero-tagline">读取大脑运动意图，AI生成个性化策略，驱动轻量穿戴式外骨骼。<br>让每一位患者重新开始行走。</p>
     <div class="hero-actions">
       <a href="逐念而行_Nexum_BP.html" class="btn btn-primary">查看商业计划书</a>
       <a href="#contact" class="btn btn-outline">联系团队</a>
@@ -1949,67 +1871,47 @@ footer a:hover{color:var(--text)}
      THEME TOGGLE
      --------------------------------------------------------- */
   var toggle = document.getElementById('themeToggle');
-  var themeIcon = document.getElementById('themeIcon');
 
   function setTheme(t) {
     if (t === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
-      if (themeIcon) { themeIcon.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'; }
+      if (toggle) toggle.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
     } else {
       document.documentElement.removeAttribute('data-theme');
-      if (themeIcon) { themeIcon.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>'; }
+      if (toggle) toggle.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
     }
     localStorage.setItem('nexum-theme', t);
   }
 
-  // Initialize theme from localStorage
   var saved = localStorage.getItem('nexum-theme');
-  if (saved === 'dark') {
-    setTheme('dark');
-  } else {
-    // Default to light
-    if (themeIcon) { themeIcon.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>'; }
-    // If no saved preference, check system preference
-    if (saved === null && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-    }
-  }
+  if (saved === 'dark') setTheme('dark');
+  else if (saved === null && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+  else if (toggle) toggle.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
 
-  // Toggle handler
   if (toggle) {
     toggle.addEventListener('click', function() {
-      var current = document.documentElement.hasAttribute('data-theme') ? 'dark' : 'light';
-      setTheme(current === 'dark' ? 'light' : 'dark');
+      var isDark = document.documentElement.hasAttribute('data-theme');
+      setTheme(isDark ? 'light' : 'dark');
     });
   }
 
-  // Listen for system theme changes
   if (window.matchMedia) {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-      // Only auto-switch if user hasn't explicitly set a preference
-      if (!localStorage.getItem('nexum-theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
+      if (!localStorage.getItem('nexum-theme')) setTheme(e.matches ? 'dark' : 'light');
     });
   }
 
   /* ---------------------------------------------------------
-     MOBILE MENU
+     MOBILE NAV
      --------------------------------------------------------- */
-  window.toggleMobileMenu = function() {
-    var menu = document.getElementById('mobileMenu');
-    if (!menu) return;
-    if (menu.style.display === 'none' || !menu.style.display) {
-      menu.style.display = 'block';
-    } else {
-      menu.style.display = 'none';
-    }
-  };
-
-  window.closeMobileMenu = function() {
-    var menu = document.getElementById('mobileMenu');
-    if (menu) { menu.style.display = 'none'; }
-  };
+  var navToggle = document.getElementById('navToggle');
+  if (navToggle) {
+    var nav = document.querySelector('nav');
+    navToggle.addEventListener('click', function() { nav.classList.toggle('nav-open'); });
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      a.addEventListener('click', function() { nav.classList.remove('nav-open'); });
+    });
+  }
 
   /* ---------------------------------------------------------
      SMOOTH SCROLL WITH NAV OFFSET
@@ -2072,32 +1974,27 @@ footer a:hover{color:var(--text)}
   })();
 
   /* ---------------------------------------------------------
-     CLOSE MOBILE MENU ON WINDOW RESIZE
-     --------------------------------------------------------- */
-  window.addEventListener('resize', function() {
-    if (window.innerWidth > 768) {
-      var menu = document.getElementById('mobileMenu');
-      if (menu) { menu.style.display = 'none'; }
-    }
-  });
-
-  /* ---------------------------------------------------------
-     ACTIVE NAV LINK HIGHLIGHT ON SCROLL
+     ACTIVE NAV LINK ON SCROLL (homepage sections only)
      --------------------------------------------------------- */
   function updateActiveNav() {
     var sections = document.querySelectorAll('section[id]');
     var navLinks = document.querySelectorAll('.nav-links a');
-    var scrollPos = window.pageYOffset + 100;
+    var scrollPos = window.pageYOffset + 120;
+    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
+    // Reset all
+    navLinks.forEach(function(link) { link.style.color = ''; });
+
+    // Highlight links that point to this page
     sections.forEach(function(section) {
+      var id = section.getAttribute('id');
+      if (!id) return;
       var top = section.offsetTop;
       var height = section.offsetHeight;
-      var id = section.getAttribute('id');
-
       if (scrollPos >= top && scrollPos < top + height) {
         navLinks.forEach(function(link) {
-          link.style.color = 'var(--text-secondary)';
-          if (link.getAttribute('href') === '#' + id) {
+          var href = link.getAttribute('href') || '';
+          if (href === '#' + id || href === currentPage + '#' + id || href === currentPage) {
             link.style.color = 'var(--accent)';
           }
         });
@@ -2105,26 +2002,23 @@ footer a:hover{color:var(--text)}
     });
   }
 
-  // Throttled scroll listener
   var scrollTimer;
   window.addEventListener('scroll', function() {
-    if (scrollTimer) { clearTimeout(scrollTimer); }
+    if (scrollTimer) clearTimeout(scrollTimer);
     scrollTimer = setTimeout(updateActiveNav, 50);
   }, { passive: true });
-
-  /* ---------------------------------------------------------
-     KEYBOARD NAVIGATION: ESC closes mobile menu
-     --------------------------------------------------------- */
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      var menu = document.getElementById('mobileMenu');
-      if (menu && menu.style.display === 'block') {
-        menu.style.display = 'none';
-      }
-    }
-  });
+  updateActiveNav();
 
 })();
+
+  // Active nav link
+  (function(){
+    var p = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(function(a){
+      var h = a.getAttribute('href') || '';
+      if(h === p || (h.indexOf('#') > 0 && h.split('#')[0] === p)) a.style.color = 'var(--accent)';
+    });
+  })();
 </script>
 
 </body>
