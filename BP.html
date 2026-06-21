@@ -171,10 +171,11 @@ a { color: var(--kine); text-decoration: none; }
 <p>Kine的技术架构围绕一个核心逻辑：<strong>读取意图 → 生成个性化助力 → 执行动作 → 根据康复进展持续调整</strong>。三个模块各自基于已验证的成熟技术，Kine的贡献是把它们整合成一个闭环的神经重连系统。</p>
 <h3 id="感知eeg-semg双模态神经接口">3.1 感知：EEG +
 sEMG双模态神经接口</h3>
-<p><strong>EEG-Sense</strong>：8通道干电极头带（80g）。检测运动准备电位（MRCP）——中风患者残肢的肌肉信号太弱，但大脑皮层在试图运动时仍然产生准备电位。CMU Bin He实验室在Nature Communications（2025）发表了非侵入EEG解码个体手指运动意图并实时控制机械手的突破性成果——证明了非侵入EEG提取精细运动意图的可行性。非侵入EEG在离散运动意图分类（2-3状态）上已达~80%在线精度。</p>
-<p><strong>诚实的技术边界</strong>：非侵入EEG目前能可靠区分2-3种离散运动意图（如"走/停/起立"），但无法提供像sEMG那样的连续力矩控制。而且现有学术成果多基于手部/上肢运动——从手部BCI到下肢步行BCI的迁移需要独立的临床验证。Kine的策略不回避这些限制：<strong>EEG负责运动意图分类（"患者想站起来了"），个性化肌骨模型填补连续力矩的生成（"该患者当前肌力状态下，站立需要什么样的力矩曲线"），sEMG在肌力恢复后逐步接管精细控制</strong>。EEG是开关和意图确认，不是唯一的控制源。这是Kine传感器融合的核心逻辑，也是其临床安全性优于纯EEG方案的根本原因。</p>
+<p><strong>EEG-Sense</strong>：8通道干电极头带（80g）。核心技术原理：大脑在自主运动前0.5-2秒会产生运动准备电位（MRCP / Bereitschaftspotential），这是可以非侵入检测的。CMU Bin He实验室在Nature Communications（2025）发表了非侵入EEG解码精细运动意图（个体手指控制机械手）的突破性成果——证明了非侵入EEG提取离散运动意图的可行性。对于下肢康复，Kine需要的不是手指级别的精细控制，而是更简单的<strong>步态阶段分类</strong>（"准备走/正在走/要停了/想站起来"）——这在EEG信号特征维度上比手指解码更易实现。</p>
+<p><strong>诚实的技术边界——以及为什么仍然可行</strong>：非侵入EEG的步行意图检测已有多项独立研究验证。Gwin et al.（2011, NeuroImage）和Wagner et al.（2012, NeuroImage）在跑步机上实现了对步态周期内EEG调制的可靠检测。Sburlea et al.（2015, IEEE TNSRE）实现了对"停止意图"的在线检测。这些研究共同证明：<strong>从非侵入EEG中提取步行相关的离散意图分类（"走/停"）在技术上已经可行</strong>。Kine不做连续力矩解码——EEG只负责意图分类，连续力矩由肌骨模型生成。这与Bin He的手指BCI在技术难度上是不同的任务：走路意图分类的空间分辨率要求远低于手指个体控制。Kine不需要解决Bin He级别的问题就能工作。</p>
+<p><strong>为什么这个方案比看起来更可行</strong>：非侵入EEG的局限是真实存在的——它不能提供连续力矩控制，空间分辨率低于侵入式方案。但Kine的设计从第一天起就不依赖EEG做精确控制。<strong>EEG是意图开关，IMU是状态感知，肌骨模型是力矩生成，sEMG是精细调节</strong>——四个子系统各司其职，没有一个承担不可承受的精度要求。这与纯EEG方案（如脑控假肢）有本质区别：纯EEG方案要求EEG输出精确的连续控制信号，这是一直未解决的难题。Kine的EEG只做分类——一个已经被多篇文献验证的、更简单的任务。</p>
 <p><strong>NeuroSuit
-sEMG</strong>：16通道织物电极嵌入压缩裤（Nextiles方案，残奥会部署）。在患者仍有残余肌电信号时提供更精细的力矩解码（&lt;100ms）。随着康复进展，EMG信号逐渐恢复，EEG权重自动降低——这是Kine个性化康复的核心逻辑。</p>
+sEMG</strong>：16通道织物电极嵌入压缩裤（Nextiles等织物电极方案）。在患者仍有残余肌电信号时提供更精细的力矩解码（&lt;100ms）。随着康复进展，EMG信号逐渐恢复，EEG权重自动降低——这是Kine个性化康复的核心逻辑。</p>
 <p><strong>为什么EEG而不是纯EMG？</strong>中风偏瘫患者的残肢肌肉信号太弱或不稳定——EMG需要肌肉能产生可检测的电信号。但大脑皮层在试图运动时仍然产生运动准备电位（MRCP），在动作发生前0.5-1.5秒即可被检测。对完全性脊髓损伤患者（肌力0-1级），EEG是唯一的主动控制信号源。这是Kine选择EEG+sEMG双模态的根本原因——EEG覆盖EMG不可用的患者群体，sEMG在肌力恢复后提供更高精度。</p>
 <p><strong>安全冗余（三级降级）</strong>：①EEG+sEMG双模态正常运行 → ②EEG失效→sEMG+IMU降级运行（仍可提供基于残余肌电的助力） → ③全传感器失效→无助力被动模式（纯机械支撑，不主动施加力矩）。康复设备在任何情况下不能完全停机——患者在设备里，安全不可妥协。</p>
 <h3 id="决策msk数字孪生-个性化rl康复">3.2 决策：MSK数字孪生 +
@@ -267,7 +268,7 @@ sEMG</strong>：16通道织物电极嵌入压缩裤（Nextiles方案，残奥会
 </tr>
 <tr class="even">
 <td>sEMG织物电极</td>
-<td>Nextiles (残奥会部署)</td>
+<td>Nextiles等织物电极供应商（待评估选型）</td>
 <td>供应商合作</td>
 </tr>
 <tr class="odd">
@@ -297,7 +298,7 @@ sEMG</strong>：16通道织物电极嵌入压缩裤（Nextiles方案，残奥会
 </tr>
 </tbody>
 </table>
-<p><strong>原则</strong>：不重复造轮子。每个模块找该领域最好的人或实验室合作。候选合作伙伴网络覆盖清华、浙大、西湖大学、港校（HKU/CUHK/HKUST）、新加坡南洋理工、CMU、Stanford、MIT、Berkeley、Harvard Wyss——全球范围内在BCI、肌骨建模、康复机器人三个交叉领域最强的学术力量。Kine的核心贡献不是发明EEG、不是发明电机、不是发明RL——是<strong>把这些模块整合成一个闭环的神经重连系统，并让它能在医院和家庭里实际运行</strong>。</p>
+<p><strong>原则</strong>：不重复造轮子。每个模块找该领域最好的人或实验室合作。以下是我们重点关注、后续将逐一接触建立合作的学术力量：CMU Bin He Lab（非侵入EEG运动解码）、NEU NeuMove Lab（肌骨仿真，已有合作）、清华/浙大/西湖大学（脑机接口与神经工程，国内BCI研究重镇）、港校三所HKU/CUHK/HKUST（康复机器人与神经康复临床研究）、新加坡NTU（康复机器人）、Stanford/MIT/Berkeley/Harvard Wyss（可穿戴机器人与外骨骼）。Kine的核心贡献不是发明EEG、不是发明电机、不是发明RL——是<strong>把这些模块整合成一个闭环的神经重连系统，并让它能在医院和家庭里实际运行</strong>。</p>
 
 <h2 id="产品形态">4. 产品形态</h2>
 
@@ -621,7 +622,8 @@ $300+电机$300+碳纤维$150+织物+电缆+电池+控制器=$1,500-2,000（qty
 
 <p><strong>汪牧星（CRO）</strong>：美国东北大学计算机工程博士候选人，爱丁堡大学统计学硕士（Distinction）。个性化联邦强化学习框架pFedAC第一作者（arXiv:2605.14423）。</p>
 
-<p><strong>学术合作</strong>：杨朋昆（清华统计系副教授）、苏丽丽（NEU助理教授，NSF CAREER）、CMU Bin He Lab（EEG运动意图解码，Nature Comms 2025）、Nextiles（sEMG织物电极）、NEU NeuMove Lab（肌骨仿真）。</p>
+<p><strong>已有学术合作</strong>：杨朋昆（清华统计系副教授，pFedAC共同作者）、苏丽丽（NEU助理教授，NSF CAREER，汪牧星导师，pFedAC共同作者）、NEU NeuMove Lab（肌骨仿真，汪牧星所在实验室）。</p>
+<p><strong>重点关注并将建立合作的实验室</strong>：CMU Bin He Lab（非侵入EEG运动解码，Nature Comms 2025，该领域全球最领先的团队）、清华/浙大/西湖大学脑机接口与神经工程实验室（国内BCI核心力量）、港校HKU/CUHK/HKUST康复机器人临床研究组、新加坡NTU康复机器人中心。</p>
 <h2 id="融资">10. 融资</h2>
 <ul>
 <li><strong>种子轮</strong>：2026
