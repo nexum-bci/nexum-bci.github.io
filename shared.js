@@ -7,6 +7,10 @@
   if (page === '') page = 'index.html';
   var isIndex = (page === 'index.html' || page === '');
 
+  // SVG icons for theme toggle
+  var sunSVG = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
+  var moonSVG = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+
   // ===== NAV =====
   var navHTML = '<nav>'+
     '<div class="nav-inner">'+
@@ -20,11 +24,14 @@
         '<a href="'+(isIndex?'#team':'index.html#team')+'" class="nav-link">团队</a>'+
       '</div>'+
       '<div class="nav-actions">'+
-        '<button class="theme-btn" id="themeToggle" aria-label="切换主题">'+
-          '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>'+
-        '</button>'+
-        '<a href="'+(isIndex?'':'')+'逐念而行_Nexum_BP.html" class="nav-cta">BP</a>'+
+        '<button class="theme-btn" id="themeToggle" aria-label="切换主题"></button>'+
+        '<a href="'+(isIndex?'':'')+'逐念而行_Nexum_BP.html" class="nav-cta">'+
+          'BP <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>'+
+        '</a>'+
       '</div>'+
+      '<button class="nav-toggle" id="navToggle" aria-label="菜单">'+
+        '<span></span><span></span><span></span>'+
+      '</button>'+
     '</div>'+
   '</nav>';
 
@@ -76,34 +83,72 @@
   document.body.insertAdjacentHTML('afterbegin', navHTML);
   document.body.insertAdjacentHTML('beforeend', footerHTML);
 
-  // Theme toggle
+  // ===== THEME TOGGLE =====
   var toggle = document.getElementById('themeToggle');
   if (toggle) {
+    var isDark = document.documentElement.hasAttribute('data-theme');
+    toggle.innerHTML = isDark ? sunSVG : moonSVG;
     toggle.addEventListener('click', function() {
       var isDark = document.documentElement.hasAttribute('data-theme');
+      toggle.classList.add('rotating');
+      var myToggle = toggle;
+      setTimeout(function() { myToggle.classList.remove('rotating'); }, 400);
       if (isDark) {
         document.documentElement.removeAttribute('data-theme');
         localStorage.setItem('nexum-theme', 'light');
+        toggle.innerHTML = moonSVG;
       } else {
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('nexum-theme', 'dark');
+        toggle.innerHTML = sunSVG;
       }
     });
   }
 
-  // Page transition
+  // ===== MOBILE NAV TOGGLE =====
+  (function() {
+    var navToggleBtn = document.getElementById('navToggle');
+    var navEl = document.querySelector('nav');
+    if (navToggleBtn && navEl) {
+      navToggleBtn.addEventListener('click', function() {
+        navEl.classList.toggle('nav-open');
+      });
+      document.querySelectorAll('.nav-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navEl.classList.remove('nav-open');
+        });
+      });
+      window.addEventListener('scroll', function() {
+        navEl.classList.remove('nav-open');
+      }, { passive: true });
+    }
+  })();
+
+  // ===== ACTIVE NAV LINK =====
+  (function() {
+    var curPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-link').forEach(function(link) {
+      var href = link.getAttribute('href');
+      if (href === curPage || href === '#' + curPage.replace('.html', '')) {
+        link.classList.add('active');
+      }
+    });
+  })();
+
+  // ===== PAGE TRANSITION =====
   var style = document.createElement('style');
   style.textContent = 'body{opacity:0;animation:fadeIn .25s ease forwards}@keyframes fadeIn{to{opacity:1}}';
   document.head.appendChild(style);
 
-  // Back-to-top button
+  // ===== BACK-TO-TOP BUTTON =====
   var btt = document.createElement('button');
+  btt.className = 'btt-btn';
   btt.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>';
   btt.setAttribute('aria-label', '回到顶部');
-  btt.style.cssText = 'position:fixed;bottom:28px;right:28px;z-index:999;width:44px;height:44px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:all 0.3s ease;opacity:0;pointer-events:none';
+  btt.style.cssText = 'position:fixed;bottom:28px;right:28px;z-index:999;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);box-shadow:0 4px 16px rgba(0,0,0,0.1);transition:all 0.3s cubic-bezier(.16,1,.3,1);opacity:0;pointer-events:none';
   btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
-  btt.addEventListener('mouseenter',function(){this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.12)'});
-  btt.addEventListener('mouseleave',function(){this.style.transform='translateY(0)';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.08)'});
+  btt.addEventListener('mouseenter',function(){this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.15)'});
+  btt.addEventListener('mouseleave',function(){this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.1)'});
   document.body.appendChild(btt);
   window.addEventListener('scroll',function(){
     if(window.scrollY>400){btt.style.opacity='1';btt.style.pointerEvents='auto'}

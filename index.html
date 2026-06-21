@@ -196,9 +196,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 
 
 .nav-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.theme-btn,.nav-toggle{width:36px;height:36px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text);transition:all .2s}
+.theme-btn,.nav-toggle{width:44px;height:44px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text);transition:all .2s}
 .theme-btn:hover{background:var(--accent-subtle)}
-.nav-cta{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff!important;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff!important;padding:10px 18px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;min-height:44px}
 .nav-cta:hover{opacity:.9}
 .nav-toggle{display:none;flex-shrink:0;padding:4px}
 .nav-toggle span{display:block;width:22px;height:2px;background:var(--text);margin:4px 0;border-radius:1px;transition:all .3s cubic-bezier(.16,1,.3,1)}
@@ -762,7 +762,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 .phone-metric-lbl{font-size:8px;color:rgba(255,255,255,0.45);margin-top:1px}
 .phone-btn{
   display:flex;align-items:center;justify-content:center;gap:6px;
-  width:100%;padding:10px;
+  width:100%;padding:12px 10px;
+  min-height:44px;
   background:linear-gradient(135deg,#0096f0,#00b4d8);
   border:none;border-radius:10px;
   color:#fff;font-size:13px;font-weight:600;font-family:inherit;
@@ -772,7 +773,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 }
 .phone-btn-2{
   display:flex;align-items:center;justify-content:center;gap:6px;
-  flex:1;padding:8px 10px;
+  flex:1;padding:12px 10px;
+  min-height:44px;
   background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
   border-radius:10px;color:rgba(255,255,255,0.6);font-size:11px;font-weight:500;font-family:inherit;
   cursor:pointer
@@ -1015,8 +1017,24 @@ footer a:hover{color:var(--text)}
   color:var(--text-tertiary)
 }
 .footer-social{display:flex;gap:12px;margin-top:16px}
-.footer-social a{font-size:18px;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--bg);border:1px solid var(--border);color:var(--text-secondary);transition:all .2s ease}
+.footer-social a{font-size:18px;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--bg);border:1px solid var(--border);color:var(--text-secondary);transition:all .2s ease}
 .footer-social a:hover{background:var(--accent-subtle);border-color:var(--accent);color:var(--accent)}
+
+/* ============================================================
+   TABLET: 769-1024px
+   ============================================================ */
+@media(min-width:769px) and (max-width:1024px){
+  .hero-title{font-size:48px}
+  .section-title{font-size:30px}
+  .problem-headline{font-size:44px}
+  .grid-4{grid-template-columns:1fr 1fr;gap:20px}
+  .grid-3{grid-template-columns:1fr 1fr;gap:20px}
+  .product-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .team-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .app-mockups{grid-template-columns:repeat(2,1fr);gap:24px;max-width:600px}
+  .footer-grid{grid-template-columns:1.5fr 1fr 1fr;gap:36px}
+  .footer-grid>div:first-child{grid-column:1/-1}
+}
 
 /* ============================================================
    RESPONSIVE: 768px
@@ -1038,7 +1056,7 @@ footer a:hover{color:var(--text)}
   .tech-step:not(:last-child)::after{display:none}
   .latency-bar{height:36px;border-radius:6px}
   .latency-bar span{font-size:10px}
-  .app-mockups{grid-template-columns:repeat(3,1fr);gap:12px;max-width:100%}
+  .app-mockups{grid-template-columns:repeat(2,1fr);gap:20px;max-width:550px}
   .app-features{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}
   .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
@@ -1046,8 +1064,8 @@ footer a:hover{color:var(--text)}
   .nav-toggle{display:flex}
   .nav-links{position:fixed;top:64px;left:0;right:0;background:var(--bg-card);flex-direction:column;padding:16px 24px;gap:4px;border-bottom:1px solid var(--border);transform:translateY(-120%);opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.16,1,.3,1)}
   .nav-open .nav-links{transform:translateY(0);opacity:1;pointer-events:auto}
-  .nav-links a{padding:12px 0;display:block;font-size:15px}
-  .nav-cta{font-size:12px;padding:6px 14px}
+  .nav-links a{padding:12px 0;display:flex;align-items:center;font-size:15px;min-height:44px}
+  .nav-cta{font-size:12px;padding:10px 16px;min-height:44px;display:inline-flex;align-items:center}
   .hero-metrics{gap:16px}
   .hero-metrics .metric{min-width:80px}
   .metric-num{font-size:28px}
@@ -1065,26 +1083,49 @@ footer a:hover{color:var(--text)}
 /* ============================================================
    RESPONSIVE: 480px
    ============================================================ */
-@media(max-width:480px){.app-mockups{grid-template-columns:1fr;max-width:260px}
+@media(max-width:480px){.app-mockups{grid-template-columns:1fr;max-width:280px}
   .footer-inner{grid-template-columns:1fr}
   .hero-title{font-size:28px}
   .hero-tagline{font-size:15px;color:var(--text-secondary);max-width:560px;margin:0 auto 36px;line-height:1.6}
 .hero-sub{font-size:15px}
   .footer-grid{grid-template-columns:1fr}
   .grid-2{grid-template-columns:1fr}
+  .section-title{font-size:24px}
+  .page-sub{font-size:13px}
+  h2{font-size:20px}
+  h3{font-size:17px}
   .hero-metrics{gap:12px}
   .hero-metrics .metric{min-width:72px}
   .metric-num{font-size:24px}
   .metric-label{font-size:12px}
   .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+  .footer-col a{min-height:44px;display:flex;align-items:center}
   .hero-actions{flex-direction:column;align-items:center}
   .hero-actions .btn{width:100%;justify-content:center}
   .tech-flow{flex-direction:column;gap:6px}
-  .latency-bar span{font-size:9px}
+  .latency-bar span{font-size:9px;overflow:hidden}
   .problem-headline{font-size:30px}
-  .phone-mockup{max-width:220px}
+  .phone-mockup{max-width:240px}
   .nav-inner{gap:12px}
 }
+
+/* ============================================================
+   ACCESSIBILITY: respect reduced motion
+   ============================================================ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+  .reveal{opacity:1!important;transform:none!important}
+  html{scroll-behavior:auto}
+  .hero-label,.hero-title,.hero-tagline,.hero-sub,.hero-actions,.hero-metrics{animation:none!important;opacity:1!important}
+}
+
+/* ============================================================
+   PERFORMANCE: content-visibility for below-fold sections
+   ============================================================ */
+#market,#why-now,#team{content-visibility:auto;contain-intrinsic-size:600px}
+.app-features{content-visibility:auto;contain-intrinsic-size:200px}
+.app-mockups .phone-mockup:nth-child(2),.app-mockups .phone-mockup:nth-child(3){content-visibility:auto;contain-intrinsic-size:520px}
+@media(max-width:768px){#market,#why-now,#team{contain-intrinsic-size:400px}}
 
 /* ============================================================
    PRINT
@@ -1753,7 +1794,7 @@ footer a:hover{color:var(--text)}
  <div class="team-grid">
  <!-- 赵子睿 -->
  <div class="team-card">
- <img src="images/team/zirui.jpg" alt="赵子睿" style="width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:16px">
+ <img src="images/team/zirui.jpg" alt="赵子睿" width="64" height="64" style="border-radius:50%;object-fit:cover;margin-bottom:16px" loading="lazy">
  <h3>赵子睿</h3>
  <div class="role">Founder &amp; CEO</div>
  <div class="bio">
@@ -1762,7 +1803,7 @@ footer a:hover{color:var(--text)}
  </div>
  <!-- 汪牧星 -->
  <div class="team-card">
- <img src="images/team/muxing.jpg" alt="汪牧星" style="width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:16px">
+ <img src="images/team/muxing.jpg" alt="汪牧星" width="64" height="64" style="border-radius:50%;object-fit:cover;margin-bottom:16px" loading="lazy">
  <h3>汪牧星</h3>
  <div class="role">CRO</div>
  <div class="bio">
