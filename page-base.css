@@ -410,6 +410,21 @@ pre code{
   .page-header::before,.card::before{display:none}
 }
 
+
+/* Vertical rhythm — consistent content spacing */
+.content-card > *:last-child{margin-bottom:0}
+.content-card h2:not(:first-child){margin-top:40px}
+.content-card h3{margin-top:24px}
+.content-card p + p{margin-top:16px}
+
+/* Strong emphasis */
+strong{font-weight:600;color:var(--text)}
+
+/* Text utility scale */
+.text-sm{font-size:13px;line-height:1.5}
+.text-xs{font-size:12px;line-height:1.4}
+.text-caption{font-size:11px;line-height:1.35;color:var(--text-tertiary)}
+
 /* Tablet breakpoint */
 @media(min-width:769px) and (max-width:1024px){
   .footer-inner{grid-template-columns:1.5fr 1fr 1fr;gap:36px}
