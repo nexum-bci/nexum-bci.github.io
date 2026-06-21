@@ -22,12 +22,12 @@
 :root {
 
   --bg: #FAFAFA;
-  --bg-elevated: rgba(0,0,0,0.03);
+  --bg-elevated: #FFFFFF;
   --bg-elevated-hover: #F5F5F5;
   --border: rgba(0,0,0,0.06);
   --border-hover: rgba(0,0,0,0.12);
   --text-primary: #111111;
-  --text-body: #666666;
+  --text-body: #333333;
   --text-secondary: #666666;
   --text-tertiary: #888888;
   --text-disabled: #AAAAAA;
@@ -50,18 +50,18 @@
   --screen-radius: 32px;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  --nav-bg: rgba(0,0,0,0.7);
-  --nav-bg-scrolled: rgba(0,0,0,0.92);
+  --nav-bg: rgba(255,255,255,0.85);
+  --nav-bg-scrolled: rgba(255,255,255,0.95);
 
 }
-* { margin: 0; padding: 0; box
+* { margin: 0; padding: 0; box-sizing: border-box; }
 [data-theme="dark"] {
 
   --bg: #000000;
-  --bg-elevated: rgba(0,0,0,0.03);
+  --bg-elevated: rgba(255,255,255,0.03);
   --bg-elevated-hover: rgba(255,255,255,0.05);
-  --border: var(--border);
-  --border-hover: var(--border-hover);
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(255,255,255,0.12);
   --text-primary: #FFFFFF;
   --text-body: #CCCCCC;
   --text-secondary: #999999;
@@ -90,7 +90,6 @@
   --nav-bg-scrolled: rgba(0,0,0,0.92);
 
 }
--sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 body {
   font-family: 'Inter', 'PingFang SC', -apple-system, system-ui, 'Microsoft YaHei', sans-serif;
@@ -796,63 +795,6 @@ footer p, footer li {
   .nav-inner { padding: 0 20px; }
 }
 
-/* ============================================================
-   LIGHT MODE
-   ============================================================ */
-/* Anti-flash: CSS vars on root so nav bg resolves immediately */
-[data-theme="light"] {
-  --nav-bg: rgba(255,255,255,0.85);
-  --nav-bg-scrolled: rgba(255,255,255,0.92);
-}
-[data-theme="light"] body { background: #FAFAFA; color: #111; }
-[data-theme="light"] h2, [data-theme="light"] h1 { color: #111; }
-[data-theme="light"] .section-sub, [data-theme="light"] p { color: #444; }
-[data-theme="light"] .card, [data-theme="light"] .detail-card,
-[data-theme="light"] .spec-card, [data-theme="light"] .phone-card,
-[data-theme="light"] .step-card, [data-theme="light"] .diagram-card,
-[data-theme="light"] .card h3, [data-theme="light"] .card h4,
-[data-theme="light"] .detail-card h3, [data-theme="light"] .detail-card h4,
-[data-theme="light"] .spec-card h3, [data-theme="light"] .step-card h3,
-[data-theme="light"] .flow-card h3 {
-  color: #111;
-}
-[data-theme="light"] .card p, [data-theme="light"] .detail-card p,
-[data-theme="light"] .spec-card p, [data-theme="light"] .step-card p {
-  color: #555;
-}
-[data-theme="light"] .card:hover, [data-theme="light"] .detail-card:hover {
-  border-color: rgba(0,150,240,0.2);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
-}
-/* Nav light */
-[data-theme="light"] .site-nav, [data-theme="light"] nav {
-  background: rgba(255,255,255,0.85);
-  border-bottom-color: rgba(0,0,0,0.06);
-}
-[data-theme="light"] .site-nav a, [data-theme="light"] nav a {
-  color: #444;
-}
-[data-theme="light"] .site-nav .nav-logo,
-[data-theme="light"] nav .nav-logo { color: #111; }
-[data-theme="light"] .site-nav .nav-links a,
-[data-theme="light"] nav .nav-links a { color: #555; }
-[data-theme="light"] .site-nav .nav-links a:hover,
-[data-theme="light"] nav .nav-links a:hover,
-[data-theme="light"] .site-nav .nav-links a.active,
-[data-theme="light"] nav .nav-links a.active { color: #111; }
-/* Footer */
-[data-theme="light"] footer { background: #111; }
-[data-theme="light"] footer, [data-theme="light"] footer p,
-[data-theme="light"] footer a, [data-theme="light"] footer h5 { color: #ccc; }
-/* Hero */
-[data-theme="light"] .hero h1 { color: #111; }
-[data-theme="light"] .hero-sub, [data-theme="light"] .hero p { color: #555; }
-/* Buttons */
-/* Tables */
-[data-theme="light"] table { color: #333; }
-[data-theme="light"] th { color: #111; border-bottom-color: rgba(0,0,0,0.08); }
-[data-theme="light"] td { color: #555; border-bottom-color: rgba(0,0,0,0.04); }
-[data-theme="light"] tr:nth-child(even) { background: #f5f5f5; }
 /* Theme toggle */
 .theme-toggle {
   background: none; border: none; cursor: pointer;
@@ -864,77 +806,6 @@ footer p, footer li {
 .theme-toggle:hover { color: var(--text-primary); background: var(--bg-elevated); }
 .theme-toggle .sun-icon { display: block; }
 .theme-toggle .moon-icon { display: none; }
-/* ===== NAV SCROLLED ===== */
-[data-theme="light"] nav.scrolled {
-  background: rgba(255,255,255,0.92);
-  border-bottom-color: rgba(0,0,0,0.08);
-}
-
-/* ===== PHONE MOCKUP — FRAME ===== */
-[data-theme="light"] .phone-frame::before {
-  background: #c0c0c4;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.06);
-}
-/* ===== PHONE SCREEN ===== */
-/* Status bar icon SVGs — override hardcoded fill="#fff" / stroke="#fff" */
-[data-theme="light"] .status-icons svg [fill="#fff"] { fill: #333 !important; }
-[data-theme="light"] .status-icons svg [stroke="#fff"] { stroke: #333 !important; }
-[data-theme="light"] .status-icons svg [fill*="rgba(255,255,255"] { fill: rgba(0,0,0,0.4) !important; }
-/* Buttons and their SVGs stay white on blue/colored backgrounds */
-[data-theme="light"] .btn-p svg [stroke="#fff"] { stroke: #fff !important; }
-/* Notification bell etc. */
-[data-theme="light"] .screen svg [stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.6) !important; }
-/* Gauge / chart SVGs inside screens */
-[data-theme="light"] .screen svg line[stroke="#fff"] { stroke: #333 !important; }
-[data-theme="light"] .screen svg circle[fill="#fff"]:not([fill="var(--accent)"]):not([fill="var(--success)"]) { fill: #444 !important; }
-[data-theme="light"] .screen svg [stroke="var(--border)"] { stroke: rgba(0,0,0,0.08) !important; }
-[data-theme="light"] .screen svg [stroke="rgba(0,0,0,0.04)"] { stroke: rgba(0,0,0,0.06) !important; }
-[data-theme="light"] .screen svg [stroke="var(--border-hover)"] { stroke: rgba(0,0,0,0.12) !important; }
-[data-theme="light"] .screen svg [fill="rgba(0,0,0,0.04)"] { fill: rgba(0,0,0,0.03) !important; }
-
-/* ===== SCREEN COMPONENT TEXT — hardcoded inline colors ===== */
-[data-theme="light"] .screen [style*="color:#fff"] { color: #111 !important; }
-[data-theme="light"] .screen [style*="color: #fff"] { color: #111 !important; }
-[data-theme="light"] .screen [style*="color:#ccc"] { color: #444 !important; }
-[data-theme="light"] .screen [style*="color: #ccc"] { color: #444 !important; }
-[data-theme="light"] .screen [style*="color:#999"] { color: #666 !important; }
-[data-theme="light"] .screen [style*="color: #999"] { color: #666 !important; }
-[data-theme="light"] .screen [style*="color:#777"] { color: #555 !important; }
-[data-theme="light"] .screen [style*="color: #777"] { color: #555 !important; }
-/* Preserve buttons and avatars that legitimately use white */
-/* ===== CLASS-BASED TEXT OVERRIDES ===== */
-[data-theme="light"] .hello-text,
-[data-theme="light"] .ring-center .pct,
-[data-theme="light"] .live-header .live-title,
-[data-theme="light"] .report-header .rh-title,
-[data-theme="light"] .stats-bar .stat-item strong { color: #111; }
-/* Metric/card value text that uses CSS-class #fff (not inline) */
-[data-theme="light"] .rsv,
-[data-theme="light"] .qv,
-[data-theme="light"] .mv,
-[data-theme="light"] .tv,
-/* ===== SCREEN COMPONENT BACKGROUNDS ===== */
-[data-theme="light"] .device-bar,
-[data-theme="light"] .metric-row .metric-card,
-[data-theme="light"] .today-card,
-[data-theme="light"] .train-card,
-[data-theme="light"] .rs-card,
-[data-theme="light"] .patient-item,
-[data-theme="light"] .alert-item,
-/* Gray text inside screen components */
-[data-theme="light"] .pn,
-[data-theme="light"] .ac-name,
-[data-theme="light"] .stats-bar .divider,
-/* Secondary buttons and assist bar */
-/* Design system preview */
-[data-theme="light"] .component-sample h4 { color: #111; }
-[data-theme="light"] .component-sample [style*="color:#999"] { color: #555 !important; }
-[data-theme="light"] .component-sample [style*="color: #999"] { color: #555 !important; }
-/* Design system glass-card preview inline white text */
-[data-theme="light"] .glass-card [style*="color:#fff"] { color: #111 !important; }
-[data-theme="light"] .glass-card [style*="color: #fff"] { color: #111 !important; }
-[data-theme="light"] .glass-card [style*="color:#777"] { color: #555 !important; }
-[data-theme="light"] .glass-card [style*="color: #777"] { color: #555 !important; }
 
 
 [data-theme="dark"] .screen { background: #000; }
@@ -1994,7 +1865,7 @@ footer p, footer li {
   if (saved === 'dark') setTheme('dark');
   toggle.addEventListener('click', function(){
     var cur = document.documentElement.getAttribute('data-theme');
-    setTheme(cur === 'light' ? '' : 'light');
+    setTheme(cur === 'dark' ? '' : 'dark');
   });
 })();
 </script>
