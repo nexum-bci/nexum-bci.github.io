@@ -276,9 +276,9 @@ text(s, MG, Inches(0.35), Inches(3), Inches(0.35), '04', Pt(14), N, bold=True)
 text(s, MG, Inches(0.7), Inches(11), Inches(0.65), 'Nexum One：首款神经重连AI系统', Pt(36), W, bold=True)
 
 modules = [
-    ('EEG-Sense 头带', '8通道干电极 · 80g\nBLE 5.0 · ADS1299\n250SPS · 24-bit\n外观像运动头带', 'ppt_render_2_headband.png'),
-    ('NeuroSuit 穿戴界面', '碳纤维锚定\n鲍登线缆驱动\n<1.5kg 总重\n8Nm持续 / 15Nm峰值', 'ppt_render_3_suit.png'),
-    ('Nexum One 完整系统', 'EEG头带 + NeuroSuit\n+ 控制盒 + App\nClinical $18,000\nHome $3,999+$499/年', 'ppt_render_1_system.png'),
+    ('EEG-Sense 头带', '8通道干电极 · 80g\nBLE 5.0 · ADS1299\n250SPS · 24-bit\n外观像运动头带', 'ppt_render_2_headband.jpg'),
+    ('NeuroSuit 穿戴界面', '碳纤维锚定\n鲍登线缆驱动\n<1.5kg 总重\n8Nm持续 / 15Nm峰值', 'ppt_render_3_suit.jpg'),
+    ('Nexum One 完整系统', 'EEG头带 + NeuroSuit\n+ 控制盒 + App\nClinical $18,000\nHome $3,999+$499/年', 'ppt_render_1_system.jpg'),
 ]
 for i, (name, spec, rpath) in enumerate(modules):
     x = MG + i * Inches(4.05)
