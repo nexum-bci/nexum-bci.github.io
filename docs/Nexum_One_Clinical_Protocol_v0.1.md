@@ -1,486 +1,486 @@
-# Nexum One — Pre-Clinical Study Protocol Outline
+# Nexum One — 临床前研究方案大纲
 
-**Version 0.1** · 2026-06-21
-**Author:** Zirui Zhao · Architecture
-**Classification:** Internal — Clinical
-**References:** [PRD v1.0](Nexum_One_PRD_v1.0.md), [Engineering Architecture v0.1](Nexum_One_Engineering_Architecture_v0.1.md)
-
----
-
-## Table of Contents
-
-1. Study Design
-2. Inclusion / Exclusion Criteria
-3. Primary Endpoint
-4. Secondary Endpoints
-5. Sample Size Justification
-6. Study Procedure
-7. Data Collection Plan
-8. Safety Monitoring and Adverse Event Reporting
-9. Statistical Analysis Plan
-10. Ethical Considerations (IRB Pathway in China)
+**版本 0.1** · 2026-06-21
+**作者：** 赵子睿 · 架构
+**密级：** 内部 — 临床
+**参考：** [PRD v1.0](Nexum_One_PRD_v1.0.md), [工程架构 v0.1](Nexum_One_Engineering_Architecture_v0.1.md)
 
 ---
 
-## 1. Study Design
+## 目录
 
-### 1.1 Design Overview
-
-**Type:** Prospective, single-arm, pre-post feasibility study.
-
-**Phase:** Pre-clinical (pilot) — corresponds to NMPA clinical trial Phase I / feasibility stage. Not intended for pivotal efficacy claim. Intended to generate safety data, performance characterization, and effect size estimates for future sample size planning.
-
-**Design Rationale:**
-- Single-arm is appropriate at this stage because: (a) the sham condition for a wearable robot is difficult to blind effectively, and (b) the primary goal is characterizing system behavior and detecting signal (proof-of-mechanism), not proving superiority.
-- Pre-post comparison (each subject serves as their own baseline) maximizes statistical power with limited sample size.
-- A randomized crossover design (device ON vs device OFF) could be considered as a secondary analytic approach within the same cohort.
-
-**Reference Designs:**
-- Ekso GT feasibility study: single-arm, n=15, pre-walk vs powered-walk (Kressler et al., 2014, JNER).
-- ReWalk pivotal trial: prospective, non-randomized, n=50, pre-post on walking endurance (Esquenazi et al., 2012, Am J Phys Med Rehabil).
-- HAL (Cyberdyne) pre-market clinical study in Japan: single-arm, n=30, pre-post on gait parameters (Kawamoto et al., 2013).
-
-### 1.2 Study Duration
-
-| Item | Duration |
-|------|----------|
-| Total study duration | 8 months |
-| Recruitment period | 3 months |
-| Each subject's participation | 4 weeks |
-| Training sessions per subject | 8 sessions (2 sessions/week × 4 weeks) |
-| Evaluation sessions | Pre-training (baseline) + Post-training (week 4) |
-
-### 1.3 Study Sites
-
-Single-site or multi-site (2–3 sites):
-- **Primary site:** Rehabilitation hospital or university hospital rehab department (e.g., 中国康复研究中心, 宣武医院, or 华山医院康复科)
-- **Secondary site (optional):** Another tier-1 rehab center to demonstrate generalizability
-- **Tertiary site (optional):** Community rehab center for home-use feasibility subset (n=5)
+1. 研究设计
+2. 入选 / 排除标准
+3. 主要终点
+4. 次要终点
+5. 样本量论证
+6. 研究流程
+7. 数据采集计划
+8. 安全性监测与不良事件报告
+9. 统计分析计划
+10. 伦理考虑（中国 IRB 路径）
 
 ---
 
-## 2. Inclusion / Exclusion Criteria
+## 1. 研究设计
 
-### 2.1 Inclusion Criteria
+### 1.1 设计概述
 
-1. **Age:** 22–75 years inclusive
-2. **Diagnosis:**
-   - **Cohort A — Stroke (n=15):** Unilateral hemiparesis due to ischemic or hemorrhagic stroke, ≥6 months post-stroke (chronic stage)
-   - **Cohort B — Incomplete SCI (n=15):** Traumatic or non-traumatic SCI, AIS C or D, neurological level C4–L2, ≥6 months post-injury
-3. **Functional status:** Able to stand with or without assistance for ≥30 seconds; able to walk at least 10 m with walker/cane (with or without assistance)
-4. **Cognitive status:** Mini-Mental State Examination (MMSE) ≥24; able to follow 3-step commands
-5. **Cortical function preserved:** Detectable Bereitschaftspotential (BP) or movement-related cortical potential (MRCP) during screening EEG (at least 50% detection rate over 20 self-paced foot-lift trials)
-6. **Skin integrity:** Intact skin at all points of contact with the device
-7. **Informed consent:** Able and willing to provide written informed consent
+**类型：** 前瞻性、单臂、前后对照可行性研究。
 
-### 2.2 Exclusion Criteria
+**阶段：** 临床前（试点）——对应 NMPA 临床试验 Phase I / 可行性阶段。不拟用于确证性疗效声明。旨在生成安全性数据、性能表征和效应量估计，为未来样本量规划提供依据。
 
-1. **Complete SCI:** AIS A or B (no preserved motor function below lesion)
-2. **Bilateral stroke or brainstem stroke** involving motor cortex bilaterally
-3. **Severe spasticity:** Modified Ashworth Scale (MAS) ≥3 in hip flexors or extensors
-4. **Fixed joint contracture:** Hip flexion contracture >20 degrees; knee flexion contracture >15 degrees
-5. **Uncontrolled epilepsy:** Seizure within the past 6 months
-6. **Cardiovascular instability:** Uncontrolled hypertension (SBP >160 or DBP >100 mmHg at rest); recent myocardial infarction (<3 months); symptomatic orthostatic hypotension
-7. **Orthopedic contraindications:** Lower extremity fracture within past 6 months; severe osteoporosis (T-score ≤ −3.0)
-8. **Pressure ulcers:** Stage ≥2 at any device contact point
-9. **Severe sensory impairment:** Inability to detect device pressure or position changes
-10. **Pregnancy** or planning pregnancy during study period
-11. **Concurrent participation** in another interventional clinical trial
-12. **Scalp conditions** affecting EEG electrode contact (wounds, psoriasis, dermatitis at electrode sites)
-13. **Metal implants** in the head (intracranial electrodes, clips) — relative exclusion; case-by-case evaluation
-14. **Body weight** >100 kg (exosuit sizing limit)
+**设计理由：**
+- 单臂设计在此阶段是适当的，因为：(a) 可穿戴机器人的假照条件难以有效设盲，(b) 主要目标是表征系统行为和检测信号（机制验证），而非证明优越性。
+- 前后对比（每名受试者作为自身基线）可在样本量有限的情况下最大化统计功效。
+- 随机交叉设计（设备开 vs 设备关）可作为同一队列内的次要分析方法。
 
-### 2.3 Screening Failure Definition
+**参考设计：**
+- Ekso GT 可行性研究：单臂，n=15，步行前 vs 动力步行对比（Kressler 等，2014，JNER）。
+- ReWalk 关键性试验：前瞻性、非随机，n=50，步行耐力前后对比（Esquenazi 等，2012，Am J Phys Med Rehabil）。
+- HAL（Cyberdyne）日本上市前临床研究：单臂，n=30，步态参数前后对比（Kawamoto 等，2013）。
 
-Subject is considered a screening failure if:
-- Cannot tolerate EEG headband for ≥10 min during screening
-- MRCP not detectable in ≥50% of screening trials
-- Cannot complete baseline 10MWT due to safety concern
+### 1.2 研究时长
+
+| 项目 | 时长 |
+|------|------|
+| 研究总时长 | 8 个月 |
+| 招募期 | 3 个月 |
+| 每名受试者参与时间 | 4 周 |
+| 每名受试者训练次数 | 8 次（每周 2 次 × 4 周） |
+| 评估次数 | 训练前（基线）+ 训练后（第 4 周） |
+
+### 1.3 研究地点
+
+单中心或多中心（2–3 个中心）：
+- **主要中心：** 康复医院或大学医院康复科（例如：中国康复研究中心、宣武医院、华山医院康复科）
+- **次要中心（可选）：** 另一家 Tier-1 康复中心，以证明推广性
+- **第三中心（可选）：** 社区康复中心，用于家庭使用可行性子集（n=5）
 
 ---
 
-## 3. Primary Endpoint
+## 2. 入选 / 排除标准
 
-### 3.1 Co-Primary Endpoints (Dual: Safety + Performance)
+### 2.1 入选标准
 
-The study has two co-primary endpoints, reflecting the pre-clinical nature of this investigation.
+1. **年龄：** 22–75 岁（含）
+2. **诊断：**
+   - **队列 A — 脑卒中（n=15）：** 缺血性或出血性脑卒中导致的单侧偏瘫，脑卒中后 ≥6 个月（慢性期）
+   - **队列 B — 不完全性 SCI（n=15）：** 创伤性或非创伤性 SCI，AIS C 或 D，神经平面 C4–L2，损伤后 ≥6 个月
+3. **功能状态：** 能在有或无辅助下站立 ≥30 秒；能使用助行器/拐杖步行至少 10 米（有或无辅助）
+4. **认知状态：** 简易精神状态检查（MMSE）≥24；能遵循 3 步指令
+5. **皮层功能保留：** 筛查 EEG 期间可检测到 Bereitschaftspotential（BP）或运动相关皮层电位（MRCP）（20 次自定速抬足试验中检测率至少 50%）
+6. **皮肤完整性：** 所有设备接触点皮肤完好
+7. **知情同意：** 有能力且愿意提供书面知情同意
 
-#### Endpoint 1 — Safety: Serious Adverse Device Events (SADE)
+### 2.2 排除标准
 
-**Definition:** Proportion of subjects experiencing a serious adverse device event (SADE) during the 4-week study period.
+1. **完全性 SCI：** AIS A 或 B（损伤以下无保留运动功能）
+2. **双侧脑卒中或脑干卒中** 累及双侧运动皮层
+3. **严重痉挛：** 髋屈肌或伸肌改良 Ashworth 量表（MAS）≥3
+4. **固定关节挛缩：** 髋关节屈曲挛缩 >20 度；膝关节屈曲挛缩 >15 度
+5. **未控制的癫痫：** 过去 6 个月内发作
+6. **心血管不稳定：** 未控制的高血压（静息 SBP >160 或 DBP >100 mmHg）；近期心肌梗死（<3 个月）；症状性体位性低血压
+7. **骨科禁忌：** 过去 6 个月内下肢骨折；严重骨质疏松（T 评分 ≤ −3.0）
+8. **压力性溃疡：** 任何设备接触点 ≥2 期
+9. **严重感觉障碍：** 无法感知设备压力或位置变化
+10. **妊娠** 或研究期间计划妊娠
+11. **同时参与** 另一项干预性临床试验
+12. **头皮状况** 影响 EEG 电极接触（电极部位有伤口、银屑病、皮炎）
+13. **头部金属植入物**（颅内电极、夹子）——相对排除；逐例评估
+14. **体重** >100 kg（外骨骼尺寸限制）
 
-**SADE criteria (per ISO 14155:2020):**
-- Device-related fall resulting in fracture or head injury
-- Device-related skin injury ≥ Grade 2 (per CTCAE v5.0) — blistering, ulceration, or infection
-- Device-related electrical shock or burn
-- Any adverse event leading to hospitalization, life-threatening condition, or death
+### 2.3 筛选失败定义
 
-**Success threshold:** Zero SADEs (upper bound of 95% CI ≤10% for n=30)
-
-#### Endpoint 2 — Performance: Intention Detection Accuracy
-
-**Definition:** Area Under the Receiver Operating Characteristic Curve (AUC-ROC) for single-trial movement intention detection during walking.
-
-**Measurement method:**
-- Ground truth: sEMG from rectus femoris (ipsilateral to intended movement) as surrogate marker of actual movement initiation
-- Detection target: Nexum One's intention detection algorithm output (binary: intention / no intention) in 200 ms sliding windows
-- Aggregate across all strides from all evaluation sessions
-
-**Success threshold:** AUC >0.80 (lower bound of one-sided 95% CI ≥0.75) in the overall cohort.
-
-**Rationale:** Single-trial BP detection AUC of 0.75–0.85 is state-of-the-art in lab settings (Lew et al., 2012; Jiang et al., 2015). During gait, expect 0.70–0.80. Setting threshold at 0.75 is realistic for a first-in-human study.
-
----
-
-## 4. Secondary Endpoints
-
-| # | Endpoint | Measure | Instrument / Method | Timepoint |
-|---|----------|---------|---------------------|-----------|
-| S1 | Gait speed | Change in 10-Meter Walk Test (10MWT), comfortable pace | Stopwatch, 10 m marked walkway | Baseline → Week 4 |
-| S2 | Walking endurance | Change in 6-Minute Walk Test (6MWT) | Stopwatch, 30 m marked walkway | Baseline → Week 4 |
-| S3 | Functional mobility | Change in Timed Up and Go (TUG) test | Stopwatch, chair, 3 m walk | Baseline → Week 4 |
-| S4 | Lower limb motor function | Change in Fugl-Meyer Assessment — Lower Extremity (FMA-LE) | Qualified assessor (blinded to device settings) | Baseline → Week 4 |
-| S5 | Balance | Change in Berg Balance Scale (BBS) | Qualified assessor (blinded) | Baseline → Week 4 |
-| S6 | Spatiotemporal gait parameters | Change in step length symmetry ratio, stride time variability | Gait analysis mat (GAITRite or equivalent) or instrumented walkway | Baseline → Week 4 |
-| S7 | Muscle activation | Change in sEMG envelope amplitude (rectus femoris, biceps femoris, tibialis anterior, gastrocnemius) during gait | Wireless sEMG (Delsys Trigno or equivalent), synchronized with gait events | Baseline → Week 4 |
-| S8 | User satisfaction | Quebec User Evaluation of Satisfaction with Assistive Technology (QUEST 2.0) | Questionnaire | Week 4 |
-| S9 | System usability | System Usability Scale (SUS) | Questionnaire | Week 1, Week 4 |
-| S10 | Cognitive load | NASA-TLX (Task Load Index) score during device use | Questionnaire | Week 1, Week 4 |
-| S11 | Device experience | Proportion of sessions where device provided meaningful assistance (user-reported "helped me walk") | Binary question after each session | Per session |
-| S12 | False positive rate | FP rate = unintended assistance events / total strides | Algorithm log analysis | Per session |
-| S13 | False negative rate | FN rate = missed intentions / total attempted strides | Algorithm log + sEMG verification | Per session |
-| S14 | End-to-end latency | Latency from EEG onset marker to torque application at hip | System clock synchronization (EEG → phone → motor) | Weekly |
+受试者被视为筛选失败，如果：
+- 筛选期间无法耐受 EEG 头带 ≥10 分钟
+- MRCP 在 ≥50% 的筛选试验中不可检测
+- 因安全问题无法完成基线 10MWT
 
 ---
 
-## 5. Sample Size Justification
+## 3. 主要终点
 
-### 5.1 Sample Size Calculation
+### 3.1 共同主要终点（双重：安全性 + 性能）
 
-**Target: n=30** (15 stroke + 15 incomplete SCI).
+本研究有两个共同主要终点，反映本研究的临床前性质。
 
-#### For Primary Endpoint 1 (Safety):
-- Zero SADE in n=30 subjects. Using the "rule of three" (Hanley & Lippman-Hand, 1983): upper bound of 95% CI for adverse event rate = 3/n = 3/30 = 10%.
-- This is an acceptable safety risk profile for a first-in-human pre-clinical study of a non-invasive wearable device.
-- n=30 is consistent with early feasibility studies for similar devices: Ekso (n=15), ReWalk pivotal (n=50), HAL pre-market (n=30).
+#### 终点 1 — 安全性：严重不良设备事件（SADE）
 
-#### For Primary Endpoint 2 (AUC ≥0.75):
-- Assumptions: expected AUC = 0.83, null hypothesis AUC = 0.75, one-sided α = 0.05, power = 0.80.
-- Using Hajian-Tilaki's method for AUC sample size: n ≈ 24–30 subjects across both cohorts.
-- Accounting for 15% attrition: target enrollment n=30 yields n=25–26 evaluable subjects.
+**定义：** 4 周研究期间经历严重不良设备事件（SADE）的受试者比例。
 
-#### For Secondary Endpoints (Exploratory):
-- n=30 provides 80% power to detect a standardized effect size d=0.55 (medium effect) in pre-post comparison of gait speed (10MWT), at α=0.05 two-tailed.
-- This is adequate for generating effect size estimates to power a future pivotal trial, but NOT adequate for definitive efficacy claims.
+**SADE 标准（根据 ISO 14155:2020）：**
+- 与设备相关的跌倒导致骨折或头部损伤
+- 与设备相关的皮肤损伤 ≥2 级（根据 CTCAE v5.0）——水泡、溃疡或感染
+- 与设备相关的电击或烧伤
+- 任何导致住院、危及生命状况或死亡的不良事件
 
-### 5.2 Comparison to Prior Device Studies
+**成功阈值：** 零 SADE（n=30 时 95% CI 上限 ≤10%）
 
-| Device | Study Type | n | Primary Endpoint | Outcome |
-|--------|-----------|---|------------------|---------|
-| Ekso GT | Feasibility, single-arm | 15 | Safety + gait parameters | SADE=0; gait speed improved |
-| ReWalk | Pivotal, non-randomized | 50 | 6MWT, 10MWT | 6MWT +55 m (p<0.001) |
-| HAL (Cyberdyne) | Pre-market, single-arm | 30 | FMA-LE, gait speed | FMA-LE +4.2 points; 10MWT +0.08 m/s |
-| Indego | Feasibility, crossover | 27 | 6MWT, 10MWT | 6MWT +28 m in powered mode |
-| Our study | Feasibility, single-arm | 30 | Safety + AUC; 10MWT/6MWT (exploratory) | — |
+#### 终点 2 — 性能：意图检测准确率
+
+**定义：** 步行期间单次运动意图检测的受试者工作特征曲线下面积（AUC-ROC）。
+
+**测量方法：**
+- 金标准：股直肌 sEMG（意图运动同侧）作为实际运动开始的替代标志
+- 检测目标：Nexum One 的意图检测算法输出（二分类：有意图 / 无意图），200 ms 滑动窗口
+- 汇总所有评估会话中所有步幅的数据
+
+**成功阈值：** 总队列中 AUC >0.80（单侧 95% CI 下限 ≥0.75）。
+
+**理由：** 实验室条件下单次 BP 检测 AUC 为 0.75–0.85 是先进水平（Lew 等，2012；Jiang 等，2015）。步态中预期为 0.70–0.80。首次人体研究设定阈值为 0.75 是现实的。
 
 ---
 
-## 6. Study Procedure
+## 4. 次要终点
 
-### 6.1 Overall Flow
+| # | 终点 | 测量指标 | 工具 / 方法 | 时间点 |
+|---|------|---------|------------|--------|
+| S1 | 步速 | 10 米步行测试（10MWT）变化，舒适步速 | 秒表，10 m 标记步道 | 基线 → 第 4 周 |
+| S2 | 步行耐力 | 6 分钟步行测试（6MWT）变化 | 秒表，30 m 标记步道 | 基线 → 第 4 周 |
+| S3 | 功能性移动能力 | Timed Up and Go（TUG）测试变化 | 秒表，椅子，3 m 步行 | 基线 → 第 4 周 |
+| S4 | 下肢运动功能 | Fugl-Meyer 评估 — 下肢（FMA-LE）变化 | 合格评估员（对设备设置设盲） | 基线 → 第 4 周 |
+| S5 | 平衡能力 | Berg 平衡量表（BBS）变化 | 合格评估员（设盲） | 基线 → 第 4 周 |
+| S6 | 时空步态参数 | 步长对称比、步幅时间变异性的变化 | 步态分析垫（GAITRite 或同级）或仪器步道 | 基线 → 第 4 周 |
+| S7 | 肌肉激活 | 步态中 sEMG 包络幅度变化（股直肌、股二头肌、胫骨前肌、腓肠肌） | 无线 sEMG（Delsys Trigno 或同级），与步态事件同步 | 基线 → 第 4 周 |
+| S8 | 用户满意度 | 魁北克辅助技术满意度评估（QUEST 2.0） | 问卷 | 第 4 周 |
+| S9 | 系统可用性 | 系统可用性量表（SUS） | 问卷 | 第 1 周，第 4 周 |
+| S10 | 认知负荷 | 设备使用期间 NASA-TLX（任务负荷指数）评分 | 问卷 | 第 1 周，第 4 周 |
+| S11 | 设备体验 | 设备提供有意义的辅助（用户报告"帮助我行走"）的会话比例 | 每次会话后的二元问题 | 每次会话 |
+| S12 | 假阳性率 | FP 率 = 非预期辅助事件数 / 总步幅数 | 算法日志分析 | 每次会话 |
+| S13 | 假阴性率 | FN 率 = 遗漏的意图数 / 总尝试步幅数 | 算法日志 + sEMG 验证 | 每次会话 |
+| S14 | 端到端延迟 | 从 EEG 起始标记到髋部扭矩施加的延迟 | 系统时钟同步（EEG → 手机 → 电机） | 每周 |
+
+---
+
+## 5. 样本量论证
+
+### 5.1 样本量计算
+
+**目标：n=30**（15 名脑卒中 + 15 名不完全性 SCI）。
+
+#### 针对主要终点 1（安全性）：
+- n=30 名受试者中零 SADE。使用"三法则"（Hanley & Lippman-Hand, 1983）：不良事件率 95% CI 上限 = 3/n = 3/30 = 10%。
+- 这对于非侵入性可穿戴设备的首次人体临床前研究是一个可接受的安全风险状况。
+- n=30 与类似设备的早期可行性研究一致：Ekso（n=15），ReWalk 关键性试验（n=50），HAL 上市前（n=30）。
+
+#### 针对主要终点 2（AUC ≥0.75）：
+- 假设：预期 AUC = 0.83，零假设 AUC = 0.75，单侧 α = 0.05，检验功效 = 0.80。
+- 使用 Hajian-Tilaki 的 AUC 样本量方法：两个队列合计 n ≈ 24–30 名受试者。
+- 考虑 15% 的退出率：目标入组 n=30 产生 n=25–26 名可评估受试者。
+
+#### 针对次要终点（探索性）：
+- n=30 在步速（10MWT）前后对比中，α=0.05 双尾，提供 80% 的检验功效来检测标准化效应量 d=0.55（中等效应）。
+- 这足以生成效应量估计值，用于未来确证性试验的样本量规划，但**不足**以做出确证性疗效声明。
+
+### 5.2 与既往设备研究的比较
+
+| 设备 | 研究类型 | n | 主要终点 | 结果 |
+|------|---------|---|---------|------|
+| Ekso GT | 可行性，单臂 | 15 | 安全性 + 步态参数 | SADE=0；步速改善 |
+| ReWalk | 关键性，非随机 | 50 | 6MWT，10MWT | 6MWT +55 m（p<0.001） |
+| HAL（Cyberdyne） | 上市前，单臂 | 30 | FMA-LE，步速 | FMA-LE +4.2 分；10MWT +0.08 m/s |
+| Indego | 可行性，交叉 | 27 | 6MWT，10MWT | 动力模式下 6MWT +28 m |
+| 本研究 | 可行性，单臂 | 30 | 安全性 + AUC；10MWT/6MWT（探索性） | — |
+
+---
+
+## 6. 研究流程
+
+### 6.1 总体流程
 
 ```
-Screening Visit → Baseline Assessment → Training Phase (8 sessions) → Post-Training Assessment → 30-Day Safety Follow-up
-     ↓                    ↓                                       ↓                            ↓
-   Day -7 to -1           Day 0                                 Week 1–4                   Week 8
+筛选访视 → 基线评估 → 训练阶段（8 次会话）→ 训练后评估 → 30 天安全性随访
+     ↓                    ↓                           ↓                ↓
+  第 -7 至 -1 天          第 0 天                    第 1–4 周          第 8 周
 ```
 
-### 6.2 Visit Schedule
+### 6.2 访视安排
 
-| Visit | Time | Activities | Duration |
-|-------|------|-----------|----------|
-| V0 — Screening | Day −14 to −1 | Informed consent, medical history, vitals, screening EEG (MRCP detection), 10MWT screening, skin assessment | 90 min |
-| V1 — Baseline | Day 0 | Full motor assessment (FMA-LE, BBS, 10MWT, 6MWT, TUG), GAITRite, sEMG, setup time measurement, device fitting, comfort assessment | 120 min |
-| V2 — Training Session 1 | Week 1, Day 1 | Device donning, system calibration, supervised gait training (15 min device ON + 15 min rest) | 60 min |
-| V3 — Training Session 2 | Week 1, Day 3–4 | Supervised gait training with device (20 min device ON), NASA-TLX, SUS | 60 min |
-| V4 — Training Session 3 | Week 2, Day 1 | Gait training (25 min), parameter adjustment, optional community ambulation | 60 min |
-| V5 — Training Session 4 | Week 2, Day 3–4 | Gait training (30 min), stair negotiation training (if safe), adverse event check | 60 min |
-| V6 — Training Session 5 | Week 3, Day 1 | Gait training (30 min), obstacle negotiation | 60 min |
-| V7 — Training Session 6 | Week 3, Day 3–4 | Gait training (30 min), increasing speed trials | 60 min |
-| V8 — Training Session 7 | Week 4, Day 1 | Final training + user satisfaction (QUEST 2.0) | 60 min |
-| V9 — Post-Training Eval | Week 4, Day 3–4 | Full motor assessment (identical to V1), GAITRite, sEMG, physiological cost index, SUS, device log download | 120 min |
-| V10 — Safety Follow-up | Week 8 (±3 days) | Phone call or in-person: adverse event check, device return confirmation | 15 min |
+| 访视 | 时间 | 活动 | 时长 |
+|------|------|------|------|
+| V0 — 筛选 | 第 −14 至 −1 天 | 知情同意，病史，生命体征，筛选 EEG（MRCP 检测），10MWT 筛选，皮肤评估 | 90 分钟 |
+| V1 — 基线 | 第 0 天 | 全面运动评估（FMA-LE，BBS，10MWT，6MWT，TUG），GAITRite，sEMG，设置时间测量，设备适配，舒适度评估 | 120 分钟 |
+| V2 — 训练第 1 次 | 第 1 周，第 1 天 | 设备穿戴，系统校准，监督下步态训练（设备开 15 分钟 + 休息 15 分钟） | 60 分钟 |
+| V3 — 训练第 2 次 | 第 1 周，第 3–4 天 | 监督下步态训练（设备开 20 分钟），NASA-TLX，SUS | 60 分钟 |
+| V4 — 训练第 3 次 | 第 2 周，第 1 天 | 步态训练（25 分钟），参数调整，可选社区行走 | 60 分钟 |
+| V5 — 训练第 4 次 | 第 2 周，第 3–4 天 | 步态训练（30 分钟），楼梯行走训练（如安全），不良事件检查 | 60 分钟 |
+| V6 — 训练第 5 次 | 第 3 周，第 1 天 | 步态训练（30 分钟），障碍物通行 | 60 分钟 |
+| V7 — 训练第 6 次 | 第 3 周，第 3–4 天 | 步态训练（30 分钟），加速行走试验 | 60 分钟 |
+| V8 — 训练第 7 次 | 第 4 周，第 1 天 | 最终训练 + 用户满意度（QUEST 2.0） | 60 分钟 |
+| V9 — 训练后评估 | 第 4 周，第 3–4 天 | 全面运动评估（与 V1 相同），GAITRite，sEMG，生理消耗指数，SUS，设备日志下载 | 120 分钟 |
+| V10 — 安全性随访 | 第 8 周（±3 天） | 电话或面访：不良事件检查，设备归还确认 | 15 分钟 |
 
-### 6.3 Training Protocol Details
+### 6.3 训练方案详情
 
-Each training session follows a structured progression:
+每次训练遵循结构化 progression：
 
-1. **Baseline setup (10 min):**
-   - Don EEG headband, verify electrode impedance <50 kΩ per channel
-   - Don NeuroSuit hip module, verify cable routing and comfort
-   - System calibration: EEG baseline recording (30 s eyes open, 30 s eyes closed)
-   - Body-weight support (overhead harness) for fall safety during all sessions
+1. **基线设置（10 分钟）：**
+   - 佩戴 EEG 头带，验证每通道电极阻抗 <50 kΩ
+   - 穿戴 NeuroSuit 髋部模块，验证缆线布放和舒适度
+   - 系统校准：EEG 基线记录（睁眼 30 秒，闭眼 30 秒）
+   - 所有训练期间使用头顶悬挂式安全带防跌倒
 
-2. **Calibration walk (5 min):**
-   - Walk with device in passive (zero-torque) mode to collect baseline gait parameters
-   - User-specific AI model initializes based on passive-walk EEG features
+2. **校准步行（5 分钟）：**
+   - 设备在被动（零扭矩）模式下行走，采集基线步态参数
+   - 根据被动行走 EEG 特征初始化用户特定 AI 模型
 
-3. **Adaptive training (20–30 min):**
-   - Device provides assistive torque based on detected movement intention
-   - Therapist provides verbal cues and manual guidance as needed
-   - Rest breaks every 10 minutes or as requested
-   - Distance or duration targets increase across sessions
+3. **自适应训练（20–30 分钟）：**
+   - 设备根据检测到的运动意图提供辅助扭矩
+   - 治疗师根据需要提供口头提示和手动引导
+   - 每 10 分钟或按需休息
+   - 距离或时长目标随训练次数递增
 
-4. **Cool-down (5 min):**
-   - Passive mode walking or seated rest
-   - Device doffing, skin inspection
+4. **放松（5 分钟）：**
+   - 被动模式行走或坐位休息
+   - 设备脱卸，皮肤检查
 
-### 6.4 Device State Conditions (For Comparison)
+### 6.4 设备状态条件（用于比较）
 
-At the end of each training session (starting Session 3), a 5-minute comparison walk is performed:
+从第 3 次训练开始，每次训练结束时进行 5 分钟比较步行：
 
-| Condition | Description |
-|-----------|-------------|
-| Device OFF | Suit worn, motors powered down (passive assistance only — no torque) |
-| Device ON | Full closed-loop: EEG → AI → torque assistance |
+| 条件 | 描述 |
+|------|------|
+| 设备关 | 穿着套装，电机断电（仅被动辅助——无扭矩） |
+| 设备开 | 全闭环：EEG → AI → 扭矩辅助 |
 
-The order is randomized across sessions to control for fatigue effects. The therapist and subject are not blinded (device OFF is obvious), but the assessor for outcome measures is blinded to condition order.
-
----
-
-## 7. Data Collection Plan
-
-### 7.1 Data Types and Frequency
-
-| Data Category | Variables | Collection Frequency | Storage Format | Responsible |
-|--------------|-----------|---------------------|----------------|-------------|
-| **Demographics** | Age, sex, height, weight, diagnosis, onset date, lesion level (SCI), lesion side (stroke) | Once at V0 | CRF (paper/electronic) | Site coordinator |
-| **Medical history** | Comorbidities, medications, prior surgeries, fall history | Once at V0 | CRF | Site coordinator |
-| **EEG** | 8-channel raw EEG (250 Hz, 24-bit), impedance per channel | Every session | `.edf` + compressed `.npz` | Algorithm team |
-| **sEMG** | 4-channel (RF, BF, TA, GASTRO) raw EMG (2000 Hz) | V1, V9 (full); V2–V8 (spot check) | `.edf` | Algorithm team |
-| **IMU** | Hip angle, angular velocity, trunk orientation (100 Hz) | Every session | `.csv` | Firmware team |
-| **Motor data** | Torque setpoint, actual torque, motor current, cable force (200 Hz) | Every session | `.csv` | Firmware team |
-| **Intention log** | Detection timestamps, confidence scores, false positive/negative flags | Every session | `.json` | Algorithm team |
-| **Gait parameters** | Step length, step time, double support %, cadence, symmetry indices | V1, V9 (GAITRite); V2–V8 (IMU-based estimate) | `.csv` | Clinical team |
-| **Clinical assessments** | 10MWT, 6MWT, TUG, FMA-LE, BBS, MAS | V1, V9 | CRF + video recording (optional) | Clinical team |
-| **Skin assessment** | Erythema, pressure marks, blistering (photographed) | Every session | CRF + photo (`.jpg`) | Site coordinator |
-| **Adverse events** | Type, severity, relation to device, action taken | Every session, plus V10 (retrospective) | CRF + SAE form within 24h | Site coordinator |
-| **User feedback** | QUEST 2.0, SUS, NASA-TLX, device experience (binary) | As per visit schedule | CRF / questionnaire | Site coordinator |
-| **System log** | Battery level, BLE packet loss rate, CPU load, error codes | Every session, per-session summary | `.json` | System team |
-
-### 7.2 Data Management
-
-- **Primary database:** REDCap or local equivalent (e.g., 临床研究电子数据采集系统 by 国家药品监督管理局)
-- **Data quality:** Double-entry verification for primary endpoints; automated range checks; query resolution within 72 hours
-- **Data ownership:** Nexum (Bones & Manifold). De-identified data may be shared with academic collaborators under DTA.
-- **Data retention:** 10 years (per GCP guidelines). EEG raw data stored as `.edf` for future re-analysis. Anonymized dataset to be deposited in a public repository (e.g., PhysioNet, OpenNeuro, or 科学数据银行) after primary publication.
-
-### 7.3 De-identification Protocol
-
-- Direct identifiers (name, ID number, phone, hospital record number) stripped at source
-- Subject assigned 6-digit random Study ID at enrollment
-- EEG/sEMG recordings labeled with Study ID only (date offset by random number of days)
-- Linking file stored in encrypted, access-controlled database, separate from clinical data
+顺序在训练间随机化，以控制疲劳效应。治疗师和受试者未设盲（设备关状态显而易见），但结果评估员对条件顺序设盲。
 
 ---
 
-## 8. Safety Monitoring and Adverse Event Reporting
+## 7. 数据采集计划
 
-### 8.1 Definitions (per ISO 14155:2020)
+### 7.1 数据类型与频率
 
-| Term | Definition |
-|------|-----------|
-| **AE** — Adverse Event | Any untoward medical occurrence in a subject, whether or not related to the device |
-| **ADE** — Adverse Device Event | AE related to the use of the Nexum One device (including misuse or off-label use) |
-| **SADE** — Serious Adverse Device Event | ADE that leads to death, serious deterioration in health (life-threatening, requires hospitalization, causes permanent impairment), or requires intervention to prevent permanent impairment |
-| **UADE** — Unanticipated Adverse Device Effect | ADE of a type not previously described in the risk management file (ISO 14971) or IFU |
+| 数据类别 | 变量 | 采集频率 | 存储格式 | 负责方 |
+|---------|------|---------|---------|--------|
+| **人口学** | 年龄、性别、身高、体重、诊断、发病日期、损伤平面（SCI）、损伤侧（脑卒中） | V0 一次 | CRF（纸质/电子） | 中心协调员 |
+| **病史** | 合并症、用药、既往手术、跌倒史 | V0 一次 | CRF | 中心协调员 |
+| **EEG** | 8 通道原始 EEG（250 Hz，24 位），每通道阻抗 | 每次训练 | `.edf` + 压缩 `.npz` | 算法团队 |
+| **sEMG** | 4 通道（RF、BF、TA、GASTRO）原始 EMG（2000 Hz） | V1，V9（完整）；V2–V8（抽查） | `.edf` | 算法团队 |
+| **IMU** | 髋关节角度、角速度、躯干方向（100 Hz） | 每次训练 | `.csv` | 固件团队 |
+| **电机数据** | 扭矩设定点、实际扭矩、电机电流、缆线力（200 Hz） | 每次训练 | `.csv` | 固件团队 |
+| **意图日志** | 检测时间戳、置信度分数、假阳性/阴性标记 | 每次训练 | `.json` | 算法团队 |
+| **步态参数** | 步长、步时、双支撑期%、步频、对称性指数 | V1，V9（GAITRite）；V2–V8（基于 IMU 的估计） | `.csv` | 临床团队 |
+| **临床评估** | 10MWT，6MWT，TUG，FMA-LE，BBS，MAS | V1，V9 | CRF + 视频录制（可选） | 临床团队 |
+| **皮肤评估** | 红斑、压痕、水泡（拍照） | 每次训练 | CRF + 照片（`.jpg`） | 中心协调员 |
+| **不良事件** | 类型、严重程度、与设备的关系、采取的措施 | 每次训练，外加 V10（回顾性） | CRF + SAE 表（24 小时内） | 中心协调员 |
+| **用户反馈** | QUEST 2.0，SUS，NASA-TLX，设备体验（二元） | 按访视安排 | CRF / 问卷 | 中心协调员 |
+| **系统日志** | 电池电量、BLE 丢包率、CPU 负载、错误代码 | 每次训练，每次训练的汇总 | `.json` | 系统团队 |
 
-### 8.2 Expected Adverse Events (Based on Risk Analysis)
+### 7.2 数据管理
 
-| Risk | Severity | Probability | Expected Rate |
-|------|----------|-------------|---------------|
-| Skin abrasion/redness from suit friction | Mild–Moderate | High | 20–40% of subjects |
-| Electrode discomfort (pressure points on scalp) | Mild | Medium | 15–25% |
-| Fall during walking (harnessed) | Mild (no injury) | Medium | 10–20% |
-| Skin pressure mark >30 min duration | Mild | Medium | 10–15% |
-| Muscle soreness (unaccustomed gait pattern) | Mild | High | 30–50% |
-| Dizziness or orthostatic intolerance | Mild | Low | 5–10% |
-| Anxiety or claustrophobia from device | Mild | Low | 3–5% |
-| Battery overheating (enclosure >48°C) | Moderate | Low | <1% |
-| Cable breakage during use (sudden loss of assistance) | Mild | Low | <1% |
+- **主数据库：** REDCap 或本地等效系统（例如国家药品监督管理局认可的临床研究电子数据采集系统）
+- **数据质量：** 主要终点双录入验证；自动范围检查；72 小时内完成质疑解决
+- **数据所有权：** Nexum（Bones & Manifold）。去标识化数据可在 DTA 下与学术合作者共享。
+- **数据保留：** 10 年（根据 GCP 指南）。EEG 原始数据以 `.edf` 格式存储，用于未来再分析。匿名化数据集将在主要发表后存入公共存储库（例如 PhysioNet、OpenNeuro 或科学数据银行）。
 
-### 8.3 Safety Monitoring Plan
+### 7.3 去标识化方案
 
-| Mechanism | Description | Frequency |
-|-----------|-------------|-----------|
-| **Pre-session safety check** | Device integrity inspection (cable, connector, battery), subject self-report of any issue since last visit | Each session |
-| **Post-session skin assessment** | Systematic skin inspection at all contact points; documented with body diagram + photo | Each session |
-| **Falls log** | Any fall (regardless of injury) documented: circumstances, harness status, injury, follow-up | Each incident |
-| **Safety pause** | If any single subject experiences ≥2 falls (even harnessed), suspend enrollment for DSMB review | Per event |
-| **Device event log** | Continuous recording of system faults, over-current events, emergency stops, watchdog resets | Continuous |
-
-### 8.4 Adverse Event Reporting Procedures
-
-| AE Type | Reporting Requirement | Responsible | Timeline |
-|---------|----------------------|-------------|----------|
-| Mild AE (Grade 1) | Document in CRF; continue device use | Site coordinator | Within 72 hours |
-| Moderate AE (Grade 2) | Document in CRF; suspend device use until resolved | PI | Within 24 hours |
-| Severe AE (Grade ≥3) | Document in CRF; file SAE form; notify sponsor; notify IRB | PI + Sponsor | Within 24 hours |
-| SADE | All of the above + pause enrollment; convene DSMB if needed | PI + Sponsor + DSMB | Immediate (phone) + 24h (written) |
-| UADE | All SADE procedures + file amendment to regulatory authority | Sponsor | Within 72 hours |
-
-### 8.5 Stopping Rules
-
-The study will be paused for DSMB review if ANY of the following occur:
-
-1. **Any SADE** (device-related death, fracture, grade ≥3 skin injury, electrical shock, hospitalization)
-2. **≥2 falls resulting in injury** (fracture, head injury, laceration requiring sutures)
-3. **≥3 subjects experience Grade ≥2 skin injury** at device contact points
-4. **≥2 subjects withdraw** due to device intolerance (pain, anxiety, discomfort)
-5. **Cumulative device-related AE rate exceeds 50%** of enrolled subjects
-
-### 8.6 Data Safety Monitoring Board (DSMB)
-
-- Composition: 1 rehabilitation physician (independent of study), 1 biostatistician, 1 neuro-engineer (independent, affiliated with academic institution)
-- Meeting schedule:
-  - Pre-study: review protocol, approve safety plan
-  - Interim: after n=10 subjects complete 2-week milestone
-  - Ad-hoc: if stopping rule triggered
-- The DSMB has authority to recommend study suspension, modification, or termination to the IRB.
+- 直接标识符（姓名、身份证号、电话、住院号）在源头剔除
+- 入组时分配 6 位随机研究 ID
+- EEG/sEMG 记录仅标记研究 ID（日期偏移随机天数）
+- 链接文件存储在加密且受访问控制的数据库中，与临床数据分离
 
 ---
 
-## 9. Statistical Analysis Plan
+## 8. 安全性监测与不良事件报告
 
-### 9.1 Analysis Populations
+### 8.1 定义（根据 ISO 14155:2020）
 
-| Population | Definition | Primary Analysis |
-|------------|-----------|------------------|
-| **Intent-to-Treat (ITT)** | All enrolled subjects who signed consent | Safety analysis (endpoint 1) |
-| **Per-Protocol (PP)** | All subjects who completed ≥6/8 training sessions + final evaluation | Performance analysis (endpoint 2) and secondary endpoints |
-| **Safety Population** | All subjects who used device at least once | Adverse event rate |
+| 术语 | 定义 |
+|------|------|
+| **AE** — 不良事件 | 受试者出现的任何不良医学事件，无论是否与设备相关 |
+| **ADE** — 不良设备事件 | 与 Nexum One 设备使用相关的不良事件（包括误用或超说明书使用） |
+| **SADE** — 严重不良设备事件 | 导致死亡、健康状况严重恶化（危及生命、需要住院、导致永久性损伤）或需要干预以防止永久性损伤的 ADE |
+| **UADE** — 非预期不良设备效应 | 风险管理文件（ISO 14971）或使用说明书中未事先描述类型的 ADE |
 
-### 9.2 Primary Endpoint Analysis
+### 8.2 预期不良事件（基于风险分析）
 
-#### Endpoint 1 (Safety):
-- **Method:** Proportion of subjects with SADE, with exact 95% CI (Clopper-Pearson method).
-- **Hypothesis:** H0: p ≥ p₀ vs H1: p < p₀, where p₀ = 0.10 (acceptable upper bound).
-- **Decision rule:** If zero SADE observed and n ≥ 30, the upper bound of 95% CI <10%, meeting the threshold.
+| 风险 | 严重程度 | 概率 | 预期发生率 |
+|------|---------|------|-----------|
+| 套装摩擦引起皮肤擦伤/发红 | 轻微–中度 | 高 | 20–40% 受试者 |
+| 电极不适（头皮压力点） | 轻微 | 中等 | 15–25% |
+| 行走中跌倒（有安全带） | 轻微（无伤害） | 中等 | 10–20% |
+| 皮肤压痕 >30 分钟 | 轻微 | 中等 | 10–15% |
+| 肌肉酸痛（不习惯的步态模式） | 轻微 | 高 | 30–50% |
+| 头晕或体位性不耐受 | 轻微 | 低 | 5–10% |
+| 设备引起的焦虑或幽闭恐惧 | 轻微 | 低 | 3–5% |
+| 电池过热（外壳 >48°C） | 中度 | 低 | <1% |
+| 使用中缆线断裂（辅助突然丧失） | 轻微 | 低 | <1% |
 
-#### Endpoint 2 (AUC):
-- **Method:** Pooled AUC-ROC across all subjects, computed using all strides from all evaluation sessions. Standard error estimated via bootstrapping (2000 resamples, stratified by subject).
-- **Hypothesis:** H0: AUC ≤ 0.75 vs H1: AUC > 0.75 (one-sided α = 0.05).
-- **Subgroup analysis:** Separate AUC for stroke vs SCI; separate AUC for walking initiation vs other classes (sit-to-stand, stop).
+### 8.3 安全性监测计划
 
-### 9.3 Secondary Endpoint Analysis
+| 机制 | 描述 | 频率 |
+|------|------|------|
+| **训练前安全检查** | 设备完整性检查（缆线、连接器、电池），受试者自上次访视以来的任何问题自述 | 每次训练 |
+| **训练后皮肤评估** | 所有接触点系统性皮肤检查；用体表图 + 照片记录 | 每次训练 |
+| **跌倒日志** | 任何跌倒（无论是否受伤）记录：环境、安全带状态、伤害、随访 | 每次事件 |
+| **安全暂停** | 如果任一受试者经历 ≥2 次跌倒（即使有安全带），暂停入组以待 DSMB 审查 | 每次事件 |
+| **设备事件日志** | 持续记录系统故障、过流事件、急停、看门狗复位 | 持续 |
 
-| Endpoint | Analysis Method | Covariates | Missing Data |
-|----------|----------------|------------|--------------|
-| 10MWT change | Paired t-test (or Wilcoxon signed-rank if normality violated) | Age, baseline gait speed, lesion type | Last observation carried forward (LOCF) sensitivity |
-| 6MWT change | Same as above | Same | Same |
-| TUG, FMA-LE, BBS | Same as above | Same | Same |
-| sEMG envelope change | Mixed-effects model (fixed: time; random: subject, session) | Lesion type | Mixed model handles missing |
-| Gait symmetry | Paired t-test on symmetry ratio | — | LOCF |
-| QUEST 2.0, SUS | Descriptive: mean ± SD, median [IQR] | — | Analysis only on completers |
+### 8.4 不良事件报告程序
 
-All secondary endpoints are **exploratory and hypothesis-generating**. No multiplicity adjustment is applied. Results will be reported as effect sizes with 95% CI, not p-values for significance testing.
+| AE 类型 | 报告要求 | 负责方 | 时限 |
+|---------|---------|--------|------|
+| 轻度 AE（1 级） | 在 CRF 中记录；继续使用设备 | 中心协调员 | 72 小时内 |
+| 中度 AE（2 级） | 在 CRF 中记录；暂停设备使用直至解决 | PI | 24 小时内 |
+| 重度 AE（≥3 级） | 在 CRF 中记录；提交 SAE 表；通知申办方；通知 IRB | PI + 申办方 | 24 小时内 |
+| SADE | 以上全部 + 暂停入组；必要时召集 DSMB | PI + 申办方 + DSMB | 立即（电话）+ 24 小时（书面） |
+| UADE | 所有 SADE 程序 + 向监管机构提交修正案 | 申办方 | 72 小时内 |
 
-### 9.4 Subgroup Analyses (Exploratory)
+### 8.5 停止规则
 
-- Stroke vs SCI: compare treatment effect sizes
-- High lesion (above T10) vs low lesion (T10–L2) in SCI cohort
-- Hemorrhagic vs ischemic stroke
-- Age groups: <50 vs 50–75
-- EEG signal quality: high SNR (≥3 dB) vs low SNR (<3 dB)
+如发生以下**任何**情况，研究将暂停以待 DSMB 审查：
 
-### 9.5 Sample Size Re-estimation
+1. **任何 SADE**（与设备相关的死亡、骨折、≥3 级皮肤损伤、电击、住院）
+2. **≥2 次导致伤害的跌倒**（骨折、头部损伤、需要缝合的撕裂伤）
+3. **≥3 名受试者在设备接触点经历 ≥2 级皮肤损伤**
+4. **≥2 名受试者因设备不耐受退出**（疼痛、焦虑、不适）
+5. **与设备相关的 AE 累计发生率超过入组受试者的 50%**
 
-After n=15 subjects complete the study, an interim analysis (blinded to treatment allocation) will be conducted to:
-1. Estimate variability of primary endpoints
-2. Confirm that AUC variability is within expected range (±0.08)
-3. If AUC variability is substantially higher than expected (>±0.12), the total n may be increased to 40–50 to maintain power
+### 8.6 数据安全监测委员会（DSMB）
 
----
-
-## 10. Ethical Considerations (IRB Pathway in China)
-
-### 10.1 Regulatory Framework
-
-This study falls under the following Chinese regulations:
-
-| Regulation | Scope | Applicable Clause |
-|------------|-------|-------------------|
-| 《医疗器械临床试验质量管理规范》(GCP) 2022版 | All medical device clinical trials | Full compliance required |
-| 《涉及人的生物医学研究伦理审查办法》2016版 | Human subjects research ethics | Full compliance required |
-| 《医疗器械注册与备案管理办法》2021版 | Device registration | Supporting data for NMPA submission |
-| 《创新医疗器械特别审查程序》2018版 | Innovative device fast track | Study design compatible with innovative device requirements |
-| 《个人信息保护法》2021版 | Personal data protection | Patient data handling procedures |
-
-### 10.2 IRB Approval Pathway
-
-**Step 1 — Select the IRB / Ethics Committee**
-
-For a pre-clinical feasibility study, the study can proceed under **IRB approval** (not yet NMPA clinical trial filing, since this is pre-market feasibility). Options ranked by feasibility:
-
-| IRB Option | Advantages | Disadvantages | Recommended For |
-|------------|-----------|---------------|-----------------|
-| **Hospital Ethics Committee (e.g., 宣武医院 伦理委员会)** | Fastest (4–8 weeks); known process; PI's institution | Results may not be accepted by NMPA directly; need GCP-compliant EC | **Primary choice** for feasibility study |
-| **University IRB (e.g., Tsinghua/SEU)** | Fast (4–6 weeks); academic collaborators | May not have medical device review experience | Secondary site choice |
-| **National-level clinical trial platform (e.g., 国家康复辅具研究中心)** | NMPA-recognized; results directly usable for registration | Slower (8–12 weeks); more documentation | For pivotal trial (Phase 2) |
-
-**Step 2 — Prepare IRB Submission Package**
-
-Required documents per 《医疗器械临床试验质量管理规范》:
-
-| Document | Responsible |
-|----------|-------------|
-| IRB application form (伦理审查申请表) | Sponsor (Nexum) |
-| Study protocol (version 0.1, dated) | Sponsor |
-| Investigator's Brochure (IB) — device description, pre-clinical data, safety data, risk analysis | Sponsor |
-| Informed Consent Form (ICF) — Chinese language, Grade 6 readability | Sponsor + PI |
-| Case Report Forms (CRF) | Sponsor |
-| Device description and intended use document | Sponsor |
-| ISO 14971 risk management file (summary for IRB) | Sponsor |
-| Investigator's CV and GCP training certificate | PI |
-| Insurance certificate for clinical trial subjects | Sponsor |
-| Device quality inspection certificate (出厂检验报告) | Sponsor |
-
-**Step 3 — Informed Consent Process**
-
-- Written informed consent in Mandarin Chinese (simplified characters)
-- Read-aloud option for subjects with low literacy
-- Cooling-off period: minimum 24 hours between information delivery and signing
-- Surrogate consent allowed if subject cannot write (witness signs on behalf) per 《民法典》
-- Video recording of consent process recommended for subjects with aphasia
-
-**Step 4 — Special Ethical Considerations**
-
-1. **Vulnerable population:** Stroke and SCI patients may have cognitive or communication impairments. Consent capacity must be assessed by a qualified physician independent of the study. For subjects with reduced capacity, family member consent + subject assent required.
-
-2. **Placebo/sham issue:** No sham device group. Rationale documented: (a) sham condition for a wearable device cannot be effectively blinded, (b) the study objective is feasibility/safety, not efficacy. This is ethically acceptable per WHO CIOMS guidelines.
-
-3. **Fall risk:** Continuous overhead harness safety system. Study staff at 1:1 ratio during all sessions. Falls will be documented but not concealed.
-
-4. **Data privacy:** All personal data processed per 《个人信息保护法》 and 《数据安全法》. EEG data is considered sensitive personal information under Chinese law. De-identification protocol per Section 7.3.
-
-5. **Compensation:** Subject stipend of ¥500 per completed session (total ¥5,000 for full participation). Travel reimbursement at ¥0.8/km or public transportation fare. Insurance coverage: ¥500,000 per subject for clinical trial injury (per 《药物临床试验质量管理规范》 — analogous standard for devices).
-
-6. **Right to withdraw:** Subject may withdraw at any time without consequences for their clinical care. Withdrawn subjects will not be replaced in the analysis (ITT handles missing data).
-
-### 10.3 Registration
-
-- Study registered in Chinese Clinical Trial Registry (中国临床试验注册中心, ChiCTR) prior to enrollment
-- World Health Organization International Clinical Trials Registry Platform (WHO ICTRP) secondary registration
-
-### 10.4 Publication Policy
-
-- Primary analysis: intended for peer-reviewed journal (e.g., Journal of NeuroEngineering and Rehabilitation, Frontiers in Neuroscience, or Chinese Journal of Rehabilitation Medicine)
-- Negative results will be published equally to positive results
-- Authorship: Principal Investigator (first author), Nexum CTO/CEO (senior author), key contributors per ICMJE criteria
+- 组成：1 名康复医师（独立于研究），1 名生物统计学家，1 名神经工程师（独立，附属学术机构）
+- 会议安排：
+  - 研究前：审查方案，批准安全计划
+  - 中期：n=10 名受试者完成 2 周里程碑后
+  - 临时：如果触发停止规则
+- DSMB 有权向 IRB 建议暂停、修改或终止研究。
 
 ---
 
-## Appendix A — References
+## 9. 统计分析计划
+
+### 9.1 分析人群
+
+| 人群 | 定义 | 主要分析 |
+|------|------|---------|
+| **意向治疗（ITT）** | 所有签署同意的入组受试者 | 安全性分析（终点 1） |
+| **符合方案（PP）** | 完成 ≥6/8 次训练 + 最终评估的所有受试者 | 性能分析（终点 2）和次要终点 |
+| **安全性人群** | 至少使用过一次设备的所有受试者 | 不良事件发生率 |
+
+### 9.2 主要终点分析
+
+#### 终点 1（安全性）：
+- **方法：** 发生 SADE 的受试者比例，精确 95% CI（Clopper-Pearson 方法）。
+- **假设：** H0：p ≥ p₀ vs H1：p < p₀，其中 p₀ = 0.10（可接受上限）。
+- **决策规则：** 如果观察到零 SADE 且 n ≥ 30，则 95% CI 上限 <10%，达到阈值。
+
+#### 终点 2（AUC）：
+- **方法：** 所有受试者汇总 AUC-ROC，使用所有评估会话中的所有步幅计算。标准误通过 Bootstrap 估计（2000 次重采样，按受试者分层）。
+- **假设：** H0：AUC ≤ 0.75 vs H1：AUC > 0.75（单侧 α = 0.05）。
+- **亚组分析：** 脑卒中 vs SCI 的单独 AUC；步行启动 vs 其他类别（坐站、停止）的单独 AUC。
+
+### 9.3 次要终点分析
+
+| 终点 | 分析方法 | 协变量 | 缺失数据 |
+|------|---------|--------|---------|
+| 10MWT 变化 | 配对 t 检验（如违反正态性则 Wilcoxon 符号秩检验） | 年龄、基线步速、损伤类型 | 末次观测值结转（LOCF）敏感性分析 |
+| 6MWT 变化 | 同上 | 同上 | 同上 |
+| TUG，FMA-LE，BBS | 同上 | 同上 | 同上 |
+| sEMG 包络变化 | 混合效应模型（固定：时间；随机：受试者、训练次数） | 损伤类型 | 混合模型处理缺失 |
+| 步态对称性 | 对称比上的配对 t 检验 | — | LOCF |
+| QUEST 2.0，SUS | 描述性：均值 ± SD，中位数 [IQR] | — | 仅分析完成者 |
+
+所有次要终点为**探索性和假设生成性**。不进行多重性调整。结果将以效应量及 95% CI 报告，而非用于显著性检验的 p 值。
+
+### 9.4 亚组分析（探索性）
+
+- 脑卒中 vs SCI：比较治疗效应量
+- SCI 队列中高位损伤（T10 以上）vs 低位损伤（T10–L2）
+- 出血性 vs 缺血性脑卒中
+- 年龄组：<50 岁 vs 50–75 岁
+- EEG 信号质量：高信噪比（≥3 dB）vs 低信噪比（<3 dB）
+
+### 9.5 样本量再估计
+
+n=15 名受试者完成研究后，将进行中期分析（对治疗分配设盲），以：
+1. 估计主要终点的变异性
+2. 确认 AUC 变异性在预期范围内（±0.08）
+3. 如果 AUC 变异性显著高于预期（>±0.12），可将总 n 增至 40–50 以维持检验功效
+
+---
+
+## 10. 伦理考虑（中国 IRB 路径）
+
+### 10.1 监管框架
+
+本研究属于以下中国法规范围：
+
+| 法规 | 范围 | 适用条款 |
+|------|------|---------|
+| 《医疗器械临床试验质量管理规范》（GCP）2022 版 | 所有医疗器械临床试验 | 须完全合规 |
+| 《涉及人的生物医学研究伦理审查办法》2016 版 | 人类受试者研究伦理 | 须完全合规 |
+| 《医疗器械注册与备案管理办法》2021 版 | 器械注册 | 为 NMPA 申报提供支持数据 |
+| 《创新医疗器械特别审查程序》2018 版 | 创新器械快速通道 | 研究设计与创新器械要求兼容 |
+| 《个人信息保护法》2021 版 | 个人数据保护 | 患者数据处理程序 |
+
+### 10.2 IRB 批准路径
+
+**第 1 步 — 选择 IRB / 伦理委员会**
+
+对于临床前可行性研究，研究可在 **IRB 批准**下进行（尚不是 NMPA 临床试验备案，因为这是上市前可行性）。按可行性排序的选项：
+
+| IRB 选项 | 优势 | 劣势 | 推荐场景 |
+|---------|------|------|---------|
+| **医院伦理委员会（例如宣武医院伦理委员会）** | 最快（4–8 周）；流程已知；PI 所在机构 | 结果可能不被 NMPA 直接认可；需要 GCP 合规的伦理委员会 | **可行性研究首选** |
+| **大学 IRB（例如清华大学/东南大学）** | 快速（4–6 周）；学术合作者 | 可能缺乏医疗器械审查经验 | 次要中心选择 |
+| **国家级临床试验平台（例如国家康复辅具研究中心）** | NMPA 认可；结果可直接用于注册 | 较慢（8–12 周）；更多文档 | 用于确证性试验（Phase 2） |
+
+**第 2 步 — 准备 IRB 提交包**
+
+根据《医疗器械临床试验质量管理规范》要求的文件：
+
+| 文件 | 负责方 |
+|------|--------|
+| 伦理审查申请表 | 申办方（Nexum） |
+| 研究方案（版本 0.1，已注明日期） | 申办方 |
+| 研究者手册（IB）——设备描述、临床前数据、安全性数据、风险分析 | 申办方 |
+| 知情同意书（ICF）——中文，六年级可读性 | 申办方 + PI |
+| 病例报告表（CRF） | 申办方 |
+| 设备描述和预期用途文件 | 申办方 |
+| ISO 14971 风险管理文件（IRB 用摘要） | 申办方 |
+| 研究者简历和 GCP 培训证书 | PI |
+| 临床试验受试者保险证明 | 申办方 |
+| 设备出厂检验报告 | 申办方 |
+
+**第 3 步 — 知情同意过程**
+
+- 使用简体中文的书面知情同意
+- 为低识字率受试者提供朗读选项
+- 冷静期：信息传递与签署之间最短 24 小时
+- 根据《民法典》，允许受试者无法书写时代理同意（见证人代签）
+- 建议对失语症受试者录像记录同意过程
+
+**第 4 步 — 特殊伦理考虑**
+
+1. **脆弱人群：** 脑卒中和 SCI 患者可能有认知或沟通障碍。必须由独立于研究的合格医师评估同意能力。对于能力下降的受试者，需要家属同意 + 受试者知情同意。
+
+2. **安慰剂/假照问题：** 无假照设备组。理由已记录：(a) 可穿戴设备的假照条件无法有效设盲，(b) 研究目标是可行性/安全性，而非有效性。根据 WHO CIOMS 指南，这在伦理上是可接受的。
+
+3. **跌倒风险：** 持续头顶悬挂式安全系统。所有训练期间研究人员与受试者比例为 1:1。跌倒将被记录但不隐瞒。
+
+4. **数据隐私：** 所有个人数据根据《个人信息保护法》和《数据安全法》处理。根据中国法律，EEG 数据被视为敏感个人信息。去标识化方案见第 7.3 节。
+
+5. **补偿：** 受试者每次完成训练补贴 ¥500（全程参与总计 ¥5,000）。交通报销按 ¥0.8/km 或公共交通费用。保险覆盖：每名受试者临床试验伤害保额 ¥500,000（根据《药物临床试验质量管理规范》——器械的类比标准）。
+
+6. **退出权：** 受试者可随时退出，不影响其临床护理。退出受试者不会在分析中替换（ITT 处理缺失数据）。
+
+### 10.3 注册
+
+- 研究在入组前于中国临床试验注册中心（ChiCTR）注册
+- 世界卫生组织国际临床试验注册平台（WHO ICTRP）二次注册
+
+### 10.4 发表政策
+
+- 主要分析：拟投同行评议期刊（例如 Journal of NeuroEngineering and Rehabilitation、Frontiers in Neuroscience 或中国康复医学杂志）
+- 阴性结果将与阳性结果同等发表
+- 作者署名：主要研究者（第一作者），Nexum CTO/CEO（通讯作者），根据 ICMJE 标准的关键贡献者
+
+---
+
+## 附录 A — 参考文献
 
 1. Kressler J, Thomas CK, Field-Fote EC, et al. (2014). "Understanding therapeutic benefits of overground gait training using a powered exoskeleton after incomplete SCI." *J Neuroeng Rehabil*, 11:158.
 2. Esquenazi A, Talaty M, Packel A, Saulino M. (2012). "The ReWalk powered exoskeleton to restore ambulatory function to individuals with thoracic-level motor-complete spinal cord injury." *Am J Phys Med Rehabil*, 91(11):911–21.
@@ -490,35 +490,35 @@ Required documents per 《医疗器械临床试验质量管理规范》:
 6. ISO 14155:2020 — Clinical investigation of medical devices for human subjects — Good clinical practice.
 7. Lew E, Chavarriaga R, Silvoni S, Millán J del R. (2012). "Detection of self-paced reaching movement intention from EEG signals." *Front Neuroeng*, 5:13.
 
-## Appendix B — Assessment Schedule Matrix
+## 附录 B — 评估安排矩阵
 
-| Assessment | V0 Screen | V1 Base | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 Eval | V10 FU |
-|------------|:---------:|:-------:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:-------:|:------:|
-| Informed consent | ✓ | | | | | | | | | | |
-| Medical history | ✓ | | | | | | | | | | |
-| Vitals | ✓ | ✓ | | ✓ | | ✓ | | ✓ | | ✓ | |
+| 评估 | V0 筛选 | V1 基线 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 评估 | V10 随访 |
+|------|:-------:|:-------:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:-------:|:--------:|
+| 知情同意 | ✓ | | | | | | | | | | |
+| 病史 | ✓ | | | | | | | | | | |
+| 生命体征 | ✓ | ✓ | | ✓ | | ✓ | | ✓ | | ✓ | |
 | MMSE | ✓ | | | | | | | | | | |
-| Screening EEG (MRCP) | ✓ | | | | | | | | | | |
+| 筛选 EEG（MRCP） | ✓ | | | | | | | | | | |
 | FMA-LE | | ✓ | | | | | | | | ✓ | |
 | BBS | | ✓ | | | | | | | | ✓ | |
-| 10MWT | ✓ (screen) | ✓ | | | | | | | | ✓ | |
+| 10MWT | ✓（筛选） | ✓ | | | | | | | | ✓ | |
 | 6MWT | | ✓ | | | | | | | | ✓ | |
 | TUG | | ✓ | | | | | | | | ✓ | |
 | GAITRite | | ✓ | | | | | | | | ✓ | |
-| sEMG (full) | | ✓ | | | | | | | | ✓ | |
-| sEMG (spot) | | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | | |
-| EEG system test | | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | | |
-| Device training | | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | | |
-| Device ON/OFF comparison | | | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | |
-| Skin assessment | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | |
-| AE check | | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| sEMG（完整） | | ✓ | | | | | | | | ✓ | |
+| sEMG（抽查） | | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | | |
+| EEG 系统测试 | | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | | |
+| 设备训练 | | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | | |
+| 设备开/关比较 | | | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | |
+| 皮肤评估 | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | |
+| AE 检查 | | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | QUEST 2.0 | | | | | | | | | ✓ | | |
 | SUS | | | | ✓ | | | | | | ✓ | |
 | NASA-TLX | | | | ✓ | | | | | | ✓ | |
-| Device experience | | | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | |
-| System log download | | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | |
-| Physiological cost index | | ✓ | | | | | | | | ✓ | |
+| 设备体验 | | | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | |
+| 系统日志下载 | | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | |
+| 生理消耗指数 | | ✓ | | | | | | | | ✓ | |
 
 ---
 
-*End of Clinical Protocol v0.1. This is a living draft — update after regulatory consultation and IRB feedback.*
+*临床方案 v0.1 结束。此为活跃草案——在注册咨询和 IRB 反馈后更新。*

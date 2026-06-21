@@ -1,105 +1,105 @@
-# Nexum One EEG-Sense Headband — PCB Design Notes
+# Nexum One EEG 感应头带 — PCB 设计说明
 
 **v0.1** · 2026-06-21  
-**Author:** EE Team · Hardware Working Group  
-**Classification:** Internal — Engineering  
-**Target Audience:** PCB Layout Engineer
+**作者：** 硬件工作组 · EE 团队  
+**密级：** 内部 — 工程  
+**目标读者：** PCB 布局工程师
 
 ---
 
-## Table of Contents
+## 目录
 
-1. Document Scope and Reference Documents
-2. PCB Stackup Recommendation
-3. Component Placement Strategy
-4. Grounding Strategy
-5. Routing Rules for EEG Signals
-6. Power Supply Design
-7. Electrode Connector Design
-8. EMI/EMC Considerations
-9. Flex PCB Considerations for Curved Headband
-10. Key Layout Constraints and Keep-Out Zones
-11. Test Points and Debug Interface
-12. Appendix: Reference Schematic Fragment Guidelines
+1. 文档范围与参考文档
+2. PCB 叠层建议
+3. 元件布局策略
+4. 接地策略
+5. EEG 信号布线规则
+6. 电源设计
+7. 电极连接器设计
+8. EMI/EMC 考虑
+9. 弧形头带柔性 PCB 考虑
+10. 关键布局约束与禁布区
+11. 测试点与调试接口
+12. 附录：参考原理图片段指南
 
 ---
 
-## 1. Document Scope and Reference Documents
+## 1. 文档范围与参考文档
 
-### 1.1 Scope
+### 1.1 范围
 
-This document provides the PCB layout engineer with specific, actionable instructions for laying out the Nexum One EEG-Sense headband PCB (and associated flex PCB for electrodes). It covers a single 8-channel dry-electrode EEG acquisition board with the following bill of materials:
+本文档为 PCB 布局工程师提供具体、可操作的指令，用于 Nexum One EEG 感应头带 PCB（及相关电极柔性 PCB）的布局。涵盖单板 8 通道干电极 EEG 采集系统，物料清单如下：
 
-- **U1:** TI ADS1299IPAG — 8-ch EEG AFE, 24-bit delta-sigma ADC
+- **U1:** TI ADS1299IPAG — 8 通道 EEG AFE, 24 位 Delta-Sigma ADC
 - **U2:** Nordic nRF52832-QFAA — BLE 5.0 SoC (Cortex-M4F)
-- **U3:** TPS7A4700RGWT — ultra-low-noise 3.3V LDO (analog supply, 1 uVrms noise)
+- **U3:** TPS7A4700RGWT — 超低噪声 3.3V LDO（模拟电源，噪声 1 uVrms）
 - **U4:** TPS7A2005PDBVR — 1.8V LDO (ADS1299 DVDD)
-- **U5:** BQ24075RGTT — Li-Po linear charger with power-path management
-- **Y1:** ABS05-32.768KHZ-T — 32.768 kHz RTC crystal (nRF52)
-- **Y2:** NX3225SA-32MHZ — 32 MHz main crystal (nRF52)
-- **ANT1:** 2450AT18A100E — Johanson 2.4 GHz chip antenna
-- **J1:** TYPE-C-31-M-12 — USB-C connector (charge + data)
-- **BT1:** 402030 Li-Po pouch cell, 200 mAh, 3.7V
+- **U5:** BQ24075RGTT — 带电源路径管理的锂聚合物线性充电器
+- **Y1:** ABS05-32.768KHZ-T — 32.768 kHz RTC 晶振 (nRF52)
+- **Y2:** NX3225SA-32MHZ — 32 MHz 主晶振 (nRF52)
+- **ANT1:** 2450AT18A100E — Johanson 2.4 GHz 芯片天线
+- **J1:** TYPE-C-31-M-12 — USB-C 连接器（充电 + 数据）
+- **BT1:** 402030 锂聚合物软包电池, 200 mAh, 3.7V
 
-### 1.2 Reference Documents
+### 1.2 参考文档
 
-| Document | Purpose |
-|----------|---------|
-| ADS1299 Datasheet (SBAS499K) | ADC timing, analog input characteristics, recommended layout |
-| nRF52832 Product Spec v1.4 | BLE RF layout guidelines, antenna matching network |
-| TPS7A4700 Datasheet (SBVS219) | LDO noise spec, output capacitor ESR requirements |
-| Nexum One Engineering Architecture v0.1 | System-level block diagram, data flow, latency budgets |
-| Nexum One PRD v1.0 | Requirements for noise, CMRR, weight, form factor |
+| 文档 | 用途 |
+|------|------|
+| ADS1299 数据手册 (SBAS499K) | ADC 时序、模拟输入特性、推荐布局 |
+| nRF52832 产品规格 v1.4 | BLE 射频布局指南、天线匹配网络 |
+| TPS7A4700 数据手册 (SBVS219) | LDO 噪声规格、输出电容 ESR 要求 |
+| Nexum One 工程架构 v0.1 | 系统级框图、数据流、延迟预算 |
+| Nexum One PRD v1.0 | 噪声、CMRR、重量、外形等要求 |
 
-### 1.3 Key Performance Targets That Drive Layout Decisions
+### 1.3 影响布局决策的关键性能指标
 
-| Parameter | Target | Layout Implication |
-|-----------|--------|--------------------|
-| Input-referred noise | <1 uV RMS (0.5-100 Hz) | No switching noise coupling into analog inputs |
-| CMRR | >100 dB at 50 Hz | Symmetrical routing for INxP/INxN pairs, guard rings |
-| Weight | <80 g including battery | PCB size minimized; 4-layer not 6-layer; no unnecessary connectors |
-| BLE range | >5 m through body | Antenna keep-out zone strictly enforced |
-| Battery life | >4 h continuous | Low-resistance power path; no parasitic leakage |
-
----
-
-## 2. PCB Stackup Recommendation
-
-### 2.1 Stackup: 4-Layer, 0.8 mm Total Thickness
-
-Use JLCPCB or PCBWay standard 4-layer stackup with **JLC7628 prepreg** or equivalent. Total thickness **0.8 mm** (1.0 mm also acceptable, but heavier).
-
-| Layer | Name | Type | Thickness | Cu Weight | Notes |
-|-------|------|------|-----------|-----------|-------|
-| L1 | TOP | Signal + Components | 0.035 mm | 1 oz | All active components, analog routing, RF trace |
-| --- | Prepreg | Dielectric (FR-4) | 0.200 mm | --- | Specify 0.2 mm prepreg for tight L1-L2 coupling |
-| L2 | GND | Solid Ground Plane | 0.035 mm | 1 oz | **No split under analog section.** Continuous return path. |
-| --- | Core | Dielectric (FR-4) | 0.300 mm | --- | Core thickness sets L2-L3 capacitance |
-| L3 | PWR + SIG | Power + Signal | 0.035 mm | 1 oz | Power distribution traces; low-speed digital signals |
-| --- | Prepreg | Dielectric (FR-4) | 0.200 mm | --- | |
-| L4 | BOT | Signal + GND | 0.035 mm | 1 oz | Component landing (decoupling caps on bottom), pour for GND |
-
-**Rationale for 4-layer over 2-layer:**
-- A continuous ground plane (L2) directly under L1 is the single most important factor for EEG SNR. A 2-layer board cannot provide this.
-- L3 provides dedicated power routing without cutting up the ground plane.
-- 0.8 mm total keeps the board flexible enough for slight headband curvature (semi-rigid section). Do not use 1.6 mm — too stiff to conform.
-
-**Stackup variation for flex-rigid (see Section 9):** If a rigid-flex design is used, the flex portion is 2-layer (L1/L2 only, no L3/L4), transitioning to the full 4-layer stackup in the rigid main-board region.
-
-### 2.2 Impedance Control
-
-| Trace | Impedance | Layer | Width (JLC7628, 1 oz) | Notes |
-|-------|-----------|-------|----------------------|-------|
-| BLE antenna trace | 50 Ohm single-ended | L1 (TOP) | 0.35 mm (with 0.2 mm GND clearance on both sides) | Coplanar waveguide with GND on L2 |
-| SPI bus (SCLK) | Not critical (<30 MHz) | L1 or L4 | 0.25 mm minimum | Match ADS1299 SCLK--nRF52 lengths within 10 mm |
+| 参数 | 目标 | 布局影响 |
+|------|------|---------|
+| 输入参考噪声 | <1 uV RMS (0.5-100 Hz) | 开关噪声不得耦合进入模拟输入 |
+| CMRR | >100 dB @ 50 Hz | INxP/INxN 差分对对称布线，加保护环 |
+| 重量 | 含电池 <80 g | PCB 尺寸最小化；4 层而非 6 层；无多余连接器 |
+| BLE 距离 | 穿越人体 >5 m | 严格执行天线禁布区 |
+| 电池续航 | >4 小时连续使用 | 低阻抗电源路径；无寄生泄漏 |
 
 ---
 
-## 3. Component Placement Strategy
+## 2. PCB 叠层建议
 
-### 3.1 Partition: Analog Zone vs Digital Zone
+### 2.1 叠层：4 层，总厚度 0.8 mm
 
-The PCB is divided into **three zones** with a clear boundary. Crossing a zone boundary requires a bridge trace over the ground plane — never cut the ground plane.
+使用 JLCPCB 或 PCBWay 标准 4 层叠层，**JLC7628 半固化片**或等效材料。总厚度 **0.8 mm**（1.0 mm 亦可接受，但稍重）。
+
+| 层 | 名称 | 类型 | 厚度 | 铜厚 | 说明 |
+|----|------|------|------|------|------|
+| L1 | TOP | 信号 + 元件 | 0.035 mm | 1 oz | 所有有源元件、模拟布线、射频走线 |
+| --- | Prepreg | 介质 (FR-4) | 0.200 mm | --- | 指定 0.2 mm 半固化片以实现紧密的 L1-L2 耦合 |
+| L2 | GND | 实体接地层 | 0.035 mm | 1 oz | **模拟区域下方不得分割。** 连续回路路径。 |
+| --- | Core | 介质 (FR-4) | 0.300 mm | --- | 芯板厚度决定 L2-L3 电容 |
+| L3 | PWR + SIG | 电源 + 信号 | 0.035 mm | 1 oz | 电源分配走线；低速数字信号 |
+| --- | Prepreg | 介质 (FR-4) | 0.200 mm | --- | |
+| L4 | BOT | 信号 + GND | 0.035 mm | 1 oz | 元件焊盘（底部去耦电容），GND 覆铜 |
+
+**选择 4 层而非 2 层的理由：**
+- L1 正下方具有连续接地层 (L2) 是 EEG 信噪比最重要的因素。2 层板无法提供这一点。
+- L3 提供专用电源布线，无需切割接地层。
+- 0.8 mm 总厚度使电路板保持一定柔性以适应头带弧度（半刚性区域）。不要使用 1.6 mm — 太硬无法贴合。
+
+**软硬结合板叠层变体（参见第 9 节）：** 若采用软硬结合设计，柔性部分为 2 层（仅 L1/L2，无 L3/L4），在刚性主板区域过渡到完整的 4 层叠层。
+
+### 2.2 阻抗控制
+
+| 走线 | 阻抗 | 层 | 宽度 (JLC7628, 1 oz) | 说明 |
+|------|------|-----|----------------------|------|
+| BLE 天线走线 | 50 欧姆单端 | L1 (TOP) | 0.35 mm（两侧 GND 间距 0.2 mm） | 共面波导，L2 接地 |
+| SPI 总线 (SCLK) | 非关键 (<30 MHz) | L1 或 L4 | 最小 0.25 mm | ADS1299 SCLK 与 nRF52 长度匹配，误差在 10 mm 内 |
+
+---
+
+## 3. 元件布局策略
+
+### 3.1 分区：模拟区 vs 数字区
+
+PCB 分为 **三个区域**，边界清晰。跨越区域边界需要走线在接地层上方架桥 — 切勿切割接地层。
 
 ```
                         +-------------------------------------+
@@ -136,58 +136,58 @@ The PCB is divided into **three zones** with a clear boundary. Crossing a zone b
                         +-------------------------------------+
 ```
 
-### 3.2 Placement Rules (in order of priority)
+### 3.2 布局规则（按优先级排序）
 
-**RULE P1 -- Analog components on Left, Digital on Right:**
-- U1 (ADS1299) is the **center of the analog zone**. Place it as close to the electrode connector (J2) as physically possible. Target center-to-center distance between J2 and U1 < 15 mm.
-- U3 (TPS7A4700, analog 3.3V regulator) must be within 20 mm of U1 AVDD pin. Output cap C4 (10 uF) must be <5 mm from U3 output pin.
-- U4 (TPS7A2005, 1.8V ADC DVDD regulator) must be within 15 mm of U1 DVDD pin.
-- U6 (REF3125, 2.5V reference) must be within 10 mm of U1 VREFP pin (pin 21 on TQFP-64).
-- All decoupling caps for U1 must be on the **same layer** as U1 (L1 TOP), directly adjacent to the power pins. Do not place them on L4 bottom -- via inductance degrades decoupling at EEG frequencies where 1/f noise matters.
+**规则 P1 — 模拟元件靠左，数字元件靠右：**
+- U1 (ADS1299) 是 **模拟区域的中心**。尽可能靠近电极连接器 (J2) 放置。J2 与 U1 中心距目标 < 15 mm。
+- U3 (TPS7A4700，模拟 3.3V 稳压器) 必须在 U1 AVDD 引脚 20 mm 范围内。输出电容 C4 (10 uF) 必须在 U3 输出引脚 5 mm 范围内。
+- U4 (TPS7A2005, 1.8V ADC DVDD 稳压器) 必须在 U1 DVDD 引脚 15 mm 范围内。
+- U6 (REF3125, 2.5V 参考电压) 必须在 U1 VREFP 引脚（TQFP-64 封装引脚 21）10 mm 范围内。
+- U1 的所有去耦电容必须放置在 U1 的 **同一层**（L1 TOP），紧邻电源引脚。不要放在 L4 底部 — 过孔电感会降低 EEG 频率（1/f 噪声重要）下的去耦效果。
 
-**RULE P2 -- BLE antenna is the most placement-critical RF element:**
-- ANT1 must be at the **outer edge of the board**, with no copper (L1, L2, L3, L4) in the keep-out zone. See Section 10 for keep-out dimensions.
-- nRF52832 (U2) must be positioned so that the antenna trace from pin P0.09 (ANT) to ANT1 is <25 mm and has no vias.
-- The antenna region must not be under the battery (BT1). Battery GND plane parasitics detune the antenna.
+**规则 P2 — BLE 天线是布局最关键的高频元件：**
+- ANT1 必须位于 **板边**，禁布区内 L1、L2、L3、L4 均不得有铜。禁布区尺寸参见第 10 节。
+- nRF52832 (U2) 的摆放必须保证从引脚 P0.09 (ANT) 到 ANT1 的天线走线 < 25 mm 且无过孔。
+- 天线区域不得位于电池 (BT1) 下方。电池接地层寄生参数会使天线失谐。
 
-**RULE P3 -- Battery and charger placement:**
-- BT1 (battery connector) should be at the edge of the digital zone, oriented so the battery cable exits toward the back of the head (user comfort).
-- U5 (BQ24075) must have its thermal pad (PowerPAD) connected to L2 GND with at least 6 thermal vias. Charger generates heat during CC/CV cycle -- locate away from ADS1299.
-- USB-C connector J1 at board edge, right side. Keep the CC1/CC2 lines as short as possible (<20 mm) to BQ24075.
+**规则 P3 — 电池与充电器布局：**
+- BT1（电池连接器）应位于数字区边缘，朝向应使电池线从后脑勺方向引出（用户舒适度）。
+- U5 (BQ24075) 的散热焊盘 (PowerPAD) 必须通过至少 6 个散热过孔连接到 L2 GND。充电器在 CC/CV 阶段会产生热量 — 远离 ADS1299 放置。
+- USB-C 连接器 J1 位于板边右侧。CC1/CC2 走线应尽可能短（< 20 mm）至 BQ24075。
 
-**RULE P4 -- Crystal placement for nRF52:**
-- Y1 (32.768 kHz) and Y2 (32 MHz) must be placed within **5 mm** of nRF52832 XC1/XC2 pins. No other traces may cross under the crystal footprint.
-- Ground pour under crystals on L1. No vias within 2 mm of crystal pads.
+**规则 P4 — nRF52 晶振布局：**
+- Y1 (32.768 kHz) 和 Y2 (32 MHz) 必须放置在 nRF52832 XC1/XC2 引脚的 **5 mm** 范围内。晶振焊盘下方不得有其他走线穿过。
+- L1 晶振下方接地覆铜。晶振焊盘 2 mm 范围内不得有过孔。
 
-**RULE P5 -- Ground bridge zone:**
-- A 2-3 mm wide strip across the PCB (perpendicular to the analog-digital boundary) must be **free of all components** to allow a solid copper flood connection between left and right ground regions. This strip acts as a low-impedance return path stitching the two zones.
+**规则 P5 — 接地桥接区：**
+- PCB 上一条 2-3 mm 宽的带状区域（垂直于模数边界）必须 **无任何元件**，以使左右两侧接地区域之间形成实心铜皮连接。该带状区域作为缝合两个区域的低阻抗回路路径。
 
-### 3.3 Component Clearance Matrix
+### 3.3 元件间距矩阵
 
-| From | To | Min Clearance | Reason |
-|------|----|---------------|--------|
-| ADS1299 | Switching regulator (any) | 15 mm | Prevent coupled switching noise into high-impedance ADC inputs |
-| BLE antenna | Battery | 10 mm | Antenna detuning |
-| BLE antenna | USB-C connector | 10 mm | Ground plane disruption near antenna |
-| BLE antenna | ADS1299 | 20 mm | RF emissions coupling into EEG band (unlikely but conservative) |
-| Crystal (Y1, Y2) | Any high-current trace | 5 mm | EMI coupling to crystal |
-| SPI bus (SCLK, MOSI) | Analog INxP/INxN | 5 mm | Digital crosstalk into EEG channels |
+| 从 | 到 | 最小间距 | 原因 |
+|----|-----|---------|------|
+| ADS1299 | 开关稳压器（任意） | 15 mm | 防止耦合开关噪声进入高阻抗 ADC 输入 |
+| BLE 天线 | 电池 | 10 mm | 天线失谐 |
+| BLE 天线 | USB-C 连接器 | 10 mm | 天线附近接地层中断 |
+| BLE 天线 | ADS1299 | 20 mm | 射频辐射耦合到 EEG 频段（保守设计） |
+| 晶振 (Y1, Y2) | 任何大电流走线 | 5 mm | EMI 耦合到晶振 |
+| SPI 总线 (SCLK, MOSI) | 模拟 INxP/INxN | 5 mm | 数字串扰进入 EEG 通道 |
 
 ---
 
-## 4. Grounding Strategy
+## 4. 接地策略
 
-### 4.1 Single Ground Plane -- NOT Split
+### 4.1 单一接地层 — 不可分割
 
-**There is one ground plane on L2 for the entire board.** Do NOT split the ground plane into analog and digital sections. The reasons:
+**整个电路板在 L2 上只有一个接地层。** 不要将接地层分割为模拟和数字部分。原因如下：
 
-1. A split ground plane creates a slot antenna that radiates digital noise. This is catastrophic for EEG -- you will see 50 Hz harmonics everywhere.
-2. The ADS1299 datasheet explicitly states: "Do not split the ground plane. Use a single solid ground plane."
-3. With proper component placement (Section 3), digital return currents do not flow through the analog region because the return path is directly under the signal trace.
+1. 分割接地层会形成缝隙天线，辐射数字噪声。这对 EEG 是灾难性的 — 你会在各处看到 50 Hz 谐波。
+2. ADS1299 数据手册明确说明："不要分割接地层。使用单一实体接地层。"
+3. 通过正确的元件布局（第 3 节），数字回流电流不会流过模拟区域，因为回路路径直接位于信号走线下方。
 
-### 4.2 Star Grounding for Analog Circuits
+### 4.2 模拟电路星形接地
 
-While the ground plane is one piece, analog signal returns must follow a **star-ground topology**:
+虽然接地层是一整片，但模拟信号回路必须遵循 **星形接地拓扑**：
 
 ```
                  +----------------------------------+
@@ -218,35 +218,35 @@ While the ground plane is one piece, analog signal returns must follow a **star-
                +----------------------------------------+
 ```
 
-Implementation:
-- Connect U1's exposed thermal pad (GND) to L2 with 9 thermal vias (3x3 grid, 0.3 mm hole). This is the analog star point.
-- Connect U3 (TPS7A4700) GND pad to L2 through 4 vias directly adjacent to its PowerPAD, within 3 mm of the U1 star point.
-- Connect U6 (REF3125) GND pin to L2 via a dedicated trace and via, not through a daisy chain from U3.
-- Digital ground (nRF52, charger, USB-C) connects to L2 naturally through their vias. No need to segregate.
+实现：
+- 将 U1 的裸露散热焊盘 (GND) 通过 9 个散热过孔（3x3 网格，0.3 mm 孔径）连接到 L2。这就是模拟星形点。
+- 将 U3 (TPS7A4700) 的 GND 焊盘通过紧邻其 PowerPAD 的 4 个过孔连接到 L2，距离 U1 星形点 3 mm 以内。
+- 将 U6 (REF3125) 的 GND 引脚通过专用走线和过孔连接到 L2，不要从 U3 菊花链引出。
+- 数字地（nRF52、充电器、USB-C）自然通过其过孔连接到 L2。无需隔离。
 
-### 4.3 Thermal Pad Stitching for ADS1299
+### 4.3 ADS1299 散热焊盘缝合
 
-The ADS1299 TQFP-64 has an exposed PowerPAD on the bottom. This pad is **GND** and must be soldered to L1 copper and stitched to L2 ground with a 3x3 array of vias (9 total, 0.3 mm hole, 0.5 mm pitch, tented on bottom). Failure to do this will result in:
-- Increased thermal resistance (ADC drift with temperature)
-- Increased ground inductance (noise coupling)
-- Poor mechanical reliability (pad lifts during thermal cycling)
+ADS1299 TQFP-64 封装底部有一个裸露的 PowerPAD。该焊盘为 **GND**，必须焊接至 L1 铜皮并通过 3x3 过孔阵列（共 9 个，0.3 mm 孔径，0.5 mm 间距，底部阻焊开窗）缝合至 L2 GND。如不执行此操作将导致：
+- 热阻增大（ADC 随温度漂移）
+- 接地电感增大（噪声耦合）
+- 机械可靠性差（热循环中焊盘脱落）
 
-### 4.4 Star Ground via Solder Bridge (Optional but Recommended)
+### 4.4 星形接地焊桥（可选但推荐）
 
-For prototype boards, include a **solder-bridge jumper** between analog star ground and main ground (two adjacent 0.5 mm pads with a trace that can be cut). This allows you to:
-- Measure noise with split ground during debug
-- Optionally insert a ferrite bead (0 Ohm for production, 600R @ 100 MHz for debug)
-- Confirm that a single ground plane is indeed optimal for your specific layout
+对于原型板，在模拟星形地和主地之间包含一个 **焊桥跳线**（两个相邻的 0.5 mm 焊盘，中间走线可切断）。这样可以：
+- 在调试时测量分割地的噪声
+- 可选插入铁氧体磁珠（量产用 0 Ohm，调试用 600R @ 100 MHz）
+- 确认单一接地层确实对你的特定布局是最优的
 
-**Production recommendation:** Close the jumper (direct copper connection). No ferrite bead.
+**量产建议：** 短接跳线（直接铜连接）。无需铁氧体磁珠。
 
 ---
 
-## 5. Routing Rules for EEG Signals
+## 5. EEG 信号布线规则
 
-### 5.1 ADS1299 Analog Input Routing (IN1P-IN8P, IN1N-IN8N)
+### 5.1 ADS1299 模拟输入布线 (IN1P-IN8P, IN1N-IN8N)
 
-Each EEG channel is a **differential pair** (INxP, INxN). The ADS1299 measures the difference INxP - INxN. All 8 channel pairs must be routed with extreme care.
+每个 EEG 通道是一个 **差分对** (INxP, INxN)。ADS1299 测量 INxP - INxN 的差值。全部 8 对通道必须极其小心地布线。
 
 ```
                  TOP VIEW (L1)
@@ -283,20 +283,20 @@ Each EEG channel is a **differential pair** (INxP, INxN). The ADS1299 measures t
     +------------------------------------------------+
 ```
 
-**Routing Rules for Analog Inputs:**
+**模拟输入布线规则：**
 
-| Rule | Requirement | Enforcement |
-|------|-------------|-------------|
-| R-A1 | Route INxP and INxN as parallel traces, matched length within 0.5 mm | Manual measurement in EDA |
-| R-A2 | Trace width: 0.2 mm (8 mil) | DRC rule |
-| R-A3 | Spacing between P and N of same channel: 0.2 mm (edge-to-edge) | DRC rule |
-| R-A4 | Spacing between different channels: 0.4 mm minimum | DRC rule |
-| R-A5 | **Guard trace** on both sides of each differential pair, connected to GND | Pour copper |
-| R-A6 | No 90-degree corners. Use 45-degree chamfer or arc bends only | Manual inspection |
-| R-A7 | No vias on analog input traces. Ever. Stay on L1 from J2 to U1. | DRC rule |
-| R-A8 | Length of all 16 traces must be within 5 mm of each other (channel-to-channel skew) | Match group constraint |
+| 规则 | 要求 | 验证方式 |
+|------|------|---------|
+| R-A1 | INxP 和 INxN 作为平行走线布设，长度匹配误差在 0.5 mm 以内 | EDA 中手动测量 |
+| R-A2 | 走线宽度：0.2 mm (8 mil) | DRC 规则 |
+| R-A3 | 同一通道 P 和 N 之间的间距：0.2 mm（边到边） | DRC 规则 |
+| R-A4 | 不同通道之间的间距：最小 0.4 mm | DRC 规则 |
+| R-A5 | 每个差分对两侧设 **保护走线**，连接至 GND | 铜皮覆铜 |
+| R-A6 | 无 90 度转角。仅使用 45 度倒角或弧形弯曲 | 人工检查 |
+| R-A7 | 模拟输入走线上不得有过孔。从 J2 到 U1 始终走 L1。 | DRC 规则 |
+| R-A8 | 全部 16 根走线长度相互误差在 5 mm 以内（通道间偏移） | 匹配组约束 |
 
-**Guard trace implementation** (Rule R-A5):
+**保护走线实现**（规则 R-A5）：
 
 ```
     L1 Copper pour: GND
@@ -311,49 +311,49 @@ Each EEG channel is a **differential pair** (INxP, INxN). The ADS1299 measures t
     every 3mm.
 ```
 
-### 5.2 BIAS/DRL Output Routing
+### 5.2 BIAS/DRL 输出布线
 
-The BIAS_OUT pin (pin 17 of J2) is the Driven Right Leg (DRL) output. It is an **active feedback** node that drives common-mode voltage to the reference voltage.
+BIAS_OUT 引脚（J2 引脚 17）是驱动右腿驱动 (DRL) 输出。它是一个 **有源反馈** 节点，将共模电压驱动至参考电压。
 
-- Route BIAS_OUT on L1, width 0.3 mm
-- Keep at least 2 mm away from any INxP/INxN trace
-- Do NOT place a guard trace between BIAS and signal traces -- the guard would increase parasitic capacitance on the bias loop, degrading phase margin
-- The bias electrode (connected to BIAS_OUT) is placed on the user's right mastoid or forehead (electrode 9) -- the DRL loop goes through the body and back to ADC inputs
+- BIAS_OUT 走 L1，宽度 0.3 mm
+- 与任何 INxP/INxN 走线保持至少 2 mm 距离
+- 不要在 BIAS 和信号走线之间放置保护走线 — 保护走线会增加偏置环路上的寄生电容，降低相位裕度
+- 偏置电极（连接到 BIAS_OUT）放置在用户的右侧乳突或前额（电极 9）— DRL 环路通过人体回到 ADC 输入
 
-### 5.3 SRB1/SRB2 Routing
+### 5.3 SRB1/SRB2 布线
 
-SRB1 (pin 19 on J2) and SRB2 (pin 20 on J2) are switched reference busses. Only one SRB is needed for common reference (SRB1 active, SRB2 tied to GND via 10k resistor).
+SRB1（J2 引脚 19）和 SRB2（J2 引脚 20）是开关参考总线。只需一个 SRB 用于公共参考（SRB1 激活，SRB2 通过 10k 电阻接地）。
 
-- Route SRB1 from J2 to U1 SRB1 pin (pin 19 of ADS1299 TQFP-64) with 0.3 mm trace
-- Keep away from digital traces. 2 mm clearance minimum.
+- SRB1 从 J2 到 U1 SRB1 引脚（ADS1299 TQFP-64 的引脚 19）以 0.3 mm 走线布线
+- 远离数字走线。最小间距 2 mm。
 
-### 5.4 SPI Bus Routing to nRF52
+### 5.4 至 nRF52 的 SPI 总线布线
 
-The ADS1299 communicates with nRF52832 over SPI:
+ADS1299 通过 SPI 与 nRF52832 通信：
 
-| Signal | ADS1299 Pin | nRF52832 Pin | Max Length | Notes |
-|--------|-------------|---------------|------------|-------|
-| SCLK   | 28 (SCLK)   | P0.12 (SPI_SCK) | 40 mm | Match DOUT/DOUTB within 10 mm |
-| DOUT   | 30 (DOUT)   | P0.13 (SPI_MISO) | 40 mm | ADC MISO |
-| DIN    | 31 (DIN)    | P0.14 (SPI_MOSI) | 40 mm | ADC MOSI |
-| CS     | 29 (CS)     | P0.15 (SPI_CS) | 40 mm | Active low |
-| DRDY   | 27 (DRDY)   | P0.16 (GPIO_IRQ) | 30 mm | Data ready interrupt |
+| 信号 | ADS1299 引脚 | nRF52832 引脚 | 最大长度 | 说明 |
+|------|-------------|---------------|---------|------|
+| SCLK | 28 (SCLK) | P0.12 (SPI_SCK) | 40 mm | DOUT/DOUTB 长度匹配误差 10 mm 以内 |
+| DOUT | 30 (DOUT) | P0.13 (SPI_MISO) | 40 mm | ADC MISO |
+| DIN | 31 (DIN) | P0.14 (SPI_MOSI) | 40 mm | ADC MOSI |
+| CS | 29 (CS) | P0.15 (SPI_CS) | 40 mm | 低电平有效 |
+| DRDY | 27 (DRDY) | P0.16 (GPIO_IRQ) | 30 mm | 数据就绪中断 |
 
-- SPI traces: 0.2 mm width, 0.2 mm spacing
-- No series termination resistors needed at <1 MHz SCLK (ADS1299 max SCLK = 20 MHz, we run at 8 MHz)
-- Route SCLK with a **ground trace alongside** (0.2 mm guard trace between SCLK and DOUT) to minimize crosstalk from the clock into the data line
+- SPI 走线：宽度 0.2 mm，间距 0.2 mm
+- SCLK 频率 <1 MHz 时无需串联终端电阻（ADS1299 最大 SCLK = 20 MHz，我们运行在 8 MHz）
+- SCLK 旁布设 **接地走线**（SCLK 与 DOUT 之间 0.2 mm 保护走线），以最小化时钟到数据线的串扰
 
-### 5.5 Lead-Off Detection (Optional, P1)
+### 5.5 脱落检测（可选，P1 优先级）
 
-ADS1299 supports lead-off detection (current injection through electrode to check poor contact). If implemented:
-- Route the LOFF drive signals (LOFF_P, LOFF_N) away from analog inputs. Minimum 1 mm clearance.
-- J2 should have LOFF connections on spare FPC pins if this feature is needed.
+ADS1299 支持脱落检测（通过电极注入电流检查接触不良）。如实现：
+- LOFF 驱动信号 (LOFF_P, LOFF_N) 远离模拟输入。最小间距 1 mm。
+- 如需此功能，J2 应在备用 FPC 引脚上连接 LOFF 信号。
 
 ---
 
-## 6. Power Supply Design
+## 6. 电源设计
 
-### 6.1 Power Tree
+### 6.1 电源树
 
 ```
     +---------------------------------------------------------------------+
@@ -401,99 +401,99 @@ ADS1299 supports lead-off detection (current injection through electrode to chec
     +---------------------------------------------------------------------+
 ```
 
-### 6.2 nRF52832 Power Routing
+### 6.2 nRF52832 电源布线
 
-The nRF52832 has an integrated DC-DC buck converter. This converter is a **source of switching noise** -- do not let it couple into the analog section.
+nRF52832 具有集成的 DC-DC 降压转换器。该转换器是 **开关噪声的来源** — 不要让它耦合到模拟部分。
 
-**Power pin connections for nRF52:**
+**nRF52 电源引脚连接：**
 
-| Pin | Name | Connect To | Decoupling |
-|-----|------|-----------|------------|
-| 4   | VDD  | Digital 3.3V (from nRF52 internal LDOOUT) | 100 nF + 10 uF |
-| 11  | VDD  | Digital 3.3V | 100 nF |
-| 13  | DEC1 | Internal reg -- external 100 nF only | 100 nF to GND |
-| 14  | DEC2 | Internal reg -- external 100 nF only | 100 nF to GND |
-| 17  | DEC3 | Internal reg -- external 100 nF only | 100 nF to GND |
-| 26  | VDD  | Digital 3.3V | 100 nF |
-| 35  | VDD  | Digital 3.3V | 100 nF |
-| 44  | VDD  | Digital 3.3V | 100 nF |
-| 47  | DEC4 | Internal reg -- external 100 nF only | 100 nF to GND |
-| 49  | VDD  | Digital 3.3V | 100 nF |
+| 引脚 | 名称 | 连接 | 去耦 |
+|------|------|------|------|
+| 4 | VDD | 数字 3.3V（来自 nRF52 内部 LDOOUT） | 100 nF + 10 uF |
+| 11 | VDD | 数字 3.3V | 100 nF |
+| 13 | DEC1 | 内部稳压器 — 仅外部 100 nF | 100 nF 至 GND |
+| 14 | DEC2 | 内部稳压器 — 仅外部 100 nF | 100 nF 至 GND |
+| 17 | DEC3 | 内部稳压器 — 仅外部 100 nF | 100 nF 至 GND |
+| 26 | VDD | 数字 3.3V | 100 nF |
+| 35 | VDD | 数字 3.3V | 100 nF |
+| 44 | VDD | 数字 3.3V | 100 nF |
+| 47 | DEC4 | 内部稳压器 — 仅外部 100 nF | 100 nF 至 GND |
+| 49 | VDD | 数字 3.3V | 100 nF |
 
-**Critical:** The nRF52 DC-DC inductor (L1, 10 uH, e.g., Murata LQM18PN100M00) must be placed within 5 mm of pins 18 (VDD) and 19 (DEC4 -- SW output). The inductor's AC current path goes through the VDD pin -- this is where most switching noise radiates. Place the inductor on L1 with its own GND via farm (3 vias under the inductor pad). Keep this inductor **at least 15 mm** from ADS1299.
+**关键：** nRF52 DC-DC 电感 (L1, 10 uH, 如 Murata LQM18PN100M00) 必须放置在引脚 18 (VDD) 和 19 (DEC4 — SW 输出) 的 5 mm 范围内。电感的交流电流路径经过 VDD 引脚 — 这里是大部分开关噪声辐射的位置。将电感放在 L1 上，其下方设专用过孔组（电感焊盘下 3 个过孔）。使该电感 **距离 ADS1299 至少 15 mm**。
 
-### 6.3 Power Rail Sequencing
+### 6.3 电源轨时序
 
-The ADS1299 has no strict power sequencing requirement (see datasheet Section 9.2.1.2). However, to avoid latch-up at power-on:
+ADS1299 没有严格的电源时序要求（参见数据手册第 9.2.1.2 节）。但为避免上电时的闩锁效应：
 
-1. AVDD (3.3V analog) and DVDD (1.8V) can ramp simultaneously
-2. VREFP (2.5V reference) should be present before or simultaneously with AVDD
+1. AVDD（3.3V 模拟）和 DVDD（1.8V）可以同时上升
+2. VREFP（2.5V 参考电压）应在 AVDD 之前或同时存在
 
-Since both U3 and U4 are powered from BAT_OUT and both have enable pins tied to BAT_OUT (via 10k pull-up), they ramp together. This is acceptable.
+由于 U3 和 U4 均由 BAT_OUT 供电，且两者的使能引脚均连接到 BAT_OUT（通过 10k 上拉电阻），它们会同时上升。这是可接受的。
 
-### 6.4 Decoupling Capacitor Placement Summary
+### 6.4 去耦电容布局总结
 
-| Device | Pins | Caps | Placement Rule |
-|--------|------|------|----------------|
-| U1 (ADS1299) | AVDD (4 pins: 5, 11, 20, 43) | 100 nF per pin + 10 uF shared bulk | 100 nF <2 mm from each AVDD pin. 10 uF anywhere in analog zone. |
-| U1 (ADS1299) | DVDD (pin 42) | 100 nF + 10 uF | 100 nF <2 mm from pin 42 |
-| U1 (ADS1299) | VREFP (pin 21) | 10 uF + 100 nF | Closest decoupling on the board. <2 mm from pin. |
-| U1 (ADS1299) | VREFN (pin 22) | 100 nF to GND | <3 mm |
-| U3 (TPS7A4700) | IN (pin 26) | 10 uF + 100 nF | <5 mm from input pin |
-| U3 (TPS7A4700) | OUT (pin 27) | 10 uF + 100 nF | <5 mm from output pin. ESR 20-500 mOhm. |
-| U3 (TPS7A4700) | NR (pin 14) | 10 uF (low leakage) | 10 uF to GND. This cap sets the internal reference noise -- use X7R or film, not X5R. |
-| U4 (TPS7A2005) | IN | 10 uF | <5 mm |
-| U4 (TPS7A2005) | OUT | 10 uF | <5 mm |
-| U6 (REF3125) | IN | 10 uF + 100 nF | <5 mm |
-| U6 (REF3125) | OUT | 10 uF | <5 mm to U1 VREFP |
-| U2 (nRF52) | See Section 6.2 | Per pin table | <3 mm from each VDD pin |
+| 器件 | 引脚 | 电容 | 布局规则 |
+|------|------|------|---------|
+| U1 (ADS1299) | AVDD（4 个引脚：5, 11, 20, 43） | 每引脚 100 nF + 10 uF 共用大电容 | 100 nF 距每个 AVDD 引脚 < 2 mm。10 uF 可在模拟区任意位置。 |
+| U1 (ADS1299) | DVDD（引脚 42） | 100 nF + 10 uF | 100 nF 距引脚 42 < 2 mm |
+| U1 (ADS1299) | VREFP（引脚 21） | 10 uF + 100 nF | 板上最近去耦。距引脚 < 2 mm。 |
+| U1 (ADS1299) | VREFN（引脚 22） | 100 nF 至 GND | < 3 mm |
+| U3 (TPS7A4700) | IN（引脚 26） | 10 uF + 100 nF | 距输入引脚 < 5 mm |
+| U3 (TPS7A4700) | OUT（引脚 27） | 10 uF + 100 nF | 距输出引脚 < 5 mm。ESR 20-500 mOhm。 |
+| U3 (TPS7A4700) | NR（引脚 14） | 10 uF（低漏电流） | 10 uF 至 GND。此电容设定内部基准噪声 — 使用 X7R 或薄膜电容，不要使用 X5R。 |
+| U4 (TPS7A2005) | IN | 10 uF | < 5 mm |
+| U4 (TPS7A2005) | OUT | 10 uF | < 5 mm |
+| U6 (REF3125) | IN | 10 uF + 100 nF | < 5 mm |
+| U6 (REF3125) | OUT | 10 uF | 距 U1 VREFP < 5 mm |
+| U2 (nRF52) | 参见第 6.2 节 | 按各引脚表 | 距每个 VDD 引脚 < 3 mm |
 
 ---
 
-## 7. Electrode Connector Design
+## 7. 电极连接器设计
 
-### 7.1 Connector Selection
+### 7.1 连接器选型
 
-Primary choice: **0.5mm pitch FPC connector, 20-pin, bottom contact, right-angle** (e.g., Hirose FH12A-20S-0.5SH or compatible Molex 52271-2079).
+首选：**0.5mm 间距 FPC 连接器，20 引脚，底部接触，直角**（如 Hirose FH12A-20S-0.5SH 或兼容的 Molex 52271-2079）。
 
-Rationale: FPC connector is the thinnest and lightest option for 16 signal lines + 2 bias lines + 2 spare lines. Right-angle orientation allows the flex PCB to wrap around the headband curve.
+理由：FPC 连接器是 16 根信号线 + 2 根偏置线 + 2 根备用线的最薄最轻选项。直角方向使柔性 PCB 能够绕头带弧度弯曲。
 
-Backup: **0.5mm pitch board-to-board connector** (JAE FF08 series or Panasonic P5KS) if FPC is too fragile for prototype handling.
+备选：**0.5mm 间距板对板连接器**（JAE FF08 系列或 Panasonic P5KS），如果 FPC 对于原型操作过于脆弱。
 
-### 7.2 Pin Assignment (J2, FPC Connector)
+### 7.2 引脚分配 (J2, FPC 连接器)
 
-| Pin | Signal | Type | Notes |
-|-----|--------|------|-------|
-| 1   | IN1P   | Analog input | Channel 1, positive |
-| 2   | IN1N   | Analog input | Channel 1, negative |
-| 3   | IN2P   | Analog input | Channel 2, positive |
-| 4   | IN2N   | Analog input | Channel 2, negative |
-| 5   | IN3P   | Analog input | Channel 3, positive |
-| 6   | IN3N   | Analog input | Channel 3, negative |
-| 7   | IN4P   | Analog input | Channel 4, positive |
-| 8   | IN4N   | Analog input | Channel 4, negative |
-| 9   | IN5P   | Analog input | Channel 5, positive |
-| 10  | IN5N   | Analog input | Channel 5, negative |
-| 11  | IN6P   | Analog input | Channel 6, positive |
-| 12  | IN6N   | Analog input | Channel 6, negative |
-| 13  | IN7P   | Analog input | Channel 7, positive |
-| 14  | IN7N   | Analog input | Channel 7, negative |
-| 15  | IN8P   | Analog input | Channel 8, positive |
-| 16  | IN8N   | Analog input | Channel 8, negative |
-| 17  | BIAS_OUT | Analog output | DRL drive -- active feedback |
-| 18  | SRB1     | Analog I/O | Shared reference bus 1 |
-| 19  | GND_FLEX | Ground    | Flex ground shield connection |
-| 20  | GND_FLEX | Ground    | Flex ground shield connection |
+| 引脚 | 信号 | 类型 | 说明 |
+|------|------|------|------|
+| 1 | IN1P | 模拟输入 | 通道 1，正极 |
+| 2 | IN1N | 模拟输入 | 通道 1，负极 |
+| 3 | IN2P | 模拟输入 | 通道 2，正极 |
+| 4 | IN2N | 模拟输入 | 通道 2，负极 |
+| 5 | IN3P | 模拟输入 | 通道 3，正极 |
+| 6 | IN3N | 模拟输入 | 通道 3，负极 |
+| 7 | IN4P | 模拟输入 | 通道 4，正极 |
+| 8 | IN4N | 模拟输入 | 通道 4，负极 |
+| 9 | IN5P | 模拟输入 | 通道 5，正极 |
+| 10 | IN5N | 模拟输入 | 通道 5，负极 |
+| 11 | IN6P | 模拟输入 | 通道 6，正极 |
+| 12 | IN6N | 模拟输入 | 通道 6，负极 |
+| 13 | IN7P | 模拟输入 | 通道 7，正极 |
+| 14 | IN7N | 模拟输入 | 通道 7，负极 |
+| 15 | IN8P | 模拟输入 | 通道 8，正极 |
+| 16 | IN8N | 模拟输入 | 通道 8，负极 |
+| 17 | BIAS_OUT | 模拟输出 | DRL 驱动 — 有源反馈 |
+| 18 | SRB1 | 模拟 I/O | 共享参考总线 1 |
+| 19 | GND_FLEX | 地 | 柔性接地屏蔽连接 |
+| 20 | GND_FLEX | 地 | 柔性接地屏蔽连接 |
 
-**Pin arrangement rationale:**
-- P and N of same channel are adjacent (pins 1-2, 3-4, etc.) -- makes it easy to route as paired traces
-- Bias and SRB are at the end (far from the first channel) -- their larger voltage swing will not couple into channel 1
-- Two GND pins at the far end provide a low-impedance ground connection from the flex to the main board
-- Spare pins: if you need lead-off detection or additional bias electrodes, the 20-pin connector has capacity
+**引脚排列理由：**
+- 同一通道的 P 和 N 相邻（引脚 1-2、3-4 等）— 便于作为成对走线布线
+- BIAS 和 SRB 放在末端（远离第一通道）— 它们较大的电压摆幅不会耦合到通道 1
+- 末端两个 GND 引脚为柔性板到主板的低阻抗地连接
+- 备用引脚：如需脱落检测或额外偏置电极，20 引脚连接器有足够容量
 
-### 7.3 Flex-to-Electrode Routing (on the Flex PCB)
+### 7.3 柔性板至电极布线（在柔性 PCB 上）
 
-The flex PCB that connects J2 to the 8 dry electrodes must implement the following:
+连接 J2 至 8 个干电极的柔性 PCB 必须实现以下布局：
 
 ```
                    FLEX PCB LAYOUT (unrolled, top view)
@@ -529,92 +529,92 @@ The flex PCB that connects J2 to the 8 dry electrodes must implement the followi
     +-------------------------------------------------------------+
 ```
 
-**Flex PCB specifications:**
+**柔性 PCB 规格：**
 
-| Parameter | Value | Notes |
-|-----------|-------|-------|
-| Substrate | Polyimide (PI), 1 oz copper | Standard flex material |
-| Total thickness | 0.2 mm max | Must be thin enough to bend around forehead curve |
-| Layer count | 2 layers | L1: signal, L2: GND pour |
-| Copper weight | 1 oz (0.035 mm) | For mechanical durability |
-| Trace width | 0.15 mm (6 mil) | Minimum reliable for 1 oz flex |
-| Trace spacing | 0.15 mm (6 mil) | Minimum reliable |
-| Surface finish | ENIG (immersion gold) | Required for FPC connector insertion cycles |
-| Bend radius (min) | 5 mm (static), 25 mm (dynamic) | Headband is static bend -- radius OK |
+| 参数 | 值 | 说明 |
+|------|-----|------|
+| 基材 | 聚酰亚胺 (PI), 1 oz 铜 | 标准柔性材料 |
+| 总厚度 | 最大 0.2 mm | 必须足够薄以贴合额头弧度 |
+| 层数 | 2 层 | L1：信号，L2：GND 覆铜 |
+| 铜厚 | 1 oz (0.035 mm) | 保证机械耐久性 |
+| 走线宽度 | 0.15 mm (6 mil) | 1 oz 柔性板的最小可靠宽度 |
+| 走线间距 | 0.15 mm (6 mil) | 最小可靠间距 |
+| 表面处理 | ENIG（沉金） | FPC 连接器插拔循环所需 |
+| 最小弯曲半径 | 5 mm（静态），25 mm（动态） | 头带为静态弯曲 — 半径 OK |
 
-**Critical flex rule:** The ground plane on L2 of the flex must have a **solid copper pour** under all analog signal traces. No gaps. Stitch the flex ground to the main board ground through J2 pins 19-20.
+**关键柔性板规则：** 柔性板的 L2 接地层必须在所有模拟信号走线下方有 **实心铜皮覆铜**。无缝隙。通过 J2 引脚 19-20 将柔性板地与主板地缝合。
 
-### 7.4 ESD Protection on J2
+### 7.4 J2 上的 ESD 保护
 
-Each electrode pin (INxP, INxN) on J2 must have an ESD protection diode close to the connector (within 5 mm):
+J2 的每个电极引脚 (INxP, INxN) 必须在靠近连接器处（5 mm 以内）有 ESD 保护二极管：
 
-- Part: **TI ESD321DPYR** or **Nexperia PESD5V0S1BL** (bidirectional, 0.4 pF capacitance)
-- Connect between the signal line and GND
-- Ultra-low capacitance is critical: >5 pF of capacitance on the analog input creates a voltage divider with the electrode impedance (10-100 kOhm dry contact), attenuating the EEG signal
+- 器件：**TI ESD321DPYR** 或 **Nexperia PESD5V0S1BL**（双向，电容 0.4 pF）
+- 连接在信号线与 GND 之间
+- 超低电容至关重要：模拟输入上 >5 pF 的电容会与电极阻抗（干接触 10-100 kOhm）形成分压器，衰减 EEG 信号
 
-**Do NOT use standard TVS diodes with >10 pF capacitance (e.g., SMAJ5.0A).** They will kill your EEG signal. Must be <1 pF.
-
----
-
-## 8. EMI/EMC Considerations
-
-### 8.1 Critical Noise Paths (Ranked)
-
-| Rank | Path | Mechanism | Coupling | Mitigation |
-|------|------|-----------|----------|------------|
-| 1 | nRF52 DC-DC --> ADS1299 analog inputs | Inductive coupling from inductor | Switching noise at ~2 MHz harmonics | Physical separation (15 mm min). Oriented so inductor B-field axis is perpendicular to analog zone. |
-| 2 | SPI bus (SCLK) --> Analog IN traces | Capacitive crosstalk | SCLK 8 MHz edges capacitively coupled into high-Z (>1 MOhm) analog inputs | 5 mm clearance between SPI and analog. Guard trace on SPI. |
-| 3 | USB-C VBUS (5V charging) --> Analog | Burst charging current creates GND potential bounce | Charger switching (if BQ24075 is in thermal regulation) | Separate charger GND return path to L2. Do not share with analog. |
-| 4 | BLE RF (2.4 GHz) --> EEG | RF rectification at ADC input ESD diodes | RF envelope detected as DC offset drift | Antenna 20 mm from ADS1299. Shield can over analog section if needed. |
-
-### 8.2 Shielding
-
-**Prototype:** No shield can. The target is 80g total including battery, and a shield can adds 5-10g. Rely on layout discipline instead.
-
-**Production V2 (if noise measurements show need):**
-- Use a **tin-plated steel shield can** over the analog zone (U1 + U3 + U6 + J2 area)
-- Dimensions: approximately 25 x 20 mm, 3 mm height
-- The shield can must make contact with L2 GND through a fence of vias on the can footprint (0.5 mm vias at 1 mm pitch along the can perimeter)
-- Solder the can to the shield ring during assembly
-
-**For prototype** -- include the **shield can footprint** on the PCB (as a keep-out zone with a via fence ring) even if you do not populate the can. This gives you the option to add a shield in V1.1 without a board respin.
-
-### 8.3 Ferrite Bead on USB-C
-
-Place a ferrite bead (e.g., **Murata BLM18AG121SN1D**, 120 Ohm @ 100 MHz) in series with the USB-C VBUS line, close to J1. This suppresses conducted emissions from the charging cable into the board.
-
-### 8.4 Common-Mode Choke on Battery
-
-Not required for prototype. The battery is a floating source, not connected to mains. If conducted emissions from the charger are problematic, add a 100 nF capacitor from VBAT to GND near the battery connector.
-
-### 8.5 PCB Edge and Shield Ring
-
-Run a **guard ring** around the entire PCB perimeter:
-
-- L1: 1 mm wide copper trace connected to GND, on all 4 edges of the PCB
-- Stitch with vias to L2 GND every 5 mm
-- This ring acts as a low-impedance shield that intercepts fringing fields at the PCB edge
+**不要使用电容 >10 pF 的标准 TVS 二极管（如 SMAJ5.0A）。** 它们会毁掉你的 EEG 信号。必须 <1 pF。
 
 ---
 
-## 9. Flex PCB Considerations for Curved Headband
+## 8. EMI/EMC 考虑
 
-### 9.1 Architecture: Two-Piece Rigid + Flex
+### 8.1 关键噪声路径（按严重程度排序）
 
-The headband has a curved form factor (fits on forehead at hairline). A single rigid PCB cannot follow this curve. Two approaches:
+| 等级 | 路径 | 机制 | 耦合方式 | 缓解措施 |
+|------|------|------|---------|---------|
+| 1 | nRF52 DC-DC --> ADS1299 模拟输入 | 电感的感应耦合 | ~2 MHz 谐波的开关噪声 | 物理隔离（最小 15 mm）。电感 B 场轴线垂直于模拟区域。 |
+| 2 | SPI 总线 (SCLK) --> 模拟 IN 走线 | 电容性串扰 | SCLK 8 MHz 边沿电容耦合到高阻抗 (>1 MOhm) 模拟输入 | SPI 与模拟走线间距 5 mm。SPI 加保护走线。 |
+| 3 | USB-C VBUS (5V 充电) --> 模拟 | 突发充电电流导致 GND 电位跳动 | 充电器开关（若 BQ24075 处于热调节状态） | 充电器 GND 回路路径独立至 L2。不与模拟共享。 |
+| 4 | BLE 射频 (2.4 GHz) --> EEG | ADC 输入 ESD 二极管的射频整流 | RF 包络被检测为直流偏移漂移 | 天线距 ADS1299 20 mm。必要时模拟区域加屏蔽罩。 |
 
-**Option A: Rigid-flex (recommended for V1 prototype)**
-- One rigid section (20 x 30 mm) containing all active electronics (U1-U6, J1, ANT1, Y1, Y2)
-- One flex section extending from J2 across the forehead holding the 8 electrodes
-- Flex is permanently attached to the rigid section through J2 FPC connector (not bonded -- allows replacement)
+### 8.2 屏蔽
 
-**Option B: Semi-rigid PCB (alternative for prototype simplicity)**
-- Use 0.8 mm thick FR-4 (thinnest standard). The board can flex slightly along its length if the long axis is along the headband curve.
-- Risk: traces may crack under repeated flexing. Acceptable for prototype (10-20 bend cycles).
+**原型：** 无屏蔽罩。目标总重（含电池）80g，屏蔽罩会增加 5-10g。依靠布局纪律替代。
 
-**Recommendation:** Go with **Option A** (rigid-flex with FPC connector). This is the correct engineering choice and the FPC connector cost is negligible (3 RMB). Option B is a false economy that will cause board cracking failure.
+**量产 V2（若噪声测量显示需要）：**
+- 在模拟区域（U1 + U3 + U6 + J2 区域）使用 **镀锡钢屏蔽罩**
+- 尺寸：约 25 x 20 mm，高度 3 mm
+- 屏蔽罩必须通过屏蔽罩焊盘上的过孔围栏（沿屏蔽罩周边 1 mm 间距 0.5 mm 过孔）与 L2 GND 接触
+- 组装时屏蔽罩焊接到屏蔽环上
 
-### 9.2 Headband Mechanical Integration
+**对于原型** — 在 PCB 上包含 **屏蔽罩焊盘**（作为带过孔围栏环的禁布区），即使不安装屏蔽罩。这样可以在 V1.1 版本中增加屏蔽罩而无需重新打板。
+
+### 8.3 USB-C 上的铁氧体磁珠
+
+在 USB-C VBUS 线上串联一个铁氧体磁珠（如 **Murata BLM18AG121SN1D**, 120 Ohm @ 100 MHz），靠近 J1。这抑制了充电线缆引入板内的传导发射。
+
+### 8.4 电池上的共模扼流圈
+
+原型不需要。电池是浮空电源，不连接市电。如充电器的传导发射有问题，在靠近电池连接器处加一个 100 nF 电容从 VBAT 到 GND。
+
+### 8.5 PCB 边缘和屏蔽环
+
+在 PCB 整个外围布设 **保护环**：
+
+- L1：在所有 4 个板边上布 1 mm 宽的铜走线，连接至 GND
+- 每 5 mm 用过孔缝合至 L2 GND
+- 该环作为低阻抗屏蔽，截断 PCB 边缘的边缘场
+
+---
+
+## 9. 弧形头带柔性 PCB 考虑
+
+### 9.1 架构：两部分刚性 + 柔性
+
+头带具有弧形外形（贴合前额发际线）。单块刚性 PCB 无法跟随此弧度。两种方案：
+
+**方案 A：软硬结合板（V1 原型推荐）**
+- 一个刚性部分（20 x 30 mm）包含所有有源电子元件（U1-U6, J1, ANT1, Y1, Y2）
+- 一个柔性部分从 J2 延伸横跨前额，承载 8 个电极
+- 柔性部分通过 J2 FPC 连接器永久连接至刚性部分（非焊接 — 允许更换）
+
+**方案 B：半刚性 PCB（原型简单性的替代方案）**
+- 使用 0.8 mm 厚 FR-4（最薄标准）。如果长轴沿头带弧度方向，板可以沿长度方向轻微弯曲。
+- 风险：反复弯曲下走线可能开裂。原型可接受（10-20 次弯曲循环）。
+
+**建议：** 采用 **方案 A**（带 FPC 连接器的软硬结合板）。这是正确的工程选择，FPC 连接器成本可忽略（3 元）。方案 B 是虚假节省，会导致板子开裂失效。
+
+### 9.2 头带机械集成
 
 ```
                      +------------------------------+
@@ -647,45 +647,45 @@ The headband has a curved form factor (fits on forehead at hairline). A single r
                            (not to scale)
 ```
 
-**Key mechanical constraints:**
-- The main rigid PCB should be positioned at the **right temple** area (for right-handed user -- where the watch/BLE antenna has best clearance from the head)
-- Battery (BT1) goes on the **left temple** area -- counterweight to balance the PCB weight
-- Flex PCB runs across the forehead from temple to temple, underneath the TPU shell
-- Electrode pads (E1-E8) are spaced **15-20 mm apart** (center-to-center), matching the 10-20 EEG system positions for the frontal montage (Fp1, Fp2, Fz, F3, F4, F7, F8, FCz -- or optimized placement for MRCP detection)
+**关键机械约束：**
+- 主刚性 PCB 应位于 **右太阳穴** 区域（针对右撇子用户 — 手表/BLE 天线离头部最远的位置）
+- 电池 (BT1) 位于 **左太阳穴** 区域 — 配重以平衡 PCB 重量
+- 柔性 PCB 横跨前额从太阳穴到太阳穴，在 TPU 外壳下方
+- 电极焊盘 (E1-E8) 间距 **15-20 mm**（中心到中心），匹配 10-20 EEG 系统的额叶蒙太奇位置（Fp1, Fp2, Fz, F3, F4, F7, F8, FCz — 或针对 MRCP 检测优化的位置）
 
-### 9.3 Flex PCB Strain Relief
+### 9.3 柔性 PCB 应力消除
 
-At the J2 connector junction:
-- The flex PCB must have a **strain relief tab** (5 mm extension beyond the connector insertion line) with adhesive backing
-- A thin (0.5 mm) FR-4 or polyimide stiffener on the back of the flex at the connector area prevents the flex from creasing at the connector edge
-- The flex-to-rigid transition must not create a sharp angle -- use a 5 mm minimum bend radius
+在 J2 连接器接口处：
+- 柔性 PCB 必须有一个 **应力消除耳片**（超出连接器插入线 5 mm 延伸），带背胶
+- 连接器区域柔性板背面加一块薄（0.5 mm）FR-4 或聚酰亚胺加强片，防止柔性板在连接器边缘起皱
+- 柔性到刚性的过渡不得形成锐角 — 使用最小 5 mm 弯曲半径
 
-### 9.4 Mounting Holes
+### 9.4 安装孔
 
-The rigid PCB needs 4 mounting holes (2 mm diameter, stainless steel, with GND-connected pads):
+刚性 PCB 需要 4 个安装孔（直径 2 mm，不锈钢，带 GND 连接焊盘）：
 
-| Hole | Location | Function |
-|------|----------|----------|
-| H1 | Top-left of PCB | Screw into headband TPU shell |
-| H2 | Top-right of PCB | Screw into headband TPU shell |
-| H3 | Bottom-left (near J2) | Additional anchor, near electrode connector |
-| H4 | Bottom-right (near J1) | USB-C strain relief anchor |
+| 孔 | 位置 | 功能 |
+|----|------|------|
+| H1 | PCB 左上 | 拧入头带 TPU 外壳 |
+| H2 | PCB 右上 | 拧入头带 TPU 外壳 |
+| H3 | 左下（靠近 J2） | 额外锚点，靠近电极连接器 |
+| H4 | 右下（靠近 J1） | USB-C 应力消除锚点 |
 
 ---
 
-## 10. Key Layout Constraints and Keep-Out Zones
+## 10. 关键布局约束与禁布区
 
-### 10.1 Board Outline and Dimensions
+### 10.1 板框与尺寸
 
-- **Rigid PCB size:** 50 mm x 20 mm (maximum). This is the space budget for all active electronics.
-- **Flex PCB strip:** 120-160 mm long (from temple-to-temple), 12 mm wide.
-- **Board shape:** Rectangular with rounded corners (R2 mm). No board cutouts needed for prototype.
+- **刚性 PCB 尺寸：** 50 mm x 20 mm（最大）。这是所有有源电子元件的空间预算。
+- **柔性 PCB 带：** 120-160 mm 长（太阳穴到太阳穴），12 mm 宽。
+- **板形状：** 矩形带圆角 (R2 mm)。原型无需板开槽。
 
-If 50 x 20 mm is too tight (it will be tight), extend to 60 x 22 mm before going to 6 layers. The weight impact of slightly larger PCB (0.5g) is less than the cost and complexity of 6-layer.
+若 50 x 20 mm 太紧（确实会很紧），扩大到 60 x 22 mm 后再考虑 6 层。稍大 PCB 的重量影响（0.5g）小于 6 层的成本和复杂度。
 
-### 10.2 Antenna Keep-Out Zone
+### 10.2 天线禁布区
 
-The Johanson 2450AT18A100E chip antenna requires a strict keep-out zone:
+Johanson 2450AT18A100E 芯片天线需要严格的禁布区：
 
 ```
     TOP VIEW
@@ -717,143 +717,143 @@ The Johanson 2450AT18A100E chip antenna requires a strict keep-out zone:
     +-----------------------------------------------------+
 ```
 
-**Keep-out dimensions (from ANT1 center):**
-- Lateral (parallel to PCB edge): 7 mm minimum
-- Vertical (away from PCB edge): 10 mm minimum
-- Below antenna (L2-L4): No copper for 5 mm in all directions
-- Board edge clearance: antenna must be at the PCB edge, and 5 mm beyond the edge must be clear of any metal (battery, wires, enclosure)
+**禁布区尺寸（从 ANT1 中心起算）：**
+- 横向（平行于板边）：最小 7 mm
+- 纵向（远离板边）：最小 10 mm
+- 天线下方 (L2-L4)：各方向 5 mm 内无铜
+- 板边净空：天线必须在 PCB 边缘，板边外 5 mm 内不得有任何金属（电池、线缆、外壳）
 
-### 10.3 nRF52 RF Matching Network
+### 10.3 nRF52 射频匹配网络
 
-Between U2 pin P0.09 (ANT) and ANT1, include a Pi-matching network (C10, L2, C11) positioned within 5 mm of the antenna:
+在 U2 引脚 P0.09 (ANT) 和 ANT1 之间，包含一个 Pi 型匹配网络（C10, L2, C11），位于天线 5 mm 范围内：
 
-| Component | Value (calculated) | Notes |
-|-----------|-------------------|-------|
-| C10 (series) | 1.0 pF (NPO/C0G) | Tune after first board |
-| L2 (shunt)   | 2.2 nH (0402)     | Tune after first board |
-| C11 (series) | 1.0 pF (NPO/C0G) | Tune after first board |
+| 元件 | 值（计算值） | 说明 |
+|------|-------------|------|
+| C10（串联） | 1.0 pF (NPO/C0G) | 首板后调试 |
+| L2（并联） | 2.2 nH (0402) | 首板后调试 |
+| C11（串联） | 1.0 pF (NPO/C0G) | 首板后调试 |
 
-**Initial values** are based on the Johanson antenna datasheet typical application. **These MUST be tuned** when the first prototype boards come back -- antenna impedance depends on enclosure, battery proximity, and headband shape. Leave the matching network populated with 0-Ohm jumpers initially, then replace with calculated values after network analyzer measurements.
+**初始值** 基于 Johanson 天线数据手册的典型应用。**首板回板后必须调试** — 天线阻抗取决于外壳、电池距离和头带形状。初始用 0 Ohm 跳线填充匹配网络，在网分测量后替换为计算值。
 
-### 10.4 Thermal Management Keep-Outs
+### 10.4 热管理禁布区
 
-- U5 (BQ24075 charger): The area around U5 must not have any temperature-sensitive components (electrolytic caps, plastic connectors) within 5 mm. Charger can reach 85 degC during fast charge.
-- nRF52 DC-DC inductor: No plastic components (connectors, switches) within 3 mm. The inductor core can reach 100 degC under heavy BLE TX duty cycle.
+- U5 (BQ24075 充电器)：U5 周围 5 mm 内不得有对温度敏感的元件（电解电容、塑料连接器）。充电器在快充时可达到 85 度。
+- nRF52 DC-DC 电感：3 mm 内不得有塑料元件（连接器、开关）。在重 BLE 发射占空比下，电感磁芯可达 100 度。
 
-### 10.5 Via and Pad Minimum Requirements
+### 10.5 过孔和焊盘最小要求
 
-| Feature | Minimum | Preferred |
-|---------|---------|-----------|
-| Via hole diameter | 0.3 mm | 0.3 mm (no smaller -- JLCPCB standard) |
-| Via pad diameter | 0.6 mm | 0.6 mm |
-| Trace width (signal) | 0.15 mm (6 mil) | 0.2 mm (8 mil) |
-| Trace width (power) | 0.25 mm (10 mil) | 0.4 mm (16 mil) |
-| Clearance (trace-to-trace) | 0.15 mm (6 mil) | 0.2 mm (8 mil) |
-| Clearance (trace-to-pad) | 0.15 mm (6 mil) | 0.2 mm (8 mil) |
-| Silkscreen text height | 0.8 mm | 1.0 mm |
-| Silkscreen line width | 0.15 mm | 0.15 mm |
-
----
-
-## 11. Test Points and Debug Interface
-
-### 11.1 Required Test Points
-
-Install the following test points on L1 (0.8 mm diameter bare copper pad, no solder mask, with a 0.6 mm hole for probe hook). These are essential for bring-up:
-
-| Ref | Signal | TP Label | Purpose |
-|-----|--------|----------|---------|
-| TP1 | BAT_OUT (3.7-4.2V) | VBAT | Battery voltage measurement |
-| TP2 | AVDD_3V3 | +3V3_A | Analog 3.3V rail (from U3) |
-| TP3 | DVDD_1V8 | +1V8_D | ADC digital 1.8V rail (from U4) |
-| TP4 | VREF_2V5 | VREF | ADC reference voltage |
-| TP5 | GND | GND | Ground reference for all measurements |
-| TP6 | SCLK | SCLK | SPI clock (logic analyzer probe) |
-| TP7 | DRDY | DRDY | ADC data ready (trigger for acquisition) |
-| TP8 | IN1P | CH1_P | Channel 1 input (signal injection) |
-| TP9 | IN1N | CH1_N | Channel 1 negative input |
-| TP10 | BIAS_OUT | BIAS | DRL drive output |
-
-**Test point arrangement:** Place TP1-TP5 in a row (2.54 mm pitch) at the board edge, so they can be accessed with a pogo-pin fixture or multimeter probes while the headband is worn. TP6-TP10 can be smaller and placed near their respective components.
-
-### 11.2 Debug Connector -- SWD (J3)
-
-An **Arm Serial Wire Debug (SWD)** connector is mandatory. Use a 6-pin 1.27 mm pitch shrouded header (e.g., Samtek FTSH-105-01-L-D or Harwin M50-3600542):
-
-| Pin | Signal | nRF52 Pin | Color (cable) |
-|-----|--------|-----------|---------------|
-| 1   | SWD_CLK | P0.25 | Yellow |
-| 2   | SWD_IO  | P0.24 | Blue |
-| 3   | GND     | ---    | Black |
-| 4   | SWO     | P0.18 (optional trace) | Green |
-| 5   | VTG (3.3V output) | nRF52 VDD | Red |
-| 6   | RESET   | P0.21 (optional) | White |
-
-**Connector placement:** Edge of digital zone, near U2. This allows programming and debugging with a J-Link or DAPLink adapter while the headband is worn.
-
-**SWO (pin 4):** The Serial Wire Output trace must be routed on L1 with a 22 Ohm series resistor (R_SWO, 0402) placed within 5 mm of the nRF52 pin. Optional but highly recommended for printf-over-SWO debugging.
-
-### 11.3 UART Debug (J4)
-
-A 4-pin 1.27 mm header for UART debug output from nRF52:
-
-| Pin | Signal | nRF52 Pin |
-|-----|--------|-----------|
-| 1   | TXD    | P0.06 |
-| 2   | RXD    | P0.08 |
-| 3   | GND    | --- |
-| 4   | VTG    | nRF52 VDD (3.3V) |
-
-This provides console output during firmware development. Baud rate: 115200 or 921600.
-
-### 11.4 Production Test Points
-
-For automated production testing (flying probe or bed-of-nails), add the following additional test points on L4 (bottom side):
-
-| TP | Signal | Purpose |
-|----|--------|---------|
-| TP11 | USB_D+ | USB data line continuity |
-| TP12 | USB_D- | USB data line continuity |
-| TP13 | BLE_TX (P0.09) | RF power measurement (conducted) |
-
-**BLE conducted RF test:** Add a U.FL coaxial connector (e.g., Hirose U.FL-R-SMT-1) on the antenna trace, between the matching network and ANT1. Connect with a 0-Ohm resistor that can be removed to isolate the antenna for conducted measurements. This is optional for prototype but mandatory for production (FCC/CE certification requires conducted RF power measurement).
-
-### 11.5 Programming Header (J5 -- Optional)
-
-If the SWD connector is too large for the final form factor, include a 2x3 0.5 mm pitch FPC connector footprint (unpopulated) as a secondary programming interface:
-
-| Pin | Signal | nRF52 Pin |
-|-----|--------|-----------|
-| 1   | SWD_CLK | P0.25 |
-| 2   | VDD     | nRF52 VDD |
-| 3   | SWD_IO  | P0.24 |
-| 4   | GND     | --- |
-| 5   | RESET   | P0.21 |
-| 6   | GND     | --- |
+| 特征 | 最小 | 推荐 |
+|------|------|------|
+| 过孔孔径 | 0.3 mm | 0.3 mm（不能再小 — JLCPCB 标准） |
+| 过孔焊盘直径 | 0.6 mm | 0.6 mm |
+| 走线宽度（信号） | 0.15 mm (6 mil) | 0.2 mm (8 mil) |
+| 走线宽度（电源） | 0.25 mm (10 mil) | 0.4 mm (16 mil) |
+| 间距（走线到走线） | 0.15 mm (6 mil) | 0.2 mm (8 mil) |
+| 间距（走线到焊盘） | 0.15 mm (6 mil) | 0.2 mm (8 mil) |
+| 丝印文字高度 | 0.8 mm | 1.0 mm |
+| 丝印线条宽度 | 0.15 mm | 0.15 mm |
 
 ---
 
-## 12. Appendix: Reference Schematic Fragment Guidelines
+## 11. 测试点与调试接口
 
-These are layout-derived constraints that should be reflected in the schematic:
+### 11.1 必需测试点
 
-### 12.1 ADS1299 Configuration Resistors
+在 L1 上安装以下测试点（直径 0.8 mm 裸铜焊盘，无阻焊膜，带 0.6 mm 探针孔）。这些对于首次上电测试至关重要：
 
-| Resistor | Placement | Value | Purpose |
-|----------|-----------|-------|---------|
-| R_BIAS (R1) | Between BIAS_OUT and bias electrode (in flex) | 51 kOhm | Bias resistor -- limits DRL current |
-| R_SRB (R2) | Between SRB1 and GND | 10 kOhm | SRB pulldown |
-| R_LEADOFF (R3-R10) | Per channel, in series with INxP/INxN | 0 Ohm (populate if needed) | Lead-off detection resistors |
+| 参考 | 信号 | 测试点标签 | 用途 |
+|------|------|-----------|------|
+| TP1 | BAT_OUT (3.7-4.2V) | VBAT | 电池电压测量 |
+| TP2 | AVDD_3V3 | +3V3_A | 模拟 3.3V 电源轨（来自 U3） |
+| TP3 | DVDD_1V8 | +1V8_D | ADC 数字 1.8V 电源轨（来自 U4） |
+| TP4 | VREF_2V5 | VREF | ADC 参考电压 |
+| TP5 | GND | GND | 所有测量的参考地 |
+| TP6 | SCLK | SCLK | SPI 时钟（逻辑分析仪探针） |
+| TP7 | DRDY | DRDY | ADC 数据就绪（采集触发信号） |
+| TP8 | IN1P | CH1_P | 通道 1 输入（信号注入） |
+| TP9 | IN1N | CH1_N | 通道 1 负极输入 |
+| TP10 | BIAS_OUT | BIAS | DRL 驱动输出 |
 
-### 12.2 Filtering Components
+**测试点排列：** TP1-TP5 在板边排成一排（间距 2.54 mm），以便在佩戴头带时用弹簧针夹具或万用表探针访问。TP6-TP10 可以更小，放置在各自元件附近。
 
-- **Anti-aliasing filter:** Per channel, place a 2-pole passive RC low-pass filter (R = 1.5 kOhm, C = 1 uF, fc = 106 Hz) between the connector and ADS1299 input. This is the **analog anti-aliasing filter** -- mandatory. Hardware: R11-R26 (16 resistors, 0402) and C11-C18 (8 capacitors, 0603). Fit within the 15 mm connector-to-ADS1299 routing corridor.
-- **Bias feedback filter:** RC filter on BIAS_OUT (R = 10 kOhm, C = 100 nF, fc = 159 Hz) to limit the bias loop bandwidth and improve stability.
+### 11.2 调试连接器 — SWD (J3)
 
-### 12.3 Power-On Indication
+**Arm Serial Wire Debug (SWD)** 连接器是必需的。使用 6 引脚 1.27 mm 间距带罩排针（如 Samtek FTSH-105-01-L-D 或 Harwin M50-3600542）：
 
-LED D1 (green, 0603) on digital 3.3V rail, driven by nRF52 GPIO (P0.17) through 1 kOhm series resistor. Place near U2. LED D2 (red, 0603) on BAT_OUT for charging indication, driven by BQ24075 CHG pin through 1 kOhm resistor.
+| 引脚 | 信号 | nRF52 引脚 | 线缆颜色 |
+|------|------|-----------|---------|
+| 1 | SWD_CLK | P0.25 | 黄色 |
+| 2 | SWD_IO | P0.24 | 蓝色 |
+| 3 | GND | --- | 黑色 |
+| 4 | SWO | P0.18（可选走线） | 绿色 |
+| 5 | VTG (3.3V 输出) | nRF52 VDD | 红色 |
+| 6 | RESET | P0.21（可选） | 白色 |
+
+**连接器放置：** 数字区边缘，靠近 U2。这允许在佩戴头带时通过 J-Link 或 DAPLink 适配器进行编程和调试。
+
+**SWO（引脚 4）：** 串行线输出走线必须在 L1 上布线，串接 22 Ohm 电阻 (R_SWO, 0402)，放置在 nRF52 引脚 5 mm 范围内。可选但强烈推荐用于 printf-over-SWO 调试。
+
+### 11.3 UART 调试 (J4)
+
+一个 4 引脚 1.27 mm 排针，用于 nRF52 的 UART 调试输出：
+
+| 引脚 | 信号 | nRF52 引脚 |
+|------|------|-----------|
+| 1 | TXD | P0.06 |
+| 2 | RXD | P0.08 |
+| 3 | GND | --- |
+| 4 | VTG | nRF52 VDD (3.3V) |
+
+这在固件开发期间提供控制台输出。波特率：115200 或 921600。
+
+### 11.4 生产测试点
+
+用于自动化生产测试（飞针或针床），在 L4（底面）添加以下额外测试点：
+
+| TP | 信号 | 用途 |
+|----|------|------|
+| TP11 | USB_D+ | USB 数据线连续性 |
+| TP12 | USB_D- | USB 数据线连续性 |
+| TP13 | BLE_TX (P0.09) | 射频功率测量（传导） |
+
+**BLE 传导射频测试：** 在天线走线上加入 U.FL 同轴连接器（如 Hirose U.FL-R-SMT-1），位于匹配网络和 ANT1 之间。用 0 Ohm 电阻连接，该电阻可移除以隔离天线进行传导测量。原型可选但量产必需（FCC/CE 认证需要传导射频功率测量）。
+
+### 11.5 编程排针 (J5 — 可选)
+
+如果 SWD 连接器对于最终外形尺寸过大，包含一个 2x3 0.5 mm 间距 FPC 连接器焊盘（不安装）作为辅助编程接口：
+
+| 引脚 | 信号 | nRF52 引脚 |
+|------|------|-----------|
+| 1 | SWD_CLK | P0.25 |
+| 2 | VDD | nRF52 VDD |
+| 3 | SWD_IO | P0.24 |
+| 4 | GND | --- |
+| 5 | RESET | P0.21 |
+| 6 | GND | --- |
 
 ---
 
-*End of PCB Design Notes v0.1. This document captures layout-critical decisions frozen for the v0.1 prototype. If any specification changes (stackup, placement, grounding approach), update this document before the PCB layout is routed.*
+## 12. 附录：参考原理图片段指南
+
+以下是应反映在原理图中的布局衍生约束：
+
+### 12.1 ADS1299 配置电阻
+
+| 电阻 | 放置位置 | 值 | 用途 |
+|------|---------|-----|------|
+| R_BIAS (R1) | BIAS_OUT 与偏置电极之间（在柔性板上） | 51 kOhm | 偏置电阻 — 限制 DRL 电流 |
+| R_SRB (R2) | SRB1 与 GND 之间 | 10 kOhm | SRB 下拉电阻 |
+| R_LEADOFF (R3-R10) | 每通道，与 INxP/INxN 串联 | 0 Ohm（需要时安装） | 脱落检测电阻 |
+
+### 12.2 滤波元件
+
+- **抗混叠滤波器：** 每通道，在连接器和 ADS1299 输入之间放置一个 2 阶无源 RC 低通滤波器（R = 1.5 kOhm, C = 1 uF, fc = 106 Hz）。这是 **模拟抗混叠滤波器** — 必须的。硬件：R11-R26（16 个电阻，0402）和 C11-C18（8 个电容，0603）。安装在连接器到 ADS1299 的 15 mm 布线走廊内。
+- **偏置反馈滤波器：** BIAS_OUT 上的 RC 滤波器（R = 10 kOhm, C = 100 nF, fc = 159 Hz），限制偏置环路带宽并提高稳定性。
+
+### 12.3 上电指示
+
+数字 3.3V 电源轨上的 LED D1（绿色，0603），由 nRF52 GPIO (P0.17) 通过 1 kOhm 串联电阻驱动。放置在 U2 附近。LED D2（红色，0603）在 BAT_OUT 上用于充电指示，由 BQ24075 CHG 引脚通过 1 kOhm 电阻驱动。
+
+---
+
+*PCB 设计说明 v0.1 结束。本文档记录了 v0.1 原型冻结的布局关键决策。如有任何规格变更（叠层、布局、接地方式），请在 PCB 布局布线前更新本文档。*
