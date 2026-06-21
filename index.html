@@ -2,6 +2,8 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nexum 逐念而行 — 定义人机共生</title>
 <meta name="description" content="Nexum One 神经重连AI系统：读取大脑运动意图，AI生成个性化助力策略，驱动轻量穿戴式外骨骼。从大脑到肌肉的AI，让9400万人重新行走。">
@@ -99,6 +101,35 @@ nav {
 nav.scrolled {
   background: rgba(0,0,0,0.92);
   border-bottom-color: rgba(255,255,255,0.08);
+}
+/* Light mode nav */
+[data-theme="light"] nav {
+  background: rgba(255,255,255,0.82);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+[data-theme="light"] nav.scrolled {
+  background: rgba(255,255,255,0.95);
+  border-bottom-color: rgba(0,0,0,0.1);
+}
+[data-theme="light"] .nav-links a {
+  color: #555;
+}
+[data-theme="light"] .nav-links a:hover,
+[data-theme="light"] .nav-links a.active {
+  color: #111;
+}
+[data-theme="light"] .nav-logo {
+  color: #111;
+}
+[data-theme="light"] .nav-logo span {
+  color: var(--accent);
+}
+[data-theme="light"] .nav-toggle span {
+  background: #333;
+}
+[data-theme="light"] .nav-links.open {
+  background: rgba(255,255,255,0.97);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 .nav-inner {
   max-width: var(--max-width);
@@ -413,7 +444,7 @@ nav.scrolled {
 }
 .hero-scroll {
   position: absolute;
-  bottom: 32px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -422,6 +453,14 @@ nav.scrolled {
   gap: 10px;
   opacity: 0;
   animation: fade-up 0.8s var(--ease-out) 1.2s forwards;
+  z-index: 2;
+  pointer-events: none;
+}
+[data-theme="light"] .hero-scroll span {
+  color: #999;
+}
+[data-theme="light"] .hero-scroll-line {
+  background: linear-gradient(to bottom, #999, transparent);
 }
 .hero-scroll-line {
   width: 1px;
@@ -752,29 +791,21 @@ nav.scrolled {
 }
 .latency-seg {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: flex 1.2s var(--ease-out);
-  cursor: default;
+  min-width: 0;
 }
 .latency-seg span {
-  font-size: 16px;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 700;
   color: #fff;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 .latency-seg small {
-  font-size: 9px;
-  color: rgba(255,255,255,0.75);
-  text-align: center;
-  line-height: 1.2;
-  max-width: 90%;
   display: none;
 }
-.latency-seg:hover small { display: block; }
-.latency-seg:hover span { display: none; }
 .latency-labels {
   display: flex;
   margin-bottom: 8px;
@@ -1747,7 +1778,7 @@ footer .footer-brand-desc {
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <span class="logo-dot"></span>
+      <img src="favicon.svg" alt="Nexum" class="nav-logo-icon" style="width:24px;height:24px;flex-shrink:0;">
       Nexum<span>逐念而行</span>
     </a>
     <ul class="nav-links" id="navLinks">
@@ -2015,8 +2046,8 @@ footer .footer-brand-desc {
     <div class="gallery-hero-overlay"></div>
     <div class="gallery-hero-content" data-reveal>
       <p class="section-label">产品渲染</p>
-      <h2>Form Meets Function</h2>
-      <p>Nexum One · 神经重连AI系统</p>
+      <h2>Nexum One 产品图集</h2>
+      <p>从EEG头带到完整系统 — 每一处设计都为功能服务</p>
     </div>
   </div>
 </section>
@@ -2429,7 +2460,7 @@ footer .footer-brand-desc {
       <ul class="footer-links">
         <li><a href="mailto:hello@nexum.ai">hello@nexum.ai</a></li>
         <li><span style="color:var(--text-tertiary);font-size:13px;">中国 · 上海</span></li>
-        <li style="margin-top:12px;"><a href="https://github.com/bones-manifold/nexum">GitHub →</a></li>
+        <li style="margin-top:12px;"><a href="https://github.com/nexum-bci/nexum-bci.github.io">GitHub →</a></li>
       </ul>
     </div>
   </div>
@@ -2583,7 +2614,7 @@ footer .footer-brand-desc {
       localStorage.setItem('nexum-theme', theme);
     }
     var savedTheme = localStorage.getItem('nexum-theme');
-    if (savedTheme === 'light') {
+    if (!savedTheme || savedTheme === 'light') {
       setTheme('light');
     }
     themeToggle.addEventListener('click', function() {
