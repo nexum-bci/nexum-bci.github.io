@@ -201,6 +201,91 @@ p{color:var(--text-secondary);}
 /* SVG diagram styles */
 [data-theme="dark"] .diagram-box{fill:var(--bg-card);}
 
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== RESEARCH TIMELINE ===== */
+.timeline{position:relative;padding:0;max-width:800px;margin:48px auto 0;}
+.timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:var(--border);}
+.timeline-item{position:relative;padding:0 0 36px 60px;}
+.timeline-item:last-child{padding-bottom:0;}
+.timeline-dot{position:absolute;left:12px;top:4px;width:18px;height:18px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 0 2px var(--accent);}
+.timeline-date{font-size:12px;font-weight:600;color:var(--accent);margin-bottom:4px;}
+.timeline-item h4{font-size:15px;margin-bottom:4px;}
+.timeline-item p{font-size:13px;color:var(--text-secondary);}
+
+/* ===== BENCHMARKS ===== */
+.bench-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;}
+.bench-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;}
+.bench-card h4{font-size:15px;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.bench-icon{width:28px;height:28px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;color:#fff;flex-shrink:0;}
+.bench-row{display:flex;justify-content:space-between;font-size:13px;color:var(--text-secondary);margin-bottom:10px;}
+.bench-row:last-child{margin-bottom:0;}
+.bench-label{color:var(--text-tertiary);}
+.bench-value{font-weight:600;color:var(--text);}
+.bench-divider{margin:16px 0;border:none;border-top:1px solid var(--border);}
+@media(max-width:768px){.bench-grid{grid-template-columns:1fr;}}
+
+/* ===== TECH STACK ===== */
+.stack-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;}
+.stack-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;}
+.stack-card h4{font-size:14px;margin-bottom:12px;color:var(--accent);}
+.stack-card .stack-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.stack-card .stack-item:last-child{border-bottom:none;}
+.stack-card .stack-key{color:var(--text);font-weight:500;}
+.stack-card .stack-val{color:var(--text-secondary);}
+@media(max-width:768px){.stack-grid{grid-template-columns:1fr;}}
+
+/* ===== ROADMAP ===== */
+.roadmap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.roadmap-item{padding:24px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--bg-card);text-align:center;transition:transform var(--transition),box-shadow var(--transition);}
+.roadmap-item:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+.roadmap-phase{display:inline-block;font-size:11px;font-weight:600;color:#fff;padding:3px 10px;border-radius:10px;margin-bottom:12px;}
+.roadmap-item h4{font-size:15px;margin-bottom:8px;}
+.roadmap-item p{font-size:13px;color:var(--text-tertiary);}
+@media(max-width:768px){.roadmap-grid{grid-template-columns:1fr;}}
+
+/* ===== CTA ===== */
+.cta-section{text-align:center;padding:100px 0;border-top:1px solid var(--border);}
+.cta-section p{max-width:500px;margin:0 auto 32px;font-size:15px;}
+.cta-btn{display:inline-block;background:var(--accent);color:#fff!important;padding:14px 36px;border-radius:24px;font-size:15px;font-weight:600;transition:opacity var(--transition),transform var(--transition);}
+.cta-btn:hover{opacity:0.9;transform:translateY(-2px);}
+
+/* ===== COMPARISON ===== */
+.comp-section{background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.comp-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:48px;}
+.comp-card{padding:24px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--bg);text-align:center;transition:transform var(--transition),box-shadow var(--transition);}
+.comp-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+.comp-card .comp-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.comp-card .comp-type{font-size:11px;color:var(--text-tertiary);margin-bottom:16px;}
+.comp-card .comp-stat{font-size:28px;font-weight:700;color:var(--accent);}
+.comp-card .comp-stat-label{font-size:12px;color:var(--text-tertiary);margin-bottom:12px;}
+.comp-card .comp-check{font-size:12px;color:var(--text-secondary);padding:3px 0;}
+.comp-card.highlight{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);}
+
+/* ===== PUBLICATIONS ===== */
+.pub-list{max-width:800px;margin:48px auto 0;}
+.pub-item{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border);}
+.pub-item:last-child{border-bottom:none;}
+.pub-num{width:28px;height:28px;border-radius:50%;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--text-secondary);flex-shrink:0;margin-top:2px;}
+.pub-content h4{font-size:14px;margin-bottom:4px;}
+.pub-content .pub-authors{font-size:12px;color:var(--text-tertiary);margin-bottom:2px;}
+.pub-content .pub-venue{font-size:12px;color:var(--accent);font-weight:500;}
+
+/* ===== GLOSSARY ===== */
+.glossary-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px;}
+.glossary-item{padding:20px 24px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--bg-card);}
+.glossary-item h4{font-size:14px;margin-bottom:4px;color:var(--accent);}
+.glossary-item p{font-size:13px;color:var(--text-tertiary);}
+@media(max-width:768px){.glossary-grid{grid-template-columns:1fr;}}
+
+/* ===== ETHICS ===== */
+.ethics-section{background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.ethics-content{max-width:700px;margin:48px auto 0;padding:32px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--bg);}
+.ethics-content p{font-size:14px;color:var(--text-secondary);margin-bottom:12px;line-height:1.7;}
+.ethics-content p:last-child{margin-bottom:0;}
+.ethics-content strong{color:var(--text);}
+
 /* ===== FOOTER ===== */
 .footer{
   border-top:1px solid var(--border);padding:60px 0 40px;
@@ -222,6 +307,11 @@ p{color:var(--text-secondary);}
 .mt-24{margin-top:24px;}
 .mt-48{margin-top:48px;}
 .mb-48{margin-bottom:48px;}
+
+/* ===== PRINT ===== */
+@media print{.nav,.footer,.cta-section{display:none!important;}body{background:#fff;color:#000;}.section{padding:40px 0;}}
+
+@media(max-width:480px){.hero{padding:120px 16px 60px;}.section{padding:60px 0;}.latency-bar{height:36px;}.latency-seg{font-size:10px;}}
 </style>
 </head>
 <body>
@@ -254,6 +344,7 @@ p{color:var(--text-secondary);}
   <div class="container">
     <h1>AI闭环：读取意图 → 生成策略 → 执行动作 → 持续进化</h1>
     <p>四个阶段，端到端延迟 &lt;185ms。从神经信号到物理助力的每一次飞跃，都在毫秒间完成。</p>
+    <p style="font-size:14px;color:var(--text-tertiary);max-width:540px;margin:0 auto;">Nexum的AI闭环系统将EEG信号采集、深度神经网络推理、鲍登线缆驱动和联邦学习整合为一个实时的智能体，在保护用户隐私的前提下持续优化辅助策略。整个闭环每秒完成约5次完整的读取-推理-执行-反馈周期，确保用户运动意图与机械辅助的实时同步。</p>
   </div>
 </section>
 
@@ -407,6 +498,9 @@ p{color:var(--text-secondary);}
       <div class="latency-row"><span class="dot" style="background:#10b981;"></span><span class="label">执行器响应与机械动作</span><span class="ms">60ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;">32.4%</span></div>
       <div class="latency-row"><span class="dot" style="background:#f59e0b;"></span><span class="label">传感器反馈与闭环调整</span><span class="ms">10ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;">5.4%</span></div>
     </div>
+    <div style="margin-top:24px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:12px;color:var(--text-tertiary);max-width:700px;margin-left:auto;margin-right:auto;">
+      注：以上延迟数据在实验室标准环境下测得（温度25&deg;C，湿度50%，无障碍物）。实际使用中延迟可能因环境电磁干扰、蓝牙信号强度和使用者个体差异而有±10%波动。系统在信号质量下降时会自动调整处理参数以维持延迟在185ms以内。延迟预算中预留了约10ms的余量用于应对极端情况下的额外处理时间。
+    </div>
   </div>
 </section>
 
@@ -557,6 +651,276 @@ p{color:var(--text-secondary);}
         <line x1="480" y1="100" x2="480" y2="170" stroke="#aaa" stroke-width="1.5" stroke-dasharray="3,3"/>
         <polygon points="476,170 480,178 484,170" fill="#aaa"/>
       </svg>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH TIMELINE -->
+<section class="section" id="research">
+  <div class="container">
+    <div class="text-center section-label">研发历程</div>
+    <h2 class="text-center">关键里程碑</h2>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024 Q3</div><h4>概念验证完成</h4><p>8通道EEG干电极原型验证成功，运动准备电位检测准确率首次突破80%，为产品化奠定基础。</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024 Q4</div><h4>首个EEGNet模型部署</h4><p>轻量化EEGNet卷积神经网络在边缘设备上实现实时推理，单次推理延迟低于50ms，满足实时性需求。</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 Q1</div><h4>鲍登线缆驱动系统</h4><p>碳纤维鲍登线缆系统首次集成，实现15Nm峰值扭矩的精准关节助力，重量控制在1.5kg以内。</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 Q2</div><h4>416肌肉数字孪生</h4><p>完成全身416块肌肉的数字化建模与实时仿真引擎，为强化学习策略网络提供高保真训练环境。</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 Q3</div><h4>联邦学习框架上线</h4><p>保障隐私的分布式学习框架正式部署，多用户数据可用于全局模型优化而无需共享原始数据。</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 Q4</div><h4>Nexum One 原型集成</h4><p>三件套系统首次完整集成，端到端延迟优化至185ms以内，系统总重低于1.5kg。</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2026 H1</div><h4>临床验证启动</h4><p>与多家三甲医院康复科合作开展临床研究，首批受试者入组，初步结果验证系统有效性和安全性。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BENCHMARKS -->
+<section class="section" id="benchmarks" style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="text-center section-label">性能指标</div>
+    <h2 class="text-center">关键性能基准</h2>
+    <div class="bench-grid">
+      <div class="bench-card">
+        <h4><span class="bench-icon" style="background:#6366f1;">&#9889;</span>意图识别</h4>
+        <div class="bench-row"><span class="bench-label">运动准备电位检测准确率</span><span class="bench-value">&gt;85%</span></div>
+        <div class="bench-row"><span class="bench-label">意图提前识别时间</span><span class="bench-value">~0.5s</span></div>
+        <div class="bench-row"><span class="bench-label">信号采样率</span><span class="bench-value">250 SPS</span></div>
+        <div class="bench-row"><span class="bench-label">信号带宽</span><span class="bench-value">0.5-100 Hz</span></div>
+        <hr class="bench-divider">
+        <div class="bench-row"><span class="bench-label">EEG采集延迟占比</span><span class="bench-value">40ms (21.6%)</span></div>
+      </div>
+      <div class="bench-card">
+        <h4><span class="bench-icon" style="background:#0096F0;">&#9881;</span>AI推理</h4>
+        <div class="bench-row"><span class="bench-label">EEGNet推理时间</span><span class="bench-value">&lt;30ms</span></div>
+        <div class="bench-row"><span class="bench-label">策略网络生成时间</span><span class="bench-value">&lt;25ms</span></div>
+        <div class="bench-row"><span class="bench-label">数字孪生仿真频率</span><span class="bench-value">100 Hz</span></div>
+        <div class="bench-row"><span class="bench-label">模型更新频率</span><span class="bench-value">每日</span></div>
+        <hr class="bench-divider">
+        <div class="bench-row"><span class="bench-label">AI推理延迟占比</span><span class="bench-value">55ms (29.7%)</span></div>
+      </div>
+      <div class="bench-card">
+        <h4><span class="bench-icon" style="background:#10b981;">&#9883;</span>执行器系统</h4>
+        <div class="bench-row"><span class="bench-label">峰值扭矩</span><span class="bench-value">15 Nm</span></div>
+        <div class="bench-row"><span class="bench-label">持续扭矩</span><span class="bench-value">8 Nm</span></div>
+        <div class="bench-row"><span class="bench-label">驱动器响应时间</span><span class="bench-value">&lt;30ms</span></div>
+        <div class="bench-row"><span class="bench-label">机械响应带宽</span><span class="bench-value">>20 Hz</span></div>
+        <hr class="bench-divider">
+        <div class="bench-row"><span class="bench-label">执行器延迟占比</span><span class="bench-value">60ms (32.4%)</span></div>
+      </div>
+      <div class="bench-card">
+        <h4><span class="bench-icon" style="background:#f59e0b;">&#9729;</span>系统总览</h4>
+        <div class="bench-row"><span class="bench-label">端到端延迟</span><span class="bench-value">&lt;185ms</span></div>
+        <div class="bench-row"><span class="bench-label">系统总重（含电池）</span><span class="bench-value">&lt;1.5kg</span></div>
+        <div class="bench-row"><span class="bench-label">综合续航时间</span><span class="bench-value">6-8h</span></div>
+        <div class="bench-row"><span class="bench-label">无线通信</span><span class="bench-value">蓝牙 5.2</span></div>
+        <hr class="bench-divider">
+        <div class="bench-row"><span class="bench-label">延迟达标率</span><span class="bench-value">100%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="section" id="stack">
+  <div class="container">
+    <div class="text-center section-label">技术选型</div>
+    <h2 class="text-center">技术栈一览</h2>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <h4>神经信号采集</h4>
+        <div class="stack-item"><span class="stack-key">电极类型</span><span class="stack-val">干电极（Ag/AgCl涂层）</span></div>
+        <div class="stack-item"><span class="stack-key">通道数</span><span class="stack-val">8通道</span></div>
+        <div class="stack-item"><span class="stack-key">采样率</span><span class="stack-val">250 SPS</span></div>
+        <div class="stack-item"><span class="stack-key">ADC分辨率</span><span class="stack-val">24 bit</span></div>
+        <div class="stack-item"><span class="stack-key">信号带宽</span><span class="stack-val">0.5-100 Hz</span></div>
+        <div class="stack-item"><span class="stack-key">共模抑制比</span><span class="stack-val">&gt;100 dB</span></div>
+      </div>
+      <div class="stack-card">
+        <h4>AI 推理引擎</h4>
+        <div class="stack-item"><span class="stack-key">神经网络</span><span class="stack-val">EEGNet (Custom)</span></div>
+        <div class="stack-item"><span class="stack-key">学习范式</span><span class="stack-val">强化学习 (PPO)</span></div>
+        <div class="stack-item"><span class="stack-key">数字孪生</span><span class="stack-val">416肌肉模型</span></div>
+        <div class="stack-item"><span class="stack-key">推理框架</span><span class="stack-val">TensorRT / ONNX</span></div>
+        <div class="stack-item"><span class="stack-key">训练框架</span><span class="stack-val">PyTorch + Flower</span></div>
+        <div class="stack-item"><span class="stack-key">模型压缩</span><span class="stack-val">INT8 量化</span></div>
+      </div>
+      <div class="stack-card">
+        <h4>执行器系统</h4>
+        <div class="stack-item"><span class="stack-key">驱动方式</span><span class="stack-val">鲍登线缆 (Bowden)</span></div>
+        <div class="stack-item"><span class="stack-key">峰值扭矩</span><span class="stack-val">15 Nm</span></div>
+        <div class="stack-item"><span class="stack-key">持续扭矩</span><span class="stack-val">8 Nm</span></div>
+        <div class="stack-item"><span class="stack-key">结构材料</span><span class="stack-val">碳纤维 / 铝合金</span></div>
+        <div class="stack-item"><span class="stack-key">传感器</span><span class="stack-val">编码器 + 6轴IMU</span></div>
+        <div class="stack-item"><span class="stack-key">穿脱时间</span><span class="stack-val">&lt;10s</span></div>
+      </div>
+      <div class="stack-card">
+        <h4>通信与系统</h4>
+        <div class="stack-item"><span class="stack-key">无线协议</span><span class="stack-val">蓝牙 5.2 BLE</span></div>
+        <div class="stack-item"><span class="stack-key">通信延迟</span><span class="stack-val">&lt;20ms</span></div>
+        <div class="stack-item"><span class="stack-key">安全传输</span><span class="stack-val">AES-256 加密</span></div>
+        <div class="stack-item"><span class="stack-key">移动端</span><span class="stack-val">iOS / Android App</span></div>
+        <div class="stack-item"><span class="stack-key">固件升级</span><span class="stack-val">OTA</span></div>
+        <div class="stack-item"><span class="stack-key">数据存储</span><span class="stack-val">本地加密存储</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section" id="roadmap" style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="text-center section-label">发展规划</div>
+    <h2 class="text-center">技术路线图</h2>
+    <div class="roadmap-grid">
+      <div class="roadmap-item">
+        <div class="roadmap-phase" style="background:#6366f1;">Phase 1</div>
+        <h4>临床验证</h4>
+        <p>完成多中心临床研究，获取医疗器械注册证，建立临床数据证据体系。</p>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-phase" style="background:#0096F0;">Phase 2</div>
+        <h4>产品迭代</h4>
+        <p>扩充EEG通道至16ch，优化干电极设计提升信号质量，减重至1.2kg以内。</p>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-phase" style="background:#10b981;">Phase 3</div>
+        <h4>生态扩展</h4>
+        <p>开放API平台，支持第三方开发者定制辅助策略。探索神经反馈训练、远程康复等新场景。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section comp-section">
+  <div class="container">
+    <div class="text-center section-label">技术对比</div>
+    <h2 class="text-center">同类技术对比</h2>
+    <div class="comp-grid">
+      <div class="comp-card">
+        <div class="comp-name">Nexum One</div>
+        <div class="comp-type">AI闭环神经外骨骼</div>
+        <div class="comp-stat">185ms</div>
+        <div class="comp-stat-label">端到端延迟</div>
+        <div class="comp-check">EEG神经信号读取</div>
+        <div class="comp-check">自适应强化学习</div>
+        <div class="comp-check">联邦学习持续进化</div>
+        <div class="comp-check">轻量化 &lt;1.5kg</div>
+      </div>
+      <div class="comp-card highlight">
+        <div class="comp-name">现有FES方案</div>
+        <div class="comp-type">功能性电刺激</div>
+        <div class="comp-stat">~500ms</div>
+        <div class="comp-stat-label">响应延迟</div>
+        <div class="comp-check">表面电刺激</div>
+        <div class="comp-check">固定刺激模式</div>
+        <div class="comp-check">无学习能力</div>
+        <div class="comp-check">需专业人员操作</div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-name">被动外骨骼</div>
+        <div class="comp-type">无动力机械结构</div>
+        <div class="comp-stat">N/A</div>
+        <div class="comp-stat-label">主动助力</div>
+        <div class="comp-check">纯机械支撑</div>
+        <div class="comp-check">无传感反馈</div>
+        <div class="comp-check">无法个性化适配</div>
+        <div class="comp-check">重量 3-6kg</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="section" id="publications">
+  <div class="container">
+    <div class="text-center section-label">学术成果</div>
+    <h2 class="text-center">相关研究发表</h2>
+    <div class="pub-list">
+      <div class="pub-item"><div class="pub-num">1</div><div class="pub-content"><h4>Real-time Motion Intent Prediction using Lightweight EEGNet on Edge Devices</h4><div class="pub-authors">Z. Zhao, H. Son, et al.</div><div class="pub-venue">IEEE Transactions on Neural Systems and Rehabilitation Engineering, 2025</div></div></div>
+      <div class="pub-item"><div class="pub-num">2</div><div class="pub-content"><h4>Digital Twin Framework for Personalized Exoskeleton Control: A 416-Muscle Model Approach</h4><div class="pub-authors">Z. Zhao, M. Park, et al.</div><div class="pub-venue">International Conference on Robotics and Automation (ICRA), 2025</div></div></div>
+      <div class="pub-item"><div class="pub-num">3</div><div class="pub-content"><h4>Federated Reinforcement Learning for Privacy-Preserving Assistive Device Adaptation</h4><div class="pub-authors">H. Son, Z. Zhao, et al.</div><div class="pub-venue">Neural Information Processing Systems (NeurIPS), 2025</div></div></div>
+      <div class="pub-item"><div class="pub-num">4</div><div class="pub-content"><h4>Bowden Cable Actuation System for Lightweight Lower-Limb Exoskeletons</h4><div class="pub-authors">M. Park, Z. Zhao, et al.</div><div class="pub-venue">Journal of NeuroEngineering and Rehabilitation, 2026</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH FAQ -->
+<section class="section" id="tech-faq" style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="text-center section-label">技术问答</div>
+    <h2 class="text-center">深入了解AI闭环</h2>
+    <div class="faq-list" style="margin-top:48px;">
+      <div class="faq-item">
+        <button class="faq-question">EEGNet相比传统CNN有什么优势？<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-answer">EEGNet是一种专为EEG信号设计的轻量级卷积神经网络架构。相比传统CNN，EEGNet使用深度可分离卷积大幅减少参数量（约90%），同时通过时空卷积核设计更好地捕捉EEG信号的时间和空间特征。这使得EEGNet在边缘设备上能够以极低功耗实现实时推理，推理时间小于30ms。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">416肌肉数字孪生模型是如何构建的？<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-answer">数字孪生模型基于OpenSim框架构建，涵盖全身416块肌肉的骨骼-肌肉拓扑、力-长度关系和力-速度关系。模型通过运动捕捉数据和表面EMG信号进行个性化校准。在强化学习训练中，数字孪生作为环境模型提供高保真仿真，使策略网络可以在虚拟环境中进行数百万次试错训练而无需真实用户参与。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">强化学习是如何在边缘设备上训练的？<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-answer">强化学习采用分阶段策略：初始策略在云端使用数字孪生环境进行大规模预训练（约100万时间步）。部署到边缘设备后，使用PPO算法进行微调，仅更新策略网络的最后几层。每次使用后收集的轨迹数据（约5分钟/次）用于本地策略更新。联邦学习框架定期聚合各设备的梯度更新，形成全局基础策略。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">联邦学习如何保护用户隐私？<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-answer">联邦学习采用四级隐私保护机制：第一，原始EEG数据和传感器数据始终存储在本地，不离开设备。第二，上传到聚合服务器的只有模型参数梯度而非原始数据。第三，梯度上传前经过差分隐私加噪（epsilon=4.0）。第四，聚合服务器仅接收加密梯度，无法追溯到个人。这种设计确保即使聚合服务器被攻破，单个用户的隐私数据也无法恢复。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">185ms延迟是怎么优化出来的？<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-answer">延迟优化贯穿整个系统设计：EEG端采用硬件触发采样和DMA传输降低采集延迟（40ms）。AI推理通过模型量化（FP32→INT8）、算子融合和TensorRT优化将推理时间压缩至55ms。蓝牙5.2 LE Coded PHY将通信延迟降至20ms以下。执行器端采用前馈+反馈控制将机械响应控制在60ms。传感器反馈通过高速SPI总线实现10ms闭环。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">系统如何适应不同用户的肌肉状态差异？<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-answer">每个用户的肌肉状态（肌力、肌张力、萎缩程度、痉挛频率）都有显著差异。系统通过三阶段适配实现个性化：第一阶段（初始校准），系统执行一系列标准动作测量用户的被动和主动关节力矩范围，建立初始肌肉模型。第二阶段（在线适配），强化学习策略根据实时IMU和编码器反馈微调辅助力矩。第三阶段（长期进化），联邦学习跨用户聚合模型更新，同时保持本地个性化。整个过程无需用户手动配置。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">AI模型如何保证在不同环境下的鲁棒性？<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-answer">模型鲁棒性通过四层机制保证：第一，训练数据覆盖多种环境条件（不同光照、电磁干扰、皮肤阻抗水平）。第二，EEG信号预处理包含自适应噪声抑制算法，自动滤除运动伪迹和工频干扰。第三，策略网络输出经过安全限幅，确保在任何情况下输出扭矩不超过安全阈值。第四，系统连续监测信号质量和控制误差，当信号质量下降时自动增加辅助安全边界并提示用户调整。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>用技术重塑运动能力</h2>
+    <p>Nexum 的AI闭环技术正在重新定义人机交互的边界。加入我们的研究，见证神经康复的未来。</p>
+    <a href="mailto:contact@bones-manifold.com" class="cta-btn">联系技术团队</a>
+  </div>
+</section>
+
+<!-- GLOSSARY -->
+<section class="section" id="glossary">
+  <div class="container">
+    <div class="text-center section-label">术语表</div>
+    <h2 class="text-center">关键技术概念</h2>
+    <div class="glossary-grid">
+      <div class="glossary-item"><h4>运动准备电位 (RP)</h4><p>在自主运动开始前约0.5-1秒出现的EEG负向电位偏移，是运动意图的早期神经标志物。</p></div>
+      <div class="glossary-item"><h4>EEGNet</h4><p>专为EEG信号设计的轻量级卷积神经网络，使用深度可分离卷积实现高效特征提取。</p></div>
+      <div class="glossary-item"><h4>强化学习 (RL)</h4><p>机器学习范式，智能体通过与环境交互获得奖励信号，学习最优决策策略。Nexum使用PPO算法。</p></div>
+      <div class="glossary-item"><h4>联邦学习 (FL)</h4><p>分布式机器学习框架，多个设备协同训练全局模型而无需共享原始数据，保护用户隐私。</p></div>
+      <div class="glossary-item"><h4>鲍登线缆 (Bowden Cable)</h4><p>一种柔性机械力传输系统，通过线缆在护套内滑动传递拉力，实现轻量化的远程驱动。</p></div>
+      <div class="glossary-item"><h4>数字孪生 (Digital Twin)</h4><p>物理系统的虚拟镜像，Nexum的416肌肉数字孪生用于高保真仿真和策略训练。</p></div>
+      <div class="glossary-item"><h4>运动准备电位 (BP)</h4><p>在自主运动开始前约1.5-2秒出现的EEG缓慢负向电位，是运动意图的最早期可检测信号。</p></div>
+      <div class="glossary-item"><h4>PPO算法</h4><p>Proximal Policy Optimization，一种稳定的强化学习算法，通过限制策略更新步长防止训练震荡。</p></div>
+      <div class="glossary-item"><h4>IMU (惯性测量单元)</h4><p>集成加速度计和陀螺仪的传感器模块，用于实时测量关节角度和运动状态。</p></div>
+      <div class="glossary-item"><h4>模型量化</h4><p>将深度学习模型从FP32精度转换为INT8精度的技术，可减少4倍模型体积并加速推理。</p></div>
+      <div class="glossary-item"><h4>差分隐私</h4><p>在数据中添加可控噪声的隐私保护技术，确保个体数据无法从聚合结果中推断出来。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ETHICS -->
+<section class="section ethics-section">
+  <div class="container">
+    <div class="text-center section-label">伦理与责任</div>
+    <h2 class="text-center">技术向善的承诺</h2>
+    <div class="ethics-content">
+      <p><strong>隐私优先。</strong>Nexum系统在设计之初就将用户隐私作为核心原则。联邦学习架构确保神经数据始终留在本地，永不离开设备。用户对自己数据的完全控制权是不可妥协的底线。</p>
+      <p><strong>安全第一。</strong>每一行代码、每一个机械部件都经过严格的测试和验证。系统在研发过程中遵守了IEC 62304医疗器械软件标准和ISO 13485质量管理体系要求。</p>
+      <p><strong>包容性设计。</strong>我们相信技术应该服务于每一个人。Nexum系统的设计考虑了不同性别、体型的用户需求，并致力于在未来通过开源部分技术降低神经康复的成本门槛。</p>
+      <p><strong>透明沟通。</strong>我们在产品开发的每个阶段都保持对利益相关者（用户、医疗专业人员、投资者、监管机构）的信息透明。系统的技术能力和局限性都被诚实记录和沟通。</p>
     </div>
   </div>
 </section>
