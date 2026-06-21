@@ -69,7 +69,9 @@ nav a:hover { color: var(--text); }
   border: 1px solid var(--border); transition: border-color 0.3s, transform 0.3s;
 }
 .card:hover { border-color: var(--accent); transform: translateY(-4px); }
-.card img { width: 100%; height: auto; display: block; }
+.card .img-wrap { width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #0d1320; display: flex; align-items: center; justify-content: center; }
+.card .img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-card .img-wrap { aspect-ratio: 16/9; max-height: 480px; }
 .card-body { padding: 20px 24px 24px; }
 .card-body h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
 .card-body p { font-size: 13px; color: var(--text2); line-height: 1.5; }
@@ -79,10 +81,7 @@ nav a:hover { color: var(--text); }
   padding: 4px 10px; border-radius: 6px; margin-top: 10px;
 }
 
-.hero-card {
-  grid-column: 1 / -1;
-}
-.hero-card img { max-height: 500px; object-fit: cover; }
+.hero-card { grid-column: 1 / -1; }
 
 footer {
   text-align: center; padding: 60px 24px;
@@ -116,8 +115,7 @@ footer {
   <section class="section">
     <h2>完整系统</h2>
     <div class="grid-2">
-      <div class="card hero-card">
-        <img src="render_4_system.png" alt="Nexum One完整系统" loading="lazy">
+      <div class="card hero-card"><div class="img-wrap"><img src="render_4_system.png" alt="Nexum One完整系统" loading="lazy"></div>
         <div class="card-body">
           <h3>Nexum One 完整系统展示</h3>
           <p>EEG头带 + NeuroSuit穿戴界面 + 控制盒 — museum-quality产品展示</p>
@@ -131,24 +129,21 @@ footer {
   <section class="section">
     <h2>核心模块</h2>
     <div class="grid-3">
-      <div class="card">
-        <img src="render_1_eeg.png" alt="EEG-Sense头带" loading="lazy">
+      <div class="card"><div class="img-wrap"><img src="render_1_eeg.png" alt="EEG-Sense头带" loading="lazy"></div>
         <div class="card-body">
           <h3>EEG-Sense 头带</h3>
           <p>8通道干电极 · 80g · BLE 5.0 · ADS1299芯片 · 外观像运动头带 · 检测运动准备电位</p>
           <span class="tag">神经接口</span>
         </div>
       </div>
-      <div class="card">
-        <img src="render_3_neurosuit.png" alt="NeuroSuit" loading="lazy">
+      <div class="card"><div class="img-wrap"><img src="render_3_neurosuit.png" alt="NeuroSuit" loading="lazy"></div>
         <div class="card-body">
           <h3>NeuroSuit 穿戴界面</h3>
           <p>碳纤维髋部锚定 · 鲍登线缆驱动 · 织物sEMG电极 · <1.5kg · 8Nm/15Nm助力</p>
           <span class="tag">执行系统</span>
         </div>
       </div>
-      <div class="card">
-        <img src="render_2_controlbox.png" alt="控制盒" loading="lazy">
+      <div class="card"><div class="img-wrap"><img src="render_2_controlbox.png" alt="控制盒" loading="lazy"></div>
         <div class="card-body">
           <h3>控制盒</h3>
           <p>120×80×30mm铝合金 · STM32H743+nRF5340 · BMI270 IMU · DRV8316驱动 · 48Wh电池</p>
@@ -162,16 +157,14 @@ footer {
   <section class="section">
     <h2>使用场景</h2>
     <div class="grid-2">
-      <div class="card">
-        <img src="render_5_walking.png" alt="临床康复场景" loading="lazy">
+      <div class="card"><div class="img-wrap"><img src="render_5_walking.png" alt="临床康复场景" loading="lazy"></div>
         <div class="card-body">
           <h3>临床康复场景</h3>
           <p>患者在医院康复科使用Nexum One进行步行训练，治疗师通过App实时监控康复数据</p>
           <span class="tag">临床场景</span>
         </div>
       </div>
-      <div class="card">
-        <img src="render_clinical_v2.png" alt="户外使用场景" loading="lazy">
+      <div class="card"><div class="img-wrap"><img src="render_clinical_v2.png" alt="户外使用场景" loading="lazy"></div>
         <div class="card-body">
           <h3>日常生活场景</h3>
           <p>Nexum One融入日常穿着 — 外观像压缩运动裤，无可见刚性框架，解决穿戴耻感</p>
@@ -185,16 +178,14 @@ footer {
   <section class="section">
     <h2>技术细节与流程</h2>
     <div class="grid-2">
-      <div class="card">
-        <img src="ppt_render_4_flow.png" alt="闭环数据流" loading="lazy">
+      <div class="card"><div class="img-wrap"><img src="ppt_render_4_flow.png" alt="闭环数据流" loading="lazy"></div>
         <div class="card-body">
           <h3>闭环数据流</h3>
           <p>大脑意图→EEG采集→BLE传输→手机AI推理→控制盒电机驱动→力反馈→大脑</p>
           <span class="tag">技术架构</span>
         </div>
       </div>
-      <div class="card">
-        <img src="ppt_render_5_market.png" alt="市场三阶段" loading="lazy">
+      <div class="card"><div class="img-wrap"><img src="ppt_render_5_market.png" alt="市场三阶段" loading="lazy"></div>
         <div class="card-body">
           <h3>三阶段市场扩展</h3>
           <p>医疗康复($6.6B) → 老年行动力($15B) → 全人群增强($33.7B+)</p>
