@@ -25,10 +25,10 @@
 | 文档 | 说明 |
 |------|------|
 | [🏠 统一门户](../index.html) | 所有文档/渲染/可视化的统一入口 |
-| [🔬 产品工程可视化](product-visualization.html) | Apple风格：SVG架构图、爆炸视图、数据流、规格表 |
-| [🎨 产品渲染图集](product-renders.html) | 8张一致性AI渲染：头带·NeuroSuit·控制盒·场景 |
-| [📱 App UI设计](app-ui-mockups.html) | 患者端+治疗师端：训练·生物反馈·报告·面板 |
-| [⚡ 系统工程图](engineering-diagrams.html) | 4张SVG：系统框图·电源树·固件任务·控制环路 |
+| [🔬 产品工程可视化](../product-visualization.html) | Apple风格：SVG架构图、爆炸视图、数据流、规格表 |
+| [🎨 产品渲染图集](../product-renders.html) | 8张一致性AI渲染：头带·NeuroSuit·控制盒·场景 |
+| [📱 App UI设计](../app-ui-mockups.html) | 患者端+治疗师端：训练·生物反馈·报告·面板 |
+| [⚡ 系统工程图](../engineering-diagrams.html) | 4张SVG：系统框图·电源树·固件任务·控制环路 |
 | [🖼️ AI生图提示词](Nexum_One_Product_Renderings_Prompts.md) | 22组Midjourney/DALL-E/通义万相提示词 |
 
 **图例**: ✅ 完成 · 🟡 草稿/待验证

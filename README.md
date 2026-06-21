@@ -51,8 +51,8 @@ Pre-revenue。原型阶段。种子轮 2026 Q3。NMPA二类创新器械申报 20
 - [注册策略 v0.1](docs/Nexum_One_Regulatory_Strategy_v0.1.md)
 
 ### 设计
-- [产品可视化渲染 (SVG/HTML)](docs/product-visualization.html)
-- [AI产品渲染图 (6张)](docs/product-renders.html)
+- [产品可视化渲染 (SVG/HTML)](product-visualization.html)
+- [AI产品渲染图 (6张)](product-renders.html)
 - [AI图像生成提示词](docs/Nexum_One_Product_Renderings_Prompts.md)
 
 ### 文档索引
