@@ -31,8 +31,23 @@ Pre-revenue。原型阶段。种子轮 2026 Q3。NMPA二类创新器械申报 20
 
 ## 文档
 
+### 商业
 - [商业计划书 (HTML)](逐念而行_Nexum_BP.html)
 - [商业计划书 (PDF)](逐念而行_Nexum_BP.pdf)
+
+### 工程
+- [工程架构文档 v0.1](docs/Nexum_One_Engineering_Architecture_v0.1.md)
+- [产品需求文档 PRD v1.0](docs/Nexum_One_PRD_v1.0.md)
+- [生产BOM与供应商指南 v0.1](docs/Nexum_One_Production_BOM_v0.1.md)
+- [固件架构 v0.1](docs/Nexum_One_Firmware_Architecture_v0.1.md)
+- [集成测试计划 v0.1](docs/Nexum_One_Integration_Test_Plan_v0.1.md)
+
+### 设计
+- [产品可视化渲染 (SVG/HTML)](docs/Nexum_One_Product_Visualization.html)
+- [AI图像生成提示词 (Midjourney/DALL-E)](docs/Nexum_One_Product_Renderings_Prompts.md)
+
+### 文档索引
+- [docs/README.md](docs/README.md)
 
 ---
 

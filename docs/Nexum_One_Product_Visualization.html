@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Nexum One — Product Visualization</title>
+<style>
+:root {
+  --nx-blue: #0096f0;
+  --nx-dark: #1a1f2e;
+  --nx-gray: #6b7280;
+  --nx-light: #f3f7fc;
+  --nx-border: #e5e7eb;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', 'PingFang SC', -apple-system, sans-serif;
+  background: #0f1117;
+  color: #e5e7eb;
+  overflow-x: hidden;
+}
+header {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: linear-gradient(180deg, #1a1f2e 0%, #0f1117 100%);
+  border-bottom: 1px solid #1e293b;
+}
+header h1 {
+  font-size: 48px; font-weight: 900;
+  background: linear-gradient(135deg, #0096f0, #60a5fa);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+header p { color: #94a3b8; font-size: 16px; margin-top: 8px; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+.section { margin-bottom: 64px; }
+.section h2 {
+  font-size: 28px; font-weight: 800; color: #f1f5f9;
+  border-left: 4px solid var(--nx-blue); padding-left: 16px; margin-bottom: 32px;
+}
+
+/* System Overview SVG */
+.system-svg { width: 100%; max-width: 1000px; margin: 0 auto; display: block; }
+
+/* Component Cards */
+.component-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+.comp-card {
+  background: #1a1f2e; border-radius: 16px; padding: 28px;
+  border: 1px solid #1e293b; transition: border-color 0.2s;
+}
+.comp-card:hover { border-color: var(--nx-blue); }
+.comp-card h3 { font-size: 20px; font-weight: 700; color: var(--nx-blue); margin-bottom: 16px; }
+.comp-card .svg-wrap { text-align: center; margin-bottom: 16px; }
+.comp-card .svg-wrap svg { max-width: 100%; height: auto; }
+.comp-card .specs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 13px; }
+.comp-card .specs dt { color: #64748b; }
+.comp-card .specs dd { color: #cbd5e1; font-weight: 500; }
+
+/* Data Flow */
+.flow-steps { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+.flow-step {
+  flex: 1; min-width: 140px; text-align: center;
+  background: #1a1f2e; border-radius: 12px; padding: 24px 16px;
+  border: 1px solid #1e293b; position: relative;
+}
+.flow-step .num {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, #0096f0, #60a5fa);
+  color: #fff; font-weight: 800; font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 12px;
+}
+.flow-step h4 { font-size: 14px; color: #f1f5f9; margin-bottom: 6px; }
+.flow-step p { font-size: 12px; color: #94a3b8; line-height: 1.5; }
+.flow-arrow { position: absolute; right: -20px; top: 50%; color: var(--nx-blue); font-size: 24px; transform: translateY(-50%); }
+
+/* Specs Table */
+.spec-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.spec-table th {
+  background: rgba(0,150,240,0.15); color: var(--nx-blue);
+  padding: 12px 16px; text-align: left; font-weight: 600;
+  border-bottom: 2px solid rgba(0,150,240,0.3);
+}
+.spec-table td {
+  padding: 10px 16px; border-bottom: 1px solid #1e293b; color: #cbd5e1;
+}
+.spec-table tr:hover td { background: rgba(0,150,240,0.05); }
+
+/* Exploded View */
+.exploded-svg { width: 100%; max-width: 900px; margin: 0 auto; display: block; }
+
+footer {
+  text-align: center; padding: 40px; color: #475569; font-size: 13px;
+  border-top: 1px solid #1e293b;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Nexum One</h1>
+  <p>神经重连AI系统 — 产品可视化渲染 · 工程视图</p>
+</header>
+
+<div class="container">
+
+<!-- SYSTEM OVERVIEW -->
+<section class="section">
+  <h2>系统架构总览</h2>
+  <svg class="system-svg" viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#0096f0;stop-opacity:1"/>
+        <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1"/>
+      </linearGradient>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="3" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#0096f0"/>
+      </marker>
+      <marker id="arrowGray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+      </marker>
+    </defs>
+
+    <!-- Person Silhouette -->
+    <g transform="translate(420, 80)">
+      <!-- Head -->
+      <ellipse cx="80" cy="40" rx="35" ry="40" fill="none" stroke="#475569" stroke-width="2"/>
+      <!-- EEG Headband -->
+      <rect x="30" y="15" width="100" height="16" rx="8" fill="none" stroke="#0096f0" stroke-width="2.5" filter="url(#glow)"/>
+      <text x="80" y="28" text-anchor="middle" fill="#0096f0" font-size="9" font-weight="700">EEG-SENSE</text>
+      <!-- Body -->
+      <line x1="80" y1="80" x2="80" y2="280" stroke="#475569" stroke-width="2"/>
+      <!-- Arms -->
+      <line x1="80" y1="120" x2="20" y2="220" stroke="#475569" stroke-width="2"/>
+      <line x1="80" y1="120" x2="140" y2="220" stroke="#475569" stroke-width="2"/>
+      <!-- Legs -->
+      <line x1="80" y1="280" x2="40" y2="440" stroke="#475569" stroke-width="2"/>
+      <line x1="80" y1="280" x2="120" y2="440" stroke="#475569" stroke-width="2"/>
+
+      <!-- NeuroSuit outline -->
+      <ellipse cx="80" cy="200" rx="45" ry="90" fill="rgba(0,150,240,0.05)" stroke="#0096f0" stroke-width="1.5" stroke-dasharray="6,3"/>
+      <text x="80" y="210" text-anchor="middle" fill="#0096f0" font-size="8">NEURO</text>
+      <text x="80" y="220" text-anchor="middle" fill="#0096f0" font-size="8">SUIT</text>
+
+      <!-- Control Box -->
+      <rect x="55" y="350" width="50" height="35" rx="6" fill="#1e293b" stroke="#0096f0" stroke-width="1.5"/>
+      <text x="80" y="370" text-anchor="middle" fill="#0096f0" font-size="7" font-weight="600">CTRL</text>
+
+      <!-- Bowden Cables -->
+      <path d="M 80 370 L 80 440" stroke="#64748b" stroke-width="2" stroke-dasharray="4,2"/>
+    </g>
+
+    <!-- Box: EEG-Sense -->
+    <g transform="translate(80, 60)">
+      <rect x="0" y="0" width="200" height="280" rx="16" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+      <rect x="0" y="0" width="200" height="40" rx="16" fill="rgba(0,150,240,0.1)"/>
+      <text x="100" y="25" text-anchor="middle" fill="#0096f0" font-size="14" font-weight="700">1. EEG-Sense 头带</text>
+      <text x="16" y="60" fill="#94a3b8" font-size="11">8通道干电极</text>
+      <text x="16" y="78" fill="#94a3b8" font-size="11">80g / BLE 5.0</text>
+      <text x="16" y="96" fill="#94a3b8" font-size="11">ADS1299 + nRF52832</text>
+      <text x="16" y="114" fill="#94a3b8" font-size="11">250 SPS / 24-bit</text>
+      <!-- Mini headband icon -->
+      <ellipse cx="100" cy="200" rx="45" ry="50" fill="none" stroke="#334155" stroke-width="1.5"/>
+      <rect x="38" y="160" width="124" height="18" rx="9" fill="none" stroke="#0096f0" stroke-width="2" filter="url(#glow)"/>
+    </g>
+
+    <!-- Box: NeuroSuit + Control Box -->
+    <g transform="translate(720, 60)">
+      <rect x="0" y="0" width="200" height="280" rx="16" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+      <rect x="0" y="0" width="200" height="40" rx="16" fill="rgba(0,150,240,0.1)"/>
+      <text x="100" y="25" text-anchor="middle" fill="#0096f0" font-size="14" font-weight="700">3. NeuroSuit + 控制盒</text>
+      <text x="16" y="60" fill="#94a3b8" font-size="11">碳纤维髋部锚定</text>
+      <text x="16" y="78" fill="#94a3b8" font-size="11">鲍登线缆驱动</text>
+      <text x="16" y="96" fill="#94a3b8" font-size="11">多通道织物sEMG</text>
+      <text x="16" y="114" fill="#94a3b8" font-size="11">&lt;1.5kg 总重</text>
+      <text x="16" y="132" fill="#94a3b8" font-size="11">8 Nm 持续 / 15 Nm 峰值</text>
+      <text x="16" y="150" fill="#94a3b8" font-size="11">48Wh 6S Li-ion</text>
+    </g>
+
+    <!-- Box: Nexum App -->
+    <g transform="translate(80, 400)">
+      <rect x="0" y="0" width="200" height="140" rx="16" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+      <rect x="0" y="0" width="200" height="40" rx="16" fill="rgba(0,150,240,0.1)"/>
+      <text x="100" y="25" text-anchor="middle" fill="#0096f0" font-size="14" font-weight="700">2. Nexum App</text>
+      <text x="16" y="60" fill="#94a3b8" font-size="11">运行个性化AI策略</text>
+      <text x="16" y="80" fill="#94a3b8" font-size="11">CoreML / ONNX 推理</text>
+      <text x="16" y="100" fill="#94a3b8" font-size="11">实时生物反馈 + 康复报告</text>
+    </g>
+
+    <!-- Data Flow Arrows -->
+    <!-- EEG → App (BLE) -->
+    <line x1="280" y1="200" x2="280" y2="470" stroke="#0096f0" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="8,4"/>
+    <text x="295" y="340" fill="#0096f0" font-size="9" font-weight="600">BLE</text>
+    <text x="295" y="352" fill="#64748b" font-size="8">EEG数据</text>
+
+    <!-- App → Control Box (BLE) -->
+    <line x1="280" y1="540" x2="340" y2="540" stroke="#0096f0" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="290" y="558" fill="#0096f0" font-size="8" font-weight="600">BLE CMD</text>
+
+    <!-- Control Box → Suit (wired) -->
+    <line x1="500" y1="310" x2="500" y2="340" stroke="#0096f0" stroke-width="1.5"/>
+    <text x="510" y="330" fill="#64748b" font-size="7">PWM</text>
+
+    <!-- Suit → App (feedback) -->
+    <path d="M 620 340 Q 680 540 280 540" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrowGray)"/>
+    <text x="620" y="450" fill="#64748b" font-size="8">状态反馈 (BLE)</text>
+  </svg>
+</section>
+
+<!-- COMPONENT CARDS -->
+<section class="section">
+  <h2>三大物理模块</h2>
+  <div class="component-grid">
+
+    <!-- EEG-Sense -->
+    <div class="comp-card">
+      <h3>EEG-Sense 头带</h3>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#2d2d2d"/>
+              <stop offset="100%" style="stop-color:#1a1a1a"/>
+            </linearGradient>
+          </defs>
+          <!-- Headband outer -->
+          <path d="M 40 60 Q 40 20 140 20 Q 240 20 240 60" fill="none" stroke="url(#bandGrad)" stroke-width="28" stroke-linecap="round"/>
+          <path d="M 40 60 Q 40 20 140 20 Q 240 20 240 60" fill="none" stroke="#333" stroke-width="28" stroke-linecap="round"/>
+          <!-- Highlight edge -->
+          <path d="M 46 60 Q 46 26 140 26 Q 234 26 234 60" fill="none" stroke="#444" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Electrode contacts (inner surface visible at bottom edge) -->
+          <circle cx="80" cy="58" r="4" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+          <circle cx="100" cy="62" r="4" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+          <circle cx="120" cy="64" r="4" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+          <circle cx="140" cy="65" r="4" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+          <circle cx="160" cy="64" r="4" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+          <circle cx="180" cy="62" r="4" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+          <circle cx="200" cy="58" r="4" fill="#c0c0c0" stroke="#888" stroke-width="0.5"/>
+          <!-- LED indicator -->
+          <circle cx="230" cy="38" r="3" fill="#0096f0" opacity="0.8" filter="url(#glow)"/>
+          <!-- PCB trace hint -->
+          <path d="M 80 54 Q 140 70 200 54" fill="none" stroke="#1e3a5f" stroke-width="0.8" stroke-dasharray="2,2"/>
+        </svg>
+      </div>
+      <dl class="specs">
+        <dt>通道</dt><dd>8ch 干电极</dd>
+        <dt>重量</dt><dd>80g</dd>
+        <dt>芯片</dt><dd>ADS1299</dd>
+        <dt>BLE</dt><dd>nRF52832</dd>
+        <dt>采样率</dt><dd>250 SPS</dd>
+        <dt>精度</dt><dd>24-bit ADC</dd>
+      </dl>
+    </div>
+
+    <!-- Control Box -->
+    <div class="comp-card">
+      <h3>控制盒</h3>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
+          <!-- Enclosure -->
+          <rect x="60" y="20" width="160" height="100" rx="14" fill="#1a1f2e" stroke="#334155" stroke-width="2"/>
+          <rect x="60" y="20" width="160" height="100" rx="14" fill="url(#gradBlue)" opacity="0.05"/>
+          <!-- Top surface details -->
+          <rect x="80" y="36" width="120" height="12" rx="3" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+          <text x="140" y="45" text-anchor="middle" fill="#0096f0" font-size="7" font-weight="600">NEXUM ONE</text>
+          <!-- LED -->
+          <circle cx="240" cy="34" r="4" fill="#0096f0" opacity="0.7" filter="url(#glow)"/>
+          <!-- Ports bottom -->
+          <rect x="100" y="108" width="30" height="8" rx="3" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+          <text x="115" y="115" text-anchor="middle" fill="#64748b" font-size="6">USB-C</text>
+          <rect x="150" y="108" width="18" height="6" rx="2" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+          <!-- Internal label hints -->
+          <text x="140" y="85" text-anchor="middle" fill="#334155" font-size="7">STM32H743 + nRF5340</text>
+          <text x="140" y="96" text-anchor="middle" fill="#334155" font-size="6">BMI270 · DRV8316 · 48Wh Li-ion</text>
+          <!-- Dimensions -->
+          <text x="140" y="140" text-anchor="middle" fill="#475569" font-size="9">120 × 80 × 30 mm</text>
+        </svg>
+      </div>
+      <dl class="specs">
+        <dt>主控</dt><dd>STM32H743</dd>
+        <dt>BLE</dt><dd>nRF5340</dd>
+        <dt>IMU</dt><dd>BMI270</dd>
+        <dt>电机驱动</dt><dd>DRV8316</dd>
+        <dt>电池</dt><dd>48Wh 6S Li-ion</dd>
+        <dt>续航</dt><dd>&gt;4h 连续使用</dd>
+      </dl>
+    </div>
+
+    <!-- NeuroSuit -->
+    <div class="comp-card">
+      <h3>NeuroSuit 穿戴界面</h3>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
+          <!-- Waist/Hip anchor -->
+          <ellipse cx="140" cy="50" rx="70" ry="30" fill="none" stroke="#334155" stroke-width="2"/>
+          <!-- Carbon fiber anchors (left/right hip) -->
+          <rect x="60" y="35" width="18" height="35" rx="4" fill="#1e293b" stroke="#0096f0" stroke-width="1"/>
+          <rect x="202" y="35" width="18" height="35" rx="4" fill="#1e293b" stroke="#0096f0" stroke-width="1"/>
+          <!-- Bowden cables down legs -->
+          <path d="M 69 70 L 69 130" stroke="#64748b" stroke-width="3" stroke-dasharray="6,3"/>
+          <path d="M 211 70 L 211 130" stroke="#64748b" stroke-width="3" stroke-dasharray="6,3"/>
+          <!-- Cable sheaths -->
+          <path d="M 66 70 L 66 130" stroke="#334155" stroke-width="5" fill="none"/>
+          <path d="M 214 70 L 214 130" stroke="#334155" stroke-width="5" fill="none"/>
+          <!-- Fabric texture lines -->
+          <line x1="90" y1="80" x2="190" y2="80" stroke="#1e293b" stroke-width="0.5"/>
+          <line x1="90" y1="90" x2="190" y2="90" stroke="#1e293b" stroke-width="0.5"/>
+          <line x1="90" y1="100" x2="190" y2="100" stroke="#1e293b" stroke-width="0.5"/>
+          <!-- sEMG electrode patches -->
+          <ellipse cx="100" cy="110" rx="12" ry="18" fill="none" stroke="#60a5fa" stroke-width="1" stroke-dasharray="3,2"/>
+          <ellipse cx="180" cy="110" rx="12" ry="18" fill="none" stroke="#60a5fa" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="100" y="114" text-anchor="middle" fill="#60a5fa" font-size="6">sEMG</text>
+          <text x="180" y="114" text-anchor="middle" fill="#60a5fa" font-size="6">sEMG</text>
+          <!-- Labels -->
+          <text x="69" y="22" text-anchor="middle" fill="#0096f0" font-size="8" font-weight="600">碳纤维锚定</text>
+          <text x="211" y="22" text-anchor="middle" fill="#0096f0" font-size="8" font-weight="600">碳纤维锚定</text>
+        </svg>
+      </div>
+      <dl class="specs">
+        <dt>髋部锚定</dt><dd>碳纤维</dd>
+        <dt>力传输</dt><dd>鲍登线缆</dd>
+        <dt>持续扭矩</dt><dd>8 Nm</dd>
+        <dt>峰值扭矩</dt><dd>15 Nm</dd>
+        <dt>穿戴界面</dt><dd>织物包裹</dd>
+        <dt>总重</dt><dd>&lt;1.5 kg</dd>
+      </dl>
+    </div>
+
+  </div>
+</section>
+
+<!-- DATA FLOW -->
+<section class="section">
+  <h2>闭环数据流</h2>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="num">1</div>
+      <h4>神经信号采集</h4>
+      <p>EEG-Sense头带<br>8ch @ 250SPS<br>运动准备电位检测<br>预处理+BLE发送</p>
+      <div class="flow-arrow">→</div>
+    </div>
+    <div class="flow-step">
+      <div class="num">2</div>
+      <h4>意图解码</h4>
+      <p>Nexum App<br>CNN/Transformer推理<br>IMU上下文融合<br>助力策略生成</p>
+      <div class="flow-arrow">→</div>
+    </div>
+    <div class="flow-step">
+      <div class="num">3</div>
+      <h4>命令传递</h4>
+      <p>BLE GATT Write<br>8-16字节压缩指令<br>&lt;20ms延迟<br>控制盒解析执行</p>
+      <div class="flow-arrow">→</div>
+    </div>
+    <div class="flow-step">
+      <div class="num">4</div>
+      <h4>电机执行</h4>
+      <p>FOC电机控制<br>鲍登线缆力传输<br>5-15 Nm髋关节助力<br>&lt;60ms机械响应</p>
+      <div class="flow-arrow">→</div>
+    </div>
+    <div class="flow-step">
+      <div class="num">5</div>
+      <h4>状态反馈</h4>
+      <p>IMU+编码器+力传感<br>传感器融合<br>AI模型自适应更新<br>闭环完成</p>
+    </div>
+  </div>
+  <p style="text-align:center;color:#64748b;font-size:13px;margin-top:24px;">
+    端到端延迟预算: EEG采集(40ms) + 手机推理(55ms) + BLE传输(20ms) + 电机响应(60ms) + 传感融合(10ms) = <strong style="color:#0096f0;">&lt;185ms</strong>
+  </p>
+</section>
+
+<!-- Exploded View -->
+<section class="section">
+  <h2>控制盒分解视图</h2>
+  <svg class="exploded-svg" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg">
+    <!-- Layer 1: Top Enclosure -->
+    <g transform="translate(50, 20)">
+      <rect x="0" y="0" width="800" height="50" rx="12" fill="#1a1f2e" stroke="#334155" stroke-width="2"/>
+      <text x="400" y="30" text-anchor="middle" fill="#64748b" font-size="13" font-weight="600">铝合金上盖 · 120×80mm</text>
+    </g>
+
+    <!-- Layer 2: Main PCB -->
+    <g transform="translate(50, 120)">
+      <rect x="0" y="0" width="800" height="80" rx="6" fill="#0f172a" stroke="#1e3a5f" stroke-width="2"/>
+      <text x="400" y="20" text-anchor="middle" fill="#60a5fa" font-size="13" font-weight="600">主控板 PCB</text>
+      <!-- Chips on PCB -->
+      <rect x="40" y="30" width="90" height="35" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="85" y="51" text-anchor="middle" fill="#e5e7eb" font-size="9" font-weight="600">STM32H743</text>
+      <rect x="160" y="30" width="70" height="28" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="195" y="48" text-anchor="middle" fill="#cbd5e1" font-size="8">nRF5340</text>
+      <rect x="260" y="35" width="50" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="285" y="48" text-anchor="middle" fill="#cbd5e1" font-size="7">BMI270</text>
+      <!-- Connectors -->
+      <rect x="600" y="32" width="60" height="18" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="630" y="44" text-anchor="middle" fill="#94a3b8" font-size="7">Motor 1</text>
+      <rect x="680" y="32" width="60" height="18" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="710" y="44" text-anchor="middle" fill="#94a3b8" font-size="7">Motor 2</text>
+    </g>
+
+    <!-- Layer 3: Motor Driver -->
+    <g transform="translate(50, 250)">
+      <rect x="0" y="0" width="800" height="50" rx="6" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+      <text x="400" y="20" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="600">电机驱动板 · DRV8316 × 2</text>
+      <rect x="300" y="24" width="80" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="340" y="38" text-anchor="middle" fill="#cbd5e1" font-size="8">TI DRV8316</text>
+    </g>
+
+    <!-- Layer 4: Battery -->
+    <g transform="translate(50, 340)">
+      <rect x="0" y="0" width="800" height="55" rx="6" fill="#1a1f2e" stroke="#334155" stroke-width="2"/>
+      <text x="400" y="24" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="600">6S Li-ion 电池组 · 48Wh · 21700 电芯 ×6</text>
+      <!-- Cell outlines -->
+      <rect x="200" y="30" width="55" height="18" rx="3" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+      <rect x="260" y="30" width="55" height="18" rx="3" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+      <rect x="320" y="30" width="55" height="18" rx="3" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+      <rect x="380" y="30" width="55" height="18" rx="3" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+      <rect x="440" y="30" width="55" height="18" rx="3" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+      <rect x="500" y="30" width="55" height="18" rx="3" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+    </g>
+
+    <!-- Layer 5: Bottom enclosure with thermal pad -->
+    <g transform="translate(50, 430)">
+      <rect x="0" y="0" width="800" height="40" rx="12" fill="#1a1f2e" stroke="#334155" stroke-width="2"/>
+      <text x="400" y="25" text-anchor="middle" fill="#64748b" font-size="12" font-weight="600">铝合金下盖 · 导热垫+散热片</text>
+    </g>
+
+    <!-- Stack arrows -->
+    <line x1="450" y1="70" x2="450" y2="120" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="450" y1="200" x2="450" y2="250" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="450" y1="300" x2="450" y2="340" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="450" y1="395" x2="450" y2="430" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrow)"/>
+  </svg>
+</section>
+
+<!-- KEY SPECS -->
+<section class="section">
+  <h2>关键技术指标</h2>
+  <table class="spec-table">
+    <tr><th>指标</th><th>目标值</th><th>备注</th></tr>
+    <tr><td>EEG通道</td><td>8ch 干电极 @ 250 SPS, 24-bit</td><td>ADS1299前端</td></tr>
+    <tr><td>端到端延迟</td><td>&lt;185 ms (EEG→力输出)</td><td>最关键规格</td></tr>
+    <tr><td>持续助力扭矩</td><td>8 Nm (髋关节)</td><td>步行时约30%生理扭矩</td></tr>
+    <tr><td>峰值助力扭矩</td><td>15 Nm (3秒)</td><td>起立、上楼梯</td></tr>
+    <tr><td>系统总重</td><td>&lt;2.5 kg (含头带+NeuroSuit+控制盒)</td><td>康复穿戴容忍上限</td></tr>
+    <tr><td>电池续航</td><td>&gt;4小时连续使用</td><td>一次康复训练</td></tr>
+    <tr><td>线缆行程</td><td>150 mm</td><td>覆盖髋屈曲ROM</td></tr>
+    <tr><td>力传输效率</td><td>&gt;70% (混合架构)</td><td>碳纤维锚定+鲍登线缆</td></tr>
+    <tr><td>意图检测窗口</td><td>运动前0.5-2秒</td><td>MRCP/准备电位</td></tr>
+    <tr><td>安全冗余</td><td>三级降级 (EEG+sEMG→sEMG+IMU→无助力)</td><td>不突然停机</td></tr>
+  </table>
+</section>
+
+</div>
+
+<footer>
+  Nexum One · 逐念而行 · Confidential — Internal Engineering Use Only
+</footer>
+
+</body>
+</html>
