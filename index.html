@@ -799,8 +799,8 @@ nav.scrolled {
   overflow: hidden;
   cursor: pointer;
   aspect-ratio: 4/3;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
+  background: #e0e0e0;
+  border: none;
   transition: all 0.4s var(--ease-out);
 }
 .gallery-item:hover {
@@ -1594,8 +1594,8 @@ nav.scrolled {
 .contact-item a:hover { color: var(--accent); }
 
 footer {
-  background: #111;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
   padding: 64px 24px 32px;
 }
 .footer-inner {
@@ -1609,14 +1609,14 @@ footer {
 footer h5 {
   font-size: 12px;
   font-weight: 700;
-  color: #eee;
+  color: var(--text-primary);
   margin-bottom: 16px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
 }
 footer p, footer a {
   font-size: 13px;
-  color: #999;
+  color: var(--text-secondary);
   line-height: 1.8;
   text-decoration: none;
   transition: color 0.25s;
@@ -1630,7 +1630,7 @@ footer .footer-links {
 }
 footer .footer-brand-desc {
   font-size: 13px;
-  color: #999;
+  color: var(--text-secondary);
   line-height: 1.8;
   max-width: 320px;
 }
