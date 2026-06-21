@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexum One — 神经重连AI系统</title>
+<style>
+:root {
+  --bg: #0a0f1a; --card: #151d2e; --accent: #0096f0;
+  --text: #e5e7eb; --t2: #94a3b8; --border: #1e293b;
+  --grad: linear-gradient(135deg, #0096f0, #60a5fa);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', 'PingFang SC', -apple-system, sans-serif;
+  background: var(--bg); color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(10,15,26,0.85); backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(30,41,59,0.5);
+  padding: 0 24px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-inner {
+  width: 100%; max-width: 1200px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-size: 15px; font-weight: 800; letter-spacing: 1px; text-decoration: none; color: var(--text); }
+.logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { color: var(--t2); text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.3px; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 100px 24px 80px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -40%; left: 50%;
+  width: 900px; height: 900px; transform: translate(-50%, -20%);
+  background: radial-gradient(ellipse at center, rgba(0,150,240,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero .pre { font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: 4px; margin-bottom: 24px; }
+.hero h1 {
+  font-size: clamp(52px, 8vw, 96px); font-weight: 900;
+  background: linear-gradient(135deg, #e5e7eb 0%, #0096f0 50%, #60a5fa 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1.05; margin-bottom: 20px; letter-spacing: -2px;
+}
+.hero .tagline { font-size: 20px; color: var(--t2); max-width: 560px; line-height: 1.6; margin-bottom: 48px; }
+.hero .metrics { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; margin-bottom: 56px; }
+.hero .metric { text-align: center; }
+.hero .metric .val { font-size: 28px; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero .metric .lbl { font-size: 12px; color: var(--t2); margin-top: 4px; }
+
+/* SECTIONS */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 80px 0; }
+.section h2 { font-size: 28px; font-weight: 800; color: var(--text); margin-bottom: 12px; }
+.section .sub { font-size: 14px; color: var(--t2); margin-bottom: 40px; }
+
+/* HUB CARDS */
+.hub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.hub-card {
+  background: var(--card); border-radius: 14px; padding: 28px;
+  border: 1px solid var(--border); text-decoration: none;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  display: flex; flex-direction: column; gap: 12px;
+  position: relative; overflow: hidden;
+}
+.hub-card:hover {
+  border-color: var(--accent); transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,150,240,0.1);
+}
+.hub-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--grad); opacity: 0; transition: opacity 0.3s;
+}
+.hub-card:hover::before { opacity: 1; }
+.hub-card .icon { font-size: 32px; }
+.hub-card h3 { font-size: 17px; font-weight: 700; color: var(--text); }
+.hub-card p { font-size: 13px; color: var(--t2); line-height: 1.5; flex: 1; }
+.hub-card .badge {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  padding: 4px 10px; border-radius: 6px;
+  background: rgba(0,150,240,0.1); color: var(--accent);
+  align-self: flex-start;
+}
+
+/* 4-STEP LOOP */
+.loop { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; padding: 24px 0; }
+.loop-step {
+  background: var(--card); border-radius: 14px; padding: 28px 24px;
+  border: 1px solid var(--border); text-align: center; width: 220px;
+  transition: border-color 0.3s;
+}
+.loop-step:hover { border-color: var(--accent); }
+.loop-step .num {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--grad); color: #fff; font-weight: 800; font-size: 20px;
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;
+}
+.loop-step h4 { font-size: 16px; color: var(--text); margin-bottom: 6px; }
+.loop-step p { font-size: 12px; color: var(--t2); line-height: 1.4; }
+.loop-arrow { color: var(--accent); font-size: 28px; font-weight: 300; }
+
+/* TIMELINE */
+.timeline { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+.tl-card {
+  background: var(--card); border-radius: 14px; padding: 28px 24px;
+  border: 1px solid var(--border); text-align: center; flex: 1; min-width: 280px;
+  max-width: 370px; transition: border-color 0.3s;
+}
+.tl-card:hover { border-color: var(--accent); }
+.tl-card .phase { font-size: 12px; color: var(--accent); font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+.tl-card .size { font-size: 36px; font-weight: 900; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 4px; }
+.tl-card .market { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+.tl-card .desc { font-size: 12px; color: var(--t2); line-height: 1.5; }
+
+/* FOOTER */
+footer {
+  text-align: center; padding: 48px 24px;
+  border-top: 1px solid var(--border); color: var(--t2); font-size: 12px;
+}
+footer a { color: var(--accent); text-decoration: none; }
+
+@media (max-width: 900px) {
+  .hub-grid { grid-template-columns: 1fr; }
+  .loop { flex-direction: column; }
+  .loop-arrow { transform: rotate(90deg); }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Nexum<span>One</span></a>
+    <ul class="nav-links">
+      <li><a href="#hub">文档中心</a></li>
+      <li><a href="#loop">技术闭环</a></li>
+      <li><a href="#market">市场</a></li>
+      <li><a href="docs/Nexum_One_Product_Visualization.html">工程可视化</a></li>
+      <li><a href="docs/Nexum_One_Product_Renders.html">产品渲染</a></li>
+      <li><a href="逐念而行_Nexum_BP.html">商业计划书</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="pre">人机共生 · 赛道定义者</div>
+  <h1>逐念而行</h1>
+  <p class="tagline">
+    神经重连AI系统——读取大脑运动意图，生成个性化助力策略，<br>驱动轻量级身体装置执行，根据恢复进展持续自适应
+  </p>
+  <div class="metrics">
+    <div class="metric"><div class="val">8ch</div><div class="lbl">干电极通道</div></div>
+    <div class="metric"><div class="val">80g</div><div class="lbl">头带重量</div></div>
+    <div class="metric"><div class="val">&lt;1.5kg</div><div class="lbl">系统总重</div></div>
+    <div class="metric"><div class="val">&lt;185ms</div><div class="lbl">端到端延迟</div></div>
+    <div class="metric"><div class="val">15Nm</div><div class="lbl">峰值扭矩</div></div>
+  </div>
+</section>
+
+<!-- HUB -->
+<section class="section container" id="hub">
+  <h2>文档与工具</h2>
+  <p class="sub">Nexum One 完整工程体系 — 从商业计划到PCB设计，全部可落地</p>
+
+  <div class="hub-grid">
+    <a href="逐念而行_Nexum_BP.html" class="hub-card">
+      <div class="icon">📄</div>
+      <h3>商业计划书</h3>
+      <p>12章完整BP：问题→方案→市场→技术→竞争→商业模式→团队→融资→愿景。投资人就绪。</p>
+      <span class="badge">BP · PDF可用</span>
+    </a>
+    <a href="docs/Nexum_Pitch_Deck.pptx" class="hub-card">
+      <div class="icon">📊</div>
+      <h3>路演PPT</h3>
+      <p>12页专业投资者级演示：暗色主题、度量卡片、数据表格、愿景路线图。190KB。</p>
+      <span class="badge">PPTX · 190KB</span>
+    </a>
+    <a href="docs/Nexum_One_Product_Visualization.html" class="hub-card">
+      <div class="icon">🔬</div>
+      <h3>产品工程可视化</h3>
+      <p>Apple风格产品展示页：SVG架构图、控制盒爆炸视图、闭环数据流、完整规格表。1753行。</p>
+      <span class="badge">HTML · 交互式</span>
+    </a>
+    <a href="docs/Nexum_One_Product_Renders.html" class="hub-card">
+      <div class="icon">🎨</div>
+      <h3>产品渲染图集</h3>
+      <p>8张一致性AI渲染图：EEG头带、NeuroSuit、控制盒、完整系统、使用场景。</p>
+      <span class="badge">图集 · 8张</span>
+    </a>
+    <a href="docs/Nexum_System_Engineering_Diagrams.html" class="hub-card">
+      <div class="icon">⚡</div>
+      <h3>系统工程图</h3>
+      <p>系统框图、电源树、固件任务图、控制环路 — 全SVG技术图表。工程师就绪。</p>
+      <span class="badge">SVG · 4组图</span>
+    </a>
+    <a href="docs/Nexum_App_UI_Mockups.html" class="hub-card">
+      <div class="icon">📱</div>
+      <h3>App UI设计</h3>
+      <p>患者端+治疗师端：训练界面、实时生物反馈、进度报告、患者管理仪表盘。</p>
+      <span class="badge">HTML · 4屏</span>
+    </a>
+    <a href="docs/Nexum_One_Engineering_Architecture_v0.1.md" class="hub-card">
+      <div class="icon">🏗️</div>
+      <h3>工程架构文档</h3>
+      <p>系统架构、数据流、器件选型、工程风险、6个月原型计划。34KB完整文档。</p>
+      <span class="badge">MD · 34KB</span>
+    </a>
+    <a href="docs/Nexum_One_PRD_v1.0.md" class="hub-card">
+      <div class="icon">📋</div>
+      <h3>产品需求文档</h3>
+      <p>用户需求→工程需求→功能需求→非功能需求→竞品对标→Phase 0成功标准。</p>
+      <span class="badge">PRD · v1.0</span>
+    </a>
+    <a href="docs/README.md" class="hub-card">
+      <div class="icon">🗂️</div>
+      <h3>全部文档索引</h3>
+      <p>12份工程文档完整清单：BOM、固件、PCB、装配、测试、临床、注册……全部中文。</p>
+      <span class="badge">索引 · 12文档</span>
+    </a>
+  </div>
+</section>
+
+<!-- 4-STEP LOOP -->
+<section class="section container" id="loop">
+  <h2>AI驱动的神经重连闭环</h2>
+  <p class="sub">四个阶段，端到端延迟 &lt;185ms — 大脑意图直接驱动身体动作</p>
+  <div class="loop">
+    <div class="loop-step">
+      <div class="num">1</div>
+      <h4>读取意图</h4>
+      <p>EEG-Sense头带<br>8ch干电极 @250SPS<br>检测运动准备电位<br>~40ms</p>
+    </div>
+    <div class="loop-arrow">→</div>
+    <div class="loop-step">
+      <div class="num">2</div>
+      <h4>生成策略</h4>
+      <p>个性化AI引擎<br>416肌肉数字孪生<br>RL最优策略生成<br>~55ms</p>
+    </div>
+    <div class="loop-arrow">→</div>
+    <div class="loop-step">
+      <div class="num">3</div>
+      <h4>执行动作</h4>
+      <p>NeuroSuit线缆驱动<br>碳纤维锚定·8Nm持续<br>鲍登线缆·<1.5kg<br>~60ms</p>
+    </div>
+    <div class="loop-arrow">→</div>
+    <div class="loop-step">
+      <div class="num">4</div>
+      <h4>持续进化</h4>
+      <p>传感器反馈闭环<br>策略每周自适应<br>联邦学习隐私保护<br>~10ms</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section class="section container" id="market">
+  <h2>三阶段市场扩展</h2>
+  <p class="sub">从医疗康复起步，经老年行动力，到全人群增强——TAM随每阶段解锁指数级扩大</p>
+  <div class="timeline">
+    <div class="tl-card">
+      <div class="phase">PHASE 1 · 2028–2030</div>
+      <div class="size">$6.6B</div>
+      <div class="market">全球神经康复</div>
+      <p class="desc">9400万中风+SCI患者<br>医疗康复是最高壁垒的入口<br>NMPA获证后进入100+医院<br>建立临床证据链</p>
+    </div>
+    <div class="tl-card">
+      <div class="phase">PHASE 2 · 2030–2033</div>
+      <div class="size">$15B</div>
+      <div class="market">全球老年行动力</div>
+      <p class="desc">中国3亿60+人口·20%肌少症<br>医院→家庭闭环完成<br>从神经重连到通用意图驱动助力<br>启动FDA+CE海外准入</p>
+    </div>
+    <div class="tl-card">
+      <div class="phase">PHASE 3 · 2033+</div>
+      <div class="size">$33.7B+</div>
+      <div class="market">全人群行动增强</div>
+      <p class="desc">可穿戴外骨骼CAGR 32%<br>百万用户数据飞轮<br>户外·通勤·职业防护<br>人机共生成为基础设施</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Nexum One · 逐念而行 · 人机共生赛道定义者</p>
+  <p style="margin-top:6px">
+    <a href="逐念而行_Nexum_BP.html">商业计划书</a> ·
+    <a href="docs/Nexum_One_Product_Visualization.html">工程可视化</a> ·
+    <a href="docs/README.md">文档索引</a> ·
+    <a href="https://github.com/bones-manifold/nexum">GitHub</a>
+  </p>
+  <p style="margin-top:16px;color:#475569">Confidential — For Investor Use Only · © 2026 逐念而行</p>
+</footer>
+
+</body>
+</html>
