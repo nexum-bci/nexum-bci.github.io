@@ -141,10 +141,15 @@ body::before {
   background: #ffffff;
   border-color: rgba(0,0,0,0.06);
 }
+[data-theme="light"] .header .subtitle { color: #555555; }
+[data-theme="light"] .ds-item { color: #555555; }
+[data-theme="light"] .ds-label { color: #888888; }
 [data-theme="light"] .ds-label strong { color: #1d1d1f; }
 [data-theme="light"] .ds-divider { background: rgba(0,0,0,0.08); }
 [data-theme="light"] .mockup-label p { color: #888888; }
 [data-theme="light"] .footer { border-top-color: rgba(0,0,0,0.06); }
+[data-theme="light"] .footer p { color: #888888; }
+[data-theme="light"] .header-badge { color: #0071e3; }
 [data-theme="light"] .footer p { color: #888888; }
 
 /* ============================================================
@@ -1423,8 +1428,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
       <a href="technology.html" style="color:var(--text-secondary);text-decoration:none;font-size:14px">技术</a>
       <a href="app.html" style="color:var(--text-secondary);text-decoration:none;font-size:14px">App</a>
       <a href="index.html#documents" style="color:var(--text-secondary);text-decoration:none;font-size:14px">文档</a>
+      <a href="index.html#team" style="color:var(--text-secondary);text-decoration:none;font-size:14px">团队</a>
     </div>
-    <button id="themeToggle" style="width:36px;height:36px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);cursor:pointer;font-size:16px;color:var(--text)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+    <div style="display:flex;align-items:center;gap:12px">
+      <button id="themeToggle" style="width:36px;height:36px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);cursor:pointer;font-size:16px;color:var(--text)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+      <a href="index.html#contact" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff!important;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none">投资者入口</a>
+    </div>
   </div>
 </nav>
 <div class="container">
@@ -2160,8 +2169,41 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
   </div><!-- end mockup-grid -->
 
   <!-- Footer -->
-  <footer class="footer">
-    <p><span class="nexum-mark">NEXUM</span> Neural Reconnection System &mdash; App UI Design Mockup &middot; 2026</p>
+  <footer style="border-top:1px solid var(--border);padding:64px 24px 32px;margin-top:48px;background:var(--bg-card);width:100%">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;max-width:1100px;margin:0 auto">
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <img src="favicon.svg" width="24" height="24" alt="Nexum">
+          <span style="font-weight:700;font-size:16px;color:var(--text)">Nexum逐念而行</span>
+        </div>
+        <p style="font-size:13px;color:var(--text-tertiary);margin-top:8px;max-width:280px">从大脑到肌肉的AI。读取大脑运动意图，AI生成个性化策略，驱动轻量穿戴式外骨骼，持续进化——定义人机共生。</p>
+      </div>
+      <div>
+        <h4 style="font-size:12px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;color:var(--text)">导航</h4>
+        <a href="index.html" style="display:block;font-size:13px;color:var(--text-secondary);line-height:1.9">首页</a>
+        <a href="product.html" style="display:block;font-size:13px;color:var(--text-secondary);line-height:1.9">产品</a>
+        <a href="technology.html" style="display:block;font-size:13px;color:var(--text-secondary);line-height:1.9">技术</a>
+        <a href="app.html" style="display:block;font-size:13px;color:var(--text-secondary);line-height:1.9">App</a>
+        <a href="index.html#team" style="display:block;font-size:13px;color:var(--text-secondary);line-height:1.9">团队</a>
+      </div>
+      <div>
+        <h4 style="font-size:12px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;color:var(--text)">文档</h4>
+        <a href="逐念而行_Nexum_BP.html" style="display:block;font-size:13px;color:var(--text-secondary);line-height:1.9">商业计划书</a>
+        <a href="docs/Nexum_One_PRD.html" style="display:block;font-size:13px;color:var(--text-secondary);line-height:1.9">产品需求文档</a>
+        <a href="docs/Nexum_One_Clinical_Protocol.html" style="display:block;font-size:13px;color:var(--text-secondary);line-height:1.9">临床方案</a>
+        <a href="docs/Nexum_One_Engineering_Architecture.html" style="display:block;font-size:13px;color:var(--text-secondary);line-height:1.9">工程架构</a>
+        <a href="docs/README.md" style="display:block;font-size:13px;color:var(--text-secondary);line-height:1.9">文档索引</a>
+      </div>
+      <div>
+        <h4 style="font-size:12px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;color:var(--text)">联系</h4>
+        <a href="mailto:hello@nexum.ai" style="display:block;font-size:13px;color:var(--text-secondary);line-height:1.9">hello@nexum.ai</a>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.9">中国 · 上海</p>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border);margin-top:48px;padding-top:24px;display:flex;justify-content:space-between;font-size:12px;color:var(--text-tertiary);max-width:1100px;margin-left:auto;margin-right:auto">
+      <span>&copy; 2026 逐念而行 Nexum. All rights reserved.</span>
+      <span>Confidential — For Investor Use Only</span>
+    </div>
   </footer>
 
 </div><!-- end container -->
