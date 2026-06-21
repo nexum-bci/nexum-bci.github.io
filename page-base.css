@@ -139,6 +139,70 @@ li{margin-bottom:6px;color:var(--text-secondary);line-height:1.65}
 ul li::marker{color:var(--accent)}
 ol li::marker{color:var(--accent);font-weight:600}
 
+
+/* ============================================================
+   PRECISION TYPOGRAPHY — spacing, weights, line heights
+   ============================================================ */
+
+/* Heading to paragraph spacing — consistent rhythm */
+h1{margin-bottom:16px}
+h1 + p{margin-top:0}
+h2{margin-bottom:12px}
+h2 + p{margin-top:0}
+h3{margin-bottom:8px}
+h3 + p{margin-top:0}
+h4{margin-bottom:6px}
+
+/* Paragraph spacing — uniform */
+p{margin-bottom:16px}
+p:last-child{margin-bottom:0}
+
+/* List spacing */
+ul,ol{margin:12px 0}
+li{margin-bottom:6px;line-height:1.65}
+li:last-child{margin-bottom:0}
+
+/* Section spacing — consistent breathing room */
+.page-section + .page-section{padding-top:0}
+section + section{margin-top:0}
+
+/* Content card internal spacing */
+.content-card > *:first-child{margin-top:0}
+.content-card > *:last-child{margin-bottom:0}
+.content-card p + p{margin-top:14px}
+.content-card h2 + p,.content-card h3 + p{margin-top:4px}
+.content-card h2:not(:first-child){margin-top:48px}
+.content-card h3{margin-top:32px;margin-bottom:8px}
+.content-card h4{margin-top:24px;margin-bottom:4px}
+
+/* Blockquote spacing */
+blockquote{margin:20px 0;padding:16px 20px}
+blockquote > :first-child{margin-top:0}
+blockquote > :last-child{margin-bottom:0}
+
+/* Gradient usage — only for hero/CTA, never for text */
+.gradient-text{background:linear-gradient(135deg,var(--accent),#409cff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gradient-bg{background:linear-gradient(135deg,var(--accent-subtle),transparent)}
+
+/* Line height system — uniform across all text */
+body{line-height:1.6}
+h1,h2,h3,h4{line-height:1.2}
+p,li,td,th{line-height:1.65}
+.text-compact{line-height:1.4}
+.text-relaxed{line-height:1.8}
+
+/* Font weight system — Apple SF-style */
+.fw-regular{font-weight:400}
+.fw-medium{font-weight:500}
+.fw-semibold{font-weight:600}
+.fw-bold{font-weight:700}
+
+/* Letter spacing system */
+.ls-tight{letter-spacing:-0.3px}
+.ls-normal{letter-spacing:0}
+.ls-wide{letter-spacing:0.5px}
+.ls-wider{letter-spacing:1px}
+
 /* Cards — with hover noise texture */
 .card{
   position:relative;
