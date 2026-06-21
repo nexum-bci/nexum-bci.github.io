@@ -92,6 +92,36 @@ body::before {
 }
 
 /* ============================================================
+   SITE NAV
+   ============================================================ */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 52px;
+  background: rgba(10,15,26,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(30,41,59,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+.site-nav a {
+  color: #0096f0;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+.site-nav a:hover { color: #1aa6ff; }
+.site-nav span {
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ============================================================
    LAYOUT
    ============================================================ */
 .container {
@@ -99,7 +129,7 @@ body::before {
   z-index: 1;
   width: 100%;
   max-width: 1160px;
-  padding: 48px 32px 64px;
+  padding: 80px 32px 64px;
 }
 
 /* ============================================================
@@ -1352,7 +1382,10 @@ body::before {
 </style>
 </head>
 <body>
-
+<nav class="site-nav">
+  <a href="../index.html">← 返回门户</a>
+  <span>App UI 设计</span>
+</nav>
 <div class="container">
 
   <!-- ==========================================================

@@ -4,31 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nexum 逐念而行 — 定义人机共生</title>
-<meta name="description" content="Nexum One 神经重连AI系统：读取大脑运动意图，AI生成个性化助力，驱动轻量穿戴式外骨骼。">
+<meta name="description" content="Nexum One 神经重连AI系统：读取大脑运动意图，AI生成个性化助力策略，驱动轻量穿戴式外骨骼。从大脑到肌肉的AI，让9400万人重新行走。">
+<meta name="theme-color" content="#0a0f1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+/* ============================================================
+   ROOT & RESET
+   ============================================================ */
 :root {
   --bg: #0a0f1a;
-  --bg2: #0d1422;
-  --card: rgba(21, 29, 46, 0.7);
-  --card-border: rgba(30, 41, 59, 0.6);
-  --card-hover-border: rgba(0, 150, 240, 0.4);
+  --bg-alt: #0d1422;
+  --bg-card: rgba(21, 29, 46, 0.6);
+  --border-card: rgba(30, 41, 59, 0.5);
+  --border-card-hover: rgba(0, 150, 240, 0.3);
   --accent: #0096f0;
-  --accent2: #60a5fa;
-  --accent-glow: rgba(0, 150, 240, 0.15);
+  --accent-light: #60a5fa;
+  --accent-glow: rgba(0, 150, 240, 0.12);
+  --accent-subtle: rgba(0, 150, 240, 0.06);
   --text: #e5e7eb;
-  --text2: #94a3b8;
-  --text3: #64748b;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --text-muted: #475569;
   --section-gap: 140px;
-  --nav-h: 64px;
+  --nav-height: 64px;
+  --max-width: 1200px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 body {
-  font-family: 'PingFang SC', 'Inter', -apple-system, system-ui, sans-serif;
+  font-family: 'Inter', 'PingFang SC', -apple-system, system-ui, 'Microsoft YaHei', sans-serif;
   background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
@@ -36,25 +48,50 @@ body {
   overflow-x: hidden;
   line-height: 1.6;
 }
+::selection { background: rgba(0, 150, 240, 0.3); color: #fff; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 3px; }
 
-/* ===== NAV ===== */
+/* ============================================================
+   TYPOGRAPHY TOKENS (for reference — sizes applied inline)
+   11 / 12 / 13 / 14 / 16 / 18 / 20 / 24 / 32 / 48 / 72
+   ============================================================ */
+
+/* ============================================================
+   NOISE OVERLAY
+   ============================================================ */
+.noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: var(--nav-h);
+  height: var(--nav-height);
   z-index: 1000;
-  background: rgba(10, 15, 26, 0.75);
-  backdrop-filter: blur(24px) saturate(1.2);
-  -webkit-backdrop-filter: blur(24px) saturate(1.2);
-  border-bottom: 1px solid rgba(30, 41, 59, 0.4);
-  transition: background 0.4s;
+  background: rgba(10, 15, 26, 0.7);
+  backdrop-filter: blur(28px) saturate(1.3);
+  -webkit-backdrop-filter: blur(28px) saturate(1.3);
+  border-bottom: 1px solid rgba(30, 41, 59, 0.3);
+  transition: background 0.5s var(--ease-smooth), border-color 0.5s var(--ease-smooth);
 }
 nav.scrolled {
   background: rgba(10, 15, 26, 0.92);
-  border-bottom-color: rgba(30, 41, 59, 0.7);
+  border-bottom-color: rgba(30, 41, 59, 0.6);
 }
 .nav-inner {
-  max-width: 1280px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 32px;
   height: 100%;
@@ -71,6 +108,7 @@ nav.scrolled {
   display: flex;
   align-items: center;
   gap: 10px;
+  user-select: none;
 }
 .nav-logo .logo-dot {
   display: inline-block;
@@ -78,29 +116,29 @@ nav.scrolled {
   height: 8px;
   border-radius: 50%;
   background: var(--accent);
-  animation: pulse-dot 2.5s ease-in-out infinite;
+  animation: pulse-dot 2.8s ease-in-out infinite;
 }
 @keyframes pulse-dot {
-  0%, 100% { opacity: 0.6; box-shadow: 0 0 0 0 rgba(0,150,240,0.3); }
-  50% { opacity: 1; box-shadow: 0 0 0 6px rgba(0,150,240,0); }
+  0%, 100% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(0,150,240,0.25); }
+  50% { opacity: 1; box-shadow: 0 0 0 8px rgba(0,150,240,0); }
 }
 .nav-logo span { color: var(--accent); }
-
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 36px;
   list-style: none;
 }
 .nav-links a {
-  color: var(--text2);
+  color: var(--text-secondary);
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.3px;
-  transition: color 0.25s;
+  letter-spacing: 0.5px;
+  transition: color 0.3s var(--ease-smooth);
   position: relative;
   padding: 4px 0;
+  cursor: pointer;
 }
 .nav-links a::after {
   content: '';
@@ -110,7 +148,7 @@ nav.scrolled {
   width: 0;
   height: 2px;
   background: var(--accent);
-  transition: width 0.3s var(--ease-out);
+  transition: width 0.35s var(--ease-out);
   border-radius: 1px;
 }
 .nav-links a:hover { color: var(--text); }
@@ -119,24 +157,22 @@ nav.scrolled {
 .nav-links a.active::after { width: 100%; }
 .nav-cta {
   display: inline-flex;
-  padding: 8px 20px;
+  padding: 8px 22px;
   background: var(--accent);
   color: #fff !important;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.5px;
-  transition: all 0.3s;
+  transition: all 0.35s var(--ease-out);
   text-decoration: none;
 }
 .nav-cta:hover {
   background: #0080d0;
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0,150,240,0.3);
+  box-shadow: 0 4px 20px rgba(0,150,240,0.3);
 }
 .nav-cta::after { display: none !important; }
-
-/* Mobile menu toggle */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -145,6 +181,7 @@ nav.scrolled {
   background: none;
   border: none;
   padding: 4px;
+  z-index: 1001;
 }
 .nav-toggle span {
   display: block;
@@ -152,10 +189,65 @@ nav.scrolled {
   height: 2px;
   background: var(--text);
   border-radius: 2px;
-  transition: all 0.3s;
+  transition: all 0.3s var(--ease-smooth);
+}
+.nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.4s var(--ease-out);
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(0,150,240,0.25);
+}
+.btn-primary:hover {
+  background: #0080d0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(0,150,240,0.35);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.btn-secondary:hover {
+  border-color: var(--accent);
+  background: rgba(0,150,240,0.06);
+  transform: translateY(-2px);
+}
+.btn-outline-light {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 10px 24px;
+  font-size: 12px;
+}
+.btn-outline-light:hover {
+  border-color: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.03);
+  transform: translateY(-1px);
 }
 
-/* ===== HERO ===== */
+/* ============================================================
+   HERO
+   ============================================================ */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -163,7 +255,7 @@ nav.scrolled {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: calc(var(--nav-h) + 48px) 24px 80px;
+  padding: calc(var(--nav-height) + 48px) 24px 80px;
   position: relative;
   overflow: hidden;
 }
@@ -171,52 +263,88 @@ nav.scrolled {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0,150,240,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,150,240,0.025) 1px, transparent 1px);
+    linear-gradient(rgba(0,150,240,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,150,240,0.02) 1px, transparent 1px);
   background-size: 64px 64px;
   pointer-events: none;
+  animation: grid-drift 20s linear infinite;
+}
+@keyframes grid-drift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-32px, -16px); }
+  100% { transform: translate(0, 0); }
 }
 .hero-glow {
   position: absolute;
-  top: -30%;
+  top: -25%;
   left: 50%;
   width: 900px;
   height: 900px;
   transform: translateX(-50%);
-  background: radial-gradient(ellipse at center, rgba(0,150,240,0.07) 0%, transparent 65%);
+  background: radial-gradient(ellipse at center, rgba(0,150,240,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(ellipse at center, rgba(96,165,250,0.04) 0%, transparent 60%);
   pointer-events: none;
 }
 .hero-pre {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   color: var(--accent);
   letter-spacing: 5px;
   text-transform: uppercase;
   margin-bottom: 28px;
   opacity: 0;
-  animation: fade-up 0.8s var(--ease-out) 0.2s forwards;
+  animation: fade-up 0.8s var(--ease-out) 0.15s forwards;
 }
 .hero h1 {
-  font-size: clamp(48px, 7vw, 88px);
+  font-size: clamp(52px, 8vw, 96px);
   font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -2px;
-  margin-bottom: 24px;
-  background: linear-gradient(135deg, #f0f4f8 0%, var(--accent) 50%, var(--accent2) 100%);
+  line-height: 1.02;
+  letter-spacing: -3px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #f0f4f8 0%, #60a5fa 35%, var(--accent) 55%, #60a5fa 75%, #f0f4f8 100%);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: gradient-shift 6s ease-in-out infinite, fade-up 0.8s var(--ease-out) 0.3s forwards;
   opacity: 0;
-  animation: fade-up 0.8s var(--ease-out) 0.35s forwards;
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.hero-sub {
+  font-size: clamp(14px, 1.2vw, 18px);
+  color: #8899b0;
+  max-width: 640px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fade-up 0.8s var(--ease-out) 0.45s forwards;
+  letter-spacing: 0.2px;
+}
+.hero-sub em {
+  color: var(--accent-light);
+  font-style: normal;
+  font-weight: 500;
 }
 .hero-tagline {
-  font-size: clamp(16px, 1.4vw, 20px);
-  color: var(--text2);
-  max-width: 620px;
+  font-size: clamp(13px, 1vw, 15px);
+  color: var(--text-tertiary);
+  max-width: 560px;
   line-height: 1.7;
   margin-bottom: 44px;
   opacity: 0;
-  animation: fade-up 0.8s var(--ease-out) 0.5s forwards;
+  animation: fade-up 0.8s var(--ease-out) 0.55s forwards;
+  letter-spacing: 0.3px;
 }
 .hero-ctas {
   display: flex;
@@ -227,42 +355,9 @@ nav.scrolled {
   opacity: 0;
   animation: fade-up 0.8s var(--ease-out) 0.65s forwards;
 }
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 32px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s var(--ease-out);
-  letter-spacing: 0.3px;
-}
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 4px 20px rgba(0,150,240,0.25);
-}
-.btn-primary:hover {
-  background: #0080d0;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0,150,240,0.35);
-}
-.btn-secondary {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid rgba(255,255,255,0.15);
-}
-.btn-secondary:hover {
-  border-color: var(--accent);
-  background: rgba(0,150,240,0.06);
-  transform: translateY(-2px);
-}
-
 .hero-metrics {
   display: flex;
-  gap: 48px;
+  gap: 56px;
   flex-wrap: wrap;
   justify-content: center;
   opacity: 0;
@@ -273,21 +368,22 @@ nav.scrolled {
 }
 .metric-val {
   display: block;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
 }
 .metric-lbl {
   font-size: 12px;
-  color: var(--text3);
-  margin-top: 4px;
-  letter-spacing: 0.3px;
+  color: var(--text-tertiary);
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
 }
-
 .hero-scroll {
   position: absolute;
   bottom: 32px;
@@ -296,59 +392,62 @@ nav.scrolled {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  opacity: 0.4;
+  gap: 10px;
+  opacity: 0;
   animation: fade-up 0.8s var(--ease-out) 1.2s forwards;
 }
 .hero-scroll-line {
   width: 1px;
   height: 32px;
-  background: linear-gradient(to bottom, var(--text3), transparent);
-  animation: scroll-pulse 2s ease-in-out infinite;
+  background: linear-gradient(to bottom, var(--text-tertiary), transparent);
+  animation: scroll-pulse 2.4s ease-in-out infinite;
 }
 .hero-scroll span {
   font-size: 10px;
-  color: var(--text3);
-  letter-spacing: 2px;
+  color: var(--text-muted);
+  letter-spacing: 2.5px;
+  font-weight: 500;
 }
 @keyframes scroll-pulse {
-  0%, 100% { opacity: 0.3; transform: scaleY(1); }
-  50% { opacity: 1; transform: scaleY(1.3); }
+  0%, 100% { opacity: 0.25; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.5); }
 }
-
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== SECTIONS COMMON ===== */
+/* ============================================================
+   SECTIONS — COMMON
+   ============================================================ */
 .section {
   padding: var(--section-gap) 24px;
+  position: relative;
 }
 .section-inner {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 .section-label {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--accent);
   letter-spacing: 4px;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 .section h2 {
   font-size: clamp(28px, 3vw, 42px);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.15;
   margin-bottom: 16px;
   letter-spacing: -0.5px;
 }
 .section-sub {
-  font-size: 16px;
-  color: var(--text2);
+  font-size: 15px;
+  color: var(--text-secondary);
   max-width: 600px;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: 56px;
 }
 .section-sub.center {
@@ -357,8 +456,18 @@ nav.scrolled {
   margin-right: auto;
 }
 .text-center { text-align: center; }
+.section-divider {
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin: 0 auto 24px;
+  opacity: 0.6;
+}
 
-/* ===== REVEAL ANIMATIONS ===== */
+/* ============================================================
+   REVEAL ANIMATIONS
+   ============================================================ */
 [data-reveal] {
   opacity: 0;
   transform: translateY(40px);
@@ -368,116 +477,107 @@ nav.scrolled {
   opacity: 1;
   transform: translateY(0);
 }
-[data-reveal][data-delay="1"] { transition-delay: 0.1s; }
-[data-reveal][data-delay="2"] { transition-delay: 0.2s; }
-[data-reveal][data-delay="3"] { transition-delay: 0.3s; }
-[data-reveal][data-delay="4"] { transition-delay: 0.4s; }
-[data-reveal][data-delay="5"] { transition-delay: 0.5s; }
+[data-reveal][data-delay="1"] { transition-delay: 0.08s; }
+[data-reveal][data-delay="2"] { transition-delay: 0.16s; }
+[data-reveal][data-delay="3"] { transition-delay: 0.24s; }
+[data-reveal][data-delay="4"] { transition-delay: 0.32s; }
+[data-reveal][data-delay="5"] { transition-delay: 0.40s; }
 
-/* ===== PROBLEM ===== */
-#problem { background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%); }
+/* ============================================================
+   PROBLEM
+   ============================================================ */
+#problem {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+}
 .problem-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 48px;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
 }
-.problem-card {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 36px 32px;
+.problem-statement {
+  padding-right: 24px;
+}
+.problem-statement .lead {
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 20px;
+  letter-spacing: -0.3px;
+}
+.problem-statement .lead em {
+  color: var(--accent-light);
+  font-style: normal;
+}
+.problem-statement .sub {
+  font-size: 15px;
+  color: var(--text-tertiary);
+  line-height: 1.8;
+}
+.problem-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 28px 32px;
   transition: all 0.4s var(--ease-out);
   position: relative;
   overflow: hidden;
 }
-.problem-card:hover {
-  border-color: var(--card-hover-border);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+.stat-card:hover {
+  border-color: var(--border-card-hover);
+  transform: translateX(4px);
+  background: rgba(21, 29, 46, 0.75);
 }
-.problem-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  opacity: 0;
-  transition: opacity 0.4s;
+.stat-card .stat-num {
+  font-size: 36px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  letter-spacing: -1px;
+  min-width: 100px;
+  flex-shrink: 0;
 }
-.problem-card:hover::before { opacity: 1; }
-.problem-card .icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: rgba(0,150,240,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--accent);
-}
-.problem-card h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-.problem-card p {
-  font-size: 14px;
-  color: var(--text2);
-  line-height: 1.7;
-}
-.problem-conclusion {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 32px 40px;
-  background: rgba(0,150,240,0.04);
-  border: 1px solid rgba(0,150,240,0.12);
-  border-radius: 12px;
-}
-.problem-conclusion p {
-  font-size: 17px;
-  color: var(--text);
-  font-weight: 500;
-  line-height: 1.7;
-}
-.problem-conclusion em {
-  color: var(--accent);
-  font-style: normal;
+.stat-card .stat-info h4 {
+  font-size: 15px;
   font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.stat-card .stat-info p {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  line-height: 1.6;
 }
 
-/* ===== PRODUCT ===== */
-#product {
-  background: var(--bg);
-}
-.product-header {
-  text-align: center;
-  margin-bottom: 56px;
-}
+/* ============================================================
+   PRODUCT
+   ============================================================ */
+#product { background: var(--bg); }
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 .product-card {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
   padding: 40px 32px;
-  transition: all 0.4s var(--ease-out);
+  transition: all 0.5s var(--ease-out);
   position: relative;
   overflow: hidden;
-}
-.product-card:hover {
-  border-color: var(--card-hover-border);
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
 }
 .product-card::before {
   content: '';
@@ -486,39 +586,50 @@ nav.scrolled {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: opacity 0.5s var(--ease-smooth);
+}
+.product-card:hover {
+  border-color: var(--border-card-hover);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.3);
 }
 .product-card:hover::before { opacity: 1; }
 .product-card .icon-area {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   background: rgba(0,150,240,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
+  transition: background 0.4s var(--ease-smooth);
+}
+.product-card:hover .icon-area {
+  background: rgba(0,150,240,0.14);
 }
 .product-card .icon-area svg {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
 }
 .product-card h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
+  line-height: 1.3;
 }
 .product-card .product-en {
-  font-size: 13px;
-  color: var(--text3);
+  font-size: 12px;
+  color: var(--text-muted);
   font-weight: 500;
   margin-bottom: 16px;
+  letter-spacing: 0.3px;
 }
 .product-card .product-desc {
   font-size: 14px;
-  color: var(--text2);
+  color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 24px;
 }
@@ -527,10 +638,11 @@ nav.scrolled {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 0;
 }
 .specs-list li {
   font-size: 13px;
-  color: var(--text2);
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -548,124 +660,228 @@ nav.scrolled {
   font-weight: 600;
 }
 
-/* ===== TECHNOLOGY ===== */
+/* ============================================================
+   TECHNOLOGY
+   ============================================================ */
 #technology {
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
 }
-.tech-loop-svg {
-  max-width: 900px;
-  margin: 0 auto 48px;
+.tech-loop {
+  max-width: 960px;
+  margin: 0 auto 56px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: 48px 40px 56px;
+  position: relative;
+  overflow: hidden;
 }
-.tech-loop-svg svg {
+.tech-loop::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 50% 30%, rgba(0,150,240,0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+.tech-loop svg {
   width: 100%;
   height: auto;
+  display: block;
 }
 .tech-breakdown {
-  max-width: 720px;
+  max-width: 640px;
   margin: 0 auto;
 }
 .tech-breakdown h4 {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
-  color: var(--text2);
+  color: var(--text-tertiary);
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  letter-spacing: 1px;
 }
 .breakdown-bars {
   display: flex;
-  gap: 8px;
+  gap: 16px;
   align-items: flex-end;
   justify-content: center;
+  height: 180px;
 }
 .breakdown-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  flex: 1;
+  max-width: 120px;
 }
-.breakdown-bar .bar {
-  width: 60px;
+.breakdown-bar .bar-track {
+  width: 100%;
   border-radius: 6px 6px 0 0;
-  transition: height 1.2s var(--ease-out);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: height 1.4s var(--ease-out);
+  min-height: 20px;
+}
+.breakdown-bar .bar-track .bar-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 6px 6px 0 0;
+  height: 100%;
+  transition: height 1.4s var(--ease-out);
 }
 .breakdown-bar .bar-val {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--text);
-  margin-top: -22px;
+  position: relative;
+  z-index: 1;
+  margin-top: -20px;
 }
 .breakdown-bar .bar-label {
   font-size: 11px;
-  color: var(--text3);
+  color: var(--text-tertiary);
   text-align: center;
-  max-width: 80px;
   line-height: 1.4;
-  margin-top: 4px;
+  font-weight: 500;
 }
 
-/* ===== MARKET ===== */
-#market {
-  background: var(--bg);
-}
-.market-timeline-svg {
-  max-width: 880px;
-  margin: 0 auto 56px;
-}
-.market-timeline-svg svg {
-  width: 100%;
-  height: auto;
-}
-.market-grid {
+/* ============================================================
+   MARKET
+   ============================================================ */
+#market { background: var(--bg); }
+.market-phases {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  margin-bottom: 48px;
 }
 .market-card {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 32px 28px;
-  transition: all 0.4s var(--ease-out);
-  text-align: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  transition: all 0.5s var(--ease-out);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+.market-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0.3;
+  transition: opacity 0.4s;
 }
 .market-card:hover {
-  border-color: var(--card-hover-border);
+  border-color: var(--border-card-hover);
   transform: translateY(-4px);
   box-shadow: 0 16px 48px rgba(0,0,0,0.2);
 }
-.market-card .phase {
+.market-card:hover::before { opacity: 1; }
+.market-card .phase-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 2.5px;
+  margin-bottom: 16px;
+  padding: 4px 12px;
+  background: rgba(0,150,240,0.06);
+  border-radius: 4px;
+  border: 1px solid rgba(0,150,240,0.1);
+}
+.market-card .size {
+  font-size: 40px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 6px;
+  letter-spacing: -1px;
+}
+.market-card .market-range {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.market-card .market-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.market-card .market-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   WHY NOW
+   ============================================================ */
+#why-now {
+  background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.why-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 32px 28px;
+  transition: all 0.4s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+.why-card:hover {
+  border-color: var(--border-card-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+.why-card .why-num {
   font-size: 11px;
   font-weight: 700;
   color: var(--accent);
   letter-spacing: 3px;
   margin-bottom: 12px;
+  opacity: 0.6;
 }
-.market-card .size {
-  font-size: 38px;
-  font-weight: 900;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.1;
-  margin-bottom: 4px;
-}
-.market-card .market-name {
-  font-size: 15px;
+.why-card h4 {
+  font-size: 16px;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  line-height: 1.3;
 }
-.market-card .market-desc {
+.why-card p {
   font-size: 13px;
-  color: var(--text2);
+  color: var(--text-secondary);
   line-height: 1.7;
 }
 
-/* ===== TEAM ===== */
+/* ============================================================
+   TEAM
+   ============================================================ */
 #team {
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
 }
 .team-grid {
   display: grid;
@@ -675,27 +891,41 @@ nav.scrolled {
   margin: 0 auto;
 }
 .team-card {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 36px 32px;
-  transition: all 0.4s var(--ease-out);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  transition: all 0.5s var(--ease-out);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  opacity: 0;
+  transition: opacity 0.4s;
 }
 .team-card:hover {
-  border-color: var(--card-hover-border);
+  border-color: var(--border-card-hover);
   transform: translateY(-4px);
   box-shadow: 0 16px 48px rgba(0,0,0,0.2);
 }
+.team-card:hover::before { opacity: 1; }
 .team-avatar {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(0,150,240,0.15), rgba(96,165,250,0.1));
-  border: 2px solid rgba(0,150,240,0.2);
+  background: linear-gradient(135deg, rgba(0,150,240,0.12), rgba(96,165,250,0.08));
+  border: 2px solid rgba(0,150,240,0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -703,6 +933,7 @@ nav.scrolled {
   font-size: 28px;
   font-weight: 700;
   color: var(--accent);
+  user-select: none;
 }
 .team-card h3 {
   font-size: 18px;
@@ -713,33 +944,35 @@ nav.scrolled {
   font-size: 13px;
   color: var(--accent);
   font-weight: 600;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
+  letter-spacing: 0.3px;
 }
 .team-card .team-bio {
   font-size: 13px;
-  color: var(--text2);
+  color: var(--text-secondary);
   line-height: 1.7;
 }
 .team-card.team-cta {
   border-style: dashed;
+  border-color: rgba(30, 41, 59, 0.4);
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
-.team-card.team-cta h3 {
-  color: var(--text2);
-  margin-bottom: 8px;
+.team-card.team-cta:hover {
+  border-color: var(--border-card-hover);
+  border-style: dashed;
 }
-.team-card.team-cta p {
-  color: var(--text3);
-  font-size: 14px;
+.team-card.team-cta .team-avatar {
+  border-style: dashed;
+  border-color: rgba(0,150,240,0.15);
 }
 
-/* ===== DOCUMENTS ===== */
-#documents {
-  background: var(--bg);
-}
+/* ============================================================
+   DOCUMENTS
+   ============================================================ */
+#documents { background: var(--bg); }
 .doc-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -749,15 +982,15 @@ nav.scrolled {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
   padding: 20px;
   text-decoration: none;
-  transition: all 0.3s var(--ease-out);
+  transition: all 0.35s var(--ease-out);
 }
 .doc-card:hover {
-  border-color: var(--card-hover-border);
+  border-color: var(--border-card-hover);
   transform: translateY(-3px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.15);
 }
@@ -770,10 +1003,12 @@ nav.scrolled {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--accent);
+  transition: background 0.3s;
 }
+.doc-card:hover .doc-icon { background: rgba(0,150,240,0.14); }
 .doc-card .doc-info { flex: 1; min-width: 0; }
 .doc-card .doc-info h4 {
   font-size: 14px;
@@ -784,7 +1019,7 @@ nav.scrolled {
 }
 .doc-card .doc-info p {
   font-size: 12px;
-  color: var(--text3);
+  color: var(--text-tertiary);
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -803,12 +1038,26 @@ nav.scrolled {
   align-self: flex-start;
 }
 
-/* ===== CONTACT ===== */
+/* ============================================================
+   CONTACT
+   ============================================================ */
 #contact {
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+  position: relative;
+}
+#contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  opacity: 0.3;
 }
 .contact-content {
-  max-width: 600px;
+  max-width: 560px;
   margin: 0 auto;
   text-align: center;
 }
@@ -827,7 +1076,7 @@ nav.scrolled {
   justify-content: center;
   gap: 12px;
   font-size: 15px;
-  color: var(--text2);
+  color: var(--text-secondary);
 }
 .contact-item .contact-icon {
   width: 40px;
@@ -842,17 +1091,20 @@ nav.scrolled {
 .contact-item a {
   color: var(--text);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.25s;
+  font-weight: 500;
 }
 .contact-item a:hover { color: var(--accent); }
 
-/* ===== FOOTER ===== */
+/* ============================================================
+   FOOTER
+   ============================================================ */
 footer {
-  border-top: 1px solid rgba(30, 41, 59, 0.4);
-  padding: 48px 24px 32px;
+  border-top: 1px solid rgba(30, 41, 59, 0.3);
+  padding: 56px 24px 32px;
 }
 .footer-inner {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -860,17 +1112,19 @@ footer {
   margin-bottom: 40px;
 }
 footer h5 {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 16px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
 }
 footer p, footer a {
   font-size: 13px;
-  color: var(--text3);
+  color: var(--text-tertiary);
   line-height: 1.8;
   text-decoration: none;
+  transition: color 0.25s;
 }
 footer a:hover { color: var(--accent); }
 footer .footer-links {
@@ -879,23 +1133,32 @@ footer .footer-links {
   flex-direction: column;
   gap: 8px;
 }
+footer .footer-brand-desc {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  line-height: 1.8;
+  max-width: 320px;
+}
 .footer-bottom {
   text-align: center;
   padding-top: 32px;
-  border-top: 1px solid rgba(30, 41, 59, 0.3);
+  border-top: 1px solid rgba(30, 41, 59, 0.2);
 }
 .footer-bottom p {
   font-size: 11px;
-  color: var(--text3);
+  color: var(--text-muted);
 }
 
-/* ===== RESPONSIVE ===== */
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 @media (max-width: 1024px) {
-  .problem-grid { grid-template-columns: 1fr; }
-  .product-grid { grid-template-columns: 1fr; }
-  .market-grid { grid-template-columns: 1fr; }
+  .product-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+  .market-phases { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto 40px; }
   .doc-grid { grid-template-columns: 1fr 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
+  .problem-grid { gap: 40px; }
+  .problem-statement { padding-right: 0; }
 }
 
 @media (max-width: 768px) {
@@ -903,14 +1166,15 @@ footer .footer-links {
 
   .nav-links {
     position: fixed;
-    top: var(--nav-h);
+    top: var(--nav-height);
     left: 0;
     right: 0;
     flex-direction: column;
-    background: rgba(10, 15, 26, 0.96);
-    backdrop-filter: blur(24px);
-    padding: 24px 32px;
-    gap: 20px;
+    background: rgba(10, 15, 26, 0.97);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    padding: 28px 32px;
+    gap: 22px;
     border-bottom: 1px solid rgba(30, 41, 59, 0.4);
     transform: translateY(-100%);
     opacity: 0;
@@ -926,24 +1190,102 @@ footer .footer-links {
   .nav-toggle { display: flex; }
   .nav-cta { align-self: flex-start; }
 
-  .hero-metrics { gap: 28px; }
-  .metric-val { font-size: 24px; }
+  .hero-metrics { gap: 32px; }
+  .metric-val { font-size: 26px; }
+
+  .problem-grid { grid-template-columns: 1fr; gap: 32px; }
+  .stat-card { padding: 24px; }
+  .stat-card .stat-num { font-size: 28px; min-width: 80px; }
 
   .doc-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-  .breakdown-bars { gap: 4px; }
-  .breakdown-bar .bar { width: 48px; }
+
+  .why-grid { grid-template-columns: 1fr; }
+
+  .tech-loop { padding: 32px 20px 40px; }
+
+  .breakdown-bars { gap: 10px; height: 150px; }
+  .breakdown-bar { max-width: 80px; }
+
+  .team-grid { max-width: 100%; }
 }
 
 @media (max-width: 480px) {
   .hero-ctas { flex-direction: column; align-items: center; }
   .btn { width: 100%; justify-content: center; }
   .product-card { padding: 28px 20px; }
-  .problem-card { padding: 28px 20px; }
+  .market-card { padding: 28px 20px; }
+  .stat-card { flex-direction: column; text-align: center; gap: 12px; }
+  .stat-card .stat-num { min-width: auto; }
+  .nav-inner { padding: 0 20px; }
+  .section { padding-left: 20px; padding-right: 20px; }
+}
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================ */
+@media print {
+  nav, .noise, .hero-scroll, .hero-bg-grid, .hero-glow, .hero-glow-2 {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-family: 'Inter', 'PingFang SC', system-ui, sans-serif;
+  }
+  .hero {
+    min-height: auto !important;
+    padding: 48px 24px !important;
+  }
+  .hero h1 {
+    -webkit-text-fill-color: #0096f0 !important;
+    color: #0096f0 !important;
+    background: none !important;
+  }
+  .metric-val {
+    -webkit-text-fill-color: #0096f0 !important;
+    color: #0096f0 !important;
+    background: none !important;
+  }
+  .section { padding: 48px 24px !important; page-break-inside: avoid; }
+  .section h2 { color: #111 !important; }
+  .section-sub { color: #555 !important; }
+  .stat-card, .product-card, .market-card, .why-card, .team-card, .doc-card, .tech-loop {
+    background: #f5f7fa !important;
+    border-color: #d1d5db !important;
+    -webkit-text-fill-color: #111 !important;
+    color: #111 !important;
+    box-shadow: none !important;
+  }
+  .stat-card .stat-num, .market-card .size, .stat-num, .size {
+    -webkit-text-fill-color: #0096f0 !important;
+    color: #0096f0 !important;
+    background: none !important;
+  }
+  #problem, #technology, #why-now, #team, #contact {
+    background: #fff !important;
+  }
+  .btn-primary {
+    background: #0096f0 !important;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+  }
+  .btn-secondary {
+    border-color: #999 !important;
+    color: #333 !important;
+    -webkit-text-fill-color: #333 !important;
+  }
+  footer { border-color: #d1d5db !important; }
+  footer p, footer a { color: #666 !important; }
+  .section-label { color: #0096f0 !important; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
 }
 </style>
 </head>
 <body>
+
+<!-- ===== NOISE OVERLAY ===== -->
+<div class="noise" aria-hidden="true"></div>
 
 <!-- ===== NAV ===== -->
 <nav id="navbar">
@@ -957,8 +1299,8 @@ footer .footer-links {
       <li><a href="#technology" class="nav-link">技术</a></li>
       <li><a href="#market" class="nav-link">市场</a></li>
       <li><a href="#team" class="nav-link">团队</a></li>
-      <li><a href="#documents" class="nav-link">文档</a></li>
-      <li><a href="#contact" class="nav-cta">联系投资</a></li>
+      <li><a href="#contact" class="nav-link">联系</a></li>
+      <li><a href="#contact" class="nav-cta">投资者入口</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="菜单">
       <span></span><span></span><span></span>
@@ -970,18 +1312,21 @@ footer .footer-links {
 <section class="hero" id="hero">
   <div class="hero-bg-grid"></div>
   <div class="hero-glow"></div>
-  <p class="hero-pre">赛道定义者 · 人机共生</p>
+  <div class="hero-glow-2"></div>
+  <p class="hero-pre">定义人机共生</p>
   <h1>逐念而行</h1>
+  <p class="hero-sub">
+    读取大脑运动意图 <em>→</em> AI生成个性化策略 <em>→</em> 驱动轻量级装置
+  </p>
   <p class="hero-tagline">
-    神经重连AI系统 —— 读取大脑运动意图，AI生成个性化助力策略，<br>
-    驱动轻量可穿戴外骨骼，让9400万人重新行走
+    从大脑到肌肉的AI。让9400万神经损伤患者重新行走。
   </p>
   <div class="hero-ctas">
     <a href="逐念而行_Nexum_BP.html" class="btn btn-primary">查看商业计划书</a>
     <a href="#contact" class="btn btn-secondary">联系团队</a>
   </div>
   <div class="hero-metrics">
-    <div class="metric"><span class="metric-val">94M</span><span class="metric-lbl">中风幸存者</span></div>
+    <div class="metric"><span class="metric-val">9400万</span><span class="metric-lbl">患者群体</span></div>
     <div class="metric"><span class="metric-val">&lt;185ms</span><span class="metric-lbl">端到端延迟</span></div>
     <div class="metric"><span class="metric-val">8ch</span><span class="metric-lbl">干电极EEG</span></div>
     <div class="metric"><span class="metric-val">&lt;1.5kg</span><span class="metric-lbl">系统总重</span></div>
@@ -994,32 +1339,43 @@ footer .footer-links {
 
 <!-- ===== PROBLEM ===== -->
 <section class="section" id="problem">
-  <div class="section-inner" data-reveal>
-    <div class="text-center">
+  <div class="section-inner">
+    <div class="text-center" data-reveal>
       <p class="section-label">The Problem</p>
-      <h2>9400万人，等待重新行走</h2>
-      <p class="section-sub center">每年全球新增1500万中风患者，但现有康复体系远远不足以满足需求</p>
+      <h2>9400万人等待重新行走</h2>
     </div>
-    <div class="problem-grid">
-      <div class="problem-card" data-reveal data-delay="1">
-        <div class="icon">01</div>
-        <h3>时间窗口紧迫</h3>
-        <p>神经康复的黄金窗口仅6个月。错过这个时期，运动功能恢复的可能性急剧下降。大多数患者无法在窗口期内获得足够强度的训练。</p>
+    <div class="problem-grid" style="margin-top:48px;">
+      <div class="problem-statement" data-reveal data-delay="1">
+        <p class="lead">
+          大脑还记得怎么走，但指令传不到肌肉。
+        </p>
+        <p class="sub">
+          每年全球新增1500万中风患者。神经康复的黄金窗口仅6个月，但现有康复体系远远不足以满足需求——治疗师严重短缺，设备笨重昂贵，且无法真正理解患者的运动意图。
+        </p>
       </div>
-      <div class="problem-card" data-reveal data-delay="2">
-        <div class="icon">02</div>
-        <h3>资源严重不足</h3>
-        <p>每名患者年均康复费用超$30,000，而专业治疗师缺口巨大。现有方案依赖人工，难以规模化，多数患者无法负担。</p>
+      <div class="problem-stats" data-reveal data-delay="2">
+        <div class="stat-card">
+          <span class="stat-num">9400万</span>
+          <div class="stat-info">
+            <h4>全球中风存活者</h4>
+            <p>约50%留有运动功能障碍，需要长期康复训练</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">1500万/年</span>
+          <div class="stat-info">
+            <h4>新增中风患者</h4>
+            <p>全球每年新增，其中30%需要康复干预但无法获得</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">$30,000+</span>
+          <div class="stat-info">
+            <h4>人均年康复费用</h4>
+            <p>现有方案依赖人工，难以规模化，多数患者无法负担</p>
+          </div>
+        </div>
       </div>
-      <div class="problem-card" data-reveal data-delay="3">
-        <div class="icon">03</div>
-        <h3>技术断层</h3>
-        <p>现有外骨骼笨重、昂贵，无法读取神经意图。它们只是被动的"抬腿机器"，而非真正理解大脑运动意图的智能系统。</p>
-      </div>
-    </div>
-    <div class="problem-conclusion" data-reveal data-delay="4">
-      <p>需要一个全新的范式 —— 直接从大脑读取运动意图，让 AI 生成个性化助力方案，<br>
-      <em>让意图与行动重新连接。</em></p>
     </div>
   </div>
 </section>
@@ -1027,7 +1383,7 @@ footer .footer-links {
 <!-- ===== PRODUCT ===== -->
 <section class="section" id="product">
   <div class="section-inner" data-reveal>
-    <div class="product-header">
+    <div class="text-center">
       <p class="section-label">Our Product</p>
       <h2>Nexum One 神经重连系统</h2>
       <p class="section-sub center">从脑信号到身体动作的完整闭环 —— 三件套设计，每一件都追求极致的轻量与精准</p>
@@ -1035,25 +1391,31 @@ footer .footer-links {
     <div class="product-grid">
       <div class="product-card" data-reveal data-delay="1">
         <div class="icon-area">
-          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2C10 2 6 6 6 10c0 4 8 16 8 16s8-12 8-16c0-4-4-8-8-8z" stroke="#0096f0"/><circle cx="14" cy="10" r="3" stroke="#0096f0"/></svg>
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M14 2C10 2 6 6 6 10c0 4 8 16 8 16s8-12 8-16c0-4-4-8-8-8z" stroke="#0096f0"/>
+            <circle cx="14" cy="10" r="3" stroke="#0096f0"/>
+          </svg>
         </div>
         <h3>EEG-Sense 神经信号读取</h3>
         <p class="product-en">Neural Signal Acquisition</p>
-        <p class="product-desc">8通道干电极EEG头带，250SPS高采样率，实时检测运动准备电位，将大脑意图转化为数字信号。</p>
+        <p class="product-desc">8通道干电极EEG头带，实时检测运动准备电位，将大脑意图转化为数字信号。</p>
         <ul class="specs-list">
           <li><strong>80g</strong> 超轻设计，佩戴无感</li>
           <li><strong>8通道</strong> 干电极，无需导电膏</li>
-          <li><strong>250SPS</strong> 采样率，精准捕捉MP</li>
+          <li><strong>250SPS</strong> 采样率，精准捕捉</li>
           <li><strong>蓝牙5.2</strong> 无线传输，8h续航</li>
         </ul>
       </div>
       <div class="product-card" data-reveal data-delay="2">
         <div class="icon-area">
-          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10c0-4 4-6 10-6s10 2 10 6v8c0 4-4 6-10 6s-10-2-10-6v-8z" stroke="#0096f0"/><path d="M4 14c0 4 4 6 10 6s10-2 10-6" stroke="#0096f0"/></svg>
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 10c0-4 4-6 10-6s10 2 10 6v8c0 4-4 6-10 6s-10-2-10-6v-8z" stroke="#0096f0"/>
+            <path d="M4 14c0 4 4 6 10 6s10-2 10-6" stroke="#0096f0"/>
+          </svg>
         </div>
         <h3>NeuroSuit 智能肌动服</h3>
         <p class="product-en">Intelligent Actuation Suit</p>
-        <p class="product-desc">线缆驱动系统，碳纤维锚定框架，提供精准的关节助力。在正确的时间施加正确的力。</p>
+        <p class="product-desc">鲍登线缆驱动系统，碳纤维锚定框架，精准的关节助力，正确的时间施加正确的力。</p>
         <ul class="specs-list">
           <li><strong>&lt;1.5kg</strong> 系统总重，真正可穿戴</li>
           <li><strong>15Nm</strong> 峰值 / <strong>8Nm</strong> 持续扭矩</li>
@@ -1063,11 +1425,15 @@ footer .footer-links {
       </div>
       <div class="product-card" data-reveal data-delay="3">
         <div class="icon-area">
-          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="22" height="14" rx="3" stroke="#0096f0"/><circle cx="14" cy="14" r="2" stroke="#0096f0"/><path d="M9 21v2M19 21v2" stroke="#0096f0"/></svg>
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="7" width="22" height="14" rx="3" stroke="#0096f0"/>
+            <circle cx="14" cy="14" r="2" stroke="#0096f0"/>
+            <path d="M9 21v2M19 21v2" stroke="#0096f0"/>
+          </svg>
         </div>
         <h3>Control Box 边缘AI处理器</h3>
         <p class="product-en">Edge AI Processing Unit</p>
-        <p class="product-desc">实时推理引擎，搭载416肌肉数字孪生模型，在边缘端完成从意图识别到策略生成的完整闭环。</p>
+        <p class="product-desc">实时推理引擎，416肌肉数字孪生模型，边缘端完成从意图识别到策略生成的完整闭环。</p>
         <ul class="specs-list">
           <li><strong>&lt;185ms</strong> 端到端延迟</li>
           <li><strong>416肌肉</strong> 数字孪生模型</li>
@@ -1085,91 +1451,103 @@ footer .footer-links {
     <div class="text-center">
       <p class="section-label">Technology</p>
       <h2>AI闭环：读 → 生 → 执 → 进</h2>
-      <p class="section-sub center">四个阶段，端到端延迟 &lt;185ms —— 大脑意图直接驱动身体动作</p>
+      <p class="section-sub center">四个阶段，端到端延迟 &lt;185ms —— 从大脑意图到身体动作的完整闭环</p>
     </div>
 
     <!-- 4-Step Loop SVG -->
-    <div class="tech-loop-svg" data-reveal data-delay="1">
-      <svg viewBox="0 0 880 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="tech-loop" data-reveal data-delay="1">
+      <svg viewBox="0 0 880 260" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="circleGrad" x1="0" y1="0" x2="1" y2="1">
+          <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stop-color="#0096f0"/>
             <stop offset="100%" stop-color="#60a5fa"/>
           </linearGradient>
-          <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#0096f0" stop-opacity="0.3"/>
-            <stop offset="50%" stop-color="#0096f0" stop-opacity="0.6"/>
-            <stop offset="100%" stop-color="#0096f0" stop-opacity="0.3"/>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#0096f0" stop-opacity="0.15"/>
+            <stop offset="50%" stop-color="#0096f0" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#0096f0" stop-opacity="0.15"/>
           </linearGradient>
-          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
             <path d="M0,0 L10,5 L0,10" fill="#0096f0"/>
           </marker>
         </defs>
 
-        <!-- Connecting line -->
-        <line x1="120" y1="70" x2="770" y2="70" stroke="url(#lineGrad)" stroke-width="2"/>
+        <!-- Main horizontal connecting line -->
+        <line x1="120" y1="80" x2="770" y2="80" stroke="url(#lg)" stroke-width="2"/>
 
-        <!-- Arrow segments -->
-        <line x1="150" y1="70" x2="285" y2="70" stroke="#0096f0" stroke-width="2" marker-end="url(#arrow)"/>
-        <line x1="365" y1="70" x2="500" y2="70" stroke="#0096f0" stroke-width="2" marker-end="url(#arrow)"/>
-        <line x1="580" y1="70" x2="715" y2="70" stroke="#0096f0" stroke-width="2" marker-end="url(#arrow)"/>
+        <!-- Forward arrows -->
+        <line x1="160" y1="80" x2="305" y2="80" stroke="#0096f0" stroke-width="2" marker-end="url(#arr)" opacity="0.6"/>
+        <line x1="395" y1="80" x2="540" y2="80" stroke="#0096f0" stroke-width="2" marker-end="url(#arr)" opacity="0.6"/>
+        <line x1="630" y1="80" x2="740" y2="80" stroke="#0096f0" stroke-width="2" marker-end="url(#arr)" opacity="0.6"/>
 
         <!-- Latency labels on arrows -->
-        <text x="218" y="58" fill="#64748b" font-size="12" text-anchor="middle" font-weight="600">~40ms</text>
-        <text x="433" y="58" fill="#64748b" font-size="12" text-anchor="middle" font-weight="600">~55ms</text>
-        <text x="648" y="58" fill="#64748b" font-size="12" text-anchor="middle" font-weight="600">~60ms</text>
+        <text x="233" y="68" fill="#64748b" font-size="12" text-anchor="middle" font-weight="600">~40ms</text>
+        <text x="468" y="68" fill="#64748b" font-size="12" text-anchor="middle" font-weight="600">~55ms</text>
+        <text x="685" y="68" fill="#64748b" font-size="12" text-anchor="middle" font-weight="600">~60ms</text>
+
+        <!-- Feedback loop arrow (bottom, going right to left) -->
+        <path d="M770 120 Q770 180 440 180 Q110 180 110 120" stroke="#0096f0" stroke-width="1.5" stroke-dasharray="4 4" fill="none" opacity="0.35" marker-end="url(#arr)"/>
+        <text x="440" y="198" fill="#64748b" font-size="11" text-anchor="middle" font-weight="500">反馈闭环 ~30ms</text>
 
         <!-- Step 1 -->
-        <circle cx="120" cy="70" r="30" fill="url(#circleGrad)"/>
-        <text x="120" y="76" fill="#fff" font-size="18" font-weight="800" text-anchor="middle">1</text>
-        <text x="120" y="118" fill="#e5e7eb" font-size="15" font-weight="700" text-anchor="middle">读取意图</text>
-        <text x="120" y="136" fill="#94a3b8" font-size="12" text-anchor="middle">Read</text>
-        <text x="120" y="156" fill="#64748b" font-size="11" text-anchor="middle">EEG → 运动准备电位</text>
+        <circle cx="120" cy="80" r="32" fill="url(#cg)"/>
+        <text x="120" y="87" fill="#fff" font-size="20" font-weight="800" text-anchor="middle">1</text>
+        <text x="120" y="132" fill="#e5e7eb" font-size="15" font-weight="700" text-anchor="middle">读取意图</text>
+        <text x="120" y="150" fill="#94a3b8" font-size="12" text-anchor="middle">Read</text>
+        <text x="120" y="170" fill="#64748b" font-size="11" text-anchor="middle">EEG → 运动准备电位</text>
 
         <!-- Step 2 -->
-        <circle cx="365" cy="70" r="30" fill="url(#circleGrad)"/>
-        <text x="365" y="76" fill="#fff" font-size="18" font-weight="800" text-anchor="middle">2</text>
-        <text x="365" y="118" fill="#e5e7eb" font-size="15" font-weight="700" text-anchor="middle">生成策略</text>
-        <text x="365" y="136" fill="#94a3b8" font-size="12" text-anchor="middle">Generate</text>
-        <text x="365" y="156" fill="#64748b" font-size="11" text-anchor="middle">AI → 416肌数字孪生</text>
+        <circle cx="395" cy="80" r="32" fill="url(#cg)"/>
+        <text x="395" y="87" fill="#fff" font-size="20" font-weight="800" text-anchor="middle">2</text>
+        <text x="395" y="132" fill="#e5e7eb" font-size="15" font-weight="700" text-anchor="middle">生成策略</text>
+        <text x="395" y="150" fill="#94a3b8" font-size="12" text-anchor="middle">Generate</text>
+        <text x="395" y="170" fill="#64748b" font-size="11" text-anchor="middle">AI → 416肌数字孪生</text>
 
         <!-- Step 3 -->
-        <circle cx="610" cy="70" r="30" fill="url(#circleGrad)"/>
-        <text x="610" y="76" fill="#fff" font-size="18" font-weight="800" text-anchor="middle">3</text>
-        <text x="610" y="118" fill="#e5e7eb" font-size="15" font-weight="700" text-anchor="middle">执行动作</text>
-        <text x="610" y="136" fill="#94a3b8" font-size="12" text-anchor="middle">Execute</text>
-        <text x="610" y="156" fill="#64748b" font-size="11" text-anchor="middle">线缆驱动 → 关节助力</text>
+        <circle cx="660" cy="80" r="32" fill="url(#cg)"/>
+        <text x="660" y="87" fill="#fff" font-size="20" font-weight="800" text-anchor="middle">3</text>
+        <text x="660" y="132" fill="#e5e7eb" font-size="15" font-weight="700" text-anchor="middle">执行动作</text>
+        <text x="660" y="150" fill="#94a3b8" font-size="12" text-anchor="middle">Execute</text>
+        <text x="660" y="170" fill="#64748b" font-size="11" text-anchor="middle">线缆驱动 → 关节助力</text>
 
         <!-- Step 4 -->
-        <circle cx="770" cy="70" r="30" fill="url(#circleGrad)"/>
-        <text x="770" y="76" fill="#fff" font-size="18" font-weight="800" text-anchor="middle">4</text>
-        <text x="770" y="118" fill="#e5e7eb" font-size="15" font-weight="700" text-anchor="middle">持续进化</text>
-        <text x="770" y="136" fill="#94a3b8" font-size="12" text-anchor="middle">Evolve</text>
-        <text x="770" y="156" fill="#64748b" font-size="11" text-anchor="middle">反馈 → 联邦学习</text>
+        <circle cx="770" cy="80" r="32" fill="url(#cg)"/>
+        <text x="770" y="87" fill="#fff" font-size="20" font-weight="800" text-anchor="middle">4</text>
+        <text x="770" y="132" fill="#e5e7eb" font-size="15" font-weight="700" text-anchor="middle">持续进化</text>
+        <text x="770" y="150" fill="#94a3b8" font-size="12" text-anchor="middle">Evolve</text>
+        <text x="770" y="170" fill="#64748b" font-size="11" text-anchor="middle">反馈 → 联邦学习</text>
       </svg>
     </div>
 
     <!-- Latency Breakdown -->
     <div class="tech-breakdown" data-reveal data-delay="2">
-      <h4>完整的延迟分解</h4>
-      <div class="breakdown-bars">
+      <h4>延迟分解</h4>
+      <div class="breakdown-bars" id="latencyBars">
         <div class="breakdown-bar">
-          <div class="bar" style="height: 76px; background: linear-gradient(to top, #0096f0, #60a5fa);"></div>
+          <div class="bar-track" data-target="76" style="height:0;background:linear-gradient(to top, rgba(0,150,240,0.15), rgba(96,165,250,0.08));border-radius:6px 6px 0 0;">
+            <div class="bar-fill" style="background:linear-gradient(to top, #0096f0, #60a5fa);"></div>
+          </div>
           <span class="bar-val">40ms</span>
           <span class="bar-label">EEG读取</span>
         </div>
         <div class="breakdown-bar">
-          <div class="bar" style="height: 104px; background: linear-gradient(to top, #0096f0, #60a5fa);"></div>
+          <div class="bar-track" data-target="104" style="height:0;background:linear-gradient(to top, rgba(0,150,240,0.15), rgba(96,165,250,0.08));border-radius:6px 6px 0 0;">
+            <div class="bar-fill" style="background:linear-gradient(to top, #0096f0, #60a5fa);"></div>
+          </div>
           <span class="bar-val">55ms</span>
           <span class="bar-label">AI策略生成</span>
         </div>
         <div class="breakdown-bar">
-          <div class="bar" style="height: 114px; background: linear-gradient(to top, #0096f0, #60a5fa);"></div>
+          <div class="bar-track" data-target="114" style="height:0;background:linear-gradient(to top, rgba(0,150,240,0.15), rgba(96,165,250,0.08));border-radius:6px 6px 0 0;">
+            <div class="bar-fill" style="background:linear-gradient(to top, #0096f0, #60a5fa);"></div>
+          </div>
           <span class="bar-val">60ms</span>
           <span class="bar-label">执行机构</span>
         </div>
         <div class="breakdown-bar">
-          <div class="bar" style="height: 56px; background: linear-gradient(to top, #0096f0, #60a5fa);"></div>
+          <div class="bar-track" data-target="56" style="height:0;background:linear-gradient(to top, rgba(0,150,240,0.15), rgba(96,165,250,0.08));border-radius:6px 6px 0 0;">
+            <div class="bar-fill" style="background:linear-gradient(to top, #0096f0, #60a5fa);"></div>
+          </div>
           <span class="bar-val">30ms</span>
           <span class="bar-label">反馈闭环</span>
         </div>
@@ -1187,68 +1565,60 @@ footer .footer-links {
       <p class="section-sub center">从医疗康复起步，经老年行动力，到全人群增强 —— TAM随每阶段解锁指数级扩大</p>
     </div>
 
-    <!-- Market Timeline SVG -->
-    <div class="market-timeline-svg" data-reveal data-delay="1">
-      <svg viewBox="0 0 880 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="ph1" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#0096f0" stop-opacity="0.3"/>
-            <stop offset="100%" stop-color="#0096f0" stop-opacity="0.08"/>
-          </linearGradient>
-          <linearGradient id="ph2" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#0096f0" stop-opacity="0.4"/>
-            <stop offset="100%" stop-color="#0096f0" stop-opacity="0.1"/>
-          </linearGradient>
-          <linearGradient id="ph3" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#0096f0" stop-opacity="0.5"/>
-            <stop offset="100%" stop-color="#0096f0" stop-opacity="0.12"/>
-          </linearGradient>
-        </defs>
-
-        <!-- Timeline base line -->
-        <line x1="40" y1="50" x2="840" y2="50" stroke="#1e293b" stroke-width="2"/>
-
-        <!-- Phase 1 -->
-        <rect x="60" y="22" width="200" height="56" rx="8" fill="url(#ph1)" stroke="rgba(0,150,240,0.25)" stroke-width="1"/>
-        <line x1="60" y1="50" x2="40" y2="50" stroke="#0096f0" stroke-width="2" marker-end="url(#arrow)"/>
-        <text x="160" y="44" fill="#fff" font-size="18" font-weight="800" text-anchor="middle">$6.6B</text>
-        <text x="160" y="92" fill="#0096f0" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="2">PHASE 1</text>
-        <text x="160" y="106" fill="#64748b" font-size="11" text-anchor="middle">2028 – 2030</text>
-
-        <!-- Phase 2 -->
-        <rect x="330" y="14" width="240" height="72" rx="8" fill="url(#ph2)" stroke="rgba(0,150,240,0.3)" stroke-width="1"/>
-        <line x1="260" y1="50" x2="330" y2="50" stroke="#0096f0" stroke-width="2" marker-end="url(#arrow)"/>
-        <text x="450" y="38" fill="#fff" font-size="20" font-weight="800" text-anchor="middle">$15B</text>
-        <text x="450" y="98" fill="#0096f0" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="2">PHASE 2</text>
-        <text x="450" y="112" fill="#64748b" font-size="11" text-anchor="middle">2030 – 2033</text>
-
-        <!-- Phase 3 -->
-        <rect x="630" y="6" width="200" height="88" rx="8" fill="url(#ph3)" stroke="rgba(0,150,240,0.35)" stroke-width="1"/>
-        <line x1="570" y1="50" x2="630" y2="50" stroke="#0096f0" stroke-width="2" marker-end="url(#arrow)"/>
-        <text x="730" y="32" fill="#fff" font-size="20" font-weight="800" text-anchor="middle">$33.7B+</text>
-        <text x="730" y="104" fill="#0096f0" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="2">PHASE 3</text>
-        <text x="730" y="118" fill="#64748b" font-size="11" text-anchor="middle">2033+</text>
-      </svg>
-    </div>
-
-    <div class="market-grid">
-      <div class="market-card" data-reveal data-delay="2">
-        <div class="phase">PHASE 1 · 2028–2030</div>
+    <div class="market-phases">
+      <div class="market-card" data-reveal data-delay="1">
+        <div class="phase-tag">PHASE 1</div>
         <div class="size">$6.6B</div>
+        <div class="market-range">2028 – 2030</div>
         <div class="market-name">全球神经康复</div>
         <p class="market-desc">9400万中风+SCI患者。医疗康复是最高壁垒的入口，NMPA获证后进入100+医院，建立临床证据链。</p>
       </div>
-      <div class="market-card" data-reveal data-delay="3">
-        <div class="phase">PHASE 2 · 2030–2033</div>
+      <div class="market-card" data-reveal data-delay="2">
+        <div class="phase-tag">PHASE 2</div>
         <div class="size">$15B</div>
+        <div class="market-range">2030 – 2033</div>
         <div class="market-name">全球老年行动力</div>
         <p class="market-desc">中国3亿60+人口，20%肌少症。从医院到家庭闭环完成，启动FDA+CE海外准入。</p>
       </div>
-      <div class="market-card" data-reveal data-delay="4">
-        <div class="phase">PHASE 3 · 2033+</div>
+      <div class="market-card" data-reveal data-delay="3">
+        <div class="phase-tag">PHASE 3</div>
         <div class="size">$33.7B+</div>
+        <div class="market-range">2033+</div>
         <div class="market-name">全人群行动增强</div>
         <p class="market-desc">可穿戴外骨骼CAGR 32%。百万用户数据飞轮。户外·通勤·职业防护。人机共生成为基础设施。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY NOW ===== -->
+<section class="section" id="why-now">
+  <div class="section-inner" data-reveal>
+    <div class="text-center">
+      <p class="section-label">Why Now</p>
+      <h2>为什么是现在</h2>
+      <p class="section-sub center">四个条件的交汇使神经重连AI从不可能变为不可避免</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card" data-reveal data-delay="1">
+        <div class="why-num">01 技术成熟</div>
+        <h4>AI能力爆发</h4>
+        <p>大语言模型与强化学习的融合使个性化运动策略生成成为可能。边缘AI芯片算力足以在185ms内完成从意图识别到策略推理的完整闭环。</p>
+      </div>
+      <div class="why-card" data-reveal data-delay="2">
+        <div class="why-num">02 硬件突破</div>
+        <h4>脑机接口的实用化</h4>
+        <p>干电极EEG技术在过去五年达到临床可用水平，信号质量提升3倍。消费级传感器和材料科学的进步使80g超轻头带成为现实。</p>
+      </div>
+      <div class="why-card" data-reveal data-delay="3">
+        <div class="why-num">03 人口结构</div>
+        <h4>全球老龄化的加速</h4>
+        <p>全球60岁以上人口突破10亿，中风每年新增1500万。行动力衰退从个别问题演变为系统性社会挑战，支付意愿和政策支持达到历史高位。</p>
+      </div>
+      <div class="why-card" data-reveal data-delay="4">
+        <div class="why-num">04 政策窗口</div>
+        <h4>康复医疗的政策红利</h4>
+        <p>中国"十四五"将康复医疗列为重点方向，医保支付改革向创新康复器械倾斜。美国CMS扩大外骨骼报销范围，全球监管环境进入友好期。</p>
       </div>
     </div>
   </div>
@@ -1271,14 +1641,16 @@ footer .footer-links {
       </div>
       <div class="team-card" data-reveal data-delay="2">
         <div class="team-avatar">牧</div>
-        <h3>牧星</h3>
+        <h3>汪牧星</h3>
         <div class="team-role">Co-founder &amp; CTO</div>
         <p class="team-bio">专注人工智能与机器人系统架构。主导Nexum One AI引擎与边缘计算平台的设计与实现。</p>
       </div>
-      <div class="team-card team-cta" data-reveal data-delay="3" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        <div class="team-avatar" style="border-style:dashed; border-color:rgba(0,150,240,0.2);">+</div>
-        <h3 style="color:var(--text2)">加入团队</h3>
-        <p style="color:var(--text3); font-size:14px;">我们正在寻找志同道合的伙伴<br>共同定义人机共生</p>
+      <div class="team-card team-cta" data-reveal data-delay="3" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" role="button" tabindex="0">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div class="team-avatar" style="border-style:dashed;border-color:rgba(0,150,240,0.15);font-size:32px;">+</div>
+          <h3 style="color:var(--text-secondary);margin-bottom:8px;">加入团队</h3>
+          <p style="color:var(--text-tertiary);font-size:14px;">我们正在寻找志同道合的伙伴<br>共同定义人机共生</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1302,7 +1674,7 @@ footer .footer-links {
         <span class="doc-badge">12章</span>
       </a>
       <a href="docs/Nexum_Pitch_Deck.pptx" class="doc-card" data-reveal data-delay="1">
-        <div class="doc-icon" style="color:#60a5fa;">PPT</div>
+        <div class="doc-icon" style="color:#60a5fa;">PT</div>
         <div class="doc-info">
           <h4>路演演示文稿</h4>
           <p>12页专业投资者级演示，暗色主题，数据驱动</p>
@@ -1382,13 +1754,19 @@ footer .footer-links {
       <div class="contact-info">
         <div class="contact-item">
           <div class="contact-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
           </div>
           <a href="mailto:hello@nexum.ai">hello@nexum.ai</a>
         </div>
         <div class="contact-item">
           <div class="contact-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
           </div>
           <span>中国 · 南京</span>
         </div>
@@ -1403,7 +1781,7 @@ footer .footer-links {
   <div class="footer-inner">
     <div>
       <h5>Nexum · 逐念而行</h5>
-      <p>定义人机共生赛道。Nexum One 神经重连AI系统，从大脑读取运动意图，让身体重新行动。</p>
+      <p class="footer-brand-desc">定义人机共生赛道。Nexum One 神经重连AI系统，从大脑读取运动意图，让身体重新行动。人类与机器之间的一条新路径。</p>
     </div>
     <div>
       <h5>导航</h5>
@@ -1428,8 +1806,8 @@ footer .footer-links {
     </div>
   </div>
   <div class="footer-bottom">
-    <p>Confidential — For Investor Use Only · &copy; 2026 逐念而行 Nexum. All rights reserved.</p>
-    <p style="margin-top:4px;font-size:10px;color:#475569;">人机共生 · Human-Machine Symbiosis</p>
+    <p>Confidential — For Investor Use Only</p>
+    <p style="margin-top:4px;font-size:10px;color:#475569;">&copy; 2026 逐念而行 Nexum. 人机共生 · Human-Machine Symbiosis</p>
   </div>
 </footer>
 
@@ -1438,55 +1816,60 @@ footer .footer-links {
 (function() {
   'use strict';
 
-  // --- Mobile nav toggle ---
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
+  /* ============================================================
+     MOBILE NAV TOGGLE
+     ============================================================ */
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', function() {
       navLinks.classList.toggle('open');
+      navToggle.classList.toggle('active');
     });
-    // Close when a link is clicked
     navLinks.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
         navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
       });
     });
   }
 
-  // --- Navbar scroll effect ---
-  const navbar = document.getElementById('navbar');
-  let lastScrollY = 0;
+  /* ============================================================
+     NAVBAR SCROLL EFFECT
+     ============================================================ */
+  var navbar = document.getElementById('navbar');
   window.addEventListener('scroll', function() {
-    var scrollY = window.scrollY;
-    if (scrollY > 80) {
+    if (window.scrollY > 60) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
-    lastScrollY = scrollY;
   }, { passive: true });
 
-  // --- Active nav link on scroll ---
-  const navLinkEls = document.querySelectorAll('.nav-link');
+  /* ============================================================
+     ACTIVE NAV LINK ON SCROLL
+     ============================================================ */
+  var navLinkEls = document.querySelectorAll('.nav-link');
   var sections = [];
   navLinkEls.forEach(function(link) {
     var href = link.getAttribute('href');
-    if (href && href.startsWith('#')) {
+    if (href && href.charAt(0) === '#') {
       var section = document.querySelector(href);
       if (section) sections.push({ el: section, link: link });
     }
   });
 
   function updateActiveNav() {
-    var scrollPos = window.scrollY + 120;
+    var scrollPos = window.scrollY + 140;
     var current = null;
-    sections.forEach(function(item) {
+    for (var i = 0; i < sections.length; i++) {
+      var item = sections[i];
       var top = item.el.offsetTop;
       var bottom = top + item.el.offsetHeight;
       if (scrollPos >= top && scrollPos < bottom) {
         current = item.link;
       }
-    });
+    }
     navLinkEls.forEach(function(link) { link.classList.remove('active'); });
     if (current) current.classList.add('active');
   }
@@ -1494,7 +1877,9 @@ footer .footer-links {
   window.addEventListener('scroll', updateActiveNav, { passive: true });
   window.addEventListener('load', updateActiveNav);
 
-  // --- Intersection Observer for reveal animations ---
+  /* ============================================================
+     INTERSECTION OBSERVER FOR REVEAL ANIMATIONS
+     ============================================================ */
   var revealObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -1502,34 +1887,37 @@ footer .footer-links {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('[data-reveal]').forEach(function(el) {
     revealObserver.observe(el);
   });
 
-  // --- Animate breakdown bars on reveal ---
-  var barSection = document.querySelector('.breakdown-bars');
-  if (barSection) {
+  /* ============================================================
+     LATENCY BARS ANIMATION
+     ============================================================ */
+  var latencySection = document.getElementById('latencyBars');
+  if (latencySection) {
     var barObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
-          var bars = entry.target.querySelectorAll('.bar');
-          bars.forEach(function(bar, i) {
-            var targetHeight = bar.style.height;
-            bar.style.height = '0px';
+          var tracks = entry.target.querySelectorAll('.bar-track');
+          tracks.forEach(function(track, i) {
+            var target = parseInt(track.getAttribute('data-target'));
             setTimeout(function() {
-              bar.style.height = targetHeight;
-            }, 200 + i * 100);
+              track.style.height = target + 'px';
+            }, 150 + i * 120);
           });
           barObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.3 });
-    barObserver.observe(barSection);
+    }, { threshold: 0.2 });
+    barObserver.observe(latencySection);
   }
 
-  // --- Smooth scroll for all anchor links (fallback) ---
+  /* ============================================================
+     SMOOTH SCROLL FOR ANCHOR LINKS
+     ============================================================ */
   document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
       var target = document.querySelector(this.getAttribute('href'));
@@ -1540,8 +1928,17 @@ footer .footer-links {
     });
   });
 
+  /* ============================================================
+     PARALLAX GRID ANIMATION PAUSE ON INACTIVE TABS
+     ============================================================ */
+  document.addEventListener('visibilitychange', function() {
+    var grid = document.querySelector('.hero-bg-grid');
+    if (grid) {
+      grid.style.animationPlayState = document.hidden ? 'paused' : 'running';
+    }
+  });
+
 })();
 </script>
-
 </body>
 </html>
