@@ -1790,7 +1790,12 @@ footer a:hover{color:var(--text)}
 
 <script src="shared.js"></script>
 <script>
-// Scroll reveal — all .reveal elements animate in when visible
+// Image loading — all img start opacity:0, fade in when loaded
+document.querySelectorAll('img').forEach(function(img){
+  if(img.complete){ img.classList.add('loaded'); }
+  else{ img.addEventListener('load',function(){ img.classList.add('loaded'); }); }
+});
+// Scroll reveal
 (function(){
   var observer = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
