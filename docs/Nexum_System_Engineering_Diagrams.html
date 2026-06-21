@@ -247,7 +247,7 @@
     <line x1="0" y1="6" x2="0" y2="18" stroke="#f472b6" stroke-width="1.5"/>
     <circle cx="0" cy="22" r="3" fill="#f472b6" opacity="0.5"/>
   </g>
-  <text x="230" y="302" text-anchor="middle" font-size="10" fill="#64748b">干电极 × 8 (Fz, Cz, Pz, Oz, C3, C4, T7, T8)</text>
+  <text x="230" y="302" text-anchor="middle" font-size="10" fill="#64748b">干电极 × 8 (Cz, C3, C4, FCz, FC3, FC4, Pz, P3)</text>
 
   <!-- Nexum App Phone -->
   <g filter="url(#shadow)">
@@ -394,7 +394,7 @@
   <g filter="url(#shadow)">
     <rect x="630" y="590" width="175" height="50" rx="8" fill="url(#grad-sub)" stroke="#475569" stroke-width="1"/>
     <text x="717" y="610" text-anchor="middle" font-size="11" fill="#a78bfa">IMU 反馈 (BMI270)</text>
-    <text x="717" y="626" text-anchor="middle" font-size="10" fill="#64748b">I²C · 200Hz 姿态更新</text>
+    <text x="717" y="626" text-anchor="middle" font-size="10" fill="#64748b">I²C · 100Hz 姿态更新</text>
   </g>
   <g filter="url(#shadow)">
     <rect x="850" y="590" width="175" height="50" rx="8" fill="url(#grad-sub)" stroke="#475569" stroke-width="1"/>
@@ -615,8 +615,8 @@
 
   <g filter="url(#shadow2)">
     <rect x="980" y="380" width="200" height="50" rx="8" fill="url(#grad-load)" stroke="#475569" stroke-width="1"/>
-    <text x="1080" y="400" text-anchor="middle" font-size="11" fill="#e2e8f0">BQ25713 充电控制器</text>
-    <text x="1080" y="418" text-anchor="middle" font-size="10" fill="#64748b">升降压 · 充电电流 3A</text>
+    <text x="1080" y="400" text-anchor="middle" font-size="11" fill="#e2e8f0">BQ25713 + BQ76952</text>
+    <text x="1080" y="418" text-anchor="middle" font-size="10" fill="#64748b">升降压充电 · BMS 保护</text>
   </g>
   <path d="M1080,430 L1080,460 L660,460 L660,470" fill="none" stroke="#34d399" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#pwr-arrow-green)"/>
   <text x="600" y="454" text-anchor="middle" font-size="10" fill="#34d399">电池充电线</text>
@@ -803,8 +803,8 @@
     <rect x="490" y="205" width="340" height="70" rx="8" fill="url(#grad-task-high)" stroke="#fbbf24" stroke-width="1"/>
     <rect x="490" y="205" width="8" height="70" rx="4" fill="#fbbf24"/>
     <text x="510" y="228" font-size="12" font-weight="600" fill="#fbbf24">IMU 姿态融合</text>
-    <text x="510" y="245" font-size="10" fill="#94a3b8">I²C 读取 BMI270 · AHRS 算法</text>
-    <text x="510" y="262" font-size="10" fill="#64748b">优先级: 3 (高) · 周期: 5ms (200Hz)</text>
+    <text x="510" y="245" font-size="10" fill="#94a3b8">I²C 读取 BMI270 · 姿态/步态估计</text>
+    <text x="510" y="262" font-size="10" fill="#64748b">优先级: 3 (高) · 周期: 10ms (100Hz)</text>
   </g>
 
   <g filter="url(#shadow3)">
@@ -936,10 +936,10 @@
     <line x1="120" y1="90" x2="1170" y2="90" stroke="#fbbf24" stroke-width="0.5" stroke-dasharray="3,3"/>
     <text x="1180" y="90" font-size="9" fill="#fbbf24">500µs</text>
 
-    <text x="30" y="115" font-size="10" fill="#64748b">200Hz IMU</text>
-    <rect x="120" y="102" width="105" height="8" rx="4" fill="#7dd3fc" opacity="0.3"/>
-    <line x1="120" y1="110" x2="225" y2="110" stroke="#7dd3fc" stroke-width="0.5" stroke-dasharray="4,2"/>
-    <text x="235" y="110" font-size="9" fill="#7dd3fc">5ms</text>
+    <text x="30" y="115" font-size="10" fill="#64748b">100Hz IMU</text>
+    <rect x="120" y="102" width="210" height="8" rx="4" fill="#7dd3fc" opacity="0.3"/>
+    <line x1="120" y1="110" x2="330" y2="110" stroke="#7dd3fc" stroke-width="0.5" stroke-dasharray="4,2"/>
+    <text x="340" y="110" font-size="9" fill="#7dd3fc">10ms</text>
 
     <text x="30" y="135" font-size="10" fill="#64748b">250Hz EEG</text>
     <rect x="120" y="122" width="84" height="8" rx="4" fill="#34d399" opacity="0.3"/>
@@ -1040,9 +1040,9 @@
       <rect x="500" y="0" width="220" height="80" rx="10" fill="url(#grad-ctrl)" stroke="#60a5fa" stroke-width="1.2"/>
       <rect x="500" y="0" width="220" height="24" rx="10" fill="#60a5fa" opacity="0.1"/>
       <text x="610" y="17" text-anchor="middle" font-size="11" font-weight="600" fill="#60a5fa">FBCSP 特征 + LDA 分类</text>
-      <text x="610" y="40" text-anchor="middle" font-size="10" fill="#94a3b8">4 频带: 4-8, 8-16, 16-32, 32-40 Hz</text>
+      <text x="610" y="40" text-anchor="middle" font-size="10" fill="#94a3b8">5 频带: 0.5-4, 4-8, 8-16, 16-32, 32-40 Hz</text>
       <text x="610" y="56" text-anchor="middle" font-size="10" fill="#94a3b8">LDA 线性判别 → 意图概率</text>
-      <text x="610" y="72" text-anchor="middle" font-size="9" fill="#64748b">准确率 &gt; 85% (离线验证)</text>
+      <text x="610" y="72" text-anchor="middle" font-size="9" fill="#64748b">准确率 70-80% (文献: 单次BP检测)</text>
     </g>
 
     <!-- Arrow -->
