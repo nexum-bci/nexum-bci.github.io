@@ -717,14 +717,14 @@ footer {
             <rect x="60" y="15" width="180" height="30" rx="16" fill="rgba(0,150,240,0.06)"/>
             <rect x="60" y="25" width="180" height="20" fill="rgba(0,150,240,0.06)"/>
             <!-- Top surface branding -->
-            <rect x="80" y="30" width="140" height="18" rx="4" fill="#0f172a" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+            <rect x="80" y="30" width="140" height="18" rx="4" fill="var(--bg-card)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
             <text x="150" y="43" text-anchor="middle" fill="#0096f0" font-size="10" font-weight="700" letter-spacing="2">NEXUM ONE</text>
             <!-- LED indicator -->
             <circle cx="240" cy="28" r="5" fill="#0096f0" opacity="0.8" filter="url(#sysGlow)"/>
             <!-- Bottom ports -->
-            <rect x="110" y="112" width="36" height="10" rx="3" fill="#0f172a" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+            <rect x="110" y="112" width="36" height="10" rx="3" fill="var(--bg-card)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
             <text x="128" y="119" text-anchor="middle" fill="#777777" font-size="6">USB-C</text>
-            <rect x="170" y="112" width="24" height="8" rx="3" fill="#0f172a" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+            <rect x="170" y="112" width="24" height="8" rx="3" fill="var(--bg-card)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
             <!-- Heat dissipation hint -->
             <rect x="70" y="60" width="50" height="20" rx="3" fill="rgba(0,150,240,0.04)" stroke="rgba(0,150,240,0.1)" stroke-width="0.5"/>
             <text x="95" y="73" text-anchor="middle" fill="#666666" font-size="6">STM32H743</text>
@@ -732,7 +732,7 @@ footer {
             <text x="155" y="73" text-anchor="middle" fill="#666666" font-size="6">nRF5340</text>
             <rect x="190" y="60" width="40" height="20" rx="3" fill="rgba(0,150,240,0.04)" stroke="rgba(0,150,240,0.1)" stroke-width="0.5"/>
             <text x="210" y="73" text-anchor="middle" fill="#666666" font-size="6">BMI270</text>
-            <text x="150" y="100" text-anchor="middle" fill="#334155" font-size="7">DRV8316 · FOC · 48Wh 6S</text>
+            <text x="150" y="100" text-anchor="middle" fill="var(--border)" font-size="7">DRV8316 · FOC · 48Wh 6S</text>
             <!-- Dimensions -->
             <text x="150" y="147" text-anchor="middle" fill="#666666" font-size="9">120 × 80 × 30 mm · 铝合金</text>
           </svg>
@@ -1108,17 +1108,6 @@ footer {
 </section>
 
 <!-- CONTROL BOX EXPLODED VIEW -->
-<section class="section gallery-section" style="padding-bottom:0">
-  <div class="container">
-    <div class="text-center section-label">内部结构</div>
-    <h2 class="text-center">控制盒分解视图</h2>
-    <div class="exploded-wrap">
-      
-    </div>
-  </div>
-</section>
-
-<!-- CONTROL BOX EXPLODED VIEW -->
 <section class="section gallery-section" style="padding-bottom:24px">
   <div class="container">
     <div class="text-center section-label">内部结构</div>
@@ -1128,15 +1117,15 @@ footer {
         <defs>
           <linearGradient id="exAl" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stop-color="rgba(255,255,255,0.06)"/>
-            <stop offset="100%" stop-color="#0f172a"/>
+            <stop offset="100%" stop-color="var(--bg-card)"/>
           </linearGradient>
           <linearGradient id="exPCB" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#0f172a"/>
-            <stop offset="100%" stop-color="#0a1424"/>
+            <stop offset="0%" stop-color="var(--bg-card)"/>
+            <stop offset="100%" stop-color="var(--bg)"/>
           </linearGradient>
           <linearGradient id="exBatt" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#1c2333"/>
-            <stop offset="100%" stop-color="#141a29"/>
+            <stop offset="0%" stop-color="var(--bg-card)"/>
+            <stop offset="100%" stop-color="var(--bg)"/>
           </linearGradient>
           <filter id="exGlow">
             <feGaussianBlur stdDeviation="3" result="b"/>
@@ -1154,7 +1143,7 @@ footer {
         <line x1="40" y1="22" x2="40" y2="490" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3,3"/>
         <line x1="38" y1="22" x2="42" y2="22" stroke="#666666" stroke-width="1"/>
         <line x1="38" y1="490" x2="42" y2="490" stroke="#666666" stroke-width="1"/>
-        <text x="20" y="260" text-anchor="middle" fill="#334155" font-size="10" transform="rotate(-90,20,260)">120 mm</text>
+        <text x="20" y="260" text-anchor="middle" fill="var(--border)" font-size="10" transform="rotate(-90,20,260)">120 mm</text>
 
         <!-- ========== Layer 1: Top Enclosure ========== -->
         <g transform="translate(75, 20)">
@@ -1163,8 +1152,8 @@ footer {
           <rect x="10" y="8" width="780" height="32" rx="8" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
           <text x="400" y="28" text-anchor="middle" fill="var(--text-tertiary)" font-size="13" font-weight="600">铝合金上盖 · CNC 精密加工 · 120 × 80 mm</text>
           <!-- Screw holes -->
-          <circle cx="20" cy="24" r="4" fill="#0f172a" stroke="var(--border)" stroke-width="0.5"/>
-          <circle cx="780" cy="24" r="4" fill="#0f172a" stroke="var(--border)" stroke-width="0.5"/>
+          <circle cx="20" cy="24" r="4" fill="var(--bg-card)" stroke="var(--border)" stroke-width="0.5"/>
+          <circle cx="780" cy="24" r="4" fill="var(--bg-card)" stroke="var(--border)" stroke-width="0.5"/>
         </g>
 
         <!-- Stack Arrow -->
@@ -1176,7 +1165,7 @@ footer {
           <!-- PCB texture -->
           <path d="M 20 30 L 780 30" stroke="rgba(0,150,240,0.04)" stroke-width="0.5"/>
           <path d="M 20 55 L 780 55" stroke="rgba(0,150,240,0.04)" stroke-width="0.5"/>
-          <text x="400" y="18" text-anchor="middle" fill="#60a5fa" font-size="12" font-weight="700">主控板 PCB · 6 层板</text>
+          <text x="400" y="18" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">主控板 PCB · 6 层板</text>
           <!-- STM32 -->
           <rect x="50" y="32" width="110" height="38" rx="4" fill="rgba(0,150,240,0.06)" stroke="var(--border)" stroke-width="1"/>
           <text x="105" y="48" text-anchor="middle" fill="var(--text)" font-size="9" font-weight="600">STM32H743</text>
@@ -1243,7 +1232,7 @@ footer {
           <rect x="0" y="0" width="800" height="48" rx="14" fill="url(#exAl)" stroke="var(--border)" stroke-width="1.5"/>
           <!-- Thermal pad area -->
           <rect x="300" y="8" width="200" height="32" rx="6" fill="rgba(0,150,240,0.05)" stroke="rgba(0,150,240,0.15)" stroke-width="0.8"/>
-          <text x="400" y="28" text-anchor="middle" fill="#a0d0f0" font-size="10" font-weight="500">导热垫 + 铝合金散热片</text>
+          <text x="400" y="28" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="500">导热垫 + 铝合金散热片</text>
           <text x="400" y="42" text-anchor="middle" fill="var(--text-secondary)" font-size="9">铝合金下盖</text>
         </g>
 
@@ -1251,7 +1240,7 @@ footer {
         <line x1="910" y1="22" x2="910" y2="488" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3,3"/>
         <line x1="908" y1="22" x2="912" y2="22" stroke="#666666" stroke-width="1"/>
         <line x1="908" y1="488" x2="912" y2="488" stroke="#666666" stroke-width="1"/>
-        <text x="935" y="260" text-anchor="middle" fill="#334155" font-size="10" transform="rotate(90,935,260)">30 mm</text>
+        <text x="935" y="260" text-anchor="middle" fill="var(--border)" font-size="10" transform="rotate(90,935,260)">30 mm</text>
       </svg>
     </div>
   </div>
