@@ -56,7 +56,7 @@
         '<a href="'+(isIndex?'':'')+'逐念而行_Nexum_BP.html">商业计划书</a>'+
         '<a href="'+(isIndex?'prd.html':'prd.html')+'">产品需求</a>'+
         '<a href="'+(isIndex?'clinical-protocol.html':'clinical-protocol.html')+'">临床方案</a>'+
-        '<a href="'+(isIndex?'engineering-architecture.html':'engineering-architecture.html')+'">工程架构</a>'+
+        '<a href="'+(isIndex?'engineering.html':'engineering.html')+'">工程架构</a>'+
       '</div>'+
       '<div>'+
         '<h5>联系</h5>'+
