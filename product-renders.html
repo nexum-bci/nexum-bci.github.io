@@ -24,13 +24,15 @@ img{opacity:1!important} /* override page-base img opacity */
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:24px}
 .gallery-2{grid-template-columns:repeat(2,1fr)}
 .gallery-hero{grid-template-columns:1fr}
+.gallery-hero .render-img{aspect-ratio:2/1;max-height:480px}
+.gallery-hero .render-img img{object-position:60% center}
 
 .render-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform 0.35s var(--ease-apple),box-shadow 0.35s var(--ease-apple);box-shadow:var(--shadow-sm)}
 [data-theme="dark"] .render-card{box-shadow:none}
 .render-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 
 .render-img{width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--bg);display:flex;align-items:center;justify-content:center}
-.render-img img{width:100%;height:100%;object-fit:contain;transition:transform 0.5s var(--ease-apple)}
+.render-img img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.5s var(--ease-apple)}
 .render-card:hover .render-img img{transform:scale(1.04)}
 
 .render-body{padding:20px 24px 24px}
