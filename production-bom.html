@@ -118,7 +118,7 @@ a {
 }
 
 a:hover {
-    color: #00b4ff;
+    color: var(--accent);
     text-decoration: none;
 }
 nav a, footer a { text-decoration: none !important; }
@@ -174,7 +174,7 @@ pre code {
 
 /* Blockquotes */
 blockquote {
-    border-left: 4px solid #0096f0;
+    border-left: 4px solid var(--accent);
     background: rgba(0, 150, 240, 0.04);
     padding: 12px 20px;
     margin: 1.2em 0;
@@ -322,14 +322,14 @@ sub, sup {
     }
     pre {
         background: var(--bg);
-        border-color: #ddd;
+        border-color: var(--border);
     }
     pre code {
-        color: #333;
+        color: var(--text);
     }
     code {
         background: var(--bg);
-        color: #333;
+        color: var(--text);
     }
     blockquote {
         border-left-color: var(--accent);
@@ -350,14 +350,14 @@ sub, sup {
         background: #f0f5fa;
     }
     .footer {
-        color: #999;
-        border-top-color: #ddd;
+        color: var(--text-tertiary);
+        border-top-color: var(--border);
     }
     .table-wrapper {
-        border-color: #ddd;
+        border-color: var(--border);
     }
     hr {
-        background: #ddd;
+        background: var(--border);
     }
 }
 

@@ -16,7 +16,7 @@
 <style>
 :root {
   --bg: #FAFAFA; --bg-card: #FFFFFF; --border: rgba(0,0,0,0.04);
-  --text: #1d1d1f; --text-secondary: #86868b; --text-tertiary: #6e6e73; --accent: #0071e3;
+  --text: #1d1d1ff; --text-secondary: #86868b; --text-tertiary: #6e6e73; --accent: #0071e3;
   --nav-bg: rgba(255,255,255,0.72);
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
   --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
@@ -589,12 +589,12 @@ footer {
  <stop offset="100%" stop-color="#1a1a1a"/>
  </linearGradient>
  <linearGradient id="bandAccent" x1="0%" y1="0%" x2="100%" y2="100%">
- <stop offset="0%" stop-color="#0096f0"/>
+ <stop offset="0%" stop-color="var(--accent)"/>
  <stop offset="100%" stop-color="var(--accent)"/>
  </linearGradient>
  </defs>
  <!-- Band body -->
- <path d="M 40 60 Q 40 10 150 10 Q 260 10 260 60 Q 260 80 150 75 Q 40 80 40 60 Z" fill="url(#bandMatte)" stroke="#333" stroke-width="1"/>
+ <path d="M 40 60 Q 40 10 150 10 Q 260 10 260 60 Q 260 80 150 75 Q 40 80 40 60 Z" fill="url(#bandMatte)" stroke="var(--text)" stroke-width="1"/>
  <!-- Highlight -->
  <path d="M 48 60 Q 48 18 150 18 Q 252 18 252 60" fill="none" stroke="#444" stroke-width="1.5"/>
  <!-- Electrodes along inner edge -->
@@ -607,8 +607,8 @@ footer {
  <circle cx="220" cy="64" r="5" fill="#c0c0c0" stroke="var(--text-tertiary)" stroke-width="0.5"/>
  <circle cx="150" cy="74" r="5" fill="#c0c0c0" stroke="var(--text-tertiary)" stroke-width="0.5"/>
  <!-- LED indicators -->
- <circle cx="240" cy="32" r="4" fill="#0096f0" filter="url(#sysGlow)"/>
- <circle cx="60" cy="32" r="4" fill="#0096f0" opacity="0.5"/>
+ <circle cx="240" cy="32" r="4" fill="var(--accent)" filter="url(#sysGlow)"/>
+ <circle cx="60" cy="32" r="4" fill="var(--accent)" opacity="0.5"/>
  <!-- PCB trace -->
  <path d="M 80 60 Q 150 78 220 60" fill="none" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="3,2"/>
  <!-- Label -->
@@ -654,10 +654,10 @@ footer {
  <!-- Waist anchor area -->
  <ellipse cx="150" cy="50" rx="80" ry="25" fill="none" stroke="#334155" stroke-width="2"/>
  <!-- Carbon fiber anchors -->
- <rect x="58" y="30" width="20" height="40" rx="5" fill="rgba(0,150,240,0.1)" stroke="#0096f0" stroke-width="1.2"/>
- <rect x="222" y="30" width="20" height="40" rx="5" fill="rgba(0,150,240,0.1)" stroke="#0096f0" stroke-width="1.2"/>
- <text x="68" y="72" text-anchor="middle" fill="#0096f0" font-size="7" font-weight="600">CF</text>
- <text x="232" y="72" text-anchor="middle" fill="#0096f0" font-size="7" font-weight="600">CF</text>
+ <rect x="58" y="30" width="20" height="40" rx="5" fill="rgba(0,150,240,0.1)" stroke="var(--accent)" stroke-width="1.2"/>
+ <rect x="222" y="30" width="20" height="40" rx="5" fill="rgba(0,150,240,0.1)" stroke="var(--accent)" stroke-width="1.2"/>
+ <text x="68" y="72" text-anchor="middle" fill="var(--accent)" font-size="7" font-weight="600">CF</text>
+ <text x="232" y="72" text-anchor="middle" fill="var(--accent)" font-size="7" font-weight="600">CF</text>
  <!-- Bowden cables -->
  <path d="M 68 70 L 68 130" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
  <path d="M 232 70 L 232 130" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
@@ -718,9 +718,9 @@ footer {
  <rect x="60" y="25" width="180" height="20" fill="rgba(0,150,240,0.06)"/>
  <!-- Top surface branding -->
  <rect x="80" y="30" width="140" height="18" rx="4" fill="var(--bg-card)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
- <text x="150" y="43" text-anchor="middle" fill="#0096f0" font-size="10" font-weight="700" letter-spacing="2">NEXUM ONE</text>
+ <text x="150" y="43" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="700" letter-spacing="2">NEXUM ONE</text>
  <!-- LED indicator -->
- <circle cx="240" cy="28" r="5" fill="#0096f0" opacity="0.8" filter="url(#sysGlow)"/>
+ <circle cx="240" cy="28" r="5" fill="var(--accent)" opacity="0.8" filter="url(#sysGlow)"/>
  <!-- Bottom ports -->
  <rect x="110" y="112" width="36" height="10" rx="3" fill="var(--bg-card)" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
  <text x="128" y="119" text-anchor="middle" fill="#777777" font-size="6">USB-C</text>
@@ -1157,7 +1157,7 @@ footer {
  </g>
 
  <!-- Stack Arrow -->
- <line x1="475" y1="68" x2="475" y2="110" stroke="#0096f0" stroke-width="1.5" marker-end="url(#exArrow)" opacity="0.6"/>
+ <line x1="475" y1="68" x2="475" y2="110" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#exArrow)" opacity="0.6"/>
 
  <!-- ========== Layer 2: Main PCB ========== -->
  <g transform="translate(75, 115)">
@@ -1187,7 +1187,7 @@ footer {
  </g>
 
  <!-- Stack Arrow -->
- <line x1="475" y1="200" x2="475" y2="240" stroke="#0096f0" stroke-width="1.5" marker-end="url(#exArrow)" opacity="0.6"/>
+ <line x1="475" y1="200" x2="475" y2="240" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#exArrow)" opacity="0.6"/>
 
  <!-- ========== Layer 3: Motor Driver ========== -->
  <g transform="translate(75, 245)">
@@ -1201,7 +1201,7 @@ footer {
  </g>
 
  <!-- Stack Arrow -->
- <line x1="475" y1="300" x2="475" y2="335" stroke="#0096f0" stroke-width="1.5" marker-end="url(#exArrow)" opacity="0.6"/>
+ <line x1="475" y1="300" x2="475" y2="335" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#exArrow)" opacity="0.6"/>
 
  <!-- ========== Layer 4: Battery ========== -->
  <g transform="translate(75, 340)">
@@ -1225,7 +1225,7 @@ footer {
  </g>
 
  <!-- Stack Arrow -->
- <line x1="475" y1="395" x2="475" y2="435" stroke="#0096f0" stroke-width="1.5" marker-end="url(#exArrow)" opacity="0.6"/>
+ <line x1="475" y1="395" x2="475" y2="435" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#exArrow)" opacity="0.6"/>
 
  <!-- ========== Layer 5: Bottom Enclosure ========== -->
  <g transform="translate(75, 440)">

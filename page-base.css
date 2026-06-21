@@ -5,7 +5,7 @@
 /* Variables (matches index.html) */
 :root {
   --bg: #FAFAFA; --bg-card: #FFFFFF; --border: rgba(0,0,0,0.04);
-  --text: #1d1d1f; --text-secondary: #86868b; --text-tertiary: #6e6e73;
+  --text: #1d1d1ff; --text-secondary: #86868b; --text-tertiary: #6e6e73;
   --accent: #0071e3; --accent-hover: #0077ED;
   --accent-subtle: rgba(0,113,227,0.08);
   --radius: 20px; --radius-sm: 12px; --radius-pill: 999px;
@@ -402,7 +402,7 @@ pre code{
   nav,footer,.theme-btn,.nav-cta,#themeToggle,[aria-label="回到顶部"]{display:none!important}
   body{background:#fff;color:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .page-header{padding-top:0}
-  .card,.content-card{box-shadow:none!important;border:1px solid #ddd;break-inside:avoid}
+  .card,.content-card{box-shadow:none!important;border:1px solid var(--border);break-inside:avoid}
   a{color:#000!important}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:.75em;color:#666}
   .page-header::before,.card::before{display:none}

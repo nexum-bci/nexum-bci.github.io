@@ -64,7 +64,7 @@ ul{list-style:none}
   --bg: #FAFAFA;
   --bg-card: #FFFFFF;
   --border: rgba(0,0,0,0.04);
-  --text: #1d1d1f;
+  --text: #1d1d1ff;
   --text-secondary: #86868b;
   --text-tertiary: #6e6e73;
   --accent: #0071e3;
@@ -496,10 +496,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
   margin-bottom:10px;
   line-height:1
 }
-.tech-step:nth-child(1) .step-num{color:#0096F0}
-.tech-step:nth-child(2) .step-num{color:#0070C0}
-.tech-step:nth-child(3) .step-num{color:#0050A0}
-.tech-step:nth-child(4) .step-num{color:#002060}
+.tech-step:nth-child(1) .step-num{color:var(--accent)}
+.tech-step:nth-child(2) .step-num{color:#409cff}
+.tech-step:nth-child(3) .step-num{color:#409cff}
+.tech-step:nth-child(4) .step-num{color:#409cff}
 .tech-step .step-title{
   font-size:15px;
   font-weight:700;
@@ -576,7 +576,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
   background:rgba(255,255,255,0.2)
 }
 .latency-eeg{background:#6366f1;flex:40}
-.latency-pre{background:#0096F0;flex:20}
+.latency-pre{background:var(--accent);flex:20}
 .latency-ai{background:#06b6d4;flex:55}
 .latency-act{background:#10b981;flex:60}
 .latency-learn{background:#f59e0b;flex:10}
@@ -657,8 +657,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 [data-theme="dark"] .phone-mockup:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.7)}
 [data-theme="dark"] .phone-mockup .phone-ring-wrap svg circle[stroke*="rgba(0,0,0,0.06)"] { stroke: rgba(255,255,255,0.08); }
 [data-theme="dark"] .phone-mockup .phone-gauge-svg svg path[stroke*="rgba(0,0,0,0.06)"] { stroke: rgba(255,255,255,0.08); }
-[data-theme="dark"] .phone-mockup .phone-gauge-svg svg line { stroke: #f5f5f7; }
-[data-theme="dark"] .phone-mockup .phone-gauge-svg svg circle { fill: #f5f5f7; }
+[data-theme="dark"] .phone-mockup .phone-gauge-svg svg line { stroke: var(--bg); }
+[data-theme="dark"] .phone-mockup .phone-gauge-svg svg circle { fill: var(--bg); }
 [data-theme="dark"] .phone-mockup .phone-screen .phone-stats { color: rgba(255,255,255,0.5); }
 [data-theme="dark"] .phone-mockup .phone-screen .phone-stats strong { color: #fff; }
 .phone-notch{
@@ -729,7 +729,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 .phone-greeting-sub{font-size:11px;font-weight:400;color:var(--text-secondary);display:block;margin-bottom:1px}
 .phone-avatar{
   width:32px;height:32px;border-radius:50%;
-  background:linear-gradient(135deg,#0096f0,#0055aa);
+  background:linear-gradient(135deg,var(--accent),#0055aa);
   display:flex;align-items:center;justify-content:center;
   font-size:13px;font-weight:600;color:#fff;flex-shrink:0
 }
@@ -765,7 +765,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
   display:flex;align-items:center;justify-content:center;gap:6px;
   width:100%;padding:12px 10px;
   min-height:44px;
-  background:linear-gradient(135deg,#0096f0,#00b4d8);
+  background:linear-gradient(135deg,var(--accent),#00b4d8);
   border:none;border-radius:10px;
   color:#fff;font-size:13px;font-weight:600;font-family:inherit;
   cursor:pointer;
@@ -787,9 +787,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
   display:flex;align-items:center;gap:4px;
   padding:3px 8px;background:rgba(255,69,58,0.1);
   border:1px solid rgba(255,69,58,0.2);border-radius:100px;
-  font-size:10px;font-weight:600;color:#ff453a
+  font-size:10px;font-weight:600;color:#ef4444
 }
-.phone-live-dot{width:5px;height:5px;border-radius:50%;background:#ff453a;animation:pulse 1.5s ease-in-out infinite}
+.phone-live-dot{width:5px;height:5px;border-radius:50%;background:#ef4444;animation:pulse 1.5s ease-in-out infinite}
 .phone-gauge-wrap{
   position:relative;display:flex;flex-direction:column;align-items:center;
   padding:8px 12px;margin-bottom:4px;
@@ -799,7 +799,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 .phone-gauge-svg{position:relative;width:130px;height:80px;overflow:hidden}
 .phone-gauge-svg svg{width:100%;height:100%;display:block}
 .phone-gauge-center{position:absolute;bottom:2px;left:50%;transform:translateX(-50%);text-align:center}
-.phone-gauge-val{font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1;color:#34c759}
+.phone-gauge-val{font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1;color:#10b981}
 .phone-gauge-lbl{font-size:8px;color:rgba(255,255,255,0.45);letter-spacing:.2px}
 .phone-train-metrics{
   display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:6px
@@ -817,13 +817,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 }
 .phone-assist-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
 .phone-assist-lbl{font-size:9px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:.3px}
-.phone-assist-level{font-size:12px;font-weight:700;color:#0096f0}
+.phone-assist-level{font-size:12px;font-weight:700;color:var(--accent)}
 .phone-assist-bar{height:4px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden}
-.phone-assist-fill{height:100%;width:40%;background:linear-gradient(90deg,#0096f0,#00b4d8);border-radius:2px}
+.phone-assist-fill{height:100%;width:40%;background:linear-gradient(90deg,var(--accent),#00b4d8);border-radius:2px}
 .phone-report-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
 .phone-report-title{font-size:14px;font-weight:700}
 .phone-report-date{font-size:9px;color:rgba(255,255,255,0.45);margin-top:1px}
-.phone-report-badge{padding:3px 8px;background:rgba(0,150,240,0.1);border-radius:100px;font-size:9px;font-weight:600;color:#0096f0}
+.phone-report-badge{padding:3px 8px;background:rgba(0,150,240,0.1);border-radius:100px;font-size:9px;font-weight:600;color:var(--accent)}
 .phone-report-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:6px}
 .phone-report-card{
   background:rgba(255,255,255,0.04);border-radius:8px;padding:6px 4px;text-align:center;
@@ -840,7 +840,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 .phone-chart-bars{display:flex;align-items:flex-end;gap:4px;height:48px}
 .phone-chart-bar{
   flex:1;border-radius:3px 3px 0 0;
-  background:#0096f0;opacity:.7;
+  background:var(--accent);opacity:.7;
   min-height:8px;transition:opacity .2s
 }
 .phone-chart-bars .bar-1{height:28px}
@@ -856,10 +856,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
   display:flex;align-items:center;gap:6px;
   padding:6px 10px;margin-bottom:4px;
   background:rgba(52,199,89,0.08);border:1px solid rgba(52,199,89,0.12);
-  border-radius:8px;font-size:10px;color:#34c759;font-weight:500
+  border-radius:8px;font-size:10px;color:#10b981;font-weight:500
 }
 .phone-compare-sub{font-size:9px;color:rgba(52,199,89,0.6);margin-left:auto}
-.phone-note{padding:6px 10px;background:rgba(255,255,255,0.02);border-left:2px solid #0096f0;border-radius:0 6px 6px 0;font-size:9px;color:rgba(255,255,255,0.5);line-height:1.5;margin-bottom:4px}
+.phone-note{padding:6px 10px;background:rgba(255,255,255,0.02);border-left:2px solid var(--accent);border-radius:0 6px 6px 0;font-size:9px;color:rgba(255,255,255,0.5);line-height:1.5;margin-bottom:4px}
 .phone-note-hdr{display:flex;justify-content:space-between;margin-bottom:2px}
 .phone-note-author{font-size:9px;font-weight:600;color:rgba(255,255,255,0.7)}
 .phone-note-date{font-size:8px;color:rgba(255,255,255,0.35)}
@@ -1133,12 +1133,12 @@ footer a:hover{color:var(--text)}
    ============================================================ */
 @media print{
   *,*::before,*::after{background:transparent!important;color:#000!important;box-shadow:none!important;text-shadow:none!important}
-  nav{position:static;backdrop-filter:none;background:#fff!important;border-bottom:1px solid #ddd;height:auto;padding:12px 0}
+  nav{position:static;backdrop-filter:none;background:#fff!important;border-bottom:1px solid var(--border);height:auto;padding:12px 0}
   #hero{min-height:auto;padding:48px 0;background:#fff!important}
   .card,.team-card,.market-card,.why-card,.portal-card,.product-card,
   .phone-mockup,.tech-step,.latency-bar,.problem-stat{break-inside:avoid}
   .theme-btn,.nav-cta,.nav-toggle,.section-footer,.app-features{display:none!important}
-  .latency-bar span{color:#000!important;background:#ddd!important}
+  .latency-bar span{color:#000!important;background:var(--border)!important}
   .latency-eeg{background:#B3D9F2!important}
   .latency-pre{background:#C0E0F5!important}
   .latency-ai{background:#99C9E8!important}
@@ -1146,15 +1146,15 @@ footer a:hover{color:var(--text)}
   .latency-learn{background:#66A8D4!important}
   .btn{border:1px solid #000!important;color:#000!important;background:#fff!important;padding:6px 16px!important}
   .hero-label{color:#666!important}
-  .metric-num{color:#333!important}
+  .metric-num{color:var(--text)!important}
   .section{padding:32px 0!important}
   .grid-2,.grid-3,.grid-4{display:block!important}
   .grid-2>*,.grid-3>*,.grid-4>*{margin-bottom:16px!important}
   .footer-bottom{flex-direction:row}
   .problem-stats{display:block!important}
   .problem-stat{display:inline-block!important;width:30%!important;margin-right:2%!important;page-break-inside:avoid}
-  a{color:#333!important}
-  .tag-accent{background:#eee!important;color:#333!important}
+  a{color:var(--text)!important}
+  .tag-accent{background:#eee!important;color:var(--text)!important}
 }
 
 /* ============================================================
@@ -1446,7 +1446,7 @@ footer a:hover{color:var(--text)}
  <span class="phone-status-time">9:41</span>
  <div class="phone-status-icons">
  <svg width="14" height="10" viewBox="0 0 14 10"><rect x="0" y="6" width="2.5" height="4" rx="0.5" fill="currentColor" opacity=".3"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5" fill="currentColor" opacity=".5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5" fill="currentColor"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5" fill="currentColor"/></svg>
- <svg width="18" height="10" viewBox="0 0 18 10"><rect x="0" y="1" width="14" height="8" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="2" y="3" width="8" height="4" rx="1" fill="#34c759"/></svg>
+ <svg width="18" height="10" viewBox="0 0 18 10"><rect x="0" y="1" width="14" height="8" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="2" y="3" width="8" height="4" rx="1" fill="#10b981"/></svg>
  </div>
  </div>
  <!-- Greeting -->
@@ -1468,11 +1468,11 @@ footer a:hover{color:var(--text)}
  <div class="phone-ring-wrap">
  <svg viewBox="0 0 100 100">
  <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"/>
- <circle cx="50" cy="50" r="42" fill="none" stroke="#0096f0" stroke-width="8"
+ <circle cx="50" cy="50" r="42" fill="none" stroke="var(--accent)" stroke-width="8"
                     stroke-dasharray="263.9" stroke-dashoffset="58.1" stroke-linecap="round" transform="rotate(-90 50 50)"/>
  </svg>
  <div class="phone-ring-center">
- <span class="phone-ring-pct" style="color:#0096f0">78%</span>
+ <span class="phone-ring-pct" style="color:var(--accent)">78%</span>
  <span class="phone-ring-label">本周目标</span>
  </div>
  </div>
@@ -1480,7 +1480,7 @@ footer a:hover{color:var(--text)}
  <!-- Metrics -->
  <div class="phone-metrics">
  <div class="phone-metric">
- <div class="phone-metric-val" style="color:#0096f0">45</div>
+ <div class="phone-metric-val" style="color:var(--accent)">45</div>
  <div class="phone-metric-lbl">训练(分钟)</div>
  </div>
  <div class="phone-metric">
@@ -1488,7 +1488,7 @@ footer a:hover{color:var(--text)}
  <div class="phone-metric-lbl">消耗(千卡)</div>
  </div>
  <div class="phone-metric">
- <div class="phone-metric-val" style="color:#34c759">87%</div>
+ <div class="phone-metric-val" style="color:#10b981">87%</div>
  <div class="phone-metric-lbl">完成率</div>
  </div>
  </div>
@@ -1507,7 +1507,7 @@ footer a:hover{color:var(--text)}
  <span class="phone-status-time">9:41</span>
  <div class="phone-status-icons">
  <svg width="14" height="10" viewBox="0 0 14 10"><rect x="0" y="6" width="2.5" height="4" rx="0.5" fill="currentColor" opacity=".3"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5" fill="currentColor" opacity=".5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5" fill="currentColor"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5" fill="currentColor"/></svg>
- <svg width="18" height="10" viewBox="0 0 18 10"><rect x="0" y="1" width="14" height="8" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="2" y="3" width="8" height="4" rx="1" fill="#34c759"/></svg>
+ <svg width="18" height="10" viewBox="0 0 18 10"><rect x="0" y="1" width="14" height="8" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="2" y="3" width="8" height="4" rx="1" fill="#10b981"/></svg>
  </div>
  </div>
  <!-- Header -->
@@ -1521,18 +1521,18 @@ footer a:hover{color:var(--text)}
  <svg viewBox="0 0 130 80">
  <defs>
  <linearGradient id="phoneGaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
- <stop offset="0%" stop-color="#ff453a"/>
+ <stop offset="0%" stop-color="#ef4444"/>
  <stop offset="40%" stop-color="#ff9f0a"/>
  <stop offset="70%" stop-color="#ffd60a"/>
- <stop offset="85%" stop-color="#34c759"/>
- <stop offset="100%" stop-color="#34c759"/>
+ <stop offset="85%" stop-color="#10b981"/>
+ <stop offset="100%" stop-color="#10b981"/>
  </linearGradient>
  </defs>
  <path d="M 15 75 A 55 55 0 0 1 115 75" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="10" stroke-linecap="round"/>
  <path d="M 15 75 A 55 55 0 0 1 115 75" fill="none" stroke="url(#phoneGaugeGrad)" stroke-width="10" stroke-linecap="round" stroke-dasharray="162 172.8"/>
  <line x1="65" y1="75" x2="112" y2="63" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
  <circle cx="65" cy="75" r="4" fill="#fff"/>
- <circle cx="65" cy="75" r="2" fill="#0096f0"/>
+ <circle cx="65" cy="75" r="2" fill="var(--accent)"/>
  </svg>
  <div class="phone-gauge-center">
  <div class="phone-gauge-val">94%</div>
@@ -1544,7 +1544,7 @@ footer a:hover{color:var(--text)}
  <div class="phone-train-metrics">
  <div class="phone-train-metric"><div class="tm-v">112</div><div class="tm-l">步频(步/分)</div></div>
  <div class="phone-train-metric"><div class="tm-v">0.72</div><div class="tm-l">步幅(m)</div></div>
- <div class="phone-train-metric"><div class="tm-v" style="color:#34c759">94%</div><div class="tm-l">对称性</div></div>
+ <div class="phone-train-metric"><div class="tm-v" style="color:#10b981">94%</div><div class="tm-l">对称性</div></div>
  </div>
  <!-- Muscle activation -->
  <div style="font-size:8px;color:var(--text-secondary);margin-bottom:2px;letter-spacing:.3px;text-transform:uppercase">肌群激活热图</div>
@@ -1553,16 +1553,16 @@ footer a:hover{color:var(--text)}
  <svg width="76" height="100" viewBox="0 0 100 130">
  <defs>
  <linearGradient id="phHeatHigh" x1="0" y1="0" x2="0" y2="1">
- <stop offset="0%" stop-color="#34c759" stop-opacity="0.5"/>
- <stop offset="100%" stop-color="#34c759" stop-opacity="0.15"/>
+ <stop offset="0%" stop-color="#10b981" stop-opacity="0.5"/>
+ <stop offset="100%" stop-color="#10b981" stop-opacity="0.15"/>
  </linearGradient>
  <linearGradient id="phHeatMid" x1="0" y1="0" x2="0" y2="1">
  <stop offset="0%" stop-color="#ff9f0a" stop-opacity="0.5"/>
  <stop offset="100%" stop-color="#ff9f0a" stop-opacity="0.15"/>
  </linearGradient>
  <linearGradient id="phHeatLow" x1="0" y1="0" x2="0" y2="1">
- <stop offset="0%" stop-color="#0096f0" stop-opacity="0.3"/>
- <stop offset="100%" stop-color="#0096f0" stop-opacity="0.08"/>
+ <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.3"/>
+ <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.08"/>
  </linearGradient>
  </defs>
  <!-- Head -->
@@ -1600,7 +1600,7 @@ footer a:hover{color:var(--text)}
  </svg>
  </div>
  <div style="display:flex;flex-direction:column;gap:2px;font-size:7px;color:var(--text-secondary);flex-shrink:0">
- <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:#34c759;margin-right:3px;vertical-align:middle"></span>高度激活</span>
+ <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:#10b981;margin-right:3px;vertical-align:middle"></span>高度激活</span>
  <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:#ff9f0a;margin-right:3px;vertical-align:middle"></span>中度激活</span>
  <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:rgba(0,150,240,0.45);margin-right:3px;vertical-align:middle"></span>低度激活</span>
  <span><span style="display:inline-block;width:5px;height:5px;border-radius:1px;background:var(--fig-inactive-bg);border:1px solid var(--fig-inactive-border);margin-right:3px;vertical-align:middle"></span>未激活</span>
@@ -1632,7 +1632,7 @@ footer a:hover{color:var(--text)}
  <span class="phone-status-time">9:41</span>
  <div class="phone-status-icons">
  <svg width="14" height="10" viewBox="0 0 14 10"><rect x="0" y="6" width="2.5" height="4" rx="0.5" fill="currentColor" opacity=".3"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5" fill="currentColor" opacity=".5"/><rect x="7" y="1" width="2.5" height="9" rx="0.5" fill="currentColor"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5" fill="currentColor"/></svg>
- <svg width="18" height="10" viewBox="0 0 18 10"><rect x="0" y="1" width="14" height="8" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="2" y="3" width="10" height="4" rx="1" fill="#34c759"/></svg>
+ <svg width="18" height="10" viewBox="0 0 18 10"><rect x="0" y="1" width="14" height="8" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="2" y="3" width="10" height="4" rx="1" fill="#10b981"/></svg>
  </div>
  </div>
  <!-- Header -->
@@ -1647,7 +1647,7 @@ footer a:hover{color:var(--text)}
  <div class="phone-report-cards">
  <div class="phone-report-card"><div class="rc-v">58,240</div><div class="rc-l">总步数</div></div>
  <div class="phone-report-card"><div class="rc-v">6<span style="font-size:10px;font-weight:400;color:var(--text-secondary)">/7</span></div><div class="rc-l">训练天数</div></div>
- <div class="phone-report-card"><div class="rc-v" style="color:#34c759">91%</div><div class="rc-l">平均对称性</div></div>
+ <div class="phone-report-card"><div class="rc-v" style="color:#10b981">91%</div><div class="rc-l">平均对称性</div></div>
  </div>
  <!-- Chart -->
  <div class="phone-chart">
@@ -1667,7 +1667,7 @@ footer a:hover{color:var(--text)}
  </div>
  <!-- Comparison -->
  <div class="phone-compare">
- <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34c759" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
               较上周提升 12%
  <span class="phone-compare-sub">步态对称性</span>
  </div>
