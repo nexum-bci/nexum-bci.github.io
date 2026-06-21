@@ -390,23 +390,9 @@ nav.scrolled {
   letter-spacing: 0.5px;
   font-weight: 500;
 }
-.hero-back-link {
-  position: absolute;
-  top: calc(var(--nav-height) + 20px);
-  left: 24px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--text-tertiary);
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 500;
-  transition: color 0.3s;
-  z-index: 10;
-}
-.hero-back-link:hover {
-  color: var(--accent);
-}
+/* ============================================================
+   SCROLL INDICATOR
+   ============================================================ */
 .hero-scroll {
   position: absolute;
   bottom: 32px;
@@ -879,8 +865,6 @@ footer .footer-brand-desc {
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
 
   .eng-preview { padding: 32px 24px; }
-
-  .hero-back-link { display: none; }
 }
 
 @media (max-width: 480px) {
@@ -898,7 +882,7 @@ footer .footer-brand-desc {
    PRINT STYLES
    ============================================================ */
 @media print {
-  nav, .noise, .hero-scroll, .hero-bg, .hero-glow-2, .lightbox, .hero-back-link {
+  nav, .noise, .hero-scroll, .hero-bg, .hero-glow-2, .lightbox {
     display: none !important;
   }
   body {
@@ -1001,21 +985,17 @@ footer .footer-brand-desc {
 [data-theme="light"] tr:nth-child(even) { background: #f5f5f5; }
 /* Theme toggle */
 .theme-toggle {
-  background: none; border: 1px solid rgba(255,255,255,0.15);
-  color: #fff; cursor: pointer; font-size: 16px;
-  width: 32px; height: 32px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.3s; flex-shrink: 0; line-height: 1; padding: 0;
+  background: none; border: none; cursor: pointer;
+  color: var(--text-secondary); padding: 6px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  transition: color 0.3s var(--ease-smooth);
+  width: 32px; height: 32px;
 }
-.theme-toggle:hover { border-color: rgba(255,255,255,0.4); }
-[data-theme="light"] .theme-toggle {
-  border-color: rgba(0,0,0,0.12); color: #333;
-}
-[data-theme="light"] .theme-toggle:hover { border-color: rgba(0,0,0,0.3); }
-.theme-toggle .sun-icon { display: none; }
-.theme-toggle .moon-icon { display: block; }
-[data-theme="light"] .theme-toggle .sun-icon { display: block; }
-[data-theme="light"] .theme-toggle .moon-icon { display: none; }
+.theme-toggle:hover { color: var(--text-primary); background: var(--bg-elevated); }
+.theme-toggle .sun-icon { display: block; }
+.theme-toggle .moon-icon { display: none; }
+[data-theme="light"] .theme-toggle .sun-icon { display: none; }
+[data-theme="light"] .theme-toggle .moon-icon { display: block; }
 
 </style>
 </head>
@@ -1032,11 +1012,15 @@ footer .footer-brand-desc {
       Nexum<span>逐念而行</span>
     </a>
     <ul class="nav-links" id="navLinks">
+      <li><button id="themeToggle" class="theme-toggle" aria-label="切换主题">
+        <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button></li>
       <li><a href="product.html" class="nav-link active">产品</a></li>
       <li><a href="technology.html" class="nav-link">技术</a></li>
       <li><a href="app.html" class="nav-link">App</a></li>
       <li><a href="index.html#team" class="nav-link">团队</a></li>
-      <li><a href="逐念而行_Nexum_BP.html" class="nav-cta">投资者入口</a></li>
+      <li><a href="index.html#contact" class="nav-cta">投资者入口</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="菜单">
       <span></span><span></span><span></span>
@@ -1048,12 +1032,6 @@ footer .footer-brand-desc {
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
   <div class="hero-glow-2"></div>
-  <a href="index.html" class="hero-back-link">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="15 18 9 12 15 6"></polyline>
-    </svg>
-    返回首页
-  </a>
   <p class="hero-pre">Nexum One · 产品详情</p>
   <h1>Nexum One 神经重连系统</h1>
   <p class="tagline">
