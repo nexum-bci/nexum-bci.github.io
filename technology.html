@@ -438,142 +438,78 @@ footer {
     <div class="section-label">系统架构总览</div>
     <h2>Nexum One 四大模块协同</h2>
     <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px;margin:32px 0 0">
-      <svg class="system-svg" viewBox="0 0 1000 680" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="sysBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0096f0"/>
-            <stop offset="100%" stop-color="#60a5fa"/>
-          </linearGradient>
-          <linearGradient id="sysDim" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0096f0" stop-opacity="0.08"/>
-            <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.05"/>
-          </linearGradient>
-          <filter id="sysGlow">
-            <feGaussianBlur stdDeviation="3" result="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <marker id="sysArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-            <path d="M0 0 L10 5 L0 10" fill="var(--accent)"/>
-          </marker>
-          <marker id="sysArrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-            <path d="M0 0 L10 5 L0 10" fill="var(--text-tertiary)"/>
-          </marker>
-        </defs>
+      <svg viewBox="0 0 960 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+  <defs>
+    <filter id="sd"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.06"/></filter>
+    <marker id="arw" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="var(--text-tertiary)"/></marker>
+  </defs>
 
-        <!-- Background -->
-        <rect x="0" y="0" width="1000" height="680" rx="20" fill="url(#sysDim)"/>
+  <!-- Module 1: EEG-Sense -->
+  <g filter="url(#sd)">
+    <rect x="30" y="40" width="270" height="180" rx="16" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="30" y="40" width="270" height="44" rx="16" fill="var(--accent-subtle)"/>
+    <rect x="30" y="66" width="270" height="18" fill="var(--accent-subtle)"/>
+  </g>
+  <text x="165" y="68" text-anchor="middle" fill="var(--accent)" font-size="16" font-weight="700">1. EEG-Sense 头带</text>
+  <text x="165" y="112" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">脑信号采集</text>
+  <text x="165" y="136" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">8通道干电极 · 总重 80g</text>
+  <text x="165" y="156" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">ADS1299 + nRF52832</text>
+  <text x="165" y="176" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">250 SPS · 24-bit ADC</text>
+  <text x="165" y="200" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="600">MRCP 运动准备电位检测</text>
 
-        <!-- ========== Person Figure ========== -->
-        <g transform="translate(440, 60)">
-          <!-- Head -->
-          <ellipse cx="60" cy="35" rx="28" ry="35" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
-          <!-- EEG headband -->
-          <rect x="22" y="12" width="76" height="13" rx="6.5" fill="none" stroke="#0096f0" stroke-width="2.5" filter="url(#sysGlow)"/>
-          <text x="60" y="22" text-anchor="middle" fill="var(--accent)" font-size="7" font-weight="700">EEG</text>
-          <!-- Body -->
-          <line x1="60" y1="70" x2="60" y2="230" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
-          <!-- Arms -->
-          <line x1="60" y1="100" x2="10" y2="180" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
-          <line x1="60" y1="100" x2="110" y2="180" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
-          <!-- Legs -->
-          <line x1="60" y1="230" x2="30" y2="380" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
-          <line x1="60" y1="230" x2="90" y2="380" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
-          <!-- NeuroSuit -->
-          <ellipse cx="60" cy="165" rx="38" ry="75" fill="none" stroke="#0096f0" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
-          <text x="60" y="170" text-anchor="middle" fill="var(--accent)" font-size="7" opacity="0.6">神经服系统</text>
-          <!-- Control Box at belt -->
-          <rect x="40" y="290" width="40" height="25" rx="5" fill="rgba(255,255,255,0.05)" stroke="#0096f0" stroke-width="1.5"/>
-          <text x="60" y="307" text-anchor="middle" fill="var(--accent)" font-size="6" font-weight="700">控制</text>
-          <!-- Bowden cables -->
-          <path d="M 60 315 L 60 380" stroke="#777777" stroke-width="2" stroke-dasharray="4,2" opacity="0.4"/>
-        </g>
+  <!-- Arrow 1→2 -->
+  <line x1="305" y1="130" x2="345" y2="130" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#arw)"/>
+  <text x="325" y="120" text-anchor="middle" fill="var(--text-tertiary)" font-size="10" font-weight="600">BLE</text>
 
-        <!-- ========== 1. EEG-Sense Box ========== -->
-        <g transform="translate(60, 40)">
-          <rect x="0" y="0" width="220" height="260" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(0,150,240,0.25)" stroke-width="1"/>
-          <rect x="0" y="0" width="220" height="44" rx="16" fill="rgba(0,150,240,0.1)"/>
-          <rect x="0" y="28" width="220" height="16" fill="rgba(0,150,240,0.1)"/>
-          <text x="110" y="28" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">1. EEG-Sense 头带</text>
-          <circle cx="18" cy="68" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="72" fill="var(--text-tertiary)" font-size="11">8通道干电极 EEG</text>
-          <circle cx="18" cy="92" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="96" fill="var(--text-tertiary)" font-size="11">总重 80g · 佩戴如运动头带</text>
-          <circle cx="18" cy="116" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="120" fill="var(--text-tertiary)" font-size="11">ADS1299 + nRF52832</text>
-          <circle cx="18" cy="140" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="144" fill="var(--text-tertiary)" font-size="11">250 SPS · 24-bit ADC</text>
-          <circle cx="18" cy="164" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="168" fill="var(--text-tertiary)" font-size="11">运动准备电位 (MRCP) 检测</text>
-          <circle cx="18" cy="188" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="192" fill="var(--text-tertiary)" font-size="11">BLE 5.0 实时传输</text>
+  <!-- Module 2: Nexum App -->
+  <g filter="url(#sd)">
+    <rect x="355" y="40" width="270" height="180" rx="16" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="355" y="40" width="270" height="44" rx="16" fill="var(--accent-subtle)"/>
+    <rect x="355" y="66" width="270" height="18" fill="var(--accent-subtle)"/>
+  </g>
+  <text x="490" y="68" text-anchor="middle" fill="var(--accent)" font-size="16" font-weight="700">2. Nexum App</text>
+  <text x="490" y="112" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">个性化 AI 推理引擎</text>
+  <text x="490" y="136" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">CoreML / ONNX Runtime</text>
+  <text x="490" y="156" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">EEG + IMU 多模态融合</text>
+  <text x="490" y="176" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">强化学习策略网络</text>
+  <text x="490" y="200" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="600">实时生物反馈 + 康复报告</text>
 
-          <!-- Mini headband -->
-          <ellipse cx="110" cy="228" rx="40" ry="18" fill="none" stroke="var(--border)" stroke-width="1.5"/>
-          <rect x="70" y="215" width="80" height="12" rx="6" fill="none" stroke="#0096f0" stroke-width="2" filter="url(#sysGlow)"/>
-          <circle cx="90" cy="232" r="3" fill="#c0c0c0"/>
-          <circle cx="110" cy="234" r="3" fill="#c0c0c0"/>
-          <circle cx="130" cy="232" r="3" fill="#c0c0c0"/>
-        </g>
+  <!-- Arrow 2→3 -->
+  <line x1="630" y1="130" x2="670" y2="130" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#arw)"/>
+  <text x="650" y="120" text-anchor="middle" fill="var(--text-tertiary)" font-size="10" font-weight="600">UART</text>
 
-        <!-- ========== 2. Nexum App Box ========== -->
-        <g transform="translate(60, 340)">
-          <rect x="0" y="0" width="220" height="170" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(0,150,240,0.25)" stroke-width="1"/>
-          <rect x="0" y="0" width="220" height="44" rx="16" fill="rgba(0,150,240,0.1)"/>
-          <rect x="0" y="28" width="220" height="16" fill="rgba(0,150,240,0.1)"/>
-          <text x="110" y="28" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">2. Nexum App</text>
-          <circle cx="18" cy="68" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="72" fill="var(--text-tertiary)" font-size="11">个性化 AI 推理引擎</text>
-          <circle cx="18" cy="92" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="96" fill="var(--text-tertiary)" font-size="11">CoreML / ONNX Runtime</text>
-          <circle cx="18" cy="116" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="120" fill="var(--text-tertiary)" font-size="11">EEG + IMU 多模态融合</text>
-          <circle cx="18" cy="140" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="144" fill="var(--text-tertiary)" font-size="11">实时生物反馈 + 康复报告</text>
-        </g>
+  <!-- Module 3: Control Box -->
+  <g filter="url(#sd)">
+    <rect x="680" y="40" width="250" height="180" rx="16" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="680" y="40" width="250" height="44" rx="16" fill="var(--accent-subtle)"/>
+    <rect x="680" y="66" width="250" height="18" fill="var(--accent-subtle)"/>
+  </g>
+  <text x="805" y="68" text-anchor="middle" fill="var(--accent)" font-size="16" font-weight="700">3. 控制盒</text>
+  <text x="805" y="112" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">边缘计算 + 电机驱动</text>
+  <text x="805" y="136" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">STM32H743 + nRF5340</text>
+  <text x="805" y="156" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">DRV8316 FOC 电机驱动</text>
+  <text x="805" y="176" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">BMI270 IMU · 6S 48Wh 电池</text>
+  <text x="805" y="200" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="600">安全看门狗 · 扭矩限幅</text>
 
-        <!-- ========== 3. NeuroSuit + Control Box ========== -->
-        <g transform="translate(720, 40)">
-          <rect x="0" y="0" width="220" height="260" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(0,150,240,0.25)" stroke-width="1"/>
-          <rect x="0" y="0" width="220" height="44" rx="16" fill="rgba(0,150,240,0.1)"/>
-          <rect x="0" y="28" width="220" height="16" fill="rgba(0,150,240,0.1)"/>
-          <text x="110" y="28" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">3. NeuroSuit + 控制盒</text>
-          <circle cx="18" cy="68" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="72" fill="var(--text-tertiary)" font-size="11">压缩织物 · 碳纤维髋部锚定</text>
-          <circle cx="18" cy="92" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="96" fill="var(--text-tertiary)" font-size="11">鲍登线缆力传输</text>
-          <circle cx="18" cy="116" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="120" fill="var(--text-tertiary)" font-size="11">多通道织物 sEMG</text>
-          <circle cx="18" cy="140" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="144" fill="var(--text-tertiary)" font-size="11">总重 ≈ 1.5 kg（含控制盒）</text>
-          <circle cx="18" cy="164" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="168" fill="var(--text-tertiary)" font-size="11">8 Nm 持续 / 15 Nm 峰值</text>
-          <circle cx="18" cy="188" r="4" fill="var(--accent)" opacity="0.5"/>
-          <text x="30" y="192" fill="var(--text-tertiary)" font-size="11">48Wh 6S Li-ion 电池</text>
+  <!-- Arrow 3→4 (down and left) -->
+  <path d="M805,225 L805,290 L165,290 L165,225" stroke="var(--text-tertiary)" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arw)"/>
+  <text x="485" y="306" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">PWM + I2C 反馈</text>
 
-          <!-- Suit mini illustration -->
-          <ellipse cx="110" cy="232" rx="35" ry="18" fill="none" stroke="var(--border)" stroke-width="1.5"/>
-          <rect x="80" y="218" width="14" height="28" rx="3" fill="rgba(0,150,240,0.15)" stroke="#0096f0" stroke-width="0.8"/>
-          <rect x="126" y="218" width="14" height="28" rx="3" fill="rgba(0,150,240,0.15)" stroke="#0096f0" stroke-width="0.8"/>
-          <path d="M 87 246 L 87 260" stroke="#777777" stroke-width="2" stroke-dasharray="3,2"/>
-          <path d="M 133 246 L 133 260" stroke="#777777" stroke-width="2" stroke-dasharray="3,2"/>
-        </g>
+  <!-- Module 4: NeuroSuit (bottom center, wide) -->
+  <g filter="url(#sd)">
+    <rect x="30" y="320" width="900" height="100" rx="16" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="30" y="320" width="900" height="44" rx="16" fill="var(--accent-subtle)"/>
+    <rect x="30" y="346" width="900" height="18" fill="var(--accent-subtle)"/>
+  </g>
+  <text x="480" y="348" text-anchor="middle" fill="var(--accent)" font-size="16" font-weight="700">4. NeuroSuit 肌动服</text>
+  <text x="480" y="388" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">碳纤维锚定 · 鲍登线缆驱动 · &lt;1.5kg · 15 Nm 峰值 · 10 秒穿脱</text>
 
-        <!-- ========== Data Flow Arrows ========== -->
-        <!-- EEG → App -->
-        <path d="M 280 170 Q 280 350 280 425" fill="none" stroke="#0096f0" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#sysArrow)"/>
-        <rect x="250" y="280" width="60" height="20" rx="10" fill="rgba(0,150,240,0.15)" stroke="rgba(0,150,240,0.3)" stroke-width="0.5"/>
-        <text x="280" y="294" text-anchor="middle" fill="var(--accent)" font-size="9" font-weight="600">BLE</text>
-
-        <!-- App → Control Box (via curved path going right) -->
-        <path d="M 280 510 Q 500 580 740 425" fill="none" stroke="#0096f0" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#sysArrow)"/>
-        <text x="520" y="548" text-anchor="middle" fill="var(--accent)" font-size="9" font-weight="600">BLE 指令 · 8-16 字节</text>
-
-        <!-- Control Box → Suit (internal connection in the figure) -->
-
-        <!-- Suit → App feedback -->
-        <path d="M 720 170 Q 560 80 280 425" fill="none" stroke="#777777" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#sysArrowG)"/>
-        <text x="470" y="140" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">状态反馈 (IMU/编码器/力传感)</text>
-      </svg>
+  <!-- Bottom bar: latency -->
+  <rect x="30" y="440" width="900" height="40" rx="20" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
+  <text x="480" y="466" text-anchor="middle" fill="var(--text-secondary)" font-size="13">
+    端到端闭环 &lt;185ms | 40ms EEG → 55ms AI → 60ms 执行 → 30ms 反馈
+  </text>
+</svg>
     </div>
   </div>
 </section>
