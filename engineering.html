@@ -33,527 +33,527 @@
 <body>
 
 <section class="page-header">
-  <div class="container">
-    <h1>工程架构</h1>
-    <p class="page-sub">人机共生 · 系统架构 · 工程图 · 器件选型 · 原型计划</p>
-  </div>
+ <div class="container">
+ <h1>工程架构</h1>
+ <p class="page-sub">人机共生  ·  系统架构  ·  工程图  ·  器件选型  ·  原型计划</p>
+ </div>
 </section>
 
 <section class="page-section" style="padding-top:0">
-  <div class="container">
+ <div class="container">
 
-    <!-- System Architecture Overview -->
-    <div class="content-card" style="margin-bottom:24px">
-      <h2>系统架构总览</h2>
-      <p>Nexum One 包含四个物理节点和一个逻辑控制回路。EEG-Sense 头带采集神经信号 → Nexum App 执行AI推理 → 控制盒驱动电机 → NeuroSuit 输出力矩。</p>
-      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin:20px 0">
-        <svg viewBox="0 0 960 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
-          <defs>
-            <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f8fafc"/><stop offset="100%" stop-color="#f1f5f9"/></linearGradient>
-            <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#eff6ff"/><stop offset="100%" stop-color="#dbeafe"/></linearGradient>
-            <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0fdf4"/><stop offset="100%" stop-color="#dcfce7"/></linearGradient>
-            <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fefce8"/><stop offset="100%" stop-color="#fef9c3"/></linearGradient>
-            <filter id="sh"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="var(--text)" flood-opacity="0.06"/></filter>
-            <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="var(--text-tertiary)"/></marker>
-          </defs>
-          <rect width="960" height="520" rx="12" fill="var(--bg-card)"/>
-          <text x="480" y="36" text-anchor="middle" fill="var(--text)" font-size="16" font-weight="700">Nexum One 系统架构</text>
-          <!-- EEG-Sense -->
-          <g filter="url(#sh)"><rect x="40" y="70" width="240" height="160" rx="14" fill="url(#bg1)" stroke="var(--border)" stroke-width="1.5"/><rect x="40" y="70" width="240" height="40" rx="14" fill="#6366f1" opacity="0.12"/><rect x="40" y="96" width="240" height="14" fill="#6366f1" opacity="0.12"/></g>
-          <text x="160" y="95" text-anchor="middle" fill="#4f46e5" font-size="15" font-weight="700">EEG-Sense 头带</text>
-          <text x="160" y="135" text-anchor="middle" fill="var(--text-secondary)" font-size="12">80g · 8ch干电极 · ADS1299</text>
-          <text x="160" y="155" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">250 SPS · 24-bit ADC · nRF52832</text>
-          <text x="160" y="200" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">信号采集 + 预处理</text>
-          <!-- Nexum App -->
-          <g filter="url(#sh)"><rect x="380" y="70" width="240" height="160" rx="14" fill="url(#bg2)" stroke="#93c5fd" stroke-width="1.5"/><rect x="380" y="70" width="240" height="40" rx="14" fill="var(--accent)" opacity="0.12"/><rect x="380" y="96" width="240" height="14" fill="var(--accent)" opacity="0.12"/></g>
-          <text x="500" y="95" text-anchor="middle" fill="#0071e3" font-size="15" font-weight="700">Nexum App (手机)</text>
-          <text x="500" y="135" text-anchor="middle" fill="var(--text-secondary)" font-size="12">AI 推理引擎 · EEGNet</text>
-          <text x="500" y="155" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">强化学习策略 · 416肌肉数字孪生</text>
-          <text x="500" y="200" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">意图解码 + 策略生成</text>
-          <line x1="280" y1="120" x2="375" y2="120" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar)"/>
-          <text x="328" y="112" text-anchor="middle" fill="var(--text-tertiary)" font-size="10" font-weight="600">BLE 5.2</text>
-          <!-- Control Box -->
-          <g filter="url(#sh)"><rect x="380" y="300" width="240" height="160" rx="14" fill="url(#bg3)" stroke="#86efac" stroke-width="1.5"/><rect x="380" y="300" width="240" height="40" rx="14" fill="#10b981" opacity="0.12"/><rect x="380" y="326" width="240" height="14" fill="#10b981" opacity="0.12"/></g>
-          <text x="500" y="325" text-anchor="middle" fill="#059669" font-size="15" font-weight="700">控制盒 (腰部)</text>
-          <text x="500" y="365" text-anchor="middle" fill="var(--text-secondary)" font-size="12">MCU + IMU + 电机驱动</text>
-          <text x="500" y="385" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">STM32H7 · 9轴 IMU · CAN FD</text>
-          <text x="500" y="430" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">指令执行 + 传感采集</text>
-          <line x1="500" y1="230" x2="500" y2="295" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar)"/>
-          <text x="514" y="266" fill="var(--text-tertiary)" font-size="10" font-weight="600">有线 UART</text>
-          <!-- NeuroSuit -->
-          <g filter="url(#sh)"><rect x="700" y="300" width="220" height="160" rx="14" fill="url(#bg4)" stroke="#fde047" stroke-width="1.5"/><rect x="700" y="300" width="220" height="40" rx="14" fill="#f59e0b" opacity="0.12"/><rect x="700" y="326" width="220" height="14" fill="#f59e0b" opacity="0.12"/></g>
-          <text x="810" y="325" text-anchor="middle" fill="#d97706" font-size="15" font-weight="700">NeuroSuit 髋部模块</text>
-          <text x="810" y="365" text-anchor="middle" fill="var(--text-secondary)" font-size="12">碳纤维锚定 · 鲍登线缆</text>
-          <text x="810" y="385" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">力传感器反馈 · &lt;1.5kg</text>
-          <text x="810" y="430" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">力矩执行</text>
-          <line x1="620" y1="360" x2="695" y2="360" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar)"/>
-          <text x="658" y="352" text-anchor="middle" fill="var(--text-tertiary)" font-size="10" font-weight="600">PWM 电机</text>
-          <path d="M920,380 C950,380 950,150 620,150" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6,3" fill="none" opacity="0.5"/>
-          <text x="840" y="205" fill="var(--accent)" font-size="10" font-weight="600" opacity="0.7">传感器反馈</text>
-          <!-- Legend -->
-          <rect x="40" y="488" width="12" height="12" rx="3" fill="#6366f1" opacity="0.3"/><text x="58" y="498" fill="var(--text-tertiary)" font-size="11">信号采集</text>
-          <rect x="150" y="488" width="12" height="12" rx="3" fill="var(--accent)" opacity="0.3"/><text x="168" y="498" fill="var(--text-tertiary)" font-size="11">AI 推理</text>
-          <rect x="260" y="488" width="12" height="12" rx="3" fill="#10b981" opacity="0.3"/><text x="278" y="498" fill="var(--text-tertiary)" font-size="11">控制执行</text>
-          <rect x="370" y="488" width="12" height="12" rx="3" fill="#f59e0b" opacity="0.3"/><text x="388" y="498" fill="var(--text-tertiary)" font-size="11">力矩输出</text>
-        </svg>
-      </div>
-    </div>
+ <!-- System Architecture Overview -->
+ <div class="content-card" style="margin-bottom:24px">
+ <h2>系统架构总览</h2>
+ <p>Nexum One 包含四个物理节点和一个逻辑控制回路。EEG-Sense 头带采集神经信号 → Nexum App 执行AI推理 → 控制盒驱动电机 → NeuroSuit 输出力矩。</p>
+ <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin:20px 0">
+ <svg viewBox="0 0 960 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+ <defs>
+ <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f8fafc"/><stop offset="100%" stop-color="#f1f5f9"/></linearGradient>
+ <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#eff6ff"/><stop offset="100%" stop-color="#dbeafe"/></linearGradient>
+ <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0fdf4"/><stop offset="100%" stop-color="#dcfce7"/></linearGradient>
+ <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fefce8"/><stop offset="100%" stop-color="#fef9c3"/></linearGradient>
+ <filter id="sh"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="var(--text)" flood-opacity="0.06"/></filter>
+ <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="var(--text-tertiary)"/></marker>
+ </defs>
+ <rect width="960" height="520" rx="12" fill="var(--bg-card)"/>
+ <text x="480" y="36" text-anchor="middle" fill="var(--text)" font-size="16" font-weight="700">Nexum One 系统架构</text>
+ <!-- EEG-Sense -->
+ <g filter="url(#sh)"><rect x="40" y="70" width="240" height="160" rx="14" fill="url(#bg1)" stroke="var(--border)" stroke-width="1.5"/><rect x="40" y="70" width="240" height="40" rx="14" fill="#6366f1" opacity="0.12"/><rect x="40" y="96" width="240" height="14" fill="#6366f1" opacity="0.12"/></g>
+ <text x="160" y="95" text-anchor="middle" fill="#4f46e5" font-size="15" font-weight="700">EEG-Sense 头带</text>
+ <text x="160" y="135" text-anchor="middle" fill="var(--text-secondary)" font-size="12">80g  ·  8ch干电极  ·  ADS1299</text>
+ <text x="160" y="155" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">250 SPS  ·  24-bit ADC  ·  nRF52832</text>
+ <text x="160" y="200" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">信号采集 + 预处理</text>
+ <!-- Nexum App -->
+ <g filter="url(#sh)"><rect x="380" y="70" width="240" height="160" rx="14" fill="url(#bg2)" stroke="#93c5fd" stroke-width="1.5"/><rect x="380" y="70" width="240" height="40" rx="14" fill="var(--accent)" opacity="0.12"/><rect x="380" y="96" width="240" height="14" fill="var(--accent)" opacity="0.12"/></g>
+ <text x="500" y="95" text-anchor="middle" fill="#0071e3" font-size="15" font-weight="700">Nexum App (手机)</text>
+ <text x="500" y="135" text-anchor="middle" fill="var(--text-secondary)" font-size="12">AI 推理引擎  ·  EEGNet</text>
+ <text x="500" y="155" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">强化学习策略  ·  416肌肉数字孪生</text>
+ <text x="500" y="200" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">意图解码 + 策略生成</text>
+ <line x1="280" y1="120" x2="375" y2="120" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar)"/>
+ <text x="328" y="112" text-anchor="middle" fill="var(--text-tertiary)" font-size="10" font-weight="600">BLE 5.2</text>
+ <!-- Control Box -->
+ <g filter="url(#sh)"><rect x="380" y="300" width="240" height="160" rx="14" fill="url(#bg3)" stroke="#86efac" stroke-width="1.5"/><rect x="380" y="300" width="240" height="40" rx="14" fill="#10b981" opacity="0.12"/><rect x="380" y="326" width="240" height="14" fill="#10b981" opacity="0.12"/></g>
+ <text x="500" y="325" text-anchor="middle" fill="#059669" font-size="15" font-weight="700">控制盒 (腰部)</text>
+ <text x="500" y="365" text-anchor="middle" fill="var(--text-secondary)" font-size="12">MCU + IMU + 电机驱动</text>
+ <text x="500" y="385" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">STM32H7  ·  9轴 IMU  ·  CAN FD</text>
+ <text x="500" y="430" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">指令执行 + 传感采集</text>
+ <line x1="500" y1="230" x2="500" y2="295" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar)"/>
+ <text x="514" y="266" fill="var(--text-tertiary)" font-size="10" font-weight="600">有线 UART</text>
+ <!-- NeuroSuit -->
+ <g filter="url(#sh)"><rect x="700" y="300" width="220" height="160" rx="14" fill="url(#bg4)" stroke="#fde047" stroke-width="1.5"/><rect x="700" y="300" width="220" height="40" rx="14" fill="#f59e0b" opacity="0.12"/><rect x="700" y="326" width="220" height="14" fill="#f59e0b" opacity="0.12"/></g>
+ <text x="810" y="325" text-anchor="middle" fill="#d97706" font-size="15" font-weight="700">NeuroSuit 髋部模块</text>
+ <text x="810" y="365" text-anchor="middle" fill="var(--text-secondary)" font-size="12">碳纤维锚定  ·  鲍登线缆</text>
+ <text x="810" y="385" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">力传感器反馈  ·  &lt;1.5kg</text>
+ <text x="810" y="430" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">力矩执行</text>
+ <line x1="620" y1="360" x2="695" y2="360" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar)"/>
+ <text x="658" y="352" text-anchor="middle" fill="var(--text-tertiary)" font-size="10" font-weight="600">PWM 电机</text>
+ <path d="M920,380 C950,380 950,150 620,150" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6,3" fill="none" opacity="0.5"/>
+ <text x="840" y="205" fill="var(--accent)" font-size="10" font-weight="600" opacity="0.7">传感器反馈</text>
+ <!-- Legend -->
+ <rect x="40" y="488" width="12" height="12" rx="3" fill="#6366f1" opacity="0.3"/><text x="58" y="498" fill="var(--text-tertiary)" font-size="11">信号采集</text>
+ <rect x="150" y="488" width="12" height="12" rx="3" fill="var(--accent)" opacity="0.3"/><text x="168" y="498" fill="var(--text-tertiary)" font-size="11">AI 推理</text>
+ <rect x="260" y="488" width="12" height="12" rx="3" fill="#10b981" opacity="0.3"/><text x="278" y="498" fill="var(--text-tertiary)" font-size="11">控制执行</text>
+ <rect x="370" y="488" width="12" height="12" rx="3" fill="#f59e0b" opacity="0.3"/><text x="388" y="498" fill="var(--text-tertiary)" font-size="11">力矩输出</text>
+ </svg>
+ </div>
+ </div>
 
-    <!-- Engineering Diagrams: D-01 through D-04 -->
-    <!-- ============================================================ -->
-    <!-- 4 DETAILED ENGINEERING DIAGRAMS (D-01 through D-04)           -->
-    <!-- ============================================================ -->
+ <!-- Engineering Diagrams: D-01 through D-04 -->
+ <!-- ============================================================ -->
+ <!-- 4 DETAILED ENGINEERING DIAGRAMS (D-01 through D-04)           -->
+ <!-- ============================================================ -->
 
-    <div class="diagram-section" style="margin-bottom:40px">
-      <div class="diagram-header">
-  <span class="diagram-number">D-01</span>
-  <span class="diagram-title">系统框图</span>
-  <span class="diagram-desc">系统框图 — 数据流与协议</span>
+ <div class="diagram-section" style="margin-bottom:40px">
+ <div class="diagram-header">
+ <span class="diagram-number">D-01</span>
+ <span class="diagram-title">系统框图</span>
+ <span class="diagram-desc">系统框图 — 数据流与协议</span>
 </div>
-      <svg viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
-  <defs>
-    <filter id="sh1"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.06"/></filter>
-    <marker id="ar1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="var(--text-tertiary)"/></marker>
-  </defs>
-  <rect width="1000" height="480" rx="12" fill="var(--bg-card)"/>
+ <svg viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+ <defs>
+ <filter id="sh1"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.06"/></filter>
+ <marker id="ar1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="var(--text-tertiary)"/></marker>
+ </defs>
+ <rect width="1000" height="480" rx="12" fill="var(--bg-card)"/>
 
-  <!-- EEG-Sense Headband -->
-  <g filter="url(#sh1)">
-    <rect x="20" y="50" width="290" height="190" rx="14" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
-    <rect x="20" y="50" width="290" height="40" rx="14" fill="var(--accent-subtle)"/>
-    <rect x="20" y="76" width="290" height="14" fill="var(--accent-subtle)"/>
-  </g>
-  <text x="165" y="75" text-anchor="middle" fill="var(--accent)" font-size="15" font-weight="700">EEG-Sense 头带</text>
-  <!-- Sub: ADS1299 -->
-  <rect x="40" y="110" width="120" height="50" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="100" y="130" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="600">ADS1299</text>
-  <text x="100" y="148" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">8ch ADC · 250SPS</text>
-  <!-- Sub: nRF52832 -->
-  <rect x="170" y="110" width="120" height="50" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="230" y="130" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="600">nRF52832</text>
-  <text x="230" y="148" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">BLE 5.0 · Cortex-M4</text>
-  <line x1="160" y1="135" x2="170" y2="135" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#ar1)"/>
-  <!-- AFE + Electrodes -->
-  <rect x="40" y="175" width="250" height="38" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="165" y="192" text-anchor="middle" fill="var(--text)" font-size="11">模拟前端 · CMRR&gt;110dB · 50Hz陷波</text>
-  <text x="165" y="206" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">干电极×8 (Cz,C3,C4,FCz,FC3,FC4,Pz,P3)</text>
+ <!-- EEG-Sense Headband -->
+ <g filter="url(#sh1)">
+ <rect x="20" y="50" width="290" height="190" rx="14" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+ <rect x="20" y="50" width="290" height="40" rx="14" fill="var(--accent-subtle)"/>
+ <rect x="20" y="76" width="290" height="14" fill="var(--accent-subtle)"/>
+ </g>
+ <text x="165" y="75" text-anchor="middle" fill="var(--accent)" font-size="15" font-weight="700">EEG-Sense 头带</text>
+ <!-- Sub: ADS1299 -->
+ <rect x="40" y="110" width="120" height="50" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="100" y="130" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="600">ADS1299</text>
+ <text x="100" y="148" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">8ch ADC  ·  250SPS</text>
+ <!-- Sub: nRF52832 -->
+ <rect x="170" y="110" width="120" height="50" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="230" y="130" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="600">nRF52832</text>
+ <text x="230" y="148" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">BLE 5.0  ·  Cortex-M4</text>
+ <line x1="160" y1="135" x2="170" y2="135" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#ar1)"/>
+ <!-- AFE + Electrodes -->
+ <rect x="40" y="175" width="250" height="38" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="165" y="192" text-anchor="middle" fill="var(--text)" font-size="11">模拟前端  ·  CMRR&gt;110dB  ·  50Hz陷波</text>
+ <text x="165" y="206" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">干电极×8 (Cz,C3,C4,FCz,FC3,FC4,Pz,P3)</text>
 
-  <!-- Arrow: Headband → Phone -->
-  <line x1="315" y1="145" x2="375" y2="145" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar1)"/>
-  <text x="345" y="135" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="600">BLE 5.0</text>
-  <text x="345" y="158" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">EEG数据流</text>
+ <!-- Arrow: Headband → Phone -->
+ <line x1="315" y1="145" x2="375" y2="145" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar1)"/>
+ <text x="345" y="135" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="600">BLE 5.0</text>
+ <text x="345" y="158" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">EEG数据流</text>
 
-  <!-- Nexum App -->
-  <g filter="url(#sh1)">
-    <rect x="385" y="50" width="290" height="190" rx="14" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
-    <rect x="385" y="50" width="290" height="40" rx="14" fill="var(--accent-subtle)"/>
-    <rect x="385" y="76" width="290" height="14" fill="var(--accent-subtle)"/>
-  </g>
-  <text x="530" y="75" text-anchor="middle" fill="var(--accent)" font-size="15" font-weight="700">Nexum App (手机)</text>
-  <rect x="405" y="110" width="250" height="36" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="530" y="126" text-anchor="middle" fill="var(--text)" font-size="11">BLE接收 · 降采样 250→50Hz</text>
-  <text x="530" y="140" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">Ring Buffer · 数据缓存</text>
-  <rect x="405" y="155" width="250" height="36" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="530" y="171" text-anchor="middle" fill="var(--text)" font-size="11">CoreML / ONNX 推理引擎</text>
-  <text x="530" y="185" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">CSP · FBCSP · LDA · 100ms滑动窗</text>
-  <rect x="405" y="200" width="250" height="30" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="530" y="213" text-anchor="middle" fill="var(--text)" font-size="11">BLE指令发送 · 意图编码 · 模式管理</text>
-  <text x="530" y="225" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">行走/助行/蹲起</text>
+ <!-- Nexum App -->
+ <g filter="url(#sh1)">
+ <rect x="385" y="50" width="290" height="190" rx="14" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+ <rect x="385" y="50" width="290" height="40" rx="14" fill="var(--accent-subtle)"/>
+ <rect x="385" y="76" width="290" height="14" fill="var(--accent-subtle)"/>
+ </g>
+ <text x="530" y="75" text-anchor="middle" fill="var(--accent)" font-size="15" font-weight="700">Nexum App (手机)</text>
+ <rect x="405" y="110" width="250" height="36" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="530" y="126" text-anchor="middle" fill="var(--text)" font-size="11">BLE接收  ·  降采样 250→50Hz</text>
+ <text x="530" y="140" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">Ring Buffer  ·  数据缓存</text>
+ <rect x="405" y="155" width="250" height="36" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="530" y="171" text-anchor="middle" fill="var(--text)" font-size="11">CoreML / ONNX 推理引擎</text>
+ <text x="530" y="185" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">CSP  ·  FBCSP  ·  LDA  ·  100ms滑动窗</text>
+ <rect x="405" y="200" width="250" height="30" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="530" y="213" text-anchor="middle" fill="var(--text)" font-size="11">BLE指令发送  ·  意图编码  ·  模式管理</text>
+ <text x="530" y="225" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">行走/助行/蹲起</text>
 
-  <!-- Arrow: Phone → Control Box -->
-  <line x1="530" y1="245" x2="530" y2="295" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar1)"/>
-  <text x="542" y="272" fill="var(--accent)" font-size="10" font-weight="600">UART</text>
+ <!-- Arrow: Phone → Control Box -->
+ <line x1="530" y1="245" x2="530" y2="295" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar1)"/>
+ <text x="542" y="272" fill="var(--accent)" font-size="10" font-weight="600">UART</text>
 
-  <!-- Control Box -->
-  <g filter="url(#sh1)">
-    <rect x="345" y="300" width="310" height="155" rx="14" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
-    <rect x="345" y="300" width="310" height="40" rx="14" fill="var(--accent-subtle)"/>
-    <rect x="345" y="326" width="310" height="14" fill="var(--accent-subtle)"/>
-  </g>
-  <text x="500" y="325" text-anchor="middle" fill="var(--accent)" font-size="15" font-weight="700">控制盒 (腰部 · IP54)</text>
-  <rect x="360" y="355" width="130" height="42" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="425" y="373" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">nRF5340</text>
-  <text x="425" y="389" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">Dual M33 · BLE RX</text>
-  <rect x="505" y="355" width="135" height="42" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="572" y="373" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">STM32H743</text>
-  <text x="572" y="389" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">M7 480MHz · FOC</text>
-  <line x1="490" y1="376" x2="505" y2="376" stroke="var(--text-tertiary)" stroke-width="1"/>
-  <rect x="360" y="405" width="280" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="500" y="420" text-anchor="middle" fill="var(--text)" font-size="11">DRV8316电机驱动 · BMI270 IMU · BQ25713充电</text>
-  <text x="500" y="434" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">6S 22.2V 48Wh · USB-C PD · 安全看门狗</text>
+ <!-- Control Box -->
+ <g filter="url(#sh1)">
+ <rect x="345" y="300" width="310" height="155" rx="14" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+ <rect x="345" y="300" width="310" height="40" rx="14" fill="var(--accent-subtle)"/>
+ <rect x="345" y="326" width="310" height="14" fill="var(--accent-subtle)"/>
+ </g>
+ <text x="500" y="325" text-anchor="middle" fill="var(--accent)" font-size="15" font-weight="700">控制盒 (腰部  ·  IP54)</text>
+ <rect x="360" y="355" width="130" height="42" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="425" y="373" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">nRF5340</text>
+ <text x="425" y="389" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">Dual M33  ·  BLE RX</text>
+ <rect x="505" y="355" width="135" height="42" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="572" y="373" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">STM32H743</text>
+ <text x="572" y="389" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">M7 480MHz  ·  FOC</text>
+ <line x1="490" y1="376" x2="505" y2="376" stroke="var(--text-tertiary)" stroke-width="1"/>
+ <rect x="360" y="405" width="280" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="500" y="420" text-anchor="middle" fill="var(--text)" font-size="11">DRV8316电机驱动  ·  BMI270 IMU  ·  BQ25713充电</text>
+ <text x="500" y="434" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">6S 22.2V 48Wh  ·  USB-C PD  ·  安全看门狗</text>
 
-  <!-- Arrow: Control Box → NeuroSuit -->
-  <line x1="660" y1="377" x2="730" y2="377" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar1)"/>
-  <text x="695" y="367" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="600">PWM+I2C</text>
+ <!-- Arrow: Control Box → NeuroSuit -->
+ <line x1="660" y1="377" x2="730" y2="377" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar1)"/>
+ <text x="695" y="367" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="600">PWM+I2C</text>
 
-  <!-- NeuroSuit -->
-  <g filter="url(#sh1)">
-    <rect x="740" y="300" width="240" height="155" rx="14" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
-    <rect x="740" y="300" width="240" height="40" rx="14" fill="var(--accent-subtle)"/>
-    <rect x="740" y="326" width="240" height="14" fill="var(--accent-subtle)"/>
-  </g>
-  <text x="860" y="325" text-anchor="middle" fill="var(--accent)" font-size="15" font-weight="700">NeuroSuit</text>
-  <text x="860" y="358" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="600">柔性外骨骼</text>
-  <text x="860" y="380" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">AK80-9电机 · Bowden线缆</text>
-  <text x="860" y="398" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">8Nm持续 · 15Nm峰值</text>
-  <text x="860" y="418" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">碳纤维锚定 · &lt;1.5kg</text>
-  <text x="860" y="442" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">力传感器 · IMU反馈</text>
+ <!-- NeuroSuit -->
+ <g filter="url(#sh1)">
+ <rect x="740" y="300" width="240" height="155" rx="14" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+ <rect x="740" y="300" width="240" height="40" rx="14" fill="var(--accent-subtle)"/>
+ <rect x="740" y="326" width="240" height="14" fill="var(--accent-subtle)"/>
+ </g>
+ <text x="860" y="325" text-anchor="middle" fill="var(--accent)" font-size="15" font-weight="700">NeuroSuit</text>
+ <text x="860" y="358" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="600">柔性外骨骼</text>
+ <text x="860" y="380" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">AK80-9电机  ·  Bowden线缆</text>
+ <text x="860" y="398" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">8Nm持续  ·  15Nm峰值</text>
+ <text x="860" y="418" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">碳纤维锚定  ·  &lt;1.5kg</text>
+ <text x="860" y="442" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">力传感器  ·  IMU反馈</text>
 
-  <!-- Legend -->
-  <rect x="20" y="20" width="12" height="12" rx="3" fill="var(--accent)" opacity="0.2"/>
-  <text x="38" y="30" fill="var(--text-tertiary)" font-size="9">BLE</text>
-  <rect x="80" y="20" width="12" height="12" rx="3" fill="var(--text)" opacity="0.15"/>
-  <text x="98" y="30" fill="var(--text-tertiary)" font-size="9">有线</text>
-  <text x="500" y="30" text-anchor="middle" fill="var(--text-secondary)" font-size="10">系统框图 — 数据流与通信协议</text>
+ <!-- Legend -->
+ <rect x="20" y="20" width="12" height="12" rx="3" fill="var(--accent)" opacity="0.2"/>
+ <text x="38" y="30" fill="var(--text-tertiary)" font-size="9">BLE</text>
+ <rect x="80" y="20" width="12" height="12" rx="3" fill="var(--text)" opacity="0.15"/>
+ <text x="98" y="30" fill="var(--text-tertiary)" font-size="9">有线</text>
+ <text x="500" y="30" text-anchor="middle" fill="var(--text-secondary)" font-size="10">系统框图 — 数据流与通信协议</text>
 </svg>
-    </div>
+ </div>
 
-    <div class="diagram-section" style="margin-bottom:40px">
-      <div class="diagram-header">
-  <span class="diagram-number">D-02</span>
-  <span class="diagram-title">电源树</span>
-  <span class="diagram-desc">电源树 — 电压轨与功耗</span>
+ <div class="diagram-section" style="margin-bottom:40px">
+ <div class="diagram-header">
+ <span class="diagram-number">D-02</span>
+ <span class="diagram-title">电源树</span>
+ <span class="diagram-desc">电源树 — 电压轨与功耗</span>
 </div>
-      <svg viewBox="0 0 1000 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
-  <defs>
-    <filter id="sh2"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.05"/></filter>
-    <marker id="ar2" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="var(--text-tertiary)"/></marker>
-  </defs>
-  <rect width="1000" height="440" rx="12" fill="var(--bg-card)"/>
+ <svg viewBox="0 0 1000 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+ <defs>
+ <filter id="sh2"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.05"/></filter>
+ <marker id="ar2" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="var(--text-tertiary)"/></marker>
+ </defs>
+ <rect width="1000" height="440" rx="12" fill="var(--bg-card)"/>
 
-  <!-- Battery Source -->
-  <g filter="url(#sh2)">
-    <rect x="20" y="30" width="220" height="80" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
-    <rect x="20" y="30" width="220" height="34" rx="12" fill="#f59e0b" opacity="0.15"/>
-    <rect x="20" y="52" width="220" height="12" fill="#f59e0b" opacity="0.15"/>
-  </g>
-  <text x="130" y="54" text-anchor="middle" fill="#d97706" font-size="14" font-weight="700">6S Li-ion 电池</text>
-  <text x="130" y="78" text-anchor="middle" fill="var(--text-secondary)" font-size="12">22.2V · 2250mAh · 50Wh</text>
-  <text x="130" y="98" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">15A保险丝 · 反接保护</text>
+ <!-- Battery Source -->
+ <g filter="url(#sh2)">
+ <rect x="20" y="30" width="220" height="80" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+ <rect x="20" y="30" width="220" height="34" rx="12" fill="#f59e0b" opacity="0.15"/>
+ <rect x="20" y="52" width="220" height="12" fill="#f59e0b" opacity="0.15"/>
+ </g>
+ <text x="130" y="54" text-anchor="middle" fill="#d97706" font-size="14" font-weight="700">6S Li-ion 电池</text>
+ <text x="130" y="78" text-anchor="middle" fill="var(--text-secondary)" font-size="12">22.2V  ·  2250mAh  ·  50Wh</text>
+ <text x="130" y="98" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">15A保险丝  ·  反接保护</text>
 
-  <!-- Motor Rail -->
-  <line x1="240" y1="55" x2="320" y2="55" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar2)"/>
-  <g filter="url(#sh2)">
-    <rect x="325" y="20" width="240" height="55" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
-  </g>
-  <text x="445" y="42" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">电机驱动轨 22.2V</text>
-  <text x="445" y="62" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">DRV8316 · 最大12A · 直驱</text>
+ <!-- Motor Rail -->
+ <line x1="240" y1="55" x2="320" y2="55" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar2)"/>
+ <g filter="url(#sh2)">
+ <rect x="325" y="20" width="240" height="55" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+ </g>
+ <text x="445" y="42" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">电机驱动轨 22.2V</text>
+ <text x="445" y="62" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">DRV8316  ·  最大12A  ·  直驱</text>
 
-  <line x1="445" y1="75" x2="445" y2="105" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar2)"/>
-  <g filter="url(#sh2)">
-    <rect x="345" y="108" width="200" height="40" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
-  </g>
-  <text x="445" y="125" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="600">AK80-9 无刷电机</text>
-  <text x="445" y="141" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">3相 · 最大150W</text>
+ <line x1="445" y1="75" x2="445" y2="105" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar2)"/>
+ <g filter="url(#sh2)">
+ <rect x="345" y="108" width="200" height="40" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+ </g>
+ <text x="445" y="125" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="600">AK80-9 无刷电机</text>
+ <text x="445" y="141" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">3相  ·  最大150W</text>
 
-  <!-- 12V Rail -->
-  <line x1="240" y1="90" x2="320" y2="140" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar2)"/>
-  <g filter="url(#sh2)">
-    <rect x="325" y="120" width="240" height="50" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
-  </g>
-  <text x="445" y="142" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">12V 中间轨</text>
-  <text x="445" y="160" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">Buck: 22.2V→12V · 最大3A · &lt;50mVpp</text>
+ <!-- 12V Rail -->
+ <line x1="240" y1="90" x2="320" y2="140" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar2)"/>
+ <g filter="url(#sh2)">
+ <rect x="325" y="120" width="240" height="50" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+ </g>
+ <text x="445" y="142" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">12V 中间轨</text>
+ <text x="445" y="160" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">Buck: 22.2V→12V  ·  最大3A  ·  &lt;50mVpp</text>
 
-  <!-- 5V Rail -->
-  <line x1="565" y1="145" x2="630" y2="145" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar2)"/>
-  <g filter="url(#sh2)">
-    <rect x="635" y="125" width="160" height="40" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
-  </g>
-  <text x="715" y="143" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">5V LDO</text>
-  <text x="715" y="158" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">500mA · &lt;30mVpp</text>
+ <!-- 5V Rail -->
+ <line x1="565" y1="145" x2="630" y2="145" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar2)"/>
+ <g filter="url(#sh2)">
+ <rect x="635" y="125" width="160" height="40" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+ </g>
+ <text x="715" y="143" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">5V LDO</text>
+ <text x="715" y="158" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">500mA  ·  &lt;30mVpp</text>
 
-  <line x1="715" y1="165" x2="715" y2="195" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#ar2)"/>
-  <rect x="655" y="198" width="120" height="30" rx="6" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="715" y="211" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">LED · 风扇 (300mA)</text>
+ <line x1="715" y1="165" x2="715" y2="195" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#ar2)"/>
+ <rect x="655" y="198" width="120" height="30" rx="6" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="715" y="211" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">LED  ·  风扇 (300mA)</text>
 
-  <!-- 3.3V Digital -->
-  <line x1="565" y1="165" x2="630" y2="200" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar2)"/>
-  <g filter="url(#sh2)">
-    <rect x="635" y="180" width="160" height="50" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
-  </g>
-  <text x="715" y="200" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">3.3V 数字 Buck</text>
-  <text x="715" y="218" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">12→3.3V · 1.2A · &lt;20mVpp</text>
+ <!-- 3.3V Digital -->
+ <line x1="565" y1="165" x2="630" y2="200" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar2)"/>
+ <g filter="url(#sh2)">
+ <rect x="635" y="180" width="160" height="50" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+ </g>
+ <text x="715" y="200" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">3.3V 数字 Buck</text>
+ <text x="715" y="218" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">12→3.3V  ·  1.2A  ·  &lt;20mVpp</text>
 
-  <line x1="715" y1="230" x2="715" y2="255" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#ar2)"/>
-  <rect x="650" y="258" width="130" height="28" rx="6" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="715" y="270" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">nRF5340 · STM32H7 · IMU</text>
+ <line x1="715" y1="230" x2="715" y2="255" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#ar2)"/>
+ <rect x="650" y="258" width="130" height="28" rx="6" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="715" y="270" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">nRF5340  ·  STM32H7  ·  IMU</text>
 
-  <!-- 3.3V Analog -->
-  <line x1="565" y1="200" x2="630" y2="260" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#ar2)"/>
-  <g filter="url(#sh2)">
-    <rect x="635" y="248" width="160" height="42" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
-  </g>
-  <text x="715" y="266" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">3.3V 模拟 LDO</text>
-  <text x="715" y="282" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">50mA · &lt;5µVrms · 磁珠滤波</text>
+ <!-- 3.3V Analog -->
+ <line x1="565" y1="200" x2="630" y2="260" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#ar2)"/>
+ <g filter="url(#sh2)">
+ <rect x="635" y="248" width="160" height="42" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+ </g>
+ <text x="715" y="266" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">3.3V 模拟 LDO</text>
+ <text x="715" y="282" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">50mA  ·  &lt;5µVrms  ·  磁珠滤波</text>
 
-  <line x1="715" y1="290" x2="715" y2="315" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#ar2)"/>
-  <rect x="665" y="318" width="100" height="25" rx="6" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="715" y="329" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">ADS1299 AVDD</text>
+ <line x1="715" y1="290" x2="715" y2="315" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#ar2)"/>
+ <rect x="665" y="318" width="100" height="25" rx="6" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="715" y="329" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">ADS1299 AVDD</text>
 
-  <!-- USB-C Charge Input -->
-  <rect x="20" y="140" width="220" height="55" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1" stroke-dasharray="5,3"/>
-  <text x="130" y="162" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">USB-C PD 充电</text>
-  <text x="130" y="180" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">20V · 3A (60W) · BQ25713</text>
-  <line x1="130" y1="140" x2="130" y2="115" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#ar2)"/>
+ <!-- USB-C Charge Input -->
+ <rect x="20" y="140" width="220" height="55" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1" stroke-dasharray="5,3"/>
+ <text x="130" y="162" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">USB-C PD 充电</text>
+ <text x="130" y="180" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">20V  ·  3A (60W)  ·  BQ25713</text>
+ <line x1="130" y1="140" x2="130" y2="115" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#ar2)"/>
 
-  <!-- Power Budget Table -->
-  <g transform="translate(20, 230)">
-    <rect x="0" y="0" width="280" height="195" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
-    <text x="140" y="22" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">电源预算汇总</text>
-    <!-- Table header -->
-    <line x1="10" y1="35" x2="270" y2="35" stroke="var(--border)" stroke-width="1"/>
-    <text x="18" y="52" fill="var(--text-tertiary)" font-size="10">22.2V RAW</text>
-    <text x="200" y="52" fill="var(--text-secondary)" font-size="10" text-anchor="end">15A · 电机+Buck</text>
-    <text x="18" y="70" fill="var(--text-tertiary)" font-size="10">电机轨</text>
-    <text x="200" y="70" fill="var(--text-secondary)" font-size="10" text-anchor="end">12A · AK80-9</text>
-    <text x="18" y="88" fill="var(--text-tertiary)" font-size="10">12V 中间轨</text>
-    <text x="200" y="88" fill="var(--text-secondary)" font-size="10" text-anchor="end">3A · Buck</text>
-    <text x="18" y="106" fill="var(--text-tertiary)" font-size="10">5V</text>
-    <text x="200" y="106" fill="var(--text-secondary)" font-size="10" text-anchor="end">500mA · LED+风扇</text>
-    <text x="18" y="124" fill="var(--text-tertiary)" font-size="10">3.3V 数字</text>
-    <text x="200" y="124" fill="var(--text-secondary)" font-size="10" text-anchor="end">1.2A · MCU+BLE+IMU</text>
-    <text x="18" y="142" fill="var(--text-tertiary)" font-size="10">3.3V 模拟</text>
-    <text x="200" y="142" fill="var(--text-secondary)" font-size="10" text-anchor="end">50mA · ADS1299</text>
-    <line x1="10" y1="155" x2="270" y2="155" stroke="var(--border)" stroke-width="1"/>
-    <text x="18" y="172" fill="var(--text)" font-size="11" font-weight="700">总功耗估算</text>
-    <text x="200" y="172" fill="var(--accent)" font-size="11" font-weight="700" text-anchor="end">~40W (峰值)</text>
-  </g>
+ <!-- Power Budget Table -->
+ <g transform="translate(20, 230)">
+ <rect x="0" y="0" width="280" height="195" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
+ <text x="140" y="22" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">电源预算汇总</text>
+ <!-- Table header -->
+ <line x1="10" y1="35" x2="270" y2="35" stroke="var(--border)" stroke-width="1"/>
+ <text x="18" y="52" fill="var(--text-tertiary)" font-size="10">22.2V RAW</text>
+ <text x="200" y="52" fill="var(--text-secondary)" font-size="10" text-anchor="end">15A  ·  电机+Buck</text>
+ <text x="18" y="70" fill="var(--text-tertiary)" font-size="10">电机轨</text>
+ <text x="200" y="70" fill="var(--text-secondary)" font-size="10" text-anchor="end">12A  ·  AK80-9</text>
+ <text x="18" y="88" fill="var(--text-tertiary)" font-size="10">12V 中间轨</text>
+ <text x="200" y="88" fill="var(--text-secondary)" font-size="10" text-anchor="end">3A  ·  Buck</text>
+ <text x="18" y="106" fill="var(--text-tertiary)" font-size="10">5V</text>
+ <text x="200" y="106" fill="var(--text-secondary)" font-size="10" text-anchor="end">500mA  ·  LED+风扇</text>
+ <text x="18" y="124" fill="var(--text-tertiary)" font-size="10">3.3V 数字</text>
+ <text x="200" y="124" fill="var(--text-secondary)" font-size="10" text-anchor="end">1.2A  ·  MCU+BLE+IMU</text>
+ <text x="18" y="142" fill="var(--text-tertiary)" font-size="10">3.3V 模拟</text>
+ <text x="200" y="142" fill="var(--text-secondary)" font-size="10" text-anchor="end">50mA  ·  ADS1299</text>
+ <line x1="10" y1="155" x2="270" y2="155" stroke="var(--border)" stroke-width="1"/>
+ <text x="18" y="172" fill="var(--text)" font-size="11" font-weight="700">总功耗估算</text>
+ <text x="200" y="172" fill="var(--accent)" font-size="11" font-weight="700" text-anchor="end">~40W (峰值)</text>
+ </g>
 
-  <text x="500" y="30" text-anchor="middle" fill="var(--text-secondary)" font-size="10">电源树 — 电压轨与功耗分配</text>
+ <text x="500" y="30" text-anchor="middle" fill="var(--text-secondary)" font-size="10">电源树 — 电压轨与功耗分配</text>
 </svg>
-    </div>
+ </div>
 
-    <div class="diagram-section" style="margin-bottom:40px">
-      <div class="diagram-header">
-  <span class="diagram-number">D-03</span>
-  <span class="diagram-title">固件任务结构</span>
-  <span class="diagram-desc">固件任务结构 — RTOS 任务优先级与周期</span>
+ <div class="diagram-section" style="margin-bottom:40px">
+ <div class="diagram-header">
+ <span class="diagram-number">D-03</span>
+ <span class="diagram-title">固件任务结构</span>
+ <span class="diagram-desc">固件任务结构 — RTOS 任务优先级与周期</span>
 </div>
-      <svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
-  <defs>
-    <filter id="sh3"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.05"/></filter>
-    <marker id="ar3" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="var(--text-tertiary)"/></marker>
-  </defs>
-  <rect width="1000" height="400" rx="12" fill="var(--bg-card)"/>
+ <svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+ <defs>
+ <filter id="sh3"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.05"/></filter>
+ <marker id="ar3" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="var(--text-tertiary)"/></marker>
+ </defs>
+ <rect width="1000" height="400" rx="12" fill="var(--bg-card)"/>
 
-  <!-- nRF52832 Header -->
-  <g filter="url(#sh3)"><rect x="20" y="40" width="220" height="60" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="20" y="40" width="220" height="30" rx="12" fill="#6366f1" opacity="0.12"/><rect x="20" y="56" width="220" height="14" fill="#6366f1" opacity="0.12"/></g>
-  <text x="130" y="61" text-anchor="middle" fill="#4f46e5" font-size="13" font-weight="700">nRF52832 (头带)</text>
-  <text x="130" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">Cortex-M4F . 64MHz . FreeRTOS</text>
+ <!-- nRF52832 Header -->
+ <g filter="url(#sh3)"><rect x="20" y="40" width="220" height="60" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="20" y="40" width="220" height="30" rx="12" fill="#6366f1" opacity="0.12"/><rect x="20" y="56" width="220" height="14" fill="#6366f1" opacity="0.12"/></g>
+ <text x="130" y="61" text-anchor="middle" fill="#4f46e5" font-size="13" font-weight="700">nRF52832 (头带)</text>
+ <text x="130" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">Cortex-M4F . 64MHz . FreeRTOS</text>
 
-  <!-- nRF52832 tasks -->
-  <rect x="30" y="112" width="200" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="130" y="127" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">EEG采集</text>
-  <text x="130" y="141" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">SPI DMA . 250Hz . P3</text>
+ <!-- nRF52832 tasks -->
+ <rect x="30" y="112" width="200" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="130" y="127" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">EEG采集</text>
+ <text x="130" y="141" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">SPI DMA . 250Hz . P3</text>
 
-  <rect x="30" y="152" width="200" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="130" y="167" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">DSP流水线</text>
-  <text x="130" y="181" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">50Hz陷波 . 0.5-45Hz带通 . P2</text>
+ <rect x="30" y="152" width="200" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="130" y="167" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">DSP流水线</text>
+ <text x="130" y="181" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">50Hz陷波 . 0.5-45Hz带通 . P2</text>
 
-  <rect x="30" y="192" width="200" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="130" y="207" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">BLE通知</text>
-  <text x="130" y="221" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">打包发送 . 50Hz . P1</text>
+ <rect x="30" y="192" width="200" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="130" y="207" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">BLE通知</text>
+ <text x="130" y="221" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">打包发送 . 50Hz . P1</text>
 
-  <!-- nRF5340 Header -->
-  <line x1="240" y1="70" x2="258" y2="70" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar3)"/>
-  <text x="250" y="108" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">BLE</text>
+ <!-- nRF5340 Header -->
+ <line x1="240" y1="70" x2="258" y2="70" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar3)"/>
+ <text x="250" y="108" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">BLE</text>
 
-  <g filter="url(#sh3)"><rect x="260" y="40" width="220" height="60" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="260" y="40" width="220" height="30" rx="12" fill="var(--accent)" opacity="0.12"/><rect x="260" y="56" width="220" height="14" fill="var(--accent)" opacity="0.12"/></g>
-  <text x="370" y="61" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">nRF5340 (控制盒)</text>
-  <text x="370" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">Dual M33 . 128MHz . FreeRTOS</text>
+ <g filter="url(#sh3)"><rect x="260" y="40" width="220" height="60" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="260" y="40" width="220" height="30" rx="12" fill="var(--accent)" opacity="0.12"/><rect x="260" y="56" width="220" height="14" fill="var(--accent)" opacity="0.12"/></g>
+ <text x="370" y="61" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">nRF5340 (控制盒)</text>
+ <text x="370" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">Dual M33 . 128MHz . FreeRTOS</text>
 
-  <rect x="270" y="112" width="200" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="370" y="127" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">BLE接收解析</text>
-  <text x="370" y="141" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">事件触发 . P4(最高)</text>
+ <rect x="270" y="112" width="200" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="370" y="127" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">BLE接收解析</text>
+ <text x="370" y="141" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">事件触发 . P4(最高)</text>
 
-  <rect x="270" y="152" width="200" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="370" y="167" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">IMU姿态融合 . 安全看门狗</text>
-  <text x="370" y="181" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">100Hz+1kHz . P3</text>
+ <rect x="270" y="152" width="200" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="370" y="167" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">IMU姿态融合 . 安全看门狗</text>
+ <text x="370" y="181" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">100Hz+1kHz . P3</text>
 
-  <rect x="270" y="192" width="200" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="370" y="207" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">UART指令转发</text>
-  <text x="370" y="221" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">DMA发送至STM32 . P2</text>
+ <rect x="270" y="192" width="200" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="370" y="207" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">UART指令转发</text>
+ <text x="370" y="221" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">DMA发送至STM32 . P2</text>
 
-  <!-- STM32H743 Header -->
-  <line x1="480" y1="70" x2="498" y2="70" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar3)"/>
-  <text x="490" y="108" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">UART</text>
+ <!-- STM32H743 Header -->
+ <line x1="480" y1="70" x2="498" y2="70" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar3)"/>
+ <text x="490" y="108" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">UART</text>
 
-  <g filter="url(#sh3)"><rect x="500" y="40" width="230" height="60" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="500" y="40" width="230" height="30" rx="12" fill="#10b981" opacity="0.12"/><rect x="500" y="56" width="230" height="14" fill="#10b981" opacity="0.12"/></g>
-  <text x="615" y="61" text-anchor="middle" fill="#059669" font-size="13" font-weight="700">STM32H743 (控制盒)</text>
-  <text x="615" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">Cortex-M7 . 480MHz . FreeRTOS</text>
+ <g filter="url(#sh3)"><rect x="500" y="40" width="230" height="60" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="500" y="40" width="230" height="30" rx="12" fill="#10b981" opacity="0.12"/><rect x="500" y="56" width="230" height="14" fill="#10b981" opacity="0.12"/></g>
+ <text x="615" y="61" text-anchor="middle" fill="#059669" font-size="13" font-weight="700">STM32H743 (控制盒)</text>
+ <text x="615" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">Cortex-M7 . 480MHz . FreeRTOS</text>
 
-  <rect x="510" y="112" width="210" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="615" y="127" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">FOC控制环路</text>
-  <text x="615" y="141" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">电流环PI . SVPWM . 20kHz . P4</text>
+ <rect x="510" y="112" width="210" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="615" y="127" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">FOC控制环路</text>
+ <text x="615" y="141" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">电流环PI . SVPWM . 20kHz . P4</text>
 
-  <rect x="510" y="152" width="210" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="615" y="167" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">扭矩控制器 . 编码器读取</text>
-  <text x="615" y="181" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">2kHz+10kHz . P3</text>
+ <rect x="510" y="152" width="210" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="615" y="167" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">扭矩控制器 . 编码器读取</text>
+ <text x="615" y="181" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">2kHz+10kHz . P3</text>
 
-  <rect x="510" y="192" width="210" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-  <text x="615" y="207" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">命令接收 . 状态监控</text>
-  <text x="615" y="221" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">事件触发+100ms . P2+P1</text>
+ <rect x="510" y="192" width="210" height="34" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+ <text x="615" y="207" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">命令接收 . 状态监控</text>
+ <text x="615" y="221" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">事件触发+100ms . P2+P1</text>
 
-  <!-- Timing bar -->
-  <rect x="20" y="258" width="960" height="48" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
-  <text x="35" y="278" fill="var(--text)" font-size="11" font-weight="700">时序:</text>
-  <rect x="80" y="268" width="80" height="20" rx="5" fill="#6366f1" opacity="0.15"/>
-  <text x="120" y="282" text-anchor="middle" fill="#4f46e5" font-size="10" font-weight="700">20kHz FOC</text>
-  <rect x="168" y="268" width="75" height="20" rx="5" fill="var(--accent)" opacity="0.12"/>
-  <text x="205" y="282" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="700">10kHz Enc</text>
-  <rect x="251" y="268" width="75" height="20" rx="5" fill="var(--accent)" opacity="0.10"/>
-  <text x="288" y="282" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="700">2kHz Trq</text>
-  <rect x="334" y="268" width="80" height="20" rx="5" fill="var(--accent)" opacity="0.08"/>
-  <text x="374" y="282" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="700">100Hz IMU</text>
-  <rect x="422" y="268" width="80" height="20" rx="5" fill="var(--accent)" opacity="0.06"/>
-  <text x="462" y="282" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="700">250Hz EEG</text>
+ <!-- Timing bar -->
+ <rect x="20" y="258" width="960" height="48" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
+ <text x="35" y="278" fill="var(--text)" font-size="11" font-weight="700">时序:</text>
+ <rect x="80" y="268" width="80" height="20" rx="5" fill="#6366f1" opacity="0.15"/>
+ <text x="120" y="282" text-anchor="middle" fill="#4f46e5" font-size="10" font-weight="700">20kHz FOC</text>
+ <rect x="168" y="268" width="75" height="20" rx="5" fill="var(--accent)" opacity="0.12"/>
+ <text x="205" y="282" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="700">10kHz Enc</text>
+ <rect x="251" y="268" width="75" height="20" rx="5" fill="var(--accent)" opacity="0.10"/>
+ <text x="288" y="282" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="700">2kHz Trq</text>
+ <rect x="334" y="268" width="80" height="20" rx="5" fill="var(--accent)" opacity="0.08"/>
+ <text x="374" y="282" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="700">100Hz IMU</text>
+ <rect x="422" y="268" width="80" height="20" rx="5" fill="var(--accent)" opacity="0.06"/>
+ <text x="462" y="282" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="700">250Hz EEG</text>
 
-  <text x="500" y="305" text-anchor="middle" fill="var(--text-secondary)" font-size="10">固件任务结构 - RTOS 优先级与周期</text>
+ <text x="500" y="305" text-anchor="middle" fill="var(--text-secondary)" font-size="10">固件任务结构 - RTOS 优先级与周期</text>
 </svg>
-    </div>
+ </div>
 
-    <div class="diagram-section" style="margin-bottom:40px">
-      <div class="diagram-header">
-  <span class="diagram-number">D-04</span>
-  <span class="diagram-title">闭环控制系统</span>
-  <span class="diagram-desc">闭环控制系统 — 从 EEG 意图到电机扭矩</span>
+ <div class="diagram-section" style="margin-bottom:40px">
+ <div class="diagram-header">
+ <span class="diagram-number">D-04</span>
+ <span class="diagram-title">闭环控制系统</span>
+ <span class="diagram-desc">闭环控制系统 — 从 EEG 意图到电机扭矩</span>
 </div>
-      <svg viewBox="0 0 1000 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
-  <defs>
-    <filter id="sh4"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.05"/></filter>
-    <marker id="ar4" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="var(--text-tertiary)"/></marker>
-  </defs>
-  <rect width="1000" height="440" rx="12" fill="var(--bg-card)"/>
+ <svg viewBox="0 0 1000 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+ <defs>
+ <filter id="sh4"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.05"/></filter>
+ <marker id="ar4" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="var(--text-tertiary)"/></marker>
+ </defs>
+ <rect width="1000" height="440" rx="12" fill="var(--bg-card)"/>
 
-  <!-- Signal Chain: Top Row -->
-  <!-- EEG Input -->
-  <g filter="url(#sh4)"><rect x="15" y="30" width="155" height="65" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="15" y="30" width="155" height="28" rx="10" fill="var(--accent-subtle)"/><rect x="15" y="46" width="155" height="12" fill="var(--accent-subtle)"/></g>
-  <text x="92" y="50" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">EEG信号输入</text>
-  <text x="92" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">8ch . 250SPS . 24bit</text>
-  <text x="92" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">Cz,C3,C4,Fz...</text>
+ <!-- Signal Chain: Top Row -->
+ <!-- EEG Input -->
+ <g filter="url(#sh4)"><rect x="15" y="30" width="155" height="65" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="15" y="30" width="155" height="28" rx="10" fill="var(--accent-subtle)"/><rect x="15" y="46" width="155" height="12" fill="var(--accent-subtle)"/></g>
+ <text x="92" y="50" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">EEG信号输入</text>
+ <text x="92" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">8ch . 250SPS . 24bit</text>
+ <text x="92" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">Cz,C3,C4,Fz...</text>
 
-  <line x1="170" y1="62" x2="198" y2="62" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
+ <line x1="170" y1="62" x2="198" y2="62" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
 
-  <!-- Preprocess + CSP -->
-  <g filter="url(#sh4)"><rect x="202" y="30" width="170" height="65" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="202" y="30" width="170" height="28" rx="10" fill="var(--accent-subtle)"/><rect x="202" y="46" width="170" height="12" fill="var(--accent-subtle)"/></g>
-  <text x="287" y="50" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">预处理 + CSP</text>
-  <text x="287" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">0.5-45Hz带通 + 50Hz陷波</text>
-  <text x="287" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">CSP空间滤波 . 100ms窗</text>
+ <!-- Preprocess + CSP -->
+ <g filter="url(#sh4)"><rect x="202" y="30" width="170" height="65" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="202" y="30" width="170" height="28" rx="10" fill="var(--accent-subtle)"/><rect x="202" y="46" width="170" height="12" fill="var(--accent-subtle)"/></g>
+ <text x="287" y="50" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">预处理 + CSP</text>
+ <text x="287" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">0.5-45Hz带通 + 50Hz陷波</text>
+ <text x="287" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">CSP空间滤波 . 100ms窗</text>
 
-  <line x1="372" y1="62" x2="400" y2="62" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
+ <line x1="372" y1="62" x2="400" y2="62" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
 
-  <!-- FBCSP + LDA -->
-  <g filter="url(#sh4)"><rect x="404" y="30" width="185" height="65" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="404" y="30" width="185" height="28" rx="10" fill="var(--accent-subtle)"/><rect x="404" y="46" width="185" height="12" fill="var(--accent-subtle)"/></g>
-  <text x="496" y="50" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">FBCSP特征 + LDA分类</text>
-  <text x="496" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">5频带: 0.5-40Hz</text>
-  <text x="496" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">LDA -> 意图概率 . 70-80%单次</text>
+ <!-- FBCSP + LDA -->
+ <g filter="url(#sh4)"><rect x="404" y="30" width="185" height="65" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="404" y="30" width="185" height="28" rx="10" fill="var(--accent-subtle)"/><rect x="404" y="46" width="185" height="12" fill="var(--accent-subtle)"/></g>
+ <text x="496" y="50" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">FBCSP特征 + LDA分类</text>
+ <text x="496" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">5频带: 0.5-40Hz</text>
+ <text x="496" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">LDA -> 意图概率 . 70-80%单次</text>
 
-  <line x1="589" y1="62" x2="617" y2="62" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
+ <line x1="589" y1="62" x2="617" y2="62" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
 
-  <!-- Intent Decode -->
-  <g filter="url(#sh4)"><rect x="621" y="30" width="155" height="65" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="621" y="30" width="155" height="28" rx="10" fill="var(--accent-subtle)"/><rect x="621" y="46" width="155" height="12" fill="var(--accent-subtle)"/></g>
-  <text x="698" y="50" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">意图解码</text>
-  <text x="698" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">行走/上楼梯/停止</text>
-  <text x="698" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">指数滑动平均 . 滞后100ms</text>
+ <!-- Intent Decode -->
+ <g filter="url(#sh4)"><rect x="621" y="30" width="155" height="65" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="621" y="30" width="155" height="28" rx="10" fill="var(--accent-subtle)"/><rect x="621" y="46" width="155" height="12" fill="var(--accent-subtle)"/></g>
+ <text x="698" y="50" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">意图解码</text>
+ <text x="698" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">行走/上楼梯/停止</text>
+ <text x="698" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">指数滑动平均 . 滞后100ms</text>
 
-  <!-- Arrow down to torque chain -->
-  <line x1="698" y1="95" x2="698" y2="135" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar4)"/>
-  <text x="708" y="118" fill="var(--accent)" font-size="10" font-weight="600">意图 t*</text>
+ <!-- Arrow down to torque chain -->
+ <line x1="698" y1="95" x2="698" y2="135" stroke="var(--text-tertiary)" stroke-width="2" marker-end="url(#ar4)"/>
+ <text x="708" y="118" fill="var(--accent)" font-size="10" font-weight="600">意图 t*</text>
 
-  <!-- Torque Chain: Bottom Row -->
-  <!-- Gait Phase -->
-  <g filter="url(#sh4)"><rect x="15" y="140" width="155" height="55" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="15" y="140" width="155" height="26" rx="10" fill="#f59e0b" opacity="0.1"/><rect x="15" y="154" width="155" height="12" fill="#f59e0b" opacity="0.1"/></g>
-  <text x="92" y="160" text-anchor="middle" fill="#d97706" font-size="11" font-weight="700">步态相位检测</text>
-  <text x="92" y="182" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">IMU航姿 . 髋关节角度</text>
+ <!-- Torque Chain: Bottom Row -->
+ <!-- Gait Phase -->
+ <g filter="url(#sh4)"><rect x="15" y="140" width="155" height="55" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="15" y="140" width="155" height="26" rx="10" fill="#f59e0b" opacity="0.1"/><rect x="15" y="154" width="155" height="12" fill="#f59e0b" opacity="0.1"/></g>
+ <text x="92" y="160" text-anchor="middle" fill="#d97706" font-size="11" font-weight="700">步态相位检测</text>
+ <text x="92" y="182" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">IMU航姿 . 髋关节角度</text>
 
-  <line x1="170" y1="167" x2="200" y2="167" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
+ <line x1="170" y1="167" x2="200" y2="167" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
 
-  <!-- Torque Setpoint -->
-  <g filter="url(#sh4)"><rect x="204" y="140" width="155" height="55" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="204" y="140" width="155" height="26" rx="10" fill="var(--accent-subtle)"/><rect x="204" y="154" width="155" height="12" fill="var(--accent-subtle)"/></g>
-  <text x="281" y="160" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="700">扭矩设定值</text>
-  <text x="281" y="182" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">t* = f(意图,步态)</text>
+ <!-- Torque Setpoint -->
+ <g filter="url(#sh4)"><rect x="204" y="140" width="155" height="55" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="204" y="140" width="155" height="26" rx="10" fill="var(--accent-subtle)"/><rect x="204" y="154" width="155" height="12" fill="var(--accent-subtle)"/></g>
+ <text x="281" y="160" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="700">扭矩设定值</text>
+ <text x="281" y="182" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">t* = f(意图,步态)</text>
 
-  <line x1="359" y1="167" x2="389" y2="167" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
+ <line x1="359" y1="167" x2="389" y2="167" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
 
-  <!-- PI Torque Controller -->
-  <g filter="url(#sh4)"><rect x="393" y="140" width="175" height="55" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/></g>
-  <text x="480" y="160" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="700">PI扭矩控制器</text>
-  <text x="480" y="182" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">Kp=0.5 . Ki=20 . G_t(s)</text>
+ <!-- PI Torque Controller -->
+ <g filter="url(#sh4)"><rect x="393" y="140" width="175" height="55" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/></g>
+ <text x="480" y="160" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="700">PI扭矩控制器</text>
+ <text x="480" y="182" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">Kp=0.5 . Ki=20 . G_t(s)</text>
 
-  <line x1="568" y1="167" x2="598" y2="167" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
+ <line x1="568" y1="167" x2="598" y2="167" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
 
-  <!-- PI Current Loop -->
-  <g filter="url(#sh4)"><rect x="602" y="140" width="165" height="55" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/></g>
-  <text x="684" y="160" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="700">PI电流环</text>
-  <text x="684" y="182" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">Kp=0.3 . Ki=200 . G_i(s)</text>
+ <!-- PI Current Loop -->
+ <g filter="url(#sh4)"><rect x="602" y="140" width="165" height="55" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/></g>
+ <text x="684" y="160" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="700">PI电流环</text>
+ <text x="684" y="182" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">Kp=0.3 . Ki=200 . G_i(s)</text>
 
-  <line x1="767" y1="167" x2="797" y2="167" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
+ <line x1="767" y1="167" x2="797" y2="167" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
 
-  <!-- SVPWM + Motor -->
-  <g filter="url(#sh4)"><rect x="801" y="140" width="180" height="55" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="801" y="140" width="180" height="26" rx="10" fill="#10b981" opacity="0.1"/><rect x="801" y="154" width="180" height="12" fill="#10b981" opacity="0.1"/></g>
-  <text x="891" y="160" text-anchor="middle" fill="#059669" font-size="11" font-weight="700">SVPWM + 电机</text>
-  <text x="891" y="182" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">20kHz . 7段式 . AK80-9</text>
+ <!-- SVPWM + Motor -->
+ <g filter="url(#sh4)"><rect x="801" y="140" width="180" height="55" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="801" y="140" width="180" height="26" rx="10" fill="#10b981" opacity="0.1"/><rect x="801" y="154" width="180" height="12" fill="#10b981" opacity="0.1"/></g>
+ <text x="891" y="160" text-anchor="middle" fill="#059669" font-size="11" font-weight="700">SVPWM + 电机</text>
+ <text x="891" y="182" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">20kHz . 7段式 . AK80-9</text>
 
-  <!-- Feedback paths -->
-  <path d="M891,195 C891,235 891,235 891,260" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5,3" fill="none" marker-end="url(#ar4)"/>
-  <text x="905" y="230" fill="var(--accent)" font-size="9" font-weight="600">t_motor</text>
+ <!-- Feedback paths -->
+ <path d="M891,195 C891,235 891,235 891,260" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5,3" fill="none" marker-end="url(#ar4)"/>
+ <text x="905" y="230" fill="var(--accent)" font-size="9" font-weight="600">t_motor</text>
 
-  <text x="891" y="282" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">扭矩反馈</text>
+ <text x="891" y="282" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">扭矩反馈</text>
 
-  <!-- Control Transfer Functions Box -->
-  <g transform="translate(15, 290)">
-    <rect x="0" y="0" width="966" height="105" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
-    <text x="20" y="22" fill="var(--text)" font-size="12" font-weight="700">控制传递函数</text>
+ <!-- Control Transfer Functions Box -->
+ <g transform="translate(15, 290)">
+ <rect x="0" y="0" width="966" height="105" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
+ <text x="20" y="22" fill="var(--text)" font-size="12" font-weight="700">控制传递函数</text>
 
-    <text x="30" y="45" fill="var(--accent)" font-size="11" font-weight="600">PI扭矩: G_t(s) = 0.5 + 20/s</text>
-    <text x="260" y="45" fill="var(--text-tertiary)" font-size="10">输入: t_err = t* - t_est | 输出: i_q*</text>
+ <text x="30" y="45" fill="var(--accent)" font-size="11" font-weight="600">PI扭矩: G_t(s) = 0.5 + 20/s</text>
+ <text x="260" y="45" fill="var(--text-tertiary)" font-size="10">输入: t_err = t* - t_est | 输出: i_q*</text>
 
-    <text x="30" y="65" fill="var(--accent)" font-size="11" font-weight="600">PI电流: G_i(s) = 0.3 + 200/s</text>
-    <text x="260" y="65" fill="var(--text-tertiary)" font-size="10">输入: i_q_err | 输出: V_q</text>
+ <text x="30" y="65" fill="var(--accent)" font-size="11" font-weight="600">PI电流: G_i(s) = 0.3 + 200/s</text>
+ <text x="260" y="65" fill="var(--text-tertiary)" font-size="10">输入: i_q_err | 输出: V_q</text>
 
-    <text x="30" y="85" fill="var(--accent)" font-size="11" font-weight="600">电机+机械: P(s) = 0.18 / (0.002s + 0.001)</text>
-    <text x="400" y="85" fill="var(--text-tertiary)" font-size="10">Kt=0.18Nm/A . J=0.002 . B=0.001</text>
+ <text x="30" y="85" fill="var(--accent)" font-size="11" font-weight="600">电机+机械: P(s) = 0.18 / (0.002s + 0.001)</text>
+ <text x="400" y="85" fill="var(--text-tertiary)" font-size="10">Kt=0.18Nm/A . J=0.002 . B=0.001</text>
 
-    <text x="750" y="55" fill="var(--text-secondary)" font-size="12" font-weight="600">闭环带宽: 扭矩~50Hz . 电流~2kHz</text>
-    <text x="750" y="75" fill="var(--text-secondary)" font-size="11">GM&gt;10dB . PM&gt;45deg . 20kHz采样</text>
-  </g>
+ <text x="750" y="55" fill="var(--text-secondary)" font-size="12" font-weight="600">闭环带宽: 扭矩~50Hz . 电流~2kHz</text>
+ <text x="750" y="75" fill="var(--text-secondary)" font-size="11">GM&gt;10dB . PM&gt;45deg . 20kHz采样</text>
+ </g>
 
-  <text x="500" y="420" text-anchor="middle" fill="var(--text-secondary)" font-size="10">闭环控制系统 - 从EEG意图到电机扭矩的完整信号流</text>
+ <text x="500" y="420" text-anchor="middle" fill="var(--text-secondary)" font-size="10">闭环控制系统 - 从EEG意图到电机扭矩的完整信号流</text>
 </svg>
-    </div>
+ </div>
 
-    <!-- Component Selection -->
-    <div class="content-card" style="margin-bottom:24px">
-      <h2>器件选型</h2>
-      <div class="table-wrap"><table>
-        <thead><tr><th>子系统</th><th>器件</th><th>关键参数</th><th>选型理由</th></tr></thead>
-        <tbody>
-        <tr><td>EEG前端</td><td>TI ADS1299</td><td>8ch, 24-bit ΔΣ, 250SPS, 低噪声</td><td>医用级EEG AFE，内置PGA+滤波器，8通道同步采样</td></tr>
-        <tr><td>头带MCU</td><td>nRF52832</td><td>ARM Cortex-M4, BLE 5.0</td><td>低功耗，BLE SoC集成，适合穿戴式传感器节点</td></tr>
-        <tr><td>控制盒MCU</td><td>STM32H743</td><td>ARM Cortex-M7, 480MHz, FPU</td><td>高性能控制，FOC电机控制，丰富外设(CAN/SPI/I2C)</td></tr>
-        <tr><td>IMU</td><td>BMI270</td><td>6轴, 16-bit, 低噪声陀螺仪</td><td>Bosch车规级，适合姿态估计和步态检测</td></tr>
-        <tr><td>电机驱动</td><td>DRV8316</td><td>3相, 40V, 8A峰值, SPI接口</td><td>集成FOC, 低RDS(on), 紧凑封装</td></tr>
-        <tr><td>执行电机</td><td>AK60-6 / T-motor</td><td>KV 60-90, 15Nm峰值, &lt;500g</td><td>高扭矩密度，低齿槽转矩，适合穿戴式力控</td></tr>
-        <tr><td>电池</td><td>21700 Li-ion × 6</td><td>22.2V 48Wh, 6S1P, 含BMS</td><td>高能量密度，标准电芯，可更换设计</td></tr>
-        </tbody>
-      </table></div>
-    </div>
+ <!-- Component Selection -->
+ <div class="content-card" style="margin-bottom:24px">
+ <h2>器件选型</h2>
+ <div class="table-wrap"><table>
+ <thead><tr><th>子系统</th><th>器件</th><th>关键参数</th><th>选型理由</th></tr></thead>
+ <tbody>
+ <tr><td>EEG前端</td><td>TI ADS1299</td><td>8ch, 24-bit ΔΣ, 250SPS, 低噪声</td><td>医用级EEG AFE，内置PGA+滤波器，8通道同步采样</td></tr>
+ <tr><td>头带MCU</td><td>nRF52832</td><td>ARM Cortex-M4, BLE 5.0</td><td>低功耗，BLE SoC集成，适合穿戴式传感器节点</td></tr>
+ <tr><td>控制盒MCU</td><td>STM32H743</td><td>ARM Cortex-M7, 480MHz, FPU</td><td>高性能控制，FOC电机控制，丰富外设(CAN/SPI/I2C)</td></tr>
+ <tr><td>IMU</td><td>BMI270</td><td>6轴, 16-bit, 低噪声陀螺仪</td><td>Bosch车规级，适合姿态估计和步态检测</td></tr>
+ <tr><td>电机驱动</td><td>DRV8316</td><td>3相, 40V, 8A峰值, SPI接口</td><td>集成FOC, 低RDS(on), 紧凑封装</td></tr>
+ <tr><td>执行电机</td><td>AK60-6 / T-motor</td><td>KV 60-90, 15Nm峰值, &lt;500g</td><td>高扭矩密度，低齿槽转矩，适合穿戴式力控</td></tr>
+ <tr><td>电池</td><td>21700 Li-ion × 6</td><td>22.2V 48Wh, 6S1P, 含BMS</td><td>高能量密度，标准电芯，可更换设计</td></tr>
+ </tbody>
+ </table></div>
+ </div>
 
-    <!-- Risks + Prototype -->
-    <div class="content-card">
-      <h2>关键工程风险与原型计划</h2>
-      <div class="risk-grid">
-        <div class="risk-card"><h4>EEG信号质量</h4><p>干电极在运动中的信噪比可能不足。缓解：自适应滤波 + 运动伪迹抑制算法。</p></div>
-        <div class="risk-card"><h4>实时解码延迟</h4><p>BLE传输+AI推理需稳定在55ms以内。缓解：模型量化(FP32→INT8)+算子融合+TensorRT。</p></div>
-        <div class="risk-card"><h4>鲍登线缆摩擦力</h4><p>力传输效率随弯折角度下降。缓解：优化布线路径+PTFE内衬管。</p></div>
-        <div class="risk-card"><h4>系统集成</h4><p>多节点时间同步和可靠性。缓解：硬件触发同步+看门狗+CRC校验。</p></div>
-        <div class="risk-card"><h4>电池续航</h4><p>48Wh需支撑6小时连续使用。缓解：动态功耗管理+低功耗待机模式。</p></div>
-        <div class="risk-card"><h4>热管理</h4><p>控制盒和电机在持续工作中发热。缓解：铝合金外壳散热+温度监控+热节流。</p></div>
-        <div class="risk-card"><h4>NMPA合规</h4><p>II类器械需满足GB 9706.1和YY 9706.102。缓解：设计阶段导入安规要求+预测试。</p></div>
-      </div>
-    </div>
+ <!-- Risks + Prototype -->
+ <div class="content-card">
+ <h2>关键工程风险与原型计划</h2>
+ <div class="risk-grid">
+ <div class="risk-card"><h4>EEG信号质量</h4><p>干电极在运动中的信噪比可能不足。缓解：自适应滤波 + 运动伪迹抑制算法。</p></div>
+ <div class="risk-card"><h4>实时解码延迟</h4><p>BLE传输+AI推理需稳定在55ms以内。缓解：模型量化(FP32→INT8)+算子融合+TensorRT。</p></div>
+ <div class="risk-card"><h4>鲍登线缆摩擦力</h4><p>力传输效率随弯折角度下降。缓解：优化布线路径+PTFE内衬管。</p></div>
+ <div class="risk-card"><h4>系统集成</h4><p>多节点时间同步和可靠性。缓解：硬件触发同步+看门狗+CRC校验。</p></div>
+ <div class="risk-card"><h4>电池续航</h4><p>48Wh需支撑6小时连续使用。缓解：动态功耗管理+低功耗待机模式。</p></div>
+ <div class="risk-card"><h4>热管理</h4><p>控制盒和电机在持续工作中发热。缓解：铝合金外壳散热+温度监控+热节流。</p></div>
+ <div class="risk-card"><h4>NMPA合规</h4><p>II类器械需满足GB 9706.1和YY 9706.102。缓解：设计阶段导入安规要求+预测试。</p></div>
+ </div>
+ </div>
 
-  </div>
+ </div>
 </section>
 
 <script src="shared.js"></script>

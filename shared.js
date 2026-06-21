@@ -69,7 +69,7 @@
       '</div>'+
     '</div>'+
     '<div class="footer-bottom">'+
-      '<p>&copy; 2026 逐念而行 Nexum &middot; 人机共生 &middot; 上海</p>'+
+      '<p>&copy; 2026 逐念而行 Nexum · 人机共生 · 上海</p>'+
     '</div>'+
   '</footer>';
 

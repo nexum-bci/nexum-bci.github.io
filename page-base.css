@@ -46,7 +46,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 .nav-links a{font-size:14px;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
 .nav-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.theme-btn{width:36px;height:36px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);flex-shrink:0}
+.theme-btn{width:44px;height:44px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);flex-shrink:0}
 .theme-btn svg{width:18px;height:18px}
 .theme-btn:hover{background:var(--accent-subtle)}
 .nav-cta{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none}
@@ -64,7 +64,7 @@ footer{width:100%;background:var(--bg-card);border-top:1px solid var(--border);p
 .footer-logo img{width:28px;height:28px}
 .footer-tagline{font-size:13px;color:var(--text-tertiary);line-height:1.65;max-width:300px;margin-bottom:20px}
 .footer-social{display:flex;gap:10px}
-.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;background:var(--bg);border:1px solid var(--border);color:var(--text-secondary);transition:all .2s ease}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;background:var(--bg);border:1px solid var(--border);color:var(--text-secondary);transition:all .2s ease}
 .footer-social a:hover{background:var(--accent-subtle);border-color:var(--accent);color:var(--accent)}
 .footer-col h5{font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text);margin-bottom:16px}
 .footer-col a{font-size:13px;color:var(--text-secondary);line-height:2.4;display:block;text-decoration:none;transition:color .15s}
@@ -185,6 +185,12 @@ tbody tr:hover{background:var(--accent-subtle)}
 /* Pulse dot for live indicators */
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 .pulse{animation:pulse 2s ease-in-out infinite}
+
+/* Tablet breakpoint */
+@media(min-width:769px) and (max-width:1024px){
+  .footer-inner{grid-template-columns:1.5fr 1fr 1fr;gap:36px}
+  .footer-inner>div:first-child{grid-column:1/-1}
+}
 
 /* Responsive */
 @media(max-width:768px){
