@@ -58,13 +58,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 .nav-open .nav-toggle span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
 
 /* Footer (injected by shared.js) */
-footer{background:var(--bg-card);border-top:1px solid var(--border);padding:80px 24px 40px}
-.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px}
-footer h5{font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text-secondary);margin-bottom:16px}
-footer a,footer p{font-size:13px;color:var(--text-secondary);line-height:2.2;display:block;text-decoration:none}
-footer a:hover{color:var(--text)}
-.footer-brand p{line-height:1.6;margin-top:8px}
-.footer-bottom{border-top:1px solid var(--border);padding-top:24px;margin-top:48px;text-align:center;font-size:12px;color:var(--text-tertiary);max-width:1100px;margin-left:auto;margin-right:auto}
+footer{background:var(--bg-card);border-top:1px solid var(--border);padding:80px 24px 40px;margin-top:0}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px}
+.footer-logo{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:700;color:var(--text);text-decoration:none;margin-bottom:12px}
+.footer-logo img{width:28px;height:28px}
+.footer-tagline{font-size:13px;color:var(--text-tertiary);line-height:1.65;max-width:300px;margin-bottom:20px}
+.footer-social{display:flex;gap:10px}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;background:var(--bg);border:1px solid var(--border);color:var(--text-secondary);transition:all .2s ease}
+.footer-social a:hover{background:var(--accent-subtle);border-color:var(--accent);color:var(--accent)}
+.footer-col h5{font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text);margin-bottom:16px}
+.footer-col a{font-size:13px;color:var(--text-secondary);line-height:2.4;display:block;text-decoration:none;transition:color .15s}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;margin-top:48px;text-align:center;font-size:12px;color:var(--text-tertiary);max-width:1100px;margin-left:auto;margin-right:auto}
 
 /* Layout */
 .container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
