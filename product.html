@@ -446,8 +446,8 @@ img.loaded{opacity:1}
 <section class="hero">
   <div class="container">
     <h1>Nexum One 神经重连系统</h1>
-    <p>三件套设计，从脑信号到身体动作的完整闭环。重新定义神经损伤后的运动康复。</p>
-    <p style="font-size:14px;color:var(--text-tertiary);max-width:560px;margin:-32px auto 48px;">Nexum One 是一套完整的神经重连系统——通过EEG读取运动意图，AI生成个性化辅助策略，肌动服精准执行关节助力，联邦学习持续优化。四个环节无缝衔接，端到端延迟低于185毫秒，让你几乎感觉不到系统的存在，只感受到重新获得的身体控制力。</p>
+    <p>从脑信号到身体动作的完整闭环。三个模块，无缝协作，重新定义神经损伤后的运动康复。</p>
+    <p style="font-size:14px;color:var(--text-tertiary);max-width:560px;margin:-32px auto 48px;">EEG-Sense 读取运动意图，Control Box 生成AI辅助策略，NeuroSuit 精准执行关节助力。四个环节环环相扣，端到端延迟低于185毫秒，让你几乎感觉不到系统的存在，只感受到重新获得的身体控制力。</p>
     <div class="hero-metrics">
       <div class="metric"><div class="metric-value">8ch</div><div class="metric-label">EEG 通道</div></div>
       <div class="metric"><div class="metric-value">&lt;80g</div><div class="metric-label">头带重量</div></div>
@@ -458,22 +458,58 @@ img.loaded{opacity:1}
   </div>
 </section>
 
-<!-- PRODUCT COMPONENTS -->
-<section class="section" id="components">
+<!-- HOW IT WORKS: PIPELINE -->
+<section class="section" id="how-it-works">
   <div class="container">
-    <div class="text-center section-label">产品组件</div>
-    <h2 class="text-center mb-48">三大模块，无缝协作</h2>
+    <div class="text-center section-label">工作流程</div>
+    <h2 class="text-center">从意念到动作，四个环节一个闭环</h2>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="step-icon">1</div>
+        <h4>读取 Read</h4>
+        <p>EEG-Sense 通过8通道干电极实时捕捉大脑的运动意图信号</p>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step">
+        <div class="step-icon">2</div>
+        <h4>生成 Generate</h4>
+        <p>Control Box 利用416肌肉数字孪生模型生成个性化辅助策略</p>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step">
+        <div class="step-icon">3</div>
+        <h4>执行 Execute</h4>
+        <p>NeuroSuit 鲍登线缆系统在正确的时间、正确的关节施加正确的力</p>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step evolve">
+        <div class="step-icon">4</div>
+        <h4>进化 Evolve</h4>
+        <p>联邦学习让AI策略持续优化，每次使用都比上一次更懂你</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Card 1: EEG-Sense -->
-    <div class="product-card">
+<!-- COMPONENT 1: EEG-SENSE -->
+<section class="section" id="eeg-sense" style="background:var(--bg-card);border-top:1px solid var(--border);">
+  <div class="container">
+    <div class="flow-indicator">
+      <span class="flow-dot active"><span class="dot-marker"></span> 读取 Read</span>
+      <span class="flow-arrow-indicator">→</span>
+      <span class="flow-dot"><span class="dot-marker"></span> 生成 Generate</span>
+      <span class="flow-arrow-indicator">→</span>
+      <span class="flow-dot"><span class="dot-marker"></span> 执行 Execute</span>
+    </div>
+    <div class="product-card" style="border-bottom:none;padding-top:0;">
       <div class="card-image">
         <img src="docs/render_1_eeg.jpg" alt="EEG-Sense 神经信号读取头带" loading="lazy" decoding="async">
       </div>
       <div class="card-content">
-        <div class="section-label">Neural Signal Acquisition</div>
+        <div class="section-label">01 &#183; 读取 Read</div>
         <h3>EEG-Sense 神经信号读取</h3>
         <p class="en">Neural Signal Acquisition</p>
-        <p class="desc">8通道干电极EEG头带，实时检测运动准备电位。在你有意识的动作意图转化为神经信号的那一刻，系统已经开始工作。250SPS采样率和24bit ADC确保信号的高保真度，蓝牙5.2无线传输延迟低于20ms。</p>
+        <p class="desc">8通道干电极EEG头带，实时检测运动准备电位。在你产生运动意图的瞬间，EEG-Sense 已经开始捕捉神经信号。250SPS采样率和24bit ADC确保信号的高保真度，蓝牙5.2无线传输延迟低于20ms，为下游AI处理提供可靠的数据基础。</p>
         <div class="spec-tags">
           <span class="spec-tag">80g</span>
           <span class="spec-tag">8通道干电极</span>
@@ -481,46 +517,43 @@ img.loaded{opacity:1}
           <span class="spec-tag">蓝牙5.2</span>
           <span class="spec-tag">8h续航</span>
         </div>
-        <div class="outcome">运动意图在动作发生前约0.5秒被识别，准确率>85%</div>
-      </div>
-    </div>
-
-    <!-- Card 2: NeuroSuit -->
-    <div class="product-card reverse">
-      <div class="card-image">
-        <img src="docs/render_3_neurosuit.jpg" alt="NeuroSuit 智能肌动服" loading="lazy" decoding="async">
-      </div>
-      <div class="card-content">
-        <div class="section-label">Intelligent Actuation Suit</div>
-        <h3>NeuroSuit 智能肌动服</h3>
-        <p class="en">Intelligent Actuation Suit</p>
-        <p class="desc">鲍登线缆驱动系统配合碳纤维锚定结构，在正确的时间、正确的关节施加正确的力。轻量化设计让你几乎感受不到它的存在。髋膝踝三关节覆盖，15Nm峰值扭矩满足日常行走、上下楼梯等基本动作需求。</p>
-        <div class="spec-tags">
-          <span class="spec-tag">&lt;1.5kg</span>
-          <span class="spec-tag">15Nm峰值</span>
-          <span class="spec-tag">8Nm持续</span>
-          <span class="spec-tag">鲍登线缆</span>
-          <span class="spec-tag">10秒穿脱</span>
+        <div class="component-connector">
+          <strong>数据流向 Control Box：</strong>EEG-Sense 通过蓝牙5.2将原始脑电信号实时传输至 Control Box。端到端延迟低于20ms，确保AI能够在你的意图转化为动作之前完成识别和策略生成。头带内置9轴IMU辅助识别头部运动，进一步提升意图识别准确率。
         </div>
-        <div class="outcome">在正确的时间、正确的关节、施加正确的力</div>
+        <div class="outcome">运动意图在动作发生前约0.5秒被识别，准确率 &gt;85%</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Card 3: Control Box -->
-    <div class="product-card">
+<!-- COMPONENT 2: CONTROL BOX -->
+<section class="section" id="control-box" style="border-top:1px solid var(--border);">
+  <div class="container">
+    <div class="flow-indicator">
+      <span class="flow-dot"><span class="dot-marker"></span> 读取 Read</span>
+      <span class="flow-arrow-indicator">→</span>
+      <span class="flow-dot active"><span class="dot-marker"></span> 生成 Generate</span>
+      <span class="flow-arrow-indicator">→</span>
+      <span class="flow-dot"><span class="dot-marker"></span> 执行 Execute</span>
+    </div>
+    <div class="product-card reverse" style="border-bottom:none;padding-top:0;">
       <div class="card-image">
         <img src="docs/render_2_controlbox.jpg" alt="Control Box 边缘AI处理器" loading="lazy" decoding="async">
       </div>
       <div class="card-content">
-        <div class="section-label">Edge AI Processing Unit</div>
+        <div class="section-label">02 &#183; 生成 Generate</div>
         <h3>Control Box 边缘AI处理器</h3>
         <p class="en">Edge AI Processing Unit</p>
-        <p class="desc">实时推理引擎，内置416肌肉数字孪生模型。基于强化学习的个性化策略，每次使用都在进化。4 TOPS NPU加速器在边缘侧完成所有推理，无需云端连接，保障数据隐私和低延迟。</p>
+        <p class="desc">Nexum One 的运算大脑。内置416肌肉数字孪生模型，基于强化学习的个性化策略每次使用都在进化。4 TOPS NPU加速器在边缘侧完成所有推理，无需云端连接，保障数据隐私和低延迟。3.5寸触摸屏提供实时系统状态显示和手动微调能力。</p>
         <div class="spec-tags">
           <span class="spec-tag">&lt;185ms</span>
           <span class="spec-tag">416肌肉孪生</span>
           <span class="spec-tag">强化学习</span>
           <span class="spec-tag">联邦学习</span>
+          <span class="spec-tag">4 TOPS NPU</span>
+        </div>
+        <div class="component-connector">
+          <strong>从 EEG-Sense 接收 → 发送到 NeuroSuit：</strong>Control Box 接收来自 EEG-Sense 的脑电信号，经EEGNet解码运动意图，再由强化学习模型生成个性化辅助策略，最后通过蓝牙5.2将精确的驱动指令发送到 NeuroSuit 执行。三者之间形成毫秒级响应的实时控制环路。
         </div>
         <div class="outcome">每次训练AI都在学习你的身体变化，本周的辅助策略和上周不同</div>
       </div>
@@ -528,128 +561,100 @@ img.loaded{opacity:1}
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="section gallery-section" id="gallery">
+<!-- COMPONENT 3: NEUROSUIT -->
+<section class="section" id="neurosuit" style="background:var(--bg-card);border-top:1px solid var(--border);">
   <div class="container">
-    <div class="text-center section-label">产品渲染</div>
-    <h2 class="text-center mb-48">全方位展示</h2>
-    <div class="gallery-grid" id="galleryGrid">
-      <img src="docs/render_4_system.jpg" alt="Nexum One 系统全览" loading="lazy" decoding="async">
-      <img src="docs/render_1_eeg.jpg" alt="EEG-Sense 头带特写" loading="lazy" decoding="async">
-      <img src="docs/render_3_neurosuit.jpg" alt="NeuroSuit 肌动服穿戴" loading="lazy" decoding="async">
-      <img src="docs/render_2_controlbox.jpg" alt="Control Box 处理器" loading="lazy" decoding="async">
-      <img src="docs/render_4_walking.jpg" alt="行走辅助场景" loading="lazy" decoding="async">
-      <img src="docs/render_clinical_v2.jpg" alt="临床使用场景" loading="lazy" decoding="async">
+    <div class="flow-indicator">
+      <span class="flow-dot"><span class="dot-marker"></span> 读取 Read</span>
+      <span class="flow-arrow-indicator">→</span>
+      <span class="flow-dot"><span class="dot-marker"></span> 生成 Generate</span>
+      <span class="flow-arrow-indicator">→</span>
+      <span class="flow-dot active"><span class="dot-marker"></span> 执行 Execute</span>
     </div>
-  </div>
-</section>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose">&times;</button>
-  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
-  <img class="lightbox-img" id="lightboxImg" src="" alt="">
-  <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
-  <div class="lightbox-counter" id="lightboxCounter"></div>
-</div>
-
-<!-- SPECS TABLE -->
-<section class="section" id="specs">
-  <div class="container">
-    <div class="text-center section-label">技术规格</div>
-    <h2 class="text-center mb-48">详细参数对比</h2>
-    <div class="specs-table-wrap">
-      <table class="specs-table">
-        <thead>
-          <tr>
-            <th>参数</th>
-            <th>EEG-Sense</th>
-            <th>NeuroSuit</th>
-            <th>Control Box</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="spec-cat">重量</td><td>80g</td><td>&lt;1.5kg</td><td>120g</td></tr>
-          <tr><td class="spec-cat">传感器</td><td>8ch干电极</td><td>编码器+IMU</td><td>—</td></tr>
-          <tr><td class="spec-cat">无线</td><td>蓝牙5.2</td><td>—</td><td>蓝牙5.2</td></tr>
-          <tr><td class="spec-cat">驱动</td><td>—</td><td>鲍登线缆</td><td>—</td></tr>
-          <tr><td class="spec-cat">扭矩</td><td>—</td><td>15Nm / 8Nm</td><td>—</td></tr>
-          <tr><td class="spec-cat">AI</td><td>—</td><td>—</td><td>EEGNet+RL</td></tr>
-          <tr><td class="spec-cat">续航</td><td>8h</td><td>6h</td><td>8h</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- SYSTEM REQUIREMENTS -->
-<section class="section" id="requirements" style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
-  <div class="container">
-    <div class="text-center section-label">系统要求</div>
-    <h2 class="text-center">兼容性与运行环境</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:48px;">
-      <div style="padding:24px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--bg);">
-        <h4 style="font-size:14px;margin-bottom:12px;color:var(--accent);">移动端App</h4>
-        <div style="font-size:13px;color:var(--text-secondary);line-height:1.8;">
-          <div>iOS 16+ / Android 12+</div>
-          <div>蓝牙 4.2+ 兼容</div>
-          <div>存储空间 &gt;500MB</div>
-          <div>建议 RAM &gt;4GB</div>
-        </div>
+    <div class="product-card" style="border-bottom:none;padding-top:0;">
+      <div class="card-image">
+        <img src="docs/render_3_neurosuit.jpg" alt="NeuroSuit 智能肌动服" loading="lazy" decoding="async">
       </div>
-      <div style="padding:24px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--bg);">
-        <h4 style="font-size:14px;margin-bottom:12px;color:var(--accent);">环境要求</h4>
-        <div style="font-size:13px;color:var(--text-secondary);line-height:1.8;">
-          <div>温度 10-35&deg;C</div>
-          <div>湿度 30-70% RH</div>
-          <div>电磁环境 &lt;10V/m</div>
-          <div>无强磁场干扰</div>
+      <div class="card-content">
+        <div class="section-label">03 &#183; 执行 Execute</div>
+        <h3>NeuroSuit 智能肌动服</h3>
+        <p class="en">Intelligent Actuation Suit</p>
+        <p class="desc">鲍登线缆驱动系统配合碳纤维锚定结构，在正确的时间、正确的关节施加正确的力。轻量化设计让你几乎感受不到它的存在。髋膝踝三关节覆盖，15Nm峰值扭矩满足日常行走、上下楼梯等基本动作需求。10秒快速穿脱设计，独立使用无压力。</p>
+        <div class="spec-tags">
+          <span class="spec-tag">&lt;1.5kg</span>
+          <span class="spec-tag">15Nm峰值</span>
+          <span class="spec-tag">8Nm持续</span>
+          <span class="spec-tag">鲍登线缆</span>
+          <span class="spec-tag">10秒穿脱</span>
         </div>
-      </div>
-      <div style="padding:24px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--bg);">
-        <h4 style="font-size:14px;margin-bottom:12px;color:var(--accent);">用户适配</h4>
-        <div style="font-size:13px;color:var(--text-secondary);line-height:1.8;">
-          <div>体重 &lt;100kg</div>
-          <div>身高 155-190cm</div>
-          <div>有残留运动意图</div>
-          <div>无严重痉挛</div>
+        <div class="component-connector">
+          <strong>从 Control Box 接收驱动指令：</strong>NeuroSuit 接收来自 Control Box 的精确驱动指令，鲍登线缆系统在毫秒级响应时间内完成关节助力。内置磁编码器和6轴IMU传感器实时反馈关节角度和执行状态，形成闭环控制，确保辅助精度和安全性。
         </div>
+        <div class="outcome">在正确的时间、正确的关节、施加正确的力</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHAT'S IN THE BOX -->
-<section class="section box-section">
+<!-- COMPLETE SYSTEM -->
+<section class="section system-section" id="system">
   <div class="container">
-    <div class="text-center section-label">包装内容</div>
-    <h2 class="text-center">开箱即用</h2>
-    <div class="box-grid">
-      <div class="box-item"><div class="box-icon">&#9935;</div><h4>EEG-Sense 头带</h4><p>8通道干电极EEG头带，可调节佩戴，内置蓝牙模块和充电电池</p></div>
-      <div class="box-item"><div class="box-icon">&#9881;</div><h4>NeuroSuit 肌动服</h4><p>碳纤维鲍登线缆系统，3个尺码可选，10秒穿脱设计</p></div>
-      <div class="box-item"><div class="box-icon">&#9729;</div><h4>Control Box 处理器</h4><p>边缘AI计算单元，内置416肌肉孪生模型，触摸屏操作</p></div>
-      <div class="box-item"><div class="box-icon">&#9742;</div><h4>充电底座</h4><p>三合一无线充电底座，同时为三个模块充电</p></div>
-      <div class="box-item"><div class="box-icon">&#9888;</div><h4>配件包</h4><p>备用干电极、绑带、线缆保护套、清洁工具</p></div>
-      <div class="box-item"><div class="box-icon">&#9998;</div><h4>快速入门指南</h4><p>图文并茂的部署指南，10分钟完成首次设置</p></div>
+    <div class="text-center section-label">完整系统</div>
+    <h2 class="text-center">三位一体，无缝协作</h2>
+    <p style="text-align:center;max-width:680px;margin:0 auto;font-size:15px;color:var(--text-secondary);line-height:1.7;">
+      EEG-Sense 读取脑信号 → Control Box 生成辅助策略 → NeuroSuit 执行关节助力 → 联邦学习让系统持续进化。
+      四个环节环环相扣，形成从脑信号到身体动作的完整神经重连闭环。
+    </p>
+    <div class="system-flow-diagram">
+      <div class="sys-node">
+        <div class="sys-node-icon">&#9935;</div>
+        <div class="sys-node-label">EEG-Sense</div>
+        <div class="sys-node-sub">读取脑信号</div>
+      </div>
+      <div class="sys-arrow">→</div>
+      <div class="sys-node">
+        <div class="sys-node-icon">&#9881;</div>
+        <div class="sys-node-label">Control Box</div>
+        <div class="sys-node-sub">AI策略生成</div>
+      </div>
+      <div class="sys-arrow">→</div>
+      <div class="sys-node">
+        <div class="sys-node-icon">&#9880;</div>
+        <div class="sys-node-label">NeuroSuit</div>
+        <div class="sys-node-sub">关节助力执行</div>
+      </div>
+      <div class="sys-arrow">→</div>
+      <div class="sys-node">
+        <div class="sys-node-icon">&#9850;</div>
+        <div class="sys-node-label">联邦学习</div>
+        <div class="sys-node-sub">持续进化</div>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="section" id="how-it-works">
-  <div class="container">
-    <div class="text-center section-label">工作流程</div>
-    <h2 class="text-center">从佩戴到行走的四个步骤</h2>
-    <div class="steps-showcase">
-      <div class="ss-item"><div class="ss-num">1</div><h4>佩戴头带</h4><p>将EEG-Sense头带佩戴于前额，调整至贴合舒适。干电极无需导电胶，减少准备时间。</p></div>
-      <div class="ss-item"><div class="ss-num">2</div><h4>穿戴肌动服</h4><p>穿上NeuroSuit，扣紧碳纤维锚定点，10秒完成。系统自动校准所有传感器。</p></div>
-      <div class="ss-item"><div class="ss-num">3</div><h4>启动系统</h4><p>按Control Box电源键，系统自检后进入实时监控模式。移动端App显示实时状态。</p></div>
-      <div class="ss-item"><div class="ss-num">4</div><h4>开始训练</h4><p>系统检测运动意图并实时助力。每次训练数据用于AI模型持续优化。</p></div>
-    </div>
-    <div style="margin-top:32px;padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);max-width:700px;margin-left:auto;margin-right:auto;">
-      <p style="font-size:13px;color:var(--text-secondary);line-height:1.8;margin:0;">
-        <strong style="color:var(--text);">系统自检流程：</strong>佩戴完成后，系统自动执行传感器校准、电极阻抗检测、蓝牙连接验证和关节行程归零。整个过程约15秒，完成后Control Box指示灯变为常亮蓝色，表示系统就绪。
-      </p>
+    <div class="system-specs-grid">
+      <div class="system-spec-card">
+        <div class="system-spec-value">&lt;185ms</div>
+        <div class="system-spec-label">端到端延迟</div>
+      </div>
+      <div class="system-spec-card">
+        <div class="system-spec-value">&lt;1.5kg</div>
+        <div class="system-spec-label">系统总重</div>
+      </div>
+      <div class="system-spec-card">
+        <div class="system-spec-value">8ch</div>
+        <div class="system-spec-label">EEG通道</div>
+      </div>
+      <div class="system-spec-card">
+        <div class="system-spec-value">15Nm</div>
+        <div class="system-spec-label">峰值助力</div>
+      </div>
+      <div class="system-spec-card">
+        <div class="system-spec-value">6-8h</div>
+        <div class="system-spec-label">单次续航</div>
+      </div>
+      <div class="system-spec-card">
+        <div class="system-spec-value">4 TOPS</div>
+        <div class="system-spec-label">AI算力</div>
+      </div>
     </div>
   </div>
 </section>
@@ -672,6 +677,69 @@ img.loaded{opacity:1}
   </div>
 </section>
 
+<!-- WHAT'S IN THE BOX -->
+<section class="section box-section">
+  <div class="container">
+    <div class="text-center section-label">包装内容</div>
+    <h2 class="text-center">开箱即用</h2>
+    <div class="box-grid">
+      <div class="box-item"><div class="box-icon">&#9935;</div><h4>EEG-Sense 头带</h4><p>8通道干电极EEG头带，可调节佩戴，内置蓝牙模块和充电电池</p></div>
+      <div class="box-item"><div class="box-icon">&#9881;</div><h4>NeuroSuit 肌动服</h4><p>碳纤维鲍登线缆系统，3个尺码可选，10秒穿脱设计</p></div>
+      <div class="box-item"><div class="box-icon">&#9729;</div><h4>Control Box 处理器</h4><p>边缘AI计算单元，内置416肌肉孪生模型，触摸屏操作</p></div>
+      <div class="box-item"><div class="box-icon">&#9742;</div><h4>充电底座</h4><p>三合一无线充电底座，同时为三个模块充电</p></div>
+      <div class="box-item"><div class="box-icon">&#9888;</div><h4>配件包</h4><p>备用干电极、绑带、线缆保护套、清洁工具</p></div>
+      <div class="box-item"><div class="box-icon">&#9998;</div><h4>快速入门指南</h4><p>图文并茂的部署指南，10分钟完成首次设置</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM REQUIREMENTS -->
+<section class="section" id="requirements" style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="text-center section-label">系统要求</div>
+    <h2 class="text-center">兼容性与运行环境</h2>
+    <div class="req-grid">
+      <div class="req-card">
+        <h4>移动端App</h4>
+        <p>iOS 16+ / Android 12+<br>蓝牙 4.2+ 兼容<br>存储空间 &gt;500MB<br>建议 RAM &gt;4GB</p>
+      </div>
+      <div class="req-card">
+        <h4>环境要求</h4>
+        <p>温度 10-35&deg;C<br>湿度 30-70% RH<br>电磁环境 &lt;10V/m<br>无强磁场干扰</p>
+      </div>
+      <div class="req-card">
+        <h4>用户适配</h4>
+        <p>体重 &lt;100kg<br>身高 155-190cm<br>有残留运动意图<br>无严重痉挛</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section">
+  <div class="container">
+    <div class="text-center section-label">用户反馈</div>
+    <h2 class="text-center">来自临床的声音</h2>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="quote">"第一次感受到脚尖主动勾起的感觉，已经三年没有过了。那种感觉让我相信康复是有希望的。"</div>
+        <div class="author">张先生</div>
+        <div class="role">脊髓损伤患者（T10），使用12周</div>
+      </div>
+      <div class="test-card">
+        <div class="quote">"系统的意图识别准确率远超预期。患者在佩戴后步行质量有明显改善，步态对称性提升显著。"</div>
+        <div class="author">李教授</div>
+        <div class="role">某三甲医院康复科主任</div>
+      </div>
+      <div class="test-card">
+        <div class="quote">"最令人兴奋的是每次训练后辅助策略都在优化，这是传统康复设备完全无法比拟的。"</div>
+        <div class="author">Dr. Kim</div>
+        <div class="role">合作研究机构首席科学家</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="section" id="faq">
   <div class="container">
@@ -688,7 +756,7 @@ img.loaded{opacity:1}
       </div>
       <div class="faq-item">
         <button class="faq-question">EEG 头带的准确率有多高？<span class="faq-arrow">&#9660;</span></button>
-        <div class="faq-answer">在实验室环境下，运动意图识别准确率 >85%。实际使用中受多种因素影响，包括佩戴位置、皮肤接触质量、环境电磁干扰等。系统内置自适应信号处理算法持续优化质量，使用时间越长准确率越高。建议初次使用时花几分钟调整头带位置以获得最佳信号质量。</div>
+        <div class="faq-answer">在实验室环境下，运动意图识别准确率 &gt;85%。实际使用中受多种因素影响，包括佩戴位置、皮肤接触质量、环境电磁干扰等。系统内置自适应信号处理算法持续优化质量，使用时间越长准确率越高。建议初次使用时花几分钟调整头带位置以获得最佳信号质量。</div>
       </div>
       <div class="faq-item">
         <button class="faq-question">多久需要充电一次？<span class="faq-arrow">&#9660;</span></button>
@@ -734,56 +802,89 @@ img.loaded{opacity:1}
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section testimonials-section">
+<!-- CARE AND MAINTENANCE -->
+<section class="section care-section">
   <div class="container">
-    <div class="text-center section-label">用户反馈</div>
-    <h2 class="text-center">来自临床的声音</h2>
-    <div class="test-grid">
-      <div class="test-card">
-        <div class="quote">"第一次感受到脚尖主动勾起的感觉，已经三年没有过了。那种感觉让我相信康复是有希望的。"</div>
-        <div class="author">张先生</div>
-        <div class="role">脊髓损伤患者（T10），使用12周</div>
+    <div class="text-center section-label">保养维护</div>
+    <h2 class="text-center">正确使用与维护</h2>
+    <div class="care-grid">
+      <div class="care-item">
+        <div class="care-icon">&#9935;</div>
+        <h4>EEG-Sense 头带保养</h4>
+        <p>干电极头带需要定期清洁以保持信号质量。正确的保养可以延长电极寿命并确保数据可靠。</p>
+        <ul>
+          <li>每次使用后用干布擦拭电极触点，去除皮脂残留</li>
+          <li>每周用75%酒精棉片消毒电极表面，自然风干</li>
+          <li>每三个月更换一次电极触点，过度磨损会影响信号质量</li>
+          <li>存放于干燥阴凉处，避免阳光直射和高温环境</li>
+          <li>不要用含油或硅油的清洁剂接触电极</li>
+        </ul>
       </div>
-      <div class="test-card">
-        <div class="quote">"系统的意图识别准确率远超预期。患者在佩戴后步行质量有明显改善，步态对称性提升显著。"</div>
-        <div class="author">李教授</div>
-        <div class="role">某三甲医院康复科主任</div>
+      <div class="care-item">
+        <div class="care-icon">&#9881;</div>
+        <h4>NeuroSuit 肌动服保养</h4>
+        <p>碳纤维结构和鲍登线缆需要定期检查以保持最佳性能。正确维护可显著延长产品寿命。</p>
+        <ul>
+          <li>每次使用后检查线缆有无磨损或断裂迹象</li>
+          <li>布料部分可用中性洗涤剂手洗，不可机洗或漂白</li>
+          <li>碳纤维部件避免硬物撞击和跌落</li>
+          <li>每月在鲍登线缆接口处加注专用润滑剂</li>
+          <li>检查所有卡扣和锚定点是否牢固</li>
+        </ul>
       </div>
-      <div class="test-card">
-        <div class="quote">"最令人兴奋的是每次训练后辅助策略都在优化，这是传统康复设备完全无法比拟的。"</div>
-        <div class="author">Dr. Kim</div>
-        <div class="role">合作研究机构首席科学家</div>
+      <div class="care-item">
+        <div class="care-icon">&#9729;</div>
+        <h4>Control Box 保养</h4>
+        <p>边缘计算单元需要保持清洁和良好散热。电子元件需防潮防尘以确保长期稳定运行。</p>
+        <ul>
+          <li>用微湿软布擦拭外壳，避免使用酒精等溶剂</li>
+          <li>每月检查散热通风口是否有灰尘堵塞</li>
+          <li>避免液体进入USB和充电接口，如有进水立即关机晾干</li>
+          <li>长时间不用时保持50%以上电量，每三个月充电一次</li>
+          <li>屏幕保护膜建议每六个月更换一次</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMPARISON -->
-<section class="section" id="comparison">
+<!-- SAFETY -->
+<section class="section safety-section">
   <div class="container">
-    <div class="text-center section-label">行业对比</div>
-    <h2 class="text-center">同类方案比较</h2>
-    <div class="comp-table-wrap">
-      <table class="comp-table">
-        <thead>
-          <tr><th>特性</th><th>Nexum One</th><th>传统FES</th><th>被动外骨骼</th><th>康复机器人</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>神经信号读取</td><td>EEG实时读取</td><td>—</td><td>—</td><td>—</td></tr>
-          <tr><td>运动意图预测</td><td>提前~0.5s</td><td>—</td><td>—</td><td>—</td></tr>
-          <tr><td>自适应AI策略</td><td>RL+数字孪生</td><td>固定程序</td><td>固定程序</td><td>有限学习</td></tr>
-          <tr><td>系统重量</td><td>&lt;1.5kg</td><td>—</td><td>3-6kg</td><td>&gt;10kg</td></tr>
-          <tr><td>穿脱时间</td><td>&lt;10s</td><td>5-15min</td><td>5-10min</td><td>&gt;10min</td></tr>
-          <tr><td>使用场景</td><td>家用/社区</td><td>医疗机构</td><td>医疗机构</td><td>医疗机构</td></tr>
-          <tr><td>持续学习能力</td><td>联邦学习 &check;</td><td>—</td><td>—</td><td>—</td></tr>
-          <tr><td>目标用户</td><td>神经损伤患者</td><td>脊髓损伤/中风</td><td>中风/创伤</td><td>康复科住院</td></tr>
-          <tr><td>价格区间</td><td>待定（临床阶段）</td><td>$5K-15K</td><td>$3K-10K</td><td>$50K-200K</td></tr>
-        </tbody>
-      </table>
+    <div class="text-center section-label">安全保护</div>
+    <h2 class="text-center">多重安全机制</h2>
+    <div class="safety-grid">
+      <div class="safety-item"><div class="s-icon" style="background:rgba(99,102,241,0.1);color:#6366f1;">&#9888;</div><h4>硬件安全</h4><p>急停按钮可在任意时刻立即切断系统电源。机械限位保护防止关节超程，扭矩限制避免过量助力伤害。</p></div>
+      <div class="safety-item"><div class="s-icon" style="background:rgba(0,150,240,0.1);color:var(--accent);">&#9881;</div><h4>软件安全</h4><p>AI输出经过安全限幅层，任何情况下输出扭矩不超过安全阈值。异常检测算法实时监控系统状态。</p></div>
+      <div class="safety-item"><div class="s-icon" style="background:rgba(16,185,129,0.1);color:#10b981;">&#9898;</div><h4>数据安全</h4><p>所有神经数据和运动数据经过AES-256加密存储，本地设备不联网时也能安全运行。</p></div>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--text-tertiary);margin-top:24px;max-width:640px;margin-left:auto;margin-right:auto;">安全是Nexum One设计的首要原则。所有安全机制均经过第三方机构的功能安全评估，满足医疗器械安全标准要求。</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section gallery-section" id="gallery">
+  <div class="container">
+    <div class="text-center section-label">产品渲染</div>
+    <h2 class="text-center mb-48">全方位展示</h2>
+    <div class="gallery-grid" id="galleryGrid">
+      <img src="docs/render_4_system.jpg" alt="Nexum One 系统全览" loading="lazy" decoding="async">
+      <img src="docs/render_1_eeg.jpg" alt="EEG-Sense 头带特写" loading="lazy" decoding="async">
+      <img src="docs/render_3_neurosuit.jpg" alt="NeuroSuit 肌动服穿戴" loading="lazy" decoding="async">
+      <img src="docs/render_2_controlbox.jpg" alt="Control Box 处理器" loading="lazy" decoding="async">
+      <img src="docs/render_4_walking.jpg" alt="行走辅助场景" loading="lazy" decoding="async">
+      <img src="docs/render_clinical_v2.jpg" alt="临床使用场景" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
 
 <!-- EXPANDABLE SPECS -->
 <section class="section" id="specs-detail" style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
@@ -847,67 +948,10 @@ img.loaded{opacity:1}
   <div class="container">
     <h2>开启神经重连之旅</h2>
     <p>如果您或您的家人可能受益于 Nexum One，或是希望作为合作伙伴加入我们的临床研究，请联系我们。</p>
-    <a href="mailto:contact@bones-manifold.com" class="cta-btn">联系我们</a>
-  </div>
-</section>
-
-<!-- CARE AND MAINTENANCE -->
-<section class="section care-section">
-  <div class="container">
-    <div class="text-center section-label">保养维护</div>
-    <h2 class="text-center">正确使用与维护</h2>
-    <div class="care-grid">
-      <div class="care-item">
-        <div class="care-icon">&#9935;</div>
-        <h4>EEG-Sense 头带保养</h4>
-        <p>干电极头带需要定期清洁以保持信号质量。正确的保养可以延长电极寿命并确保数据可靠。</p>
-        <ul>
-          <li>每次使用后用干布擦拭电极触点，去除皮脂残留</li>
-          <li>每周用75%酒精棉片消毒电极表面，自然风干</li>
-          <li>每三个月更换一次电极触点，过度磨损会影响信号质量</li>
-          <li>存放于干燥阴凉处，避免阳光直射和高温环境</li>
-          <li>不要用含油或硅油的清洁剂接触电极</li>
-        </ul>
-      </div>
-      <div class="care-item">
-        <div class="care-icon">&#9881;</div>
-        <h4>NeuroSuit 肌动服保养</h4>
-        <p>碳纤维结构和鲍登线缆需要定期检查以保持最佳性能。正确维护可显著延长产品寿命。</p>
-        <ul>
-          <li>每次使用后检查线缆有无磨损或断裂迹象</li>
-          <li>布料部分可用中性洗涤剂手洗，不可机洗或漂白</li>
-          <li>碳纤维部件避免硬物撞击和跌落</li>
-          <li>每月在鲍登线缆接口处加注专用润滑剂</li>
-          <li>检查所有卡扣和锚定点是否牢固</li>
-        </ul>
-      </div>
-      <div class="care-item">
-        <div class="care-icon">&#9729;</div>
-        <h4>Control Box 保养</h4>
-        <p>边缘计算单元需要保持清洁和良好散热。电子元件需防潮防尘以确保长期稳定运行。</p>
-        <ul>
-          <li>用微湿软布擦拭外壳，避免使用酒精等溶剂</li>
-          <li>每月检查散热通风口是否有灰尘堵塞</li>
-          <li>避免液体进入USB和充电接口，如有进水立即关机晾干</li>
-          <li>长时间不用时保持50%以上电量，每三个月充电一次</li>
-          <li>屏幕保护膜建议每六个月更换一次</li>
-        </ul>
-      </div>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="%E9%80%90%E5%BF%B5%E8%80%8C%E8%A1%8C_Nexum_BP.html" class="cta-btn">查看商业计划书</a>
+      <a href="mailto:contact@bones-manifold.com" class="cta-btn" style="background:transparent;color:var(--accent)!important;border:2px solid var(--accent);">联系团队</a>
     </div>
-  </div>
-</section>
-
-<!-- SAFETY -->
-<section class="section safety-section">
-  <div class="container">
-    <div class="text-center section-label">安全保护</div>
-    <h2 class="text-center">多重安全机制</h2>
-    <div class="safety-grid">
-      <div class="safety-item"><div class="s-icon" style="background:rgba(99,102,241,0.1);color:#6366f1;">&#9888;</div><h4>硬件安全</h4><p>急停按钮可在任意时刻立即切断系统电源。机械限位保护防止关节超程，扭矩限制避免过量助力伤害。</p></div>
-      <div class="safety-item"><div class="s-icon" style="background:rgba(0,150,240,0.1);color:var(--accent);">&#9881;</div><h4>软件安全</h4><p>AI输出经过安全限幅层，任何情况下输出扭矩不超过安全阈值。异常检测算法实时监控系统状态。</p></div>
-      <div class="safety-item"><div class="s-icon" style="background:rgba(16,185,129,0.1);color:#10b981;">&#9898;</div><h4>数据安全</h4><p>所有神经数据和运动数据经过AES-256加密存储，本地设备不联网时也能安全运行。</p></div>
-    </div>
-    <p style="text-align:center;font-size:13px;color:var(--text-tertiary);margin-top:24px;max-width:640px;margin-left:auto;margin-right:auto;">安全是Nexum One设计的首要原则。所有安全机制均经过第三方机构的功能安全评估，满足医疗器械安全标准要求。</p>
   </div>
 </section>
 
