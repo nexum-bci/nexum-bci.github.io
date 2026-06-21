@@ -700,3 +700,44 @@ th,td{border-color:var(--border)}
   .footer-inner{grid-template-columns:1fr}
   .content-card{padding:20px}
 }
+
+/* ============================================================
+   FINAL UNIFIED REFINEMENTS
+   ============================================================ */
+
+/* Consistent image display */
+img{max-width:100%;height:auto;display:block;border-radius:0}
+.card img,.content-card img,.render-img img{border-radius:var(--radius-sm)}
+
+/* Consistent text selection */
+::selection{background:var(--accent);color:#fff}
+::-moz-selection{background:var(--accent);color:#fff}
+
+/* Consistent scrollbar */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--text-tertiary)}
+
+/* Consistent form elements (if any) */
+input,textarea,select{
+  font-family:inherit;font-size:16px;color:var(--text);
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:10px 14px;
+  transition:border-color .2s ease;outline:none
+}
+input:focus,textarea:focus,select:focus{border-color:var(--accent)}
+
+/* Consistent horizontal rule */
+hr{border:none;height:1px;background:var(--border);margin:32px 0}
+
+/* Consistent code inline */
+code{font-family:'SF Mono',monospace;font-size:.9em;background:var(--accent-subtle);color:var(--accent);padding:2px 6px;border-radius:4px}
+
+/* Print optimization */
+@media print{
+  nav,footer,.theme-btn,.nav-cta,.btt-btn,.back-to-top{display:none!important}
+  body{background:#fff!important;color:#000!important;font-size:12pt}
+  a{color:#000!important}
+  .card,.content-card{box-shadow:none!important;border:1px solid #ddd!important;break-inside:avoid}
+}
