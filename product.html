@@ -5,7 +5,7 @@
 <script>
 (function(){
   var t = localStorage.getItem('nexum-theme');
-  if (!t || t === 'light') document.documentElement.setAttribute('data-theme','light');
+  if (t === 'dark') document.documentElement.setAttribute('data-theme','dark');
 })();
 </script>
 
@@ -20,11 +20,44 @@
    ROOT & RESET
    ============================================================ */
 :root {
+  --nav-bg: rgba(255,255,255,0.85);
+  --nav-bg-scrolled: rgba(255,255,255,0.95);
+  --nav-border: rgba(0,0,0,0.06);
+
+  --bg: #FAFAFA;
+  --bg-elevated: rgba(0,0,0,0.03);
+  --bg-elevated-hover: #F5F5F5;
+  --border: rgba(0,0,0,0.06);
+  --border-hover: rgba(0,0,0,0.12);
+  --text-primary: #111111;
+  --text-body: #666666;
+  --text-secondary: #666666;
+  --text-tertiary: #888888;
+  --text-disabled: #AAAAAA;
+  --accent: #0096F0;
+  --accent-glow: rgba(0,150,240,0.08);
+  --section-gap: 120px;
+  --nav-height: 64px;
+  --max-width: 1200px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+*, *::before, *::after { margi
+[data-theme="dark"] {
+  --nav-bg: rgba(0,0,0,0.7);
+  --nav-bg-scrolled: rgba(0,0,0,0.92);
+  --nav-border: rgba(255,255,255,0.08);
+
   --bg: #000000;
-  --bg-elevated: rgba(255,255,255,0.03);
+  --bg-elevated: rgba(0,0,0,0.03);
   --bg-elevated-hover: rgba(255,255,255,0.05);
-  --border: rgba(255,255,255,0.06);
-  --border-hover: rgba(255,255,255,0.12);
+  --border: var(--border);
+  --border-hover: var(--border-hover);
   --text-primary: #FFFFFF;
   --text-body: #CCCCCC;
   --text-secondary: #999999;
@@ -41,8 +74,9 @@
   --radius-xl: 20px;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
 }
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+n: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 body {
   font-family: 'Inter', 'PingFang SC', -apple-system, system-ui, 'Microsoft YaHei', sans-serif;
@@ -80,14 +114,14 @@ nav {
   top: 0; left: 0; right: 0;
   height: var(--nav-height);
   z-index: 1000;
-  background: rgba(0,0,0,0.7);
+  background: var(--nav-bg);
   backdrop-filter: blur(28px) saturate(1.3);
   -webkit-backdrop-filter: blur(28px) saturate(1.3);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid var(--border);
   transition: background 0.5s var(--ease-smooth), border-color 0.5s var(--ease-smooth);
 }
 nav.scrolled {
-  background: rgba(0,0,0,0.92);
+  background: var(--nav-bg-scrolled);
   border-bottom-color: rgba(255,255,255,0.1);
 }
 .nav-inner {
@@ -228,7 +262,7 @@ nav.scrolled {
 .btn-secondary {
   background: transparent;
   color: var(--text-primary);
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid var(--border-hover);
 }
 .btn-secondary:hover {
   border-color: var(--accent);
@@ -658,8 +692,8 @@ nav.scrolled {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.04);
+  border: 1px solid var(--border-hover);
   border-radius: 50%;
   color: var(--text-primary);
   font-size: 20px;
@@ -669,7 +703,7 @@ nav.scrolled {
 }
 .lightbox-nav:hover {
   background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.15);
+  border-color: rgba(0,0,0,0.10);
 }
 .lightbox-prev { left: 24px; }
 .lightbox-next { right: 24px; }
@@ -707,18 +741,18 @@ nav.scrolled {
   font-size: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid var(--border);
 }
 .spec-table tbody td {
   padding: 14px 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(0,0,0,0.03);
   color: var(--text-secondary);
   transition: color 0.2s;
   vertical-align: top;
 }
 .spec-table tbody tr:hover td {
   color: var(--text-body);
-  background: rgba(255,255,255,0.01);
+  background: rgba(0,0,0,0.01);
 }
 .spec-table tbody td:first-child {
   font-weight: 600;
@@ -773,7 +807,7 @@ nav.scrolled {
    FOOTER
    ============================================================ */
 footer {
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid var(--border);
   padding: 64px 24px 32px;
 }
 .footer-inner {
@@ -815,7 +849,7 @@ footer .footer-brand-desc {
 .footer-bottom {
   text-align: center;
   padding-top: 32px;
-  border-top: 1px solid rgba(255,255,255,0.04);
+  border-top: 1px solid rgba(0,0,0,0.04);
 }
 .footer-bottom p {
   font-size: 11px;
@@ -833,7 +867,10 @@ footer .footer-brand-desc {
 }
 
 @media (max-width: 768px) {
-  :root { --section-gap: 80px; }
+  :root {
+  --nav-bg: rgba(255,255,255,0.85);
+  --nav-bg-scrolled: rgba(255,255,255,0.95);
+  --nav-border: rgba(0,0,0,0.06); --section-gap: 80px; }
 
   .nav-links {
     position: fixed;
@@ -846,7 +883,7 @@ footer .footer-brand-desc {
     -webkit-backdrop-filter: blur(28px);
     padding: 28px 32px;
     gap: 22px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid var(--border);
     transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
@@ -1061,6 +1098,13 @@ footer .footer-brand-desc {
 .theme-toggle .moon-icon { display: none; }
 [data-theme="light"] .theme-toggle .sun-icon { display: none; }
 [data-theme="light"] .theme-toggle .moon-icon { display: block; }
+
+
+[data-theme="dark"] .screen { background: #000; }
+[data-theme="dark"] .phone-frame { background: linear-gradient(180deg, #3a3a3c 0%, #1c1c1e 100%); }
+[data-theme="dark"] .phone-notch { background: #000; }
+[data-theme="dark"] .phone-notch-dot { background: #1a1a1a; }
+[data-theme="dark"] .home-indicator { background: rgba(255,255,255,0.3); }
 
 </style>
 </head>
@@ -1632,7 +1676,7 @@ footer .footer-brand-desc {
     localStorage.setItem('nexum-theme', t);
   }
   var saved = localStorage.getItem('nexum-theme');
-  if (!saved || saved === 'light') setTheme('light');
+  if (saved === 'dark') setTheme('dark');
   toggle.addEventListener('click', function(){
     var cur = document.documentElement.getAttribute('data-theme');
     setTheme(cur === 'light' ? '' : 'light');

@@ -10,22 +10,26 @@
 <meta name="theme-color" content="#000000">
 <style>
 /* ============================================================
-   ROOT VARIABLES — Pure Black Design System
+   ROOT VARIABLES — Light Default, Dark Override
    ============================================================ */
 :root {
-  --bg: #000000;
-  --bg-elevated: rgba(255,255,255,0.03);
-  --bg-elevated-hover: rgba(255,255,255,0.05);
-  --border: rgba(255,255,255,0.06);
-  --border-hover: rgba(255,255,255,0.12);
-  --text-primary: #FFFFFF;
-  --text-body: #CCCCCC;
-  --text-secondary: #999999;
-  --text-tertiary: #777777;
-  --text-disabled: #555555;
+
+  --bg: #FAFAFA;
+  --bg-alt: #F0F0F0;
+  --bg-elevated: #111111;
+  --bg-elevated-hover: #F5F5F5;
+  --border: rgba(0,0,0,0.06);
+  --border-hover: rgba(0,0,0,0.12);
+  --text-primary: #111111;
+  --text-body: #666666;
+  --text-secondary: #666666;
+  --text-tertiary: #888888;
+  --text-disabled: #AAAAAA;
   --accent: #0096F0;
-  --accent-glow: rgba(0,150,240,0.05);
-  --accent-soft: #60A5FA;
+  --accent-glow: rgba(0,150,240,0.06);
+  --accent-soft: #3B82F6;
+  --nav-bg: rgba(255,255,255,0.85);
+  --nav-bg-scrolled: rgba(255,255,255,0.95);
   --nav-height: 64px;
   --max-width: 1200px;
   --radius-sm: 8px;
@@ -35,11 +39,13 @@
   --section-gap: 120px;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-}
-[data-theme="light"] {
+
+[data-theme="dark"] {
+
   --bg: #FAFAFA;
+  --bg-alt: #F0F0F0;
   --bg-elevated: #FFFFFF;
-  --bg-elevated-hover: rgba(0,0,0,0.03);
+  --bg-elevated-hover: #F5F5F5;
   --border: rgba(0,0,0,0.06);
   --border-hover: rgba(0,0,0,0.12);
   --text-primary: #111111;
@@ -49,7 +55,39 @@
   --text-disabled: #AAAAAA;
   --accent: #0096F0;
   --accent-glow: rgba(0,150,240,0.06);
+  --accent-soft: #3B82F6;
+  --nav-bg: rgba(255,255,255,0.85);
+  --nav-bg-scrolled: rgba(255,255,255,0.95);
+  --nav-height: 64px;
+  --max-width: 1200px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --section-gap: 120px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+}
+[data-theme="dark"] {
+  --bg: #000000;
+  --bg-alt: #080808;
+  --bg-elevated: rgba(0,0,0,0.03);
+  --bg-elevated-hover: rgba(255,255,255,0.05);
+  --border: var(--border);
+  --border-hover: var(--border-hover);
+  --text-primary: #FFFFFF;
+  --text-body: #CCCCCC;
+  --text-secondary: #999999;
+  --text-tertiary: #777777;
+  --text-disabled: #555555;
+  --accent: #0096F0;
+  --accent-glow: rgba(0,150,240,0.08);
   --accent-soft: #60A5FA;
+  --nav-bg: rgba(0,0,0,0.7);
+  --nav-bg-scrolled: rgba(0,0,0,0.92);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
@@ -89,44 +127,15 @@ nav {
   top: 0; left: 0; right: 0;
   height: var(--nav-height);
   z-index: 1000;
-  background: rgba(0,0,0,0.7);
+  background: var(--nav-bg);
   backdrop-filter: blur(28px) saturate(1.3);
   -webkit-backdrop-filter: blur(28px) saturate(1.3);
   border-bottom: 1px solid var(--border);
   transition: background 0.5s var(--ease-smooth), border-color 0.5s var(--ease-smooth);
 }
 nav.scrolled {
-  background: rgba(0,0,0,0.92);
-  border-bottom-color: rgba(255,255,255,0.08);
-}
-/* Light mode nav */
-[data-theme="light"] nav {
-  background: rgba(255,255,255,0.82);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-[data-theme="light"] nav.scrolled {
-  background: rgba(255,255,255,0.95);
-  border-bottom-color: rgba(0,0,0,0.1);
-}
-[data-theme="light"] .nav-links a {
-  color: #555;
-}
-[data-theme="light"] .nav-links a:hover,
-[data-theme="light"] .nav-links a.active {
-  color: #111;
-}
-[data-theme="light"] .nav-logo {
-  color: #111;
-}
-[data-theme="light"] .nav-logo span {
-  color: var(--accent);
-}
-[data-theme="light"] .nav-toggle span {
-  background: #333;
-}
-[data-theme="light"] .nav-links.open {
-  background: rgba(255,255,255,0.97);
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  background: var(--nav-bg-scrolled);
+  border-bottom-color: var(--border);
 }
 .nav-inner {
   max-width: var(--max-width);
@@ -247,10 +256,10 @@ nav.scrolled {
   width: 32px; height: 32px;
 }
 .theme-toggle:hover { color: var(--text-primary); background: var(--bg-elevated); }
-.theme-toggle .sun-icon { display: block; }
-.theme-toggle .moon-icon { display: none; }
-[data-theme="light"] .theme-toggle .sun-icon { display: none; }
-[data-theme="light"] .theme-toggle .moon-icon { display: block; }
+.theme-toggle .sun-icon { display: none; }
+.theme-toggle .moon-icon { display: block; }
+[data-theme="dark"] .theme-toggle .sun-icon { display: block; }
+[data-theme="dark"] .theme-toggle .moon-icon { display: none; }
 
 /* ============================================================
    BUTTONS
@@ -453,13 +462,6 @@ nav.scrolled {
   z-index: 2;
   pointer-events: none;
 }
-[data-theme="light"] .hero-scroll span {
-  color: #999;
-}
-[data-theme="light"] .hero-scroll-line {
-  background: linear-gradient(to bottom, #999, transparent);
-}
-.hero-scroll-line {
   width: 1px;
   height: 32px;
   background: linear-gradient(to bottom, var(--text-tertiary), transparent);
@@ -551,7 +553,7 @@ nav.scrolled {
    PROBLEM — Left Text + Right Stat Cards
    ============================================================ */
 #problem {
-  background: linear-gradient(180deg, var(--bg) 0%, rgba(255,255,255,0.01) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(0,0,0,0.01) 100%);
 }
 .problem-grid {
   display: grid;
@@ -665,7 +667,7 @@ nav.scrolled {
   height: 220px;
   background-size: cover;
   background-position: center;
-  background-color: rgba(255,255,255,0.02);
+  background-color: rgba(0,0,0,0.02);
   position: relative;
   overflow: hidden;
   transition: transform 0.6s var(--ease-out);
@@ -739,7 +741,7 @@ nav.scrolled {
    TECHNOLOGY — 4-Step SVG Loop + Latency Bar
    ============================================================ */
 #technology {
-  background: linear-gradient(180deg, var(--bg) 0%, rgba(255,255,255,0.01) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(0,0,0,0.01) 100%);
 }
 .tech-loop {
   max-width: 960px;
@@ -906,8 +908,8 @@ nav.scrolled {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.04);
+  border: 1px solid var(--border-hover);
   border-radius: 50%;
   color: var(--text-primary);
   font-size: 20px;
@@ -917,7 +919,7 @@ nav.scrolled {
 }
 .lightbox-nav:hover {
   background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.15);
+  border-color: rgba(0,0,0,0.10);
 }
 .lightbox-prev { left: 24px; }
 .lightbox-next { right: 24px; }
@@ -936,7 +938,7 @@ nav.scrolled {
    APP — Phone Frame Mockups
    ============================================================ */
 #app {
-  background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.01) 0%, var(--bg) 100%);
 }
 .app-grid {
   display: flex;
@@ -958,17 +960,17 @@ nav.scrolled {
 .phone-frame {
   width: 260px;
   height: 520px;
-  background: #111;
+  background: #e8e8ec;
   border-radius: 36px;
-  border: 3px solid #222;
+  border: 3px solid rgba(0,0,0,0.1);
   padding: 10px;
   position: relative;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
   overflow: hidden;
   transition: box-shadow 0.4s var(--ease-out);
 }
 .phone-card:hover .phone-frame {
-  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,150,240,0.15);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,150,240,0.15);
 }
 .phone-notch {
   position: absolute;
@@ -977,7 +979,7 @@ nav.scrolled {
   transform: translateX(-50%);
   width: 110px;
   height: 22px;
-  background: #111;
+  background: #e8e8ec;
   border-radius: 0 0 14px 14px;
   z-index: 10;
 }
@@ -989,14 +991,14 @@ nav.scrolled {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #1a1a2a;
+  background: #ccc;
   z-index: 11;
 }
 .phone-screen {
   width: 100%;
   height: 100%;
   border-radius: 26px;
-  background: #0a0a0a;
+  background: #f5f5f5;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1029,7 +1031,7 @@ nav.scrolled {
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
 }
 .phone-screen .app-metric .label {
   font-size: 10px;
@@ -1079,7 +1081,7 @@ nav.scrolled {
   flex: 1;
   height: 4px;
   border-radius: 2px;
-  background: rgba(255,255,255,0.06);
+  background: var(--border);
   overflow: hidden;
 }
 .phone-screen .app-progress .track .fill {
@@ -1127,13 +1129,13 @@ nav.scrolled {
 .ps-stats {
   display: flex; align-items: center; gap: 10px;
   padding: 6px 10px; margin-bottom: 10px;
-  background: rgba(255,255,255,0.03); border-radius: 100px;
+  background: rgba(0,0,0,0.03); border-radius: 100px;
   font-size: 11px; color: #999;
 }
 .ps-stats strong { color: #fff; font-weight: 600; }
 .ps-dot {
   width: 3px; height: 3px; border-radius: 50%;
-  background: rgba(255,255,255,0.15); flex-shrink: 0;
+  background: rgba(0,0,0,0.10); flex-shrink: 0;
 }
 .ps-ring-wrap {
   position: relative; width: 100px; height: 100px;
@@ -1150,8 +1152,8 @@ nav.scrolled {
 .ps-today { display: flex; gap: 4px; margin-bottom: 8px; }
 .ps-today-item {
   flex: 1; text-align: center;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06); border-radius: 8px;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid var(--border); border-radius: 8px;
   padding: 8px 4px;
 }
 .ps-today-val { display: block; font-size: 15px; font-weight: 700; color: #fff; line-height: 1.2; }
@@ -1159,8 +1161,8 @@ nav.scrolled {
 .ps-device {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   padding: 4px 8px; margin-bottom: 8px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06); border-radius: 20px;
+  background: rgba(0,0,0,0.03);
+  border: 1px solid var(--border); border-radius: 20px;
   font-size: 10px; color: #999;
 }
 .ps-btn-start {
@@ -1203,8 +1205,8 @@ nav.scrolled {
 .ps-train-grid { display: flex; gap: 4px; margin-bottom: 6px; }
 .ps-train-item {
   flex: 1; text-align: center;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06); border-radius: 8px;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid var(--border); border-radius: 8px;
   padding: 6px 2px;
 }
 .ps-train-val { display: block; font-size: 13px; font-weight: 700; color: #fff; }
@@ -1218,7 +1220,7 @@ nav.scrolled {
 .ps-assist-label { font-size: 9px; color: #777; text-transform: uppercase; letter-spacing: 0.3px; }
 .ps-assist-level { font-size: 11px; font-weight: 700; color: var(--accent); }
 .ps-assist-bar {
-  height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden;
+  height: 3px; background: var(--border-hover); border-radius: 2px; overflow: hidden;
 }
 .ps-assist-fill {
   height: 100%; width: 40%;
@@ -1232,8 +1234,8 @@ nav.scrolled {
 }
 .ps-ctrl-btn {
   flex: 1; padding: 6px 8px; text-align: center;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.10); border-radius: 8px;
+  background: var(--border);
+  border: 1px solid rgba(0,0,0,0.06); border-radius: 8px;
   font-size: 10px; font-weight: 500; color: #999; cursor: pointer;
 }
 .ps-ctrl-btn.primary {
@@ -1255,8 +1257,8 @@ nav.scrolled {
 .ps-rpt-summary { display: flex; gap: 4px; margin-bottom: 8px; }
 .ps-rpt-card {
   flex: 1; text-align: center;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06); border-radius: 8px;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid var(--border); border-radius: 8px;
   padding: 6px 4px;
 }
 .ps-rpt-val { display: block; font-size: 14px; font-weight: 700; color: #fff; }
@@ -1274,49 +1276,43 @@ nav.scrolled {
 .ps-compare-text { font-size: 10px; color: #34c759; font-weight: 500; }
 .ps-compare-sub { font-size: 9px; color: rgba(52,199,89,0.6); margin-left: auto; }
 .ps-note {
-  padding: 6px 8px; background: rgba(255,255,255,0.03);
+  padding: 6px 8px; background: rgba(0,0,0,0.03);
   border-left: 2px solid var(--accent); border-radius: 0 6px 6px 0;
 }
 .ps-note-author { font-size: 9px; font-weight: 600; color: #ccc; margin-bottom: 2px; }
 .ps-note-body { font-size: 9px; color: #999; line-height: 1.5; }
 
-/* Light mode overrides for phone screens */
-[data-theme="light"] .phone-frame {
-  background: #e8e8ec;
-  border-color: rgba(0,0,0,0.1);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+/* Dark mode overrides for phone screens */
+[data-theme="dark"] .phone-frame {
+  background: #111;
+  border-color: #222;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.04);
 }
-[data-theme="light"] .phone-screen { background: #f5f5f5; }
-[data-theme="light"] .ps-time { color: #111; }
-[data-theme="light"] .ps-name { color: #111; }
-[data-theme="light"] .ps-ring-pct { color: #111; }
-[data-theme="light"] .ps-today-val { color: #111; }
-[data-theme="light"] .ps-train-val { color: #111; }
-[data-theme="light"] .ps-rpt-val { color: #111; }
-[data-theme="light"] .ps-rpt-title { color: #111; }
-[data-theme="light"] .ps-live-title { color: #111; }
-[data-theme="light"] .ps-stats { background: rgba(0,0,0,0.03); }
-[data-theme="light"] .ps-stats strong { color: #111; }
-[data-theme="light"] .ps-avatar { box-shadow: 0 2px 8px rgba(0,150,240,0.2); }
-[data-theme="light"] .ps-today-item { background: #fff; border-color: rgba(0,0,0,0.06); }
-[data-theme="light"] .ps-today-label { color: #888; }
-[data-theme="light"] .ps-train-item { background: #fff; border-color: rgba(0,0,0,0.06); }
-[data-theme="light"] .ps-train-label { color: #888; }
-[data-theme="light"] .ps-rpt-card { background: #fff; border-color: rgba(0,0,0,0.06); }
-[data-theme="light"] .ps-rpt-label { color: #888; }
-[data-theme="light"] .ps-device { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.06); }
-[data-theme="light"] .phone-screen .app-title { color: #111; }
-[data-theme="light"] .phone-screen .app-metric .value { color: #111; }
-[data-theme="light"] .phone-screen .app-metric .label { color: #888; }
-[data-theme="light"] .phone-screen { background: #fff; }
-[data-theme="light"] .phone-screen .app-badge { background: rgba(0,150,240,0.08); }
-[data-theme="light"] .ps-greeting { color: #888; }
-[data-theme="light"] .ps-ring-label { color: #888; }
-[data-theme="light"] .ps-gauge-label { color: #888; }
-[data-theme="light"] .ps-note-author { color: #666; }
-[data-theme="light"] .ps-note-body { color: #888; }
-[data-theme="light"] .phone-notch { background: #e8e8ec; }
-[data-theme="light"] .phone-notch-dot { background: #ccc; }
+[data-theme="dark"] .phone-screen { background: #0a0a0a; }
+[data-theme="dark"] .ps-time { color: #fff; }
+[data-theme="dark"] .ps-name { color: #fff; }
+[data-theme="dark"] .ps-ring-pct { color: #fff; }
+[data-theme="dark"] .ps-today-val { color: #fff; }
+[data-theme="dark"] .ps-train-val { color: #fff; }
+[data-theme="dark"] .ps-rpt-val { color: #fff; }
+[data-theme="dark"] .ps-rpt-title { color: #fff; }
+[data-theme="dark"] .ps-live-title { color: #fff; }
+[data-theme="dark"] .ps-stats { background: rgba(0,0,0,0.03); color: #999; }
+[data-theme="dark"] .ps-stats strong { color: #fff; }
+[data-theme="dark"] .ps-today-item { background: rgba(0,0,0,0.04); border-color: var(--border); }
+[data-theme="dark"] .ps-today-label { color: #999; }
+[data-theme="dark"] .ps-train-item { background: rgba(0,0,0,0.04); border-color: var(--border); }
+[data-theme="dark"] .ps-train-label { color: #777; }
+[data-theme="dark"] .ps-rpt-card { background: rgba(0,0,0,0.04); border-color: var(--border); }
+[data-theme="dark"] .ps-rpt-label { color: #999; }
+[data-theme="dark"] .ps-device { background: rgba(0,0,0,0.03); border-color: var(--border); color: #999; }
+[data-theme="dark"] .ps-greeting { color: #999; }
+[data-theme="dark"] .ps-ring-label { color: #777; }
+[data-theme="dark"] .ps-gauge-label { color: #777; }
+[data-theme="dark"] .ps-note-author { color: #ccc; }
+[data-theme="dark"] .ps-note-body { color: #999; }
+[data-theme="dark"] .phone-notch { background: #111; }
+[data-theme="dark"] .phone-notch-dot { background: #1a1a2a; }
 
 /* ============================================================
    MARKET — Phase Cards + Effect Callout
@@ -1418,7 +1414,7 @@ nav.scrolled {
    WHY NOW — 4 Cards Grid
    ============================================================ */
 #why-now {
-  background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.01) 0%, var(--bg) 100%);
 }
 .why-grid {
   display: grid;
@@ -1464,7 +1460,7 @@ nav.scrolled {
    TEAM — Core + Join Us Card
    ============================================================ */
 #team {
-  background: linear-gradient(180deg, var(--bg) 0%, rgba(255,255,255,0.01) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(0,0,0,0.01) 100%);
 }
 .team-grid {
   display: grid;
@@ -1538,7 +1534,7 @@ nav.scrolled {
 }
 .team-card.team-cta {
   border-style: dashed;
-  border-color: rgba(255,255,255,0.08);
+  border-color: var(--border-hover);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1568,7 +1564,7 @@ nav.scrolled {
    CONTACT + FOOTER
    ============================================================ */
 #contact {
-  background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.01) 0%, var(--bg) 100%);
   position: relative;
 }
 #contact::before {
@@ -1673,7 +1669,7 @@ footer .footer-brand-desc {
 }
 [data-theme="light"] footer {
   background: #111;
-  border-top-color: rgba(255,255,255,0.06);
+  border-top-color: var(--border);
 }
 [data-theme="light"] footer h5 {
   color: #eee;
@@ -1686,7 +1682,7 @@ footer .footer-brand-desc {
   color: var(--accent);
 }
 [data-theme="light"] .footer-bottom {
-  border-top-color: rgba(255,255,255,0.06);
+  border-top-color: var(--border);
 }
 
 /* ============================================================
@@ -1862,6 +1858,13 @@ footer .footer-brand-desc {
   .hero-pre { color: #0096f0 !important; }
   .team-avatar { border-color: #0096f0 !important; }
 }
+
+[data-theme="dark"] .screen { background: #000; }
+[data-theme="dark"] .phone-frame { background: linear-gradient(180deg, #3a3a3c 0%, #1c1c1e 100%); }
+[data-theme="dark"] .phone-notch { background: #000; }
+[data-theme="dark"] .phone-notch-dot { background: #1a1a1a; }
+[data-theme="dark"] .home-indicator { background: rgba(255,255,255,0.3); }
+
 </style>
 </head>
 <body>
@@ -2238,10 +2241,10 @@ footer .footer-brand-desc {
                 <span class="ps-dot"></span>
                 <span>连续 <strong>12</strong> 天</span>
               </div>
-              <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:10px;margin-bottom:8px;display:flex;flex-direction:column;align-items:center;">
+              <div style="background:rgba(0,0,0,0.04);border:1px solid var(--border);border-radius:12px;padding:10px;margin-bottom:8px;display:flex;flex-direction:column;align-items:center;">
                 <div class="ps-ring-wrap">
                   <svg viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="6"/>
+                    <circle cx="50" cy="50" r="38" fill="none" stroke="var(--border)" stroke-width="6"/>
                     <circle cx="50" cy="50" r="38" fill="none" stroke="#0096f0" stroke-width="6" stroke-dasharray="238.76" stroke-dashoffset="52.5" stroke-linecap="round" transform="rotate(-90 50 50)"/>
                   </svg>
                   <div class="ps-ring-center">
@@ -2304,10 +2307,10 @@ footer .footer-brand-desc {
                 <span class="ps-dot"></span>
                 <span>EEG <span style="color:#999;">优秀</span></span>
               </div>
-              <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:8px;margin-bottom:6px;display:flex;flex-direction:column;align-items:center;">
+              <div style="background:rgba(0,0,0,0.04);border:1px solid var(--border);border-radius:12px;padding:8px;margin-bottom:6px;display:flex;flex-direction:column;align-items:center;">
                 <div class="ps-gauge-wrap">
                   <svg viewBox="0 0 140 80">
-                    <path d="M 20 72 A 50 50 0 0 1 120 72" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="10" stroke-linecap="round"/>
+                    <path d="M 20 72 A 50 50 0 0 1 120 72" fill="none" stroke="var(--border)" stroke-width="10" stroke-linecap="round"/>
                     <path d="M 20 72 A 50 50 0 0 1 120 72" fill="none" stroke="url(#gg)" stroke-width="10" stroke-linecap="round" stroke-dasharray="147 157"/>
                     <line x1="70" y1="72" x2="112" y2="66" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
                     <circle cx="70" cy="72" r="3" fill="#fff"/>
@@ -2387,7 +2390,7 @@ footer .footer-brand-desc {
                 <div class="ps-rpt-card"><span class="ps-rpt-val">6<span style="font-size:11px;font-weight:400;color:#777;">/7</span></span><span class="ps-rpt-label">训练天数</span></div>
                 <div class="ps-rpt-card"><span class="ps-rpt-val" style="color:#34c759;">91%</span><span class="ps-rpt-label">平均对称性</span></div>
               </div>
-              <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:8px;margin-bottom:6px;">
+              <div style="background:rgba(0,0,0,0.04);border:1px solid var(--border);border-radius:10px;padding:8px;margin-bottom:6px;">
                 <div class="ps-chart-title">每日步数趋势</div>
                 <div class="ps-chart-wrap">
                   <svg viewBox="0 0 180 70" preserveAspectRatio="xMidYMid meet">
@@ -2397,10 +2400,10 @@ footer .footer-brand-desc {
                         <stop offset="100%" stop-color="#0096f0" stop-opacity="0.02"/>
                       </linearGradient>
                     </defs>
-                    <line x1="6" y1="12" x2="174" y2="12" stroke="rgba(255,255,255,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
-                    <line x1="6" y1="30" x2="174" y2="30" stroke="rgba(255,255,255,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
-                    <line x1="6" y1="48" x2="174" y2="48" stroke="rgba(255,255,255,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
-                    <line x1="6" y1="66" x2="174" y2="66" stroke="rgba(255,255,255,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
+                    <line x1="6" y1="12" x2="174" y2="12" stroke="rgba(0,0,0,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
+                    <line x1="6" y1="30" x2="174" y2="30" stroke="rgba(0,0,0,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
+                    <line x1="6" y1="48" x2="174" y2="48" stroke="rgba(0,0,0,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
+                    <line x1="6" y1="66" x2="174" y2="66" stroke="rgba(0,0,0,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
                     <polygon points="6,66 6,38 30,22 54,34 78,14 102,20 126,28 150,10 174,66" fill="url(#cf)"/>
                     <polyline points="6,38 30,22 54,34 78,14 102,20 126,28 150,10" fill="none" stroke="#0096f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <circle cx="6" cy="38" r="1.5" fill="#0096f0"/>
@@ -2754,7 +2757,7 @@ footer .footer-brand-desc {
   if (themeToggle) {
     function setTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('nexum-theme', theme);
+      localStorage.setItem('nexum-theme', theme || 'light');
     }
     var savedTheme = localStorage.getItem('nexum-theme');
     if (!savedTheme || savedTheme === 'light') {
@@ -2762,7 +2765,7 @@ footer .footer-brand-desc {
     }
     themeToggle.addEventListener('click', function() {
       var current = document.documentElement.getAttribute('data-theme');
-      setTheme(current === 'light' ? '' : 'light');
+      setTheme(current === 'dark' ? '' : 'dark');
     });
   }
 

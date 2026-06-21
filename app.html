@@ -5,7 +5,7 @@
 <script>
 (function(){
   var t = localStorage.getItem('nexum-theme');
-  if (!t || t === 'light') document.documentElement.setAttribute('data-theme','light');
+  if (t === 'dark') document.documentElement.setAttribute('data-theme','dark');
 })();
 </script>
 
@@ -20,11 +20,48 @@
    ROOT & RESET
    ============================================================ */
 :root {
+
+  --bg: #FAFAFA;
+  --bg-elevated: rgba(0,0,0,0.03);
+  --bg-elevated-hover: #F5F5F5;
+  --border: rgba(0,0,0,0.06);
+  --border-hover: rgba(0,0,0,0.12);
+  --text-primary: #111111;
+  --text-body: #666666;
+  --text-secondary: #666666;
+  --text-tertiary: #888888;
+  --text-disabled: #AAAAAA;
+  --accent: #0096F0;
+  --accent-glow: rgba(0,150,240,0.08);
+  --success: #34c759;
+  --warning: #ff9f0a;
+  --danger: #ff453a;
+  --section-gap: 120px;
+  --nav-height: 64px;
+  --max-width: 1200px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --phone-width: 290px;
+  --phone-height: 626px;
+  --phone-bezel: 10px;
+  --phone-radius: 40px;
+  --screen-radius: 32px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --nav-bg: rgba(0,0,0,0.7);
+  --nav-bg-scrolled: rgba(0,0,0,0.92);
+
+}
+* { margin: 0; padding: 0; box
+[data-theme="dark"] {
+
   --bg: #000000;
-  --bg-elevated: rgba(255,255,255,0.03);
+  --bg-elevated: rgba(0,0,0,0.03);
   --bg-elevated-hover: rgba(255,255,255,0.05);
-  --border: rgba(255,255,255,0.06);
-  --border-hover: rgba(255,255,255,0.12);
+  --border: var(--border);
+  --border-hover: var(--border-hover);
   --text-primary: #FFFFFF;
   --text-body: #CCCCCC;
   --text-secondary: #999999;
@@ -51,8 +88,9 @@
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   --nav-bg: rgba(0,0,0,0.7);
   --nav-bg-scrolled: rgba(0,0,0,0.92);
+
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
+-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 body {
   font-family: 'Inter', 'PingFang SC', -apple-system, system-ui, 'Microsoft YaHei', sans-serif;
@@ -193,8 +231,8 @@ h2 {
 .hero-bg-grid {
   position: absolute; width: 200%; height: 200%; top: -50%; left: -50%;
   background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
   background-size: 60px 60px;
   transform: perspective(800px) rotateX(40deg);
   -webkit-transform: perspective(800px) rotateX(40deg);
@@ -241,10 +279,10 @@ h2 {
   border-radius: var(--phone-radius);
   padding: var(--phone-bezel);
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.08),
+    0 0 0 1px var(--border-hover),
     0 20px 60px rgba(0,0,0,0.6),
     0 8px 20px rgba(0,0,0,0.4),
-    inset 0 1px 0 rgba(255,255,255,0.06);
+    inset 0 1px 0 var(--border);
   flex-shrink: 0;
 }
 /* Dynamic Island */
@@ -259,7 +297,7 @@ h2 {
   background: #000;
   border-radius: 20px;
   z-index: 20;
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.06);
+  box-shadow: 0 0 0 1px var(--border);
 }
 /* Side buttons */
 .phone-frame .side-btn {
@@ -277,7 +315,7 @@ h2 {
 .screen {
   width: 100%;
   height: 100%;
-  background: #000;
+  background: var(--bg-alt, #f5f5f7);
   border-radius: var(--screen-radius);
   overflow: hidden;
   position: relative;
@@ -348,8 +386,8 @@ h2 {
    SCREEN COMPONENTS (shared)
    ============================================================ */
 .glass-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.04);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 12px;
 }
@@ -366,8 +404,8 @@ h2 {
 .btn-s {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   flex: 1; padding: 10px 14px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.10); border-radius: 12px;
+  background: var(--border);
+  border: 1px solid rgba(0,0,0,0.06); border-radius: 12px;
   color: #999; font-size: 13px; font-weight: 500; font-family: inherit;
   cursor: pointer;
 }
@@ -376,12 +414,12 @@ h2 {
 .device-bar {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   padding: 5px 8px; margin-bottom: 6px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06); border-radius: 20px;
+  background: rgba(0,0,0,0.03);
+  border: 1px solid var(--border); border-radius: 20px;
   font-size: 10px; color: var(--text-tertiary);
 }
 .device-item { display: flex; align-items: center; gap: 4px; }
-.device-divider { width: 1px; height: 10px; background: rgba(255,255,255,0.06); }
+.device-divider { width: 1px; height: 10px; background: var(--border); }
 
 /* Metrics row (in-screen) */
 .metric-row {
@@ -389,8 +427,8 @@ h2 {
 }
 .metric-row .metric-card {
   flex: 1; text-align: center;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06); border-radius: 8px;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid var(--border); border-radius: 8px;
   padding: 8px 4px;
 }
 .metric-card .mv {
@@ -404,7 +442,7 @@ h2 {
 .hello-section {
   display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
 }
-.hello-text { font-size: 20px; font-weight: 700; color: #fff; line-height: 1.3; }
+.hello-text { font-size: 20px; font-weight: 700; color: var(--text-primary); line-height: 1.3; }
 .hello-text .greeting { font-size: 12px; font-weight: 400; color: #999; display: block; margin-bottom: 2px; }
 .avatar-circle {
   width: 36px; height: 36px; border-radius: 50%;
@@ -417,12 +455,12 @@ h2 {
 .stats-bar {
   display: flex; align-items: center; gap: 12px;
   padding: 8px 12px; margin-bottom: 10px;
-  background: rgba(255,255,255,0.03); border-radius: 100px;
+  background: rgba(0,0,0,0.03); border-radius: 100px;
   font-size: 12px; color: var(--text-secondary);
 }
 .stats-bar .stat-item { display: flex; align-items: center; gap: 4px; }
-.stats-bar .stat-item strong { color: #fff; font-weight: 600; }
-.stats-bar .divider { width: 1px; height: 14px; background: rgba(255,255,255,0.06); }
+.stats-bar .stat-item strong { color: var(--text-primary); font-weight: 600; }
+.stats-bar .divider { width: 1px; height: 14px; background: var(--border); }
 
 /* Progress Ring */
 .ring-section { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; padding: 16px; }
@@ -432,25 +470,25 @@ h2 {
   position: absolute; inset: 0; display: flex; flex-direction: column;
   align-items: center; justify-content: center;
 }
-.ring-center .pct { font-size: 28px; font-weight: 800; color: #fff; line-height: 1; }
+.ring-center .pct { font-size: 28px; font-weight: 800; color: var(--text-primary); line-height: 1; }
 .ring-center .pct-label { font-size: 10px; color: var(--text-tertiary); margin-top: 2px; }
 
 /* Today grid */
 .today-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 10px; }
 .today-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06); border-radius: 8px;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid var(--border); border-radius: 8px;
   padding: 10px 6px; text-align: center;
 }
 .today-card .tc-icon { font-size: 16px; margin-bottom: 4px; opacity: 0.8; }
-.today-card .tc-value { font-size: 16px; font-weight: 700; color: #fff; line-height: 1.2; }
+.today-card .tc-value { font-size: 16px; font-weight: 700; color: var(--text-primary); line-height: 1.2; }
 .today-card .tc-label { font-size: 9px; color: var(--text-tertiary); margin-top: 2px; }
 
 /* Training Live */
 .live-header {
   display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
 }
-.live-header .live-title { font-size: 16px; font-weight: 700; color: #fff; }
+.live-header .live-title { font-size: 16px; font-weight: 700; color: var(--text-primary); }
 .live-badge {
   display: flex; align-items: center; gap: 4px;
   padding: 3px 8px; background: rgba(255,69,58,0.1);
@@ -479,11 +517,11 @@ h2 {
 /* Train metrics */
 .train-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin-bottom: 8px; }
 .train-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06); border-radius: 8px;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid var(--border); border-radius: 8px;
   padding: 6px 2px; text-align: center;
 }
-.train-card .tv { font-size: 14px; font-weight: 700; color: #fff; }
+.train-card .tv { font-size: 14px; font-weight: 700; color: var(--text-primary); }
 .train-card .tl { font-size: 8px; color: var(--text-tertiary); margin-top: 1px; }
 
 /* Muscle heatmap */
@@ -499,7 +537,7 @@ h2 {
 .assist-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
 .assist-header .as-label { font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.3px; }
 .assist-header .as-level { font-size: 12px; font-weight: 700; color: var(--accent); }
-.assist-bar { height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+.assist-bar { height: 4px; background: var(--border-hover); border-radius: 2px; overflow: hidden; }
 .assist-fill { height: 100%; width: 40%; background: linear-gradient(135deg, #0096f0, #00b4d8); border-radius: 2px; }
 .assist-ticks { display: flex; justify-content: space-between; margin-top: 2px; font-size: 7px; color: var(--text-disabled); }
 
@@ -521,7 +559,7 @@ h2 {
 .report-header {
   display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;
 }
-.report-header .rh-title { font-size: 16px; font-weight: 700; color: #fff; }
+.report-header .rh-title { font-size: 16px; font-weight: 700; color: var(--text-primary); }
 .report-header .rh-date { font-size: 10px; color: var(--text-tertiary); margin-top: 2px; }
 .report-badge {
   padding: 3px 8px; background: var(--accent-glow);
@@ -531,11 +569,11 @@ h2 {
 
 .report-summary { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin-bottom: 10px; }
 .rs-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06); border-radius: 8px;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid var(--border); border-radius: 8px;
   padding: 8px 4px; text-align: center;
 }
-.rs-card .rsv { font-size: 16px; font-weight: 700; color: #fff; }
+.rs-card .rsv { font-size: 16px; font-weight: 700; color: var(--text-primary); }
 .rs-card .rsl { font-size: 8px; color: var(--text-tertiary); margin-top: 1px; }
 
 .chart-section { margin-bottom: 8px; }
@@ -554,7 +592,7 @@ h2 {
 .note-section { margin-bottom: 4px; }
 .note-section .nt { font-size: 10px; color: var(--text-tertiary); margin-bottom: 4px; letter-spacing: 0.3px; text-transform: uppercase; }
 .note-card {
-  padding: 8px 10px; background: rgba(255,255,255,0.03);
+  padding: 8px 10px; background: rgba(0,0,0,0.03);
   border-left: 2px solid var(--accent); border-radius: 0 8px 8px 0;
 }
 .note-card .note-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
@@ -568,12 +606,12 @@ h2 {
 .th-header {
   display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
 }
-.th-header .th-title { font-size: 16px; font-weight: 700; color: #fff; }
+.th-header .th-title { font-size: 16px; font-weight: 700; color: var(--text-primary); }
 .th-notif {
   position: relative; width: 28px; height: 28px;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06); border-radius: 50%; cursor: pointer;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid var(--border); border-radius: 50%; cursor: pointer;
 }
 .th-notif .badge-dot {
   position: absolute; top: 4px; right: 4px;
@@ -583,11 +621,11 @@ h2 {
 
 .th-qs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin-bottom: 8px; }
 .qs-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06); border-radius: 8px;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid var(--border); border-radius: 8px;
   padding: 8px 4px; text-align: center;
 }
-.qs-card .qv { font-size: 18px; font-weight: 700; color: #fff; }
+.qs-card .qv { font-size: 18px; font-weight: 700; color: var(--text-primary); }
 .qs-card .ql { font-size: 8px; color: var(--text-tertiary); margin-top: 1px; }
 
 .alerts-section { margin-bottom: 8px; }
@@ -596,8 +634,8 @@ h2 {
 .alerts-title .al-count { font-size: 10px; color: var(--danger); font-weight: 600; }
 .alert-item {
   display: flex; align-items: flex-start; gap: 8px;
-  padding: 8px 10px; background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06); border-radius: 8px;
+  padding: 8px 10px; background: rgba(0,0,0,0.03);
+  border: 1px solid var(--border); border-radius: 8px;
   margin-bottom: 4px;
 }
 .alert-item:last-child { margin-bottom: 0; }
@@ -611,8 +649,8 @@ h2 {
 .pl-title { font-size: 10px; color: var(--text-tertiary); margin-bottom: 4px; letter-spacing: 0.3px; text-transform: uppercase; }
 .patient-item {
   display: flex; align-items: center; gap: 8px;
-  padding: 7px 8px; background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06); border-radius: 8px;
+  padding: 7px 8px; background: rgba(0,0,0,0.03);
+  border: 1px solid var(--border); border-radius: 8px;
   margin-bottom: 3px;
 }
 .patient-item .pa {
@@ -643,13 +681,13 @@ h2 {
 .ds-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); }
 .ds-swatch {
   width: 20px; height: 20px; border-radius: 6px; flex-shrink: 0;
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
 }
 .ds-swatch.accent { background: var(--accent); }
 .ds-swatch.success { background: var(--success); }
 .ds-swatch.warning { background: var(--warning); }
 .ds-swatch.danger { background: var(--danger); }
-.ds-swatch.glass { background: rgba(255,255,255,0.10); }
+.ds-swatch.glass { background: rgba(0,0,0,0.06); }
 .ds-divider { width: 1px; height: 24px; background: var(--border); flex-shrink: 0; }
 .ds-label { font-size: 11px; color: var(--text-tertiary); }
 .ds-label strong { color: var(--text-secondary); font-weight: 600; }
@@ -676,7 +714,7 @@ h2 {
   display: flex; flex-direction: column; align-items: center; gap: 8px;
 }
 .component-sample .sample-bar {
-  width: 100%; height: 6px; background: rgba(255,255,255,0.08);
+  width: 100%; height: 6px; background: var(--border-hover);
   border-radius: 3px; overflow: hidden;
 }
 .component-sample .sample-fill {
@@ -767,17 +805,11 @@ footer p, footer li {
   --nav-bg-scrolled: rgba(255,255,255,0.92);
 }
 [data-theme="light"] body { background: #FAFAFA; color: #111; }
-[data-theme="light"] .section-label { color: var(--accent); }
 [data-theme="light"] h2, [data-theme="light"] h1 { color: #111; }
 [data-theme="light"] .section-sub, [data-theme="light"] p { color: #444; }
 [data-theme="light"] .card, [data-theme="light"] .detail-card,
 [data-theme="light"] .spec-card, [data-theme="light"] .phone-card,
 [data-theme="light"] .step-card, [data-theme="light"] .diagram-card,
-[data-theme="light"] .flow-card {
-  background: #fff;
-  border-color: rgba(0,0,0,0.06);
-  color: #111;
-}
 [data-theme="light"] .card h3, [data-theme="light"] .card h4,
 [data-theme="light"] .detail-card h3, [data-theme="light"] .detail-card h4,
 [data-theme="light"] .spec-card h3, [data-theme="light"] .step-card h3,
@@ -808,25 +840,14 @@ footer p, footer li {
 [data-theme="light"] nav .nav-links a:hover,
 [data-theme="light"] .site-nav .nav-links a.active,
 [data-theme="light"] nav .nav-links a.active { color: #111; }
-[data-theme="light"] .nav-cta { color: #fff !important; }
 /* Footer */
 [data-theme="light"] footer { background: #111; }
 [data-theme="light"] footer, [data-theme="light"] footer p,
 [data-theme="light"] footer a, [data-theme="light"] footer h5 { color: #ccc; }
-[data-theme="light"] .footer-brand-desc { color: #999; }
 /* Hero */
-[data-theme="light"] .hero { background: #FAFAFA; }
 [data-theme="light"] .hero h1 { color: #111; }
 [data-theme="light"] .hero-sub, [data-theme="light"] .hero p { color: #555; }
 /* Buttons */
-[data-theme="light"] .btn-secondary {
-  color: #333;
-  border-color: rgba(0,0,0,0.12);
-}
-[data-theme="light"] .btn-outline-light {
-  color: #333;
-  border-color: rgba(0,0,0,0.08);
-}
 /* Tables */
 [data-theme="light"] table { color: #333; }
 [data-theme="light"] th { color: #111; border-bottom-color: rgba(0,0,0,0.08); }
@@ -843,9 +864,6 @@ footer p, footer li {
 .theme-toggle:hover { color: var(--text-primary); background: var(--bg-elevated); }
 .theme-toggle .sun-icon { display: block; }
 .theme-toggle .moon-icon { display: none; }
-[data-theme="light"] .theme-toggle .sun-icon { display: none; }
-[data-theme="light"] .theme-toggle .moon-icon { display: block; }
-
 /* ===== NAV SCROLLED ===== */
 [data-theme="light"] nav.scrolled {
   background: rgba(255,255,255,0.92);
@@ -853,43 +871,26 @@ footer p, footer li {
 }
 
 /* ===== PHONE MOCKUP — FRAME ===== */
-[data-theme="light"] .phone-frame {
-  background: linear-gradient(145deg, #e2e2e6 0%, #d4d4d8 50%, #c8c8cc 100%);
-  box-shadow:
-    0 0 0 1px rgba(0,0,0,0.08),
-    0 20px 60px rgba(0,0,0,0.1),
-    0 8px 20px rgba(0,0,0,0.06),
-    inset 0 1px 0 rgba(255,255,255,0.08);
-}
 [data-theme="light"] .phone-frame::before {
   background: #c0c0c4;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.06);
 }
-[data-theme="light"] .phone-frame .side-btn {
-  background: linear-gradient(180deg, #d0d0d4, #bcbcc0);
-}
-
 /* ===== PHONE SCREEN ===== */
-[data-theme="light"] .screen { background: #f5f5f7; }
-[data-theme="light"] .status-time { color: #111; }
-[data-theme="light"] .home-indicator { background: rgba(0,0,0,0.15); }
-
 /* Status bar icon SVGs — override hardcoded fill="#fff" / stroke="#fff" */
 [data-theme="light"] .status-icons svg [fill="#fff"] { fill: #333 !important; }
 [data-theme="light"] .status-icons svg [stroke="#fff"] { stroke: #333 !important; }
 [data-theme="light"] .status-icons svg [fill*="rgba(255,255,255"] { fill: rgba(0,0,0,0.4) !important; }
 /* Buttons and their SVGs stay white on blue/colored backgrounds */
 [data-theme="light"] .btn-p svg [stroke="#fff"] { stroke: #fff !important; }
-[data-theme="light"] .btn-p { color: #fff !important; }
 /* Notification bell etc. */
 [data-theme="light"] .screen svg [stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.6) !important; }
 /* Gauge / chart SVGs inside screens */
 [data-theme="light"] .screen svg line[stroke="#fff"] { stroke: #333 !important; }
 [data-theme="light"] .screen svg circle[fill="#fff"]:not([fill="var(--accent)"]):not([fill="var(--success)"]) { fill: #444 !important; }
-[data-theme="light"] .screen svg [stroke="rgba(255,255,255,0.06)"] { stroke: rgba(0,0,0,0.08) !important; }
-[data-theme="light"] .screen svg [stroke="rgba(255,255,255,0.04)"] { stroke: rgba(0,0,0,0.06) !important; }
-[data-theme="light"] .screen svg [stroke="rgba(255,255,255,0.08)"] { stroke: rgba(0,0,0,0.12) !important; }
-[data-theme="light"] .screen svg [fill="rgba(255,255,255,0.04)"] { fill: rgba(0,0,0,0.03) !important; }
+[data-theme="light"] .screen svg [stroke="var(--border)"] { stroke: rgba(0,0,0,0.08) !important; }
+[data-theme="light"] .screen svg [stroke="rgba(0,0,0,0.04)"] { stroke: rgba(0,0,0,0.06) !important; }
+[data-theme="light"] .screen svg [stroke="var(--border-hover)"] { stroke: rgba(0,0,0,0.12) !important; }
+[data-theme="light"] .screen svg [fill="rgba(0,0,0,0.04)"] { fill: rgba(0,0,0,0.03) !important; }
 
 /* ===== SCREEN COMPONENT TEXT — hardcoded inline colors ===== */
 [data-theme="light"] .screen [style*="color:#fff"] { color: #111 !important; }
@@ -901,84 +902,32 @@ footer p, footer li {
 [data-theme="light"] .screen [style*="color:#777"] { color: #555 !important; }
 [data-theme="light"] .screen [style*="color: #777"] { color: #555 !important; }
 /* Preserve buttons and avatars that legitimately use white */
-[data-theme="light"] .btn-p { color: #fff !important; }
-[data-theme="light"] .screen .pa { color: #fff !important; }
-[data-theme="light"] .live-badge { color: var(--danger) !important; }
-[data-theme="light"] .btn-em { color: var(--danger) !important; }
-
 /* ===== CLASS-BASED TEXT OVERRIDES ===== */
 [data-theme="light"] .hello-text,
 [data-theme="light"] .ring-center .pct,
 [data-theme="light"] .live-header .live-title,
 [data-theme="light"] .report-header .rh-title,
-[data-theme="light"] .th-header .th-title { color: #111; }
 [data-theme="light"] .stats-bar .stat-item strong { color: #111; }
-[data-theme="light"] .hello-text .greeting { color: #777; }
 /* Metric/card value text that uses CSS-class #fff (not inline) */
 [data-theme="light"] .rsv,
 [data-theme="light"] .qv,
 [data-theme="light"] .mv,
 [data-theme="light"] .tv,
-[data-theme="light"] .tc-value { color: #111; }
-[data-theme="light"] .status-time { color: #111; }
-
 /* ===== SCREEN COMPONENT BACKGROUNDS ===== */
-[data-theme="light"] .glass-card {
-  background: rgba(0,0,0,0.03);
-  border-color: rgba(0,0,0,0.06);
-}
 [data-theme="light"] .device-bar,
-[data-theme="light"] .stats-bar {
-  background: rgba(0,0,0,0.04);
-  border-color: rgba(0,0,0,0.06);
-}
 [data-theme="light"] .metric-row .metric-card,
 [data-theme="light"] .today-card,
 [data-theme="light"] .train-card,
 [data-theme="light"] .rs-card,
-[data-theme="light"] .qs-card {
-  background: rgba(0,0,0,0.04);
-  border-color: rgba(0,0,0,0.06);
-}
 [data-theme="light"] .patient-item,
 [data-theme="light"] .alert-item,
-[data-theme="light"] .note-card {
-  background: rgba(0,0,0,0.03);
-  border-color: rgba(0,0,0,0.06);
-}
-[data-theme="light"] .compare-row {
-  background: rgba(52,199,89,0.06);
-  border-color: rgba(52,199,89,0.1);
-}
-[data-theme="light"] .th-notif {
-  background: rgba(0,0,0,0.04);
-  border-color: rgba(0,0,0,0.06);
-}
-[data-theme="light"] .th-notif .badge-dot { border-color: #f5f5f7; }
-
 /* Gray text inside screen components */
 [data-theme="light"] .pn,
 [data-theme="light"] .ac-name,
-[data-theme="light"] .note-author { color: #444; }
-[data-theme="light"] .note-body { color: #666; }
 [data-theme="light"] .stats-bar .divider,
-[data-theme="light"] .device-divider { background: rgba(0,0,0,0.08); }
-
 /* Secondary buttons and assist bar */
-[data-theme="light"] .btn-s {
-  background: rgba(0,0,0,0.04);
-  border-color: rgba(0,0,0,0.10);
-  color: #555;
-}
-[data-theme="light"] .assist-bar { background: rgba(0,0,0,0.08); }
-
 /* Design system preview */
-[data-theme="light"] .component-sample {
-  background: #fff;
-  border-color: rgba(0,0,0,0.08);
-}
 [data-theme="light"] .component-sample h4 { color: #111; }
-[data-theme="light"] .component-sample .sample-bar { background: rgba(0,0,0,0.08); }
 [data-theme="light"] .component-sample [style*="color:#999"] { color: #555 !important; }
 [data-theme="light"] .component-sample [style*="color: #999"] { color: #555 !important; }
 /* Design system glass-card preview inline white text */
@@ -986,6 +935,31 @@ footer p, footer li {
 [data-theme="light"] .glass-card [style*="color: #fff"] { color: #111 !important; }
 [data-theme="light"] .glass-card [style*="color:#777"] { color: #555 !important; }
 [data-theme="light"] .glass-card [style*="color: #777"] { color: #555 !important; }
+
+
+[data-theme="dark"] .screen { background: #000; }
+[data-theme="dark"] .phone-frame { background: linear-gradient(180deg, #3a3a3c 0%, #1c1c1e 100%); }
+[data-theme="dark"] .phone-notch { background: #000; }
+[data-theme="dark"] .phone-notch-dot { background: #1a1a1a; }
+[data-theme="dark"] .home-indicator { background: rgba(255,255,255,0.3); }
+
+
+[data-theme="dark"] .hello-text { color: #fff; }
+[data-theme="dark"] .ring-center .pct { color: #fff; }
+[data-theme="dark"] .live-header .live-title { color: #fff; }
+[data-theme="dark"] .report-header .rh-title { color: #fff; }
+[data-theme="dark"] .th-header .th-title { color: #fff; }
+[data-theme="dark"] .stats-bar .stat-item strong { color: var(--text-primary); }
+[data-theme="dark"] .today-card .tc-value { color: #fff; }
+[data-theme="dark"] .train-card .tv { color: #fff; }
+[data-theme="dark"] .rs-card .rsv { color: #fff; }
+[data-theme="dark"] .qs-card .qv { color: #fff; }
+[data-theme="dark"] .status-time { color: var(--text-primary); }
+[data-theme="dark"] .greeting { color: #999; }
+[data-theme="dark"] .pn { color: #999; }
+[data-theme="dark"] .note-body { color: #999; }
+[data-theme="dark"] .note-author { color: #999; }
+[data-theme="dark"] .btn-s { background: #333; color: #999; }
 
 </style>
 </head>
@@ -1105,7 +1079,7 @@ footer p, footer li {
                       <defs>
                         <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0096f0"/><stop offset="100%" stop-color="#00b4d8"/></linearGradient>
                       </defs>
-                      <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"/>
+                      <circle cx="60" cy="60" r="48" fill="none" stroke="var(--border)" stroke-width="8"/>
                       <circle cx="60" cy="60" r="48" fill="none" stroke="url(#rg)" stroke-width="8" stroke-dasharray="301.6" stroke-dashoffset="66.3" stroke-linecap="round" transform="rotate(-90 60 60)"/>
                     </svg>
                     <div class="ring-center">
@@ -1204,7 +1178,7 @@ footer p, footer li {
                           <stop offset="0%" stop-color="#ff453a"/><stop offset="35%" stop-color="#ff9f0a"/><stop offset="65%" stop-color="#ffd60a"/><stop offset="85%" stop-color="#34c759"/><stop offset="100%" stop-color="#34c759"/>
                         </linearGradient>
                       </defs>
-                      <path d="M 18 84 A 62 62 0 0 1 142 84" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="12" stroke-linecap="round"/>
+                      <path d="M 18 84 A 62 62 0 0 1 142 84" fill="none" stroke="var(--border)" stroke-width="12" stroke-linecap="round"/>
                       <path d="M 18 84 A 62 62 0 0 1 142 84" fill="none" stroke="url(#gg)" stroke-width="12" stroke-linecap="round" stroke-dasharray="184 195"/>
                       <line x1="80" y1="84" x2="133" y2="75" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
                       <circle cx="80" cy="84" r="4" fill="#fff"/>
@@ -1230,12 +1204,12 @@ footer p, footer li {
                         <linearGradient id="hmm" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff9f0a" stop-opacity="0.5"/><stop offset="100%" stop-color="#ff9f0a" stop-opacity="0.15"/></linearGradient>
                         <linearGradient id="hml" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0096f0" stop-opacity="0.3"/><stop offset="100%" stop-color="#0096f0" stop-opacity="0.08"/></linearGradient>
                       </defs>
-                      <ellipse cx="40" cy="6" rx="10" ry="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-                      <rect x="36" y="18" width="8" height="8" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-                      <path d="M 22 26 L 58 26 L 62 64 L 18 64 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                      <ellipse cx="40" cy="6" rx="10" ry="12" fill="rgba(0,0,0,0.04)" stroke="var(--border-hover)" stroke-width="1"/>
+                      <rect x="36" y="18" width="8" height="8" rx="3" fill="rgba(0,0,0,0.04)" stroke="var(--border-hover)" stroke-width="1"/>
+                      <path d="M 22 26 L 58 26 L 62 64 L 18 64 Z" fill="rgba(0,0,0,0.04)" stroke="var(--border-hover)" stroke-width="1"/>
                       <rect x="28" y="36" width="24" height="14" rx="3" fill="url(#hml)"/>
-                      <path d="M 22 28 L 12 50 L 10 56" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6" stroke-linecap="round"/>
-                      <path d="M 58 28 L 68 50 L 70 56" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6" stroke-linecap="round"/>
+                      <path d="M 22 28 L 12 50 L 10 56" fill="none" stroke="var(--border-hover)" stroke-width="6" stroke-linecap="round"/>
+                      <path d="M 58 28 L 68 50 L 70 56" fill="none" stroke="var(--border-hover)" stroke-width="6" stroke-linecap="round"/>
                       <rect x="20" y="60" width="18" height="18" rx="4" fill="url(#hmm)"/>
                       <rect x="42" y="60" width="18" height="18" rx="4" fill="url(#hmh)"/>
                       <rect x="24" y="78" width="12" height="14" rx="3" fill="url(#hml)"/>
@@ -1336,10 +1310,10 @@ footer p, footer li {
                           <stop offset="100%" stop-color="#0096f0" stop-opacity="0.02"/>
                         </linearGradient>
                       </defs>
-                      <line x1="8" y1="15" x2="212" y2="15" stroke="rgba(255,255,255,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
-                      <line x1="8" y1="38" x2="212" y2="38" stroke="rgba(255,255,255,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
-                      <line x1="8" y1="60" x2="212" y2="60" stroke="rgba(255,255,255,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
-                      <line x1="8" y1="83" x2="212" y2="83" stroke="rgba(255,255,255,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
+                      <line x1="8" y1="15" x2="212" y2="15" stroke="rgba(0,0,0,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
+                      <line x1="8" y1="38" x2="212" y2="38" stroke="rgba(0,0,0,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
+                      <line x1="8" y1="60" x2="212" y2="60" stroke="rgba(0,0,0,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
+                      <line x1="8" y1="83" x2="212" y2="83" stroke="rgba(0,0,0,0.04)" stroke-width="0.5" stroke-dasharray="3 3"/>
                       <polygon points="8,83 8,52 38,30 68,44 98,20 128,28 158,36 188,12 212,83" fill="url(#cf)"/>
                       <polyline points="8,52 38,30 68,44 98,20 128,28 158,36 188,12" fill="none" stroke="#0096f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                       <circle cx="8" cy="52" r="2" fill="#0096f0"/>
@@ -1432,12 +1406,12 @@ footer p, footer li {
                     <div style="flex:1;"><div style="font-size:11px;color:#ccc;font-weight:600;">NeuroSuit</div><div style="font-size:9px;color:#777;">序列号: NS-2026-0042</div></div>
                     <div style="font-size:10px;color:#34c759;font-weight:600;">已连接</div>
                   </div>
-                  <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid rgba(255,255,255,0.06);">
+                  <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--border);">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0096f0" stroke-width="1.5"><circle cx="12" cy="12" r="10" fill="rgba(0,150,240,0.15)" stroke="#0096f0"/><path d="M12 6v6l4 2"/></svg>
                     <div style="flex:1;"><div style="font-size:11px;color:#ccc;font-weight:600;">EEG-Sense 头带</div><div style="font-size:9px;color:#777;">序列号: ES-2026-0037</div></div>
                     <div style="font-size:10px;color:#34c759;font-weight:600;">已连接</div>
                   </div>
-                  <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid rgba(255,255,255,0.06);">
+                  <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--border);">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"><rect x="3" y="7" width="22" height="14" rx="3"/><circle cx="14" cy="14" r="2"/><path d="M9 21v2M19 21v2"/></svg>
                     <div style="flex:1;"><div style="font-size:11px;color:#ccc;font-weight:600;">Control Box</div><div style="font-size:9px;color:#777;">序列号: CB-2026-0018</div></div>
                     <div style="font-size:10px;color:#34c759;font-weight:600;">已连接</div>
@@ -1451,19 +1425,19 @@ footer p, footer li {
                     <span style="font-size:11px;color:#ccc;">辅助等级</span>
                     <span style="font-size:11px;font-weight:600;color:var(--accent);">Level 2</span>
                   </div>
-                  <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:1px solid rgba(255,255,255,0.06);">
+                  <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:1px solid var(--border);">
                     <span style="font-size:11px;color:#ccc;">训练模式</span>
                     <span style="font-size:11px;color:#999;">行走训练</span>
                   </div>
-                  <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:1px solid rgba(255,255,255,0.06);">
+                  <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:1px solid var(--border);">
                     <span style="font-size:11px;color:#ccc;">震动反馈</span>
                     <span style="font-size:11px;color:#34c759;">已开启</span>
                   </div>
-                  <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:1px solid rgba(255,255,255,0.06);">
+                  <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:1px solid var(--border);">
                     <span style="font-size:11px;color:#ccc;">数据同步</span>
                     <span style="font-size:11px;color:#34c759;">自动</span>
                   </div>
-                  <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:1px solid rgba(255,255,255,0.06);">
+                  <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:1px solid var(--border);">
                     <span style="font-size:11px;color:#ccc;">蓝牙固件版本</span>
                     <span style="font-size:11px;color:#999;">v2.4.1</span>
                   </div>
@@ -1674,28 +1648,28 @@ footer p, footer li {
                   <div class="chart-title">训练时段</div>
                   <div style="display:flex;align-items:center;gap:8px;padding:4px 0;">
                     <div style="font-size:10px;color:#777;flex-shrink:0;">14:00</div>
-                    <div style="flex:1;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;">
+                    <div style="flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden;">
                       <div style="height:100%;width:20%;background:var(--accent);border-radius:3px;"></div>
                     </div>
                     <div style="font-size:10px;color:#777;flex-shrink:0;">热身</div>
                   </div>
                   <div style="display:flex;align-items:center;gap:8px;padding:4px 0;">
                     <div style="font-size:10px;color:#777;flex-shrink:0;">14:06</div>
-                    <div style="flex:1;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;">
+                    <div style="flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden;">
                       <div style="height:100%;width:55%;background:linear-gradient(90deg,var(--accent),#60a5fa);border-radius:3px;"></div>
                     </div>
                     <div style="font-size:10px;color:#777;flex-shrink:0;">主训练</div>
                   </div>
                   <div style="display:flex;align-items:center;gap:8px;padding:4px 0;">
                     <div style="font-size:10px;color:#777;flex-shrink:0;">14:36</div>
-                    <div style="flex:1;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;">
+                    <div style="flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden;">
                       <div style="height:100%;width:15%;background:#34c759;border-radius:3px;"></div>
                     </div>
                     <div style="font-size:10px;color:#777;flex-shrink:0;">放松</div>
                   </div>
                   <div style="display:flex;align-items:center;gap:8px;padding:4px 0;">
                     <div style="font-size:10px;color:#777;flex-shrink:0;">14:45</div>
-                    <div style="flex:1;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;">
+                    <div style="flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden;">
                       <div style="height:100%;width:10%;background:#ff9f0a;border-radius:3px;"></div>
                     </div>
                     <div style="font-size:10px;color:#777;flex-shrink:0;">休息</div>
@@ -1705,7 +1679,7 @@ footer p, footer li {
                 <!-- Therapist notes area -->
                 <div class="note-section">
                   <div class="nt">治疗师记录</div>
-                  <div style="width:100%;padding:8px 10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-size:10px;color:#555;min-height:40px;">
+                  <div style="width:100%;padding:8px 10px;background:rgba(0,0,0,0.03);border:1px solid var(--border);border-radius:8px;font-size:10px;color:#555;min-height:40px;">
                     点击添加备注...
                   </div>
                 </div>
@@ -1773,15 +1747,15 @@ footer p, footer li {
                     <span style="font-size:11px;color:#ccc;">辅助等级</span>
                     <span style="font-size:11px;font-weight:700;color:var(--accent);">Level 2</span>
                   </div>
-                  <div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid rgba(255,255,255,0.06);">
+                  <div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid var(--border);">
                     <span style="font-size:11px;color:#ccc;">训练模式</span>
                     <span style="font-size:11px;color:#999;">行走训练</span>
                   </div>
-                  <div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid rgba(255,255,255,0.06);">
+                  <div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid var(--border);">
                     <span style="font-size:11px;color:#ccc;">目标时长</span>
                     <span style="font-size:11px;color:#999;">45分钟/次</span>
                   </div>
-                  <div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid rgba(255,255,255,0.06);">
+                  <div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid var(--border);">
                     <span style="font-size:11px;color:#ccc;">训练频率</span>
                     <span style="font-size:11px;color:#999;">每日1次</span>
                   </div>
@@ -1791,11 +1765,11 @@ footer p, footer li {
                 <div class="glass-card" style="margin-bottom:8px;">
                   <div class="chart-title">辅助等级调整</div>
                   <div style="display:flex;gap:6px;padding:8px 0;">
-                    <div style="flex:1;padding:8px 4px;text-align:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-size:11px;color:#555;">Lv 1</div>
+                    <div style="flex:1;padding:8px 4px;text-align:center;background:rgba(0,0,0,0.03);border:1px solid var(--border);border-radius:8px;font-size:11px;color:#555;">Lv 1</div>
                     <div style="flex:1;padding:8px 4px;text-align:center;background:var(--accent-glow);border:1px solid var(--accent);border-radius:8px;font-size:11px;font-weight:600;color:var(--accent);">Lv 2</div>
-                    <div style="flex:1;padding:8px 4px;text-align:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-size:11px;color:#555;">Lv 3</div>
-                    <div style="flex:1;padding:8px 4px;text-align:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-size:11px;color:#555;">Lv 4</div>
-                    <div style="flex:1;padding:8px 4px;text-align:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-size:11px;color:#555;">Lv 5</div>
+                    <div style="flex:1;padding:8px 4px;text-align:center;background:rgba(0,0,0,0.03);border:1px solid var(--border);border-radius:8px;font-size:11px;color:#555;">Lv 3</div>
+                    <div style="flex:1;padding:8px 4px;text-align:center;background:rgba(0,0,0,0.03);border:1px solid var(--border);border-radius:8px;font-size:11px;color:#555;">Lv 4</div>
+                    <div style="flex:1;padding:8px 4px;text-align:center;background:rgba(0,0,0,0.03);border:1px solid var(--border);border-radius:8px;font-size:11px;color:#555;">Lv 5</div>
                   </div>
                 </div>
 
@@ -2017,7 +1991,7 @@ footer p, footer li {
     localStorage.setItem('nexum-theme', t);
   }
   var saved = localStorage.getItem('nexum-theme');
-  if (!saved || saved === 'light') setTheme('light');
+  if (saved === 'dark') setTheme('dark');
   toggle.addEventListener('click', function(){
     var cur = document.documentElement.getAttribute('data-theme');
     setTheme(cur === 'light' ? '' : 'light');
