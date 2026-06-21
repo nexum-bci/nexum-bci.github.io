@@ -117,7 +117,7 @@ body::before {
   --text-tertiary: #6e6e73;
   --bg-primary: #000000;
   --bg-secondary: #1c1c1e;
-  --bg-tertiary: #0a0a0a;
+  --bg-tertiary: var(--text);
   --bg-elevated: rgba(255,255,255,0.04);
   --bg-glass: rgba(255,255,255,0.06);
   --bg-glass-strong: rgba(255,255,255,0.10);
@@ -146,21 +146,21 @@ body::before {
   background: #ffffff;
   border-color: rgba(0,0,0,0.06);
 }
-.header .subtitle { color: #555555; }
+.header .subtitle { color: var(--text-secondary); }
 [data-theme="dark"] .header .subtitle { color: var(--text-secondary); }
-.ds-item { color: #555555; }
+.ds-item { color: var(--text-secondary); }
 [data-theme="dark"] .ds-item { color: var(--text-secondary); }
-.ds-label { color: #888888; }
+.ds-label { color: var(--text-tertiary); }
 .ds-label strong { color: #1d1d1f; }
 [data-theme="dark"] .ds-label { color: var(--text-tertiary); }
 [data-theme="dark"] .ds-label strong { color: var(--text-secondary); }
 .ds-divider { background: rgba(0,0,0,0.08); }
 [data-theme="dark"] .ds-divider { background: var(--border-default); }
-.mockup-label p { color: #888888; }
+.mockup-label p { color: var(--text-tertiary); }
 [data-theme="dark"] .mockup-label p { color: var(--text-tertiary); }
 .footer { border-top-color: rgba(0,0,0,0.06); }
 [data-theme="dark"] .footer { border-top-color: var(--border-subtle); }
-.footer p { color: #888888; }
+.footer p { color: var(--text-tertiary); }
 [data-theme="dark"] .footer p { color: var(--text-quaternary); }
 
 [data-theme="dark"]

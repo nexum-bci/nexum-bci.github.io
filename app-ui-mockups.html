@@ -58,8 +58,8 @@ body::before {
   --bg-card: #FFFFFF;
   --border: rgba(0,0,0,0.06);
   --text: #111;
-  --text-secondary: #555;
-  --text-tertiary: #888;
+  --text-secondary: var(--text-secondary);
+  --text-tertiary: var(--text-tertiary);
   --accent: #0096F0;
 
   /* Mockup-specific — kept dark (inside phone frames) */
@@ -79,7 +79,7 @@ body::before {
 
   --bg-primary: #000000;
   --bg-secondary: #000000;
-  --bg-tertiary: #0a0a0a;
+  --bg-tertiary: var(--text);
   --bg-elevated: rgba(255,255,255,0.04);
   --bg-glass: rgba(255,255,255,0.06);
   --bg-glass-hover: rgba(255,255,255,0.09);
@@ -128,21 +128,21 @@ body::before {
 [data-theme="dark"] .ds-bar { background: rgba(255,255,255,0.02); border-color: var(--border-subtle); }
 .ds-swatch.glass { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
 .ds-swatch.card { background: #ffffff; border-color: rgba(0,0,0,0.06); }
-.header .subtitle { color: #555555; }
+.header .subtitle { color: var(--text-secondary); }
 [data-theme="dark"] .header .subtitle { color: var(--text-secondary); }
-.ds-item { color: #555555; }
+.ds-item { color: var(--text-secondary); }
 [data-theme="dark"] .ds-item { color: var(--text-secondary); }
-.ds-label { color: #888888; }
+.ds-label { color: var(--text-tertiary); }
 .ds-label strong { color: #1d1d1f; }
 [data-theme="dark"] .ds-label { color: var(--text-tertiary); }
 [data-theme="dark"] .ds-label strong { color: var(--text-secondary); }
 .ds-divider { background: rgba(0,0,0,0.08); }
 [data-theme="dark"] .ds-divider { background: var(--border-default); }
-.mockup-label p { color: #888888; }
+.mockup-label p { color: var(--text-tertiary); }
 [data-theme="dark"] .mockup-label p { color: var(--text-tertiary); }
 .footer { border-top-color: rgba(0,0,0,0.06); }
 [data-theme="dark"] .footer { border-top-color: var(--border-subtle); }
-.footer p { color: #888888; }
+.footer p { color: var(--text-tertiary); }
 [data-theme="dark"] .footer p { color: var(--text-quaternary); }
 .header-badge { color: #0071e3; }
 [data-theme="dark"] .header-badge { color: var(--accent); }

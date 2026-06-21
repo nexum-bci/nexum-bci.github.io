@@ -296,7 +296,7 @@ sub, sup {
 @media print {
     body {
         background: #fff;
-        color: #0a0a0a;
+        color: var(--text);
         font-size: 12pt;
     }
     nav {
@@ -307,41 +307,41 @@ sub, sup {
         padding: 20px;
     }
     h1, h2, h3, h4 {
-        color: #0a0a0a;
+        color: var(--text);
     }
     h1 {
-        -webkit-text-fill-color: #0a0a0a;
+        -webkit-text-fill-color: var(--text);
         background: none;
     }
     h2 {
-        color: #005fa3;
+        color: var(--accent);
         border-bottom-color: rgba(0, 0, 0, 0.1);
     }
     a {
-        color: #005fa3;
+        color: var(--accent);
     }
     pre {
-        background: #f5f5f5;
+        background: var(--bg);
         border-color: #ddd;
     }
     pre code {
         color: #333;
     }
     code {
-        background: #f0f0f0;
+        background: var(--bg);
         color: #333;
     }
     blockquote {
-        border-left-color: #005fa3;
+        border-left-color: var(--accent);
         background: #f8f8f8;
-        color: #555;
+        color: var(--text-secondary);
     }
     table {
         font-size: 10pt;
     }
     th {
-        color: #005fa3;
-        background: #e8f0f8;
+        color: var(--accent);
+        background: var(--accent-subtle);
     }
     tbody tr:nth-child(odd) {
         background: #fafafa;
