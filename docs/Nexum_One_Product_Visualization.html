@@ -160,7 +160,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .hero h1 {
   font-size: clamp(48px, 8vw, 96px);
   font-weight: 900;
-  background: linear-gradient(135deg, #FFFFFF 0%, #0096f0 50%, #60a5fa 100%);
+  background: linear-gradient(135deg, #1d1d1f 0%, #0096f0 50%, #60a5fa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -314,7 +314,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
   background: rgba(0,150,240,0.06);
 }
 .metrics-banner .metric-icon {
-  font-size: 24px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
   margin-bottom: 12px;
   display: block;
 }
@@ -385,6 +387,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
   border-color: var(--accent);
   transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+[data-theme="light"] .comp-card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
 }
 .comp-card:hover::before { opacity: 1; }
 
@@ -705,6 +710,133 @@ footer .footer-divider {
   .loop-steps { grid-template-columns: 1fr; }
   .metrics-banner { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   LIGHT MODE OVERRIDES
+   ============================================================ */
+
+/* Card shadows */
+[data-theme="light"] .loop-step:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* Metrics banner glow */
+[data-theme="light"] .metrics-banner::after {
+  box-shadow: 0 0 20px rgba(0,150,240,0.1);
+}
+[data-theme="light"] .metrics-banner .metric-item {
+  background: rgba(0,0,0,0.015);
+}
+[data-theme="light"] .metrics-banner .metric-item:hover {
+  background: rgba(0,150,240,0.04);
+}
+
+/* Table */
+[data-theme="light"] .spec-table tbody td {
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+[data-theme="light"] .spec-table tbody tr:hover td {
+  background: rgba(0,150,240,0.02);
+}
+
+/* Latency bar */
+[data-theme="light"] .latency-eeg { background: rgba(0,150,240,0.12); }
+[data-theme="light"] .latency-ai   { background: rgba(96,165,250,0.12); }
+[data-theme="light"] .latency-ble  { background: rgba(99,102,241,0.12); }
+[data-theme="light"] .latency-motor { background: rgba(168,85,247,0.12); }
+[data-theme="light"] .latency-sense { background: rgba(236,72,153,0.12); }
+[data-theme="light"] .latency-step .step-ms { color: #1d1d1f; }
+
+/* ============================================================
+   LIGHT MODE — HERO SVG
+   ============================================================ */
+[data-theme="light"] .hero-svg-wrap ellipse[stroke*="rgba(255,255,255"],
+[data-theme="light"] .hero-svg-wrap line[stroke*="rgba(255,255,255"],
+[data-theme="light"] .hero-svg-wrap path[stroke*="rgba(255,255,255"] {
+  stroke: rgba(0,0,0,0.1);
+}
+[data-theme="light"] .hero-svg-wrap rect[fill*="rgba(255,255,255,0.03"] { fill: rgba(0,0,0,0.03); }
+[data-theme="light"] .hero-svg-wrap rect[fill*="rgba(255,255,255,0.05"] { fill: rgba(0,0,0,0.05); }
+[data-theme="light"] .hero-svg-wrap text { fill: #555555; }
+[data-theme="light"] .hero-svg-wrap text[fill="#0096f0"] { fill: #0096f0; }
+[data-theme="light"] .hero-svg-wrap text[fill="#FFFFFF"] { fill: #1d1d1f; }
+[data-theme="light"] .hero-svg-wrap text[fill="#999999"] { fill: #888888; }
+
+/* ============================================================
+   LIGHT MODE — SYSTEM SVG
+   ============================================================ */
+[data-theme="light"] .system-svg line[stroke*="rgba(255,255,255"],
+[data-theme="light"] .system-svg path[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.1); }
+[data-theme="light"] .system-svg rect[fill*="rgba(255,255,255,0.05"] { fill: rgba(255,255,255,0.5); }
+[data-theme="light"] .system-svg rect[fill*="rgba(255,255,255,0.06"] { fill: rgba(0,0,0,0.04); }
+[data-theme="light"] .system-svg text { fill: #555555; }
+[data-theme="light"] .system-svg text[fill="#0096f0"] { fill: #0096f0; }
+[data-theme="light"] .system-svg text[fill="#FFFFFF"] { fill: #1d1d1f; }
+[data-theme="light"] .system-svg text[fill="#999999"] { fill: #888888; }
+[data-theme="light"] .system-svg text[fill="#777777"] { fill: #666666; }
+
+/* ============================================================
+   LIGHT MODE — COMPONENT SVGs
+   ============================================================ */
+[data-theme="light"] .comp-svg-wrap text { fill: #555555; }
+[data-theme="light"] .comp-svg-wrap text[fill="#777777"] { fill: #666666; }
+[data-theme="light"] .comp-svg-wrap text[fill="#666666"] { fill: #555555; }
+[data-theme="light"] .comp-svg-wrap text[fill="#334155"] { fill: #64748b; }
+[data-theme="light"] .comp-svg-wrap circle[fill="#c0c0c0"] { fill: #888888; }
+[data-theme="light"] .comp-svg-wrap rect[fill*="rgba(255,255,255,0.05"] { fill: rgba(0,0,0,0.02); }
+[data-theme="light"] .comp-svg-wrap rect[fill="#0f172a"] { fill: #e2e8f0; }
+[data-theme="light"] .comp-svg-wrap rect[fill*="rgba(0,150,240,0.04"] { fill: rgba(0,150,240,0.06); }
+[data-theme="light"] .comp-svg-wrap rect[fill*="rgba(0,150,240,0.06"] { fill: rgba(0,150,240,0.08); }
+[data-theme="light"] .comp-svg-wrap rect[fill*="rgba(0,150,240,0.15"] { fill: rgba(0,150,240,0.08); }
+[data-theme="light"] .comp-svg-wrap path[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
+[data-theme="light"] .comp-svg-wrap line[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
+[data-theme="light"] .comp-svg-wrap rect[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
+[data-theme="light"] .comp-svg-wrap path[stroke="#334155"] { stroke: #cbd5e1; }
+[data-theme="light"] .comp-svg-wrap rect[stroke="#334155"] { stroke: #cbd5e1; }
+[data-theme="light"] .comp-svg-wrap ellipse[stroke="#334155"] { stroke: #cbd5e1; }
+[data-theme="light"] .comp-svg-wrap rect[fill="url(#bandMatte)"] { fill: #f1f5f9; }
+[data-theme="light"] .comp-svg-wrap rect[fill="url(#bandAccent)"] { fill: #0096f0; }
+
+/* ============================================================
+   LIGHT MODE — LOOP SVG
+   ============================================================ */
+[data-theme="light"] .loop-svg rect[fill*="rgba(255,255,255,0.04"] { fill: rgba(255,255,255,0.7); }
+[data-theme="light"] .loop-svg text { fill: #555555; }
+[data-theme="light"] .loop-svg text[fill="#0096f0"] { fill: #0096f0; }
+[data-theme="light"] .loop-svg text[fill="#60a5fa"] { fill: #60a5fa; }
+[data-theme="light"] .loop-svg text[fill="#a855f7"] { fill: #a855f7; }
+[data-theme="light"] .loop-svg text[fill="#22c55e"] { fill: #22c55e; }
+[data-theme="light"] .loop-svg text[fill="#FFFFFF"] { fill: #1d1d1f; }
+[data-theme="light"] .loop-svg text[fill="#999999"] { fill: #888888; }
+
+/* ============================================================
+   LIGHT MODE — EXPLODED SVG
+   ============================================================ */
+[data-theme="light"] .exploded-svg text { fill: #555555; }
+[data-theme="light"] .exploded-svg text[fill="#FFFFFF"] { fill: #1d1d1f; }
+[data-theme="light"] .exploded-svg text[fill="#CCCCCC"] { fill: #444444; }
+[data-theme="light"] .exploded-svg text[fill="#999999"] { fill: #888888; }
+[data-theme="light"] .exploded-svg text[fill="#777777"] { fill: #666666; }
+[data-theme="light"] .exploded-svg text[fill="#666666"] { fill: #555555; }
+[data-theme="light"] .exploded-svg text[fill="#334155"] { fill: #64748b; }
+[data-theme="light"] .exploded-svg text[fill="#a0d0f0"] { fill: #0369a1; }
+[data-theme="light"] .exploded-svg rect[fill="#0f172a"] { fill: #e2e8f0; }
+[data-theme="light"] .exploded-svg rect[fill*="rgba(0,150,240,0.04"] { fill: rgba(0,150,240,0.06); }
+[data-theme="light"] .exploded-svg rect[fill*="rgba(0,150,240,0.05"] { fill: rgba(0,150,240,0.08); }
+[data-theme="light"] .exploded-svg rect[fill*="rgba(0,150,240,0.06"] { fill: rgba(0,150,240,0.1); }
+[data-theme="light"] .exploded-svg rect[stroke="#334155"] { stroke: #cbd5e1; }
+[data-theme="light"] .exploded-svg rect[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
+[data-theme="light"] .exploded-svg line[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
+[data-theme="light"] .exploded-svg path[stroke*="rgba(0,150,240,0.04"] { stroke: rgba(0,150,240,0.08); }
+[data-theme="light"] .exploded-svg rect[fill="url(#exAl)"] { fill: #f1f5f9; }
+[data-theme="light"] .exploded-svg rect[fill="url(#exPCB)"] { fill: #f8fafc; }
+[data-theme="light"] .exploded-svg rect[fill="url(#exBatt)"] { fill: #f1f5f9; }
+[data-theme="light"] .exploded-svg rect[fill*="rgba(0,150,240,0.02"] { fill: rgba(0,150,240,0.04); }
+
+/* Footer light mode */
+[data-theme="light"] footer .footer-text {
+  color: #555555;
+}
 </style>
 </head>
 <body>
@@ -723,7 +855,7 @@ NAV
       <a href="../app.html" style="color:var(--text-secondary);text-decoration:none;font-size:14px">App</a>
       <a href="../index.html#documents" style="color:var(--text-secondary);text-decoration:none;font-size:14px">文档</a>
     </div>
-    <button id="themeToggle" style="width:36px;height:36px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);cursor:pointer;font-size:16px;color:var(--text)">☀️</button>
+    <button id="themeToggle" style="width:36px;height:36px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);cursor:pointer;font-size:16px;color:var(--text)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
   </div>
 </nav>
 
@@ -877,31 +1009,31 @@ SECTION: SYSTEM OVERVIEW
     <!-- Metrics Banner -->
     <div class="metrics-banner reveal">
       <div class="metric-item">
-        <span class="metric-icon">🧠</span>
+        <span class="metric-icon">EEG</span>
         <div class="metric-value">8ch</div>
         <div class="metric-label">干电极 EEG</div>
         <div class="metric-desc">ADS1299 · 24-bit</div>
       </div>
       <div class="metric-item">
-        <span class="metric-icon">⚡</span>
+        <span class="metric-icon">PWR</span>
         <div class="metric-value">&lt;185ms</div>
         <div class="metric-label">端到端延迟</div>
         <div class="metric-desc">EEG → 力输出</div>
       </div>
       <div class="metric-item">
-        <span class="metric-icon">🔋</span>
+        <span class="metric-icon">BAT</span>
         <div class="metric-value">48Wh</div>
         <div class="metric-label">电池容量</div>
         <div class="metric-desc">6S Li-ion · &gt;4h</div>
       </div>
       <div class="metric-item">
-        <span class="metric-icon">🎯</span>
+        <span class="metric-icon">TRQ</span>
         <div class="metric-value">8/15Nm</div>
         <div class="metric-label">持续/峰值扭矩</div>
         <div class="metric-desc">髋关节助力</div>
       </div>
       <div class="metric-item">
-        <span class="metric-icon">📡</span>
+        <span class="metric-icon">BLE</span>
         <div class="metric-value">BLE 5.0</div>
         <div class="metric-label">无线通信</div>
         <div class="metric-desc">nRF5340 双核</div>
@@ -1274,7 +1406,7 @@ SECTION: CLOSED LOOP
           <rect x="40" y="148" width="80" height="24" rx="12" fill="rgba(0,150,240,0.1)" stroke="rgba(0,150,240,0.2)" stroke-width="0.5"/>
           <text x="80" y="164" text-anchor="middle" fill="#0096f0" font-size="11" font-weight="700">~40ms</text>
           <!-- Icon: brain -->
-          <text x="80" y="200" text-anchor="middle" font-size="24" fill="#0096f0" opacity="0.3">🧠</text>
+          <text x="80" y="200" text-anchor="middle" font-size="24" fill="#0096f0" opacity="0.3">EEG</text>
         </g>
 
         <!-- Step 2: 生成策略 (top) -->
@@ -1289,7 +1421,7 @@ SECTION: CLOSED LOOP
           <text x="80" y="126" text-anchor="middle" fill="#999999" font-size="11">IMU 上下文融合</text>
           <rect x="40" y="148" width="80" height="24" rx="12" fill="rgba(96,165,250,0.1)" stroke="rgba(96,165,250,0.2)" stroke-width="0.5"/>
           <text x="80" y="164" text-anchor="middle" fill="#60a5fa" font-size="11" font-weight="700">~55ms</text>
-          <text x="80" y="200" text-anchor="middle" font-size="24" fill="#60a5fa" opacity="0.3">🤖</text>
+          <text x="80" y="200" text-anchor="middle" font-size="24" fill="#60a5fa" opacity="0.3">AI</text>
         </g>
 
         <!-- Step 3: 执行动作 (right) -->
@@ -1304,7 +1436,7 @@ SECTION: CLOSED LOOP
           <text x="80" y="126" text-anchor="middle" fill="#999999" font-size="11">5-15 Nm 髋助力</text>
           <rect x="40" y="148" width="80" height="24" rx="12" fill="rgba(168,85,247,0.1)" stroke="rgba(168,85,247,0.2)" stroke-width="0.5"/>
           <text x="80" y="164" text-anchor="middle" fill="#a855f7" font-size="11" font-weight="700">~60ms</text>
-          <text x="80" y="200" text-anchor="middle" font-size="24" fill="#a855f7" opacity="0.3">⚡</text>
+          <text x="80" y="200" text-anchor="middle" font-size="24" fill="#a855f7" opacity="0.3">PWR</text>
         </g>
 
         <!-- Step 4: 持续进化 (bottom) -->
@@ -1319,7 +1451,7 @@ SECTION: CLOSED LOOP
           <text x="80" y="126" text-anchor="middle" fill="#999999" font-size="11">闭环反馈优化</text>
           <rect x="40" y="148" width="80" height="24" rx="12" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.2)" stroke-width="0.5"/>
           <text x="80" y="164" text-anchor="middle" fill="#22c55e" font-size="11" font-weight="700">~10ms</text>
-          <text x="80" y="200" text-anchor="middle" font-size="24" fill="#22c55e" opacity="0.3">🔄</text>
+          <text x="80" y="200" text-anchor="middle" font-size="24" fill="#22c55e" opacity="0.3">ADAPT</text>
         </g>
 
         <!-- Connecting arrows between steps -->
