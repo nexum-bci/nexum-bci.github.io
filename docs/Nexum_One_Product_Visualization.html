@@ -66,8 +66,8 @@ body {
 }
 
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 20px rgba(0,150,240,0.15); }
-  50% { box-shadow: 0 0 40px rgba(0,150,240,0.35); }
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
 }
 
 @keyframes slideInLeft {
@@ -90,24 +90,7 @@ body {
   50% { transform: translateY(-8px); }
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-@keyframes progressBar {
-  from { width: 0; }
-  to { width: var(--target-width, 100%); }
-}
-
-@keyframes dash {
-  to { stroke-dashoffset: 0; }
-}
-
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+/* shimmer, progressBar, dash, spin-slow removed — unused */
 
 /* ============================================================
    NAV
@@ -323,6 +306,15 @@ nav .nav-links a:hover { color: var(--text); }
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid var(--border);
+  position: relative;
+}
+.metrics-banner::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 20px;
+  pointer-events: none;
+  box-shadow: 0 0 30px rgba(0,150,240,0.25);
   animation: pulseGlow 3s ease-in-out infinite;
 }
 .metrics-banner .metric-item {
@@ -825,11 +817,11 @@ HERO
 
         <!-- NeuroSuit outline -->
         <ellipse cx="80" cy="175" rx="42" ry="85" fill="none" stroke="#0096f0" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.6"/>
-        <text x="80" y="180" text-anchor="middle" fill="#0096f0" font-size="9" font-weight="600" opacity="0.7">NEURO SUIT</text>
+        <text x="80" y="180" text-anchor="middle" fill="#0096f0" font-size="9" font-weight="600" opacity="0.7">神经服系统</text>
 
         <!-- Control Box at waist -->
         <rect x="55" y="300" width="50" height="32" rx="6" fill="rgba(21,29,46,0.9)" stroke="#0096f0" stroke-width="1.5"/>
-        <text x="80" y="320" text-anchor="middle" fill="#0096f0" font-size="7" font-weight="700">CTRL BOX</text>
+        <text x="80" y="320" text-anchor="middle" fill="#0096f0" font-size="7" font-weight="700">控制盒</text>
 
         <!-- Bowden cables -->
         <path d="M 80 332 L 80 370" stroke="#64748b" stroke-width="2.5" stroke-dasharray="5,3" opacity="0.5"/>
@@ -972,10 +964,10 @@ SECTION: SYSTEM OVERVIEW
           <line x1="60" y1="230" x2="90" y2="380" stroke="#1e293b" stroke-width="2"/>
           <!-- NeuroSuit -->
           <ellipse cx="60" cy="165" rx="38" ry="75" fill="none" stroke="#0096f0" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
-          <text x="60" y="170" text-anchor="middle" fill="#0096f0" font-size="7" opacity="0.6">NEURO SUIT</text>
+          <text x="60" y="170" text-anchor="middle" fill="#0096f0" font-size="7" opacity="0.6">神经服系统</text>
           <!-- Control Box at belt -->
           <rect x="40" y="290" width="40" height="25" rx="5" fill="rgba(21,29,46,0.9)" stroke="#0096f0" stroke-width="1.5"/>
-          <text x="60" y="307" text-anchor="middle" fill="#0096f0" font-size="6" font-weight="700">CTRL</text>
+          <text x="60" y="307" text-anchor="middle" fill="#0096f0" font-size="6" font-weight="700">控制</text>
           <!-- Bowden cables -->
           <path d="M 60 315 L 60 380" stroke="#64748b" stroke-width="2" stroke-dasharray="4,2" opacity="0.4"/>
         </g>
@@ -1036,7 +1028,7 @@ SECTION: SYSTEM OVERVIEW
           <circle cx="18" cy="116" r="4" fill="#0096f0" opacity="0.5"/>
           <text x="30" y="120" fill="#94a3b8" font-size="11">多通道织物 sEMG</text>
           <circle cx="18" cy="140" r="4" fill="#0096f0" opacity="0.5"/>
-          <text x="30" y="144" fill="#94a3b8" font-size="11">系统总重 &lt; 1.5 kg</text>
+          <text x="30" y="144" fill="#94a3b8" font-size="11">总重 ≈ 1.5 kg（含控制盒）</text>
           <circle cx="18" cy="164" r="4" fill="#0096f0" opacity="0.5"/>
           <text x="30" y="168" fill="#94a3b8" font-size="11">8 Nm 持续 / 15 Nm 峰值</text>
           <circle cx="18" cy="188" r="4" fill="#0096f0" opacity="0.5"/>
@@ -1361,7 +1353,7 @@ SECTION: CLOSED LOOP
 
     <!-- Latency Breakdown -->
     <div class="latency-bar-wrap">
-      <h4>端到端延迟分解 &lt; 185ms</h4>
+      <h4>端到端延迟分解 ≈ 185ms</h4>
       <div class="latency-steps">
         <div class="latency-step latency-eeg">
           <span class="step-label">EEG 采集</span>
@@ -1583,7 +1575,7 @@ SECTION: SPECS TABLE
           </tr>
           <tr>
             <td>系统总重</td>
-            <td>&lt; 2.5 kg (含头带 + NeuroSuit + 控制盒)</td>
+            <td>&lt; 1.5 kg（含头带 + NeuroSuit + 控制盒）</td>
             <td>康复穿戴容忍上限</td>
           </tr>
           <tr>
@@ -1662,7 +1654,7 @@ FOOTER
     <p class="footer-text">
       Bones &amp; Manifold · 逐念而行<br>
       Nexum One 神经重连 AI 系统 — 产品可视化渲染 · 工程视图<br>
-      Confidential — Internal Engineering Use Only
+      机密 — 仅供内部工程使用
     </p>
   </div>
 </footer>

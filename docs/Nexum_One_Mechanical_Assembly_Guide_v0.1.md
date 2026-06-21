@@ -1,8 +1,8 @@
-# Nexum One — Mechanical Assembly Guide v0.1
+# Nexum One — 机械组装指南
 
+**v0.1** · 2026-06-21
 **适用于首批 2 台原型机组装**
-**Version 0.1** · 2026-06-21
-**Author:** Mechanical Engineering
+**作者：** 机械工程组
 **Language:** 中文 (Chinese Assembly Team)
 **Classification:** Internal — Prototype Build
 

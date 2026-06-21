@@ -2,66 +2,213 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>Nexum One — AI Product Renders</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexum One — 产品渲染图集</title>
 <style>
-:root { --nx-blue: #0096f0; --nx-dark: #1a1f2e; }
+:root {
+  --bg: #0a0f1a; --card-bg: #151d2e;
+  --accent: #0096f0; --text: #e5e7eb; --text2: #94a3b8;
+  --border: #1e293b;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Inter', 'PingFang SC', -apple-system, sans-serif;
-  background: #0f1117; color: #e5e7eb; padding: 40px;
+  background: var(--bg); color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
-h1 {
-  font-size: 36px; font-weight: 900; text-align: center; margin-bottom: 40px;
-  background: linear-gradient(135deg, #0096f0, #60a5fa);
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(10,15,26,0.85); backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(30,41,59,0.5);
+  padding: 0 24px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+}
+nav .nav-inner {
+  width: 100%; max-width: 1200px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+nav .logo { font-size: 14px; font-weight: 700; letter-spacing: 1px; }
+nav .logo span { color: var(--accent); }
+nav a { color: var(--text2); text-decoration: none; font-size: 12px; margin-left: 24px; transition: color 0.2s; }
+nav a:hover { color: var(--text); }
+
+.hero {
+  min-height: 50vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 100px 24px 60px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute;
+  top: -30%; left: 50%; width: 700px; height: 700px;
+  transform: translate(-50%, -20%);
+  background: radial-gradient(ellipse at center, rgba(0,150,240,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(36px, 6vw, 72px); font-weight: 900;
+  background: linear-gradient(135deg, #e5e7eb, #0096f0, #60a5fa);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background-clip: text; line-height: 1.1; margin-bottom: 20px;
 }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 32px; max-width: 1400px; margin: 0 auto; }
-.card { background: #1a1f2e; border-radius: 16px; overflow: hidden; border: 1px solid #1e293b; }
+.hero p { font-size: 18px; color: var(--text2); max-width: 600px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.section { padding: 40px 0 80px; }
+.section h2 {
+  font-size: 13px; font-weight: 600; color: var(--accent);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 32px;
+  padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.card {
+  background: var(--card-bg); border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--border); transition: border-color 0.3s, transform 0.3s;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-4px); }
 .card img { width: 100%; height: auto; display: block; }
-.card .label { padding: 16px 20px; font-size: 15px; font-weight: 600; color: var(--nx-blue); }
-.card .meta { padding: 0 20px 16px; font-size: 12px; color: #64748b; }
-.disclaimer { text-align: center; margin-top: 48px; color: #475569; font-size: 12px; }
+.card-body { padding: 20px 24px 24px; }
+.card-body h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.card-body p { font-size: 13px; color: var(--text2); line-height: 1.5; }
+.card-body .tag {
+  display: inline-block; background: rgba(0,150,240,0.1);
+  color: var(--accent); font-size: 11px; font-weight: 600;
+  padding: 4px 10px; border-radius: 6px; margin-top: 10px;
+}
+
+.hero-card {
+  grid-column: 1 / -1;
+}
+.hero-card img { max-height: 500px; object-fit: cover; }
+
+footer {
+  text-align: center; padding: 60px 24px;
+  color: var(--text2); font-size: 12px; border-top: 1px solid var(--border);
+}
+@media (max-width: 768px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
-<h1>Nexum One — AI产品渲染图</h1>
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Nexum<span>One</span></div>
+    <div>
+      <a href="#">产品渲染</a>
+      <a href="/Nexum_One_Product_Visualization.html">工程可视化</a>
+      <a href="/逐念而行_Nexum_BP.html">商业计划书</a>
+    </div>
+  </div>
+</nav>
 
-<div class="grid">
-  <div class="card">
-    <img src="render_1_eeg.png" alt="EEG-Sense Headband">
-    <div class="label">1. EEG-Sense 头带</div>
-    <div class="meta">768×768 · Pollinations.ai · Free</div>
-  </div>
-  <div class="card">
-    <img src="render_2_controlbox.png" alt="Control Box">
-    <div class="label">2. 控制盒</div>
-    <div class="meta">768×768 · Pollinations.ai · Free</div>
-  </div>
-  <div class="card">
-    <img src="render_neurosuit.png" alt="NeuroSuit">
-    <div class="label">3. NeuroSuit 穿戴界面</div>
-    <div class="meta">670×879 · Pollinations.ai · Free</div>
-  </div>
-  <div class="card">
-    <img src="render_3_system.png" alt="Full System">
-    <div class="label">4. Nexum One 完整系统</div>
-    <div class="meta">768×768 · Pollinations.ai · Free</div>
-  </div>
-  <div class="card">
-    <img src="render_4_walking.png" alt="Walking Scene">
-    <div class="label">5. 使用场景 — 户外行走</div>
-    <div class="meta">886×665 · Pollinations.ai · Free</div>
-  </div>
-  <div class="card">
-    <img src="render_clinical_v2.png" alt="Clinical Setting">
-    <div class="label">6. 临床康复场景</div>
-    <div class="meta">886×665 · Pollinations.ai · Free</div>
-  </div>
+<section class="hero">
+  <h1>产品渲染图集</h1>
+  <p>Nexum One 神经重连AI系统 — AI生成产品概念图，呈现从EEG头带到完整穿戴系统的设计语言</p>
+</section>
+
+<div class="container">
+
+  <!-- Hero: full system -->
+  <section class="section">
+    <h2>完整系统</h2>
+    <div class="grid-2">
+      <div class="card hero-card">
+        <img src="render_4_system.png" alt="Nexum One完整系统" loading="lazy">
+        <div class="card-body">
+          <h3>Nexum One 完整系统展示</h3>
+          <p>EEG头带 + NeuroSuit穿戴界面 + 控制盒 — museum-quality产品展示</p>
+          <span class="tag">英雄图</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core components -->
+  <section class="section">
+    <h2>核心模块</h2>
+    <div class="grid-3">
+      <div class="card">
+        <img src="render_1_eeg.png" alt="EEG-Sense头带" loading="lazy">
+        <div class="card-body">
+          <h3>EEG-Sense 头带</h3>
+          <p>8通道干电极 · 80g · BLE 5.0 · ADS1299芯片 · 外观像运动头带 · 检测运动准备电位</p>
+          <span class="tag">神经接口</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="render_3_neurosuit.png" alt="NeuroSuit" loading="lazy">
+        <div class="card-body">
+          <h3>NeuroSuit 穿戴界面</h3>
+          <p>碳纤维髋部锚定 · 鲍登线缆驱动 · 织物sEMG电极 · <1.5kg · 8Nm/15Nm助力</p>
+          <span class="tag">执行系统</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="render_2_controlbox.png" alt="控制盒" loading="lazy">
+        <div class="card-body">
+          <h3>控制盒</h3>
+          <p>120×80×30mm铝合金 · STM32H743+nRF5340 · BMI270 IMU · DRV8316驱动 · 48Wh电池</p>
+          <span class="tag">计算核心</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Usage scenes -->
+  <section class="section">
+    <h2>使用场景</h2>
+    <div class="grid-2">
+      <div class="card">
+        <img src="render_5_walking.png" alt="临床康复场景" loading="lazy">
+        <div class="card-body">
+          <h3>临床康复场景</h3>
+          <p>患者在医院康复科使用Nexum One进行步行训练，治疗师通过App实时监控康复数据</p>
+          <span class="tag">临床场景</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="render_clinical_v2.png" alt="户外使用场景" loading="lazy">
+        <div class="card-body">
+          <h3>日常生活场景</h3>
+          <p>Nexum One融入日常穿着 — 外观像压缩运动裤，无可见刚性框架，解决穿戴耻感</p>
+          <span class="tag">生活场景</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical details -->
+  <section class="section">
+    <h2>技术细节与流程</h2>
+    <div class="grid-2">
+      <div class="card">
+        <img src="ppt_render_4_flow.png" alt="闭环数据流" loading="lazy">
+        <div class="card-body">
+          <h3>闭环数据流</h3>
+          <p>大脑意图→EEG采集→BLE传输→手机AI推理→控制盒电机驱动→力反馈→大脑</p>
+          <span class="tag">技术架构</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="ppt_render_5_market.png" alt="市场三阶段" loading="lazy">
+        <div class="card-body">
+          <h3>三阶段市场扩展</h3>
+          <p>医疗康复($6.6B) → 老年行动力($15B) → 全人群增强($33.7B+)</p>
+          <span class="tag">市场规模</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </div>
 
-<p class="disclaimer">
-AI-generated product concept renders · Powered by Pollinations.ai (free tier) · For internal visualization only · June 2026
-</p>
+<footer>
+  <p>AI生成产品概念图 · Powered by Pollinations.ai · 仅供内部可视化参考 · Nexum One © 2026 逐念而行</p>
+  <p style="margin-top:8px;">设计语言：哑光黑 #1a1a1a · 深蓝 #1e3a5f · Nexum蓝 #0096f0 · 银色 #c0c0c0</p>
+</footer>
 </body>
 </html>
