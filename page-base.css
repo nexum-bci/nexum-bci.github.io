@@ -424,6 +424,52 @@ strong{font-weight:600;color:var(--text)}
 .text-caption{font-size:11px;line-height:1.35;color:var(--text-tertiary)}
 
 
+
+/* ============================================================
+   UNIFIED TABLE SYSTEM — Apple aesthetic
+   Clean separators, minimal borders, generous padding.
+   Headers: subtle bg, uppercase labels, no heavy borders.
+   Cells: bottom-border only, hover highlight.
+   ============================================================ */
+
+/* Table container — rounded, subtle border */
+.table-wrap,.table-wrapper{
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  overflow:hidden;background:var(--bg-card)
+}
+
+/* Table base */
+table{width:100%;border-collapse:collapse;font-size:14px}
+
+/* Header — subtle background, uppercase labels */
+thead th,th{
+  background:rgba(0,0,0,0.015);color:var(--text);
+  font-size:11px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.6px;padding:14px 16px;text-align:left;
+  border-bottom:1px solid var(--border)
+}
+[data-theme="dark"] thead th,[data-theme="dark"] th{background:rgba(255,255,255,0.02)}
+
+/* Cells — bottom border only, no side or top borders */
+td{padding:12px 16px;border-bottom:1px solid var(--border);color:var(--text-secondary);font-size:13px;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+
+/* Row hover — subtle accent tint */
+tbody tr{transition:background .15s ease}
+tbody tr:hover td{background:var(--accent-subtle)}
+
+/* Striped rows — very subtle */
+tbody tr:nth-child(even) td{background:rgba(0,0,0,0.008)}
+[data-theme="dark"] tbody tr:nth-child(even) td{background:rgba(255,255,255,0.01)}
+tbody tr:hover td{background:var(--accent-subtle)!important}
+
+/* Card headers — consistent with table headers */
+.card-header,.content-card-header{
+  padding:16px 20px;border-bottom:1px solid var(--border);
+  font-size:13px;font-weight:600;color:var(--text);
+  background:rgba(0,0,0,0.01)
+}
+
 /* ============================================================
    UNIFIED BORDER SYSTEM
    All borders use var(--border). No hardcoded colors.
