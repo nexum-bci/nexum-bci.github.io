@@ -42,7 +42,7 @@ def tb(slide, l, t, w, h):
     tf = box.text_frame; tf.word_wrap = True
     return tf
 
-def p_add(tf, text, size=Pt(13), color=G1, bold=False, align=PP_ALIGN.LEFT, name='Inter', space_after=Pt(6), space_before=Pt(0), first=False):
+def p_add(tf, text, size=Pt(13), color=G1, bold=False, align=PP_ALIGN.LEFT, name='Arial', space_after=Pt(6), space_before=Pt(0), first=False):
     """Add paragraph to textframe. If first=True, use first paragraph."""
     if first:
         p = tf.paragraphs[0]
