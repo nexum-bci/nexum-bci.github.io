@@ -50,18 +50,8 @@
     margin-bottom: 48px;
     font-weight: 400;
   }
-  .diagram-section {
-    margin-bottom: 56px;
-    background: transparent;
-    border: none;
-    padding: 0;
-    box-shadow: none;
-  }
-  [data-theme="dark"] .diagram-section {
-    background: var(--bg-card);
-    box-shadow: none;
-    border-color: rgba(255,255,255,0.06);
-  }
+  .diagram-section{margin-bottom:56px;background:transparent;border:none;padding:0;box-shadow:none}
+  
   .diagram-header {
     display: flex;
     align-items: baseline;
@@ -135,7 +125,7 @@
   }
   @media (max-width: 768px) {
     body { padding: 68px 12px 16px; }
-    .diagram-section { padding: 16px; }
+    .diagram-section{margin-bottom:56px;background:transparent;border:none;padding:0;box-shadow:none}
     h1 { font-size: 24px; }
   }
   @media (max-width: 640px) {
@@ -147,76 +137,14 @@
      DUAL-MODE OVERRIDES — Diagram SVGs
      ============================================================ */
   /* Root SVG background rects (first rect after defs) */
-    :not([data-theme="dark"]) .diagram-section svg > rect[fill="#0d1225"] { fill: #ffffff; }
-  [data-theme="dark"] .diagram-section svg > rect[fill="#000000"] { fill: #000000; }
-  [data-theme="dark"] .diagram-section svg > rect[fill="#0d1225"] { fill: #0d1225; }
-
-  /* Sub-rect backgrounds */
-  :not([data-theme="dark"]) .diagram-section svg rect[fill*="url(#grad-"] { fill: #ffffff; }
-  :not([data-theme="dark"]) .diagram-section svg rect[fill*="url(#shadow"] + * { }
-  [data-theme="dark"] .diagram-section svg rect[fill*="url(#grad-"] { fill: #000000; }
-
+    /* Sub-rect backgrounds */
   /* SVG text colors */
-  :not([data-theme="dark"]) .diagram-section svg text { fill: #555555; }
-  :not([data-theme="dark"]) .diagram-section svg text[fill="#777777"] { fill: #666666; }
-  :not([data-theme="dark"]) .diagram-section svg text[fill="#999999"] { fill: #888888; }
-  :not([data-theme="dark"]) .diagram-section svg text[fill="#EEEEEE"] { fill: #333333; }
-  :not([data-theme="dark"]) .diagram-section svg text[fill="#FFFFFF"] { fill: #1d1d1f; }
-  :not([data-theme="dark"]) .diagram-section svg text[fill="#CCCCCC"] { fill: #444444; }
-  :not([data-theme="dark"]) .diagram-section svg text[fill="#fbbf24"] { fill: #d97706; }
-  :not([data-theme="dark"]) .diagram-section svg text[fill="#f472b6"] { fill: #db2777; }
-  :not([data-theme="dark"]) .diagram-section svg text[fill="#a78bfa"] { fill: #7c3aed; }
-  :not([data-theme="dark"]) .diagram-section svg text[fill="#34d399"] { fill: #059669; }
-  :not([data-theme="dark"]) .diagram-section svg text[fill="#7dd3fc"] { fill: #0284c7; }
-  :not([data-theme="dark"]) .diagram-section svg text[fill="#60a5fa"] { fill: #2563eb; }
-
-  [data-theme="dark"] .diagram-section svg text { fill: #a1a1a6; }
-  [data-theme="dark"] .diagram-section svg text[fill="#777777"] { fill: #a1a1a6; }
-  [data-theme="dark"] .diagram-section svg text[fill="#999999"] { fill: #6e6e73; }
-  [data-theme="dark"] .diagram-section svg text[fill="#EEEEEE"] { fill: #e0e0e0; }
-  [data-theme="dark"] .diagram-section svg text[fill="#FFFFFF"] { fill: #f5f5f7; }
-  [data-theme="dark"] .diagram-section svg text[fill="#CCCCCC"] { fill: #a1a1a6; }
-  [data-theme="dark"] .diagram-section svg text[fill="#fbbf24"] { fill: #fbbf24; }
-  [data-theme="dark"] .diagram-section svg text[fill="#f472b6"] { fill: #f472b6; }
-  [data-theme="dark"] .diagram-section svg text[fill="#a78bfa"] { fill: #a78bfa; }
-  [data-theme="dark"] .diagram-section svg text[fill="#34d399"] { fill: #34d399; }
-  [data-theme="dark"] .diagram-section svg text[fill="#7dd3fc"] { fill: #7dd3fc; }
-  [data-theme="dark"] .diagram-section svg text[fill="#60a5fa"] { fill: #60a5fa; }
-
   /* Section blocks (summary tables) */
-  :not([data-theme="dark"]) .diagram-section svg rect[fill="#0f172a"] { fill: #f8fafc; }
-  [data-theme="dark"] .diagram-section svg rect[fill="#0f172a"] { fill: #0f172a; }
-
   /* Badge/tag backgrounds */
-  :not([data-theme="dark"]) .diagram-section svg rect[fill*="#000000"][rx="4"] { fill: #ffffff; }
-  :not([data-theme="dark"]) .diagram-section svg rect[fill*="#000000"][rx="3"] { fill: #ffffff; }
-  [data-theme="dark"] .diagram-section svg rect[fill*="#000000"][rx="4"] { fill: #000000; }
-  [data-theme="dark"] .diagram-section svg rect[fill*="#000000"][rx="3"] { fill: #000000; }
-
   /* Battery icon */
-  :not([data-theme="dark"]) .diagram-section svg rect[fill="none"][stroke="#fbbf24"] { stroke: #d97706; }
-  [data-theme="dark"] .diagram-section svg rect[fill="none"][stroke="#fbbf24"] { stroke: #fbbf24; }
-
   /* Border strokes */
-  :not([data-theme="dark"]) .diagram-section svg rect[stroke="#334155"] { stroke: #cbd5e1; }
-  :not([data-theme="dark"]) .diagram-section svg rect[stroke="#666666"] { stroke: #cbd5e1; }
-  :not([data-theme="dark"]) .diagram-section svg rect[stroke="rgba(255,255,255,0.06)"] { stroke: rgba(0,0,0,0.08); }
-  [data-theme="dark"] .diagram-section svg rect[stroke="#334155"] { stroke: #334155; }
-  [data-theme="dark"] .diagram-section svg rect[stroke="#666666"] { stroke: #666666; }
-  [data-theme="dark"] .diagram-section svg rect[stroke="rgba(255,255,255,0.06)"] { stroke: rgba(255,255,255,0.06); }
-
   /* Human figure */
-  :not([data-theme="dark"]) .diagram-section svg circle[fill="none"][stroke="#666666"] { stroke: #999999; }
-  :not([data-theme="dark"]) .diagram-section svg path[stroke="#666666"] { stroke: #999999; }
-  :not([data-theme="dark"]) .diagram-section svg text[fill="#666666"] { fill: #888888; }
-  [data-theme="dark"] .diagram-section svg circle[fill="none"][stroke="#666666"] { stroke: #666666; }
-  [data-theme="dark"] .diagram-section svg path[stroke="#666666"] { stroke: #666666; }
-  [data-theme="dark"] .diagram-section svg text[fill="#666666"] { fill: #a1a1a6; }
-
   /* Grid patterns */
-  :not([data-theme="dark"]) .diagram-section svg path[stroke="#ffffff"] { stroke: rgba(0,0,0,0.03); }
-  [data-theme="dark"] .diagram-section svg path[stroke="#ffffff"] { stroke: rgba(255,255,255,0.03); }
-
   /* Legend */
   :not([data-theme="dark"]) .legend { background: rgba(0,0,0,0.02); }
 a{text-decoration:none!important}
@@ -258,16 +186,33 @@ footer p{font-size:13px;color:var(--text-tertiary);line-height:2.2}
 @media(max-width:480px){.footer-inner{grid-template-columns:1fr}}
 
 
-/* Light mode SVG overrides */
-:not([data-theme="dark"]) .diagram-section svg rect[fill="#000000"][rx] { fill: #ffffff; }
-:not([data-theme="dark"]) .diagram-section svg text[fill="#FFFFFF"] { fill: #1d1d1f; }
-:not([data-theme="dark"]) .diagram-section svg text[fill="#EEEEEE"] { fill: #1d1d1f; }
-:not([data-theme="dark"]) .diagram-section svg text[fill="#CCCCCC"] { fill: #555555; }
-:not([data-theme="dark"]) .diagram-section svg text[fill="#999999"] { fill: #86868b; }
-:not([data-theme="dark"]) .diagram-section svg text[fill="#777777"] { fill: #6e6e73; }
-:not([data-theme="dark"]) .diagram-section svg line[stroke="#666666"] { stroke: #c0c0c0; }
-:not([data-theme="dark"]) .diagram-section svg line[stroke="#334155"] { stroke: #cbd5e1; }
-:not([data-theme="dark"]) .diagram-section svg [stroke="#334155"] { stroke: #cbd5e1; }
+
+
+
+/* === DUAL-MODE SVG FIXES === */
+/* Light mode: make all SVGs light-friendly */
+.diagram-section svg > rect[fill="#000000"] { fill: #f5f5f7 !important; }
+.diagram-section svg rect[fill="#000000"] { fill: #ffffff !important; }
+.diagram-section svg text[fill="#FFFFFF"], 
+.diagram-section svg text[fill="#ffffff"] { fill: #1d1d1f !important; }
+.diagram-section svg text[fill="#EEEEEE"] { fill: #1d1d1f !important; }
+.diagram-section svg text[fill="#CCCCCC"] { fill: #555555 !important; }
+.diagram-section svg text[fill="#999999"] { fill: #86868b !important; }
+.diagram-section svg text[fill="#777777"] { fill: #6e6e73 !important; }
+.diagram-section svg [stroke="#334155"] { stroke: #cbd5e1 !important; }
+.diagram-section svg [stroke="#000000"] { stroke: #d0d0d0 !important; }
+
+/* Dark mode: keep original dark colors */
+[data-theme="dark"] .diagram-section svg > rect[fill="#000000"] { fill: #000000 !important; }
+[data-theme="dark"] .diagram-section svg rect[fill="#000000"] { fill: #000000 !important; }
+[data-theme="dark"] .diagram-section svg text[fill="#FFFFFF"],
+[data-theme="dark"] .diagram-section svg text[fill="#ffffff"] { fill: #f5f5f7 !important; }
+[data-theme="dark"] .diagram-section svg text[fill="#EEEEEE"] { fill: #EEEEEE !important; }
+[data-theme="dark"] .diagram-section svg text[fill="#CCCCCC"] { fill: #a1a1a6 !important; }
+[data-theme="dark"] .diagram-section svg text[fill="#999999"] { fill: #a1a1a6 !important; }
+[data-theme="dark"] .diagram-section svg text[fill="#777777"] { fill: #6e6e73 !important; }
+[data-theme="dark"] .diagram-section svg [stroke="#334155"] { stroke: #334155 !important; }
+[data-theme="dark"] .diagram-section svg [stroke="#000000"] { stroke: #000000 !important; }
 
 </style>
 </head>
