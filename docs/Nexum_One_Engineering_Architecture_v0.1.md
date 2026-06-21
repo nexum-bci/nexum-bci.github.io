@@ -1,547 +1,546 @@
-# Nexum One — Engineering Architecture Document
+# Nexum One — 工程架构文档
 
-**Draft v0.1** · 2026-06-21  
-**Author:** Architecture Working Group  
-**Classification:** Internal — Engineering
-
----
-
-## Table of Contents
-
-1. System Architecture and Data Flow
-2. Technical Specifications to Lock Down First
-3. Component Selection Guidance
-4. Critical Engineering Risks (Ranked)
-5. First Prototype Build Plan
-6. Appendix: Communication Protocol Summary
+**草案 v0.1** · 2026-06-21  
+**作者：** 架构工作组  
+**密级：** 内部 — 工程
 
 ---
 
-## 1. System Architecture and Data Flow
+## 目录
 
-### 1.1 High-Level Overview
+1. 系统架构与数据流
+2. 优先锁定的技术规格
+3. 组件选型指南
+4. 关键工程风险（按严重程度排序）
+5. 首批原型构建计划
+6. 附录：通信协议汇总
 
-Nexum One is a closed-loop neural reconnection system with four physical nodes and one logical control loop:
+---
+
+## 1. 系统架构与数据流
+
+### 1.1 高层次概览
+
+Nexum One 是一个闭环神经再连接系统，包含四个物理节点和一个逻辑控制回路：
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                        NEXUM ONE SYSTEM                             │
+│                        NEXUM ONE 系统                                │
 │                                                                     │
 │  ┌──────────────┐    BLE     ┌──────────────┐    BLE     ┌───────┐ │
-│  │  EEG-Sense   │◄──────────►│  Nexum App   │◄──────────►│Control│ │
-│  │  Headband    │   (EEG)    │  (Phone)     │  (Cmds)    │ Box   │ │
-│  │  (80g, 8ch)  │            │  AI Inference │            │       │ │
-│  └──────────────┘            │  + UI + Log   │            │       │ │
+│  │  EEG-Sense   │◄──────────►│  Nexum App   │◄──────────►│ 控制  │ │
+│  │  头带        │   (EEG)    │  (手机)      │  (指令)    │ 盒    │ │
+│  │  (80g, 8ch)  │            │ AI 推理      │            │       │ │
+│  └──────────────┘            │ + UI + 日志  │            │       │ │
 │                              └──────┬───────┘            │       │ │
 │                                     │                    │       │ │
-│                                     │ Wired (UART)       │       │ │
+│                                     │ 有线 (UART)        │       │ │
 │                                     ▼                    │       │ │
 │                              ┌──────────────┐            │       │ │
-│                              │   Control     │◄───────────┘       │ │
-│                              │   Box         │                    │ │
-│                              │  (Waist)      │                    │ │
-│                              │  MCU + IMU    │                    │ │
-│                              │  + Motor Drv  │                    │ │
-│                              │  + Battery    │                    │ │
+│                              │   控制盒     │◄───────────┘       │ │
+│                              │  (腰部)      │                    │ │
+│                              │  MCU + IMU   │                    │ │
+│                              │  + 电机驱动  │                    │ │
+│                              │  + 电池      │                    │ │
 │                              └───┬───┬───────┘                    │ │
 │                                  │   │                            │ │
-│                          Motor   │   │ IMU                        │ │
+│                          电机    │   │ IMU                        │ │
 │                          (PWM)   │   │ (I2C)                      │ │
 │                                  ▼   ▼                            │ │
 │                              ┌──────────────┐                     │ │
 │                              │  NeuroSuit   │                     │ │
-│                              │  Hip Module  │                     │ │
-│                              │  Bowden Cable│                     │ │
-│                              │  + Force Sen │                     │ │
+│                              │  髋部模块    │                     │ │
+│                              │  鲍登线      │                     │ │
+│                              │  + 力传感器  │                     │ │
 │                              └──────────────┘                     │ │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-### 1.2 Detailed Data Flow (EEG to Force Feedback)
+### 1.2 详细数据流（EEG 到力反馈）
 
-The system operates in five stages, forming a closed loop:
+系统分五个阶段运行，形成一个闭环：
 
-#### Stage 1: Neural Signal Acquisition (EEG-Sense Headband)
+#### 阶段 1：神经信号采集（EEG-Sense 头带）
 
-| Step | Action | Component | Output |
-|------|--------|-----------|--------|
-| 1.1 | Dry electrodes (8 channels, Cz/C3/C4/FCz/FC3/FC4/Pz/P3/P4 or optimized montage) pick up cortical potentials | Ag/AgCl or Ag/AgCl-coated dry comb electrodes | Analog signal: 1–100 µV, DC–100 Hz |
-| 1.2 | Instrumentation amplifier + anti-aliasing filter (0.1–100 Hz analog bandpass) | TI ADS1299 (internal PGA + filter) | Analog, gain=12 or 24 |
-| 1.3 | 24-bit delta-sigma ADC, 250–500 SPS per channel | ADS1299 internal ADC | Digital: 8 × 24-bit samples @ 250–500 Hz |
-| 1.4 | Common Average Referencing (CAR), bandpass (0.5–40 Hz digital), notch (50 Hz) | nRF52832 MCU | Preprocessed 8-channel data buffer |
-| 1.5 | Packetize + transmit over BLE (Notify, 20 ms interval, 5 packets per interval) | nRF52832 BLE radio | BLE GATT characteristic updates |
+| 步骤 | 动作 | 组件 | 输出 |
+|------|------|------|------|
+| 1.1 | 干电极（8通道，Cz/C3/C4/FCz/FC3/FC4/Pz/P3/P4 或优化排列）采集皮层电位 | Ag/AgCl 或 Ag/AgCl 涂层干梳电极 | 模拟信号：1–100 µV，DC–100 Hz |
+| 1.2 | 仪表放大器 + 抗混叠滤波器（0.1–100 Hz 模拟带通） | TI ADS1299（内置 PGA + 滤波器） | 模拟信号，增益=12 或 24 |
+| 1.3 | 24位 delta-sigma ADC，每通道 250–500 SPS | ADS1299 内置 ADC | 数字信号：8 × 24位采样 @ 250–500 Hz |
+| 1.4 | 共平均参考（CAR），带通（0.5–40 Hz 数字），陷波（50 Hz） | nRF52832 MCU | 预处理后的 8 通道数据缓冲区 |
+| 1.5 | 打包并通过 BLE 传输（Notify，20 ms 间隔，每间隔 5 包） | nRF52832 BLE 射频 | BLE GATT 特征值更新 |
 
-**Raw BLE throughput:** 8 ch × 250 Hz × 3 bytes = 48,000 bps (48 kbps)  
-**Compressed (optional):** 16-bit resolution → 32 kbps, well within BLE 5.0 capacity (2 Mbps PHY).
+**原始 BLE 吞吐量：** 8 ch × 250 Hz × 3 bytes = 48,000 bps（48 kbps）  
+**压缩后（可选）：** 16 位分辨率 → 32 kbps，远低于 BLE 5.0 容量（2 Mbps PHY）。
 
-#### Stage 2: Intention Decoding (Nexum App on Phone)
+#### 阶段 2：意图解码（手机上的 Nexum App）
 
-| Step | Action | Component | Output |
-|------|--------|-----------|--------|
-| 2.1 | Receive BLE packets from headband | Phone BLE stack | 200 ms sliding buffer (50–100 samples per channel) |
-| 2.2 | Feature extraction: power spectral density (mu/beta bands), spatial patterns, CSP | CoreML / ONNX runtime | Feature vector (32–64 dim), updated every 40 ms |
-| 2.3 | Inference: CNN or Transformer model trained on MRCP (movement-related cortical potentials) | Neural network accelerator (ANE/GPU) | Intention probability [0–1], intended action class, onset timestamp |
-| 2.4 | Intention fusion with IMU context (gait phase, hip angle) received from control box | App fusion layer | Refined assistance command + timing |
+| 步骤 | 动作 | 组件 | 输出 |
+|------|------|------|------|
+| 2.1 | 从头带接收 BLE 数据包 | 手机 BLE 协议栈 | 200 ms 滑动缓冲（每通道 50–100 个采样） |
+| 2.2 | 特征提取：功率谱密度（mu/beta 频带），空间模式，CSP | CoreML / ONNX runtime | 特征向量（32–64 维），每 40 ms 更新一次 |
+| 2.3 | 推理：基于 MRCP（运动相关皮层电位）训练的 CNN 或 Transformer 模型 | 神经网络加速器（ANE/GPU） | 意图概率 [0–1]，预期动作类别，起始时间戳 |
+| 2.4 | 意图与控制盒传来的 IMU 上下文（步态相位，髋关节角度）融合 | App 融合层 | 精炼的辅助指令 + 时序 |
 
-**Target inference latency:** < 50 ms per window.  
-**Detection window:** Readiness potential onset detected ~500 ms before intended movement.
+**目标推理延迟：** 每窗口 < 50 ms。  
+**检测窗口：** 准备电位在预期运动前约 500 ms 即可检测到。
 
-#### Stage 3: Command Relay (Phone → Control Box)
+#### 阶段 3：指令中继（手机 → 控制盒）
 
-| Step | Action | Component | Output |
-|------|--------|-----------|--------|
-| 3.1 | Encode assistance command (desired torque profile, timing, duration) | App command encoder | Compact binary command (8–16 bytes) |
-| 3.2 | Transmit over BLE to control box | Phone BLE stack | BLE GATT write |
-| 3.3 | Receive, parse, prioritize command | nRF5340 / MCU on control box | Motor control setpoint |
+| 步骤 | 动作 | 组件 | 输出 |
+|------|------|------|------|
+| 3.1 | 编码辅助指令（期望扭矩曲线、时序、持续时间） | App 指令编码器 | 紧凑二进制指令（8–16 字节） |
+| 3.2 | 通过 BLE 传输到控制盒 | 手机 BLE 协议栈 | BLE GATT write |
+| 3.3 | 接收、解析、优先级排序指令 | nRF5340 / 控制盒 MCU | 电机控制设定点 |
 
-#### Stage 4: Motor Actuation (Control Box + NeuroSuit)
+#### 阶段 4：电机驱动（控制盒 + NeuroSuit）
 
-| Step | Action | Component | Output |
-|------|--------|-----------|--------|
-| 4.1 | Compute motor current from torque setpoint (PI loop with feedforward) | STM32 MCU (M4/M7) | PWM duty cycle |
-| 4.2 | Drive BLDC motor (Field-Oriented Control, PWM 20–50 kHz) | TI DRV8316 / TMC6300 + 3-phase bridge | Phase currents to motor |
-| 4.3 | Motor rotates → spool winds → Bowden cable shortens | Maxon EC-i 40 or equivalent BLDC | Linear cable displacement |
-| 4.4 | Cable tension transfers to hip module → hip flexion/extension assistance | Bowden sheath + sliding mechanism | Assistive torque at hip joint (~5–15 Nm) |
-| 4.5 | Cable tension sensor (inline load cell or hall-effect) reads actual force | Strain gauge / MLX91206 | Analog/digital tension feedback |
+| 步骤 | 动作 | 组件 | 输出 |
+|------|------|------|------|
+| 4.1 | 从扭矩设定点计算电机电流（带前馈的 PI 回路） | STM32 MCU（M4/M7） | PWM 占空比 |
+| 4.2 | 驱动 BLDC 电机（磁场定向控制，PWM 20–50 kHz） | TI DRV8316 / TMC6300 + 三相桥 | 电机相电流 |
+| 4.3 | 电机旋转 → 线轴缠绕 → 鲍登线缩短 | Maxon EC-i 40 或同级 BLDC | 直线线位移 |
+| 4.4 | 缆线张力传递到髋部模块 → 髋关节屈曲/伸展辅助 | 鲍登鞘 + 滑动机构 | 髋关节辅助扭矩（~5–15 Nm） |
+| 4.5 | 缆线张力传感器（内联力传感器或霍尔效应）读取实际力 | 应变片 / MLX91206 | 模拟/数字张力反馈 |
 
-#### Stage 5: State Feedback + Loop Closure
+#### 阶段 5：状态反馈 + 闭环
 
-| Step | Action | Component | Output |
-|------|--------|-----------|--------|
-| 5.1 | IMU reads hip angle, angular velocity, trunk orientation | BMI270 (6-axis IMU) on control box | Quaternion + Euler angles @ 100 Hz |
-| 5.2 | Motor encoder reads actual position/velocity | Magnetic encoder (AS5048 or TLE5012) | Rotor angle @ 1 kHz |
-| 5.3 | Force sensor reads cable tension | Strain gauge amplifier (HX711 or INA) | Tension value @ 200 Hz |
-| 5.4 | MCU fuses sensor data → computes state estimate | Sensor fusion (Mahony/Madgwick + complimentary filter) | Hip angle, gait phase, cable force |
-| 5.5 | State sent to phone via BLE for logging + AI model adaptation | BLE GATT notify | State packet @ 50 Hz |
-| 5.6 | Phone adapts personalization model based on user response history | App background ML pipeline | Updated model weights |
+| 步骤 | 动作 | 组件 | 输出 |
+|------|------|------|------|
+| 5.1 | IMU 读取髋关节角度、角速度、躯干方向 | 控制盒上的 BMI270（6 轴 IMU） | 四元数 + 欧拉角 @ 100 Hz |
+| 5.2 | 电机编码器读取实际位置/速度 | 磁编码器（AS5048 或 TLE5012） | 转子角度 @ 1 kHz |
+| 5.3 | 力传感器读取缆线张力 | 应变片放大器（HX711 或 INA） | 张力值 @ 200 Hz |
+| 5.4 | MCU 融合传感器数据 → 计算状态估计 | 传感器融合（Mahony/Madgwick + 互补滤波） | 髋关节角度、步态相位、缆线力 |
+| 5.5 | 通过 BLE 将状态发送到手机，用于日志记录和 AI 模型自适应 | BLE GATT notify | 状态数据包 @ 50 Hz |
+| 5.6 | 手机根据用户响应历史调整个性化模型 | App 后台 ML 管道 | 更新后的模型权重 |
 
-**Total closed-loop latency budget (target):**
+**总闭环延迟预算（目标）：**
 
-| Stage | Component | Latency Budget |
-|-------|-----------|----------------|
-| Stage 1 | EEG acquisition + preprocessing + BLE TX | < 40 ms |
-| Stage 2 | Phone BLE RX + inference + command generation | < 55 ms |
-| Stage 3 | BLE command TX → Control box RX | < 20 ms |
-| Stage 4 | Motor control loop + Bowden cable mechanical response | < 60 ms |
-| Stage 5 | Sensor acquisition + state estimation | < 10 ms |
-| **Total** | **EEG → Force feedback** | **< 185 ms** |
+| 阶段 | 组件 | 延迟预算 |
+|------|------|---------|
+| 阶段 1 | EEG 采集 + 预处理 + BLE 发送 | < 40 ms |
+| 阶段 2 | 手机 BLE 接收 + 推理 + 指令生成 | < 55 ms |
+| 阶段 3 | BLE 指令发送 → 控制盒接收 | < 20 ms |
+| 阶段 4 | 电机控制回路 + 鲍登线机械响应 | < 60 ms |
+| 阶段 5 | 传感器采集 + 状态估计 | < 10 ms |
+| **总计** | **EEG → 力反馈** | **< 185 ms** |
 
-**Note:** For the prototype phase, a simplified data flow is recommended: run inference on a Raspberry Pi 5 or Jetson Nano **inside** the control box (wired to the motor controller), eliminating phone latency and BLE double-hop. See Section 5 for details.
-
----
-
-## 2. Technical Specifications to Lock Down First
-
-The following parameters must be frozen before any detailed design begins. Changes after freeze will cascade across multiple subsystems.
-
-### 2.1 EEG Acquisition
-
-| Parameter | Target | Rationale / Trade-off |
-|-----------|--------|-----------------------|
-| Number of channels | 8 | Minimum for source localization of MRCP; more channels = higher BLE bandwidth, higher power, higher cost |
-| Sampling rate | 250 SPS per channel | MRCP content < 10 Hz; 250 SPS satisfies Nyquist with margin; higher rates waste power |
-| ADC resolution | 24 bit | Required for µV-level signals; ADS1299 native |
-| Input range | ±4.5 mV (programmable) | Dry electrodes have larger DC offsets; need headroom |
-| Input noise | < 1 µV RMS (0.5–100 Hz) | MRCP is 5–10 µV; SNR > 10 dB minimum |
-| CMRR | > 100 dB | 50 Hz common-mode rejection critical |
-| EEG bandwidth | 0.3–40 Hz | MRCP is DC-slow; 0.3 Hz HPF is practical trade-off vs drift |
-| Common reference | Driven Right Leg (DRL) or bipolar | DRL improves CMRR but adds electrode; evaluate in Phase 1 |
-
-### 2.2 Real-Time Latency Budget
-
-| Parameter | Target | Who owns it |
-|-----------|--------|-------------|
-| EEG acquisition to BLE packet | < 40 ms | EE / FW team |
-| BLE RX to inference output | < 55 ms | ML / App team |
-| BLE command to motor start | < 20 ms | FW team |
-| Motor max response time (0–rated torque) | < 60 ms | ME / FW team |
-| **End-to-end latency (EEG → movement)** | **< 200 ms** | **System** |
-| Target: user-perceptible delay threshold | < 100 ms (transparent) to 200 ms (acceptable) | — |
-
-**This is the single most important specification.** Every subsystem must be designed to meet their individual allocation. We will measure E2E latency in the first integration milestone.
-
-### 2.3 Motor and Mechanical
-
-| Parameter | Target | Notes |
-|-----------|--------|-------|
-| Continuous assist torque | 8 Nm | ~30% of typical hip flexion torque during gait |
-| Peak assist torque | 15 Nm (3 sec) | Sit-to-stand, stair ascent |
-| Torque control bandwidth | > 10 Hz | Smooth assistance during gait cycle |
-| Force control accuracy | ±0.5 Nm | Too coarse → feels wrong; too fine → overengineered |
-| Cable stroke | 150 mm | Typical hip flexion ROM in gait (~35 deg) |
-| Cable force (peak) | 800 N | Based on 15 Nm at 20 mm lever arm |
-| Bowden sheath bend radius (min) | 50 mm | Tighter bends increase friction nonlinearly |
-| System weight (NeuroSuit + Control Box) | < 2.5 kg | User tolerance for rehab session |
-
-### 2.4 Power and Battery
-
-| Parameter | Target | Notes |
-|-----------|--------|-------|
-| Battery capacity | 48 Wh (1,250 mAh @ 38.4 V / 5,000 mAh @ 9.6 V) | Li-ion 4–6S, depending on motor voltage |
-| Continuous power draw | ~8–12 W | MCU + BLE + IMU ~1 W; motor + driver ~7–11 W average |
-| Peak power draw | ~50 W (3 sec) | Motor peak torque + acceleration |
-| Battery life, continuous use | > 4 hours | One rehab session |
-| Charging time | < 2 hours | USB-C PD (20 V / 3 A input) |
-| Battery type | Li-ion 18650 or pouch | 18650 for prototype (cheap, safe, replaceable) |
-
-**Critical trade-off:** Motor voltage vs battery cells. Higher voltage (36–48 V) enables lower current for same power (smaller wires, less I²R loss, faster motor response), but requires more series cells (10S–12S → heavier). Recommended: **6S Li-ion (21.6 V nominal)** — balances motor response with pack weight (~350 g for 48 Wh).
-
-### 2.5 Mechanical Form Factor
-
-| Parameter | Target |
-|-----------|--------|
-| Control box dimensions | 120 × 80 × 30 mm (wallet-sized) |
-| Control box weight | < 400 g (including battery) |
-| Hip module width | < 100 mm lateral (does not interfere with arm swing) |
-| Suit total don/doff time | < 3 min |
+**注：** 原型阶段推荐采用简化数据流：在控制盒**内部**的 Raspberry Pi 5 或 Jetson Nano 上运行推理（有线连接至电机控制器），以消除手机延迟和 BLE 双跳。详见第 5 节。
 
 ---
 
-## 3. Component Selection Guidance
+## 2. 优先锁定的技术规格
 
-### 3.1 EEG Front-End Chip
+以下参数必须在任何详细设计开始前冻结。冻结后的变更将级联影响多个子系统。
 
-The EEG front-end is the single most critical component for signal quality. Only three chips are viable for this application:
+### 2.1 EEG 采集
 
-| Chip | Pros | Cons | Recommendation |
-|------|------|------|----------------|
-| **TI ADS1299** | Industry standard for dry EEG; 8-channel, 24-bit, integrated PGA + bias drive + lead-off detection; extensive reference designs (OpenBCI, etc.) | Relatively high power (5 mW/ch); limited input bandwidth; ~$18/chip | **Default choice.** Lowest risk, most community support, known by EE hiring target |
-| TI ADS1299-4 | 4-channel version of above | Only 4 channels; would need 2 chips for 8 channels | Not recommended |
-| TI ADS131M08 | Lower power (0.5 mW/ch); 24-bit; 8-channel simultaneous | Fewer EEG-specific features (no bias drive); less community reference | Consider for V2 power optimization |
-| Maxim MAX30001 | Ultra-low power; single-channel for ECG | Not suitable for multichannel EEG | Out |
+| 参数 | 目标 | 理由 / 权衡 |
+|------|------|-------------|
+| 通道数 | 8 | MRCP 源定位最低要求；更多通道 = 更高 BLE 带宽、更高功耗、更高成本 |
+| 采样率 | 每通道 250 SPS | MRCP 内容 < 10 Hz；250 SPS 满足奈奎斯特且有裕量；更高速率浪费功耗 |
+| ADC 分辨率 | 24 位 | µV 级信号必需；ADS1299 原生支持 |
+| 输入范围 | ±4.5 mV（可编程） | 干电极有较大 DC 偏移；需要余量 |
+| 输入噪声 | < 1 µV RMS（0.5–100 Hz） | MRCP 为 5–10 µV；SNR > 10 dB 最低要求 |
+| CMRR | > 100 dB | 50 Hz 共模抑制至关重要 |
+| EEG 带宽 | 0.3–40 Hz | MRCP 为 DC 慢速；0.3 Hz HPF 是漂移与实用性的折中 |
+| 公共参考 | 驱动右腿（DRL）或双极 | DRL 提高 CMRR 但增加电极；Phase 1 中评估 |
 
-**Decision: ADS1299 for prototype and V1 production.**
+### 2.2 实时延迟预算
 
-#### Dry Electrodes
+| 参数 | 目标 | 负责方 |
+|------|------|--------|
+| EEG 采集到 BLE 数据包 | < 40 ms | EE / FW 团队 |
+| BLE 接收到推理输出 | < 55 ms | ML / App 团队 |
+| BLE 指令到电机启动 | < 20 ms | FW 团队 |
+| 电机最大响应时间（0–额定扭矩） | < 60 ms | ME / FW 团队 |
+| **端到端延迟（EEG → 运动）** | **< 200 ms** | **系统** |
+| 目标：用户可感知延迟阈值 | < 100 ms（无感）至 200 ms（可接受） | — |
 
-| Type | Pros | Cons |
+**这是最重要的单项规格。** 每个子系统都必须设计以满足各自的分配指标。我们将在首次集成里程碑中测量端到端延迟。
+
+### 2.3 电机与机械
+
+| 参数 | 目标 | 备注 |
 |------|------|------|
-| Ag/AgCl coated comb (g.tec g.GAMMAcap) | Known performance; CE marked | ~$150/channel; proprietary |
-| OpenBCI Dry Electrode | Proven in research; ~$20/ch | Lower SNR than wet; requires skin prep |
-| Custom PCB spring-loaded pins | Cheap (~$1/ch); design freedom | Unproven; contact impedance varies |
-| BrainProducts ActiCAP dry | Medical grade | Expensive; BCI-oriented |
+| 持续辅助扭矩 | 8 Nm | 步态中典型髋关节屈曲扭矩的约 30% |
+| 峰值辅助扭矩 | 15 Nm（3 秒） | 坐站转换、上楼梯 |
+| 扭矩控制带宽 | > 10 Hz | 步态周期中平滑辅助 |
+| 力控制精度 | ±0.5 Nm | 太粗糙 → 感觉异常；太精细 → 过度设计 |
+| 缆线行程 | 150 mm | 步态中典型髋关节屈曲 ROM（~35 度） |
+| 缆线力（峰值） | 800 N | 基于 15 Nm 在 20 mm 力臂上计算 |
+| 鲍登鞘最小弯曲半径 | 50 mm | 更小弯曲使摩擦力非线性增加 |
+| 系统重量（NeuroSuit + 控制盒） | < 2.5 kg | 用户对康复训练的耐受度 |
 
-**Prototype recommendation:** Start with OpenBCI compatible dry comb electrodes ($20/ch × 8 = $160). Move to custom spring-loaded pins in V2 after impedance testing.
+### 2.4 电源与电池
+
+| 参数 | 目标 | 备注 |
+|------|------|------|
+| 电池容量 | 48 Wh（1,250 mAh @ 38.4 V / 5,000 mAh @ 9.6 V） | 锂离子 4–6S，取决于电机电压 |
+| 持续功耗 | ~8–12 W | MCU + BLE + IMU ~1 W；电机 + 驱动平均 ~7–11 W |
+| 峰值功耗 | ~50 W（3 秒） | 电机峰值扭矩 + 加速 |
+| 连续使用电池续航 | > 4 小时 | 一次康复训练 |
+| 充电时间 | < 2 小时 | USB-C PD（20 V / 3 A 输入） |
+| 电池类型 | 锂离子 18650 或软包 | 原型使用 18650（便宜、安全、可更换） |
+
+**关键权衡：** 电机电压 vs 电池节数。更高电压（36–48 V）可在相同功率下降低电流（更细导线、更少 I²R 损耗、更快电机响应），但需要更多串联电池（10S–12S → 更重）。推荐：**6S 锂离子（标称 21.6 V）**——平衡电机响应与电池组重量（48 Wh 约 350 g）。
+
+### 2.5 机械形态因素
+
+| 参数 | 目标 |
+|------|------|
+| 控制盒尺寸 | 120 × 80 × 30 mm（钱包大小） |
+| 控制盒重量 | < 400 g（含电池） |
+| 髋部模块宽度 | < 100 mm 横向（不干扰摆臂） |
+| 套装总穿脱时间 | < 3 分钟 |
+
+---
+
+## 3. 组件选型指南
+
+### 3.1 EEG 前端芯片
+
+EEG 前端是对信号质量最关键的单个组件。该应用只有三款芯片可行：
+
+| 芯片 | 优点 | 缺点 | 推荐 |
+|------|------|------|------|
+| **TI ADS1299** | 干式 EEG 行业标准；8 通道、24 位、集成 PGA + 偏置驱动 + 脱落检测；丰富的参考设计（OpenBCI 等） | 功耗较高（5 mW/ch）；输入带宽有限；约 $18/芯片 | **默认选择。** 风险最低，社区支持最多，EE 招聘目标熟悉 |
+| TI ADS1299-4 | 上述芯片的 4 通道版本 | 仅 4 通道；实现 8 通道需 2 颗芯片 | 不推荐 |
+| TI ADS131M08 | 更低功耗（0.5 mW/ch）；24 位；8 通道同步 | 较少 EEG 专用功能（无偏置驱动）；社区参考较少 | 考虑用于 V2 功耗优化 |
+| Maxim MAX30001 | 超低功耗；单通道 ECG | 不适合多通道 EEG | 排除 |
+
+**决定：原型和 V1 生产采用 ADS1299。**
+
+#### 干电极
+
+| 类型 | 优点 | 缺点 |
+|------|------|------|
+| Ag/AgCl 涂层梳状（g.tec g.GAMMAcap） | 性能已知；CE 标记 | 约 $150/通道；专有 |
+| OpenBCI 干电极 | 研究中验证；约 $20/通道 | 信噪比低于湿电极；需要皮肤准备 |
+| 定制 PCB 弹簧针 | 便宜（约 $1/通道）；设计自由 | 未经验证；接触阻抗不一致 |
+| BrainProducts ActiCAP 干电极 | 医疗级 | 昂贵；面向 BCI |
+
+**原型推荐：** 从 OpenBCI 兼容干梳电极开始（$20/ch × 8 = $160）。V2 中经过阻抗测试后，转向定制弹簧针。
 
 ### 3.2 IMU
 
-| Chip | Pros | Cons | Choice |
-|------|------|------|--------|
-| **BMI270 (Bosch)** | 6-axis, low power (0.6 mA), integrated step detector, 3×3 mm | No magnetometer | **Primary choice** — low power, small, well-documented, cheap |
-| ICM-20948 (TDK) | 9-axis (includes magnetometer), 3×3 mm, 0.7 mA | Yaw drift still problematic indoors; extra complexity | Consider if heading estimate needed |
-| LSM6DSO (ST) | 6-axis, 0.55 mA, 2.5×2.5 mm | Slightly less mature library ecosystem | Backup |
+| 芯片 | 优点 | 缺点 | 选择 |
+|------|------|------|------|
+| **BMI270（Bosch）** | 6 轴，低功耗（0.6 mA），集成步进检测，3×3 mm | 无磁力计 | **首选**——低功耗、小尺寸、文档齐全、便宜 |
+| ICM-20948（TDK） | 9 轴（含磁力计），3×3 mm，0.7 mA | 室内航向角漂移仍然有问题；额外复杂性 | 如需航向估计则考虑 |
+| LSM6DSO（ST） | 6 轴，0.55 mA，2.5×2.5 mm | 库生态略不成熟 | 备选 |
 
-**Decision: BMI270 for the control box.** Add a second BMI270 on the thigh segment if bilateral hip angle needed (V2).
+**决定：控制盒采用 BMI270。** 如需双侧髋关节角度（V2），在大腿段增加第二个 BMI270。
 
-### 3.3 BLE Module
+### 3.3 BLE 模块
 
-| Chip | Pros | Cons | Choice |
-|------|------|------|--------|
-| **Nordic nRF52832** | 512 KB flash, 64 KB RAM, Cortex-M4F (64 MHz) — can run simple preprocessing on-chip; mature SDK; BLE 5.0; ~$3 | Limited RAM for complex inference | **EEG headband** — adequate for data pipeline |
-| **Nordic nRF5340** | Dual-core: Cortex-M33 app + M33 network; 1 MB flash, 512 KB RAM; BLE 5.3; ~$5 | Overkill for headband | **Control box** — enough for motor control + sensor fusion |
-| Nordic nRF52840 | 1 MB flash, 256 KB RAM, USB; ~$4 | More than needed for headband | Fallback for control box |
-| TI CC2652R7 | Good RF, 352 KB RAM; ~$4 | Smaller ecosystem than Nordic | Not recommended |
+| 芯片 | 优点 | 缺点 | 选择 |
+|------|------|------|------|
+| **Nordic nRF52832** | 512 KB 闪存，64 KB RAM，Cortex-M4F（64 MHz）——可运行简单片上预处理；成熟 SDK；BLE 5.0；约 $3 | 复杂推理 RAM 有限 | **EEG 头带**——足以满足数据管道需求 |
+| **Nordic nRF5340** | 双核：Cortex-M33 应用 + M33 网络；1 MB 闪存，512 KB RAM；BLE 5.3；约 $5 | 用于头带则性能过剩 | **控制盒**——足以满足电机控制 + 传感器融合 |
+| Nordic nRF52840 | 1 MB 闪存，256 KB RAM，USB；约 $4 | 用于头带则超出需求 | 控制盒备选 |
+| TI CC2652R7 | 良好射频性能，352 KB RAM；约 $4 | 生态小于 Nordic | 不推荐 |
 
-**Decision:**
-- **EEG-Sense headband:** nRF52832 (SDK + preprocessing capability is sufficient)
-- **Control box:** nRF5340 (dual-core enables separation of motor control + BLE stack)
+**决定：**
+- **EEG-Sense 头带：** nRF52832（SDK + 预处理能力足够）
+- **控制盒：** nRF5340（双核可实现电机控制和 BLE 协议栈分离）
 
-### 3.4 MCU / Main Processor
+### 3.4 MCU / 主处理器
 
-This is the hardest decision. The "right" choice depends on **where inference runs**:
+这是最困难的决定。"正确"的选择取决于**推理运行位置**：
 
-#### Option A: Inference on Phone (Prototype Fast Path)
+#### 选项 A：在手机上推理（原型快速路径）
 
-| Component | Role | Selection |
-|-----------|------|-----------|
-| Control box MCU | Motor control + IMU + BLE relay | **nRF5340** (already selected; M33 core is sufficient for FOC + sensor fusion) |
-| Phone | AI inference + UI | **Any modern iPhone / Android** (CoreML / TFLite / ONNX) |
+| 组件 | 角色 | 选型 |
+|------|------|------|
+| 控制盒 MCU | 电机控制 + IMU + BLE 中继 | **nRF5340**（已选择；M33 核足以运行 FOC + 传感器融合） |
+| 手机 | AI 推理 + UI | **任意现代 iPhone / Android**（CoreML / TFLite / ONNX） |
 
-**Pros:** Fastest to prototype; no embedded ML engineering; leverages phone GPU/ANE.  
-**Cons:** BLE double-hop adds latency; requires phone always present; phone dependency is a product risk for Home version.
+**优点：** 原型开发最快；无需嵌入式 ML 工程；利用手机 GPU/ANE。  
+**缺点：** BLE 双跳增加延迟；需始终携带手机；手机依赖性是家用版本的产品风险。
 
-#### Option B: Edge Inference on Control Box (Production Target)
+#### 选项 B：控制盒边缘推理（生产目标）
 
-| Component | Role | Selection |
-|-----------|------|-----------|
-| Control box MCU | Motor control + sensor fusion | **STM32H743** (Cortex-M7 @ 480 MHz, 2 MB flash, 1 MB RAM) or **NXP RT1064** |
-| ML accelerator | Real-time EEG inference | **Kendryte K230** (RISC-V dual-core + NPU, 1 TOPS) or **STM32N6** (Neural-ART accelerator) |
-| BLE | Communication | nRF5340 (separate from inference MCU via UART/SPI) |
+| 组件 | 角色 | 选型 |
+|------|------|------|
+| 控制盒 MCU | 电机控制 + 传感器融合 | **STM32H743**（Cortex-M7 @ 480 MHz，2 MB 闪存，1 MB RAM）或 **NXP RT1064** |
+| ML 加速器 | 实时 EEG 推理 | **Kendryte K230**（RISC-V 双核 + NPU，1 TOPS）或 **STM32N6**（Neural-ART 加速器） |
+| BLE | 通信 | nRF5340（通过 UART/SPI 与推理 MCU 分离） |
 
-**Pros:** No phone required; lower E2E latency; works standalone as a medical device.  
-**Cons:** Significantly more firmware complexity; NPU integration risk.
+**优点：** 无需手机；更低端到端延迟；可作为独立医疗器械工作。  
+**缺点：** 固件复杂度显著增加；NPU 集成风险。
 
-### 3.5 Motor Driver
+### 3.5 电机驱动
 
-| Driver | Pros | Cons | Choice |
-|--------|------|------|--------|
-| **TI DRV8316** | 3-phase BLDC driver, 4.5–60 V, 5 A RMS, integrated current sensing (sense-less FOC), SPI interface, ~$5 | No integrated MOSFET RDS(on) monitoring | **Primary** for prototype (matched with Maxon EC-i 40) |
-| Trinamic TMC6300 | Ultra-quiet (StealthChop2), 2–11 V, 1.2 A RMS | Low voltage limits motor selection | Too low voltage for our torque needs |
-| TI DRV8301 | 6–60 V, up to 60 A; used in many robotics projects | Larger package; more external components | Overkill for prototype |
-| AMT49400 (Allegro) | Integrated FOC, 4.5–36 V, 2 A | Less flexible than TI | Backup |
+| 驱动 | 优点 | 缺点 | 选择 |
+|------|------|------|------|
+| **TI DRV8316** | 三相 BLDC 驱动，4.5–60 V，5 A RMS，集成电流检测（无感 FOC），SPI 接口，约 $5 | 无集成 MOSFET RDS(on) 监测 | **原型首选**（与 Maxon EC-i 40 匹配） |
+| Trinamic TMC6300 | 超静音（StealthChop2），2–11 V，1.2 A RMS | 低电压限制电机选择 | 电压过低，无法满足扭矩需求 |
+| TI DRV8301 | 6–60 V，高达 60 A；多用于机器人项目 | 封装更大；更多外部组件 | 原型过大 |
+| AMT49400（Allegro） | 集成 FOC，4.5–36 V，2 A | 灵活性低于 TI | 备选 |
 
-**Decision: TI DRV8316** for prototype. It has the voltage range (up to 60 V → supports 6S battery), sufficient current (5 A continuous), and integrated current sensing eliminates external shunt resistors.
+**决定：原型采用 TI DRV8316。** 它具有所需的电压范围（最高 60 V → 支持 6S 电池），足够电流（5 A 连续），集成电流检测无需外部分流电阻。
 
-### 3.6 Motor
+### 3.6 电机
 
-| Motor | Pros | Cons | Choice |
-|-------|------|------|--------|
-| **Maxon EC-i 40 (60 W)** | Medical-grade, 0.15 Nm continuous at 4,000 RPM, 42 mm diameter, 150 g, hall sensors available | ~$300 each | **V1 Production choice** — too expensive for prototype |
-| T-motor AK80-9 (or similar) | ~$100, 0.5 Nm at ~2,000 RPM, 12 V, integrated encoder | Not medical grade; larger (60 mm) | **Prototype choice** — cheap, available, easy to integrate |
-| Faulhaber 3863H024C | Excellent torque density, 12 V, ~$500 | Very expensive; long lead times | Consider for V2 if weight is critical |
-| Custom BLDC (wound in-house) | Theoretically optimal | Massive development effort; not realistic | Out of scope |
+| 电机 | 优点 | 缺点 | 选择 |
+|------|------|------|------|
+| **Maxon EC-i 40（60 W）** | 医疗级，0.15 Nm 连续 @ 4,000 RPM，直径 42 mm，150 g，可选霍尔传感器 | 约 $300/个 | **V1 生产选择**——原型成本过高 |
+| T-motor AK80-9（或类似） | 约 $100，0.5 Nm @ ~2,000 RPM，12 V，集成编码器 | 非医疗级；更大（60 mm） | **原型选择**——便宜、可得、易集成 |
+| Faulhaber 3863H024C | 优异的扭矩密度，12 V，约 $500 | 非常昂贵；交期长 | 若重量关键，V2 考虑 |
+| 定制 BLDC（自行绕制） | 理论上最优 | 巨大开发工作量；不现实 | 排除 |
 
-**Decision for prototype:** **T-motor AK80-9 (or AK60-6 for higher torque)** — $80–120 each, available on Taobao with < 1 week lead time, 12 V or 24 V versions, integrated hall encoder. Acceptable for functional prototype. Upgrade to Maxon EC-i 40 for clinical validation.
+**原型决定：** **T-motor AK80-9（或扭矩更大的 AK60-6）**——$80–120/个，淘宝可购，交期 < 1 周，12 V 或 24 V 版本，集成霍尔编码器。功能性原型可接受。临床验证升级为 Maxon EC-i 40。
 
-### 3.7 Battery
+### 3.7 电池
 
-| Pack config | Nominal V | Energy | Weight (est.) | Motor suitability | Recommendation |
-|-------------|-----------|--------|---------------|-------------------|----------------|
-| 4S Li-ion (14.8 V) | 14.8 V | 44 Wh (3,000 mAh) | ~280 g | Limited (low voltage) | Minimum viable |
-| **6S Li-ion (22.2 V)** | **22.2 V** | **50 Wh (2,250 mAh)** | **~360 g** | **Good** | **Primary choice** |
-| 10S Li-ion (36 V) | 36 V | 54 Wh (1,500 mAh) | ~480 g | Excellent | Weight penalty |
+| 电池包配置 | 标称电压 | 能量 | 重量（估计） | 电机匹配度 | 推荐 |
+|-----------|---------|------|------------|-----------|------|
+| 4S 锂离子（14.8 V） | 14.8 V | 44 Wh（3,000 mAh） | ~280 g | 有限（低电压） | 最低可行 |
+| **6S 锂离子（22.2 V）** | **22.2 V** | **50 Wh（2,250 mAh）** | **~360 g** | **良好** | **首选** |
+| 10S 锂离子（36 V） | 36 V | 54 Wh（1,500 mAh） | ~480 g | 优秀 | 重量惩罚 |
 
-**Decision: 6S Li-ion, 21700 cells** (Samsung 50E or similar, 5,000 mAh per cell → 6 × 5,000 mAh at 22.2 V). Custom pack with BMS (TI BQ76952 or similar).
-
----
-
-## 4. Critical Engineering Risks (Ranked by Severity)
-
-### RISK 1: Dry EEG Signal Quality During Movement
-
-**Severity:** CRITICAL | **Probability:** HIGH | **Mitigation Cost:** HIGH
-
-| Factor | Detail |
-|--------|--------|
-| Problem | Dry electrodes are 10–100× noisier than wet/gel electrodes. Motion artifacts (cable sway, electrode shift, muscle EMG crosstalk) are in the same frequency band as MRCP (0.1–10 Hz). A user walking creates massive movement artifacts. |
-| Impact | If dry EEG SNR < 3 dB during gait, intention decoding is impossible and the product cannot function. This is an existential risk. |
-| Mitigation | (1) Optimize electrode mechanical design: spring-loaded pins with independent suspension; (2) Adaptive noise cancellation using IMU reference (accelerometer on headband); (3) Active noise suppression via DRL circuit; (4) Artifact rejection algorithm (MARA, FASTER) running in preprocessing; (5) Fallback: if gait artifacts are insurmountable, detect intention from gaze or residual EMG instead. |
-| Phase to address | **Immediately.** Day 1 of prototype: electrode test rig with motion simulator. Do not proceed past month 1 without quantified SNR under motion. |
-
-### RISK 2: Real-Time Intention Decoding Latency and Accuracy
-
-**Severity:** CRITICAL | **Probability:** MEDIUM | **Mitigation Cost:** HIGH
-
-| Factor | Detail |
-|--------|--------|
-| Problem | Bereitschaftspotential (BP) is only 5–10 µV peak. Single-trial detection from 8 channels is at the edge of what's been demonstrated in literature (single-trial BP detection accuracy ~70–80% in controlled lab settings). Real-time, during gait with artifacts: accuracy likely drops below useful threshold. |
-| Impact | False positives (assistance when user didn't intend) → feels uncontrollable, safety risk. False negatives (no assistance when intended) → user abandons device. |
-| Mitigation | (1) Use sliding-window deep learning (EEGNet, shallow ConvNet) trained on user-specific data; (2) Multi-modal fusion: cue from IMU (weight shift precedes step) provides second signal; (3) Active personalization: model adapts in first 10 minutes of each session; (4) Conservative threshold: prioritize specificity over sensitivity in early versions; (5) FDA strategy: position as "assist-as-needed" rather than "intent-controlled" for initial clearance. |
-| Phase to address | **Month 1–3.** Algorithm development + data collection from first 5 able-bodied subjects. |
-
-### RISK 3: Bowden Cable Friction and Control Nonlinearity
-
-**Severity:** HIGH | **Probability:** HIGH | **Mitigation Cost:** MEDIUM
-
-| Factor | Detail |
-|--------|--------|
-| Problem | Bowden cable friction increases nonlinearly with sheath curvature. Efficiency can drop to 40–70%. Cable stretch under load introduces hysteresis. This makes precise torque control very difficult. |
-| Impact | "Slop" in assistance feels unnatural. If friction varies with hip angle during gait, the controller must compensate dynamically — hard to model. |
-| Mitigation | (1) Minimize sheath bends: route cable in straightest possible path; (2) Use PTFE-lined Bowden sheath (low friction); (3) Closed-loop force control with inline load cell (compensates for friction); (4) Model friction as function of sheath angle (empirically characterize); (5) Alternative: direct-drive motor at hip (heavier but more controllable) — keep as risk mitigation strategy. |
-| Phase to address | **Month 2–4.** Build cable test bench to characterize friction vs. bend radius vs. load. |
-
-### RISK 4: System Integration Complexity
-
-**Severity:** HIGH | **Probability:** MEDIUM | **Mitigation Cost:** MEDIUM
-
-| Factor | Detail |
-|--------|--------|
-| Problem | Five subsystems (EEG headband, phone app, control box, motor, suit mechanical) must work together. Each has independent development dependencies (FW, EE, ME, ML). Integration typically reveals timing bugs, protocol mismatches, power sequencing issues, and mechanical interference. |
-| Impact | Integration phase extends beyond schedule; single point of failure in any subsystem blocks entire system test. |
-| Mitigation | (1) Define communication protocols **before** any coding begins (see Appendix); (2) Build integration test harness in Month 1; (3) Weekly integration tests from Month 2; (4) Hardware-in-the-loop (HIL) test bench for control box firmware before mechanical prototype exists; (5) Designate one person as **integration lead** with authority to block (not just flag) changes that break compatibility. |
-| Phase to address | **Month 1 (protocol definition) + ongoing.** |
-
-### RISK 5: Battery Life Under Real Use
-
-**Severity:** MEDIUM | **Probability:** MEDIUM | **Mitigation Cost:** LOW
-
-| Factor | Detail |
-|--------|--------|
-| Problem | Motor actuation power depends on gait pattern, user weight, and assistance level. Worst-case (heavy user, high assist, frequent sit-stand) may draw 25+ W, draining a 48 Wh battery in < 2 hours. |
-| Impact | Clinical viability: a rehab session should be 45–60 min minimum. 2 hours is acceptable. < 1 hour is not. |
-| Mitigation | (1) Measure real power draw on first motorized prototype; (2) Use low-power states between strides; (3) Increase battery capacity to 60 Wh if needed (~+100 g, acceptable trade-off); (4) Charging dock that enables hot-swap batteries for clinic use. |
-| Phase to address | **Month 4–5**, after first integrated system test. |
-
-### RISK 6: Thermal Management
-
-**Severity:** MEDIUM | **Probability:** LOW–MEDIUM | **Mitigation Cost:** LOW
-
-| Factor | Detail |
-|--------|--------|
-| Problem | Motor driver + battery + MCU in a waist-mounted enclosure (120 × 80 × 30 mm) with limited airflow. Motor driver (DRV8316) at 5 A can dissipate 2–3 W. Battery internal resistance adds heat during peak draw. |
-| Impact | Overheating → throttling → reduced assistance; worst case: thermal shutdown mid-session. |
-| Mitigation | (1) Thermally couple driver to aluminum enclosure; (2) Add thermal pad + heat spreader; (3) Measure junction temperatures in worst-case test; (4) Software current limit at 80°C enclosure temperature. |
-| Phase to address | **Month 4**, during enclosure design. |
-
-### RISK 7: Regulatory (NMPA Class II)
-
-**Severity:** MEDIUM (product) / HIGH (timeline) | **Probability:** MEDIUM | **Mitigation Cost:** MEDIUM
-
-| Factor | Detail |
-|--------|--------|
-| Problem | NMPA Class II medical device requires: ISO 13485 QMS, usability engineering (IEC 62366), software lifecycle (IEC 62304), risk management (ISO 14971), clinical evaluation. None of these are built into a prototype-first engineering approach. Retrospective compliance is expensive. |
-| Impact | Clinical trial delayed 6–12 months if design history file must be reconstructed. |
-| Mitigation | (1) Hire NMPA regulatory consultant **before** prototype (Month 0); (2) Maintain design history file from Day 1; (3) Document all design decisions with rationale; (4) Use certified components (ISO 10993) where possible; (5) Target "innovative medical device" fast-track designation. |
-| Phase to address | **Month 0–ongoing.** Regulatory is a schedule-critical path item. |
+**决定：6S 锂离子，21700 电芯**（Samsung 50E 或类似，每节 5,000 mAh → 6 × 5,000 mAh @ 22.2 V）。定制电池包，含 BMS（TI BQ76952 或类似）。
 
 ---
 
-## 5. First Prototype Build Plan
+## 4. 关键工程风险（按严重程度排序）
 
-### 5.1 Guiding Principles
+### 风险 1：运动过程中干式 EEG 信号质量
 
-1. **Reduce latency risk first:** The biggest unknown is whether dry EEG can work during gait. Test this in Month 1 with a wired EEG + motion simulator, before any wireless or mechanical work.
-2. **Phone as inference engine (Phase 1):** Skip embedded ML for now. Phone processing lets us iterate the AI model rapidly without firmware updates.
-3. **Off-the-shelf motor for prototype:** Do not design custom motor. Buy T-motor for first prototype.
-4. **3D print everything mechanical:** CNC/carbon fiber for production, not for early prototypes.
-5. **Failing fast is the goal:** The first integrated prototype (Month 3) will almost certainly not work well. That's fine — it tells us what to fix.
+**严重程度：** 致命 | **概率：** 高 | **缓解成本：** 高
 
-### 5.2 Buy vs Build vs Outsource
+| 因素 | 详情 |
+|------|------|
+| 问题 | 干电极比湿/凝胶电极噪声高 10–100 倍。运动伪迹（缆线摆动、电极位移、肌肉 EMG 串扰）与 MRCP 处于同一频段（0.1–10 Hz）。用户行走会产生巨大的运动伪迹。 |
+| 影响 | 如果步态中干式 EEG 信噪比 < 3 dB，则无法进行意图解码，产品无法工作。这是存亡风险。 |
+| 缓解措施 | (1) 优化电极机械设计：带独立悬挂的弹簧针；(2) 使用 IMU 参考进行自适应噪声消除（头带上加速计）；(3) 通过 DRL 电路进行主动噪声抑制；(4) 预处理中运行伪迹剔除算法（MARA、FASTER）；(5) 后备方案：如果步态伪迹无法克服，改用注视或残余 EMG 检测意图。 |
+| 解决阶段 | **立即。** 原型第 1 天：使用运动模拟器进行电极测试台架。首月内若无量化运动下信噪比数据，不得继续推进。 |
 
-| Item | Decision | Vendor / Method | Estimated Cost (¥) | Timeline |
-|------|----------|-----------------|-------------------|----------|
-| **EEG Front-End** | Buy | ADS1299 evaluation module + custom carrier board | 8,000 | Week 2 |
-| **Dry Electrodes (8)** | Buy | OpenBCI compatible dry comb electrodes | 1,500 | Week 1 |
-| **EEG Headband PCB + Assembly** | Build | Custom PCB (ADS1299 + nRF52832 + power) | 20,000 (first batch of 10) | Week 4–8 |
-| **BLE Module** | Buy | Nordic nRF52832 DK (dev kit) × 2 | 1,500 | Week 1 |
-| **BLE Module** | Buy | Nordic nRF5340 DK × 2 | 1,200 | Week 1 |
-| **IMU** | Buy | Bosch BMI270 breakout | 200 | Week 1 |
-| **Motor (BLDC)** | Buy | T-motor AK80-9 (× 2, one spare) | 3,000 | Week 2 |
-| **Motor Driver** | Buy | TI DRV8316 eval module + custom board | 4,000 | Week 3 |
-| **Motor Driver PCB** | Build | Custom carrier for DRV8316 + STM32H743 | 15,000 | Week 4–8 |
-| **MCU Dev Board** | Buy | STM32H743 Nucleo | 800 | Week 1 |
-| **Battery (6S)** | Buy | Custom 6S Li-ion pack from 18650 seller | 3,000 | Week 4 |
-| **BMS** | Buy | TI BQ76952 evaluation module | 1,500 | Week 4 |
-| **Load Cell (tension)** | Buy | S-type load cell 1000 N + HX711 | 800 | Week 3 |
-| **Hip Joint Mech** | Build | 3D printed (PLA/ABS) + aluminum shaft | 2,000 (materials) | Week 4–6 |
-| **Carbon Fiber Anchor** | Outsource | Local CNC shop (carbon fiber plate + hip belt frame) | 10,000 | Week 6–8 |
-| **Suit Fabric** | Outsource | Local tailor / garment factory (custom webbing + neoprene) | 5,000 | Week 6–8 |
-| **Bowden Cable + Sheath** | Buy | Standard bicycle brake cable (PTFE-lined) — cheap, available | 200 | Week 2 |
-| **Control Box Enclosure** | Build | 3D printed (PETG) for prototype; CNC aluminum for V2 | 1,000 (3D print) | Week 5–7 |
-| **Force Sensor (cable)** | Build | Inline load cell mount (3D print + strain gauge) | 500 | Week 5 |
-| **Phone (for test)** | Buy | Used iPhone SE (hardware ML test device) | 2,500 | Week 1 |
-| **Oscilloscope** | Buy | Rigol DS1054Z (4-ch, 50 MHz) | 2,500 | Week 1 |
-| **Power supply** | Buy | Korad KA3005D (30 V, 5 A) | 1,500 | Week 1 |
-| **Signal generator** | Buy | JDS6600 (EEG simulator for test) | 1,200 | Week 2 |
-| **Tooling** | Buy | Soldering station, multimeter, hand tools | 3,000 | Week 1 |
-| **3D Printer** | Buy | Bambu Lab P1S (fast prototyping) | 4,000 | Week 1 |
-| **Contingency** | — | — | 93,300 | — |
-| | | | **¥200,000 total** | |
+### 风险 2：实时意图解码延迟与准确性
 
-**Total: ~¥200,000** (approximately ¥107,000 in direct BOM + test equipment + ~¥93,000 contingency for PCB respins, mechanical redesigns, and unexpected costs). This leaves ¥1,800,000 for: 6 months of team salary, clinical fees, office/lab space, and regulatory consulting.
+**严重程度：** 致命 | **概率：** 中等 | **缓解成本：** 高
 
-### 5.3 Team Allocation (8 People, 6 Months)
+| 因素 | 详情 |
+|------|------|
+| 问题 | Bereitschaftspotential（BP）峰值仅 5–10 µV。从 8 通道进行单次试验检测处于文献验证的边缘（受控实验室条件下单次 BP 检测准确率约 70–80%）。真实步态中且存在伪迹时，准确率可能降至可用阈值以下。 |
+| 影响 | 假阳性（用户未意图时提供辅助）→ 感觉失控，安全风险。假阴性（意图时未辅助）→ 用户放弃设备。 |
+| 缓解措施 | (1) 使用在用户特定数据上训练的滑动窗口深度学习（EEGNet、浅层 ConvNet）；(2) 多模态融合：IMU 信号（重心转移预示迈步）提供第二路信号；(3) 主动个性化：模型在每次训练的前 10 分钟内自适应；(4) 保守阈值：早期版本优先考虑特异性而非灵敏度；(5) FDA 策略：初始审批定位为"按需辅助"而非"意图控制"。 |
+| 解决阶段 | **第 1–3 月。** 算法开发 + 前 5 名健康受试者的数据采集。 |
 
-| Role | Headcount | Focus (Month 1–3) | Focus (Month 3–6) |
-|------|-----------|-------------------|-------------------|
-| **EE Hardware Lead** | 1 | EEG headband PCB design + electrode test rig + debugging | Headband V2, EMC testing |
-| **Embedded Firmware** | 1 | BLE protocol, motor control firmware, sensor drivers | Control loop tuning, sensor fusion |
-| **Mechanical Engineer** | 1 | Bowden cable test bench, hip joint CAD, suit integration | Design for manufacturing, carbon fiber parts |
-| **Algorithm / ML** | 1 | EEG data collection pipeline, model training on BP detection | Real-time inference on phone, personalization |
-| **System Integration** | 1 | Protocol spec, integration test harness, HIL bench | E2E validation, certification prep |
-| **Product / PM** | 1 | User testing coordination, requirements management | Clinician interviews, Home vs Clinical spec |
-| **Clinical / Regulatory** | 1 | IRB prep, NMPA innovation device application | Clinical protocol design, ISO 13485 gaps |
-| **Industrial Designer** | 1 | Wearable ergonomics, headband form factor, suit aesthetics | Production-ready industrial design |
+### 风险 3：鲍登线摩擦与控制非线性
 
-### 5.4 6-Month Development Timeline
+**严重程度：** 高 | **概率：** 高 | **缓解成本：** 中等
+
+| 因素 | 详情 |
+|------|------|
+| 问题 | 鲍登线摩擦随鞘弯曲曲率非线性增加。效率可能降至 40–70%。负载下缆线拉伸引入迟滞。这使得精确扭矩控制非常困难。 |
+| 影响 | 辅助中的"间隙"感觉不自然。如果步态中摩擦随髋关节角度变化，控制器必须动态补偿——难以建模。 |
+| 缓解措施 | (1) 最小化鞘弯曲：尽可能直线布线；(2) 使用 PTFE 内衬鲍登鞘（低摩擦）；(3) 带内联力传感器的闭环力控制（补偿摩擦）；(4) 将摩擦建模为鞘角度的函数（实验表征）；(5) 备选：髋关节直驱电机（更重但更可控）——保留作为风险缓解策略。 |
+| 解决阶段 | **第 2–4 月。** 搭建缆线测试台架，表征摩擦 vs 弯曲半径 vs 负载关系。 |
+
+### 风险 4：系统集成复杂性
+
+**严重程度：** 高 | **概率：** 中等 | **缓解成本：** 中等
+
+| 因素 | 详情 |
+|------|------|
+| 问题 | 五个子系统（EEG 头带、手机 App、控制盒、电机、套装机械）必须协同工作。每个都有独立的开发依赖（FW、EE、ME、ML）。集成通常会暴露时序错误、协议不匹配、电源时序问题和机械干涉。 |
+| 影响 | 集成阶段超出计划；任何子系统的单点故障都会阻塞整个系统测试。 |
+| 缓解措施 | (1) 在任何编码开始前定义通信**协议**（见附录）；(2) 第 1 月构建集成测试平台；(3) 第 2 月起每周集成测试；(4) 在机械原型存在前，为控制盒固件搭建硬件在环（HIL）测试台架；(5) 指定一人作为**集成负责人**，有权阻止（而不仅仅是标记）破坏兼容性的变更。 |
+| 解决阶段 | **第 1 月（协议定义）+ 持续进行。** |
+
+### 风险 5：实际使用中的电池续航
+
+**严重程度：** 中等 | **概率：** 中等 | **缓解成本：** 低
+
+| 因素 | 详情 |
+|------|------|
+| 问题 | 电机驱动功耗取决于步态模式、用户体重和辅助级别。最坏情况（重型用户、高辅助、频繁坐站）可能消耗 25+ W，使 48 Wh 电池在 < 2 小时内耗尽。 |
+| 影响 | 临床可行性：康复训练应至少 45–60 分钟。2 小时可接受。< 1 小时不可接受。 |
+| 缓解措施 | (1) 在首次电动原型上测量实际功耗；(2) 步幅间使用低功耗状态；(3) 如需将电池容量增至 60 Wh（约 +100 g，可接受的权衡）；(4) 充电底座支持热插拔电池，适用于临床环境。 |
+| 解决阶段 | **第 4–5 月**，首次集成系统测试后。 |
+
+### 风险 6：热管理
+
+**严重程度：** 中等 | **概率：** 低–中等 | **缓解成本：** 低
+
+| 因素 | 详情 |
+|------|------|
+| 问题 | 电机驱动 + 电池 + MCU 位于腰部安装外壳（120 × 80 × 30 mm）内，气流有限。电机驱动（DRV8316）在 5 A 时可耗散 2–3 W。电池内阻在峰值功耗期间增加热量。 |
+| 影响 | 过热 → 降频 → 辅助减少；最坏情况：训练中途热关断。 |
+| 缓解措施 | (1) 将驱动器热耦合至铝制外壳；(2) 增加导热垫 + 散热器；(3) 在最坏情况下测量结温；(4) 外壳温度 80°C 时软件电流限制。 |
+| 解决阶段 | **第 4 月**，外壳设计期间。 |
+
+### 风险 7：监管（NMPA Class II）
+
+**严重程度：** 中等（产品）/ 高（时间线） | **概率：** 中等 | **缓解成本：** 中等
+
+| 因素 | 详情 |
+|------|------|
+| 问题 | NMPA Class II 医疗器械要求：ISO 13485 质量管理体系、可用性工程（IEC 62366）、软件生命周期（IEC 62304）、风险管理（ISO 14971）、临床评价。这些都不是原型优先的工程方法所内置的。追溯合规成本高昂。 |
+| 影响 | 如需重建设计历史档案，临床试验延迟 6–12 个月。 |
+| 缓解措施 | (1) 在原型**之前**聘请 NMPA 注册顾问（第 0 月）；(2) 从第 1 天起维护设计历史档案；(3) 记录所有设计决策及其理由；(4) 尽可能使用认证组件（ISO 10993）；(5) 争取"创新医疗器械"快速审批资格。 |
+| 解决阶段 | **第 0 月–持续。** 监管是时间线关键路径项。 |
+
+---
+
+## 5. 首批原型构建计划
+
+### 5.1 指导原则
+
+1. **优先降低延迟风险：** 最大的未知因素在于运动过程中干式 EEG 是否可用。第 1 月使用有线 EEG + 运动模拟器进行测试，在任何无线或机械工作之前。
+2. **手机作为推理引擎（Phase 1）：** 暂时跳过嵌入式 ML。手机处理让我们无需固件更新即可快速迭代 AI 模型。
+3. **原型使用现成电机：** 不设计定制电机。首个原型购买 T-motor。
+4. **3D 打印所有机械件：** CNC/碳纤维用于生产，不用于早期原型。
+5. **快速失败是目标：** 首个集成原型（第 3 月）几乎肯定无法正常工作。这没关系——它告诉我们修复什么。
+
+### 5.2 购买 vs 自建 vs 外包
+
+| 项目 | 决策 | 供应商 / 方式 | 预估成本（¥） | 时间线 |
+|------|------|-------------|--------------|--------|
+| **EEG 前端** | 购买 | ADS1299 评估模块 + 定制载板 | 8,000 | 第 2 周 |
+| **干电极（8 个）** | 购买 | OpenBCI 兼容干梳电极 | 1,500 | 第 1 周 |
+| **EEG 头带 PCB + 组装** | 自建 | 定制 PCB（ADS1299 + nRF52832 + 电源） | 20,000（首批 10 块） | 第 4–8 周 |
+| **BLE 模块** | 购买 | Nordic nRF52832 DK（开发套件）× 2 | 1,500 | 第 1 周 |
+| **BLE 模块** | 购买 | Nordic nRF5340 DK × 2 | 1,200 | 第 1 周 |
+| **IMU** | 购买 | Bosch BMI270 分线板 | 200 | 第 1 周 |
+| **电机（BLDC）** | 购买 | T-motor AK80-9（× 2，一块备用） | 3,000 | 第 2 周 |
+| **电机驱动** | 购买 | TI DRV8316 评估模块 + 定制板 | 4,000 | 第 3 周 |
+| **电机驱动 PCB** | 自建 | DRV8316 + STM32H743 定制载板 | 15,000 | 第 4–8 周 |
+| **MCU 开发板** | 购买 | STM32H743 Nucleo | 800 | 第 1 周 |
+| **电池（6S）** | 购买 | 18650 供应商定制 6S 锂离子电池包 | 3,000 | 第 4 周 |
+| **BMS** | 购买 | TI BQ76952 评估模块 | 1,500 | 第 4 周 |
+| **力传感器（张力）** | 购买 | S 型力传感器 1000 N + HX711 | 800 | 第 3 周 |
+| **髋关节机构** | 自建 | 3D 打印（PLA/ABS）+ 铝轴 | 2,000（材料费） | 第 4–6 周 |
+| **碳纤维锚点** | 外包 | 本地 CNC 工厂（碳纤维板 + 髋带框架） | 10,000 | 第 6–8 周 |
+| **套装布料** | 外包 | 本地裁缝/服装厂（定制织带 + 氯丁橡胶） | 5,000 | 第 6–8 周 |
+| **鲍登线 + 鞘** | 购买 | 标准自行车刹车线（PTFE 内衬）——便宜、可得 | 200 | 第 2 周 |
+| **控制盒外壳** | 自建 | 原型 3D 打印（PETG）；V2 CNC 铝制 | 1,000（3D 打印） | 第 5–7 周 |
+| **力传感器（缆线）** | 自建 | 内联力传感器支架（3D 打印 + 应变片） | 500 | 第 5 周 |
+| **手机（测试用）** | 购买 | 二手 iPhone SE（硬件 ML 测试设备） | 2,500 | 第 1 周 |
+| **示波器** | 购买 | Rigol DS1054Z（4 通道，50 MHz） | 2,500 | 第 1 周 |
+| **电源** | 购买 | Korad KA3005D（30 V，5 A） | 1,500 | 第 1 周 |
+| **信号发生器** | 购买 | JDS6600（EEG 模拟器用于测试） | 1,200 | 第 2 周 |
+| **工具** | 购买 | 焊台、万用表、手工工具 | 3,000 | 第 1 周 |
+| **3D 打印机** | 购买 | Bambu Lab P1S（快速原型） | 4,000 | 第 1 周 |
+| **应急储备金** | — | — | 93,300 | — |
+| | | | **总计 ¥200,000** | |
+
+**总计：约 ¥200,000**（直接 BOM + 测试设备约 ¥107,000 + 应急储备金约 ¥93,000，用于 PCB 改版、机械重设计和意外费用）。剩余 ¥1,800,000 用于：6 个月团队工资、临床费用、办公/实验室空间和注册咨询。
+
+### 5.3 团队分配（8 人，6 个月）
+
+| 角色 | 人数 | 重点（第 1–3 月） | 重点（第 3–6 月） |
+|------|------|------------------|------------------|
+| **EE 硬件负责人** | 1 | EEG 头带 PCB 设计 + 电极测试台架 + 调试 | 头带 V2，EMC 测试 |
+| **嵌入式固件** | 1 | BLE 协议，电机控制固件，传感器驱动 | 控制回路调优，传感器融合 |
+| **机械工程师** | 1 | 鲍登线测试台架，髋关节 CAD，套装集成 | 面向制造的设计，碳纤维零件 |
+| **算法 / ML** | 1 | EEG 数据采集管道，BP 检测模型训练 | 手机实时推理，个性化 |
+| **系统集成** | 1 | 协议规范，集成测试平台，HIL 台架 | 端到端验证，认证准备 |
+| **产品 / PM** | 1 | 用户测试协调，需求管理 | 临床医生访谈，家用 vs 临床规格 |
+| **临床 / 注册** | 1 | IRB 准备，NMPA 创新医疗器械申请 | 临床方案设计，ISO 13485 差距分析 |
+| **工业设计师** | 1 | 可穿戴人机工程，头带形态，套装美学 | 量产级工业设计 |
+
+### 5.4 6 个月开发时间线
 
 ```
-Month 01 | Month 02 | Month 03 | Month 04 | Month 05 | Month 06
+第 01 月 | 第 02 月 | 第 03 月 | 第 04 月 | 第 05 月 | 第 06 月
 ─────────────────────────────────────────────────────────────────────
-EEG TEST    │         │         │         │         │
-RIG ───────►│         │         │         │         │
- (Wired)    │ PCB V1  │         │         │         │
-            │ ───────►│ FW+TEST │         │         │
+EEG 测试    │         │         │         │         │
+台架 ───────►│         │         │         │         │
+ (有线)     │ PCB V1  │         │         │         │
+            │ ───────►│ FW+测试 │         │         │
             │         │ ───────►│  PCB V2 │         │
-            │         │         │  ──────►│ INTEGR. │
-            │CABLE    │         │         │ ───────►│
-MOTOR TEST  │BENCH    │ PROTOT. │         │         │
-BENCH ─────►│────────►│ SUIT V1 │ ME V2   │ E2E     │
-            │         │ ───────►│────────►│ TEST ──►│
-            │ML DATA   │         │         │         │
-            │COLLECT   │ MODEL   │ ON-PHONE│ TUNE    │
-BP ALGO     │────────►│ TRAIN ─►│ TEST ──►│ ───────►│
+            │         │         │  ──────►│ 集成   │
+            │缆线     │         │         │ ───────►│
+电机测试    │台架     │ 原型    │         │         │
+台架 ──────►│────────►│ 套装 V1 │ 机构V2  │ 端到端  │
+            │         │ ───────►│────────►│ 测试──►│
+            │ML 数据   │         │         │         │
+            │采集     │ 模型    │ 手机上  │ 调优    │
+BP 算法     │────────►│ 训练──►│ 测试──►│ ───────►│
             │         │         │         │         │
-PROTOCOL    │ INTEG.  │         │         │         │
-SPEC ──────►│ HIL     │ SUBSYS  │ E2E V1  │ E2E V2  │
-            │ ───────►│ TEST ──►│ TEST ──►│ ───────►│
+协议        │ 集成    │         │         │         │
+规范 ──────►│ HIL     │ 子系统  │ 端到端V1│ 端到端V2│
+            │ ───────►│ 测试──►│ 测试──►│ ───────►│
             │         │         │         │         │
-            │ IRB     │         │ CLIN    │         │
-REGULATORY  │ SUBMIT  │  NMPA   │ DATA    │ REPORT  │
-───────────►│────────►│ ───────►│ COLLECT │────────►│
+            │ IRB     │         │ 临床    │         │
+注册        │ 提交    │  NMPA   │ 数据    │ 报告    │
+───────────►│────────►│ ───────►│ 采集───│────────►│
 ```
 
-**Key Milestones:**
+**关键里程碑：**
 
-| Month | Milestone | Deliverable |
-|-------|-----------|-------------|
-| M1 | EEG feasibility confirmed | SNR report: dry EEG under motion ≥ 3 dB |
-| M1 | Communication protocol frozen | Proto spec document signed by all teams |
-| M2 | Motor + cable characterization done | Torque control transfer function; friction model |
-| M2 | Headband PCB V1 assembled | 8-channel wireless EEG streaming to phone |
-| M3 | First integrated prototype (lab bench) | Signals: EEG→Phone→Motor→Force. Not wearable yet. |
-| M4 | Wearable prototype assembled | Headband + control box + suit fully integrated, tethered only for debug |
-| M4 | ML model achieves > 75% BP detection AUC on 5 subjects | Offline evaluation on collected dataset |
-| M5 | Real-time intention decoding on phone | < 200 ms E2E latency verified on test bench |
-| M5 | IRB approved for pilot clinical study | Can begin recruitment |
-| M6 | E2E validation: 5 healthy subjects, 3 stroke patients | Latency < 200 ms, torque accuracy < ±0.5 Nm, no SAEs |
-| M6 | NMPA innovative device application submitted | Decision within 60 days |
+| 月份 | 里程碑 | 交付物 |
+|------|--------|--------|
+| M1 | EEG 可行性确认 | 信噪比报告：运动下干式 EEG ≥ 3 dB |
+| M1 | 通信协议冻结 | 所有团队签署的协议规范文档 |
+| M2 | 电机 + 缆线特性完成 | 扭矩控制传递函数；摩擦模型 |
+| M2 | 头带 PCB V1 组装完成 | 8 通道无线 EEG 流式传输到手机 |
+| M3 | 首款集成原型（实验台） | 信号：EEG→手机→电机→力。尚不可穿戴。 |
+| M4 | 可穿戴原型组装完成 | 头带 + 控制盒 + 套装完全集成，仅调试用有线连接 |
+| M4 | ML 模型在 5 名受试者上达到 > 75% BP 检测 AUC | 在采集的数据集上离线评估 |
+| M5 | 手机上实时意图解码 | 测试台架上验证端到端延迟 < 200 ms |
+| M5 | IRB 批准试点临床研究 | 可开始招募 |
+| M6 | 端到端验证：5 名健康受试者，3 名脑卒中患者 | 延迟 < 200 ms，扭矩精度 < ±0.5 Nm，无严重不良事件 |
+| M6 | NMPA 创新医疗器械申请提交 | 60 天内决定 |
 
-### 5.5 Prototype Success Criteria
+### 5.5 原型成功标准
 
-A successful first prototype must demonstrate:
+成功的首批原型必须证明：
 
-1. **Data flow completeness:** EEG signal acquired, transmitted, decoded, and converted to motor torque — no matter how poorly — at least once.
-2. **E2E latency < 200 ms:** Measured on bench with simulated EEG signal.
-3. **Torque control accuracy < ±1 Nm:** At steady state, under no-load bench test.
-4. **Wearable for 30 minutes:** No skin irritation, no electrode detachment, no overheating.
-5. **EEG detectable during walking:** On at least 3/5 healthy subjects, MRCP visible in at least 50% of strides.
+1. **数据流完整性：** EEG 信号成功采集、传输、解码并转换为电机扭矩——无论效果多差——至少一次。
+2. **端到端延迟 < 200 ms：** 使用模拟 EEG 信号在台架上测量。
+3. **扭矩控制精度 < ±1 Nm：** 稳态、空载台架测试下。
+4. **可穿戴 30 分钟：** 无皮肤刺激、无电极脱落、无过热。
+5. **步行中 EEG 可检测：** 至少 3/5 名健康受试者在至少 50% 的步幅中可见 MRCP。
 
 ---
 
-## 6. Appendix: Communication Protocol Summary
+## 6. 附录：通信协议汇总
 
-To avoid the most common integration failure (protocol mismatch), the following interfaces are defined upfront:
+为避免最常见的集成失败（协议不匹配），以下接口预先定义：
 
-### 6.1 EEG Headband → Phone (BLE)
+### 6.1 EEG 头带 → 手机（BLE）
 
-| Parameter | Value |
-|-----------|-------|
-| Transport | BLE GATT Notify |
-| Service UUID | `0xFEE0` (custom) |
-| Characteristic | `EEG_DATA` (UUID: `EEG0-001`) |
-| Packet format | 8 channels × 3 bytes (24-bit signed) + 1 byte status + 2 byte sequence = **27 bytes per packet** |
-| Packet interval | 20 ms (50 Hz update) |
-| Battery characteristic | `BATT_LEVEL` (UUID: `EEG0-002`), 1 byte, 0–100% |
+| 参数 | 值 |
+|------|-----|
+| 传输方式 | BLE GATT Notify |
+| 服务 UUID | `0xFEE0`（自定义） |
+| 特征值 | `EEG_DATA`（UUID：`EEG0-001`） |
+| 数据包格式 | 8 通道 × 3 字节（24 位有符号）+ 1 字节状态 + 2 字节序号 = **每包 27 字节** |
+| 数据包间隔 | 20 ms（50 Hz 更新） |
+| 电池特征值 | `BATT_LEVEL`（UUID：`EEG0-002`），1 字节，0–100% |
 
-### 6.2 Phone → Control Box (BLE)
+### 6.2 手机 → 控制盒（BLE）
 
-| Parameter | Value |
-|-----------|-------|
-| Transport | BLE GATT Write |
-| Service UUID | `0xFEE1` (custom) |
-| Characteristic | `CMD_TORQUE` (UUID: `CTL0-001`) |
-| Packet format | 2 byte torque setpoint (0.01 Nm resolution) + 1 byte command type + 2 byte sequence = **5 bytes** |
-| Command types | 0x01: torque profile (setpoint + duration), 0x02: emergency stop, 0x03: calibration home |
+| 参数 | 值 |
+|------|-----|
+| 传输方式 | BLE GATT Write |
+| 服务 UUID | `0xFEE1`（自定义） |
+| 特征值 | `CMD_TORQUE`（UUID：`CTL0-001`） |
+| 数据包格式 | 2 字节扭矩设定点（0.01 Nm 分辨率）+ 1 字节命令类型 + 2 字节序号 = **5 字节** |
+| 命令类型 | 0x01：扭矩曲线（设定点 + 持续时间），0x02：紧急停止，0x03：校准归零 |
 
-### 6.3 Control Box → Phone (BLE)
+### 6.3 控制盒 → 手机（BLE）
 
-| Parameter | Value |
-|-----------|-------|
-| Transport | BLE GATT Notify |
-| Service UUID | `0xFEE2` (custom) |
-| Characteristic | `STATE_VECTOR` (UUID: `CTL0-002`) |
-| Packet format | 4-byte hip angle (float, degrees) + 4-byte angular velocity + 4-byte cable force (N) + 2-byte motor position + 1-byte status = **15 bytes**, @ 50 Hz |
+| 参数 | 值 |
+|------|-----|
+| 传输方式 | BLE GATT Notify |
+| 服务 UUID | `0xFEE2`（自定义） |
+| 特征值 | `STATE_VECTOR`（UUID：`CTL0-002`） |
+| 数据包格式 | 4 字节髋关节角度（浮点数，度）+ 4 字节角速度 + 4 字节缆线力（N）+ 2 字节电机位置 + 1 字节状态 = **15 字节**，@ 50 Hz |
 
-### 6.4 Wired Internal (Control Box Internals)
+### 6.4 有线内部（控制盒内部）
 
-| Interface | Protocol | Pins | Baud / Speed |
-|-----------|----------|------|-------------|
-| MCU ↔ Motor Driver | SPI / PWM | SCK, MOSI, MISO, CS + 2 PWM | 10 MHz SPI, 50 kHz PWM |
+| 接口 | 协议 | 引脚 | 波特率 / 速度 |
+|------|------|------|-------------|
+| MCU ↔ 电机驱动 | SPI / PWM | SCK, MOSI, MISO, CS + 2 PWM | 10 MHz SPI, 50 kHz PWM |
 | MCU ↔ IMU | I2C | SCL, SDA | 400 kHz |
-| MCU ↔ Force Sensor | Analog (ADC) / I2C | AIN or I2C | 12-bit, 200 Hz |
-| MCU ↔ BLE Module | UART | TX, RX, RTS, CTS | 921600 baud |
+| MCU ↔ 力传感器 | 模拟（ADC）/ I2C | AIN 或 I2C | 12 位, 200 Hz |
+| MCU ↔ BLE 模块 | UART | TX, RX, RTS, CTS | 921600 波特 |
 
 ---
 
-*End of document. This is a living draft — update as specifications are validated or changed.*
+*文档结束。此为活跃草案——随规格验证或变更更新。*

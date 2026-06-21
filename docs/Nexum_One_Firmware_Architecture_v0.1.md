@@ -1,305 +1,306 @@
-# Nexum One — Firmware Architecture
+# Nexum One — 固件架构
 
 **v0.1** · 2026-06-21
-**Scope:** EEG-Sense headband firmware + Control Box firmware + BLE protocol stack
+**范围:** EEG感应头带固件 + 控制盒固件 + BLE协议栈
 
 ---
 
-## 1. System Overview
+## 1. 系统概述
 
 ```
 ┌─────────────────────────────────────┐
 │           EEG-Sense (nRF52832)       │
 │  ┌───────┐  ┌──────┐  ┌──────────┐  │
 │  │ADS1299│  │ DSP  │  │ BLE Stack│  │
-│  │ Driver │→ │ CAR  │→ │ Notify   │  │
-│  │       │  │ IIR  │  │ 50 Hz    │  │
+│  │ 驱动   │→ │ 共模 │→ │ 通知    │  │
+│  │       │  │ 参考 │  │ 50 Hz    │  │
+│  │       │  │ IIR  │  │          │  │
 │  └───────┘  └──────┘  └──────────┘  │
 └────────────────┬────────────────────┘
-                 │ BLE (GATT Notify)
+                 │ BLE (GATT 通知)
                  ▼
 ┌─────────────────────────────────────┐
-│        Nexum App (Phone)             │
+│         Nexum 应用 (手机)             │
 │  ┌──────────┐  ┌──────────────────┐  │
-│  │ BLE RX   │  │ CoreML/ONNX      │  │
-│  │ Buffer   │→ │ EEGNet Inference │  │
+│  │ BLE 接收 │  │ CoreML/ONNX      │  │
+│  │ 缓冲区   │→ │ EEGNet 推理     │  │
 │  └──────────┘  └────────┬─────────┘  │
-│                         │ Intention   │
+│                         │ 意图        │
 │  ┌──────────────────────▼──────────┐  │
-│  │ MSK model → RL policy → CMD    │  │
+│  │ MSK 模型 → RL 策略 → 指令      │  │
 │  └──────────────────────┬──────────┘  │
 └─────────────────────────┬───────────┘
-                          │ BLE (GATT Write)
+                          │ BLE (GATT 写入)
                           ▼
 ┌─────────────────────────────────────┐
-│       Control Box (nRF5340 + STM32)  │
+│        控制盒 (nRF5340 + STM32)      │
 │  ┌────────┐ ┌──────────┐ ┌───────┐  │
-│  │BLE RX  │ │Sensor    │ │Motor  │  │
-│  │+ Parse │→│Fusion    │→│FOC    │→ │
+│  │BLE 接收│ │传感器    │ │电机   │  │
+│  │+ 解析   │→│融合     │→│FOC    │→ │
 │  └────────┘ └──────────┘ └───────┘  │
 │  ┌────────┐ ┌──────────┐ ┌───────┐  │
-│  │Safety  │ │State     │ │BLE TX │  │
-│  │Monitor │ │Estimator │ │Notify │  │
+│  │安全    │ │状态      │ │BLE 发送│  │
+│  │监控    │ │估计器    │ │通知   │  │
 │  └────────┘ └──────────┘ └───────┘  │
 └─────────────────────────────────────┘
 ```
 
 ---
 
-## 2. EEG-Sense Headband Firmware (nRF52832)
+## 2. EEG感应头带固件 (nRF52832)
 
-### 2.1 Architecture
+### 2.1 架构
 
-**RTOS:** FreeRTOS (or Zephyr RTOS if using nRF Connect SDK)
-**Language:** C
-**SDK:** nRF5 SDK 17.1.0 or nRF Connect SDK 2.x
+**RTOS:** FreeRTOS（若使用 nRF Connect SDK 则使用 Zephyr RTOS）
+**语言:** C
+**SDK:** nRF5 SDK 17.1.0 或 nRF Connect SDK 2.x
 
-### 2.2 Tasks
+### 2.2 任务
 
-| Task | Priority | Period | Stack | Description |
-|------|----------|--------|-------|-------------|
-| `ads1299_read_task` | HIGH | 4 ms (250 Hz) | 2048 B | SPI read 8 channels from ADS1299, push to ring buffer |
-| `dsp_task` | HIGH | 4 ms | 4096 B | CAR, bandpass (0.5–40 Hz), notch (50 Hz) on latest buffer |
-| `ble_notify_task` | MEDIUM | 20 ms (50 Hz) | 1024 B | Packetize 27-byte data, send GATT notify |
-| `impedance_check_task` | LOW | 1000 ms | 512 B | Measure electrode impedance per channel |
-| `power_mgmt_task` | LOW | 100 ms | 256 B | Monitor battery, manage sleep states |
-| `cmd_handler_task` | MEDIUM | Event-driven | 512 B | Handle BLE write commands from App |
+| 任务 | 优先级 | 周期 | 栈大小 | 描述 |
+|------|--------|------|--------|------|
+| `ads1299_read_task` | 高 | 4 毫秒 (250 Hz) | 2048 B | 通过 SPI 从 ADS1299 读取 8 通道数据，推入环形缓冲区 |
+| `dsp_task` | 高 | 4 毫秒 | 4096 B | 对最新缓冲区执行共模平均参考(CAR)、带通滤波(0.5–40 Hz)、陷波(50 Hz) |
+| `ble_notify_task` | 中 | 20 毫秒 (50 Hz) | 1024 B | 打包 27 字节数据，发送 GATT 通知 |
+| `impedance_check_task` | 低 | 1000 毫秒 | 512 B | 逐通道测量电极阻抗 |
+| `power_mgmt_task` | 低 | 100 毫秒 | 256 B | 监控电池电量，管理休眠状态 |
+| `cmd_handler_task` | 中 | 事件驱动 | 512 B | 处理来自应用的 BLE 写入命令 |
 
-### 2.3 ADS1299 Driver
+### 2.3 ADS1299 驱动
 
 ```c
-// Initialization sequence (power-on → DRDY interrupt → read data)
+// 初始化序列（上电 → DRDY 中断 → 读取数据）
 typedef struct {
-    uint8_t  id;              // ADS1299 ID register (should read 0x3E)
+    uint8_t  id;              // ADS1299 ID 寄存器（应读取为 0x3E）
     uint8_t  chan_count;      // 8
     uint16_t sample_rate;     // 250 SPS
-    uint8_t  gain;            // 12 or 24
-    uint8_t  input_mode;      // Normal electrode input
-    uint8_t  bias_drive;      // DRL bias drive enabled
-    uint8_t  lead_off_mode;   // Lead-off detection current
-    bool     internal_ref;    // Use internal reference (4.5V)
+    uint8_t  gain;            // 12 或 24
+    uint8_t  input_mode;      // 标准电极输入
+    uint8_t  bias_drive;      // DRL 偏置驱动启用
+    uint8_t  lead_off_mode;   // 脱落检测电流
+    bool     internal_ref;    // 使用内部参考电压 (4.5V)
 } ads1299_config_t;
 
-// Data format per sample: 8 channels × 3 bytes (24-bit signed), MSB first
+// 每采样数据格式：8 通道 × 3 字节（24 位有符号），MSB 优先
 typedef struct __attribute__((packed)) {
-    int32_t ch[8];  // Sign-extended from 24-bit
-    uint8_t status; // Lead-off flags + GPIO
-    uint16_t seq;   // Sequence number
+    int32_t ch[8];  // 从 24 位符号扩展
+    uint8_t status; // 脱落标志 + GPIO
+    uint16_t seq;   // 序列号
 } eeg_sample_t;
 ```
 
-### 2.4 DSP Pipeline (on nRF52832 Cortex-M4F)
+### 2.4 DSP 流水线（在 nRF52832 Cortex-M4F 上运行）
 
 ```
-Raw samples (8ch × 250Hz × 24bit)
-  → DC offset removal (1st order HPF, fc=0.1 Hz)
-  → Common Average Referencing (CAR): ch[n] -= mean(all channels)
-  → Butterworth bandpass 0.5–40 Hz (4th order, cascaded biquads)
-  → Notch 50 Hz (2nd order IIR)
-  → Output: 8ch × 250 SPS × 16-bit (round to 16-bit to save BLE bandwidth)
+原始采样值（8通道 × 250Hz × 24位）
+  → 直流偏移消除（1 阶高通滤波器，fc=0.1 Hz）
+  → 共模平均参考(CAR)：ch[n] -= mean(所有通道)
+  → Butterworth 带通滤波器 0.5–40 Hz（4 阶，级联双二阶节）
+  → 50 Hz 陷波器（2 阶 IIR）
+  → 输出：8通道 × 250 SPS × 16 位（舍入到 16 位以节省 BLE 带宽）
 ```
 
-**IIR filter implementation:** Direct Form II transposed biquad sections.
-**Coefficient storage:** Pre-computed and stored in flash. Switchable filter bank for different bandwidth settings.
+**IIR 滤波器实现:** 直接 II 型转置双二阶节。
+**系数存储:** 预计算并存储在 Flash 中。可切换的滤波器组，支持不同带宽设置。
 
-### 2.5 BLE GATT Service Definition
+### 2.5 BLE GATT 服务定义
 
 ```
-Service: 0xFEE0 (EEG Data Service)
+Service: 0xFEE0 (EEG 数据服务)
   Characteristic: EEG_DATA (UUID: EEG0-001)
     Properties: Notify
-    Format: 27 bytes per packet
-      - 8 channels × 2 bytes (16-bit, MSB)
-      - 8 bytes electrode status bits
-      - 1 byte battery level (0–100%)
-      - 2 byte sequence number
-    
-  Characteristic: IMPEDANCE (UUID: EEG0-003)
-    Properties: Read, Notify
-    Format: 8 channels × 2 bytes (kΩ × 10)
-    
-  Characteristic: CMD_RX (UUID: EEG0-004)
-    Properties: Write
-    Format: 1 byte command + 2 bytes parameter
+    Format: 每包 27 字节
+      - 8 通道 × 2 字节（16 位，MSB）
+      - 8 字节电极状态位
+      - 1 字节电池电量 (0–100%)
+      - 2 字节序列号
 
-Service: 0x180F (Battery Service — standard)
+  Characteristic: IMPEDANCE (UUID: EEG0-003)
+    Properties: 读取, 通知
+    Format: 8 通道 × 2 字节（kΩ × 10）
+
+  Characteristic: CMD_RX (UUID: EEG0-004)
+    Properties: 写入
+    Format: 1 字节命令 + 2 字节参数
+
+Service: 0x180F (电池服务 — 标准)
 ```
 
-### 2.6 Power Management
+### 2.6 电源管理
 
-| State | Current Draw | Entry Condition | Exit Condition |
-|-------|-------------|-----------------|----------------|
-| Active (streaming) | ~25 mA | User wearing + App connected | — |
-| Idle (advertising) | ~5 mA | Power on, no connection | App connects |
-| Deep sleep | ~50 µA | Power button long press | Power button press |
-| Charging | N/A | USB-C plugged in | USB-C unplugged |
+| 状态 | 电流消耗 | 进入条件 | 退出条件 |
+|------|---------|---------|---------|
+| 活跃（数据流） | ~25 mA | 用户佩戴 + 应用连接 | — |
+| 空闲（广播） | ~5 mA | 开机，无连接 | 应用连接 |
+| 深度睡眠 | ~50 µA | 长按电源键 | 按电源键 |
+| 充电中 | 不适用 | USB-C 插入 | USB-C 拔出 |
 
-**Battery life (active):** 200 mAh / 25 mA ≈ 8 hours (target >4h achieved)
+**电池续航（活跃状态）：** 200 mAh / 25 mA ≈ 8 小时（目标 >4 小时已达成）
 
 ---
 
-## 3. Control Box Firmware
+## 3. 控制盒固件
 
-### 3.1 Dual-Core Architecture (nRF5340 + optional STM32H743)
+### 3.1 双核架构 (nRF5340 + 可选 STM32H743)
 
-**Option A (Proto):** nRF5340-only
-- **App core (Cortex-M33, 128 MHz):** BLE stack, command parsing, sensor fusion
-- **Net core (Cortex-M33, 64 MHz):** Motor control FOC, safety monitor
+**方案 A（原型）：** 仅 nRF5340
+- **应用核心 (Cortex-M33, 128 MHz):** BLE 协议栈、命令解析、传感器融合
+- **网络核心 (Cortex-M33, 64 MHz):** 电机 FOC 控制、安全监控
 
-**Option B (Production):** nRF5340 (BLE + sensor) + STM32H743 (motor control)
-- nRF5340 handles BLE and IMU sensor fusion
-- STM32H743 handles motor FOC, encoder reading, load cell ADC
+**方案 B（量产）：** nRF5340 (BLE + 传感器) + STM32H743 (电机控制)
+- nRF5340 负责 BLE 和 IMU 传感器融合
+- STM32H743 负责电机 FOC、编码器读取、力传感器 ADC
 
-### 3.2 Option B Task Map (Production Target)
+### 3.2 方案 B 任务映射（量产目标）
 
-#### nRF5340 App Core
+#### nRF5340 应用核心
 
-| Task | Priority | Period | Description |
-|------|----------|--------|-------------|
-| `ble_rx_task` | HIGH | Event | Receive command from phone, parse, push to command queue |
-| `imu_read_task` | HIGH | 10 ms | Read BMI270 (6-axis), push to sensor buffer |
-| `sensor_fusion_task` | HIGH | 10 ms | Madgwick AHRS → hip angle, angular velocity |
-| `state_tx_task` | MEDIUM | 20 ms | Packetize state vector, BLE notify to phone |
-| `safety_watchdog_task` | HIGH | 5 ms | Monitor STM32 heartbeat, check limits, trigger E-stop if needed |
+| 任务 | 优先级 | 周期 | 描述 |
+|------|--------|------|------|
+| `ble_rx_task` | 高 | 事件 | 从手机接收命令，解析，推入命令队列 |
+| `imu_read_task` | 高 | 10 毫秒 | 读取 BMI270（6 轴），推入传感器缓冲区 |
+| `sensor_fusion_task` | 高 | 10 毫秒 | Madgwick AHRS → 髋关节角度、角速度 |
+| `state_tx_task` | 中 | 20 毫秒 | 打包状态向量，通过 BLE 通知发送至手机 |
+| `safety_watchdog_task` | 高 | 5 毫秒 | 监控 STM32 心跳，检查限值，必要时触发急停 |
 
-#### STM32H743 (Motor Control)
+#### STM32H743 (电机控制)
 
-| Task | Priority | Period | Description |
-|------|----------|--------|-------------|
-| `foc_loop` | CRITICAL | 50 µs (20 kHz) | Field-Oriented Control current loop |
-| `torque_controller` | HIGH | 1 ms | PI controller: torque setpoint → i_q reference |
-| `encoder_read_task` | HIGH | 1 ms | SPI read AS5048A magnetic encoder |
-| `loadcell_read_task` | MEDIUM | 5 ms | Read HX711 load cell amplifier |
-| `cmd_dispatch_task` | HIGH | 2 ms | Pop from command queue → update torque setpoint |
-| `thermal_monitor_task` | LOW | 500 ms | Read temperature sensors, throttle if >80°C |
+| 任务 | 优先级 | 周期 | 描述 |
+|------|--------|------|------|
+| `foc_loop` | 关键 | 50 µs (20 kHz) | 磁场定向控制电流环 |
+| `torque_controller` | 高 | 1 毫秒 | PI 控制器：扭矩设定点 → i_q 参考值 |
+| `encoder_read_task` | 高 | 1 毫秒 | 通过 SPI 读取 AS5048A 磁编码器 |
+| `loadcell_read_task` | 中 | 5 毫秒 | 读取 HX711 力传感器放大器 |
+| `cmd_dispatch_task` | 高 | 2 毫秒 | 从命令队列弹出 → 更新扭矩设定点 |
+| `thermal_monitor_task` | 低 | 500 毫秒 | 读取温度传感器，若 >80°C 则降额运行 |
 
-### 3.3 FOC Motor Control
+### 3.3 FOC 电机控制
 
 ```
-Control structure (cascaded loops):
+控制结构（级联环路）：
 
-Torque Cmd → [PI Torque Controller] → iq_ref → [PI Current Loop] → Vq → [SVPWM] → DRV8316
-              ↑ Actual torque (load cell)         ↑ ia, ib, ic (shunt current sense)
-              
-iq_ref = torque_cmd / Kt           (Kt = motor torque constant, Nm/A)
-id_ref = 0                          (Maximum Torque Per Ampere for surface PMSM)
+扭矩指令 → [PI 扭矩控制器] → iq_ref → [PI 电流环] → Vq → [SVPWM] → DRV8316
+              ↑ 实际扭矩（力传感器）         ↑ ia, ib, ic（分流电流采样）
 
-Current loop: 20 kHz (50 µs period)
-Torque loop:  1 kHz (1 ms period)
+iq_ref = torque_cmd / Kt           (Kt = 电机扭矩常数，Nm/A)
+id_ref = 0                          （表贴式 PMSM 的最大扭矩电流比）
+
+电流环：20 kHz (50 µs 周期)
+扭矩环：1 kHz (1 毫秒周期)
 ```
 
-**Motor parameters (T-motor AK80-9):**
-- Poles: 14 (7 pairs)
-- Kt: 0.08 Nm/A (estimated; measure on test bench)
+**电机参数 (T-motor AK80-9):**
+- 极数: 14 (7 对极)
+- Kt: 0.08 Nm/A（估计值；需在测试台上测量）
 - Ke: 0.08 V/(rad/s)
-- Phase resistance: 0.3 Ω (estimated)
-- Phase inductance: 0.2 mH (estimated)
-- Max phase current: 10 A (peak)
+- 相电阻: 0.3 Ω（估计值）
+- 相电感: 0.2 mH（估计值）
+- 最大相电流: 10 A（峰值）
 
-### 3.4 Sensor Fusion
+### 3.4 传感器融合
 
 ```
-IMU (BMI270):   6-axis: accel (3) + gyro (3) @ 100 Hz
-Encoder (AS5048): Motor rotor angle @ 1000 Hz
-Load cell (HX711): Cable tension @ 200 Hz
+IMU (BMI270):   6 轴：加速度计 (3) + 陀螺仪 (3) @ 100 Hz
+编码器 (AS5048): 电机转子角度 @ 1000 Hz
+力传感器 (HX711): 线缆张力 @ 200 Hz
 
-Fusion algorithm: Madgwick AHRS (quaternion-based)
+融合算法：Madgwick AHRS（基于四元数）
 
-Outputs:
-  - Hip flexion angle (degrees) — from IMU + encoder cable displacement
-  - Angular velocity (deg/s) — from gyro
-  - Cable tension (N) — from load cell
-  - Gait phase — from hip angle + angular velocity (0% = heel strike, 60% = toe off)
+输出：
+  - 髋关节屈曲角度（度）— 来自 IMU + 编码器线缆位移
+  - 角速度（度/秒）— 来自陀螺仪
+  - 线缆张力 (N) — 来自力传感器
+  - 步态相位 — 来自髋关节角度 + 角速度（0% = 足跟着地，60% = 足趾离地）
 ```
 
-### 3.5 Safety Monitor (Independent from Motor Control)
+### 3.5 安全监控（独立于电机控制）
 
 ```c
-// Runs on nRF5340 app core, independent from motor control STM32
+// 在 nRF5340 应用核心上运行，独立于电机控制 STM32
 typedef struct {
-    float hip_angle_max;      // 90° flexion hard limit
-    float hip_angle_min;      // -20° extension hard limit
-    float cable_force_max;    // 800 N mechanical limit
-    float motor_temp_max;     // 125°C junction
-    float enclosure_temp_max; // 48°C surface
-    float current_max;        // 10A phase current
-    uint32_t watchdog_timeout_ms; // 100ms — STM32 must toggle GPIO
+    float hip_angle_max;      // 90° 屈曲硬限位
+    float hip_angle_min;      // -20° 伸展硬限位
+    float cable_force_max;    // 800 N 机械限位
+    float motor_temp_max;     // 125°C 结温
+    float enclosure_temp_max; // 48°C 外壳温度
+    float current_max;        // 10A 相电流
+    uint32_t watchdog_timeout_ms; // 100ms — STM32 必须周期性切换 GPIO
 } safety_limits_t;
 
-// E-Stop sequence:
-// 1. Set PWM duty to 0 (coast)
-// 2. Assert DRV8316 nSLEEP pin (Hi-Z motor outputs)
-// 3. Notify phone with error code
-// 4. Blink LED red at 2 Hz
+// 急停序列：
+// 1. 将 PWM 占空比设为 0（滑行）
+// 2. 拉低 DRV8316 nSLEEP 引脚（电机输出高阻态）
+// 3. 通过 BLE 通知手机错误代码
+// 4. 红色 LED 以 2 Hz 闪烁
 ```
 
 ---
 
-## 4. BLE Protocol Specification
+## 4. BLE 协议规范
 
-### 4.1 Services and Characteristics
+### 4.1 服务和特征
 
-| Service UUID | Characteristic UUID | Properties | Name | Payload |
-|-------------|---------------------|------------|------|---------|
-| `0xFEE0` | `EEG0-001` | Notify | EEG_DATA | 27 bytes (8ch×2B + status×8B + batt + seq) |
-| `0xFEE0` | `EEG0-003` | Read, Notify | IMPEDANCE | 16 bytes (8ch×2B, kΩ×10) |
-| `0xFEE0` | `EEG0-004` | Write | CMD_RX | 3 bytes (cmd + param) |
-| `0xFEE1` | `CTL0-001` | Write | CMD_TORQUE | 5 bytes (torque×2B + cmd + seq×2B) |
-| `0xFEE2` | `CTL0-002` | Notify | STATE_VECTOR | 15 bytes (angle×4 + vel×4 + force×4 + motor_pos×2 + status) |
-| `0xFEE2` | `CTL0-003` | Write | EMERGENCY | 2 bytes (0x454D + 0x5354 = "EMST") |
-| `0x180A` | `0x2A29` | Read | Manufacturer | "Nexum" |
-| `0x180A` | `0x2A26` | Read | Firmware Rev | "1.0.0" |
+| 服务 UUID | 特征 UUID | 属性 | 名称 | 负载 |
+|-----------|-----------|------|------|------|
+| `0xFEE0` | `EEG0-001` | 通知 | EEG_DATA | 27 字节 (8ch×2B + 状态×8B + 电量 + 序列号) |
+| `0xFEE0` | `EEG0-003` | 读取, 通知 | IMPEDANCE | 16 字节 (8ch×2B, kΩ×10) |
+| `0xFEE0` | `EEG0-004` | 写入 | CMD_RX | 3 字节 (命令 + 参数) |
+| `0xFEE1` | `CTL0-001` | 写入 | CMD_TORQUE | 5 字节 (扭矩×2B + 命令 + 序列号×2B) |
+| `0xFEE2` | `CTL0-002` | 通知 | STATE_VECTOR | 15 字节 (角度×4 + 速度×4 + 力×4 + 电机位置×2 + 状态) |
+| `0xFEE2` | `CTL0-003` | 写入 | EMERGENCY | 2 字节 (0x454D + 0x5354 = "EMST") |
+| `0x180A` | `0x2A29` | 读取 | Manufacturer | "Nexum" |
+| `0x180A` | `0x2A26` | 读取 | Firmware Rev | "1.0.0" |
 
-### 4.2 Command Types
+### 4.2 命令类型
 
-| Byte Value | Command | Parameters |
-|------------|---------|------------|
-| 0x01 | TORQUE_PROFILE | 2B setpoint (0.01 Nm), 1B duration (×10ms), 2B seq |
-| 0x02 | EMERGENCY_STOP | None (or 0x454D5354) |
-| 0x03 | CALIBRATION_HOME | None |
-| 0x04 | SET_ASSIST_LEVEL | 1B level (0–100%) |
-| 0x05 | SET_MODE | 1B: 0=passive, 1=active, 2=resistive |
+| 字节值 | 命令 | 参数 |
+|--------|------|------|
+| 0x01 | TORQUE_PROFILE | 2B 设定点 (0.01 Nm), 1B 持续时间 (×10ms), 2B 序列号 |
+| 0x02 | EMERGENCY_STOP | 无 (或 0x454D5354) |
+| 0x03 | CALIBRATION_HOME | 无 |
+| 0x04 | SET_ASSIST_LEVEL | 1B 等级 (0–100%) |
+| 0x05 | SET_MODE | 1B: 0=被动, 1=主动, 2= resistive |
 
-### 4.3 Connection Parameters
+### 4.3 连接参数
 
-| Parameter | Value | Rationale |
-|-----------|-------|-----------|
-| Connection interval min | 15 ms | Lower = lower latency but higher power |
-| Connection interval max | 30 ms | Acceptable for 50 Hz EEG notify |
-| Slave latency | 0 | No latency tolerated for real-time control |
-| Supervision timeout | 500 ms | Detect disconnection quickly |
-| PHY | 2M (BLE 5.0) | Higher throughput for EEG data |
-| MTU | 247 bytes | Maximum BLE 5.0 MTU |
-| DLE | 251 bytes | Maximum data length extension |
+| 参数 | 值 | 理由 |
+|------|-----|------|
+| 连接间隔最小值 | 15 毫秒 | 越小延迟越低但功耗越高 |
+| 连接间隔最大值 | 30 毫秒 | 对 50 Hz EEG 通知可接受 |
+| 从机延迟 | 0 | 实时控制不容许延迟 |
+| 监控超时 | 500 毫秒 | 快速检测断连 |
+| PHY | 2M (BLE 5.0) | 为 EEG 数据提供更高吞吐量 |
+| MTU | 247 字节 | BLE 5.0 最大 MTU |
+| DLE | 251 字节 | 最大数据长度扩展 |
 
 ---
 
-## 5. Firmware Build & Deploy
+## 5. 固件构建与部署
 
-### 5.1 Build System
+### 5.1 构建系统
 
-| Target | Build System | Compiler | Debug Probe |
-|--------|-------------|----------|-------------|
+| 目标 | 构建系统 | 编译器 | 调试探针 |
+|------|---------|--------|---------|
 | nRF52832 (EEG) | nRF Connect SDK / Zephyr | arm-none-eabi-gcc 12.x | J-Link / nRF52 DK |
-| nRF5340 (Control) | nRF Connect SDK / Zephyr | arm-none-eabi-gcc 12.x | J-Link / nRF5340 DK |
+| nRF5340 (控制盒) | nRF Connect SDK / Zephyr | arm-none-eabi-gcc 12.x | J-Link / nRF5340 DK |
 | STM32H743 | STM32CubeIDE / CMake | arm-none-eabi-gcc 12.x | ST-Link V3 |
 
-### 5.2 OTA Update Strategy
+### 5.2 OTA 更新策略
 
-1. **EEG headband:** Nordic DFU (Device Firmware Update) via BLE, triggered from Nexum App
-2. **Control box (nRF5340):** Nordic DFU via BLE
-3. **Control box (STM32H743):** STM32 receives firmware image via UART from nRF5340, writes to external flash, verifies CRC32, swaps boot slot
+1. **EEG 头带：** 通过 BLE 进行 Nordic DFU（设备固件更新），由 Nexum 应用触发
+2. **控制盒 (nRF5340)：** 通过 BLE 进行 Nordic DFU
+3. **控制盒 (STM32H743)：** STM32 通过 UART 从 nRF5340 接收固件镜像，写入外部 Flash，验证 CRC32，切换启动槽位
 
-### 5.3 Debug Interface
+### 5.3 调试接口
 
-- **EEG headband:** SWD (4-pin: SWCLK, SWDIO, GND, VDD) on 1.27mm pitch header, accessible without disassembly
-- **Control box:** SWD on nRF5340 + SWD on STM32H743, USB-C exposes serial console via CDC ACM
+- **EEG 头带：** SWD（4 引脚：SWCLK、SWDIO、GND、VDD），1.27mm 间距排针，无需拆解即可访问
+- **控制盒：** nRF5340 的 SWD + STM32H743 的 SWD，USB-C 通过 CDC ACM 提供串行控制台
 
-### 5.4 Logging
+### 5.4 日志
 
-- **During development:** RTT (Real-Time Transfer) via J-Link for zero-cost debug logging
-- **During clinical testing:** Log to external flash (W25Q128, 16 MB). Circular buffer, oldest events overwritten. Download via BLE on request, erase after transfer confirmed.
+- **开发阶段：** 通过 J-Link 使用 RTT（实时传输）实现零开销调试日志
+- **临床测试阶段：** 记录到外部 Flash (W25Q128, 16 MB)。循环缓冲区，覆盖最旧事件。可通过 BLE 请求下载，传输确认后擦除。
 
 ---
 
-*End of FW Architecture v0.1. Update after first PCB spin and motor bench test.*
+*固件架构 v0.1 结束。首版 PCB 回板及电机台架测试后更新。*

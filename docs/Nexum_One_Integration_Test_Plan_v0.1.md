@@ -1,252 +1,252 @@
-# Nexum One — Integration & Test Plan
+# Nexum One — 集成与测试计划
 
 **v0.1** · 2026-06-21
 
 ---
 
-## 1. Test Philosophy
+## 1. 测试理念
 
-**Failing fast is the goal.** The first integrated prototype will almost certainly not work well — it tells us _what to fix_. Each test phase has a single pass/fail criterion. If it fails, we fix before moving on.
+**快速失败是目标。** 首版集成原型几乎肯定无法良好运行——这正是告诉我们 _需要修复什么_。每个测试阶段都有一个单一的通过/失败标准。若未通过，先修复再进入下一阶段。
 
-**Hardware-in-the-loop (HIL) from day 1.** Before the mechanical prototype exists, the control box firmware is tested against a simulated plant model.
+**从第一天起硬件在环（HIL）。** 在机械原型存在之前，控制盒固件即针对模拟被控对象模型进行测试。
 
 ---
 
-## 2. Test Phases
+## 2. 测试阶段
 
 ```
-Phase 0: Subsystem Bench Tests (Month 1–2)
-Phase 1: Wired Integration (Month 2–3)
-Phase 2: Wireless Integration (Month 3–4)
-Phase 3: Wearable Prototype (Month 4–5)
-Phase 4: Human Subject Testing (Month 5–6)
+Phase 0: 子系统台架测试（第 1–2 月）
+Phase 1: 有线集成（第 2–3 月）
+Phase 2: 无线集成（第 3–4 月）
+Phase 3: 可穿戴原型（第 4–5 月）
+Phase 4: 人体受试测试（第 5–6 月）
 ```
 
 ---
 
-## 3. Phase 0: Subsystem Bench Tests
+## 3. Phase 0: 子系统台架测试
 
-### T0.1 — EEG Signal Quality (Week 1–4)
+### T0.1 — EEG 信号质量（第 1–4 周）
 
-**Setup:**
-- ADS1299 eval board + OpenBCI dry electrodes
-- Signal generator (JDS6600) → resistor divider → µV-level sine
-- 5 healthy subjects, sitting, eyes open/closed
+**设置：**
+- ADS1299 评估板 + OpenBCI 干电极
+- 信号发生器（JDS6600）→ 分压电阻 → µV 级正弦波
+- 5 名健康受试者，坐姿，睁眼/闭眼
 
-**Test Procedure:**
-1. Place 8 dry electrodes at Cz, C3, C4, FCz, FC3, FC4, Pz, P3 (10-20 system)
-2. Record 5 min resting state (eyes open / eyes closed alternating)
-3. Record 5 min with cue-based ankle dorsiflexion (intentional movement)
-4. Measure electrode-skin impedance (target: <500 kΩ per channel)
+**测试步骤：**
+1. 在 Cz、C3、C4、FCz、FC3、FC4、Pz、P3 放置 8 个干电极（10-20 系统）
+2. 记录 5 分钟静息状态（睁眼/闭眼交替）
+3. 记录 5 分钟基于提示的踝背屈（有意运动）
+4. 测量电极-皮肤阻抗（目标: 每通道 <500 kΩ）
 
-**Pass Criteria:**
-- Input-referred noise <1 µV RMS (0.5–100 Hz)
-- CMRR >100 dB at 50 Hz
-- Visible alpha rhythm (8–12 Hz) at Cz during eyes-closed
-- Impedance <500 kΩ on ≥6/8 channels within 2 min of placement
+**通过标准：**
+- 输入参考噪声 <1 µV RMS（0.5–100 Hz）
+- CMRR >100 dB @ 50 Hz
+- 闭眼时 Cz 处可见 alpha 节律（8–12 Hz）
+- 放置后 2 分钟内 ≥6/8 通道阻抗 <500 kΩ
 
-### T0.2 — Motor + Cable Bench Test (Week 2–5)
+### T0.2 — 电机 + 线缆台架测试（第 2–5 周）
 
-**Setup:**
-- T-motor AK80-9 + DRV8316 eval board + STM32H743 Nucleo
-- Bowden cable (PTFE-lined) + S-type load cell
-- Cable routed through 3D-printed hip joint simulator
+**设置：**
+- T-motor AK80-9 + DRV8316 评估板 + STM32H743 Nucleo
+- Bowden 线缆（PTFE 内衬）+ S 型拉力传感器
+- 线缆穿过 3D 打印髋关节模拟器
 
-**Test Procedure:**
-1. Characterize motor: measure Kt, Ke, phase R/L with LCR meter
-2. FOC current loop tuning: step response to 1A i_q step (target: <2ms settling)
-3. Torque control: command 0–10 Nm ramp, measure load cell vs setpoint
-4. Bowden cable efficiency: measure output force / input force at 0°, 30°, 60°, 90° bend
-5. Cable friction hysteresis: load→unload cycle, measure deadband
-6. Endurance: 10,000 cycles at 8 Nm, measure efficiency degradation
+**测试步骤：**
+1. 电机特性测试: 使用 LCR 表测量 Kt、Ke、相电阻/电感
+2. FOC 电流环调谐: 1A i_q 阶跃响应（目标: <2ms 建立时间）
+3. 力矩控制: 命令 0–10 Nm 斜坡，测量拉力传感器值与设定值对比
+4. Bowden 线缆效率: 在 0°、30°、60°、90° 弯曲角度下测量输出力/输入力
+5. 线缆摩擦迟滞: 加载→卸载循环，测量死区
+6. 耐久性: 8 Nm 下 10,000 次循环，测量效率衰减
 
-**Pass Criteria:**
-- Torque rise time (0→8 Nm) <60 ms
-- Torque accuracy ±0.5 Nm steady state
-- Cable efficiency >70% at ≤30° bend
-- <5% efficiency degradation after 10,000 cycles
+**通过标准：**
+- 力矩上升时间（0→8 Nm）<60 ms
+- 力矩精度 ±0.5 Nm 稳态
+- ≤30° 弯曲时线缆效率 >70%
+- 10,000 次循环后效率衰减 <5%
 
-### T0.3 — BLE Throughput Test (Week 3–4)
+### T0.3 — BLE 吞吐量测试（第 3–4 周）
 
-**Setup:**
-- nRF52832 DK (simulates EEG headband)
-- nRF5340 DK (simulates control box)
-- iPhone SE (test device)
+**设置：**
+- nRF52832 DK（模拟 EEG 头带）
+- nRF5340 DK（模拟控制盒）
+- iPhone SE（测试设备）
 
-**Test Procedure:**
-1. nRF52832 streams 27-byte packets at 50 Hz (simulating EEG data rate)
-2. nRF5340 sends 15-byte state vector at 50 Hz
-3. Phone sends 5-byte torque commands at 50 Hz
-4. Measure packet loss, latency, and jitter over 30 min
+**测试步骤：**
+1. nRF52832 以 50 Hz 发送 27 字节数据包（模拟 EEG 数据速率）
+2. nRF5340 以 50 Hz 发送 15 字节状态向量
+3. 手机以 50 Hz 发送 5 字节力矩指令
+4. 测量 30 分钟内的丢包率、延迟和抖动
 
-**Pass Criteria:**
-- Packet loss <0.1%
-- One-way latency (TX→RX app-level) <15 ms p95
-- No disconnections in 30-minute test
+**通过标准：**
+- 丢包率 <0.1%
+- 单向延迟（TX→RX 应用层）p95 <15 ms
+- 30 分钟测试内无断连
 
-### T0.4 — IMU Accuracy Test (Week 3)
+### T0.4 — IMU 精度测试（第 3 周）
 
-**Setup:**
-- BMI270 on breakout board + STM32H743 Nucleo
-- 3D-printed test fixture on servo-controlled tilt platform
+**设置：**
+- BMI270 分线板 + STM32H743 Nucleo
+- 3D 打印测试夹具，伺服控制倾斜平台
 
-**Test Procedure:**
-1. Static accuracy: place IMU at known angles (0°, 30°, 60°, 90°), measure error
-2. Dynamic accuracy: sinusoidal rotation 0.5–3 Hz, measure tracking error
-3. Gyro drift: record 30 min stationary, measure accumulated drift
-4. Sensor fusion (Madgwick): compare fused quaternion vs ground truth
+**测试步骤：**
+1. 静态精度: 将 IMU 置于已知角度（0°、30°、60°、90°），测量误差
+2. 动态精度: 0.5–3 Hz 正弦旋转，测量跟踪误差
+3. 陀螺仪漂移: 记录 30 分钟静止状态，测量累积漂移
+4. 传感器融合（Madgwick）: 比较融合四元数与真实值
 
-**Pass Criteria:**
-- Static angle error <1°
-- Dynamic tracking error <2° RMS at 1 Hz
-- Gyro drift <0.5°/minute
-- Fusion settling time <2s from any orientation
-
----
-
-## 4. Phase 1: Wired Integration (Bench, No Wearable)
-
-**Goal:** Prove data flows end-to-end: EEG → Phone → Motor → Force. Not wearable yet.
-
-**Setup:**
-- EEG headband PCB V1 (or ADS1299 eval board if PCB not ready)
-- BLE to phone
-- Phone running minimal Nexum App (just: receive EEG → simple threshold detector → send torque cmd)
-- nRF5340 DK connected to DRV8316 eval board + T-motor
-- Motor under no-load bench test (spool winding cable against test spring)
-
-**Test Procedure:**
-1. Place EEG electrodes on subject (sitting)
-2. Subject performs cued ankle dorsiflexion (or imagined stepping)
-3. Observe: does motor spin when subject intends to move?
-4. Measure E2E latency: EEG signal trace → BLE packet timestamp → motor encoder response
-
-**Pass Criteria:**
-- Motor actuates within 200ms of EEG cue onset (at least once — this is a smoke test)
-- System does not crash or disconnect during 60-minute test
-- Emergency stop works: motor stops <50ms after button press
+**通过标准：**
+- 静态角度误差 <1°
+- 1 Hz 时动态跟踪误差 <2° RMS
+- 陀螺仪漂移 <0.5°/分钟
+- 从任意姿态融合建立时间 <2s
 
 ---
 
-## 5. Phase 2: Wireless Integration
+## 4. Phase 1: 有线集成（台架，非可穿戴）
 
-**Same as Phase 1, but:**
-- EEG headband is fully wireless (not eval board with USB)
-- Control box is battery-powered (not bench supply)
-- Phone not connected to debugger
+**目标：** 验证端到端数据流: EEG → 手机 → 电机 → 力。尚未可穿戴。
 
-**Additional Test:**
-- Battery life: stream EEG + motor under simulated gait load (8W avg) → measure time to 20% SoC
+**设置：**
+- EEG 头带 PCB V1（若 PCB 未准备好则用 ADS1299 评估板）
+- BLE 至手机
+- 手机运行最小化 Nexum App（仅: 接收 EEG → 简单阈值检测器 → 发送力矩指令）
+- nRF5340 DK 连接 DRV8316 评估板 + T-motor
+- 电机空载台架测试（卷线机构将线缆缠绕在测试弹簧上）
 
-**Pass Criteria:**
-- Battery life >4h at average 8W draw
-- No BLE disconnections in 4-hour test
-- E2E latency <200ms, measured with photodiode on motor and EEG signal trigger
+**测试步骤：**
+1. 将 EEG 电极放置在受试者头上（坐姿）
+2. 受试者执行提示式踝背屈（或想象踏步）
+3. 观察: 受试者意图移动时电机是否转动？
+4. 测量端到端延迟: EEG 信号迹线 → BLE 数据包时间戳 → 电机编码器响应
 
----
-
-## 6. Phase 3: Wearable Prototype
-
-**Setup:**
-- Full system: wireless EEG headband + NeuroSuit (3D-printed hip anchors + compression garment + control box)
-- 5 healthy subjects
-- Treadmill walking at 3 km/h
-
-**Test Procedure:**
-1. Subject dons system (timed, unassisted after first training)
-2. Walk on treadmill for 10 min with system in "monitor-only" mode (no assistance)
-3. Walk for 10 min with EEG-triggered assistance (conservative: 3 Nm, short duration)
-4. Walk for 10 min with sEMG+IMU assistance (EEG disabled, sEMG-triggered)
-5. Post-wear survey: comfort, perceived control, "would you wear this daily?"
-
-**Measurements:**
-- EEG signal quality during walking (SNR at Cz), compared to sitting baseline
-- Don/doff time
-- Skin pressure at hip anchors (pressure mapping film)
-- Enclosure temperature after 30 min
-- Cable force tracking accuracy vs setpoint
-
-**Pass Criteria:**
-- Don/doff <3 min (single person)
-- No skin irritation after 30 min
-- Enclosure surface <48°C
-- ≥3/5 subjects report "feels like I'm in control" (not "robot is pushing me")
-- EEG SNR during walking ≥3 dB (at Cz, 0.5–40 Hz band, relative to sitting baseline)
+**通过标准：**
+- 在 EEG 提示出现后 200ms 内电机启动（至少一次——此为冒烟测试）
+- 系统在 60 分钟测试期间不崩溃或断连
+- 急停功能正常: 按下按钮后电机在 <50ms 内停止
 
 ---
 
-## 7. Phase 4: Human Subject Testing (Pre-Clinical)
+## 5. Phase 2: 无线集成
 
-### T4.1 — EEG Decoding Accuracy (5 healthy subjects)
+**与 Phase 1 相同，但：**
+- EEG 头带完全无线（非 USB 连接评估板）
+- 控制盒电池供电（非台架电源）
+- 手机未连接调试器
 
-**Protocol:**
-1. Subjects walk on treadmill at 3 km/h
-2. Cue-based paradigm: "walk" / "stop" cues at random intervals
-3. Record 8-ch EEG + IMU + gait phase
-4. Offline: train EEGNet on first 70% of data, test on remaining 30%
-5. Metrics: sensitivity, specificity, AUC for "walk" vs "stop" classification
+**额外测试：**
+- 电池续航: 在模拟步态负载（平均 8W）下运行 EEG + 电机 → 测量至 20% 电量的时间
 
-**Pass Criteria:**
-- Sensitivity ≥75% (correctly detects intention to walk)
-- Specificity ≥90% (does NOT falsely detect intention)
+**通过标准：**
+- 平均功耗 8W 时电池续航 >4h
+- 4 小时测试内无 BLE 断连
+- 端到端延迟 <200ms，使用光电二极管在电机端和 EEG 信号触发端测量
+
+---
+
+## 6. Phase 3: 可穿戴原型
+
+**设置：**
+- 完整系统: 无线 EEG 头带 + NeuroSuit（3D 打印髋锚点 + 压缩服 + 控制盒）
+- 5 名健康受试者
+- 跑步机行走 3 km/h
+
+**测试步骤：**
+1. 受试者穿戴系统（计时，首次培训后无需协助）
+2. 在"仅监测"模式下在跑步机上行走 10 分钟（无辅助）
+3. 在 EEG 触发辅助下行走 10 分钟（保守: 3 Nm，短时）
+4. 在 sEMG+IMU 辅助下行走 10 分钟（EEG 禁用，sEMG 触发）
+5. 穿戴后调查: 舒适度、控制感、"你会每天都穿戴它吗？"
+
+**测量项目：**
+- 行走时的 EEG 信号质量（Cz 处 SNR），与坐姿基线对比
+- 穿戴/脱卸时间
+- 髋锚点处的皮肤压力（压力分布膜）
+- 30 分钟后外壳温度
+- 线缆力跟踪精度与设定值对比
+
+**通过标准：**
+- 穿戴/脱卸 <3 分钟（单人）
+- 30 分钟后无皮肤刺激
+- 外壳表面 <48°C
+- ≥3/5 名受试者报告"感觉我在控制"（而非"机器人在推我"）
+- 行走时 EEG SNR ≥3 dB（Cz 处，0.5–40 Hz 频带，相对于坐姿基线）
+
+---
+
+## 7. Phase 4: 人体受试测试（临床前）
+
+### T4.1 — EEG 解码精度（5 名健康受试者）
+
+**方案：**
+1. 受试者以 3 km/h 在跑步机上行走
+2. 基于提示的范式: 随机间隔发出"行走"/"停止"提示
+3. 记录 8 通道 EEG + IMU + 步态相位
+4. 离线: 用前 70% 数据训练 EEGNet，用剩余 30% 测试
+5. 指标: "行走"与"停止"分类的灵敏度、特异度、AUC
+
+**通过标准：**
+- 灵敏度 ≥75%（正确检测行走意图）
+- 特异度 ≥90%（不错误检测意图）
 - AUC ≥0.80
-- Detection latency <500ms from Bereitschaftspotential onset
+- 从 Bereitschaftspotential 起始点算起检测延迟 <500ms
 
-### T4.2 — Assist-as-Needed Validation (5 healthy subjects)
+### T4.2 — 按需辅助验证（5 名健康受试者）
 
-**Protocol:**
-1. Subjects walk on treadmill at 3 km/h, 5 min each condition:
-   - No suit (baseline)
-   - Suit passive (no assistance)
-   - Constant assistance (5 Nm)
-   - EEG-triggered assistance (5 Nm, correct timing only)
-   - Sham assistance (5 Nm at random, wrong timing)
-2. Measure: metabolic cost (VO2, indirect calorimetry), gait symmetry (IMU), perceived effort (Borg scale)
+**方案：**
+1. 受试者以 3 km/h 在跑步机上行走，每种条件 5 分钟：
+   - 无外衣（基线）
+   - 外衣被动（无辅助）
+   - 恒定辅助（5 Nm）
+   - EEG 触发辅助（5 Nm，仅在正确时机）
+   - 虚假辅助（5 Nm 随机时机，错误时间）
+2. 测量: 代谢成本（VO2，间接测热法）、步态对称性（IMU）、感知努力程度（Borg 量表）
 
-**Pass Criteria:**
-- Metabolic cost: EEG-triggered < passive (p<0.1 exploratory)
-- EEG-triggered perceived effort significantly lower than sham (p<0.05)
-- No adverse events (falls, skin abrasion, muscle strain)
+**通过标准：**
+- 代谢成本: EEG 触发 < 被动（探索性 p<0.1）
+- EEG 触发的感知努力程度显著低于虚假辅助（p<0.05）
+- 无不良事件（跌倒、皮肤擦伤、肌肉拉伤）
 
-### T4.3 — 30-Minute Usability (5 healthy subjects)
+### T4.3 — 30 分钟可用性测试（5 名健康受试者）
 
-**Protocol:**
-1. Subject performs: sit→stand→walk 10m→turn→walk back→sit. Repeat for 30 min.
-2. Record: completion rate, subjective fatigue, any system faults
+**方案：**
+1. 受试者执行: 坐→站→走 10m→转身→走回→坐。重复 30 分钟。
+2. 记录: 完成率、主观疲劳、任何系统故障
 
-**Pass Criteria:**
-- 5/5 subjects complete 30 min
-- Zero system faults (disconnections, unexpected stops, torque anomalies)
-- Mean SUS (System Usability Scale) >70
-
----
-
-## 8. Test Equipment Checklist
-
-| Equipment | Purpose | Estimated Cost (¥) |
-|-----------|---------|--------------------|
-| Rigol DS1054Z oscilloscope | Signal debug, timing | 2,500 |
-| JDS6600 signal generator | EEG simulator | 1,200 |
-| S-type load cell 1000N + HX711 | Cable force measurement | 800 |
-| Korad KA3005D PSU | Bench power | 1,500 |
-| Fluke 17B+ multimeter | Voltage/current/resistance | 600 |
-| LCR meter (cheap) | Motor phase characterization | 500 |
-| Photodiode + scope | E2E latency measurement | 100 |
-| Pressure mapping film (Fujifilm Prescale) | Skin pressure | 500/pack |
-| COSMED K5 (or rent) | VO2 measurement | ~50,000 (rent) |
-| 3D-printed test fixtures | Various | 500 (material) |
-| Treadmill (gym access or buy) | Walking test | 5,000 (used) |
+**通过标准：**
+- 5/5 名受试者完成 30 分钟
+- 零系统故障（断连、意外停止、力矩异常）
+- 平均 SUS（系统可用性量表）>70
 
 ---
 
-## 9. Test Data Management
+## 8. 测试设备清单
 
-- All test data stored in structured format: `test_reports/YYYY-MM-DD/<test_id>/`
-- Raw data (EEG, IMU, motor): HDF5 or NPZ format
-- Metadata: JSON with subject ID, date, configuration, pass/fail
-- Scripts under `tests/` directory for automated analysis
-- Git-tracked: test scripts and analysis code (NOT raw data — too large)
+| 设备 | 用途 | 预计费用 (¥) |
+|------|------|-------------|
+| Rigol DS1054Z 示波器 | 信号调试、时序测量 | 2,500 |
+| JDS6600 信号发生器 | EEG 模拟器 | 1,200 |
+| S 型拉力传感器 1000N + HX711 | 线缆力测量 | 800 |
+| Korad KA3005D 电源 | 台架供电 | 1,500 |
+| Fluke 17B+ 万用表 | 电压/电流/电阻测量 | 600 |
+| LCR 表（经济型） | 电机相特性表征 | 500 |
+| 光电二极管 + 示波器 | 端到端延迟测量 | 100 |
+| 压力分布膜（Fujifilm Prescale） | 皮肤压力测量 | 500/包 |
+| COSMED K5（或租赁） | VO2 测量 | ~50,000（租赁） |
+| 3D 打印测试夹具 | 各类测试 | 500（材料） |
+| 跑步机（健身房会员或购买） | 行走测试 | 5,000（二手） |
 
 ---
 
-*End of Test Plan v0.1. Update after Phase 0 bench tests.*
+## 9. 测试数据管理
+
+- 所有测试数据以结构化格式存储: `test_reports/YYYY-MM-DD/<test_id>/`
+- 原始数据（EEG、IMU、电机）: HDF5 或 NPZ 格式
+- 元数据: JSON，包含受试者 ID、日期、配置、通过/失败
+- 脚本位于 `tests/` 目录下，用于自动化分析
+- Git 追踪: 测试脚本和分析代码（不追踪原始数据——体积过大）
+
+---
+
+*测试计划 v0.1 结束。Phase 0 台架测试后更新。*

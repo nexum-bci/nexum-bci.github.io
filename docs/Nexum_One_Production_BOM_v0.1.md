@@ -1,181 +1,181 @@
-# Nexum One — Production BOM & Supplier Guide
+# Nexum One — 生产 BOM 与供应商指南
 
 **v0.1** · 2026-06-21
-**Note:** Prices are indicative (qty 1–10 for prototype, qty 100+ for production). RMB prices for China supply chain. All suppliers are publicly listed — no pre-existing commercial relationships unless noted.
+**注:** 价格为参考价（原型为 1–10 件量，生产为 100+ 件量）。中国市场以人民币标价。所有供应商均为公开可查——除非另有说明，不存在预先建立的商业关系。
 
 ---
 
-## 1. EEG-Sense Headband BOM
+## 1. EEG-Sense 头带 BOM
 
-### 1.1 Electronics
+### 1.1 电子元器件
 
-| # | Item | MPN | Supplier | Proto Price (¥) | Prod Price (¥ @100) | Source |
-|---|------|-----|----------|-----------------|---------------------|--------|
-| 1 | 8-ch EEG AFE | TI ADS1299IPAG | TI / Mouser / DigiKey | 180 | 120 | [mouser.com](https://www.mouser.com) |
+| # | 物料 | MPN | 供应商 | 原型价 (¥) | 生产价 (¥ @100) | 来源 |
+|---|------|-----|--------|-----------|-----------------|------|
+| 1 | 8 通道 EEG AFE | TI ADS1299IPAG | TI / Mouser / DigiKey | 180 | 120 | [mouser.com](https://www.mouser.com) |
 | 2 | BLE SoC | nRF52832-QFAA | Nordic / LCSC / Taobao | 25 | 15 | [lcsc.com](https://www.lcsc.com) |
 | 3 | 3.3V LDO | TPS7A4700RGWT | TI | 45 | 28 | mouser.com |
 | 4 | 1.8V LDO (ADC DVDD) | TPS7A2005PDBVR | TI | 8 | 5 | lcsc.com |
-| 5 | 32.768 kHz Crystal | ABS05-32.768KHZ-T | Abracon | 5 | 2.5 | lcsc.com |
-| 6 | 32 MHz Crystal (BLE) | NX3225SA-32MHZ | NDK | 8 | 4 | lcsc.com |
-| 7 | Chip Antenna (2.4 GHz) | 2450AT18A100E | Johanson | 12 | 6 | lcsc.com |
-| 8 | Battery (Li-Po 3.7V 200mAh) | 402030 pouch | Generic / LCSC | 30 | 18 | lcsc.com |
-| 9 | Battery Charger | BQ24075RGTT | TI | 12 | 7 | mouser.com |
-| 10 | USB-C Connector | TYPE-C-31-M-12 | Korean Hroparts / LCSC | 3 | 1.5 | lcsc.com |
-| 11 | Passives (R/C/L) | 0402/0603 | Yageo / Murata / Samsung | 50 | 25 | lcsc.com |
-| **Subtotal** | | | | **~378** | **~232** | |
+| 5 | 32.768 kHz 晶振 | ABS05-32.768KHZ-T | Abracon | 5 | 2.5 | lcsc.com |
+| 6 | 32 MHz 晶振 (BLE) | NX3225SA-32MHZ | NDK | 8 | 4 | lcsc.com |
+| 7 | 芯片天线 (2.4 GHz) | 2450AT18A100E | Johanson | 12 | 6 | lcsc.com |
+| 8 | 电池 (Li-Po 3.7V 200mAh) | 402030 软包 | 通用 / LCSC | 30 | 18 | lcsc.com |
+| 9 | 电池充电器 | BQ24075RGTT | TI | 12 | 7 | mouser.com |
+| 10 | USB-C 连接器 | TYPE-C-31-M-12 | 韩国 Hroparts / LCSC | 3 | 1.5 | lcsc.com |
+| 11 | 被动元件 (R/C/L) | 0402/0603 | Yageo / Murata / Samsung | 50 | 25 | lcsc.com |
+| **小计** | | | | **~378** | **~232** | |
 
-### 1.2 Dry Electrodes
+### 1.2 干电极
 
-| # | Item | Spec | Supplier | Proto Price | Notes |
-|---|------|------|----------|-------------|-------|
-| 1 | Dry comb electrode ×8 | Ag/AgCl coated, spring-loaded, 10mm pin length | OpenBCI-compatible / Custom PCB fab | ¥160 (buy) or ¥80 (DIY) | Start with OpenBCI ($20/ch), move to custom in V2 |
-| 2 | Electrode flex PCB | 8-ch custom flex for headband curve | JLCPCB flex service | ¥300/10pcs | Requires PCB design |
+| # | 物料 | 规格 | 供应商 | 原型价 | 备注 |
+|---|------|------|--------|--------|------|
+| 1 | 干式梳状电极 ×8 | Ag/AgCl 镀层，弹簧加载，10mm 针长 | OpenBCI 兼容 / 定制 PCB 厂 | ¥160（购买）或 ¥80（DIY） | 先用 OpenBCI（$20/通道），V2 转向定制 |
+| 2 | 电极柔性 PCB | 8 通道定制柔性板，适配头带弧度 | JLCPCB 柔性板服务 | ¥300/10 片 | 需要 PCB 设计 |
 
-### 1.3 Mechanical
+### 1.3 机械结构
 
-| # | Item | Material | Supplier / Method | Proto Price |
-|---|------|----------|-------------------|-------------|
-| 1 | Headband shell | TPU 95A (flexible) or elastic fabric | 3D print TPU / garment factory | ¥50 |
-| 2 | Electrode housing | ABS-like resin | 3D print SLA | ¥100/set |
-| 3 | Strap (adjustable) | Elastic webbing + velcro | Local tailor / 1688.com | ¥20 |
+| # | 物料 | 材料 | 供应商 / 方法 | 原型价 |
+|---|------|------|--------------|--------|
+| 1 | 头带外壳 | TPU 95A（柔性）或弹性面料 | 3D 打印 TPU / 服装厂 | ¥50 |
+| 2 | 电极外壳 | 类 ABS 树脂 | 3D 打印 SLA | ¥100/套 |
+| 3 | 绑带（可调节） | 弹性织带 + 魔术贴 | 本地裁缝 / 1688.com | ¥20 |
 
-**EEG-Sense Total (proto): ~¥700** | **EEG-Sense Total (prod @100): ~¥400**
+**EEG-Sense 总计（原型）: ~¥700** | **EEG-Sense 总计（生产 @100）: ~¥400**
 
 ---
 
-## 2. Control Box BOM
+## 2. 控制盒 BOM
 
-### 2.1 Main PCB
+### 2.1 主 PCB
 
-| # | Item | MPN | Supplier | Proto (¥) | Prod @100 (¥) |
-|---|------|-----|----------|-----------|---------------|
+| # | 物料 | MPN | 供应商 | 原型价 (¥) | 生产价 @100 (¥) |
+|---|------|-----|--------|-----------|---------------|
 | 1 | MCU | STM32H743ZIT6 | ST / LCSC | 120 | 75 |
-| 2 | BLE Module | nRF5340-QKAA | Nordic / LCSC | 50 | 32 |
+| 2 | BLE 模块 | nRF5340-QKAA | Nordic / LCSC | 50 | 32 |
 | 3 | IMU | BMI270 | Bosch / LCSC | 18 | 10 |
-| 4 | Motor Driver ×2 | DRV8316CRGZT | TI / Mouser | 60 | 38 |
-| 5 | Magnetic Encoder ×2 | AS5048A-HTSP | ams / Mouser | 80 | 50 |
-| 6 | Load Cell AFE | HX711 | Avia / LCSC | 8 | 4 |
-| 7 | Flash (external) | W25Q128JVSIQ | Winbond / LCSC | 8 | 5 |
-| 8 | Power Management IC | BQ25713RSNR (USB-C PD) | TI / Mouser | 35 | 22 |
-| 9 | Battery Monitor | BQ76952 (or BQ4050) | TI / Mouser | 45 | 28 |
-| 10 | 3.3V Buck Converter | TPS62130ARGTT | TI | 15 | 8 |
-| 11 | 5V Boost | TPS61089RNRR | TI | 12 | 7 |
-| 12 | Motor supply (12V rail) | TPS54824RNVR | TI | 20 | 12 |
-| 13 | USB-C PD Controller | STUSB4500QTR | ST / Mouser | 15 | 9 |
-| 14 | Passives + connectors | — | LCSC | 80 | 40 |
-| **Subtotal** | | | | **~566** | **~340** |
+| 4 | 电机驱动器 ×2 | DRV8316CRGZT | TI / Mouser | 60 | 38 |
+| 5 | 磁编码器 ×2 | AS5048A-HTSP | ams / Mouser | 80 | 50 |
+| 6 | 拉力传感器 AFE | HX711 | Avia / LCSC | 8 | 4 |
+| 7 | 外部 Flash | W25Q128JVSIQ | Winbond / LCSC | 8 | 5 |
+| 8 | 电源管理 IC | BQ25713RSNR (USB-C PD) | TI / Mouser | 35 | 22 |
+| 9 | 电池监控器 | BQ76952（或 BQ4050） | TI / Mouser | 45 | 28 |
+| 10 | 3.3V 降压转换器 | TPS62130ARGTT | TI | 15 | 8 |
+| 11 | 5V 升压 | TPS61089RNRR | TI | 12 | 7 |
+| 12 | 电机电源 (12V 轨) | TPS54824RNVR | TI | 20 | 12 |
+| 13 | USB-C PD 控制器 | STUSB4500QTR | ST / Mouser | 15 | 9 |
+| 14 | 被动元件 + 连接器 | — | LCSC | 80 | 40 |
+| **小计** | | | | **~566** | **~340** |
 
-### 2.2 Motor (×2)
+### 2.2 电机 (×2)
 
-| # | Item | Spec | Supplier | Proto (¥) | Prod @100 (¥) |
-|---|------|------|----------|-----------|---------------|
-| 1 | BLDC Motor (proto) | T-motor AK80-9 or AK60-6 | Taobao / T-motor official | 700 | N/A (temp) |
-| 2 | BLDC Motor (production) | Maxon EC-i 40 60W (or custom) | Maxon / distributor | 2,200 | 1,500 |
-| 3 | Gear reducer (if needed) | Planetary 1:4–1:6 | T-motor / Maxon | 300 | 200 |
-| 4 | Spool mechanism | Custom machined aluminum | Local CNC shop / 3D print proto | 100 (print) | 40 (machined) |
+| # | 物料 | 规格 | 供应商 | 原型价 (¥) | 生产价 @100 (¥) |
+|---|------|------|--------|-----------|---------------|
+| 1 | BLDC 电机（原型） | T-motor AK80-9 或 AK60-6 | 淘宝 / T-motor 官方 | 700 | 不适用（临时） |
+| 2 | BLDC 电机（生产） | Maxon EC-i 40 60W（或定制） | Maxon / 经销商 | 2,200 | 1,500 |
+| 3 | 减速器（如需） | 行星 1:4–1:6 | T-motor / Maxon | 300 | 200 |
+| 4 | 卷线机构 | 定制机加工铝合金 | 本地 CNC 厂 / 3D 打印原型 | 100（打印） | 40（机加工） |
 
-### 2.3 Battery
+### 2.3 电池
 
-| # | Item | Spec | Supplier | Proto (¥) | Prod @100 (¥) |
-|---|------|------|----------|-----------|---------------|
-| 1 | 21700 cells ×6 | Samsung 50E 5000mAh / Molicel P42A | 1688.com / battery distributor | 180 | 120 |
-| 2 | BMS PCB | 6S, 25A, balance charging | Custom PCB + TI BQ76952 | 200 | 80 |
-| 3 | Nickel strip + wiring | — | 1688.com | 20 | 10 |
-| 4 | Heat shrink wrap | PVC 150mm | 1688.com | 5 | 2 |
+| # | 物料 | 规格 | 供应商 | 原型价 (¥) | 生产价 @100 (¥) |
+|---|------|------|--------|-----------|---------------|
+| 1 | 21700 电芯 ×6 | Samsung 50E 5000mAh / Molicel P42A | 1688.com / 电池分销商 | 180 | 120 |
+| 2 | BMS PCB | 6S，25A，均衡充电 | 定制 PCB + TI BQ76952 | 200 | 80 |
+| 3 | 镍片 + 导线 | — | 1688.com | 20 | 10 |
+| 4 | 热缩膜 | PVC 150mm | 1688.com | 5 | 2 |
 
-### 2.4 Enclosure
+### 2.4 外壳
 
-| # | Item | Material | Supplier / Method | Proto (¥) | Prod @100 (¥) |
-|---|------|----------|-------------------|-----------|---------------|
-| 1 | Top shell | 6061 aluminum CNC | Local CNC shop | 200 | 60 |
-| 2 | Bottom shell | 6061 aluminum CNC | Local CNC shop | 150 | 50 |
-| 3 | Thermal pad | 3W/mK silicone pad 2mm | 1688.com | 10 | 3 |
-| 4 | Belt clip | Injection molded ABS+PC | 3D print → injection mold | 20 (print) | 5 (molded) |
-| 5 | Gasket (IP22) | Silicone O-ring | 1688.com | 5 | 1 |
+| # | 物料 | 材料 | 供应商 / 方法 | 原型价 (¥) | 生产价 @100 (¥) |
+|---|------|------|--------------|-----------|---------------|
+| 1 | 上壳 | 6061 铝合金 CNC | 本地 CNC 厂 | 200 | 60 |
+| 2 | 下壳 | 6061 铝合金 CNC | 本地 CNC 厂 | 150 | 50 |
+| 3 | 导热垫 | 3W/mK 硅胶垫 2mm | 1688.com | 10 | 3 |
+| 4 | 腰带夹 | 注塑 ABS+PC | 3D 打印 → 注塑模具 | 20（打印） | 5（注塑） |
+| 5 | 密封圈 (IP22) | 硅胶 O 型圈 | 1688.com | 5 | 1 |
 
-**Control Box Total (proto): ~¥2,400** | **Control Box Total (prod @100): ~¥1,700** (with T-motor)
-**Control Box Total (prod @100): ~¥3,500** (with Maxon motor)
+**控制盒总计（原型）: ~¥2,400** | **控制盒总计（生产 @100）: ~¥1,700**（使用 T-motor 电机）
+**控制盒总计（生产 @100）: ~¥3,500**（使用 Maxon 电机）
 
 ---
 
 ## 3. NeuroSuit BOM
 
-| # | Item | Spec | Supplier / Method | Proto (¥) | Prod @100 (¥) |
-|---|------|------|-------------------|-----------|---------------|
-| 1 | Carbon fiber hip anchor ×2 | 2mm CF plate, CNC cut | Local CF fabrication shop (Nanjing/Suzhou) | 800 | 350 |
-| 2 | Bowden cable ×2 | PTFE-lined bicycle brake cable, 1.5m | Shimano / Jagwire / 1688.com | 30 | 15 |
-| 3 | Cable sheath ×2 | PTFE tube 4mm OD | 1688.com | 20 | 8 |
-| 4 | Cable termination kit ×2 | Aluminum crimp ends | 1688.com | 10 | 3 |
-| 5 | Compression garment (custom) | Nylon-spandex blend, medical grade | Garment factory (minimum order 100 pcs) | 500 (sample) | 120 |
-| 6 | sEMG fabric electrodes ×8 | Silver-plated nylon knit | Smart textile supplier (e.g., Myant, AdvanPro) | 400 | 200 |
-| 7 | Snap connectors (for sEMG) | Stainless steel micro-snaps | 1688.com | 20 | 8 |
-| 8 | Waist belt | Nylon webbing + quick-release buckle | 1688.com | 30 | 12 |
-| 9 | Cable routing guides | 3D printed TPU clips | 3D print → injection mold | 20 | 5 |
-| 10 | Load cell (inline tension) ×2 | S-type 100kg with amplifier | Taobao / AliExpress | 200 | 80 |
-| **NeuroSuit Total (proto): ~¥2,030** | **NeuroSuit Total (prod @100): ~¥800** |
+| # | 物料 | 规格 | 供应商 / 方法 | 原型价 (¥) | 生产价 @100 (¥) |
+|---|------|------|--------------|-----------|---------------|
+| 1 | 碳纤维髋锚点 ×2 | 2mm CF 板，CNC 切割 | 本地碳纤维加工厂（南京/苏州） | 800 | 350 |
+| 2 | Bowden 线缆 ×2 | PTFE 内衬自行车刹车线，1.5m | Shimano / Jagwire / 1688.com | 30 | 15 |
+| 3 | 线缆外套 ×2 | PTFE 管 4mm 外径 | 1688.com | 20 | 8 |
+| 4 | 线缆端接套件 ×2 | 铝制压接端头 | 1688.com | 10 | 3 |
+| 5 | 压缩服（定制） | 尼龙-氨纶混纺，医用级 | 服装厂（最小起订量 100 件） | 500（样品） | 120 |
+| 6 | sEMG 织物电极 ×8 | 镀银尼龙针织面料 | 智能纺织供应商（如 Myant、AdvanPro） | 400 | 200 |
+| 7 | 按扣连接器（用于 sEMG） | 不锈钢微型按扣 | 1688.com | 20 | 8 |
+| 8 | 腰带 | 尼龙织带 + 快拆扣 | 1688.com | 30 | 12 |
+| 9 | 线缆导向件 | 3D 打印 TPU 夹扣 | 3D 打印 → 注塑模具 | 20 | 5 |
+| 10 | 拉力传感器（在线张力）×2 | S 型 100kg 含放大器 | 淘宝 / AliExpress | 200 | 80 |
+| **NeuroSuit 总计（原型）: ~¥2,030** | **NeuroSuit 总计（生产 @100）: ~¥800** |
 
 ---
 
-## 4. Total System BOM Summary
+## 4. 系统总 BOM 汇总
 
-| Module | Proto BOM (¥) | Prod BOM @100 (¥) | Prod BOM @1000 (¥ est.) |
-|--------|---------------|--------------------|----------------------|
-| EEG-Sense Headband | 700 | 400 | 280 |
-| Control Box (T-motor) | 2,400 | 1,700 | 1,200 |
+| 模块 | 原型 BOM (¥) | 生产 BOM @100 (¥) | 生产 BOM @1000 (¥ 估) |
+|------|------------|-------------------|---------------------|
+| EEG-Sense 头带 | 700 | 400 | 280 |
+| 控制盒（T-motor） | 2,400 | 1,700 | 1,200 |
 | NeuroSuit | 2,030 | 800 | 550 |
-| Packaging + Manual + Accessories | 150 | 80 | 50 |
-| **Total (Home version)** | **~5,280** | **~2,980** | **~2,080** |
-| Clinical version add-ons | +500 | +300 | +200 |
-| **Total (Clinical version)** | **~5,780** | **~3,280** | **~2,280** |
+| 包装 + 说明书 + 配件 | 150 | 80 | 50 |
+| **总计（家用版）** | **~5,280** | **~2,980** | **~2,080** |
+| 临床版附加项 | +500 | +300 | +200 |
+| **总计（临床版）** | **~5,780** | **~3,280** | **~2,280** |
 
-**Note:** Clinical version adds: therapist tablet pre-loaded, spare electrode set, docking station, hard case.
-
----
-
-## 5. Key Suppliers — China Supply Chain
-
-| Category | Supplier | Location | Notes |
-|----------|----------|----------|-------|
-| PCB Fab + Assembly | JLCPCB / PCBWay | Shenzhen | Prototype and small batch; 4-layer minimum for EEG |
-| Component distribution | LCSC (立创商城) | Shenzhen | Most electronic components |
-| Motor (proto) | T-motor (老虎动力) | Shenzhen | AK series BLDC, available on Taobao |
-| Motor (production) | Maxon / Faulhaber distributor | Shanghai / online | Medical-grade certification |
-| Carbon fiber fabrication | 碳纤维加工厂 (local) | Nanjing / Suzhou / Dongguan | Custom CF plate cutting |
-| Garment factory | 服装厂 (medical textile) | Shaoxing / Guangzhou | Minimum order typically 100–500 pcs |
-| sEMG textile electrodes | AdvanPro / Myant / 国内纺织电极厂 | Shenzhen / HK | Sample quantities available |
-| 3D printing (proto) | Bambu Lab P1S (in-house) | — | TPU, PETG, PLA materials |
-| CNC machining | 嘉立创CNC / 本地CNC厂 | Shenzhen / Nanjing | Aluminum enclosure, CF cutting |
-| Li-ion battery pack | 电池PACK厂 (custom) | Shenzhen / Dongguan | 6S 21700 with BMS |
-| Injection mold (production) | 模具厂 | Dongguan / Kunshan | For enclosure, clips, electrode housing |
+**注:** 临床版包含: 预装治疗师平板、备用电极组、充电底座、硬质手提箱。
 
 ---
 
-## 6. Prototype Tooling Budget (¥)
+## 5. 关键供应商 — 中国供应链
 
-| Item | Cost | Notes |
-|------|------|-------|
-| Bambu Lab P1S 3D printer | 4,000 | Fast prototyping, TPU/PETG/PLA |
-| Rigol DS1054Z oscilloscope | 2,500 | 4-ch, 50 MHz |
-| Korad KA3005D power supply | 1,500 | 30V, 5A |
-| Soldering station (Hakko or similar) | 800 | FX-888D |
-| Multimeter (Fluke 17B+) | 600 | True RMS |
-| JDS6600 signal generator | 1,200 | EEG simulator input |
-| Hand tools + consumables | 2,000 | Cutters, strippers, solder, flux |
-| ESD mat + wrist strap | 200 | Basic ESD protection |
-| **Total tooling** | **~12,800** | One-time |
-
----
-
-## 7. Cost Reduction Roadmap
-
-| Phase | Action | BOM Target |
-|-------|--------|------------|
-| Proto (now) | Off-the-shelf components, 3D printed parts | ¥5,280 |
-| EVT (M3–M6) | Custom PCBs, simplified mechanical, bulk components | ¥3,500 |
-| DVT (M6–M12) | Custom motor, injection molded parts, optimized PCB | ¥2,500 |
-| PVT (M12+) | Full production tooling, second-source components | ¥2,080 |
-| Scale (1000+) | Automated assembly, bargaining power, die-shrink ICs | <¥1,800 |
+| 类别 | 供应商 | 地点 | 备注 |
+|------|--------|------|------|
+| PCB 制板 + 贴片 | JLCPCB / PCBWay | 深圳 | 原型和小批量；EEG 最低 4 层板 |
+| 元件分销 | LCSC（立创商城） | 深圳 | 大部分电子元器件 |
+| 电机（原型） | T-motor（老虎动力） | 深圳 | AK 系列 BLDC，淘宝有售 |
+| 电机（生产） | Maxon / Faulhaber 经销商 | 上海 / 线上 | 医疗级认证 |
+| 碳纤维加工 | 碳纤维加工厂（本地） | 南京 / 苏州 / 东莞 | 定制 CF 板切割 |
+| 服装厂 | 服装厂（医用纺织） | 绍兴 / 广州 | 最小起订量通常 100–500 件 |
+| sEMG 纺织电极 | AdvanPro / Myant / 国内纺织电极厂 | 深圳 / 香港 | 可提供样品量 |
+| 3D 打印（原型） | Bambu Lab P1S（自用） | — | 材料 TPU、PETG、PLA |
+| CNC 机加工 | 嘉立创 CNC / 本地 CNC 厂 | 深圳 / 南京 | 铝合金外壳、CF 切割 |
+| 锂电池组 | 电池 PACK 厂（定制） | 深圳 / 东莞 | 6S 21700 含 BMS |
+| 注塑模具（生产） | 模具厂 | 东莞 / 昆山 | 用于外壳、夹扣、电极外壳 |
 
 ---
 
-*All prices exclude VAT and shipping. Update quarterly as supply chain develops.*
+## 6. 原型工具预算 (¥)
+
+| 项目 | 费用 | 备注 |
+|------|------|------|
+| Bambu Lab P1S 3D 打印机 | 4,000 | 快速原型，TPU/PETG/PLA |
+| Rigol DS1054Z 示波器 | 2,500 | 4 通道，50 MHz |
+| Korad KA3005D 电源 | 1,500 | 30V，5A |
+| 焊台（Hakko 或同等） | 800 | FX-888D |
+| 万用表（Fluke 17B+） | 600 | 真有效值 |
+| JDS6600 信号发生器 | 1,200 | EEG 模拟器输入 |
+| 手工具 + 耗材 | 2,000 | 剪钳、剥线钳、焊锡、助焊剂 |
+| ESD 垫 + 腕带 | 200 | 基础 ESD 防护 |
+| **工具总计** | **~12,800** | 一次性投入 |
+
+---
+
+## 7. 成本降低路线图
+
+| 阶段 | 措施 | BOM 目标 |
+|------|------|---------|
+| 原型（当前） | 现成元件，3D 打印零件 | ¥5,280 |
+| EVT（第 3–6 月） | 定制 PCB，简化机械结构，批量采购元件 | ¥3,500 |
+| DVT（第 6–12 月） | 定制电机，注塑零件，优化 PCB | ¥2,500 |
+| PVT（第 12 月+） | 全套生产模具，第二供应商元件 | ¥2,080 |
+| 规模量产（1000+） | 自动化组装，议价能力，缩die IC | <¥1,800 |
+
+---
+
+*所有价格不含增值税和运费。随供应链发展每季度更新。*
