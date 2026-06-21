@@ -12,11 +12,7 @@
 | [Nexum_One_Integration_Test_Plan_v0.1.md](Nexum_One_Integration_Test_Plan_v0.1.md) | v0.1 | 🟡 Draft | 5阶段测试：子系统→有线→无线→穿戴→人体 |
 | [Nexum_One_Product_Visualization.html](Nexum_One_Product_Visualization.html) | v1.0 | ✅ Done | SVG系统架构图+模块分解+爆炸视图+指标表 |
 | [Nexum_One_Product_Renderings_Prompts.md](Nexum_One_Product_Renderings_Prompts.md) | v1.0 | ✅ Done | Midjourney/DALL-E提示词：头带+NeuroSuit+控制盒+场景 |
+| [Nexum_One_Clinical_Protocol_v0.1.md](Nexum_One_Clinical_Protocol_v0.1.md) | v0.1 | 🔴 Draft | 预临床方案：单臂前-后可行性设计、n=30、安全性+意图检测AUC双主要终点 |
+| [Nexum_One_Regulatory_Strategy_v0.1.md](Nexum_One_Regulatory_Strategy_v0.1.md) | v0.1 | 🔴 Draft | NMPA二类创新器械申报：分类依据、创新通道、型式检验、CER路径、预算、时间线 |
 
 **图例**: ✅ 完成 · 🟡 草稿/待验证 · 🔴 待创建
-
-## 待创建的文档
-- `Nexum_One_PCB_Design_Notes_v0.1.md` — EEG头带PCB设计指南 (布局、层叠、阻抗匹配)
-- `Nexum_One_Mechanical_Assembly_Guide_v0.1.md` — 机械组装手册 (3D打印件+碳纤维+织物整合)
-- `Nexum_One_Clinical_Protocol_v0.1.md` — 预临床方案 (入选标准、终点指标、样本量计算)
-- `Nexum_One_Regulatory_Strategy_v0.1.md` — NMPA二类创新器械申报详细路径
