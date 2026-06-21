@@ -640,7 +640,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 .phone-mockup{
   width:100%;
   max-width:240px;
-  height:520px;
+  height:540px;
   margin:0 auto;
   background:linear-gradient(160deg,#2c2c32,#1c1c22);
   border:1px solid rgba(255,255,255,0.06);
@@ -673,7 +673,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
   z-index:10;
   box-shadow:0 0 0 1px rgba(255,255,255,0.06)
 }
-.phone-screen{
+.phone-screen{overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none}
+.phone-screen::-webkit-scrollbar{display:none};
   width:100%;
   height:100%;
   border-radius:30px;
