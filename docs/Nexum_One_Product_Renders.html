@@ -18,8 +18,8 @@
   --border: rgba(0,0,0,0.08);
 }
 [data-theme="dark"] {
-  --bg: #000000; --bg-card: #0a0a0a; --card-bg: #0a0a0a;
-  --accent: #0096f0; --text: #FFFFFF; --text2: #999999;
+  --bg: #000000; --bg-card: #1c1c1e; --card-bg: #1c1c1e;
+  --accent: #0096f0; --text: #FFFFFF; --text2: #a1a1a6;
   --border: rgba(255,255,255,0.06);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -90,6 +90,32 @@ footer {
 @media (max-width: 768px) {
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   PAGE HERO, BREADCRUMB, RELATED PAGES
+   ============================================================ */
+.page-hero { padding: 60px 0 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+.page-eyebrow { font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+.page-hero h1 { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; color: var(--text); background: none; -webkit-text-fill-color: var(--text); }
+.page-sub { font-size: 16px; color: var(--text2); max-width: 600px; }
+.page-meta { display: flex; gap: 24px; margin-top: 16px; font-size: 13px; color: var(--text2); }
+.breadcrumb { padding: 12px 0; font-size: 13px; color: var(--text2); background: var(--bg-card); border-bottom: 1px solid var(--border); }
+.breadcrumb a { color: var(--text2); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+.related-pages { padding: 80px 0; background: var(--bg-card); border-top: 1px solid var(--border); margin-top: 48px; }
+.related-pages h2 { font-size: 24px; font-weight: 700; color: var(--text); border-bottom: none; background: none; -webkit-text-fill-color: var(--text); margin-top: 0; }
+.related-card { display: block; padding: 24px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; transition: all .25s ease; }
+.related-card:hover { transform: translateY(-2px); border-color: var(--accent); text-decoration: none; }
+.related-card .rc-category { font-size: 10px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
+.related-card h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-top: 0; margin-bottom: 4px; }
+.related-card p { font-size: 12px; color: var(--text2); margin: 0; }
+@media (max-width: 768px) {
+  .page-hero { padding: 40px 0 32px; }
+  .page-hero h1 { font-size: 26px; }
+  .breadcrumb { padding: 10px 0; font-size: 12px; }
+  .related-pages { padding: 48px 0; }
+  .page-meta { flex-direction: column; gap: 4px; }
+}
 </style>
 </head>
 <body>
@@ -111,6 +137,11 @@ footer {
     </div>
   </div>
 </nav>
+<div class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">首页</a> / <a href="../index.html#documents">文档</a> / <span>产品渲染图集</span>
+  </div>
+</div>
 
 <section class="hero">
   <h1>产品渲染图集</h1>
@@ -241,6 +272,30 @@ footer {
     <span>Confidential — For Investor Use Only</span>
   </div>
 </footer>
+
+<section class="related-pages">
+  <div class="container">
+    <h2>相关文档</h2>
+    <div class="grid-3" style="margin-top:32px;">
+      <a href="Nexum_One_Product_Visualization.html" class="related-card">
+        <span class="rc-category">设计</span>
+        <h4>产品可视化</h4>
+        <p>3D渲染与产品视觉展示（SVG/HTML）</p>
+      </a>
+      <a href="Nexum_One_Engineering_Architecture.html" class="related-card">
+        <span class="rc-category">工程</span>
+        <h4>工程架构</h4>
+        <p>系统工程架构设计文档 v0.1</p>
+      </a>
+      <a href="../index.html#documents" class="related-card">
+        <span class="rc-category">返回</span>
+        <h4>文档门户</h4>
+        <p>返回文档索引首页</p>
+      </a>
+    </div>
+  </div>
+</section>
+
 <script>
 document.getElementById('themeToggle').addEventListener('click',function(){
   var isDark = document.documentElement.hasAttribute('data-theme');

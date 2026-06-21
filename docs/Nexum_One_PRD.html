@@ -17,7 +17,7 @@
   --text: #111; --text-secondary: #555; --text-tertiary: #888; --accent: #0096F0;
 }
 [data-theme="dark"] {
-  --bg: #000; --bg-card: #111; --border: rgba(255,255,255,0.08);
+  --bg: #000; --bg-card: #1c1c1e; --border: rgba(255,255,255,0.06);
   --text: #fff; --text-secondary: #aaa; --text-tertiary: #777;
 }
 
@@ -372,6 +372,32 @@ sub, sup {
     th, td { padding: 8px 10px; }
     pre { padding: 14px 16px; font-size: 12.5px; }
 }
+
+/* ============================================================
+   PAGE HERO, BREADCRUMB, RELATED PAGES
+   ============================================================ */
+.page-hero { padding: 60px 0 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+.page-eyebrow { font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+.page-hero h1 { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; color: var(--text); background: none; -webkit-text-fill-color: var(--text); }
+.page-sub { font-size: 16px; color: var(--text-secondary); max-width: 600px; }
+.page-meta { display: flex; gap: 24px; margin-top: 16px; font-size: 13px; color: var(--text-tertiary); }
+.breadcrumb { padding: 12px 0; font-size: 13px; color: var(--text-tertiary); background: var(--bg-card); border-bottom: 1px solid var(--border); }
+.breadcrumb a { color: var(--text-secondary); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+.related-pages { padding: 80px 0; background: var(--bg-card); border-top: 1px solid var(--border); margin-top: 48px; }
+.related-pages h2 { font-size: 24px; font-weight: 700; color: var(--text); border-bottom: none; background: none; -webkit-text-fill-color: var(--text); margin-top: 0; }
+.related-card { display: block; padding: 24px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; transition: all .25s ease; }
+.related-card:hover { transform: translateY(-2px); border-color: var(--accent); text-decoration: none; }
+.related-card .rc-category { font-size: 10px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
+.related-card h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-top: 0; margin-bottom: 4px; }
+.related-card p { font-size: 12px; color: var(--text-tertiary); margin: 0; }
+@media (max-width: 768px) {
+  .page-hero { padding: 40px 0 32px; }
+  .page-hero h1 { font-size: 26px; }
+  .breadcrumb { padding: 10px 0; font-size: 12px; }
+  .related-pages { padding: 48px 0; }
+  .page-meta { flex-direction: column; gap: 4px; }
+}
 </style>
 </head>
 <body>
@@ -393,6 +419,23 @@ sub, sup {
     </div>
   </div>
 </nav>
+<div class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">首页</a> / <a href="../index.html#documents">文档</a> / <span>产品需求文档</span>
+  </div>
+</div>
+<header class="page-hero">
+  <div class="container">
+    <p class="page-eyebrow">逐念而行 · 文档中心</p>
+    <h1>产品需求文档</h1>
+    <p class="page-sub">Nexum One PRD v1.0 — 用户需求到工程需求的完整映射</p>
+    <div class="page-meta">
+      <span>版本: v1.0</span>
+      <span>状态: 草案</span>
+      <span>最后更新: 2026-06</span>
+    </div>
+  </div>
+</header>
 <div class="container">
 <h1>Nexum One — 产品需求文档</h1>
 <p><strong>版本 1.0</strong> · 2026-06-21<br />
@@ -931,6 +974,30 @@ sub, sup {
   </div>
 </footer>
 </div>
+
+<section class="related-pages">
+  <div class="container">
+    <h2>相关文档</h2>
+    <div class="grid-3" style="margin-top:32px;">
+      <a href="Nexum_One_Engineering_Architecture.html" class="related-card">
+        <span class="rc-category">工程</span>
+        <h4>工程架构</h4>
+        <p>系统工程架构设计文档 v0.1</p>
+      </a>
+      <a href="Nexum_One_Clinical_Protocol.html" class="related-card">
+        <span class="rc-category">临床</span>
+        <h4>临床方案</h4>
+        <p>NMPA临床试验方案设计与终点指标</p>
+      </a>
+      <a href="Nexum_One_Regulatory_Strategy.html" class="related-card">
+        <span class="rc-category">注册</span>
+        <h4>注册策略</h4>
+        <p>NMPA二类创新医疗器械申报策略</p>
+      </a>
+    </div>
+  </div>
+</section>
+
 <script>
 document.getElementById('themeToggle').addEventListener('click',function(){
   var isDark=document.documentElement.hasAttribute('data-theme');

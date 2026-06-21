@@ -22,14 +22,17 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
   background: var(--bg);
   color: var(--text);
-  font-size: 15px;
-  line-height: 1.7;
+  transition: background 0.35s ease, color 0.35s ease;
+  font-size: 16px;
+  line-height: 1.6;
   padding-top: 80px;
   min-height: 100vh;
   display: flex;
@@ -55,11 +58,11 @@ body::before {
   /* System — Light */
   --bg: #FAFAFA;
   --bg-card: #FFFFFF;
-  --border: rgba(0,0,0,0.06);
-  --text: #111;
-  --text-secondary: #555;
-  --text-tertiary: #888;
-  --accent: #0096F0;
+  --border: rgba(0,0,0,0.04);
+  --text: #1d1d1f;
+  --text-secondary: #86868b;
+  --text-tertiary: #6e6e73;
+  --accent: #0071e3;
 
   /* Mockup-specific — kept dark (inside phone frames) */
   --accent: #0096f0;
@@ -110,52 +113,58 @@ body::before {
 }
 [data-theme="dark"] {
   --bg: #000;
-  --bg-card: #111;
-  --border: rgba(255,255,255,0.08);
+  --bg-card: #1c1c1e;
+  --border: rgba(255,255,255,0.06);
   --text: #fff;
-  --text-secondary: #aaa;
-  --text-tertiary: #777;
+  --text-secondary: #a1a1a6;
+  --text-tertiary: #6e6e73;
 }
 
 /* ============================================================
    LIGHT MODE — Page-level overrides (NOT phone interiors)
    ============================================================ */
-[data-theme="light"] .header h1 {
-  background: linear-gradient(135deg, #1d1d1f 40%, #0096f0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-[data-theme="light"] .header-badge {
+.header-badge {
   background: rgba(0,150,240,0.08);
 }
-[data-theme="light"] .ds-bar {
+.ds-bar {
   background: rgba(0,0,0,0.02);
   border-color: rgba(0,0,0,0.06);
 }
-[data-theme="light"] .ds-swatch.glass {
+[data-theme="dark"] .ds-bar {
+  background: rgba(255,255,255,0.02);
+  border-color: var(--border-subtle);
+}
+.ds-swatch.glass {
   background: rgba(0,0,0,0.04);
   border-color: rgba(0,0,0,0.08);
 }
-[data-theme="light"] .ds-swatch.card {
+.ds-swatch.card {
   background: #ffffff;
   border-color: rgba(0,0,0,0.06);
 }
-[data-theme="light"] .header .subtitle { color: #555555; }
-[data-theme="light"] .ds-item { color: #555555; }
-[data-theme="light"] .ds-label { color: #888888; }
-[data-theme="light"] .ds-label strong { color: #1d1d1f; }
-[data-theme="light"] .ds-divider { background: rgba(0,0,0,0.08); }
-[data-theme="light"] .mockup-label p { color: #888888; }
-[data-theme="light"] .footer { border-top-color: rgba(0,0,0,0.06); }
-[data-theme="light"] .footer p { color: #888888; }
-[data-theme="light"] .header-badge { color: #0071e3; }
-[data-theme="light"] .footer p { color: #888888; }
+.header .subtitle { color: #555555; }
+[data-theme="dark"] .header .subtitle { color: var(--text-secondary); }
+.ds-item { color: #555555; }
+[data-theme="dark"] .ds-item { color: var(--text-secondary); }
+.ds-label { color: #888888; }
+.ds-label strong { color: #1d1d1f; }
+[data-theme="dark"] .ds-label { color: var(--text-tertiary); }
+[data-theme="dark"] .ds-label strong { color: var(--text-secondary); }
+.ds-divider { background: rgba(0,0,0,0.08); }
+[data-theme="dark"] .ds-divider { background: var(--border-default); }
+.mockup-label p { color: #888888; }
+[data-theme="dark"] .mockup-label p { color: var(--text-tertiary); }
+.footer { border-top-color: rgba(0,0,0,0.06); }
+[data-theme="dark"] .footer { border-top-color: var(--border-subtle); }
+.footer p { color: #888888; }
+[data-theme="dark"] .footer p { color: var(--text-quaternary); }
+.header-badge { color: #0071e3; }
+[data-theme="dark"] .header-badge { color: var(--accent); }
 
 /* ============================================================
    SITE NAV
    ============================================================ */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)} [data-theme="dark"] nav{background:rgba(0,0,0,.8)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.72);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)} [data-theme="dark"] nav{background:rgba(0,0,0,.8)}
 
 /* ============================================================
    LAYOUT
@@ -164,7 +173,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 1160px;
+  max-width: 980px;
   padding: 80px 32px 64px;
 }
 
@@ -198,11 +207,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
   font-size: 42px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #ffffff 40%, rgba(255,255,255,0.6));
+  background: linear-gradient(135deg, #1d1d1f 40%, #0096f0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 12px;
+}
+[data-theme="dark"] .header h1 {
+  background: linear-gradient(135deg, #ffffff 40%, rgba(255,255,255,0.6));
 }
 
 .header .subtitle {
@@ -1415,6 +1427,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
     --phone-height: 562px;
   }
 }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.25,.1,.25,1),transform .6s cubic-bezier(.25,.1,.25,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ============================================================
+   HERO ENTRANCE STAGGER
+   ============================================================ */
+.header-badge{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) 0s both}
+.header h1{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) .1s both}
+.header .subtitle{animation:fadeUp .8s cubic-bezier(.25,.1,.25,1) .2s both}
+
+/* ============================================================
+   IMAGE FADE-IN
+   ============================================================ */
+img{max-width:100%;height:auto;display:block;opacity:0;transition:opacity .5s ease}
+img.loaded{opacity:1}
 </style>
 </head>
 <body>
@@ -2214,6 +2250,42 @@ document.getElementById('themeToggle').addEventListener('click',function(){
   if(isDark){document.documentElement.removeAttribute('data-theme');localStorage.setItem('nexum-theme','light')}
   else{document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('nexum-theme','dark')}
 });
+
+/* ---------------------------------------------------------
+   SCROLL REVEAL
+   --------------------------------------------------------- */
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  var t = document.querySelectorAll('.reveal, .mockup-card, .ds-bar, .phone-frame');
+  if (!t.length) return;
+  var o = new IntersectionObserver(function(e) {
+    e.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        entry.target.style.transitionDelay = '0ms';
+        o.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  t.forEach(function(el, i) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)';
+    el.style.transitionDelay = (i % 5) * 80 + 'ms';
+    o.observe(el);
+  });
+})();
+
+/* ---------------------------------------------------------
+   IMAGE FADE-IN
+   --------------------------------------------------------- */
+(function(){
+  document.querySelectorAll('img').forEach(function(img) {
+    if (img.complete) { img.classList.add('loaded'); }
+    else { img.addEventListener('load', function() { img.classList.add('loaded'); }); }
+  });
+})();
 </script>
 </body>
 </html>
