@@ -42,9 +42,18 @@ Pre-revenue。原型阶段。种子轮 2026 Q3。NMPA二类创新器械申报 20
 - [固件架构 v0.1](docs/Nexum_One_Firmware_Architecture_v0.1.md)
 - [集成测试计划 v0.1](docs/Nexum_One_Integration_Test_Plan_v0.1.md)
 
+### 硬件
+- [PCB设计笔记 v0.1](docs/Nexum_One_PCB_Design_Notes_v0.1.md)
+- [机械装配指南 v0.1](docs/Nexum_One_Mechanical_Assembly_Guide_v0.1.md)
+
+### 临床与注册
+- [临床方案 v0.1](docs/Nexum_One_Clinical_Protocol_v0.1.md)
+- [注册策略 v0.1](docs/Nexum_One_Regulatory_Strategy_v0.1.md)
+
 ### 设计
 - [产品可视化渲染 (SVG/HTML)](docs/Nexum_One_Product_Visualization.html)
-- [AI图像生成提示词 (Midjourney/DALL-E)](docs/Nexum_One_Product_Renderings_Prompts.md)
+- [AI产品渲染图 (6张)](docs/Nexum_One_Product_Renders.html)
+- [AI图像生成提示词](docs/Nexum_One_Product_Renderings_Prompts.md)
 
 ### 文档索引
 - [docs/README.md](docs/README.md)
