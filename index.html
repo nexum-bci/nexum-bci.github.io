@@ -422,7 +422,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
   color:var(--accent);
   letter-spacing:.2px
 }
-.section-footer{text-align:center;margin-top:56px}
+
 .section-footer a{font-size:14px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:4px}
 .section-footer a:hover{gap:8px}
 
@@ -584,8 +584,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
    PORTAL (DOCUMENTS)
    ============================================================ */
 .portal-grid{display:grid;gap:20px}
-.portal-grid-featured{grid-template-columns:1fr 1fr 1fr;margin-bottom:20px}
-.portal-grid-secondary{grid-template-columns:1fr 1fr 1fr}
+.{grid-template-columns:1fr 1fr 1fr;margin-bottom:20px}
+.{grid-template-columns:1fr 1fr 1fr}
 .portal-card{
   background:var(--bg-card);
   border:1px solid var(--border);
@@ -612,7 +612,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 .portal-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
 [data-theme="dark"] .portal-card{border-color:rgba(255,255,255,0.08)}
 [data-theme="dark"] .portal-card:hover{border-color:rgba(255,255,255,0.15);box-shadow:none;transform:translateY(-2px)}
-.portal-card-featured{padding:36px}
+
 .portal-card-label{
   font-size:11px;
   font-weight:700;
@@ -623,37 +623,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
 }
 .portal-card h3{font-size:18px;font-weight:600;margin-bottom:6px;color:var(--text)}
 .portal-card p{font-size:14px;color:var(--text-secondary);line-height:1.6}
-.portal-card .page-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:4px;
-  margin-top:12px;
-  font-size:11px;
-  font-weight:600;
-  color:var(--accent);
-  background:var(--accent-subtle);
-  padding:4px 10px;
-  border-radius:20px;
-  letter-spacing:.3px
-}
-.portal-card .page-badge svg{width:12px;height:12px;flex-shrink:0}
-.portal-card .arrow{
-  display:inline-block;
-  margin-top:12px;
-  font-size:13px;
-  font-weight:600;
-  color:var(--accent)
-}
-.portal-card .badge{
-  display:inline-block;
-  margin-top:12px;
-  padding:3px 10px;
-  border-radius:6px;
-  font-size:11px;
-  font-weight:600;
-  color:var(--accent);
-  background:var(--accent-subtle)
-}
+.portal-card 
+.portal-card 
+.portal-card 
+.portal-card 
 
 /* ============================================================
    APP
@@ -1051,8 +1024,8 @@ footer a:hover{color:var(--text)}
   .section-sub{font-size:14px;margin-bottom:32px}
   .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;gap:20px}
   .problem-stats{flex-direction:column;align-items:center;gap:20px}
-  .portal-grid-featured{grid-template-columns:1fr}
-.portal-grid-secondary{grid-template-columns:1fr 1fr}
+  .{grid-template-columns:1fr}
+.{grid-template-columns:1fr 1fr}
   .tech-flow{flex-direction:column;align-items:center;gap:4px}
   .tech-step{max-width:360px;width:100%;border-radius:var(--radius)!important}
   .tech-step:nth-child(1){border-radius:var(--radius)!important}
@@ -1092,8 +1065,8 @@ footer a:hover{color:var(--text)}
   .hero-title{font-size:28px}
   .hero-tagline{font-size:15px;color:var(--text-secondary);max-width:560px;margin:0 auto 36px;line-height:1.6}
 .hero-sub{font-size:15px}
-  .portal-grid-featured{grid-template-columns:1fr}
-.portal-grid-secondary{grid-template-columns:1fr}
+  .{grid-template-columns:1fr}
+.{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .grid-2{grid-template-columns:1fr}
   .hero-metrics{gap:12px}
@@ -1410,88 +1383,66 @@ footer a:hover{color:var(--text)}
 <section id="documents" class="section">
   <div class="container">
     <div class="section-title-center">
-      <h2 class="section-title">文档门户</h2>
-      <p class="section-sub section-sub-center">每个文档都是独立完整页面 — 含完整导航、文档元信息与交叉引用，点击即可深入阅读</p>
-    </div>
+      <h2 class="section-title">深入了解 Nexum One</h2>
+	    </div>
 
-    <!-- Row 1: Featured L2 pages -->
-    <div class="portal-grid portal-grid-featured">
-      <a href="product.html" class="portal-card portal-card-featured" style="--accent:#0071e3">
-        <span class="portal-card-label">L2 · PRODUCT</span>
-        <h3>产品详情</h3>
-        <p>三件套深度展示 · 渲染图集 · 规格对比 · 产品可视化</p>
-        <span class="arrow">查看产品 →</span>
-      </a>
-      <a href="technology.html" class="portal-card portal-card-featured" style="--accent:#5e5ce6">
-        <span class="portal-card-label">L2 · TECHNOLOGY</span>
-        <h3>技术架构</h3>
-        <p>4步AI闭环 · 延迟分解 · 系统工程图 · AI流程图</p>
-        <span class="arrow">查看技术 →</span>
-      </a>
-      <a href="app.html" class="portal-card portal-card-featured" style="--accent:#30d158">
-        <span class="portal-card-label">L2 · DESIGN</span>
-        <h3>App 设计</h3>
-        <p>患者端+治疗师端 · 7屏Mockup · 设计系统 · UI组件</p>
-        <span class="arrow">查看设计 →</span>
-      </a>
-    </div>
-
-    <!-- Row 2: Grid cards -->
-    <div class="portal-grid portal-grid-secondary">
-      <a href="product-visualization.html" class="portal-card" style="--accent:#ff9f0a">
-        <span class="portal-card-label">VISUAL</span>
-        <h3>产品可视化</h3>
-        <p>Apple风格展示 · SVG架构图 · 爆炸视图</p>
-        <span class="page-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> 完整页面</span>
-      </a>
-      <a href="product-renders.html" class="portal-card" style="--accent:#ff375f">
-        <span class="portal-card-label">RENDERS</span>
-        <h3>产品渲染图集</h3>
-        <p>14张AI渲染图 · EEG头带 · 肌动服 · 系统</p>
-        <span class="page-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> 完整页面</span>
-      </a>
-      <a href="engineering-diagrams.html" class="portal-card" style="--accent:#64d2ff">
-        <span class="portal-card-label">ENGINEERING</span>
-        <h3>系统工程图</h3>
-        <p>系统框图 · 电源树 · 固件 · 控制环路</p>
-        <span class="page-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> 完整页面</span>
-      </a>
-      <a href="engineering-architecture.html" class="portal-card" style="--accent:#0071e3">
-        <span class="portal-card-label">ARCHITECTURE</span>
-        <h3>工程架构</h3>
-        <p>系统架构 · 数据流 · 器件选型 · 原型计划</p>
-        <span class="badge">v0.1</span>
-      </a>
-      <a href="clinical-protocol.html" class="portal-card" style="--accent:#30d158">
-        <span class="portal-card-label">CLINICAL</span>
-        <h3>临床方案</h3>
-        <p>30例预临床 · 终点定义 · 统计分析计划</p>
-        <span class="badge">v0.1</span>
-      </a>
-      <a href="prd.html" class="portal-card" style="--accent:#5856d6">
-        <span class="portal-card-label">PRD</span>
-        <h3>产品需求文档</h3>
-        <p>用户需求→工程需求 · 竞品对标 · 功能需求</p>
-        <span class="badge">v1.0</span>
-      </a>
-      <a href="production-bom.html" class="portal-card" style="--accent:#8e8e93">
-        <span class="portal-card-label">BOM</span>
-        <h3>生产BOM</h3>
-        <p>物料清单 · 供应商 · 成本核算</p>
-        <span class="badge">Draft</span>
-      </a>
-      <a href="regulatory-strategy.html" class="portal-card" style="--accent:#af52de">
-        <span class="portal-card-label">REGULATORY</span>
-        <h3>注册策略</h3>
-        <p>NMPA二类创新器械 · 分类界定</p>
-        <span class="badge">v0.1</span>
-      </a>
-    </div>
-
-    <div class="section-footer">
-      <a href="docs/README.md">查看全部文档 →</a>
-    </div>
-  </div>
+	    <div class="portal-grid">
+	      <a href="product.html" class="portal-card" style="--accent:#0071e3">
+	        <span class="portal-card-label">PRODUCT</span>
+	        <h3>产品详情</h3>
+	        <p>三件套深度展示 · 渲染图集 · 规格对比 · 产品可视化</p>
+	      </a>
+	      <a href="technology.html" class="portal-card" style="--accent:#5e5ce6">
+	        <span class="portal-card-label">TECHNOLOGY</span>
+	        <h3>技术架构</h3>
+	        <p>4步AI闭环 · 延迟分解 · 系统工程图 · AI流程图</p>
+	      </a>
+	      <a href="app.html" class="portal-card" style="--accent:#30d158">
+	        <span class="portal-card-label">DESIGN</span>
+	        <h3>App 设计</h3>
+	        <p>患者端+治疗师端 · 7屏Mockup · 设计系统 · UI组件</p>
+	      </a>
+	      <a href="product-visualization.html" class="portal-card" style="--accent:#ff9f0a">
+	        <span class="portal-card-label">VISUAL</span>
+	        <h3>产品可视化</h3>
+	        <p>Apple风格展示 · SVG架构图 · 爆炸视图</p>
+	      </a>
+	      <a href="product-renders.html" class="portal-card" style="--accent:#ff375f">
+	        <span class="portal-card-label">RENDERS</span>
+	        <h3>产品渲染图集</h3>
+	        <p>14张AI渲染图 · EEG头带 · 肌动服 · 系统</p>
+	      </a>
+	      <a href="engineering-diagrams.html" class="portal-card" style="--accent:#64d2ff">
+	        <span class="portal-card-label">ENGINEERING</span>
+	        <h3>系统工程图</h3>
+	        <p>系统框图 · 电源树 · 固件 · 控制环路</p>
+	      </a>
+	      <a href="engineering-architecture.html" class="portal-card" style="--accent:#0071e3">
+	        <span class="portal-card-label">ARCHITECTURE</span>
+	        <h3>工程架构</h3>
+	        <p>系统架构 · 数据流 · 器件选型 · 原型计划</p>
+	      </a>
+	      <a href="clinical-protocol.html" class="portal-card" style="--accent:#30d158">
+	        <span class="portal-card-label">CLINICAL</span>
+	        <h3>临床方案</h3>
+	        <p>30例预临床 · 终点定义 · 统计分析计划</p>
+	      </a>
+	      <a href="prd.html" class="portal-card" style="--accent:#5856d6">
+	        <span class="portal-card-label">PRD</span>
+	        <h3>产品需求文档</h3>
+	        <p>用户需求→工程需求 · 竞品对标 · 功能需求</p>
+	      </a>
+	      <a href="production-bom.html" class="portal-card" style="--accent:#8e8e93">
+	        <span class="portal-card-label">BOM</span>
+	        <h3>生产BOM</h3>
+	        <p>物料清单 · 供应商 · 成本核算</p>
+	      </a>
+	      <a href="regulatory-strategy.html" class="portal-card" style="--accent:#af52de">
+	        <span class="portal-card-label">REGULATORY</span>
+	        <h3>注册策略</h3>
+	        <p>NMPA二类创新器械 · 分类界定</p>
+	      </a>
+	    </div>
 </section>
 
 <!-- ============================================================
