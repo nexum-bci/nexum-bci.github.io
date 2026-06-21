@@ -382,19 +382,6 @@ sub, sup {
 .page-sub { font-size: 16px; color: var(--text-secondary); max-width: 600px; }
 .page-meta { display: flex; gap: 24px; margin-top: 16px; font-size: 13px; color: var(--text-tertiary); }
 
-
-.related-pages { padding: 80px 0; background: var(--bg-card); border-top: 1px solid var(--border); margin-top: 48px; }
-.related-pages h2 { font-size: 24px; font-weight: 700; color: var(--text); border-bottom: none; background: none; -webkit-text-fill-color: var(--text); margin-top: 0; }
-.related-card { display: block; padding: 24px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; transition: all .25s ease; }
-.related-card:hover { transform: translateY(-2px); border-color: var(--accent); text-decoration: none; }
-.related-card .rc-category { font-size: 10px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
-.related-card h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-top: 0; margin-bottom: 4px; }
-.related-card p { font-size: 12px; color: var(--text-tertiary); margin: 0; }
-@media (max-width: 768px) {
-  .page-hero { padding: 40px 0 32px; }
-  .page-hero h1 { font-size: 26px; }
-.related-pages { padding: 48px 0; }
-  .page-meta { flex-direction: column; gap: 4px; }
 }
 </style>
 </head>
@@ -1290,29 +1277,6 @@ sub, sup {
   </div>
 </footer>
 </div>
-
-<section class="related-pages">
-  <div class="container">
-    <h2>相关文档</h2>
-    <div class="grid-3" style="margin-top:32px;">
-      <a href="engineering-architecture.html" class="related-card">
-        <span class="rc-category">工程</span>
-        <h4>工程架构</h4>
-        <p>系统工程架构设计文档 v0.1</p>
-      </a>
-      <a href="regulatory-strategy.html" class="related-card">
-        <span class="rc-category">注册</span>
-        <h4>注册策略</h4>
-        <p>NMPA二类创新医疗器械申报策略</p>
-      </a>
-      <a href="index.html#documents" class="related-card">
-        <span class="rc-category">返回</span>
-        <h4>文档门户</h4>
-        <p>返回文档索引首页</p>
-      </a>
-    </div>
-  </div>
-</section>
 
 <script>
 document.getElementById('themeToggle').addEventListener('click',function(){

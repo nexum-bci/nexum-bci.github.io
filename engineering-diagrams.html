@@ -147,15 +147,18 @@
   }
 
   /* ============================================================
-     LIGHT MODE OVERRIDES — Diagram SVGs
+     DUAL-MODE OVERRIDES — Diagram SVGs
      ============================================================ */
   /* Root SVG background rects (first rect after defs) */
   :not([data-theme="dark"]) .diagram-section svg > rect[fill="#000000"] { fill: #f5f5f7; }
   :not([data-theme="dark"]) .diagram-section svg > rect[fill="#0d1225"] { fill: #ffffff; }
+  [data-theme="dark"] .diagram-section svg > rect[fill="#000000"] { fill: #000000; }
+  [data-theme="dark"] .diagram-section svg > rect[fill="#0d1225"] { fill: #0d1225; }
 
-  /* Sub-rect backgrounds — override dark gradient fills */
+  /* Sub-rect backgrounds */
   :not([data-theme="dark"]) .diagram-section svg rect[fill*="url(#grad-"] { fill: #ffffff; }
   :not([data-theme="dark"]) .diagram-section svg rect[fill*="url(#shadow"] + * { }
+  [data-theme="dark"] .diagram-section svg rect[fill*="url(#grad-"] { fill: #000000; }
 
   /* SVG text colors */
   :not([data-theme="dark"]) .diagram-section svg text { fill: #555555; }
@@ -171,33 +174,55 @@
   :not([data-theme="dark"]) .diagram-section svg text[fill="#7dd3fc"] { fill: #0284c7; }
   :not([data-theme="dark"]) .diagram-section svg text[fill="#60a5fa"] { fill: #2563eb; }
 
+  [data-theme="dark"] .diagram-section svg text { fill: #a1a1a6; }
+  [data-theme="dark"] .diagram-section svg text[fill="#777777"] { fill: #a1a1a6; }
+  [data-theme="dark"] .diagram-section svg text[fill="#999999"] { fill: #6e6e73; }
+  [data-theme="dark"] .diagram-section svg text[fill="#EEEEEE"] { fill: #e0e0e0; }
+  [data-theme="dark"] .diagram-section svg text[fill="#FFFFFF"] { fill: #f5f5f7; }
+  [data-theme="dark"] .diagram-section svg text[fill="#CCCCCC"] { fill: #a1a1a6; }
+  [data-theme="dark"] .diagram-section svg text[fill="#fbbf24"] { fill: #fbbf24; }
+  [data-theme="dark"] .diagram-section svg text[fill="#f472b6"] { fill: #f472b6; }
+  [data-theme="dark"] .diagram-section svg text[fill="#a78bfa"] { fill: #a78bfa; }
+  [data-theme="dark"] .diagram-section svg text[fill="#34d399"] { fill: #34d399; }
+  [data-theme="dark"] .diagram-section svg text[fill="#7dd3fc"] { fill: #7dd3fc; }
+  [data-theme="dark"] .diagram-section svg text[fill="#60a5fa"] { fill: #60a5fa; }
+
   /* Section blocks (summary tables) */
   :not([data-theme="dark"]) .diagram-section svg rect[fill="#0f172a"] { fill: #f8fafc; }
+  [data-theme="dark"] .diagram-section svg rect[fill="#0f172a"] { fill: #0f172a; }
 
   /* Badge/tag backgrounds */
   :not([data-theme="dark"]) .diagram-section svg rect[fill*="#000000"][rx="4"] { fill: #ffffff; }
   :not([data-theme="dark"]) .diagram-section svg rect[fill*="#000000"][rx="3"] { fill: #ffffff; }
+  [data-theme="dark"] .diagram-section svg rect[fill*="#000000"][rx="4"] { fill: #000000; }
+  [data-theme="dark"] .diagram-section svg rect[fill*="#000000"][rx="3"] { fill: #000000; }
 
   /* Battery icon */
   :not([data-theme="dark"]) .diagram-section svg rect[fill="none"][stroke="#fbbf24"] { stroke: #d97706; }
+  [data-theme="dark"] .diagram-section svg rect[fill="none"][stroke="#fbbf24"] { stroke: #fbbf24; }
 
-  /* Border strokes in light mode */
+  /* Border strokes */
   :not([data-theme="dark"]) .diagram-section svg rect[stroke="#334155"] { stroke: #cbd5e1; }
   :not([data-theme="dark"]) .diagram-section svg rect[stroke="#666666"] { stroke: #cbd5e1; }
   :not([data-theme="dark"]) .diagram-section svg rect[stroke="rgba(255,255,255,0.06)"] { stroke: rgba(0,0,0,0.08); }
+  [data-theme="dark"] .diagram-section svg rect[stroke="#334155"] { stroke: #334155; }
+  [data-theme="dark"] .diagram-section svg rect[stroke="#666666"] { stroke: #666666; }
+  [data-theme="dark"] .diagram-section svg rect[stroke="rgba(255,255,255,0.06)"] { stroke: rgba(255,255,255,0.06); }
 
   /* Human figure */
   :not([data-theme="dark"]) .diagram-section svg circle[fill="none"][stroke="#666666"] { stroke: #999999; }
   :not([data-theme="dark"]) .diagram-section svg path[stroke="#666666"] { stroke: #999999; }
   :not([data-theme="dark"]) .diagram-section svg text[fill="#666666"] { fill: #888888; }
+  [data-theme="dark"] .diagram-section svg circle[fill="none"][stroke="#666666"] { stroke: #666666; }
+  [data-theme="dark"] .diagram-section svg path[stroke="#666666"] { stroke: #666666; }
+  [data-theme="dark"] .diagram-section svg text[fill="#666666"] { fill: #a1a1a6; }
 
   /* Grid patterns */
   :not([data-theme="dark"]) .diagram-section svg path[stroke="#ffffff"] { stroke: rgba(0,0,0,0.03); }
+  [data-theme="dark"] .diagram-section svg path[stroke="#ffffff"] { stroke: rgba(255,255,255,0.03); }
 
-  /* Legend in light mode */
-  :not([data-theme="dark"]) .legend {
-    background: rgba(0,0,0,0.02);
-  }
+  /* Legend */
+  :not([data-theme="dark"]) .legend { background: rgba(0,0,0,0.02); }
 </style>
 </head>
 <body>
@@ -1382,29 +1407,6 @@
 </footer>
 
 </div>
-
-<section class="related-pages">
-  <div class="container">
-    <h2>相关文档</h2>
-    <div class="grid-3" style="margin-top:32px;">
-      <a href="engineering-architecture.html" class="related-card">
-        <span class="rc-category">工程</span>
-        <h4>工程架构</h4>
-        <p>系统工程架构设计文档 v0.1</p>
-      </a>
-      <a href="product-visualization.html" class="related-card">
-        <span class="rc-category">设计</span>
-        <h4>产品可视化</h4>
-        <p>3D渲染与产品视觉展示（SVG/HTML）</p>
-      </a>
-      <a href="index.html#documents" class="related-card">
-        <span class="rc-category">返回</span>
-        <h4>文档门户</h4>
-        <p>返回文档索引首页</p>
-      </a>
-    </div>
-  </div>
-</section>
 
 <script>
 document.getElementById('themeToggle').addEventListener('click',function(){

@@ -721,202 +721,181 @@ footer .footer-divider {
 }
 
 /* ============================================================
-   LIGHT MODE OVERRIDES
+   DUAL-MODE SVG SYSTEM (Light + Dark)
    ============================================================ */
 
-/* Card shadows */
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).loop-step:hover {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-}
+/* ---- Card shadows ---- */
+:not([data-theme="dark"]) .loop-step:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+[data-theme="dark"] .loop-step:hover { box-shadow: none; }
 
-/* Metrics banner glow */
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).metrics-banner::after {
-  box-shadow: 0 0 20px rgba(0,150,240,0.1);
-}
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).metrics-banner .metric-item {
-  background: rgba(0,0,0,0.015);
-}
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).metrics-banner .metric-item:hover {
-  background: rgba(0,150,240,0.04);
-}
+/* ---- Metrics banner ---- */
+:not([data-theme="dark"]) .metrics-banner::after { box-shadow: 0 0 20px rgba(0,150,240,0.1); }
+:not([data-theme="dark"]) .metrics-banner .metric-item { background: rgba(0,0,0,0.015); }
+:not([data-theme="dark"]) .metrics-banner .metric-item:hover { background: rgba(0,150,240,0.04); }
+[data-theme="dark"] .metrics-banner .metric-item { background: rgba(255,255,255,0.02); }
+[data-theme="dark"] .metrics-banner .metric-item:hover { background: rgba(0,150,240,0.08); }
 
-/* Table */
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).spec-table tbody td {
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).spec-table tbody tr:hover td {
-  background: rgba(0,150,240,0.02);
-}
+/* ---- Table ---- */
+:not([data-theme="dark"]) .spec-table tbody td { border-bottom: 1px solid rgba(0,0,0,0.06); }
+:not([data-theme="dark"]) .spec-table tbody tr:hover td { background: rgba(0,150,240,0.02); }
+[data-theme="dark"] .spec-table tbody tr:hover td { background: rgba(0,150,240,0.06); }
 
-/* Latency bar */
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).latency-eeg { background: rgba(0,150,240,0.12); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).latency-ai   { background: rgba(96,165,250,0.12); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).latency-ble  { background: rgba(99,102,241,0.12); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).latency-motor { background: rgba(168,85,247,0.12); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).latency-sense { background: rgba(236,72,153,0.12); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).latency-step .step-ms { color: #1d1d1f; }
+/* ---- Latency bar ---- */
+:not([data-theme="dark"]) .latency-step .step-ms { color: #1d1d1f; }
+[data-theme="dark"] .latency-step .step-ms { color: #f5f5f7; }
 
 /* ============================================================
-   LIGHT MODE — HERO SVG
+   HERO SVG
    ============================================================ */
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).hero-svg-wrap ellipse[stroke*="rgba(255,255,255"],
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).hero-svg-wrap line[stroke*="rgba(255,255,255"],
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).hero-svg-wrap path[stroke*="rgba(255,255,255"] {
-  stroke: rgba(0,0,0,0.1);
-}
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).hero-svg-wrap rect[fill*="rgba(255,255,255,0.03"] { fill: rgba(0,0,0,0.03); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).hero-svg-wrap rect[fill*="rgba(255,255,255,0.05"] { fill: rgba(0,0,0,0.05); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).hero-svg-wrap text { fill: #555555; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).hero-svg-wrap text[fill="#0096f0"] { fill: #0096f0; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).hero-svg-wrap text[fill="#FFFFFF"] { fill: #1d1d1f; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).hero-svg-wrap text[fill="#999999"] { fill: #888888; }
+:not([data-theme="dark"]) .hero-svg-wrap ellipse[stroke*="rgba(255,255,255"],
+:not([data-theme="dark"]) .hero-svg-wrap line[stroke*="rgba(255,255,255"],
+:not([data-theme="dark"]) .hero-svg-wrap path[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.1); }
+:not([data-theme="dark"]) .hero-svg-wrap rect[fill*="rgba(255,255,255,0.03"] { fill: rgba(0,0,0,0.03); }
+:not([data-theme="dark"]) .hero-svg-wrap rect[fill*="rgba(255,255,255,0.05"] { fill: rgba(0,0,0,0.05); }
+:not([data-theme="dark"]) .hero-svg-wrap text { fill: #555555; }
+:not([data-theme="dark"]) .hero-svg-wrap text[fill="#0096f0"] { fill: #0096f0; }
+:not([data-theme="dark"]) .hero-svg-wrap text[fill="#FFFFFF"] { fill: #1d1d1f; }
+:not([data-theme="dark"]) .hero-svg-wrap text[fill="#999999"] { fill: #888888; }
+
+[data-theme="dark"] .hero-svg-wrap ellipse[stroke*="rgba(255,255,255"],
+[data-theme="dark"] .hero-svg-wrap line[stroke*="rgba(255,255,255"],
+[data-theme="dark"] .hero-svg-wrap path[stroke*="rgba(255,255,255"] { stroke: rgba(255,255,255,0.08); }
+[data-theme="dark"] .hero-svg-wrap rect[fill*="rgba(255,255,255,0.03"] { fill: rgba(255,255,255,0.03); }
+[data-theme="dark"] .hero-svg-wrap rect[fill*="rgba(255,255,255,0.05"] { fill: rgba(255,255,255,0.05); }
+[data-theme="dark"] .hero-svg-wrap text { fill: #a1a1a6; }
+[data-theme="dark"] .hero-svg-wrap text[fill="#0096f0"] { fill: #60a5fa; }
+[data-theme="dark"] .hero-svg-wrap text[fill="#FFFFFF"] { fill: #f5f5f7; }
+[data-theme="dark"] .hero-svg-wrap text[fill="#999999"] { fill: #6e6e73; }
 
 /* ============================================================
-   LIGHT MODE — SYSTEM SVG
+   SYSTEM SVG
    ============================================================ */
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).system-svg line[stroke*="rgba(255,255,255"],
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).system-svg path[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.1); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).system-svg rect[fill*="rgba(255,255,255,0.05"] { fill: rgba(255,255,255,0.5); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).system-svg rect[fill*="rgba(255,255,255,0.06"] { fill: rgba(0,0,0,0.04); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).system-svg text { fill: #555555; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).system-svg text[fill="#0096f0"] { fill: #0096f0; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).system-svg text[fill="#FFFFFF"] { fill: #1d1d1f; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).system-svg text[fill="#999999"] { fill: #888888; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).system-svg text[fill="#777777"] { fill: #666666; }
+:not([data-theme="dark"]) .system-svg line[stroke*="rgba(255,255,255"],
+:not([data-theme="dark"]) .system-svg path[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.1); }
+:not([data-theme="dark"]) .system-svg rect[fill*="rgba(255,255,255,0.05"] { fill: rgba(255,255,255,0.5); }
+:not([data-theme="dark"]) .system-svg rect[fill*="rgba(255,255,255,0.06"] { fill: rgba(0,0,0,0.04); }
+:not([data-theme="dark"]) .system-svg text { fill: #555555; }
+:not([data-theme="dark"]) .system-svg text[fill="#0096f0"] { fill: #0096f0; }
+:not([data-theme="dark"]) .system-svg text[fill="#FFFFFF"] { fill: #1d1d1f; }
+:not([data-theme="dark"]) .system-svg text[fill="#999999"] { fill: #888888; }
+:not([data-theme="dark"]) .system-svg text[fill="#777777"] { fill: #666666; }
+
+[data-theme="dark"] .system-svg line[stroke*="rgba(255,255,255"],
+[data-theme="dark"] .system-svg path[stroke*="rgba(255,255,255"] { stroke: rgba(255,255,255,0.08); }
+[data-theme="dark"] .system-svg rect[fill*="rgba(255,255,255,0.05"] { fill: rgba(255,255,255,0.05); }
+[data-theme="dark"] .system-svg rect[fill*="rgba(255,255,255,0.06"] { fill: rgba(255,255,255,0.06); }
+[data-theme="dark"] .system-svg text { fill: #a1a1a6; }
+[data-theme="dark"] .system-svg text[fill="#0096f0"] { fill: #60a5fa; }
+[data-theme="dark"] .system-svg text[fill="#FFFFFF"] { fill: #f5f5f7; }
+[data-theme="dark"] .system-svg text[fill="#999999"] { fill: #6e6e73; }
+[data-theme="dark"] .system-svg text[fill="#777777"] { fill: #6e6e73; }
 
 /* ============================================================
-   LIGHT MODE — COMPONENT SVGs
+   COMPONENT SVGs
    ============================================================ */
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap text { fill: #555555; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap text[fill="#777777"] { fill: #666666; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap text[fill="#666666"] { fill: #555555; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap text[fill="#334155"] { fill: #64748b; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap circle[fill="#c0c0c0"] { fill: #888888; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap rect[fill*="rgba(255,255,255,0.05"] { fill: rgba(0,0,0,0.02); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap rect[fill="#0f172a"] { fill: #e2e8f0; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap rect[fill*="rgba(0,150,240,0.04"] { fill: rgba(0,150,240,0.06); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap rect[fill*="rgba(0,150,240,0.06"] { fill: rgba(0,150,240,0.08); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap rect[fill*="rgba(0,150,240,0.15"] { fill: rgba(0,150,240,0.08); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap path[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap line[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap rect[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap path[stroke="#334155"] { stroke: #cbd5e1; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap rect[stroke="#334155"] { stroke: #cbd5e1; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap ellipse[stroke="#334155"] { stroke: #cbd5e1; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap rect[fill="url(#bandMatte)"] { fill: #f1f5f9; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).comp-svg-wrap rect[fill="url(#bandAccent)"] { fill: #0096f0; }
+:not([data-theme="dark"]) .comp-svg-wrap text { fill: #555555; }
+:not([data-theme="dark"]) .comp-svg-wrap text[fill="#777777"] { fill: #666666; }
+:not([data-theme="dark"]) .comp-svg-wrap text[fill="#666666"] { fill: #555555; }
+:not([data-theme="dark"]) .comp-svg-wrap text[fill="#334155"] { fill: #64748b; }
+:not([data-theme="dark"]) .comp-svg-wrap circle[fill="#c0c0c0"] { fill: #888888; }
+:not([data-theme="dark"]) .comp-svg-wrap rect[fill*="rgba(255,255,255,0.05"] { fill: rgba(0,0,0,0.02); }
+:not([data-theme="dark"]) .comp-svg-wrap rect[fill="#0f172a"] { fill: #e2e8f0; }
+:not([data-theme="dark"]) .comp-svg-wrap rect[fill*="rgba(0,150,240,0.04"] { fill: rgba(0,150,240,0.06); }
+:not([data-theme="dark"]) .comp-svg-wrap rect[fill*="rgba(0,150,240,0.06"] { fill: rgba(0,150,240,0.08); }
+:not([data-theme="dark"]) .comp-svg-wrap rect[fill*="rgba(0,150,240,0.15"] { fill: rgba(0,150,240,0.08); }
+:not([data-theme="dark"]) .comp-svg-wrap path[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
+:not([data-theme="dark"]) .comp-svg-wrap line[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
+:not([data-theme="dark"]) .comp-svg-wrap rect[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
+:not([data-theme="dark"]) .comp-svg-wrap path[stroke="#334155"] { stroke: #cbd5e1; }
+:not([data-theme="dark"]) .comp-svg-wrap rect[stroke="#334155"] { stroke: #cbd5e1; }
+:not([data-theme="dark"]) .comp-svg-wrap ellipse[stroke="#334155"] { stroke: #cbd5e1; }
+:not([data-theme="dark"]) .comp-svg-wrap rect[fill="url(#bandMatte)"] { fill: #f1f5f9; }
+:not([data-theme="dark"]) .comp-svg-wrap rect[fill="url(#bandAccent)"] { fill: #0096f0; }
+
+[data-theme="dark"] .comp-svg-wrap text { fill: #a1a1a6; }
+[data-theme="dark"] .comp-svg-wrap text[fill="#777777"] { fill: #a1a1a6; }
+[data-theme="dark"] .comp-svg-wrap text[fill="#666666"] { fill: #a1a1a6; }
+[data-theme="dark"] .comp-svg-wrap text[fill="#334155"] { fill: #cbd5e1; }
+[data-theme="dark"] .comp-svg-wrap circle[fill="#c0c0c0"] { fill: #aaaaaa; }
+[data-theme="dark"] .comp-svg-wrap rect[fill*="rgba(255,255,255,0.05"] { fill: rgba(255,255,255,0.05); }
+[data-theme="dark"] .comp-svg-wrap rect[fill="#0f172a"] { fill: #0f172a; }
+[data-theme="dark"] .comp-svg-wrap rect[fill*="rgba(0,150,240,0.04"] { fill: rgba(0,150,240,0.12); }
+[data-theme="dark"] .comp-svg-wrap rect[fill*="rgba(0,150,240,0.06"] { fill: rgba(0,150,240,0.15); }
+[data-theme="dark"] .comp-svg-wrap rect[fill*="rgba(0,150,240,0.15"] { fill: rgba(0,150,240,0.15); }
+[data-theme="dark"] .comp-svg-wrap path[stroke*="rgba(255,255,255"] { stroke: rgba(255,255,255,0.08); }
+[data-theme="dark"] .comp-svg-wrap line[stroke*="rgba(255,255,255"] { stroke: rgba(255,255,255,0.08); }
+[data-theme="dark"] .comp-svg-wrap rect[stroke*="rgba(255,255,255"] { stroke: rgba(255,255,255,0.08); }
+[data-theme="dark"] .comp-svg-wrap path[stroke="#334155"] { stroke: #475569; }
+[data-theme="dark"] .comp-svg-wrap rect[stroke="#334155"] { stroke: #475569; }
+[data-theme="dark"] .comp-svg-wrap ellipse[stroke="#334155"] { stroke: #475569; }
+[data-theme="dark"] .comp-svg-wrap rect[fill="url(#bandMatte)"] { fill: #1e293b; }
+[data-theme="dark"] .comp-svg-wrap rect[fill="url(#bandAccent)"] { fill: #0096f0; }
 
 /* ============================================================
-   LIGHT MODE — LOOP SVG
+   LOOP SVG
    ============================================================ */
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).loop-svg rect[fill*="rgba(255,255,255,0.04"] { fill: rgba(255,255,255,0.7); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).loop-svg text { fill: #555555; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).loop-svg text[fill="#0096f0"] { fill: #0096f0; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).loop-svg text[fill="#60a5fa"] { fill: #60a5fa; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).loop-svg text[fill="#a855f7"] { fill: #a855f7; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).loop-svg text[fill="#22c55e"] { fill: #22c55e; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).loop-svg text[fill="#FFFFFF"] { fill: #1d1d1f; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).loop-svg text[fill="#999999"] { fill: #888888; }
+:not([data-theme="dark"]) .loop-svg rect[fill*="rgba(255,255,255,0.04"] { fill: rgba(255,255,255,0.7); }
+:not([data-theme="dark"]) .loop-svg text { fill: #555555; }
+:not([data-theme="dark"]) .loop-svg text[fill="#0096f0"] { fill: #0096f0; }
+:not([data-theme="dark"]) .loop-svg text[fill="#60a5fa"] { fill: #60a5fa; }
+:not([data-theme="dark"]) .loop-svg text[fill="#a855f7"] { fill: #a855f7; }
+:not([data-theme="dark"]) .loop-svg text[fill="#22c55e"] { fill: #22c55e; }
+:not([data-theme="dark"]) .loop-svg text[fill="#FFFFFF"] { fill: #1d1d1f; }
+:not([data-theme="dark"]) .loop-svg text[fill="#999999"] { fill: #888888; }
+
+[data-theme="dark"] .loop-svg rect[fill*="rgba(255,255,255,0.04"] { fill: rgba(255,255,255,0.04); }
+[data-theme="dark"] .loop-svg text { fill: #a1a1a6; }
+[data-theme="dark"] .loop-svg text[fill="#0096f0"] { fill: #60a5fa; }
+[data-theme="dark"] .loop-svg text[fill="#60a5fa"] { fill: #60a5fa; }
+[data-theme="dark"] .loop-svg text[fill="#a855f7"] { fill: #a855f7; }
+[data-theme="dark"] .loop-svg text[fill="#22c55e"] { fill: #22c55e; }
+[data-theme="dark"] .loop-svg text[fill="#FFFFFF"] { fill: #f5f5f7; }
+[data-theme="dark"] .loop-svg text[fill="#999999"] { fill: #6e6e73; }
 
 /* ============================================================
-   LIGHT MODE — EXPLODED SVG
+   EXPLODED SVG
    ============================================================ */
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg text { fill: #555555; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg text[fill="#FFFFFF"] { fill: #1d1d1f; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg text[fill="#CCCCCC"] { fill: #444444; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg text[fill="#999999"] { fill: #888888; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg text[fill="#777777"] { fill: #666666; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg text[fill="#666666"] { fill: #555555; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg text[fill="#334155"] { fill: #64748b; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg text[fill="#a0d0f0"] { fill: #0369a1; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg rect[fill="#0f172a"] { fill: #e2e8f0; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg rect[fill*="rgba(0,150,240,0.04"] { fill: rgba(0,150,240,0.06); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg rect[fill*="rgba(0,150,240,0.05"] { fill: rgba(0,150,240,0.08); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg rect[fill*="rgba(0,150,240,0.06"] { fill: rgba(0,150,240,0.1); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg rect[stroke="#334155"] { stroke: #cbd5e1; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg rect[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg line[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg path[stroke*="rgba(0,150,240,0.04"] { stroke: rgba(0,150,240,0.08); }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg rect[fill="url(#exAl)"] { fill: #f1f5f9; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg rect[fill="url(#exPCB)"] { fill: #f8fafc; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg rect[fill="url(#exBatt)"] { fill: #f1f5f9; }
-/* Light mode: not in dark mode */
-:not([data-theme="dark"]).exploded-svg rect[fill*="rgba(0,150,240,0.02"] { fill: rgba(0,150,240,0.04); }
+:not([data-theme="dark"]) .exploded-svg text { fill: #555555; }
+:not([data-theme="dark"]) .exploded-svg text[fill="#FFFFFF"] { fill: #1d1d1f; }
+:not([data-theme="dark"]) .exploded-svg text[fill="#CCCCCC"] { fill: #444444; }
+:not([data-theme="dark"]) .exploded-svg text[fill="#999999"] { fill: #888888; }
+:not([data-theme="dark"]) .exploded-svg text[fill="#777777"] { fill: #666666; }
+:not([data-theme="dark"]) .exploded-svg text[fill="#666666"] { fill: #555555; }
+:not([data-theme="dark"]) .exploded-svg text[fill="#334155"] { fill: #64748b; }
+:not([data-theme="dark"]) .exploded-svg text[fill="#a0d0f0"] { fill: #0369a1; }
+:not([data-theme="dark"]) .exploded-svg rect[fill="#0f172a"] { fill: #e2e8f0; }
+:not([data-theme="dark"]) .exploded-svg rect[fill*="rgba(0,150,240,0.04"] { fill: rgba(0,150,240,0.06); }
+:not([data-theme="dark"]) .exploded-svg rect[fill*="rgba(0,150,240,0.05"] { fill: rgba(0,150,240,0.08); }
+:not([data-theme="dark"]) .exploded-svg rect[fill*="rgba(0,150,240,0.06"] { fill: rgba(0,150,240,0.1); }
+:not([data-theme="dark"]) .exploded-svg rect[stroke="#334155"] { stroke: #cbd5e1; }
+:not([data-theme="dark"]) .exploded-svg rect[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
+:not([data-theme="dark"]) .exploded-svg line[stroke*="rgba(255,255,255"] { stroke: rgba(0,0,0,0.08); }
+:not([data-theme="dark"]) .exploded-svg path[stroke*="rgba(0,150,240,0.04"] { stroke: rgba(0,150,240,0.08); }
+:not([data-theme="dark"]) .exploded-svg rect[fill="url(#exAl)"] { fill: #f1f5f9; }
+:not([data-theme="dark"]) .exploded-svg rect[fill="url(#exPCB)"] { fill: #f8fafc; }
+:not([data-theme="dark"]) .exploded-svg rect[fill="url(#exBatt)"] { fill: #f1f5f9; }
+:not([data-theme="dark"]) .exploded-svg rect[fill*="rgba(0,150,240,0.02"] { fill: rgba(0,150,240,0.04); }
+
+[data-theme="dark"] .exploded-svg text { fill: #a1a1a6; }
+[data-theme="dark"] .exploded-svg text[fill="#FFFFFF"] { fill: #f5f5f7; }
+[data-theme="dark"] .exploded-svg text[fill="#CCCCCC"] { fill: #a1a1a6; }
+[data-theme="dark"] .exploded-svg text[fill="#999999"] { fill: #6e6e73; }
+[data-theme="dark"] .exploded-svg text[fill="#777777"] { fill: #6e6e73; }
+[data-theme="dark"] .exploded-svg text[fill="#666666"] { fill: #6e6e73; }
+[data-theme="dark"] .exploded-svg text[fill="#334155"] { fill: #cbd5e1; }
+[data-theme="dark"] .exploded-svg text[fill="#a0d0f0"] { fill: #7dd3fc; }
+[data-theme="dark"] .exploded-svg rect[fill="#0f172a"] { fill: #0f172a; }
+[data-theme="dark"] .exploded-svg rect[fill*="rgba(0,150,240,0.04"] { fill: rgba(0,150,240,0.12); }
+[data-theme="dark"] .exploded-svg rect[fill*="rgba(0,150,240,0.05"] { fill: rgba(0,150,240,0.12); }
+[data-theme="dark"] .exploded-svg rect[fill*="rgba(0,150,240,0.06"] { fill: rgba(0,150,240,0.15); }
+[data-theme="dark"] .exploded-svg rect[stroke="#334155"] { stroke: #475569; }
+[data-theme="dark"] .exploded-svg rect[stroke*="rgba(255,255,255"] { stroke: rgba(255,255,255,0.08); }
+[data-theme="dark"] .exploded-svg line[stroke*="rgba(255,255,255"] { stroke: rgba(255,255,255,0.08); }
+[data-theme="dark"] .exploded-svg path[stroke*="rgba(0,150,240,0.04"] { stroke: rgba(0,150,240,0.15); }
+[data-theme="dark"] .exploded-svg rect[fill="url(#exAl)"] { fill: #1e293b; }
+[data-theme="dark"] .exploded-svg rect[fill="url(#exPCB)"] { fill: #0f172a; }
+[data-theme="dark"] .exploded-svg rect[fill="url(#exBatt)"] { fill: #1e293b; }
+[data-theme="dark"] .exploded-svg rect[fill*="rgba(0,150,240,0.02"] { fill: rgba(0,150,240,0.08); }
 
 /* Footer light mode */
 /* Light mode: not in dark mode */
@@ -933,19 +912,6 @@ footer .footer-divider {
 .page-sub { font-size: 16px; color: var(--text-secondary); max-width: 600px; }
 .page-meta { display: flex; gap: 24px; margin-top: 16px; font-size: 13px; color: var(--text-tertiary); }
 
-
-.related-pages { padding: 80px 0; background: var(--bg-card); border-top: 1px solid var(--border); margin-top: 48px; }
-.related-pages h2 { font-size: 24px; font-weight: 700; color: var(--text); border-bottom: none; background: none; -webkit-text-fill-color: var(--text); margin-top: 0; }
-.related-card { display: block; padding: 24px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; transition: all .25s ease; }
-.related-card:hover { transform: translateY(-2px); border-color: var(--accent); text-decoration: none; }
-.related-card .rc-category { font-size: 10px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
-.related-card h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-top: 0; margin-bottom: 4px; }
-.related-card p { font-size: 12px; color: var(--text-secondary); margin: 0; }
-@media (max-width: 768px) {
-  .page-hero { padding: 40px 0 32px; }
-  .page-hero h1 { font-size: 26px; }
-.related-pages { padding: 48px 0; }
-  .page-meta { flex-direction: column; gap: 4px; }
 }
 </style>
 </head>
@@ -1916,29 +1882,6 @@ FOOTER
     <span>Confidential — For Investor Use Only</span>
   </div>
 </footer>
-
-<section class="related-pages">
-  <div class="container">
-    <h2>相关文档</h2>
-    <div class="grid-3" style="margin-top:32px;">
-      <a href="product-renders.html" class="related-card">
-        <span class="rc-category">设计</span>
-        <h4>产品渲染图</h4>
-        <p>AI生成产品场景渲染图（6张）</p>
-      </a>
-      <a href="engineering-diagrams.html" class="related-card">
-        <span class="rc-category">工程</span>
-        <h4>工程示意图</h4>
-        <p>系统框图、电气连接、机械装配图</p>
-      </a>
-      <a href="app.html" class="related-card">
-        <span class="rc-category">App</span>
-        <h4>App设计</h4>
-        <p>Nexum App用户界面与交互设计原型</p>
-      </a>
-    </div>
-  </div>
-</section>
 
 <!-- ============================================================
 SCRIPTS

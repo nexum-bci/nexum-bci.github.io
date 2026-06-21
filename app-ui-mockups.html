@@ -118,6 +118,33 @@ body::before {
 }
 
 /* ============================================================
+   LIGHT MODE — Page-level overrides (NOT phone interiors)
+   ============================================================ */
+.header-badge { background: rgba(0,150,240,0.08); }
+.ds-bar { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.06); }
+[data-theme="dark"] .ds-bar { background: rgba(255,255,255,0.02); border-color: var(--border-subtle); }
+.ds-swatch.glass { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
+.ds-swatch.card { background: #ffffff; border-color: rgba(0,0,0,0.06); }
+.header .subtitle { color: #555555; }
+[data-theme="dark"] .header .subtitle { color: var(--text-secondary); }
+.ds-item { color: #555555; }
+[data-theme="dark"] .ds-item { color: var(--text-secondary); }
+.ds-label { color: #888888; }
+.ds-label strong { color: #1d1d1f; }
+[data-theme="dark"] .ds-label { color: var(--text-tertiary); }
+[data-theme="dark"] .ds-label strong { color: var(--text-secondary); }
+.ds-divider { background: rgba(0,0,0,0.08); }
+[data-theme="dark"] .ds-divider { background: var(--border-default); }
+.mockup-label p { color: #888888; }
+[data-theme="dark"] .mockup-label p { color: var(--text-tertiary); }
+.footer { border-top-color: rgba(0,0,0,0.06); }
+[data-theme="dark"] .footer { border-top-color: var(--border-subtle); }
+.footer p { color: #888888; }
+[data-theme="dark"] .footer p { color: var(--text-quaternary); }
+.header-badge { color: #0071e3; }
+[data-theme="dark"] .header-badge { color: var(--accent); }
+
+/* ============================================================
    SITE NAV
    ============================================================ */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)} [data-theme="dark"] nav{background:rgba(0,0,0,.8)}
@@ -163,11 +190,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
   font-size: 42px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #ffffff 40%, rgba(255,255,255,0.6));
+  background: linear-gradient(135deg, #1d1d1f 40%, #0096f0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 12px;
+}
+[data-theme="dark"] .header h1 {
+  background: linear-gradient(135deg, #ffffff 40%, rgba(255,255,255,0.6));
 }
 
 .header .subtitle {
@@ -1390,18 +1420,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .page-sub { font-size: 16px; color: var(--text-secondary); max-width: 600px; }
 .page-meta { display: flex; gap: 24px; margin-top: 16px; font-size: 13px; color: var(--text-tertiary); }
 
-
-.related-pages { padding: 80px 0; background: var(--bg-card); border-top: 1px solid var(--border); margin-top: 48px; }
-.related-pages h2 { font-size: 24px; font-weight: 700; color: var(--text); border-bottom: none; background: none; -webkit-text-fill-color: var(--text); margin-top: 0; }
-.related-card { display: block; padding: 24px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; transition: all .25s ease; }
-.related-card:hover { transform: translateY(-2px); border-color: var(--accent); text-decoration: none; }
-.related-card .rc-category { font-size: 10px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
-.related-card h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-top: 0; margin-bottom: 4px; }
-.related-card p { font-size: 12px; color: var(--text-secondary); margin: 0; }
 @media (max-width: 768px) {
   .page-hero { padding: 40px 0 32px; }
   .page-hero h1 { font-size: 26px; }
-.related-pages { padding: 48px 0; }
   .page-meta { flex-direction: column; gap: 4px; }
 }
 </style>
@@ -2159,29 +2180,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
   </footer>
 
 </div><!-- end container -->
-
-<section class="related-pages">
-  <div class="container">
-    <h2>相关文档</h2>
-    <div class="grid-3" style="margin-top:32px;">
-      <a href="product-visualization.html" class="related-card">
-        <span class="rc-category">设计</span>
-        <h4>产品可视化</h4>
-        <p>3D渲染与产品视觉展示（SVG/HTML）</p>
-      </a>
-      <a href="engineering-diagrams.html" class="related-card">
-        <span class="rc-category">工程</span>
-        <h4>工程示意图</h4>
-        <p>系统框图、电气连接、机械装配图</p>
-      </a>
-      <a href="index.html#documents" class="related-card">
-        <span class="rc-category">返回</span>
-        <h4>文档门户</h4>
-        <p>返回文档索引首页</p>
-      </a>
-    </div>
-  </div>
-</section>
 
 <script>
 document.getElementById('themeToggle').addEventListener('click',function(){
