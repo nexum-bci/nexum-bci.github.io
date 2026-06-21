@@ -14,29 +14,20 @@
 })();
 </script>
 <style>
-/* Page-specific */
-.diagram-section{margin-bottom:48px}
-.diagram-section svg{width:100%;height:auto;display:block;border-radius:12px}
-.diagram-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+/* Diagram cards */
+.diagram-section{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:32px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+[data-theme="dark"] .diagram-section{box-shadow:none}
+.diagram-section svg{width:100%;height:auto;display:block;border-radius:8px}
+.diagram-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;flex-wrap:wrap}
 .diagram-num{font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-subtle);padding:5px 14px;border-radius:20px;flex-shrink:0}
 .diagram-title{font-size:20px;font-weight:700;color:var(--text)}
 .diagram-desc{font-size:13px;color:var(--text-tertiary);margin-left:auto}
-.legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;padding:14px 18px;background:var(--bg);border-radius:10px;border:1px solid var(--border);font-size:12px;color:var(--text-secondary)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:20px;padding:14px 18px;background:var(--bg);border-radius:10px;border:1px solid var(--border);font-size:12px;color:var(--text-secondary)}
 .risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
 .risk-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px}
 .risk-card h4{font-size:14px;color:var(--text);margin-bottom:4px}
 .risk-card p{font-size:12px;color:var(--text-tertiary);margin:0}
-
-@media(max-width:768px){.risk-grid{grid-template-columns:1fr}.diagram-header{flex-direction:column;align-items:flex-start;gap:6px}.diagram-desc{margin-left:0}}
-/* Dual-mode SVG fixes */
-.diagram-section svg>rect:first-child{fill:#f5f5f7!important}
-[data-theme="dark"] .diagram-section svg>rect:first-child{fill:#0a0a0a!important}
-.diagram-section svg text[fill="var(--text)"],.diagram-section svg text[fill="var(--text)"]{fill:#1d1d1f!important}
-[data-theme="dark"] .diagram-section svg text[fill="var(--text)"],[data-theme="dark"] .diagram-section svg text[fill="var(--text)"]{fill:#f5f5f7!important}
-.diagram-section svg text[fill="var(--text-secondary)"],.diagram-section svg text[fill="var(--text-tertiary)"]{fill:#555!important}
-[data-theme="dark"] .diagram-section svg text[fill="var(--text-secondary)"],[data-theme="dark"] .diagram-section svg text[fill="var(--text-tertiary)"]{fill:#a1a1a6!important}
-.diagram-section svg text[fill="var(--text-tertiary)"],.diagram-section svg text[fill="var(--text-tertiary)"]{fill:#86868b!important}
-[data-theme="dark"] .diagram-section svg text[fill="var(--text-tertiary)"],[data-theme="dark"] .diagram-section svg text[fill="var(--text-tertiary)"]{fill:#6e6e73!important}
+@media(max-width:768px){.risk-grid{grid-template-columns:1fr}.diagram-header{flex-direction:column;align-items:flex-start;gap:6px}.diagram-desc{margin-left:0}.diagram-section{padding:20px}}
 </style>
 </head>
 <body>
