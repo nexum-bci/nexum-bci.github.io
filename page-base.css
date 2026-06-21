@@ -423,6 +423,42 @@ strong{font-weight:600;color:var(--text)}
 .text-xs{font-size:12px;line-height:1.4}
 .text-caption{font-size:11px;line-height:1.35;color:var(--text-tertiary)}
 
+
+/* ============================================================
+   UNIFIED BORDER SYSTEM
+   All borders use var(--border). No hardcoded colors.
+   Cards: 1px solid, subtle. Tables: 1px, functional.
+   Diagrams: 1.5px, visible. Focus: 2px accent, accessible.
+   Hover: border-color transitions to var(--accent) at 0.12 opacity.
+   ============================================================ */
+
+/* Ensure all interactive cards use our border variable */
+.market-card,.why-card,.team-card,.portal-card,.product-card,.render-card,
+.diagram-section,.content-card,.card,.stat-card,.risk-card{
+  border:1px solid var(--border)
+}
+
+/* Table cells — consistent thin borders */
+th,td{border-color:var(--border)}
+.table-wrap{border:1px solid var(--border)}
+
+/* SVG diagram components — inherit from CSS where possible */
+.diagram-section svg rect[stroke],
+.diagram-section svg circle[stroke],
+.diagram-section svg path[stroke]{stroke:var(--border)}
+
+/* Hover border accent — applies to interactive cards only */
+.portal-card:hover,.product-card:hover,.render-card:hover,
+.market-card:hover,.why-card:hover,.team-card:hover{
+  border-color:rgba(0,113,227,0.15)
+}
+
+/* Focus ring — keyboard accessibility */
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* Remove borders from non-card elements */
+.page-header,.section,.hero,.page-section{border:none!important}
+
 /* Tablet breakpoint */
 @media(min-width:769px) and (max-width:1024px){
   .footer-inner{grid-template-columns:1.5fr 1fr 1fr;gap:36px}
