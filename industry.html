@@ -79,7 +79,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <tr><td>Ekso Bionics</td><td>美国</td><td>2005</td><td>EksoNR, Indego</td><td>按钮+IMU</td><td>$100K+</td><td>$150M+</td><td>FDA</td></tr>
 <tr><td>ReWalk/Lifeward</td><td>以色列</td><td>2001</td><td>ReWalk P6.0</td><td>倾斜传感器</td><td>$91K</td><td>$197M+</td><td>FDA</td></tr>
 <tr><td>Cyberdyne</td><td>日本</td><td>2004</td><td>HAL 下肢型</td><td>EMG（肌电）</td><td>¥11K/次</td><td>$200M+</td><td>FDA+PMDA</td></tr>
-<tr><td>Wandercraft</td><td>法国</td><td>2012</td><td>Atalante X, Eve</td><td>自平衡</td><td>€200K</td><td>$175M</td><td>FDA+CE</td></tr>
+<tr><td>Wandercraft</td><td>法国</td><td>2012</td><td>Atalante X, Eve</td><td>自平衡</td><td>€200K</td><td>$137-172M</td><td>FDA+CE</td></tr>
 <tr><td>ExoAtlet</td><td>卢森堡</td><td>2013</td><td>ExoAtlet II, Bambini</td><td>电机驱动</td><td>€95K</td><td>$8M</td><td>FDA+CE</td></tr>
 <tr><td>SuitX (Ottobock)</td><td>美国</td><td>2011</td><td>Phoenix</td><td>IMU</td><td>$40K</td><td>$24M</td><td>FDA+CE</td></tr>
 <tr><td>Angel Robotics</td><td>韩国</td><td>2017</td><td>WalkON, Angelex</td><td>IMU+力控</td><td>B2B</td><td>$25M</td><td>KOSDAQ上市</td></tr>
@@ -114,7 +114,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <tr><td>Verve Motion</td><td>美国</td><td>SafeLift</td><td>软体背包式，6.5磅</td><td>$350/月</td><td>$53M</td></tr>
 <tr><td>HeroWear</td><td>美国</td><td>Apex 2</td><td>被动机械，~3磅</td><td>$数百</td><td>$15.7M</td></tr>
 <tr><td>Innophys</td><td>日本</td><td>Muscle Suit Every</td><td>气动人工肌肉</td><td>$1,300</td><td>$44.9M</td></tr>
-<tr><td>Japet Medical</td><td>法国</td><td>Japet.W+</td><td>电机腰带式</td><td>€7,700</td><td>$8.9M</td></tr>
+<tr><td>Japet Medical</td><td>法国</td><td>Japet.W+</td><td>电机腰带式</td><td>€7,700</td><td>~$1.7M</td></tr>
 <tr><td>Samsung Bot Fit</td><td>韩国</td><td>GEMS-H</td><td>髋部外骨骼</td><td>TBD</td><td>内部研发</td></tr>
 <tr><td>Roam Robotics</td><td>美国</td><td>Forge</td><td>气动织物</td><td>未公开</td><td>$12.7M</td></tr>
 </table>
@@ -128,7 +128,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <h2 style="margin-top:0">2. 为什么过去没人做成</h2>
 
 <h3>EEG 步行信噪比的物理极限</h3>
-<p>运动伪迹与神经信号共享相同的频带和空间位置。被动干电极在真实步行中epoch拒绝率接近100%（Oliveira 2016）。Porr et al.（PLOS ONE 2023）提出"SNR-wall"理论——噪声超过某个阈值后，任何信号处理算法都无法恢复原始信号。这不是工程问题，是物理规律。</p>
+<p>运动伪迹与神经信号共享相同的频带和空间位置。被动干电极在真实步行中epoch拒绝率极高（Oliveira et al. 2016, J. Neural Engineering）。Porr et al.（PLOS ONE 2023）提出"SNR-wall"理论——噪声超过某个阈值后，任何信号处理算法都无法恢复原始信号。这不是工程问题，是物理规律。</p>
 
 <p><strong>2024-2025突破：</strong>微针阵列干电极（MNAE）接触阻抗降至2.6kΩ@10Hz，信号幅度超过湿电极39-44%（Materials Today Nano 2026）。有源干电极SNR达1.27dB（归一化指标），与湿电极1.30dB几乎无差。干电极的"信号质量瓶颈"在物理层面首次被突破。</p>
 
@@ -258,7 +258,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <h3>EEG方案</h3>
 <p><strong>基准模型：</strong>EEGNet（Lawhern 2018，~2000参数）仍是最佳CNN基线。2024-2025年Transformer（TOTEM/EEG-Deformer）在跨subject泛化上开始超越EEGNet。</p>
 <p><strong>最优范式：</strong>运动准备电位（MRCP）离线95%/在线63-83%，可预测运动前350-600ms，最适合自定速外骨骼触发。混合MI+SSVEP方案在准确率和疲劳度之间取得平衡。</p>
-<p><strong>电极选型：</strong>半干电极（2024年99.16%分类准确率，接近湿电极）是消费级最优解。ADS1299（$15-18, 1μVpp噪声, CMRR 110dB）是EEG采集不二之选。nRF52832（$3-5, Cortex-M4F, BLE 5.0）是头带MCU最优选。</p>
+<p><strong>电极选型：</strong>半干电极（2024年99.16%分类准确率，接近湿电极）是消费级最优解。ADS1299（$51-67, 1μVpp噪声, CMRR 110dB）是EEG采集不二之选。nRF52832（$5-8, Cortex-M4F, BLE 5.0）是头带MCU最优选。</p>
 
 <h3>驱动方案</h3>
 <p><strong>准直驱（QDD）在反向驱动性和控制带宽上全面优于谐波减速。</strong>CubeMars AKE60-8（260g, 12.5Nm峰值, 8:1减速比, ~$200-300）是已验证的穿戴方案。TMC4671硬件FOC（100kHz控制环路）释放MCU算力。</p>
@@ -278,7 +278,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <tr><th>市场</th><th>2025</th><th>2030</th><th>2035</th><th>CAGR</th></tr>
 <tr><td>全球康复外骨骼SAM</td><td>$386-509M</td><td>$724M-1.8B</td><td>$1.75-2.9B</td><td>15-25%</td></tr>
 <tr><td>中国外骨骼市场</td><td>42亿元</td><td>—</td><td>—</td><td>26.5%</td></tr>
-<tr><td>全球BCI市场</td><td>$2.2-5.0B</td><td>$4.7-8.0B</td><td>—</td><td>10-15%</td></tr>
+<tr><td>全球BCI市场</td><td>$2.2-3.0B</td><td>$4.7-8.0B</td><td>—</td><td>10-15%</td></tr>
 </table>
 
 <h3>支付路径</h3>
@@ -317,7 +317,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 
 <table>
 <tr><th>模块</th><th>核心器件</th><th>型号</th><th>单价</th><th>来源</th></tr>
-<tr><td>EEG ADC</td><td>8通道24-bit</td><td>TI ADS1299</td><td>$15-18</td><td>DigiKey/Mouser</td></tr>
+<tr><td>EEG ADC</td><td>8通道24-bit</td><td>TI ADS1299</td><td>$51-67</td><td>DigiKey/Mouser</td></tr>
 <tr><td>头带MCU</td><td>双核BLE 5.0</td><td>Nordic nRF5340</td><td>$4-7</td><td>DigiKey</td></tr>
 <tr><td>头带电池</td><td>LiPo 300-500mAh</td><td>小型软包</td><td>$5-8</td><td>定制</td></tr>
 <tr><td>干电极</td><td>Ag/AgCl涂层pin</td><td>×8</td><td>$5-15/个</td><td>供应商定制</td></tr>
@@ -346,8 +346,8 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 
 <table>
 <tr><th>市场</th><th>路径</th><th>时间</th><th>费用</th></tr>
-<tr><td>NMPA（中国）二类外骨骼</td><td>创新绿色通道 + 同品种临床评价</td><td>12-18个月</td><td>¥200-300万</td></tr>
-<tr><td>NMPA（中国）二类BCI+外骨骼</td><td>优先审批 + 多中心RCT(100-150例)</td><td>18-24个月</td><td>¥400-800万</td></tr>
+<tr><td>NMPA（中国）二类外骨骼</td><td>创新绿色通道(申请免费) + 同品种临床评价</td><td>12-18个月</td><td>含检测+临床 ¥200-300万</td></tr>
+<tr><td>NMPA（中国）二类BCI+外骨骼</td><td>优先审批 + 多中心RCT(100-150例)</td><td>18-24个月</td><td>含RCT ¥400-800万</td></tr>
 <tr><td>FDA（美国）外骨骼</td><td>510(k) — ReWalk/Ekso有predicate</td><td>4-6个月</td><td>$50-100K</td></tr>
 <tr><td>CE MDR（欧洲）外骨骼</td><td>Class IIa → 公告机构认证</td><td>12-18个月</td><td>€100-200K</td></tr>
 <tr><td>PMDA（日本）</td><td>参照HAL路径：孤儿认定+新分类</td><td>18-24个月</td><td>¥2000-5000万</td></tr>
