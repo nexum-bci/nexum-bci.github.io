@@ -258,7 +258,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <h3>EEG方案</h3>
 <p><strong>基准模型：</strong>EEGNet（Lawhern 2018，~2000参数）仍是最佳CNN基线。2024-2025年Transformer（TOTEM/EEG-Deformer）在跨subject泛化上开始超越EEGNet。</p>
 <p><strong>最优范式：</strong>运动准备电位（MRCP）离线95%/在线63-83%，可预测运动前350-600ms，最适合自定速外骨骼触发。混合MI+SSVEP方案在准确率和疲劳度之间取得平衡。</p>
-<p><strong>电极选型：</strong>半干电极（2024年99.16%分类准确率，接近湿电极）是消费级最优解。ADS1299（$15-18, 1μVpp噪声, CMRR 110dB）是EEG采集不二之选。nRF5340（$4-7, 双核M33, 512KB RAM）是头带MCU最优选。</p>
+<p><strong>电极选型：</strong>半干电极（2024年99.16%分类准确率，接近湿电极）是消费级最优解。ADS1299（$15-18, 1μVpp噪声, CMRR 110dB）是EEG采集不二之选。nRF52832（$3-5, Cortex-M4F, BLE 5.0）是头带MCU最优选。</p>
 
 <h3>驱动方案</h3>
 <p><strong>准直驱（QDD）在反向驱动性和控制带宽上全面优于谐波减速。</strong>CubeMars AKE60-8（260g, 12.5Nm峰值, 8:1减速比, ~$200-300）是已验证的穿戴方案。TMC4671硬件FOC（100kHz控制环路）释放MCU算力。</p>
@@ -292,7 +292,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 </table>
 
 <div class="callout-good">
-<strong>中国政策顺风最强：</strong>11省医保+BCl定价+辅具补贴+八部门养老BCI支持+创新器械绿色通道——五层政策同时在推。这是全球唯一具备完整政策闭环的市场。
+<strong>中国政策顺风最强：</strong>11省医保+BCI定价+辅具补贴+八部门养老BCI支持+创新器械绿色通道——五层政策同时在推。这是全球唯一具备完整政策闭环的市场。
 </div>
 </div>
 
