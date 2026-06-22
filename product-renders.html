@@ -9,22 +9,16 @@
 <script>(function(){if(localStorage.getItem('nexum-theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}})();</script>
 <style>
 img{opacity:1!important}
-.page-header{padding:120px 24px 32px}
-.page-header h1{margin-bottom:8px}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.render-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform .35s var(--ease-apple),box-shadow .35s var(--ease-apple);box-shadow:var(--shadow-sm)}
-.render-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-.render-img{aspect-ratio:1/1;overflow:hidden;background:var(--bg);display:flex;align-items:center;justify-content:center}
-.gallery-hero .render-img{aspect-ratio:auto}
-.render-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease-apple)}
-.render-card:hover .render-img img{transform:scale(1.04)}
-.render-body{padding:20px 24px 24px}
-.render-body h3{font-size:16px;font-weight:600;color:var(--text);margin-bottom:4px}
-.render-body p{font-size:13px;color:var(--text-tertiary);line-height:1.5;margin:0}
-.render-body .tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--accent-subtle);color:var(--accent);margin-top:10px}
-.section-label-row{display:flex;align-items:center;gap:12px;margin-bottom:24px}
-.section-label-row h2{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent)}
-@media(max-width:768px){.gallery{grid-template-columns:1fr}.page-header h1{font-size:30px}}
+.module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.module-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform .35s var(--ease-apple),box-shadow .35s var(--ease-apple);box-shadow:var(--shadow-sm)}
+.module-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.module-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .5s var(--ease-apple)}
+.module-card:hover img{transform:scale(1.04)}
+.module-body{padding:20px 24px 24px}
+.module-body h3{font-size:17px;font-weight:600;color:var(--text);margin-bottom:4px}
+.module-body p{font-size:14px;color:var(--text-secondary);line-height:1.5;margin:0}
+.module-body .tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--accent-subtle);color:var(--accent);margin-top:10px}
+@media(max-width:768px){.module-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -39,10 +33,10 @@ img{opacity:1!important}
 <section class="page-section" style="padding-top:0">
  <div class="container">
 
- <div class="section-label-row"><h2>完整系统</h2></div>
- <div class="gallery gallery-hero">
- <div class="render-card">
- <div class="render-img"><svg viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+ <div class="content-card" style="margin-bottom:40px">
+ <h2 style="margin-top:0">完整系统</h2>
+ <div style="background:var(--bg);border-radius:var(--radius);padding:24px;margin-top:24px">
+  <svg viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
   <defs>
     <filter id="ss"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000" flood-opacity="0.06"/></filter>
     <linearGradient id="neuroGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a2e"/><stop offset="100%" stop-color="#1a1a1e"/></linearGradient>
@@ -91,24 +85,25 @@ img{opacity:1!important}
     <text x="125" y="270" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="700">NeuroSuit</text>
     <text x="125" y="290" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">~2.5kg · 15Nm · 10s穿脱</text>
   </g>
- </svg></div>
- <div class="render-body"><h3>Nexum One 完整系统</h3><p>EEG-Sense · 控制盒 · NeuroSuit — 从神经意图到物理动作</p><span class="tag">系统总览</span></div>
+  </svg>
  </div>
  </div>
 
- <div class="section-label-row" style="margin-top:48px"><h2>核心模块</h2></div>
- <div class="gallery">
- <div class="render-card">
-  <div class="render-img"><img src="docs/render_1_eeg.jpg" alt="EEG-Sense头带" loading="lazy"></div>
-  <div class="render-body"><h3>EEG-Sense 头带</h3><p>8通道干电极 · 80g · 检测运动准备电位</p><span class="tag">神经接口</span></div>
+ <div class="content-card">
+ <h2 style="margin-top:0">核心模块</h2>
+ <div class="module-grid" style="margin-top:24px">
+ <div class="module-card">
+  <img src="docs/render_1_eeg.jpg" alt="EEG-Sense头带" loading="lazy">
+  <div class="module-body"><h3>EEG-Sense 头带</h3><p>8通道干电极 · 80g · 检测运动准备电位</p><span class="tag">神经接口</span></div>
  </div>
- <div class="render-card">
-  <div class="render-img"><img src="docs/render_2_controlbox.jpg" alt="控制盒" loading="lazy"></div>
-  <div class="render-body"><h3>控制盒</h3><p>STM32H7 + nRF5340 · AI策略引擎</p><span class="tag">计算核心</span></div>
+ <div class="module-card">
+  <img src="docs/render_2_controlbox.jpg" alt="控制盒" loading="lazy">
+  <div class="module-body"><h3>控制盒</h3><p>STM32H7 + nRF5340 · AI策略引擎</p><span class="tag">计算核心</span></div>
  </div>
- <div class="render-card">
-  <div class="render-img"><img src="docs/render_3_neurosuit.jpg" alt="NeuroSuit" loading="lazy"></div>
-  <div class="render-body"><h3>NeuroSuit 肌动服</h3><p>碳纤维锚定 · 直驱电机 · ~2.5kg</p><span class="tag">执行系统</span></div>
+ <div class="module-card">
+  <img src="docs/render_3_neurosuit.jpg" alt="NeuroSuit" loading="lazy">
+  <div class="module-body"><h3>NeuroSuit 肌动服</h3><p>碳纤维锚定 · 直驱电机 · ~2.5kg</p><span class="tag">执行系统</span></div>
+ </div>
  </div>
  </div>
 
