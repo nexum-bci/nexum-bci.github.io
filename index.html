@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="逐念而行 Nexum — 人机共生 · 从大脑到肌肉的AI。读取运动意图，AI生成策略，驱动外骨骼。人机共生赛道开创者。">
+<meta name="description" content="逐念而行 Nexum — 人机共生 · 从大脑到肌肉的AI。读取运动意图，AI生成策略，驱动混合结构下肢康复外骨骼。">
 <meta name="theme-color" content="#FAFAFA">
 <meta name="color-scheme" content="light dark">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="逐念而行 Nexum — 人机共生  ·  从大脑到肌肉的AI">
-<meta property="og:description" content="读取运动意图，AI生成个性化策略，驱动外骨骼。定义人机共生。">
+<meta property="og:description" content="混合结构下肢康复外骨骼。EEG读取运动意图，AI生成个性化策略，重新行走从大脑开始。">
 <meta property="og:type" content="website">
 <meta property="og:image" content="favicon.svg">
 <title>逐念而行 Nexum — 人机共生  ·  从大脑到肌肉的AI</title>
@@ -1208,14 +1208,14 @@ footer a:hover{color:var(--text)}
  <div class="hero-label">Human-Machine Symbiosis</div>
  <h1 class="hero-title">逐念而行</h1>
  <p class="hero-sub">人机共生  ·  从大脑到肌肉的AI</p>
- <p class="hero-tagline">读取运动意图，AI生成策略，驱动外骨骼。<br>重新行走，从大脑开始。</p>
+ <p class="hero-tagline">混合结构下肢康复外骨骼。<br>EEG+IMU读取运动意图，AI生成个性化策略，重新行走从大脑开始。</p>
  <div class="hero-actions">
  <a href="nexum-bp.html" class="btn btn-primary">商业计划书</a>
  <a href="#product" class="btn btn-outline">了解产品</a>
  </div>
  <div class="hero-metrics">
  <div class="metric"><div class="metric-num">9,400 万</div><div class="metric-label">全球患者</div><div class="metric-sub">中风存活者</div></div>
- <div class="metric"><div class="metric-num">&lt;185ms</div><div class="metric-label">系统延迟</div><div class="metric-sub">端到端闭环</div></div>
+ <div class="metric"><div class="metric-num">~155ms</div><div class="metric-label">系统延迟</div><div class="metric-sub">EEG→AI→执行</div></div>
  <div class="metric"><div class="metric-num">8ch</div><div class="metric-label">EEG通道</div><div class="metric-sub">干电极</div></div>
  <div class="metric"><div class="metric-num">~2.5kg</div><div class="metric-label">穿戴重量</div><div class="metric-sub">碳纤维</div></div>
  <div class="metric"><div class="metric-num">+44m*</div><div class="metric-label">6MWT提升</div><div class="metric-sub">临床验证中</div></div>
@@ -1278,11 +1278,11 @@ footer a:hover{color:var(--text)}
  <div class="product-card-body">
  <div class="product-card-name">NeuroSuit 肌动服</div>
  <div class="product-card-sub">轻量化外骨骼</div>
- <p class="product-card-outcome">碳纤维框架，鲍登线缆驱动。~2.5kg，10秒穿脱。康复，融入日常。</p>
+ <p class="product-card-outcome">碳纤维框架，直驱电机。~2.5kg，10秒穿脱。康复，融入日常。</p>
  <div class="product-card-specs">
  <span class="spec-tag">~2.5kg</span>
  <span class="spec-tag">15 Nm</span>
- <span class="spec-tag">鲍登线缆</span>
+ <span class="spec-tag">直驱电机</span>
  <span class="spec-tag">10 s 穿脱</span>
  <span class="spec-tag">碳纤维</span>
  </div>
@@ -1296,12 +1296,12 @@ footer a:hover{color:var(--text)}
  <div class="product-card-body">
  <div class="product-card-name">Control Box 控制盒</div>
  <div class="product-card-sub">AI 策略引擎</div>
- <p class="product-card-outcome">个性化AI策略引擎。416肌肉孪生+强化学习，实时生成最优助力。端到端~150-200ms。</p>
+ <p class="product-card-outcome">边缘AI策略引擎。EEG+IMU融合感知，强化学习个性化策略。端到端~155ms。</p>
  <div class="product-card-specs">
- <span class="spec-tag">&lt;185ms</span>
- <span class="spec-tag">416 肌肉孪生</span>
+ <span class="spec-tag">~155ms</span>
+ <span class="spec-tag">EEG+IMU融合</span>
  <span class="spec-tag">48 Wh 电池</span>
- <span class="spec-tag">联邦学习</span>
+ <span class="spec-tag">强化学习</span>
  </div>
  </div>
  </a>
@@ -1325,31 +1325,31 @@ footer a:hover{color:var(--text)}
  <div class="tech-step reveal">
  <div class="step-num">01</div>
  <div class="step-title">读取意图</div>
- <div class="step-desc">EEG-Sense捕捉运动准备电位（MRP），自适应滤波与空间谱特征提取，实时解码运动意图</div>
+ <div class="step-desc">EEG预测运动意图（MRCP检测，提前~0.5s），IMU+力传感器提供运动中的主要控制信号，多模态融合</div>
  <div class="step-time">~40ms</div>
  </div>
  <div class="tech-step reveal">
  <div class="step-num">02</div>
  <div class="step-title">生成策略</div>
- <div class="step-desc">AI引擎基于416肌肉骨骼孪生模型，强化学习为每位患者生成个性化助力方案</div>
+ <div class="step-desc">AI引擎结合EEG意图与IMU状态，强化学习策略网络实时生成个性化辅助方案</div>
  <div class="step-time">~55ms</div>
  </div>
  <div class="tech-step reveal">
  <div class="step-num">03</div>
  <div class="step-title">执行动作</div>
- <div class="step-desc">鲍登线缆系统以最小延迟执行髋关节助力，碳纤维结构确保力传导效率</div>
+ <div class="step-desc">直驱电机精准执行关节助力，FOC矢量控制，碳纤维框架确保力传导效率</div>
  <div class="step-time">~60ms</div>
  </div>
  <div class="tech-step reveal">
  <div class="step-num">04</div>
  <div class="step-title">持续进化</div>
- <div class="step-desc">联邦学习从多中心临床数据持续优化策略，动态适应每位患者的恢复进程</div>
+ <div class="step-desc">个性化模型随使用持续优化（研究阶段），本地数据不离设备，动态适应恢复进程</div>
  <div class="step-time">~30ms</div>
  </div>
  </div>
  <!-- Latency breakdown -->
  <div class="latency-summary reveal">
- <span>端到端系统延迟 <strong>&lt;185ms</strong></span>
+ <span>端到端系统延迟 <strong>~155ms</strong> 基线，典型范围 150-200ms</span>
  </div>
  <div class="latency-bar reveal">
  <span class="latency-eeg">EEG采集 40ms</span>
@@ -1360,7 +1360,7 @@ footer a:hover{color:var(--text)}
  </div>
  <div class="latency-labels">
  <span>0ms</span>
- <span>185ms 端到端</span>
+ <span>155ms 端到端（基线）</span>
  </div>
  <div class="section-footer">
  <a href="technology.html">查看技术架构详情 →</a>
@@ -1713,31 +1713,31 @@ footer a:hover{color:var(--text)}
  <div class="container">
  <div class="section-title-center">
  <h2 class="section-title">市场路线</h2>
- <p class="section-sub section-sub-center">康复→老年→全人群，三阶段十年增长。</p>
+ <p class="section-sub section-sub-center">全球神经康复外骨骼市场$1.3B。三阶段十年路线图。</p>
  </div>
  <div class="grid-3">
  <div class="market-card">
  <span class="phase-tag">Phase 1</span>
  <h3>神经康复</h3>
- <div class="market-num">$6.6B</div>
- <p class="market-desc">中风后康复。NMPA二类。Clinical版$18,000（医院），Home版$3,999+$499/年（居家）。长三角三甲切入。</p>
+ <div class="market-num">$1.3B</div>
+ <p class="market-desc">神经康复外骨骼TAM。Clinical版$18,000（医院），Home版$3,999+$499/年（居家）。长三角三甲切入。NMPA二类创新器械，预计2028年获证。</p>
  <div class="market-year"> 2028 – 2030</div>
  </div>
  <div class="market-card">
  <span class="phase-tag">Phase 2</span>
- <h3>老年行动力</h3>
- <div class="market-num">$15B</div>
+ <h3>康复+养老</h3>
+ <div class="market-num">$6.8B</div>
  <p class="market-desc">
-          从康复到预防。65+人口持续攀升，社区与居家养老驱动。产品线向消费级助行延伸。
+          从中风康复扩展到更广泛的神经康复需求。65+人口驱动社区与居家养老市场。产品线向消费级延伸。
  </p>
  <div class="market-year"> 2030 – 2033</div>
  </div>
  <div class="market-card">
  <span class="phase-tag">Phase 3</span>
- <h3>全人群增强</h3>
- <div class="market-num">$33.7B+</div>
+ <h3>消费级增强</h3>
+ <div class="market-num">$15B+</div>
  <p class="market-desc">
-          从医疗到消费。体力劳动助力、运动表现提升、日常穿戴。技术壁垒转化为品牌护城河。
+          从医疗向消费市场渗透。体力劳动助力、运动增强、日常穿戴。技术成熟度与成本是核心挑战。
  </p>
  <div class="market-year"> 2033+</div>
  </div>
@@ -1752,32 +1752,32 @@ footer a:hover{color:var(--text)}
  <div class="container">
  <div class="section-title-center">
  <h2 class="section-title">为什么是现在</h2>
- <p class="section-sub section-sub-center">四大趋势汇聚于 2025-2028 窗口期。</p>
+ <p class="section-sub section-sub-center">过去五年，四大壁垒同时松动。2025-2028是窗口期。</p>
  </div>
  <div class="grid-4">
  <div class="why-card">
  <div class="why-icon">AI</div>
  <div class="why-stat">10x/年</div>
- <h3>AI能力爆发</h3>
- <p>AI推理成本年降10倍，2026年达临界点。强化学习让个性化策略走向临床。</p>
+ <h3>[已松动] AI推理成本骤降</h3>
+ <p>过去AI推理成本是高门槛。现在边缘NPU 4 TOPS < $20，强化学习策略可在本地运行。2026年达临界点。</p>
  </div>
  <div class="why-card">
  <div class="why-icon">BCI</div>
  <div class="why-stat">8ch</div>
- <h3>脑机接口实用化</h3>
- <p>干电极EEG达临床精度。ADC芯片&lt;$15，嵌入式算力满足实时处理。</p>
+ <h3>[已松动] 干电极EEG实用化</h3>
+ <p>湿电极EEG需导电膏、临床操作。干电极+自适应算法让日常脑信号采集成为可能。ADC芯片<$15。</p>
  </div>
  <div class="why-card">
  <div class="why-icon">GLOBAL</div>
  <div class="why-stat">2.1B</div>
- <h3>全球老龄化加速</h3>
- <p>全球65+人口2050年达21亿。中风发病率随年龄上升，康复缺口持续扩大。</p>
+ <h3>[持续压力] 老龄化加剧</h3>
+ <p>全球65+人口2050年达21亿。康复治疗师缺口持续扩大，外骨骼是可规模化方案之一。</p>
  </div>
  <div class="why-card">
  <div class="why-icon">NMPA</div>
- <div class="why-stat">创新通道</div>
- <h3>康复医疗政策红利</h3>
- <p>创新器械审评缩至12-24个月。多地医保新增康复项目。</p>
+ <div class="why-stat">12-24月</div>
+ <h3>[已松动] 创新器械加速审评</h3>
+ <p>NMPA创新医疗器械绿色通道审评缩短至12-24个月。多地医保新增康复项目。政策窗口有限。</p>
  </div>
  </div>
  </div>

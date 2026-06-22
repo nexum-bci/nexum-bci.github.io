@@ -385,7 +385,7 @@ footer {
 <section class="hero">
  <div class="container">
  <h1>AI闭环架构</h1>
- <p>人机共生  ·  读取意图→生成策略→执行动作→持续进化  ·  端到端<185ms</p>
+ <p>人机共生  ·  EEG预测→AI策略→直驱执行→持续优化  ·  端到端~155ms</p>
  </div>
 </section>
 
@@ -502,12 +502,12 @@ footer {
  <rect x="30" y="346" width="900" height="18" fill="var(--accent-subtle)"/>
  </g>
  <text x="480" y="348" text-anchor="middle" fill="var(--accent)" font-size="16" font-weight="700">4. NeuroSuit 肌动服</text>
- <text x="480" y="388" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">碳纤维锚定  ·  鲍登线缆驱动  ·  ~2.5kg  ·  15 Nm 峰值  ·  10 秒穿脱</text>
+ <text x="480" y="388" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">碳纤维  ·  直驱电机  ·  ~2.5kg  ·  15 Nm 峰值  ·  10 秒穿脱</text>
 
  <!-- Bottom bar: latency -->
  <rect x="30" y="440" width="900" height="40" rx="20" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
  <text x="480" y="466" text-anchor="middle" fill="var(--text-secondary)" font-size="13">
-    端到端闭环 &lt;185ms | 40ms EEG → 55ms AI → 60ms 执行 → 30ms 反馈
+    端到端闭环 ~155ms | 40ms EEG → 55ms AI → 60ms 执行 → 20ms 通信
  </text>
 </svg>
  </div>
@@ -523,7 +523,7 @@ footer {
  <div class="step-card">
  <div class="step-icon">1</div>
  <h3>读取意图</h3>
- <p>EEG采集运动准备电位（RP），在用户意识到动作前捕捉神经信号。8通道干电极，250 SPS实时传输。</p>
+ <p>EEG采集运动准备电位（MRCP），在动作发生前约0.5秒预测运动意图。8通道干电极，250 SPS。IMU+力传感器提供运动中的主要控制信号。EEG负责"预测"，IMU负责"感知"。</p>
  <div class="tech-detail">
  <span>EEG</span>
  <span>运动准备电位</span>
@@ -535,7 +535,7 @@ footer {
  <div class="step-card">
  <div class="step-icon">2</div>
  <h3>生成策略</h3>
- <p>AI推理引擎通过EEGNet提取特征，强化学习策略网络生成个性化方案。416肌肉数字孪生实时仿真。</p>
+ <p>AI引擎融合EEG意图与IMU状态，EEGNet提取特征，强化学习策略网络生成个性化辅助方案。416肌肉骨骼模型作为离线训练引擎（非实时控制），在仿真环境中训练初始策略。</p>
  <div class="tech-detail">
  <span>EEGNet</span>
  <span>强化学习</span>
@@ -546,18 +546,18 @@ footer {
  <div class="step-card">
  <div class="step-icon">3</div>
  <h3>执行动作</h3>
- <p>鲍登线缆驱动精准控制关节辅助力。碳纤维锚定结构优化力传输，15Nm峰值扭矩覆盖日常所需。</p>
+ <p>直驱电机精准控制关节辅助力，FOC矢量控制。碳纤维框架优化力传输，15Nm峰值扭矩覆盖日常步行所需。</p>
  <div class="tech-detail">
- <span>鲍登线缆</span>
- <span>碳纤维锚定</span>
+ <span>直驱电机</span>
+ <span>碳纤维框架</span>
  <span>15Nm峰值</span>
  <span>8Nm持续</span>
  </div>
  </div>
  <div class="step-card">
  <div class="step-icon">4</div>
- <h3>持续进化</h3>
- <p>联邦学习在保护隐私的前提下持续优化模型。每次使用都在改进策略，动态适配肌肉状态与康复进展。</p>
+ <h3>持续进化（研究阶段）</h3>
+ <p>个性化模型随使用持续优化（研究验证阶段）。本地数据不离设备，联邦学习框架在多中心临床中验证收敛性与有效性。416肌肉骨骼模型用于离线仿真训练，非实时控制。</p>
  <div class="tech-detail">
  <span>联邦学习</span>
  <span>隐私保护</span>
@@ -573,7 +573,7 @@ footer {
 <section class="section" id="latency">
  <div class="container">
  <div class="text-center section-label">延迟分析</div>
- <h2 class="text-center">185ms 端到端延迟分解</h2>
+ <h2 class="text-center">~155ms 端到端延迟分解</h2>
  <div class="latency-bar">
  <div class="latency-seg s1" style="flex:4;"><span>40ms</span></div>
  <div class="latency-seg s2" style="flex:5.5;"><span>55ms</span></div>
@@ -596,7 +596,7 @@ footer {
  <div class="latency-row"><span class="dot" style="background:#f59e0b;"></span><span class="label">传感器反馈与闭环调整</span><span class="ms">10ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;">5.4%</span></div>
  </div>
  <div style="margin-top:24px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:12px;color:var(--text-tertiary);max-width:700px;margin-left:auto;margin-right:auto;">
-      注：实验室标准环境测得（25&deg;C，湿度50%，无障碍物）。实际延迟可能因电磁干扰、蓝牙信号强度及个体差异波动±10%。系统在信号下降时自动调整参数，确保延迟始终&le;185ms。
+      注：实验室标准环境测得（25&deg;C，湿度50%，无障碍物）。基线延迟约155ms，实际系统延迟受电磁干扰、蓝牙信号强度及个体差异影响，典型范围150-200ms。
  </div>
  </div>
 </section>
@@ -647,7 +647,7 @@ footer {
  <!-- Box 4: Motor -->
  <rect x="490" y="50" width="120" height="60" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/>
  <text x="550" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="13" font-weight="600">Motor Driver</text>
- <text x="550" y="90" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">鲍登线缆</text>
+ <text x="550" y="90" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">直驱电机</text>
 
  <line x1="610" y1="80" x2="638" y2="80" stroke="var(--text-tertiary)" stroke-width="2"/>
  <polygon points="638,76 646,80 638,84" fill="var(--text-tertiary)"/>
@@ -707,7 +707,7 @@ footer {
  <rect x="340" y="30" width="120" height="70" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/>
  <text x="400" y="55" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="12" font-weight="600">RL Policy</text>
  <text x="400" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">强化学习策略</text>
- <text x="400" y="86" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">416肌肉孪生</text>
+ <text x="400" y="86" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">肌肉骨骼模型</text>
 
  <line x1="460" y1="65" x2="488" y2="65" stroke="var(--text-tertiary)" stroke-width="2"/>
  <polygon points="488,61 496,65 488,69" fill="var(--text-tertiary)"/>
@@ -715,7 +715,7 @@ footer {
  <!-- Layer 4: Motor Control -->
  <rect x="500" y="30" width="120" height="70" rx="8" fill="var(--bg)" stroke="var(--accent)" stroke-width="2"/>
  <text x="560" y="55" text-anchor="middle" dominant-baseline="central" fill="var(--text)" font-size="12" font-weight="600">Motor Control</text>
- <text x="560" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">鲍登线缆驱动</text>
+ <text x="560" y="72" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">直驱电机控制</text>
  <text x="560" y="86" text-anchor="middle" dominant-baseline="central" fill="var(--text-tertiary)" font-size="10">15Nm 扭矩</text>
 
  <line x1="620" y1="65" x2="648" y2="65" stroke="var(--text-tertiary)" stroke-width="2"/>
@@ -759,11 +759,11 @@ footer {
  <h2 class="text-center">关键里程碑</h2>
  <div class="timeline">
  <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024 Q3</div><h4>概念验证完成</h4><p>8通道EEG干电极原型验证成功，运动准备电位检测准确率突破80%。</p></div>
- <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024 Q4</div><h4>首个EEGNet模型部署</h4><p>轻量化EEGNet在边缘设备实现实时推理，单次推理延迟&lt;50ms。</p></div>
- <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 Q1</div><h4>鲍登线缆驱动系统</h4><p>碳纤维鲍登线缆首次集成，15Nm峰值扭矩精准助力，重量~2.5kg。</p></div>
- <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 Q2</div><h4>416肌肉数字孪生</h4><p>完成416块肌肉的数字化建模与实时仿真，为强化学习提供高保真训练环境。</p></div>
+ <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024 Q4</div><h4>EEGNet模型部署</h4><p>轻量化EEGNet在边缘设备实现实时推理，单次推理延迟&lt;50ms。</p></div>
+ <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 Q1</div><h4>直驱电机驱动系统</h4><p>直驱电机首次集成，15Nm峰值扭矩，碳纤维框架，系统重量~2.5kg。</p></div>
+ <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 Q2</div><h4>416肌肉骨骼模型集成</h4><p>基于OpenSim框架的416块肌肉骨骼模型集成，作为离线训练引擎为强化学习提供仿真环境（非实时控制）。</p></div>
  <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 Q3</div><h4>联邦学习框架上线</h4><p>联邦学习框架部署，多用户数据优化全局模型，原始数据不离本地。</p></div>
- <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 Q4</div><h4>Nexum One 原型集成</h4><p>三件套系统首次完整集成，端到端延迟&lt;185ms，总重~2.5kg。</p></div>
+ <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 Q4</div><h4>Nexum One 原型集成</h4><p>三件套系统首次完整集成，端到端延迟~155ms（典型范围150-200ms），总重~2.5kg。</p></div>
  <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2026 H1</div><h4>临床验证启动</h4><p>与多家三甲医院开展临床研究，首批受试者入组，初步验证有效性与安全性。</p></div>
  </div>
  </div>
@@ -776,8 +776,8 @@ footer {
  <h2 class="text-center">关键性能基准</h2>
  <div class="bench-grid">
  <div class="bench-card">
- <h4><span class="bench-icon" style="background:#6366f1;">&#9889;</span>意图识别</h4>
- <div class="bench-row"><span class="bench-label">运动准备电位检测准确率</span><span class="bench-value">&gt;85%</span></div>
+ <h4><span class="bench-icon" style="background:#6366f1;">&#9889;</span>意图识别（EEG+IMU混合）</h4>
+ <div class="bench-row"><span class="bench-label">MRCP检测准确率（EEG-only）</span><span class="bench-value">70-85%</span></div>
  <div class="bench-row"><span class="bench-label">意图提前识别时间</span><span class="bench-value">~0.5s</span></div>
  <div class="bench-row"><span class="bench-label">信号采样率</span><span class="bench-value">250 SPS</span></div>
  <div class="bench-row"><span class="bench-label">信号带宽</span><span class="bench-value">0.5-100 Hz</span></div>
@@ -804,12 +804,12 @@ footer {
  </div>
  <div class="bench-card">
  <h4><span class="bench-icon" style="background:#f59e0b;">&#9729;</span>系统总览</h4>
- <div class="bench-row"><span class="bench-label">端到端延迟</span><span class="bench-value">&lt;185ms</span></div>
+ <div class="bench-row"><span class="bench-label">端到端延迟（基线）</span><span class="bench-value">~155ms</span></div>
  <div class="bench-row"><span class="bench-label">系统总重（含电池）</span><span class="bench-value">~2.5kg</span></div>
  <div class="bench-row"><span class="bench-label">综合续航时间</span><span class="bench-value">6-8h</span></div>
  <div class="bench-row"><span class="bench-label">无线通信</span><span class="bench-value">蓝牙 5.2</span></div>
  <hr class="bench-divider">
- <div class="bench-row"><span class="bench-label">延迟达标率</span><span class="bench-value">100%</span></div>
+ <div class="bench-row"><span class="bench-label">延迟典型范围</span><span class="bench-value">150-200ms</span></div>
  </div>
  </div>
  </div>
@@ -834,14 +834,14 @@ footer {
  <h4>AI 推理引擎</h4>
  <div class="stack-item"><span class="stack-key">神经网络</span><span class="stack-val">EEGNet (Custom)</span></div>
  <div class="stack-item"><span class="stack-key">学习范式</span><span class="stack-val">强化学习 (PPO)</span></div>
- <div class="stack-item"><span class="stack-key">数字孪生</span><span class="stack-val">416肌肉模型</span></div>
+ <div class="stack-item"><span class="stack-key">仿真模型</span><span class="stack-val">416肌肉骨骼模型（离线）</span></div>
  <div class="stack-item"><span class="stack-key">推理框架</span><span class="stack-val">TensorRT / ONNX</span></div>
  <div class="stack-item"><span class="stack-key">训练框架</span><span class="stack-val">PyTorch + Flower</span></div>
  <div class="stack-item"><span class="stack-key">模型压缩</span><span class="stack-val">INT8 量化</span></div>
  </div>
  <div class="stack-card">
  <h4>执行器系统</h4>
- <div class="stack-item"><span class="stack-key">驱动方式</span><span class="stack-val">鲍登线缆 (Bowden)</span></div>
+ <div class="stack-item"><span class="stack-key">驱动方式</span><span class="stack-val">直驱电机 (Direct-Drive)</span></div>
  <div class="stack-item"><span class="stack-key">峰值扭矩</span><span class="stack-val">15 Nm</span></div>
  <div class="stack-item"><span class="stack-key">持续扭矩</span><span class="stack-val">8 Nm</span></div>
  <div class="stack-item"><span class="stack-key">结构材料</span><span class="stack-val">碳纤维 / 铝合金</span></div>
@@ -875,7 +875,7 @@ footer {
  <div class="roadmap-item">
  <div class="roadmap-phase" style="background:var(--accent);">Phase 2</div>
  <h4>产品迭代</h4>
- <p>EEG通道扩充至16ch，优化干电极信号质量，减重至1.2kg。</p>
+ <p>EEG通道扩充至16ch，优化干电极信号质量，综合减重至1.8kg。</p>
  </div>
  <div class="roadmap-item">
  <div class="roadmap-phase" style="background:#10b981;">Phase 3</div>
@@ -894,13 +894,13 @@ footer {
  <div class="comp-grid">
  <div class="comp-card highlight">
  <div class="comp-name">Nexum One</div>
- <div class="comp-type">AI闭环神经外骨骼</div>
- <div class="comp-stat">&lt;185ms</div>
- <div class="comp-stat-label">端到端延迟</div>
- <div class="comp-check">EEG神经信号读取</div>
- <div class="comp-check">自适应强化学习</div>
- <div class="comp-check">联邦学习持续进化</div>
+ <div class="comp-type">EEG+IMU混合外骨骼</div>
+ <div class="comp-stat">~155ms</div>
+ <div class="comp-stat-label">端到端延迟（基线）</div>
+ <div class="comp-check">EEG预测+IMU控制</div>
+ <div class="comp-check">强化学习策略</div>
  <div class="comp-check">轻量化 ~2.5kg</div>
+ <div class="comp-check">临床研究阶段</div>
  </div>
  <div class="comp-card">
  <div class="comp-name">现有FES方案</div>
@@ -953,7 +953,7 @@ footer {
  </div>
  <div class="faq-item">
  <button class="faq-question">416肌肉数字孪生模型是如何构建的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
- <div class="faq-answer">基于OpenSim框架，涵盖416块肌肉的骨骼拓扑、力-长度与力-速度关系。通过运动捕捉与表面EMG信号个性化校准。训练中作为环境模型提供高保真仿真，策略网络可在虚拟环境中进行数百万次试错训练。</div>
+ <div class="faq-answer">基于OpenSim框架，涵盖416块肌肉的骨骼拓扑、力-长度与力-速度关系。通过运动捕捉与表面EMG信号个性化校准。需要明确：这是离线训练引擎（如MuscleMimic/EPFL相关学术工作），不是实时控制系统。策略在仿真中预训练后部署到边缘设备，推理时使用简化模型，而非完整416肌肉实时仿真。</div>
  </div>
  <div class="faq-item">
  <button class="faq-question">强化学习是如何在边缘设备上训练的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
@@ -964,8 +964,8 @@ footer {
  <div class="faq-answer">四层隐私保护：(1) 原始EEG与传感器数据始终存储本地，不离设备。(2) 仅上传模型梯度，非原始数据。(3) 梯度经差分隐私加噪（epsilon=4.0）。(4) 聚合服务器仅接收加密梯度，无法追溯至个人。即使服务器被攻破，个体数据也无法恢复。</div>
  </div>
  <div class="faq-item">
- <button class="faq-question">185ms延迟是怎么优化出来的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
- <div class="faq-answer">EEG端硬件触发+DMA降低采集延迟至40ms。AI推理经模型量化（FP32→INT8）、算子融合与TensorRT优化压缩至55ms。蓝牙5.2 LE Coded PHY通信延迟&lt;20ms。执行器前馈+反馈控制将机械响应控制在60ms。传感器通过高速SPI总线实现10ms闭环。</div>
+ <button class="faq-question">系统延迟是如何构成的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+ <div class="faq-answer">基线~155ms：EEG采集40ms（硬件触发+DMA）→ AI推理55ms（EEGNet量化为INT8，TensorRT优化）→ 蓝牙通信~20ms → 执行器60ms（直驱电机FOC控制）。实际系统延迟受电磁干扰、蓝牙信号强度影响，典型范围150-200ms。EEG运动准备电位检测在动作前约0.5s发生，与系统延迟叠加后，用户仍能感知到平滑的辅助响应。</div>
  </div>
  <div class="faq-item">
  <button class="faq-question">系统如何适应不同用户的肌肉状态差异？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
@@ -998,8 +998,8 @@ footer {
  <div class="glossary-item"><h4>EEGNet</h4><p>专为EEG信号设计的轻量级卷积网络，深度可分离卷积实现高效特征提取。</p></div>
  <div class="glossary-item"><h4>强化学习 (RL)</h4><p>智能体通过环境交互与奖励信号学习最优策略。Nexum采用PPO算法。</p></div>
  <div class="glossary-item"><h4>联邦学习 (FL)</h4><p>多设备协同训练全局模型，原始数据不离本地，保护用户隐私。</p></div>
- <div class="glossary-item"><h4>鲍登线缆 (Bowden Cable)</h4><p>柔性力传输系统，线缆在护套内滑动传递拉力，实现轻量化远程驱动。</p></div>
- <div class="glossary-item"><h4>数字孪生 (Digital Twin)</h4><p>物理系统的虚拟镜像。416肌肉数字孪生用于高保真仿真与策略训练。</p></div>
+ <div class="glossary-item"><h4>直驱电机 (Direct-Drive Motor)</h4><p>电机直接驱动关节，无需减速器或线缆传动。响应快、精度高、可靠性好。商用外骨骼主流方案。</p></div>
+ <div class="glossary-item"><h4>数字孪生 / 肌肉骨骼模型</h4><p>物理系统的虚拟镜像。416肌肉骨骼模型（基于OpenSim）用于离线仿真与策略预训练，非实时控制。实时推理使用简化模型。</p></div>
  <div class="glossary-item"><h4>运动准备电位 (BP)</h4><p>自主运动前约1.5-2秒出现的EEG缓慢负向电位，运动意图的最早期可检测信号。</p></div>
  <div class="glossary-item"><h4>PPO算法</h4><p>Proximal Policy Optimization，通过限制策略更新步长防止训练震荡的稳定RL算法。</p></div>
  <div class="glossary-item"><h4>IMU (惯性测量单元)</h4><p>集成加速度计与陀螺仪，实时测量关节角度与运动状态。</p></div>
