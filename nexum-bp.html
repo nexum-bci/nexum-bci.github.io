@@ -231,7 +231,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p>穿戴体验接近高弹性压缩运动裤。电机不宽于胯。可内穿于常规衣物内。</p>
 
-<h3>工作原理</h3>
+<h3 id="how-it-works">4.1 工作原理</h3>
 
 <ol>
 <li>大脑生成MRCP（运动准备电位）——自主运动前200-500ms出现</li>
@@ -349,13 +349,12 @@ a { color: var(--nexum); text-decoration: none; }
 <li>部署：ONNX Runtime，INT8量化，嵌入式推理 &lt;5ms</li>
 </ul>
 
-<p><strong>肌骨模型（离线仿真训练环境）——在GPU服务器上运行，为RL策略提供高保真虚拟训练环境。策略训练完成后，部署到嵌入式设备的是轻量神经网络（<5MB），不包含肌骨模型本身</strong></p>
+<p><strong>肌骨模型（离线仿真训练环境）</strong></p>
 <ul>
 <li>V1阶段：简化髋关节肌骨模型（2-4自由度），基于OpenSim/MyoSuite框架</li>
-<li>作用：在仿真环境中为RL策略提供高保真训练环境</li>
-<li>运行位置：离线GPU服务器，非嵌入式设备</li>
+<li>作用：在GPU服务器上为RL策略提供高保真虚拟训练环境</li>
 <li>V2阶段：416肌肉Hill型柔顺肌腱模型（MuscleMimic/EPFL框架），用于更高精度的策略预训练</li>
-<li>关键澄清：肌骨模型是训练工具，不是实时控制器。策略训练完成后，部署到嵌入式设备的是轻量神经网络（&lt;5MB），不包含肌骨模型本身。</li>
+<li>策略训练完成后，部署到嵌入式设备的是轻量神经网络（&lt;5MB），不包含肌骨模型本身。肌骨模型是训练工具，不是实时控制器。</li>
 </ul>
 
 <p><strong>RL策略网络</strong></p>
@@ -528,7 +527,7 @@ a { color: var(--nexum); text-decoration: none; }
 </tr>
 <tr>
 <td><strong>里程碑</strong></td>
-<td>刚性外骨骼原型 → IMU控制闭环 → EEG实验室验证 → 预临床（n=30）→ NMPA二类创新器械申请</td>
+<td>服装式原型 → IMU控制闭环 → EEG实验室验证 → 预临床（n=30）→ NMPA二类创新器械申请</td>
 </tr>
 </tbody>
 </table>
