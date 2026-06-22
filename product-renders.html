@@ -38,7 +38,64 @@ img{opacity:1!important}
 <section class="page-section" style="padding-top:0">
  <div class="container">
 
- <div class="section-label-row"><h2>核心模块</h2></div>
+ <div class="section-label-row"><h2>完整系统</h2></div>
+ <div class="gallery gallery-hero">
+ <div class="render-card">
+ <div class="render-img"><svg viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+  <defs>
+    <filter id="ss"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000" flood-opacity="0.06"/></filter>
+    <linearGradient id="neuroGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a2e"/><stop offset="100%" stop-color="#1a1a1e"/></linearGradient>
+    <linearGradient id="boxGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a4a50"/><stop offset="100%" stop-color="#2a2a2e"/></linearGradient>
+    <linearGradient id="motorGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d0d0d8"/><stop offset="100%" stop-color="#888890"/></linearGradient>
+  </defs>
+  <rect width="900" height="360" rx="16" fill="var(--bg-card)"/>
+  <g transform="translate(30,30)" filter="url(#ss)">
+    <rect x="0" y="0" width="250" height="300" rx="16" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+    <path d="M 60 160 Q 60 60 125 55 Q 190 60 190 160" fill="none" stroke="#1a1a1e" stroke-width="18" stroke-linecap="round"/>
+    <path d="M 65 160 Q 65 68 125 63 Q 185 68 185 160" fill="none" stroke="#2a2a30" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="75" cy="100" r="4" fill="#555"/><circle cx="95" cy="78" r="4" fill="#555"/><circle cx="115" cy="72" r="4" fill="#555"/><circle cx="125" cy="70" r="4" fill="#555"/><circle cx="135" cy="72" r="4" fill="#555"/><circle cx="155" cy="78" r="4" fill="#555"/><circle cx="175" cy="100" r="4" fill="#555"/><circle cx="125" cy="68" r="4" fill="#555"/>
+    <circle cx="195" cy="110" r="4" fill="#0096f0" opacity="0.9"/><circle cx="195" cy="110" r="8" fill="#0096f0" opacity="0.2"/>
+    <text x="125" y="210" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="700">EEG-Sense</text>
+    <text x="125" y="232" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">8ch干电极 · 80g</text>
+    <text x="125" y="252" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">运动意图感知</text>
+  </g>
+  <line x1="285" y1="180" x2="315" y2="180" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4,3" opacity="0.5"/>
+  <polygon points="315,175 323,180 315,185" fill="var(--accent)" opacity="0.5"/>
+  <g transform="translate(328,30)" filter="url(#ss)">
+    <rect x="0" y="0" width="244" height="300" rx="16" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="42" y="55" width="160" height="120" rx="14" fill="url(#boxGrad)"/>
+    <rect x="62" y="70" width="120" height="62" rx="6" fill="#0a0a10"/>
+    <rect x="72" y="78" width="100" height="12" rx="3" fill="#1a3a5a"/>
+    <rect x="72" y="94" width="60" height="8" rx="2" fill="#0a2a4a"/>
+    <rect x="72" y="106" width="80" height="6" rx="2" fill="#0a2a4a"/>
+    <circle cx="152" cy="114" r="8" fill="none" stroke="#0096f0" stroke-width="2"/>
+    <rect x="82" y="180" width="40" height="8" rx="3" fill="#1a1a1e"/>
+    <circle cx="195" cy="165" r="3" fill="#0096f0" opacity="0.8"/>
+    <text x="122" y="230" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="700">控制盒</text>
+    <text x="122" y="252" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">STM32H7 · 48Wh</text>
+    <text x="122" y="272" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">AI意图翻译引擎</text>
+  </g>
+  <line x1="577" y1="180" x2="607" y2="180" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4,3" opacity="0.5"/>
+  <polygon points="607,175 615,180 607,185" fill="var(--accent)" opacity="0.5"/>
+  <g transform="translate(620,30)" filter="url(#ss)">
+    <rect x="0" y="0" width="250" height="300" rx="16" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="65" y="55" width="120" height="16" rx="6" fill="#252528"/>
+    <path d="M 65 68 L 65 220 Q 65 235 80 235 L 95 235 L 95 68 Z" fill="url(#neuroGrad)"/>
+    <path d="M 155 68 L 155 220 Q 155 235 170 235 L 185 235 L 185 68 Z" fill="url(#neuroGrad)"/>
+    <path d="M 95 68 Q 125 85 155 68" fill="url(#neuroGrad)"/>
+    <ellipse cx="55" cy="160" rx="14" ry="22" fill="url(#motorGrad)"/><ellipse cx="55" cy="160" rx="8" ry="14" fill="#a0a0a8"/>
+    <ellipse cx="195" cy="160" rx="14" ry="22" fill="url(#motorGrad)"/><ellipse cx="195" cy="160" rx="8" ry="14" fill="#a0a0a8"/>
+    <rect x="58" y="75" width="10" height="30" rx="3" fill="#3a3a40"/>
+    <rect x="182" y="75" width="10" height="30" rx="3" fill="#3a3a40"/>
+    <text x="125" y="270" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="700">NeuroSuit</text>
+    <text x="125" y="290" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">~2.5kg · 15Nm · 10s穿脱</text>
+  </g>
+ </svg></div>
+ <div class="render-body"><h3>Nexum One 完整系统</h3><p>EEG-Sense · 控制盒 · NeuroSuit — 从神经意图到物理动作</p><span class="tag">系统总览</span></div>
+ </div>
+ </div>
+
+ <div class="section-label-row" style="margin-top:48px"><h2>核心模块</h2></div>
  <div class="gallery">
  <div class="render-card">
   <div class="render-img"><img src="docs/render_1_eeg.jpg" alt="EEG-Sense头带" loading="lazy"></div>
