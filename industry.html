@@ -182,7 +182,57 @@ tr:hover td{background:var(--bg)}
 </div>
 </div>
 
-<h2 style="margin-top:0">5. 技术路径</h2>
+
+<div class="content-card" style="margin-bottom:32px">
+<h2 style="margin-top:0">5. 为什么是非侵入，不是侵入式</h2>
+
+<p>侵入式脑机接口（Neuralink, Synchron, 阶梯医疗）在2025-2026年吸引了大量资本关注。为什么Nexum选择非侵入EEG路线？</p>
+
+<table>
+<tr><th></th><th>侵入式 BCI</th><th>非侵入式 EEG（Nexum）</th></tr>
+<tr><td>信号质量</td><td>单神经元级（μV精度），1024通道</td><td>颅骨衰减后1-100μV，8通道干电极</td></tr>
+<tr><td>手术要求</td><td>开颅，机器人植入。感染/出血风险</td><td>零。可穿戴，即戴即用</td></tr>
+<tr><td>当前患者数（全球）</td><td>~30人（Neuralink ~21, Synchron ~10）</td><td>零门槛。数千万潜在用户</td></tr>
+<tr><td>设备寿命</td><td>~3年（Neuralink），需更换手术</td><td>消费电子级寿命，可随时升级</td></tr>
+<tr><td>单台成本</td><td>$数万-数十万（设备+手术+住院）</td><td>$3,999+$499/年（居家版）</td></tr>
+<tr><td>监管</td><td>Class III PMA。5-10年审评周期</td><td>NMPA二类。12-24个月</td></tr>
+<tr><td>主要应用</td><td>光标控制、语音解码（实验室阶段）</td><td>外骨骼康复、日常辅助、消费级</td></tr>
+<tr><td>代表公司</td><td>Neuralink, Synchron, Paradromics, 阶梯医疗</td><td>Nexum, g.tec, Emotiv, Neurosity</td></tr>
+</table>
+
+<div class="highlight-box">
+<strong>侵入式解决的是"精度"问题（单神经元控制光标），非侵入式解决的是"规模"问题（数千万患者可及）。</strong>Nexum的目标是让患者在康复科和家里使用外骨骼——这个场景不需要单神经元精度，需要的是零风险、低成本、可规模化。侵入式BCI目前30个患者、$数十万/人、3年设备寿命——这是奢侈品逻辑，不是Nexum的逻辑。
+
+<p style="margin-top:12px">更重要的是，<strong>侵入式和非侵入式不是竞争关系</strong>。它们是同一技术栈的不同层：侵入式服务"重建功能"（让完全瘫痪的人用脑控制电脑），非侵入式服务"恢复+增强"（让不完全瘫痪的人重新走路）。Nexum选择后者，因为后者的人群更大、支付路径更成熟、监管更可预期。</p>
+</div>
+</div>
+
+
+<div class="content-card" style="margin-bottom:32px">
+<h2 style="margin-top:0">6. 为什么是服装式，不是框架式</h2>
+
+<p>Ekso、ReWalk、Wandercraft 都是刚性框架外骨骼——15-25kg，需要治疗师操作，只能在医院使用。Nexum选择了完全不同的形态。这不是审美选择，是患者人群选择。</p>
+
+<table>
+<tr><th></th><th>框架式外骨骼</th><th>服装式外骨骼（Nexum）</th></tr>
+<tr><td>代表产品</td><td>EksoNR, ReWalk, Wandercraft Atalante X</td><td>Nexum One</td></tr>
+<tr><td>重量</td><td>15-25kg</td><td>~2.5kg</td></tr>
+<tr><td>目标患者</td><td>ASIA A/B（完全性脊髓损伤，不能站立）</td><td>ASIA C/D + 卒中偏瘫（能站立，需辅助）</td></tr>
+<tr><td>使用场景</td><td>医院康复科，治疗师在场</td><td>居家、社区、日常。独立使用</td></tr>
+<tr><td>承重方式</td><td>框架承载患者体重</td><td>患者承载自身重量，外骨骼辅助</td></tr>
+<tr><td>防跌倒</td><td>框架支撑</td><td>患者自身平衡 + 外骨骼辅助</td></tr>
+<tr><td>患者基数（中国）</td><td>完全性SCI约100万人</td><td>不完全性SCI+卒中偏瘫约1,500万人</td></tr>
+<tr><td>穿脱</td><td>10-15分钟，需两人协助</td><td>~10秒，可独立完成</td></tr>
+</table>
+
+<div class="highlight-box">
+<strong>全球外骨骼行业20年，所有玩家都在做框架式——因为它是为"完全不能站的人"设计的。</strong>但完全不能站的人只有100万（中国），不完全瘫痪、能站但走不好的人有1500万。后者从未被当作外骨骼的目标用户——因为EEG信号需要患者有残留运动意图才能解码，框架式外骨骼不需要读脑电，所以没人想到把EEG和外骨骼组合在一起。
+
+<p style="margin-top:12px">Nexum的服装式选择不是"做了一个更轻的外骨骼"，而是<strong>定义了一个新患者群</strong>——那群能站、能走、但走不好的人。他们不需要一个机器人框架把他们托起来，他们需要的是在正确的时间、正确的关节、施加正确的辅助力。这就是EEG的价值。</p>
+</div>
+</div>
+
+<h2 style="margin-top:0">7. 技术路径</h2>
 
 <h3>EEG方案</h3>
 <p><strong>基准模型：</strong>EEGNet（Lawhern 2018，~2000参数）仍是最佳CNN基线。2024-2025年Transformer（TOTEM/EEG-Deformer）在跨subject泛化上开始超越EEGNet。</p>
@@ -201,7 +251,7 @@ tr:hover td{background:var(--bg)}
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">6. 市场与支付</h2>
+<h2 style="margin-top:0">8. 市场与支付</h2>
 
 <table>
 <tr><th>市场</th><th>2025</th><th>2030</th><th>2035</th><th>CAGR</th></tr>
@@ -226,7 +276,7 @@ tr:hover td{background:var(--bg)}
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">7. 学术关键团队</h2>
+<h2 style="margin-top:0">9. 学术关键团队</h2>
 
 <table>
 <tr><th>团队</th><th>机构</th><th>关键成果</th><th>与Nexum相关度</th></tr>
@@ -242,7 +292,7 @@ tr:hover td{background:var(--bg)}
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">8. 供应链与BOM</h2>
+<h2 style="margin-top:0">10. 供应链与BOM</h2>
 
 <table>
 <tr><th>模块</th><th>核心器件</th><th>型号</th><th>单价</th><th>来源</th></tr>
@@ -271,7 +321,7 @@ tr:hover td{background:var(--bg)}
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">9. 监管路径</h2>
+<h2 style="margin-top:0">11. 监管路径</h2>
 
 <table>
 <tr><th>市场</th><th>路径</th><th>时间</th><th>费用</th></tr>
@@ -284,7 +334,7 @@ tr:hover td{background:var(--bg)}
 </div>
 
 <div class="content-card">
-<h2 style="margin-top:0">10. Nexum竞争定位</h2>
+<h2 style="margin-top:0">12. Nexum竞争定位</h2>
 
 <div class="highlight-box">
 <p><strong>唯一性已经过系统性验证。</strong>全球30+外骨骼公司中，无一同时具备非侵入EEG+下肢外骨骼产品。8家EEG-BCI公司全部只做上肢。5个关键学术团队中，Courtine（EPFL）做的是侵入式脑脊接口，Bin He（CMU）做的是手指级精细控制，均未进入下肢外骨骼产品化。</p>
