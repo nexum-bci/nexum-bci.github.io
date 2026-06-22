@@ -467,7 +467,7 @@ footer {
  <text x="117" y="55" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">EEG-Sense 意图感知头带</text>
  <text x="117" y="94" text-anchor="middle" fill="var(--text)" font-size="13" font-weight="600">8通道干电极 · 250 SPS</text>
  <text x="117" y="114" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">8ch 干电极  ·  250 SPS</text>
- <text x="117" y="132" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">80g  ·  BLE 5.2  ·  24-bit ADC</text>
+ <text x="117" y="132" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">80g  ·  BLE 5.0  ·  24-bit ADC</text>
  <text x="117" y="152" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">~40ms</text>
  <!-- Arrow -->
  <line x1="218" y1="95" x2="252" y2="95" stroke="var(--text-tertiary)" stroke-width="1.5"/>
@@ -624,16 +624,16 @@ footer {
  <div class="section-label">01 &#183; 读取 Read</div>
  <h3>EEG-Sense 意图感知头带</h3>
  <p class="en">Neural Intent Sensing</p>
- <p class="desc">8通道干电极EEG-Sense 头带，检测运动准备电位（MRCP），在动作发生前约0.5秒预测运动意图。内置9轴IMU提供头部姿态补偿。250 SPS采样率、24bit ADC、蓝牙5.2传输延迟&lt;20ms。EEG负责"预测想做什么"，IMU负责"感知正在做什么"。</p>
+ <p class="desc">8通道干电极EEG-Sense 头带，检测运动准备电位（MRCP），在动作发生前约0.5秒预测运动意图。内置9轴IMU提供头部姿态补偿。250 SPS采样率、24bit ADC、BLE 5.0传输延迟&lt;20ms。EEG负责"预测想做什么"，IMU负责"感知正在做什么"。</p>
  <div class="spec-tags">
  <span class="spec-tag">80g</span>
  <span class="spec-tag">8通道干电极</span>
  <span class="spec-tag">250 SPS</span>
- <span class="spec-tag">蓝牙5.2</span>
+ <span class="spec-tag">BLE 5.0</span>
  <span class="spec-tag">8h续航</span>
  </div>
  <div class="component-connector">
- <strong>数据流向 NeuroCore 边缘AI处理器：</strong>蓝牙5.2实时传输原始脑电信号至 NeuroCore 边缘AI处理器，延迟&lt;20ms。内置9轴IMU辅助识别头部运动，提升意图识别准确率。
+ <strong>数据流向 NeuroCore 边缘AI处理器：</strong>BLE 5.0实时传输原始脑电信号至 NeuroCore 边缘AI处理器，延迟&lt;20ms。内置9轴IMU辅助识别头部运动，提升意图识别准确率。
  </div>
  <div class="outcome">EEG预测运动意图（MRCP检测准确率70-85%），IMU+力传感器提供运动中的主要控制信号。EEG+IMU混合控制是最可靠方案。</div>
  </div>
@@ -694,7 +694,7 @@ footer {
  <span class="spec-tag">离线孪生训练</span>
  </div>
  <div class="component-connector">
- <strong>从 EEG-Sense 接收 → 发送到 NeuroSuit：</strong>NeuroCore 边缘AI处理器接收EEG+IMU信号，经EEGNet解码运动意图，强化学习策略生成辅助方案，通过蓝牙5.2发送驱动指令至 NeuroSuit。
+ <strong>从 EEG-Sense 接收 → 发送到 NeuroSuit：</strong>NeuroCore 边缘AI处理器接收EEG+IMU信号，经EEGNet解码运动意图，强化学习策略生成辅助方案，通过BLE 5.0发送驱动指令至 NeuroSuit。
  </div>
  <div class="outcome">EEG用于预测"想做什么"，IMU用于感知"正在做什么"。两者结合，实现平滑自然的辅助。</div>
  </div>
