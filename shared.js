@@ -215,7 +215,7 @@
 
 })();
 
-  // ===== NAV SCROLL BEHAVIOR =====
+  // ===== NAV SLL BEHAVIOR =====
   // Adds .nav-scrolled for opacity change and .nav-shrink for height reduction
   (function() {
     var navEl = document.querySelector('nav');
