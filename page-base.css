@@ -692,6 +692,9 @@ select,label[for],
   cursor:pointer
 }
 
+
+/* All anchor-tag cards — explicit pointer */
+a.product-card,a.portal-card,a[class*=card]{cursor:pointer}
 /* Non-interactive — default cursor */
 h1,h2,h3,h4,h5,h6,p,span,div:not([class*=card]):not([class*=btn]),
 body,section,header,footer,main,nav ul,nav li,img:not(a img){
