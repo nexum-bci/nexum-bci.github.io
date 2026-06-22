@@ -65,7 +65,110 @@ img{opacity:1!important} /* override page-base img opacity */
  <div class="section-label-row"><h2>完整系统</h2></div>
  <div class="gallery gallery-hero">
  <div class="render-card">
- <div class="render-img"><img src="docs/render_system_v3.png" alt="Nexum One 完整系统" loading="lazy"></div>
+ <div class="render-img"><svg viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+  <defs>
+    <filter id="ss"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000" flood-opacity="0.06"/></filter>
+    <linearGradient id="neuroGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a2e"/><stop offset="100%" stop-color="#1a1a1e"/></linearGradient>
+    <linearGradient id="boxGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a4a50"/><stop offset="100%" stop-color="#2a2a2e"/></linearGradient>
+    <linearGradient id="motorGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d0d0d8"/><stop offset="100%" stop-color="#888890"/></linearGradient>
+  </defs>
+  <rect width="900" height="360" rx="16" fill="var(--bg-card)"/>
+
+  <!-- === EEG-SENSE HEADBAND (left) === -->
+  <g transform="translate(30,30)" filter="url(#ss)">
+    <rect x="0" y="0" width="250" height="300" rx="16" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+    <!-- Headband arc -->
+    <path d="M 60 160 Q 60 60 125 55 Q 190 60 190 160" fill="none" stroke="#1a1a1e" stroke-width="18" stroke-linecap="round"/>
+    <path d="M 65 160 Q 65 68 125 63 Q 185 68 185 160" fill="none" stroke="#2a2a30" stroke-width="14" stroke-linecap="round"/>
+    <!-- Electrode dots -->
+    <circle cx="75" cy="100" r="4" fill="#555"/>
+    <circle cx="95" cy="78" r="4" fill="#555"/>
+    <circle cx="115" cy="72" r="4" fill="#555"/>
+    <circle cx="125" cy="70" r="4" fill="#555"/>
+    <circle cx="135" cy="72" r="4" fill="#555"/>
+    <circle cx="155" cy="78" r="4" fill="#555"/>
+    <circle cx="175" cy="100" r="4" fill="#555"/>
+    <circle cx="125" cy="68" r="4" fill="#555"/>
+    <!-- Blue LED -->
+    <circle cx="195" cy="110" r="4" fill="#0096f0" opacity="0.9"/>
+    <circle cx="195" cy="110" r="8" fill="#0096f0" opacity="0.2"/>
+    <!-- Label -->
+    <text x="125" y="210" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="700">EEG-Sense</text>
+    <text x="125" y="232" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">8ch干电极 · 80g</text>
+    <text x="125" y="252" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">运动意图感知</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line x1="285" y1="180" x2="315" y2="180" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4,3" opacity="0.5"/>
+  <polygon points="315,175 323,180 315,185" fill="var(--accent)" opacity="0.5"/>
+
+  <!-- === CONTROL BOX (center) === -->
+  <g transform="translate(328,30)" filter="url(#ss)">
+    <rect x="0" y="0" width="244" height="300" rx="16" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+    <!-- Box body -->
+    <rect x="42" y="55" width="160" height="120" rx="14" fill="url(#boxGrad)"/>
+    <!-- Screen -->
+    <rect x="62" y="70" width="120" height="62" rx="6" fill="#0a0a10"/>
+    <rect x="72" y="78" width="100" height="12" rx="3" fill="#1a3a5a"/>
+    <rect x="72" y="94" width="60" height="8" rx="2" fill="#0a2a4a"/>
+    <rect x="72" y="106" width="80" height="6" rx="2" fill="#0a2a4a"/>
+    <circle cx="152" cy="114" r="8" fill="none" stroke="#0096f0" stroke-width="2"/>
+    <!-- USB port -->
+    <rect x="82" y="180" width="40" height="8" rx="3" fill="#1a1a1e"/>
+    <!-- LED -->
+    <circle cx="195" cy="165" r="3" fill="#0096f0" opacity="0.8"/>
+    <!-- Label -->
+    <text x="122" y="230" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="700">控制盒</text>
+    <text x="122" y="252" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">STM32H7 · 48Wh</text>
+    <text x="122" y="272" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">AI意图翻译引擎</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <line x1="577" y1="180" x2="607" y2="180" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4,3" opacity="0.5"/>
+  <polygon points="607,175 615,180 607,185" fill="var(--accent)" opacity="0.5"/>
+
+  <!-- === NEUROSUIT (right) === -->
+  <g transform="translate(620,30)" filter="url(#ss)">
+    <rect x="0" y="0" width="250" height="300" rx="16" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+    <!-- Waist band -->
+    <rect x="65" y="55" width="120" height="16" rx="6" fill="#252528"/>
+    <!-- Left leg -->
+    <path d="M 65 68 L 65 220 Q 65 235 80 235 L 95 235 L 95 68 Z" fill="url(#neuroGrad)"/>
+    <!-- Right leg -->
+    <path d="M 155 68 L 155 220 Q 155 235 170 235 L 185 235 L 185 68 Z" fill="url(#neuroGrad)"/>
+    <!-- Crotch curve -->
+    <path d="M 95 68 Q 125 85 155 68" fill="url(#neuroGrad)"/>
+    <!-- Fabric texture lines -->
+    <line x1="75" y1="90" x2="90" y2="90" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+    <line x1="75" y1="110" x2="90" y2="110" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+    <line x1="75" y1="130" x2="90" y2="130" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+    <line x1="160" y1="90" x2="175" y2="90" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+    <line x1="160" y1="110" x2="175" y2="110" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+    <line x1="160" y1="130" x2="175" y2="130" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+    <!-- Carbon fiber anchor points -->
+    <rect x="58" y="75" width="10" height="30" rx="3" fill="#3a3a40"/>
+    <rect x="182" y="75" width="10" height="30" rx="3" fill="#3a3a40"/>
+    <!-- Left hip motor -->
+    <ellipse cx="55" cy="160" rx="14" ry="22" fill="url(#motorGrad)"/>
+    <ellipse cx="55" cy="160" rx="8" ry="14" fill="#a0a0a8"/>
+    <!-- Right hip motor -->
+    <ellipse cx="195" cy="160" rx="14" ry="22" fill="url(#motorGrad)"/>
+    <ellipse cx="195" cy="160" rx="8" ry="14" fill="#a0a0a8"/>
+    <!-- Motor highlight -->
+    <ellipse cx="52" cy="152" rx="3" ry="6" fill="rgba(255,255,255,0.2)"/>
+    <ellipse cx="192" cy="152" rx="3" ry="6" fill="rgba(255,255,255,0.2)"/>
+    <!-- Label -->
+    <text x="125" y="270" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="700">NeuroSuit</text>
+    <text x="125" y="290" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">~2.5kg · 15Nm · 10s穿脱</text>
+  </g>
+
+  <!-- Connection labels -->
+  <text x="300" y="168" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">BLE</text>
+  <text x="592" y="168" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">UART</text>
+
+  <!-- Bottom: latency bar -->
+  <rect x="30" y="335" width="840" height="2" rx="1" fill="var(--border)"/>
+</svg></div>
 	 <div class="render-body">
 	 <h3>Nexum One 完整系统</h3>
  <p>EEG-Sense · NeuroSuit · 控制盒</p>
@@ -107,7 +210,75 @@ img{opacity:1!important} /* override page-base img opacity */
  <div class="section-label-row" style="margin-top:48px"><h2>使用场景</h2></div>
  <div class="gallery gallery-2">
  <div class="render-card">
- <div class="render-img"><img src="docs/render_clinical_v4.png" alt="临床康复训练" loading="lazy"></div>
+ <div class="render-img"><svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+  <defs>
+    <linearGradient id="cNeuroGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a2e"/><stop offset="100%" stop-color="#1a1a1e"/></linearGradient>
+    <linearGradient id="cMotorGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d0d0d8"/><stop offset="100%" stop-color="#888890"/></linearGradient>
+  </defs>
+  <rect width="400" height="300" rx="12" fill="var(--bg-card)"/>
+
+  <!-- Hospital corridor background -->
+  <rect x="0" y="0" width="400" height="300" rx="12" fill="var(--bg)"/>
+  <rect x="0" y="0" width="400" height="32" rx="12" fill="var(--accent-subtle)"/>
+  <rect x="0" y="18" width="400" height="14" fill="var(--accent-subtle)"/>
+  <text x="200" y="22" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">康复科 · 治疗师实时监控</text>
+  <!-- Floor line -->
+  <line x1="0" y1="260" x2="400" y2="260" stroke="var(--border)" stroke-width="1"/>
+  <!-- Wall tiles -->
+  <rect x="20" y="40" width="80" height="60" rx="4" fill="none" stroke="var(--border)" stroke-width="0.5" opacity="0.5"/>
+  <rect x="300" y="40" width="80" height="60" rx="4" fill="none" stroke="var(--border)" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- PATIENT (center-left) -->
+  <g transform="translate(80,50)">
+    <!-- Head -->
+    <ellipse cx="40" cy="25" rx="16" ry="20" fill="none" stroke="var(--text-secondary)" stroke-width="1.5"/>
+    <!-- EEG-Sense headband on head -->
+    <path d="M 24 24 Q 40 32 56 24" fill="none" stroke="#2a2a30" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="30" cy="26" r="1.5" fill="#555"/>
+    <circle cx="40" cy="28" r="1.5" fill="#555"/>
+    <circle cx="50" cy="26" r="1.5" fill="#555"/>
+    <!-- Torso -->
+    <line x1="40" y1="45" x2="40" y2="100" stroke="var(--text-secondary)" stroke-width="1.5"/>
+    <!-- Arms -->
+    <line x1="40" y1="60" x2="15" y2="90" stroke="var(--text-secondary)" stroke-width="1"/>
+    <line x1="40" y1="60" x2="65" y2="90" stroke="var(--text-secondary)" stroke-width="1"/>
+
+    <!-- NeuroSuit pants (matching render_3_neurosuit.jpg) -->
+    <path d="M 25 100 L 25 200 L 52 200 L 52 100 Z" fill="url(#cNeuroGrad)" opacity="0.9"/>
+    <path d="M 28 100 L 28 200 L 55 200 L 55 100 Z" fill="url(#cNeuroGrad)" opacity="0.9"/>
+    <!-- Waistband -->
+    <rect x="24" y="98" width="32" height="6" rx="2" fill="#252528"/>
+    <!-- Left hip motor -->
+    <ellipse cx="22" cy="140" rx="8" ry="12" fill="url(#cMotorGrad)"/>
+    <ellipse cx="22" cy="140" rx="4" ry="8" fill="#a0a0a8"/>
+    <!-- Right hip motor -->
+    <ellipse cx="58" cy="140" rx="8" ry="12" fill="url(#cMotorGrad)"/>
+    <ellipse cx="58" cy="140" rx="4" ry="8" fill="#a0a0a8"/>
+    <!-- Carbon fiber anchor -->
+    <rect x="20" y="108" width="6" height="16" rx="2" fill="#3a3a40"/>
+    <rect x="56" y="108" width="6" height="16" rx="2" fill="#3a3a40"/>
+
+    <!-- Control Box at waist -->
+    <rect x="30" y="105" width="20" height="12" rx="3" fill="#3a3a42"/>
+    <rect x="33" y="107" width="14" height="5" rx="1.5" fill="#0a0a12"/>
+  </g>
+
+  <!-- THERAPIST with tablet (right) -->
+  <g transform="translate(270,80)">
+    <ellipse cx="20" cy="18" rx="12" ry="14" fill="none" stroke="var(--text-secondary)" stroke-width="1.2"/>
+    <line x1="20" y1="32" x2="20" y2="70" stroke="var(--text-secondary)" stroke-width="1.2"/>
+    <line x1="20" y1="45" x2="5" y2="60" stroke="var(--text-secondary)" stroke-width="1"/>
+    <!-- Tablet -->
+    <rect x="-15" y="42" width="35" height="28" rx="5" fill="var(--bg-card)" stroke="var(--accent)" stroke-width="1.5"/>
+    <rect x="-11" y="47" width="27" height="14" rx="2" fill="var(--bg)"/>
+    <text x="2" y="57" text-anchor="middle" fill="#10b981" font-size="9" font-weight="700">94%</text>
+  </g>
+
+  <!-- Connection hint -->
+  <line x1="230" y1="170" x2="255" y2="155" stroke="var(--accent)" stroke-width="1" stroke-dasharray="3,2" opacity="0.3"/>
+
+  <text x="200" y="285" text-anchor="middle" fill="var(--text-secondary)" font-size="11">患者穿戴Nexum One步行训练，治疗师通过App监控</text>
+</svg></div>
 	 <div class="render-body">
 	 <h3>临床康复训练</h3>
  <p>康复科  ·  治疗师实时监控</p>
@@ -115,7 +286,68 @@ img{opacity:1!important} /* override page-base img opacity */
  </div>
  </div>
  <div class="render-card">
- <div class="render-img"><img src="docs/render_daily_v1.png" alt="日常穿戴" loading="lazy"></div>
+ <div class="render-img"><svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+  <defs>
+    <linearGradient id="dNeuroGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a2e"/><stop offset="100%" stop-color="#1a1a1e"/></linearGradient>
+    <linearGradient id="dMotorGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d0d0d8"/><stop offset="100%" stop-color="#888890"/></linearGradient>
+  </defs>
+  <rect width="400" height="300" rx="12" fill="var(--bg-card)"/>
+
+  <!-- Home interior -->
+  <rect x="0" y="0" width="400" height="300" rx="12" fill="var(--bg)"/>
+  <rect x="0" y="0" width="400" height="32" rx="12" fill="var(--accent-subtle)"/>
+  <rect x="0" y="18" width="400" height="14" fill="var(--accent-subtle)"/>
+  <text x="200" y="22" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">居家 · 日常穿戴</text>
+  <!-- Window -->
+  <rect x="280" y="42" width="90" height="70" rx="6" fill="#e8f0f8" stroke="var(--border)" stroke-width="1"/>
+  <line x1="325" y1="42" x2="325" y2="112" stroke="var(--border)" stroke-width="0.5"/>
+  <line x1="280" y1="77" x2="370" y2="77" stroke="var(--border)" stroke-width="0.5"/>
+  <!-- Floor -->
+  <rect x="0" y="240" width="400" height="60" fill="var(--bg-card)" stroke="var(--border)" stroke-width="0.5"/>
+  <!-- Couch/sofa hint -->
+  <rect x="15" y="200" width="120" height="40" rx="10" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+
+  <!-- PERSON (center) -->
+  <g transform="translate(160,48)">
+    <!-- Head -->
+    <ellipse cx="40" cy="22" rx="15" ry="18" fill="none" stroke="var(--text-secondary)" stroke-width="1.5"/>
+    <!-- EEG-Sense headband -->
+    <path d="M 25 21 Q 40 29 55 21" fill="none" stroke="#2a2a30" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="30" cy="23" r="1.2" fill="#555"/>
+    <circle cx="40" cy="25" r="1.2" fill="#555"/>
+    <circle cx="50" cy="23" r="1.2" fill="#555"/>
+    <!-- Torso (casual shirt over) -->
+    <path d="M 25 40 L 25 100 L 55 100 L 55 40 Z" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+    <!-- Arms -->
+    <line x1="25" y1="55" x2="10" y2="90" stroke="var(--text-secondary)" stroke-width="1"/>
+    <line x1="55" y1="55" x2="70" y2="90" stroke="var(--text-secondary)" stroke-width="1"/>
+
+    <!-- NeuroSuit pants (same as in clinical + system SVGs) -->
+    <path d="M 25 98 L 25 195 L 52 195 L 52 98 Z" fill="url(#dNeuroGrad)" opacity="0.9"/>
+    <path d="M 28 98 L 28 195 L 55 195 L 55 98 Z" fill="url(#dNeuroGrad)" opacity="0.9"/>
+    <rect x="24" y="96" width="32" height="6" rx="2" fill="#252528"/>
+    <!-- Hip motors (matching) -->
+    <ellipse cx="22" cy="136" rx="8" ry="11" fill="url(#dMotorGrad)"/>
+    <ellipse cx="22" cy="136" rx="4" ry="8" fill="#a0a0a8"/>
+    <ellipse cx="58" cy="136" rx="8" ry="11" fill="url(#dMotorGrad)"/>
+    <ellipse cx="58" cy="136" rx="4" ry="8" fill="#a0a0a8"/>
+    <!-- Carbon fiber anchors -->
+    <rect x="20" y="106" width="5" height="14" rx="2" fill="#3a3a40"/>
+    <rect x="56" y="106" width="5" height="14" rx="2" fill="#3a3a40"/>
+
+    <!-- Control Box (concealed at waist, under shirt) -->
+    <rect x="31" y="94" width="18" height="10" rx="3" fill="#3a3a42" opacity="0.6"/>
+  </g>
+
+  <!-- Home step counter display -->
+  <g transform="translate(30,65)">
+    <rect x="0" y="0" width="80" height="42" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
+    <text x="40" y="16" text-anchor="middle" fill="var(--text-tertiary)" font-size="8">今日</text>
+    <text x="40" y="34" text-anchor="middle" fill="var(--accent)" font-size="16" font-weight="800">8,472</text>
+  </g>
+
+  <text x="200" y="285" text-anchor="middle" fill="var(--text-secondary)" font-size="11">外观如运动压缩裤，可内穿。无按钮，独立使用。</text>
+</svg></div>
 	 <div class="render-body">
 	 <h3>日常穿戴</h3>
  <p>外观如运动压缩裤  ·  无可见刚性框架</p>
