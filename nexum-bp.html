@@ -88,14 +88,14 @@ a { color: var(--nexum); text-decoration: none; }
 <p style="font-size:11px;color:#999;letter-spacing:3px;text-transform:uppercase;margin-bottom:6px">Confidential — For Investor Use Only</p>
 </div>
 <h1 id="nexum">逐念而行</h1>
-<h2 id="definition" style="font-size:20px;font-weight:700;margin-top:4px;margin-bottom:6px;border:none;padding-bottom:0;color:#555;">从人类神经意图到物理世界动作的通用映射</h2>
+<h2 id="definition" style="font-size:20px;font-weight:700;margin-top:4px;margin-bottom:6px;border:none;padding-bottom:0;color:#555;">从人类神经意图到物理世界动作的通用映射——"通用"指输入信号（EEG/EMG/ECoG）、输出动作（行走/站立/上下楼）、执行器形态（外骨骼/假肢）、用户人群（患者/老人/健康人）四个维度均可适配的架构设计，非指目前已实现所有维度的映射</h2>
 <p style="font-size:13px;color:#777;margin-top:0;margin-bottom:2px;">使命：人机共生 · 首款产品：Nexum One — 神经意图外骨骼</p>
 <p style="font-size:13px;color:#777;margin-top:0;margin-bottom:2px;">Tagline：<strong>从神经意图到身体动作</strong></p>
 <p style="font-size:13px;color:#999;margin-top:0;"><strong>商业计划书</strong> | 2026年6月</p>
 
 <h2 id="what-we-do">1. 我们在做什么</h2>
 
-<p><strong>逐念而行专注于一个核心命题：从人类神经意图到物理世界动作的通用映射。</strong></p>
+<p><strong>逐念而行专注于一个核心命题：从人类神经意图到物理世界动作的通用映射——"通用"指输入信号（EEG/EMG/ECoG）、输出动作（行走/站立/上下楼）、执行器形态（外骨骼/假肢）、用户人群（患者/老人/健康人）四个维度均可适配的架构设计，非指目前已实现所有维度的映射。</strong></p>
 
 <p>逐念而行的定位是「意图→动作」的直接通路——不是外骨骼公司，不是脑机接口公司，不是康复AI公司。</p>
 
@@ -108,9 +108,9 @@ a { color: var(--nexum); text-decoration: none; }
 <li><strong>Neuralink</strong> — 建侵入式脑植入（需开颅手术）</li>
 </ul>
 
-<p>所有人都在建<strong>机器智能</strong>的那一侧。逐念而行建的是<strong>另一侧</strong>：非侵入地读取人类神经意图，翻译成物理世界动作。这是人机关系中最后一块空白。</p>
+<p>当前全球主要的技术努力集中在机器智能侧——让计算机理解语言（DeepSeek/OpenAI）、让机器人拥有物理身体（宇树/Tesla Optimus）、让人用手指操控界面（Apple）。逐念而行聚焦的是人机之间缺失的接口层：非侵入地读取人类神经意图，翻译成物理世界动作。这是人机关系中最后一块空白。</p>
 
-<p><strong>人机共生不是营销词汇。</strong>不是因为Licklider在1960年预测了它。因为全行业正在收敛到同一个问题：如何让人脑意图更快到达机器。Neuralink用侵入式，Meta用肌电腕带，Apple用眼动追踪。逐念而行选择的是技术要求最高但需求最刚性的入口——非侵入EEG + 外骨骼：帮助那些生物通路已经断裂的人。</p>
+<p><strong>人机共生不是营销词汇。</strong>不是因为Licklider在1960年预测了它。因为全行业在解决同一个核心问题：如何缩短从人类产生运动意图到物理动作执行之间的延迟——即意图-动作映射的时效性。Neuralink用侵入式，Meta用肌电腕带，Apple用眼动追踪。逐念而行选择的是技术要求最高但需求最刚性的入口——非侵入EEG + 外骨骼：帮助那些生物通路已经断裂的人。</p>
 
 <blockquote>
 <p><strong>产品只有一个：Nexum One</strong> — 神经意图外骨骼。不是康复设备。不是消费电子。是新的品类。</p>
@@ -128,11 +128,11 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p><strong>谁试过</strong>：g.tec做上肢EEG康复（recoveriX），不做下肢。Duke/Nicolelis Walk Again Project（2016）用EEG驱动下肢外骨骼证明了原理可行但未商业化。</p>
 
-<h3 id="barrier-2">门槛二：硬件密度</h3>
+<h3 id="barrier-2">门槛二：电机扭矩密度与电池能量密度</h3>
 
-<p><strong>问题</strong>：够力推髋关节的电机太重，穿不上去。</p>
+<p><strong>问题</strong>：髋关节助力所需的扭矩（15Nm峰值）与穿戴式设备的重量约束（<3kg）在此前无法同时满足——能输出15Nm的电机重量超过5kg，轻于1kg的电机输出不足5Nm。</p>
 
-<p><strong>什么变了</strong>：Hao Su Lab 2025发布0.38kg/unit、持续18Nm的膝关节外骨骼。Hypershell X Ultra以2.2kg总重实现消费级量产。国产电机扭矩密度到达40-50Nm/kg。</p>
+<p><strong>什么变了</strong>：Hao Su Lab于2025年发布准直驱膝关节外骨骼，单侧电机0.38kg、持续扭矩18Nm、峰值扭矩密度47.4Nm/kg。同年Hypershell X Ultra以2.2kg总重（含电池）实现消费级量产。国产准直驱电机扭矩密度在2024-2025年从~25Nm/kg提升至40-50Nm/kg，达到穿戴式髋关节辅助的工程临界点。</p>
 
 <p><strong>谁试过</strong>：Harvard Soft Exosuit（太重，需10kg背包）。Ekso/HAL/ReWalk 15-25kg，仅限临床使用。</p>
 
@@ -236,7 +236,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <h2 id="product">4. 产品：Nexum One</h2>
 
-<p>Nexum One由三个物理模块构成，以服装形态穿戴于身。无外部框架。无显示屏。仅一个电源按钮。</p>
+<p>Nexum One由三个物理模块构成，以紧身衣形态穿戴——碳纤维锚定骨架嵌入高弹性织物中，通过多点压力分散实现无刚性外框的穿戴体验。无外部框架。无显示屏。仅一个电源按钮。</p>
 
 <blockquote>
 <p><strong>EEG-Sense头带</strong> — 运动头带形态，80g，8通道干电极，BLE无线<br>
@@ -315,7 +315,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <h3 id="tech-overview">5.1 四层技术栈</h3>
 
-<p>Nexum One的技术架构分为四层。每一层的技术选型基于当前技术成熟度与安全要求做出，标注为「产品级」（已有商用先例）、「验证级」（实验室已验证，需工程化）或「研究级」（V2+部署）。</p>
+<p>Nexum One的技术架构分为四层。每一层的技术选型基于当前技术成熟度与安全要求做出，成熟度标注：「产品级」指已有同类技术在商用产品中部署（如IMU步态检测、FOC电机控制）；「验证级」指在同行评审研究中验证可行、但尚未作为系统集成到商用产品中（如EEGNet在嵌入式设备上的实时分类）；「研究级」指基础研究已发表、但工程化与临床验证尚未完成（如联邦学习在外骨骼上的部署）。</p>
 
 <table>
 <thead><tr><th>层级</th><th>功能</th><th>核心技术</th><th>成熟度</th></tr></thead>
@@ -357,7 +357,7 @@ a { color: var(--nexum); text-decoration: none; }
 <li>部署：ONNX Runtime，INT8量化，嵌入式推理 &lt;5ms</li>
 </ul>
 
-<p><strong>肌骨模型（离线训练引擎）</strong></p>
+<p><strong>肌骨模型（离线仿真训练环境）——在GPU服务器上运行，为RL策略提供高保真虚拟训练环境。策略训练完成后，部署到嵌入式设备的是轻量神经网络（<5MB），不包含肌骨模型本身</strong></p>
 <ul>
 <li>V1阶段：简化髋关节肌骨模型（2-4自由度），基于OpenSim/MyoSuite框架</li>
 <li>作用：在仿真环境中为RL策略提供高保真训练环境</li>
@@ -722,7 +722,7 @@ a { color: var(--nexum); text-decoration: none; }
 <p>市场体量并非首要驱动力。核心在于这是人机关系中最后一块未解的拼图。</p>
 
 <blockquote>
-<p><strong>逐念而行</strong> — 从人类神经意图到物理世界动作的通用映射。Nexum One是第一个产品。不是最后一个。</p>
+<p><strong>逐念而行</strong> — 从人类神经意图到物理世界动作的通用映射——"通用"指输入信号（EEG/EMG/ECoG）、输出动作（行走/站立/上下楼）、执行器形态（外骨骼/假肢）、用户人群（患者/老人/健康人）四个维度均可适配的架构设计，非指目前已实现所有维度的映射。Nexum One是第一个产品。不是最后一个。</p>
 </blockquote>
 
 <hr>
