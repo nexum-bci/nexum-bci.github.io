@@ -308,101 +308,34 @@ img{opacity:1!important} /* override page-base img opacity */
   <rect x="15" y="200" width="120" height="40" rx="10" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
 
   <!-- PERSON (center) -->
-  <g transform="translate(160,48)">
-    <!-- Head -->
-    <ellipse cx="40" cy="22" rx="15" ry="18" fill="none" stroke="var(--text-secondary)" stroke-width="1.5"/>
-    <!-- EEG-Sense headband -->
-    <path d="M 25 21 Q 40 29 55 21" fill="none" stroke="#2a2a30" stroke-width="3.5" stroke-linecap="round"/>
-    <circle cx="30" cy="23" r="1.2" fill="#555"/>
-    <circle cx="40" cy="25" r="1.2" fill="#555"/>
-    <circle cx="50" cy="23" r="1.2" fill="#555"/>
-    <!-- Torso (casual shirt over) -->
-    <path d="M 25 40 L 25 100 L 55 100 L 55 40 Z" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-    <!-- Arms -->
-    <line x1="25" y1="55" x2="10" y2="90" stroke="var(--text-secondary)" stroke-width="1"/>
-    <line x1="55" y1="55" x2="70" y2="90" stroke="var(--text-secondary)" stroke-width="1"/>
+	  <g transform="translate(155,55)">
+	    <!-- Head -->
+	    <ellipse cx="40" cy="20" rx="14" ry="17" fill="none" stroke="var(--text-secondary)" stroke-width="1.5"/>
+	    <!-- EEG-Sense headband -->
+	    <path d="M 26 19 Q 40 27 54 19" fill="none" stroke="#2a2a30" stroke-width="3.5" stroke-linecap="round"/>
+	    <circle cx="32" cy="21" r="1.2" fill="#555"/>
+	    <circle cx="40" cy="23" r="1.2" fill="#555"/>
+	    <circle cx="48" cy="21" r="1.2" fill="#555"/>
+	    <!-- Torso -->
+	    <line x1="40" y1="37" x2="40" y2="95" stroke="var(--text-secondary)" stroke-width="1.5"/>
+	    <!-- Arms -->
+	    <line x1="40" y1="52" x2="18" y2="82" stroke="var(--text-secondary)" stroke-width="1"/>
+	    <line x1="40" y1="52" x2="62" y2="82" stroke="var(--text-secondary)" stroke-width="1"/>
 
-    <!-- NeuroSuit pants (same as in clinical + system SVGs) -->
-    <path d="M 25 98 L 25 195 L 52 195 L 52 98 Z" fill="url(#dNeuroGrad)" opacity="0.9"/>
-    <path d="M 28 98 L 28 195 L 55 195 L 55 98 Z" fill="url(#dNeuroGrad)" opacity="0.9"/>
-    <rect x="24" y="96" width="32" height="6" rx="2" fill="#252528"/>
-    <!-- Hip motors (matching) -->
-    <ellipse cx="22" cy="136" rx="8" ry="11" fill="url(#dMotorGrad)"/>
-    <ellipse cx="22" cy="136" rx="4" ry="8" fill="#a0a0a8"/>
-    <ellipse cx="58" cy="136" rx="8" ry="11" fill="url(#dMotorGrad)"/>
-    <ellipse cx="58" cy="136" rx="4" ry="8" fill="#a0a0a8"/>
-    <!-- Carbon fiber anchors -->
-    <rect x="20" y="106" width="5" height="14" rx="2" fill="#3a3a40"/>
-    <rect x="56" y="106" width="5" height="14" rx="2" fill="#3a3a40"/>
+	    <!-- NeuroSuit pants (same as clinical) -->
+	    <path d="M 26 93 L 26 190 L 52 190 L 52 93 Z" fill="url(#dNeuroGrad)" opacity="0.9"/>
+	    <path d="M 29 93 L 29 190 L 54 190 L 54 93 Z" fill="url(#dNeuroGrad)" opacity="0.9"/>
+	    <rect x="25" y="91" width="30" height="5" rx="2" fill="#252528"/>
+	    <!-- Hip motors -->
+	    <ellipse cx="24" cy="132" rx="8" ry="11" fill="url(#dMotorGrad)"/>
+	    <ellipse cx="24" cy="132" rx="4" ry="8" fill="#a0a0a8"/>
+	    <ellipse cx="56" cy="132" rx="8" ry="11" fill="url(#dMotorGrad)"/>
+	    <ellipse cx="56" cy="132" rx="4" ry="8" fill="#a0a0a8"/>
+	    <!-- CF anchors -->
+	    <rect x="22" y="102" width="5" height="14" rx="2" fill="#3a3a40"/>
+	    <rect x="54" y="102" width="5" height="14" rx="2" fill="#3a3a40"/>
+	    <!-- Control Box -->
+	    <rect x="31" y="90" width="18" height="10" rx="3" fill="#3a3a42" opacity="0.6"/>
+	  </g>
 
-    <!-- Control Box (concealed at waist, under shirt) -->
-    <rect x="31" y="94" width="18" height="10" rx="3" fill="#3a3a42" opacity="0.6"/>
-  </g>
-
-  <!-- Home step counter display -->
-  <g transform="translate(30,65)">
-    <rect x="0" y="0" width="80" height="42" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
-    <text x="40" y="16" text-anchor="middle" fill="var(--text-tertiary)" font-size="8">今日</text>
-    <text x="40" y="34" text-anchor="middle" fill="var(--accent)" font-size="16" font-weight="800">8,472</text>
-  </g>
-
-  <text x="200" y="285" text-anchor="middle" fill="var(--text-secondary)" font-size="11">外观如运动压缩裤，可内穿。无按钮，独立使用。</text>
-</svg></div>
-	 <div class="render-body">
-	 <h3>日常穿戴</h3>
- <p>外观如运动压缩裤  ·  无可见刚性框架</p>
- <span class="tag">生活场景</span>
- </div>
- </div>
- </div>
-
- <!-- Tech / Flow -->
- <div class="section-label-row" style="margin-top:48px"><h2>技术流程</h2></div>
- <div class="gallery gallery-2">
- <div class="render-card">
- <div class="render-img"><svg viewBox="0 0 800 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
-  <rect width="800" height="180" rx="12" fill="var(--bg-card)"/>
-  <g transform="translate(20,50)"><rect x="0" y="0" width="150" height="80" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><text x="75" y="35" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">读意图</text><text x="75" y="55" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">EEG-Sense</text><text x="75" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">MRCP检测 ~40ms</text></g>
-  <text x="185" y="95" text-anchor="middle" fill="var(--text-tertiary)" font-size="20">→</text>
-  <g transform="translate(200,50)"><rect x="0" y="0" width="150" height="80" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><text x="75" y="35" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">翻译</text><text x="75" y="55" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">控制盒</text><text x="75" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">AI推理 ~55ms</text></g>
-  <text x="365" y="95" text-anchor="middle" fill="var(--text-tertiary)" font-size="20">→</text>
-  <g transform="translate(380,50)"><rect x="0" y="0" width="150" height="80" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><text x="75" y="35" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">执行</text><text x="75" y="55" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">NeuroSuit</text><text x="75" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">电机驱动 ~60ms</text></g>
-  <text x="545" y="95" text-anchor="middle" fill="var(--text-tertiary)" font-size="20">→</text>
-  <g transform="translate(560,50)"><rect x="0" y="0" width="150" height="80" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><text x="75" y="35" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">进化</text><text x="75" y="55" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">联邦学习 V2</text><text x="75" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">策略更新 ~30ms</text></g>
-  <path d="M150,90 C170,30 190,30 200,90" stroke="var(--accent)" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.4"/>
-  <text x="400" y="165" text-anchor="middle" fill="var(--text-secondary)" font-size="11">闭环数据流：读意图 → 翻译 → 执行 → 进化。端到端 ~150-200ms。</text>
-</svg></div>
- <div class="render-body">
- <h3>闭环数据流架构</h3>
- <p>EEG→BLE→AI推理→电机驱动→力反馈</p>
- <span class="tag">技术架构</span>
- </div>
- </div>
- <div class="render-card">
- <div class="render-img"><svg viewBox="0 0 800 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
-  <rect width="800" height="180" rx="12" fill="var(--bg-card)"/>
-  <g transform="translate(30,40)"><rect x="0" y="0" width="220" height="100" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><text x="110" y="30" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">Phase 1 · 2028-2030</text><text x="110" y="55" text-anchor="middle" fill="var(--text)" font-size="18" font-weight="800">$1.3B</text><text x="110" y="75" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">神经康复 · NMPA II类</text></g>
-  <text x="270" y="95" text-anchor="middle" fill="var(--text-tertiary)" font-size="24">→</text>
-  <g transform="translate(290,40)"><rect x="0" y="0" width="220" height="100" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><text x="110" y="30" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">Phase 2 · 2030-2032</text><text x="110" y="55" text-anchor="middle" fill="var(--text)" font-size="18" font-weight="800">$6.8B</text><text x="110" y="75" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">老年行动力 · 居家康复</text></g>
-  <text x="530" y="95" text-anchor="middle" fill="var(--text-tertiary)" font-size="24">→</text>
-  <g transform="translate(550,40)"><rect x="0" y="0" width="220" height="100" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><text x="110" y="30" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">Phase 3 · 2032+</text><text x="110" y="55" text-anchor="middle" fill="var(--text)" font-size="18" font-weight="800">$15B+</text><text x="110" y="75" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">消费增强 · 人人可用</text></g>
-  <text x="400" y="165" text-anchor="middle" fill="var(--text-secondary)" font-size="11">三阶段市场扩展：同一产品，同一AI引擎，用户逐级扩大</text>
-</svg></div>
- <div class="render-body">
- <h3>三阶段市场扩展</h3>
- <p>$1.3B → $6.8B → $15B+</p>
- <span class="tag">Market</span>
- </div>
- </div>
- </div>
-
- </div>
-</section>
-
-<script src="shared.js"></script>
-<script>
-document.querySelectorAll("img").forEach(function(img){if(img.complete)img.classList.add("loaded");else img.addEventListener("load",function(){img.classList.add("loaded")})});
-(function(){var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add("visible")})},{threshold:0.12,rootMargin:"0px 0px -30px 0px"});document.querySelectorAll(".reveal").forEach(function(e){o.observe(e)})})();
-</script>
-</body>
-</html>
+	  <text x="200" y="285" text-anchor="middle" fill="var(--text-secondary)" font-size="11">外观如运动压缩裤，可内穿于常规衣物</text>
