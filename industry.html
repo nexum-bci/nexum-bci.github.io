@@ -126,7 +126,40 @@ tr:hover td{background:var(--bg)}
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">3. 技术路径</h2>
+<h2 style="margin-top:0">3. 为什么是下肢，不是上肢</h2>
+
+<p>投资人最常问的一个问题：既然上肢 EEG 康复已有商用产品（g.tec recoveriX、赛博灵科 AC5），为什么 Nexum 要做下肢？上肢风险更低、技术更成熟，是不是更聪明的选择？</p>
+
+<h3>上肢的市场天花板</h3>
+
+<table>
+<tr><th></th><th>上肢 EEG 康复</th><th>下肢 EEG 外骨骼</th></tr>
+<tr><td>代表公司</td><td>g.tec recoveriX, 赛博灵科 AC5, 迈联医疗</td><td>Nexum One（唯一）</td></tr>
+<tr><td>患者基数（中国）</td><td>脑卒中上肢功能障碍约 800 万人</td><td>脑卒中偏瘫+不完全性SCI+老年行动力下降 ≈ 1,500 万+</td></tr>
+<tr><td>单次治疗价格</td><td>¥140-190（recoveriX）/ ¥966（BCI适配费）</td><td>设备 ¥18,000（医院）/ ¥3,999+¥499/年（居家）</td></tr>
+<tr><td>使用场景</td><td>医院治疗室，治疗师操作</td><td>医院 + 居家 + 社区。独立使用</td></tr>
+<tr><td>技术难度</td><td>坐姿，头部静止，EEG信号稳定</td><td>步行，全身运动伪迹，EEG信号淹没在噪声中</td></tr>
+<tr><td>竞争格局</td><td>已有 3+ 家商用产品，红海初现</td><td>空白。全球无一商用产品</td></tr>
+<tr><td>支付路径</td><td>按次收费，依赖治疗师时间</td><td>医保报销设备（11省外骨骼医保）+ BCI服务费（¥966/次）双重支付</td></tr>
+</table>
+
+<h3>为什么下肢更难，但更值得</h3>
+
+<p><strong>1. 市场大一倍以上。</strong>上肢康复患者约800万，下肢（偏瘫步行+SCI+老年行动力）超1500万。而且下肢功能障碍直接影响独立生活能力——不能走路意味着不能自己上厕所、做饭、出门——支付意愿和医保优先级都高于上肢。</p>
+
+<p><strong>2. 竞争真空 = 品类定义权。</strong>上肢 EEG 康复已有 g.tec（1999年成立）、赛博灵科（2025年上市3款产品）、迈联医疗等。进入上肢市场是追赶者。进入下肢市场是定义者——第一个产品就是品类标准。</p>
+
+<p><strong>3. 技术壁垒更高 = 护城河更深。</strong>上肢 EEG 康复在坐姿下进行，头部静止，信号稳定。步行中的 EEG 面临运动伪迹、肌电干扰、电极位移——信号处理的难度高一个数量级。这也是为什么过去 20 年没人做成。一旦突破，后来者需要同样的时间积累。</p>
+
+<p><strong>4. 支付路径更具体。</strong>11 省外骨骼医保覆盖的是"下肢康复外骨骼"，不是上肢。CMS K1007 覆盖的也是下肢。BCI 服务费¥966/次虽然不区分上下肢，但与外骨骼医保叠加后，下肢的总支付能力远高于上肢。</p>
+
+<p><strong>5. 平台延展性更强。</strong>下肢外骨骼的核心技术（步态相位检测、平衡控制、多关节协调）可以延伸到老年行动力（3.23亿60+）、消费增强（户外登山）——这些场景需要的都是下肢，不是上肢。</p>
+
+<div class="highlight-box">
+<strong>一句话：</strong>上肢是更安全的选择，但上限锁死在康复科治疗室。下肢是更难的选择，但打开了康复→老年→消费的三阶段市场阶梯。Nexum 赌的是中国 11 省外骨骼医保窗口 + 干电极 SNR 突破 + QDD 电机成熟这三个条件同时出现的历史时机——做上肢不需要等这三个条件，但也等不来这三重杠杆。
+</div>
+
+<h2 style="margin-top:0">4. 技术路径</h2>
 
 <h3>EEG方案</h3>
 <p><strong>基准模型：</strong>EEGNet（Lawhern 2018，~2000参数）仍是最佳CNN基线。2024-2025年Transformer（TOTEM/EEG-Deformer）在跨subject泛化上开始超越EEGNet。</p>
@@ -145,7 +178,7 @@ tr:hover td{background:var(--bg)}
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">4. 市场与支付</h2>
+<h2 style="margin-top:0">5. 市场与支付</h2>
 
 <table>
 <tr><th>市场</th><th>2025</th><th>2030</th><th>2035</th><th>CAGR</th></tr>
@@ -170,7 +203,7 @@ tr:hover td{background:var(--bg)}
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">5. 学术关键团队</h2>
+<h2 style="margin-top:0">6. 学术关键团队</h2>
 
 <table>
 <tr><th>团队</th><th>机构</th><th>关键成果</th><th>与Nexum相关度</th></tr>
@@ -186,7 +219,7 @@ tr:hover td{background:var(--bg)}
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">6. 供应链与BOM</h2>
+<h2 style="margin-top:0">7. 供应链与BOM</h2>
 
 <table>
 <tr><th>模块</th><th>核心器件</th><th>型号</th><th>单价</th><th>来源</th></tr>
@@ -215,7 +248,7 @@ tr:hover td{background:var(--bg)}
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">7. 监管路径</h2>
+<h2 style="margin-top:0">8. 监管路径</h2>
 
 <table>
 <tr><th>市场</th><th>路径</th><th>时间</th><th>费用</th></tr>
@@ -228,7 +261,7 @@ tr:hover td{background:var(--bg)}
 </div>
 
 <div class="content-card">
-<h2 style="margin-top:0">8. Nexum竞争定位</h2>
+<h2 style="margin-top:0">9. Nexum竞争定位</h2>
 
 <div class="highlight-box">
 <p><strong>唯一性已经过系统性验证。</strong>全球30+外骨骼公司中，无一同时具备非侵入EEG+下肢外骨骼产品。8家EEG-BCI公司全部只做上肢。5个关键学术团队中，Courtine（EPFL）做的是侵入式脑脊接口，Bin He（CMU）做的是手指级精细控制，均未进入下肢外骨骼产品化。</p>
