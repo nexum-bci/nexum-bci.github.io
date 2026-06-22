@@ -283,6 +283,11 @@ img:not([src]),img[src=""]{visibility:hidden}
 
 
 /* ============================================================
+   UNIFIED SEMANTIC COLOR SYSTEM
+   Blue(var(--accent)):AI/data | Green(#10b981):control | Amber(#f59e0b):power | Purple(#7c3aed):neural
+   ============================================================ */
+
+/* ============================================================
    UNIFIED DIAGRAM DESIGN LANGUAGE
    Lines: 1.5-2px, arrows: 7px triangle, boxes: rx=10-14,
    Titles: 13-15px bold, Body: 11-12px, Caption: 10px.
@@ -906,4 +911,10 @@ code{font-family:'SF Mono',monospace;font-size:.9em;background:var(--accent-subt
   body{background:#fff!important;color:#000!important;font-size:12pt}
   a{color:#000!important}
   .card,.content-card{box-shadow:none!important;border:1px solid #ddd!important;break-inside:avoid}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+  .reveal{opacity:1!important;transform:none!important}
+  html{scroll-behavior:auto}
 }
