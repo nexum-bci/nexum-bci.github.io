@@ -444,7 +444,7 @@ a { color: var(--nexum); text-decoration: none; }
 <ul>
 <li>电机：准直驱电机（参考 CubeMars AKE60-8 或同级别），设计目标单侧≤0.5kg，峰值扭矩≥12Nm，持续扭矩≥5Nm</li>
 <li>驱动器：DRV8316（三相栅极驱动），SPI接口，支持FOC矢量控制</li>
-<li>主控芯片：STM32H743（Cortex-M7, 480MHz），运行FreeRTOS</li>
+<li>主控芯片：STM32H743（Cortex-M7, 480MHz），运行FreeRTOS。AI推理：Hailo-8L NPU（13 TOPS @ 1.5W），ONNX Runtime框架</li>
 <li>传感器反馈：14-bit磁编码器（位置/速度）+ 应变片（扭矩估计）</li>
 </ul>
 
