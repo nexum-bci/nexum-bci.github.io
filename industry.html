@@ -260,22 +260,32 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 </div>
 </div>
 
+<div class="content-card" style="margin-bottom:32px">
 <h2 style="margin-top:0" id="tech-paths">7. 技术路径</h2>
 
-<h3>EEG方案</h3>
-<p><strong>基准模型：</strong>EEGNet（Lawhern 2018，~2000参数）仍是最佳CNN基线。2024-2025年Transformer（TOTEM/EEG-Deformer）在跨subject泛化上开始超越EEGNet。</p>
-<p><strong>最优范式：</strong>运动准备电位（MRCP）离线95%/在线63-83%，可预测运动前350-600ms，最适合自定速外骨骼触发。混合MI+SSVEP方案在准确率和疲劳度之间取得平衡。</p>
-<p><strong>电极选型：</strong>半干电极（2024年99.16%分类准确率，接近湿电极）是消费级最优解。ADS1299（$51-67, 1μVpp噪声, CMRR 110dB）是EEG采集不二之选。nRF52832（$5-8, Cortex-M4F, BLE 5.0）是头带MCU最优选。</p>
+<h3>感知层：EEG信号采集与解码</h3>
+<p><strong>ADC芯片：</strong>TI ADS1299（8通道24-bit, 1μVpp输入噪声, CMRR -110dB, ~$51-67）。250SPS采样率，SPI接口直连MCU。内置偏置驱动和导联脱落检测。</p>
+<p><strong>头带MCU：</strong>nRF52832（Cortex-M4F @64MHz, BLE 5.0, ~$5-8）。负责信号预处理：50Hz陷波→0.5-45Hz带通滤波→共平均参考(CAR)。检测到MRCP时将数据发送至NeuroCore。</p>
+<p><strong>干电极：</strong>Ag/AgCl涂层pin电极（$5-15/通道）。长期方向：MNAE微针阵列（2026年接触阻抗2.6kΩ, 信号幅度超湿电极39-44%）。</p>
 
-<h3>驱动方案</h3>
-<p><strong>准直驱（QDD）在反向驱动性和控制带宽上全面优于谐波减速。</strong>CubeMars AKE60-8（260g, 12.5Nm峰值, 8:1减速比, ~$200-300）是已验证的穿戴方案。TMC4671硬件FOC（100kHz控制环路）释放MCU算力。</p>
-<p><strong>碳纤维结构：</strong>T700级碳纤维编织布$12-35/kg。Toray医疗级（$50-200/kg）有FDA认证，恒神工业级（$9-15/kg）性价比最优。</p>
+<h3>解码层：从脑电到力矩</h3>
+<p><strong>意图分类器：</strong>EEGNet（Lawhern 2018, ~2000参数紧凑CNN）。输入8ch×250Hz×100ms滑动窗口→输出四类运动意图。INT8量化后嵌入式推理&lt;5ms。2024-2025年Transformer架构（TOTEM, EEG-Deformer）在跨subject泛化上开始超越EEGNet基线。</p>
+<p><strong>RL策略网络：</strong>PPO/SAC算法，在NVIDIA Isaac Gym仿真环境中训练数亿步后蒸馏为&lt;5MB轻量网络。肌骨模型为2-4DOF简化髋关节模型（OpenSim框架），仅离线训练用，不部署到嵌入式设备。</p>
+<p><strong>运动意图范式：</strong>MRCP离线95%/在线63-83%，预测运动前350-600ms——比纯IMU方案快200-500ms。混合MI+SSVEP方案在准确率和疲劳度间平衡。</p>
 
-<h3>边缘AI</h3>
-<p><strong>推荐架构：</strong>STM32H7（实时FOC控制）+ Hailo-8L（13 TOPS @ 1.5W, ~$70, AI推理）+ ONNX Runtime（统一框架）。TFLite Micro用于nRF5340头带端轻量推理（<100KB）。</p>
+<h3>执行层：直驱电机与力控</h3>
+<p><strong>电机：</strong>CubeMars AKE60-8准直驱（260g, 12.5Nm峰值/5Nm持续, 8:1行星减速, ~$200-300/个）。髋关节×2。QDD在反向驱动性和控制带宽上全面优于谐波减速。</p>
+<p><strong>FOC驱动：</strong>TMC4671硬件FOC控制器（100kHz）+ AS5047P 14-bit磁编码器（$4-6）+ 应变片扭矩反馈。PID力控闭环1kHz。</p>
+<p><strong>主控+AI：</strong>STM32H743（Cortex-M7 @480MHz, FreeRTOS）实时控制 + Hailo-8L（13 TOPS @1.5W, ~$70）AI推理。ONNX Runtime统一框架。</p>
 
-<h3>联邦学习</h3>
-<p><strong>FLEEG</strong>（Guan NTU 2024）：9个异构MI数据集跨患者联邦学习，提升8.4%。<strong>pFedAC</strong>（Wang/Yang/Su, arXiv:2605.14423）：个性化联邦强化学习，超越独立PPO 3.78倍。两者共同构成Nexum策略进化的学术基础。</p>
+<h3>结构层：碳纤维骨架</h3>
+<p><strong>碳纤维：</strong>T700级预浸料编织布$12-35/kg。Toray医疗级（$50-200/kg, FDA认证）用于患者接触部位。恒神工业级（$9-15/kg）用于非接触结构件。用量约0.5-1.5kg/套。</p>
+<p><strong>弹性织物：</strong>运动压缩裤基底（参照2XU/CW-X梯度压缩设计）。碳纤维锚定骨架缝入织物，多点压力分散。无刚性外框。可内穿于常规衣物。</p>
+
+<h3>进化层：联邦学习（V2阶段）</h3>
+<p><strong>FLEEG</strong>（Guan NTU, Neural Networks 2024）：9个异构MI数据集跨患者联邦学习，提升8.4%。验证了多医院场景下联邦学习的可行性。</p>
+<p><strong>pFedAC</strong>（Wang/Yang/Su, arXiv:2605.14423）：单时间尺度联邦Actor-Critic。超越独立PPO 2.63倍和FedAvg PPO 3.78倍——Nexum个性化策略进化的核心学术支撑。</p>
+<p><strong>隐私架构：</strong>原始EEG/步态数据不离设备。仅加密模型梯度上传。V2阶段引入（2028年后），V1阶段策略离线预训练不做在线学习。</p>
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
