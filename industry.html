@@ -15,9 +15,10 @@ img{opacity:1!important}
 .stat-label{font-size:12px;color:var(--text-tertiary);margin-top:4px}
 table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0}
 th{text-align:left;padding:10px 14px;background:var(--accent-subtle);color:var(--accent);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--border)}
-td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-secondary)}
+td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-secondary);font-size:13px}
 tr:hover td{background:var(--bg)}
 .highlight-box{background:var(--accent-subtle);border-left:3px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:0 8px 8px 0;font-size:14px}
+.callout-good{background:rgba(16,185,129,.06);border-left:3px solid #10b981;padding:16px 20px;margin:20px 0;border-radius:0 8px 8px 0;font-size:14px}
 @media(max-width:768px){.stat-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -26,7 +27,7 @@ tr:hover td{background:var(--bg)}
 <section class="page-header">
  <div class="container">
  <h1>行业背调</h1>
- <p class="page-sub">全球外骨骼与脑机接口康复领域深度调研 — 2026年6月</p>
+ <p class="page-sub">全球外骨骼与脑机接口康复领域深度调研 · 2026年6月</p>
  </div>
 </section>
 
@@ -37,120 +38,203 @@ tr:hover td{background:var(--bg)}
 <h2 style="margin-top:0">核心发现</h2>
 
 <div class="highlight-box">
-<strong>全球 30+ 外骨骼公司中，没有一家同时拥有非侵入 EEG + 下肢外骨骼产品。</strong>8 家 EEG-BCI 康复公司全部只做上肢。EEG × 下肢外骨骼是经过系统性验证的市场空白。
+<strong>全球 30+ 外骨骼公司、8 家 EEG-BCI 康复公司、5 个关键学术团队——没有一家同时拥有非侵入 EEG + 下肢外骨骼产品。</strong>EEG × 下肢外骨骼是经过系统性验证的市场空白。Nexum One 是全球第一个定位此交叉点的系统。窗口期 2-3 年。
 </div>
 
 <div class="stat-grid">
 <div class="stat-card"><div class="stat-num">30+</div><div class="stat-label">全球外骨骼公司</div></div>
-<div class="stat-card"><div class="stat-num">0</div><div class="stat-label">同时做EEG+下肢的公司</div></div>
+<div class="stat-card"><div class="stat-num">0</div><div class="stat-label">同时做EEG+下肢</div></div>
 <div class="stat-card"><div class="stat-num">$0.5B</div><div class="stat-label">2025 康复外骨骼 SAM</div></div>
 <div class="stat-card"><div class="stat-num">$2.9B</div><div class="stat-label">2035 康复外骨骼 SAM</div></div>
 </div>
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">竞品全景</h2>
+<h2 style="margin-top:0">1. 全球竞品全景</h2>
 
+<h3>医疗级外骨骼（传统阵营）</h3>
 <table>
-<tr><th>公司</th><th>国家</th><th>成立</th><th>产品</th><th>控制方式</th><th>价格</th><th>累计融资</th><th>认证</th></tr>
-<tr><td><strong>Ekso Bionics</strong></td><td>美国</td><td>2005</td><td>EksoNR, Indego</td><td>按钮+IMU</td><td>$100K+</td><td>$150M+</td><td>FDA</td></tr>
-<tr><td><strong>ReWalk (Lifeward)</strong></td><td>以色列</td><td>2001</td><td>ReWalk P6.0</td><td>倾斜传感器</td><td>$91K</td><td>$197M+</td><td>FDA</td></tr>
-<tr><td><strong>Cyberdyne</strong></td><td>日本</td><td>2004</td><td>HAL 下肢型</td><td>EMG（肌电）</td><td>¥11K/次</td><td>$200M+</td><td>FDA+PMDA</td></tr>
-<tr><td><strong>Wandercraft</strong></td><td>法国</td><td>2012</td><td>Atalante X, Eve</td><td>自平衡</td><td>~€200K</td><td>$175M</td><td>FDA+CE</td></tr>
-<tr><td><strong>g.tec (recoveriX)</strong></td><td>奥地利</td><td>1999</td><td>recoveriX</td><td>EEG+FES</td><td>~$35K</td><td>未公开</td><td>CE</td></tr>
-<tr><td><strong>程天科技</strong></td><td>中国</td><td>2017</td><td>UGO, Ascentiz</td><td>IMU+AI</td><td>¥48万/¥2500</td><td>¥5亿+</td><td>NMPA</td></tr>
-<tr><td><strong>极壳 Hypershell</strong></td><td>中国</td><td>2021</td><td>X Ultra, Pro</td><td>IMU+AI</td><td>$599-799</td><td>$120M</td><td>消费级</td></tr>
-<tr><td><strong>傅利叶智能</strong></td><td>中国</td><td>2015</td><td>外骨骼+人形</td><td>AI+力控</td><td>B2B</td><td>¥15亿+</td><td>NMPA+CE</td></tr>
-<tr><td><strong>安杰莱科技</strong></td><td>中国</td><td>2017</td><td>LiteStepper</td><td>BCI+健侧引领</td><td>B2B</td><td>数千万</td><td>审批中</td></tr>
-<tr><td><strong>大艾机器人</strong></td><td>中国</td><td>2016</td><td>艾动/艾康/神行</td><td>IMU</td><td>¥6.99万起</td><td>¥7700万</td><td>NMPA+CE</td></tr>
-<tr><td><strong>Samsung Bot Fit</strong></td><td>韩国</td><td>2019</td><td>GEMS-H</td><td>IMU</td><td>TBD</td><td>内部</td><td>韩国</td></tr>
-<tr><td><strong>Angel Robotics</strong></td><td>韩国</td><td>2017</td><td>WalkON, Angelex</td><td>IMU+力控</td><td>B2B</td><td>$25M</td><td>KOSDAQ上市</td></tr>
-<tr><td><strong>Innophys</strong></td><td>日本</td><td>2013</td><td>Muscle Suit</td><td>气动人工肌肉</td><td>$1,300</td><td>$44.9M</td><td>工业</td></tr>
-<tr><td><strong>Verve Motion</strong></td><td>美国</td><td>2020</td><td>SafeLift</td><td>软体外骨骼</td><td>$350/月</td><td>$53M</td><td>工业</td></tr>
-<tr><td><strong>Roam Robotics</strong></td><td>美国</td><td>2012</td><td>Forge</td><td>气动织物</td><td>未公开</td><td>$12.7M</td><td>国防</td></tr>
+<tr><th>公司</th><th>国家</th><th>成立</th><th>产品</th><th>控制</th><th>价格</th><th>累计融资</th><th>认证</th></tr>
+<tr><td>Ekso Bionics</td><td>美国</td><td>2005</td><td>EksoNR, Indego</td><td>按钮+IMU</td><td>$100K+</td><td>$150M+</td><td>FDA</td></tr>
+<tr><td>ReWalk/Lifeward</td><td>以色列</td><td>2001</td><td>ReWalk P6.0</td><td>倾斜传感器</td><td>$91K</td><td>$197M+</td><td>FDA</td></tr>
+<tr><td>Cyberdyne</td><td>日本</td><td>2004</td><td>HAL 下肢型</td><td>EMG（肌电）</td><td>¥11K/次</td><td>$200M+</td><td>FDA+PMDA</td></tr>
+<tr><td>Wandercraft</td><td>法国</td><td>2012</td><td>Atalante X, Eve</td><td>自平衡</td><td>€200K</td><td>$175M</td><td>FDA+CE</td></tr>
+<tr><td>ExoAtlet</td><td>卢森堡</td><td>2013</td><td>ExoAtlet II, Bambini</td><td>电机驱动</td><td>€95K</td><td>$8M</td><td>FDA+CE</td></tr>
+<tr><td>SuitX/Ottobock</td><td>美国</td><td>2011</td><td>Phoenix</td><td>IMU</td><td>$40K</td><td>$24M</td><td>FDA+CE</td></tr>
+<tr><td>Angel Robotics</td><td>韩国</td><td>2017</td><td>WalkON, Angelex</td><td>IMU+力控</td><td>B2B</td><td>$25M</td><td>KOSDAQ上市</td></tr>
 </table>
+
+<h3>EEG-BCI 康复（交叉赛道）</h3>
+<table>
+<tr><th>公司</th><th>国家</th><th>产品</th><th>技术</th><th>做下肢?</th></tr>
+<tr><td>g.tec recoveriX</td><td>奥地利</td><td>recoveriX</td><td>EEG+FES（运动想象→电刺激）</td><td>❌ 仅上肢</td></tr>
+<tr><td>赛博灵科/博灵脑机</td><td>中国</td><td>AC5, HC2, AM5</td><td>EEG+外骨骼（主动康复）</td><td>❌ 仅上肢</td></tr>
+<tr><td>迈联医疗</td><td>中国</td><td>脑控康复</td><td>EEG+外骨骼</td><td>❌ 仅上肢</td></tr>
+<tr><td>RehabSwift</td><td>澳大利亚</td><td>RehabSwift</td><td>EEG+FES</td><td>❌ 仅上肢</td></tr>
+<tr><td>Neurable</td><td>美国</td><td>MW75 Neuro</td><td>EEG耳机（消费级）</td><td>❌ 不做外骨骼</td></tr>
+<tr><td>NextMind（Apple收购）</td><td>法国→美国</td><td>视觉BCI</td><td>视觉诱发电位</td><td>❌ 不做外骨骼</td></tr>
+</table>
+
+<h3>中国外骨骼生态</h3>
+<table>
+<tr><th>公司</th><th>成立</th><th>产品</th><th>技术</th><th>价格</th><th>融资</th><th>认证</th></tr>
+<tr><td>程天科技</td><td>2017</td><td>UGO, Ascentiz, EasyGo</td><td>IMU+AI</td><td>¥48万/¥2500</td><td>¥5亿+ (B+轮)</td><td>NMPA</td></tr>
+<tr><td>大艾机器人</td><td>2016</td><td>艾动/艾康/神行</td><td>IMU</td><td>¥6.99万起</td><td>¥7700万</td><td>NMPA+CE</td></tr>
+<tr><td>傅利叶智能</td><td>2015</td><td>外骨骼+人形GR-2</td><td>AI+力控</td><td>B2B</td><td>¥15亿+</td><td>NMPA+CE</td></tr>
+<tr><td>安杰莱科技</td><td>2017</td><td>LiteStepper</td><td>BCI+健侧引领</td><td>B2B</td><td>数千万元</td><td>审批中</td></tr>
+<tr><td>迈步机器人</td><td>2016</td><td>BEAR-H1</td><td>柔性驱动器</td><td>B2B</td><td>过亿元</td><td>NMPA II类</td></tr>
+<tr><td>傲鲨智能</td><td>2018</td><td>BES/MAPS/VIATRIX</td><td>90%自研+AI</td><td>¥6900起</td><td>多轮数千万</td><td>工业/消费</td></tr>
+</table>
+
+<h3>消费/工业外骨骼</h3>
+<table>
+<tr><th>公司</th><th>国家</th><th>产品</th><th>形态</th><th>价格</th><th>累计融资</th></tr>
+<tr><td>极壳 Hypershell</td><td>中国</td><td>X Ultra/Pro</td><td>髋膝一体，2.2kg</td><td>$599-799</td><td>$120M</td></tr>
+<tr><td>Verve Motion</td><td>美国</td><td>SafeLift</td><td>软体背包式，6.5磅</td><td>$350/月</td><td>$53M</td></tr>
+<tr><td>HeroWear</td><td>美国</td><td>Apex 2</td><td>被动机械，~3磅</td><td>$数百</td><td>$15.7M</td></tr>
+<tr><td>Innophys</td><td>日本</td><td>Muscle Suit Every</td><td>气动人工肌肉</td><td>$1,300</td><td>$44.9M</td></tr>
+<tr><td>Japet Medical</td><td>法国</td><td>Japet.W+</td><td>电机腰带式</td><td>€7,700</td><td>$8.9M</td></tr>
+<tr><td>Samsung Bot Fit</td><td>韩国</td><td>GEMS-H</td><td>髋部外骨骼</td><td>TBD</td><td>内部研发</td></tr>
+<tr><td>Roam Robotics</td><td>美国</td><td>Forge</td><td>气动织物</td><td>未公开</td><td>$12.7M</td></tr>
+</table>
+
+<div class="highlight-box">
+<strong>关键洞察：</strong>程天科技是中国最大外骨骼公司（B+轮亿元级，600+医院），其EEG+脊电临床研究真实存在但与诚益通的R&D项目非产品线。安杰莱是唯一以BCI+外骨骼为核心的中国公司，但只做单下肢。赛博灵科/博灵脑机3款产品全部上肢。中国EEG+下肢外骨骼交叉点完全空白。
+</div>
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">为什么过去没人做成</h2>
+<h2 style="margin-top:0">2. 为什么过去没人做成</h2>
 
-<p><strong>EEG 步行信噪比的物理极限。</strong>运动伪迹与神经信号共享相同频带。被动干电极在步行中 epoch 拒绝率接近 100%（Oliveira 2016）。有一种理论叫 "SNR-wall"（Porr 2023）：噪声超过阈值后，任何算法都无法恢复信号。</p>
+<h3>EEG 步行信噪比的物理极限</h3>
+<p>运动伪迹与神经信号共享相同的频带和空间位置。被动干电极在真实步行中epoch拒绝率接近100%（Oliveira 2016）。Porr et al.（PLOS ONE 2023）提出"SNR-wall"理论——噪声超过某个阈值后，任何信号处理算法都无法恢复原始信号。这不是工程问题，是物理规律。</p>
 
-<p><strong>跨学科团队极度稀缺。</strong>需要同时懂 EEG 信号处理（神经科学）、外骨骼控制（机器人学）、嵌入式系统（EE）、临床康复（医学）——四种人才不在同一个圈子里。中国 2025 年才成立全国脑机接口教育联合体，培养周期 5-8 年。</p>
+<p><strong>2024-2025突破：</strong>微针阵列干电极（MNAE）接触阻抗降至2.6kΩ@10Hz，信号幅度超过湿电极39-44%（Materials Today Nano 2026）。有源干电极SNR达1.27dB，与湿电极1.30dB几乎无差。干电极的"信号质量瓶颈"在物理层面首次被突破。</p>
 
-<p><strong>监管真空。</strong>BCI 和外骨骼各自有独立的分类，但组合产品的审批路径在 NMPA/FDA/CE 均无先例。中国 2025 年才首次将外骨骼纳入 YY/T 1973-2025 行业标准。</p>
+<h3>跨学科团队极度稀缺</h3>
+<p>需要同时掌握EEG信号处理（神经科学背景）、外骨骼控制（机器人学背景）、嵌入式系统（EE背景）、临床康复（医学背景）——四种人才不在同一个圈子里。中国2025年才成立全国脑机接口教育联合体（天津大学牵头14所高校），培养周期5-8年。</p>
 
-<p><strong>资金真空。</strong>纯外骨骼公司（Ekso, ReWalk, Cyberdyne）上市后市值持续下滑，从未盈利。纯 BCI 公司还在早期。交叉点的故事没有成功案例让投资人参照。</p>
+<h3>监管真空</h3>
+<p>BCI和外骨骼各自有独立的监管分类，但组合产品的审评路径在NMPA/FDA/CE均无先例。中国2025年6月才发布首个外骨骼行业标准YY/T 1973-2025（2026年7月实施），2025年3月才首次为BCI单独立项（国家医保局）。</p>
 
-<p><strong>2025-2026 年，四个条件首次同时满足：</strong>干电极 SNR 突破（微针阵列 2.6kΩ），QDD 电机扭矩密度突破（47.6 Nm/kg），中国 11 省外骨骼医保 + BCI 定价 ¥966/次，NMPA 创新器械绿色通道开放。</p>
+<h3>资金真空</h3>
+<p>三家上市外骨骼公司（Ekso, ReWalk, Cyberdyne）市值长期低于$300M且从未盈利。纯BCI公司还在早期阶段。交叉点的故事没有成功案例让投资人参照。中国BCI+外骨骼赛道单笔融资不超过1亿元量级，远不够覆盖硬件+软件+临床认证的全周期成本。</p>
+
+<div class="callout-good">
+<strong>Nexum的成立时机：</strong>四个条件在2025-2026年首次同时满足——干电极物理突破 + QDD电机扭矩密度突破 + 中国11省外骨骼医保+BCI定价落地 + NMPA创新器械绿色通道加速。这是历史级别的窗口。
+</div>
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">技术路径</h2>
+<h2 style="margin-top:0">3. 技术路径</h2>
 
-<p><strong>EEG 方案：</strong>EEGNet（~2000 参数 CNN）仍是最佳基线。2024-2025 年 Transformer（TOTEM）在跨 subject 泛化上开始超越 EEGNet。MRCP 离线 95% / 在线 63-83%，是外骨骼触发的最佳范式。半干电极（2024 年 99.16% 分类准确率，接近湿电极）是消费级产品最优解。</p>
+<h3>EEG方案</h3>
+<p><strong>基准模型：</strong>EEGNet（Lawhern 2018，~2000参数）仍是最佳CNN基线。2024-2025年Transformer（TOTEM/EEG-Deformer）在跨subject泛化上开始超越EEGNet。</p>
+<p><strong>最优范式：</strong>运动准备电位（MRCP）离线95%/在线63-83%，可预测运动前350-600ms，最适合自定速外骨骼触发。混合MI+SSVEP方案在准确率和疲劳度之间取得平衡。</p>
+<p><strong>电极选型：</strong>半干电极（2024年99.16%分类准确率，接近湿电极）是消费级最优解。ADS1299（$15-18, 1μVpp噪声, CMRR 110dB）是EEG采集不二之选。nRF5340（$4-7, 双核M33, 512KB RAM）是头带MCU最优选。</p>
 
-<p><strong>驱动方案：</strong>准直驱（QDD）在反向驱动性和控制带宽上全面优于谐波减速。CubeMars AKE 系列（260g, 12.5Nm 峰值, 8:1）是已验证的穿戴方案。鲍登线远程布局可进一步降低肢体端重量（仅线缆），但扭矩传输有损耗。</p>
+<h3>驱动方案</h3>
+<p><strong>准直驱（QDD）在反向驱动性和控制带宽上全面优于谐波减速。</strong>CubeMars AKE60-8（260g, 12.5Nm峰值, 8:1减速比, ~$200-300）是已验证的穿戴方案。TMC4671硬件FOC（100kHz控制环路）释放MCU算力。</p>
+<p><strong>碳纤维结构：</strong>T700级碳纤维编织布$12-35/kg。Toray医疗级（$50-200/kg）有FDA认证，恒神工业级（$9-15/kg）性价比最优。</p>
 
-<p><strong>结构材料：</strong>碳纤维复合主结构 + 工程塑料关节衬垫是最优方案。碳纤维占 2024 年外骨骼材料市场 35%（$6680 万）。Toray 医疗级碳纤维 $50-200/kg，恒神工业级 $9-15/kg。</p>
+<h3>边缘AI</h3>
+<p><strong>推荐架构：</strong>STM32H7（实时FOC控制）+ Hailo-8L（13 TOPS @ 1.5W, ~$70, AI推理）+ ONNX Runtime（统一框架）。TFLite Micro用于nRF5340头带端轻量推理（<100KB）。</p>
 
-<p><strong>边缘 AI：</strong>Hailo-8L（13 TOPS @ 1.5W, ~$70）是 NeuroCore 最优 NPU 选型。STM32H7 做实时控制，Hailo-8L 做 AI 推理，ONNX Runtime 做统一框架。</p>
-
-<p><strong>联邦学习：</strong>FLEEG（Guan NTU, 2024）在 9 个异构 MI 数据集上验证了跨患者联邦学习的可行性（+8.4%）。pFedAC（Wang/Yang/Su, arXiv:2605.14423）在 RL 中超越独立 PPO 3.78 倍——这是 Nexum 策略进化的学术基础。</p>
+<h3>联邦学习</h3>
+<p><strong>FLEEG</strong>（Guan NTU 2024）：9个异构MI数据集跨患者联邦学习，提升8.4%。<strong>pFedAC</strong>（Wang/Yang/Su, arXiv:2605.14423）：个性化联邦强化学习，超越独立PPO 3.78倍。两者共同构成Nexum策略进化的学术基础。</p>
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">市场与支付</h2>
+<h2 style="margin-top:0">4. 市场与支付</h2>
 
 <table>
 <tr><th>市场</th><th>2025</th><th>2030</th><th>2035</th><th>CAGR</th></tr>
-<tr><td>全球康复外骨骼 SAM</td><td>$386-509M</td><td>$724M-1.8B</td><td>$1.75-2.9B</td><td>15-25%</td></tr>
-<tr><td>中国外骨骼（总）</td><td>42 亿元</td><td>—</td><td>26.5%</td><td>—</td></tr>
-<tr><td>全球 BCI 市场</td><td>$2.2-5.0B</td><td>$4.7-8.0B</td><td>—</td><td>10-15%</td></tr>
+<tr><td>全球康复外骨骼SAM</td><td>$386-509M</td><td>$724M-1.8B</td><td>$1.75-2.9B</td><td>15-25%</td></tr>
+<tr><td>中国外骨骼市场</td><td>42亿元</td><td>—</td><td>—</td><td>26.5%</td></tr>
+<tr><td>全球BCI市场</td><td>$2.2-5.0B</td><td>$4.7-8.0B</td><td>—</td><td>10-15%</td></tr>
 </table>
 
-<p><strong>支付通道：</strong></p>
-<ul>
-<li><strong>中国：</strong>11 省市外骨骼医保（报销 45-65%），2025 上半年 3.2 亿元。浙江首将 BCI 训练产品纳入辅具补贴（¥1500/人）。八部门 2026 年明确支持 BCI 进入养老。</li>
-<li><strong>美国：</strong>CMS K1007 代码（$91,032/台），2024 年 4 月生效，覆盖 SCI 患者。Ekso 已收到首笔 Medicare 付款。</li>
-<li><strong>日本：</strong>HAL 医保覆盖 10 种神经肌肉疾病，¥11,000/次。</li>
-<li><strong>欧洲：</strong>德国 DiGA 可审批 BCI 软件部分。法国 FIPU 对企业外骨骼有资助通道。</li>
-</ul>
+<h3>支付路径</h3>
+<table>
+<tr><th>市场</th><th>机制</th><th>覆盖</th><th>金额</th><th>生效</th></tr>
+<tr><td>中国</td><td>外骨骼医保</td><td>11省市</td><td>报销45-65%，自付~¥4000</td><td>2024-2025试点</td></tr>
+<tr><td>中国</td><td>BCI医疗服务定价</td><td>湖北/浙江/江苏</td><td>¥960-966/次</td><td>2025.3首发</td></tr>
+<tr><td>中国</td><td>浙江辅具补贴</td><td>浙江省</td><td>BCI训练产品¥1500/人</td><td>2025.7</td></tr>
+<tr><td>美国</td><td>CMS K1007</td><td>Medicare Part B</td><td>$91,032/台（一次性）</td><td>2024.4</td></tr>
+<tr><td>日本</td><td>国民健康保险</td><td>10种神经肌肉疾病</td><td>¥11,000/次</td><td>2016（HAL）</td></tr>
+</table>
+
+<div class="callout-good">
+<strong>中国政策顺风最强：</strong>11省医保+BCl定价+辅具补贴+八部门养老BCI支持+创新器械绿色通道——五层政策同时在推。这是全球唯一具备完整政策闭环的市场。
+</div>
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">学术关键团队</h2>
+<h2 style="margin-top:0">5. 学术关键团队</h2>
 
 <table>
-<tr><th>团队</th><th>机构</th><th>关键成果</th><th>相关度</th></tr>
-<tr><td>Bin He Lab</td><td>CMU</td><td>非侵入 EEG 单指级实时机器人控制（Nature Comms 2025）</td><td>最高</td></tr>
-<tr><td>Cuntai Guan</td><td>NTU</td><td>FLEEG 联邦学习+BCI；EEG-Deformer（2024）</td><td>最高</td></tr>
-<tr><td>Courtine Lab</td><td>EPFL</td><td>脑脊接口+康复机器人整合（Science Robotics 2025）</td><td>高</td></tr>
-<tr><td>高小榕</td><td>清华</td><td>无创宽带 BCI；中国 BCI 泰斗（Proc IEEE 2025）</td><td>高</td></tr>
-<tr><td>李远清</td><td>华南理工</td><td>多模态 BCI 产业化（脑机轮椅 ¥2.5万，月销 20+）</td><td>高</td></tr>
-<tr><td>尧德中</td><td>电子科大</td><td>脑器交互（BAC）新范式</td><td>中</td></tr>
-<tr><td>Contreras-Vidal</td><td>U Houston</td><td>低成本移动 EEG-BCI 居家卒中康复（2025）</td><td>中</td></tr>
-<tr><td>Nicolelis Lab</td><td>Duke</td><td>Walk Again Project（2016 里程碑）— 处于成果维持期</td><td>低</td></tr>
+<tr><th>团队</th><th>机构</th><th>关键成果</th><th>与Nexum相关度</th></tr>
+<tr><td>Bin He Lab</td><td>CMU</td><td>非侵入EEG单指级实时机器人手控制（Nature Comms 2025）；28人2D物体跟踪（PNAS Nexus 2024）</td><td>最高 — EEG解码架构</td></tr>
+<tr><td>Cuntai Guan</td><td>NTU</td><td>FLEEG联邦学习+BCI（Neural Networks 2024）；EEG-Deformer密集卷积Transformer</td><td>最高 — 联邦学习+产业化</td></tr>
+<tr><td>Courtine Lab</td><td>EPFL</td><td>脑脊接口+康复机器人无缝整合（Science Robotics 2025）</td><td>高 — 最接近临床的闭环</td></tr>
+<tr><td>高小榕团队</td><td>清华大学</td><td>无创宽带BCI综述（Proc IEEE 2025）；SSVEP/P300中国第一</td><td>高 — 中国BCI泰斗</td></tr>
+<tr><td>李远清团队</td><td>华南理工</td><td>多模态BCI产业化(脑机轮椅¥2.5万,月销20+)；56项专利</td><td>高 — 产业化经验</td></tr>
+<tr><td>尧德中团队</td><td>电子科大</td><td>脑器交互(BAC)新范式；脑电+TMS闭环调控</td><td>中 — 差异化框架</td></tr>
+<tr><td>Contreras-Vidal</td><td>U Houston</td><td>低成本移动EEG-BCI居家卒中康复（2025）；MoBI移动脑体成像</td><td>中 — 居家康复模式</td></tr>
+<tr><td>Nicolelis Lab</td><td>Duke</td><td>Walk Again Project（2016里程碑）；处于成果维持期</td><td>低 — 历史价值</td></tr>
 </table>
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
-<h2 style="margin-top:0">供应链与 BOM</h2>
+<h2 style="margin-top:0">6. 供应链与BOM</h2>
 
 <table>
-<tr><th>模块</th><th>核心器件</th><th>型号</th><th>单价</th><th>BOM 合计</th></tr>
-<tr><td>EEG-Sense</td><td>ADC + MCU + 干电极</td><td>ADS1299 + nRF5340</td><td>$15-18 + $4-7 + $5-15/ch</td><td>$82-189</td></tr>
-<tr><td>NeuroCore</td><td>MCU + NPU + 电池</td><td>STM32H7 + Hailo-8L + 21700</td><td>$11-17 + $70 + $6-10</td><td>$137-240</td></tr>
-<tr><td>NeuroSuit</td><td>电机×2 + FOC + 碳纤维</td><td>CubeMars AKE60-8 + TMC4671</td><td>$200-300/个</td><td>$1,525-1,900</td></tr>
+<tr><th>模块</th><th>核心器件</th><th>型号</th><th>单价</th><th>来源</th></tr>
+<tr><td>EEG ADC</td><td>8通道24-bit</td><td>TI ADS1299</td><td>$15-18</td><td>DigiKey/Mouser</td></tr>
+<tr><td>头带MCU</td><td>双核BLE 5.0</td><td>Nordic nRF5340</td><td>$4-7</td><td>DigiKey</td></tr>
+<tr><td>头带电池</td><td>LiPo 300-500mAh</td><td>小型软包</td><td>$5-8</td><td>定制</td></tr>
+<tr><td>干电极</td><td>Ag/AgCl涂层pin</td><td>×8</td><td>$5-15/个</td><td>供应商定制</td></tr>
+<tr><td>主控MCU</td><td>Cortex-M7 480MHz</td><td>STM32H743</td><td>$11-17</td><td>DigiKey</td></tr>
+<tr><td>AI加速</td><td>NPU 13 TOPS</td><td>Hailo-8L M.2</td><td>$70-116</td><td>Mouser</td></tr>
+<tr><td>控制盒电池</td><td>21700 5000mAh</td><td>Samsung 50E</td><td>$6-10</td><td>Alibaba</td></tr>
+<tr><td>充电管理</td><td>Buck-Boost PD3.0</td><td>TI BQ25713</td><td>$4-6</td><td>DigiKey</td></tr>
+<tr><td>执行电机</td><td>QDD 8:1</td><td>CubeMars AKE60-8</td><td>$200-300/个</td><td>CubeMars官方</td></tr>
+<tr><td>FOC驱动</td><td>硬件FOC 100kHz</td><td>Trinamic TMC4671</td><td>$10-15</td><td>DigiKey</td></tr>
+<tr><td>磁编码器</td><td>14-bit SPI</td><td>AMS AS5047P</td><td>$4-6</td><td>DigiKey</td></tr>
 </table>
-<p style="font-size:13px;color:var(--text-tertiary)">总 BOM ~$1,800-2,400，支撑 $5,000 售价毛利率 52-64%。来源：DigiKey, Mouser, Alibaba 公开报价。</p>
+
+<h3>BOM汇总</h3>
+<table>
+<tr><th>模块</th><th>BOM低</th><th>BOM高</th></tr>
+<tr><td>EEG-Sense 意图感知头带</td><td>$82</td><td>$189</td></tr>
+<tr><td>NeuroCore 控制中枢</td><td>$137</td><td>$240</td></tr>
+<tr><td>NeuroSuit 神经意图肌动服（单关节简化）</td><td>$1,525</td><td>$1,900</td></tr>
+<tr><td><strong>硬件总BOM</strong></td><td><strong>$1,800</strong></td><td><strong>$2,400</strong></td></tr>
+</table>
+<p style="font-size:13px;color:var(--text-tertiary);margin-top:8px">支撑$5,000售价毛利率52-64%。所有价格来自DigiKey/Mouser/Alibaba公开报价（2026年6月）。批量采购可降低15-30%。</p>
+</div>
+
+<div class="content-card" style="margin-bottom:32px">
+<h2 style="margin-top:0">7. 监管路径</h2>
+
+<table>
+<tr><th>市场</th><th>路径</th><th>时间</th><th>费用</th></tr>
+<tr><td>NMPA（中国）二类外骨骼</td><td>创新绿色通道 + 同品种临床评价</td><td>12-18个月</td><td>¥200-300万</td></tr>
+<tr><td>NMPA（中国）二类BCI+外骨骼</td><td>优先审批 + 多中心RCT(100-150例)</td><td>18-24个月</td><td>¥400-800万</td></tr>
+<tr><td>FDA（美国）外骨骼</td><td>510(k) — ReWalk/Ekso有predicate</td><td>4-6个月</td><td>$50-100K</td></tr>
+<tr><td>CE MDR（欧洲）外骨骼</td><td>Class IIa → 公告机构认证</td><td>12-18个月</td><td>€100-200K</td></tr>
+<tr><td>PMDA（日本）</td><td>参照HAL路径：孤儿认定+新分类</td><td>18-24个月</td><td>¥2000-5000万</td></tr>
+</table>
 </div>
 
 <div class="content-card">
-<h2 style="margin-top:0">Nexum 的竞争定位</h2>
+<h2 style="margin-top:0">8. Nexum竞争定位</h2>
 
 <div class="highlight-box">
-<strong>唯一性已验证。</strong>全球 30+ 公司、8 家 EEG-BCI 公司、5 个学术团队——没有一家同时具备非侵入 EEG + 下肢外骨骼产品。Nexum One 是全球第一个定位此交叉点的系统。窗口期 2-3 年。中国政策（医保+BCI 定价+绿色通道）提供最强顺风。
+<p><strong>唯一性已经过系统性验证。</strong>全球30+外骨骼公司中，无一同时具备非侵入EEG+下肢外骨骼产品。8家EEG-BCI公司全部只做上肢。5个关键学术团队中，Courtine（EPFL）做的是侵入式脑脊接口，Bin He（CMU）做的是手指级精细控制，均未进入下肢外骨骼产品化。</p>
+<p><strong>窗口期2-3年。</strong>程天科技的EEG+脊电R&D一旦转化为产品，交叉点将不再空白。Wandercraft Eve（2026美国上市）将验证居家外骨骼市场。g.tec可能向下肢延伸。</p>
+<p><strong>中国提供最强顺风。</strong>11省外骨骼医保+BCI定价+辅具补贴+八部门养老BCI政策+创新器械绿色通道——五层政策同时在推。这是全球唯一具备完整政策闭环的市场。</p>
+<p><strong>供应链已验证。</strong>所有核心器件有公开报价，BOM支撑$5,000售价。技术栈无不可达标的瓶颈。</p>
 </div>
 </div>
 
