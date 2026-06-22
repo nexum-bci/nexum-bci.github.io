@@ -293,6 +293,13 @@ a { color: var(--nexum); text-decoration: none; }
 </tbody>
 </table>
 
+<h3>典型使用流程</h3>
+<ol>
+<li><strong>穿戴（~10秒）</strong>：患者坐在床边，套上NeuroSuit外骨骼裤，戴上EEG-Sense头带，扣上腰间控制盒，按电源键。</li>
+<li><strong>校准（~30秒）</strong>：系统自动检测EEG电极阻抗、IMU零位、电机编码器原点。</li>
+<li><strong>使用（30-60分钟）</strong>：患者站立。EEG检测到运动意图→提前200-500ms预判→AI计算力矩→电机在髋关节输出辅助力。</li>
+<li><strong>结束</strong>：按电源键关机。设备放回充电底座。使用数据自动记录。</li>
+</ol>
 
 <h2 id="tech-architecture">5. 技术架构</h2>
 
@@ -362,7 +369,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p><strong>硬件选型</strong></p>
 <ul>
-<li>电机：AK80-9或同级别准直驱电机，0.38kg/unit，峰值扭矩18Nm，持续9Nm</li>
+<li>电机：准直驱电机（参考T-Motor AK80-9或同级别），设计目标单侧≤0.5kg，峰值扭矩≥15Nm，持续扭矩≥8Nm</li>
 <li>驱动器：DRV8316（三相栅极驱动），SPI接口，支持FOC矢量控制</li>
 <li>主控芯片：STM32H743（Cortex-M7, 480MHz），运行FreeRTOS</li>
 <li>传感器反馈：14-bit磁编码器（位置/速度）+ 应变片（扭矩估计）</li>
@@ -398,15 +405,6 @@ a { color: var(--nexum); text-decoration: none; }
 <li><strong>合规安全</strong>：设计遵循IEC 62304（医疗软件）和ISO 13485（质量管理）</li>
 </ul>
 
-
-<h3>典型使用流程</h3>
-
-<ol>
-<li><strong>穿戴（~10秒）</strong>：患者坐在床边，套上NeuroSuit外骨骼裤，戴上EEG-Sense头带，扣上腰间控制盒，按一下电源键。</li>
-<li><strong>校准（~30秒）</strong>：系统自动检测EEG电极阻抗、IMU零位、电机编码器原点。患者静坐，系统采集基线脑电。</li>
-<li><strong>使用（30-60分钟）</strong>：患者站立，系统进入辅助模式。EEG检测到"想走"意图→提前200-500ms预判→AI计算最优力矩→直驱电机在髋关节输出辅助力。患者正常行走，无按钮操作。</li>
-<li><strong>结束</strong>：按一下电源键关机。脱掉。设备放回充电底座。每次使用数据自动记录。</li>
-</ol>
 
 <h2 id="form-factor">6. 产品形态：关键设计决策</h2>
 
