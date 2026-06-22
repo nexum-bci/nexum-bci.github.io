@@ -195,7 +195,7 @@
  <text x="860" y="325" text-anchor="middle" fill="#f59e0b" font-size="15" font-weight="700">NeuroSuit</text>
  <text x="860" y="358" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="600">神经意图外骨骼</text>
  <text x="860" y="380" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">直驱电机  ·  碳纤维骨架</text>
- <text x="860" y="398" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">8Nm持续  ·  15Nm峰值</text>
+ <text x="860" y="398" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">5Nm持续  ·  12Nm峰值</text>
  <text x="860" y="418" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">碳纤维锚定  ·  ~2.5kg</text>
  <text x="860" y="442" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">力传感器  ·  IMU反馈</text>
 
@@ -488,7 +488,7 @@
  <text x="260" y="65" fill="var(--text-tertiary)" font-size="10">输入: i_q_err | 输出: V_q</text>
 
  <text x="30" y="85" fill="var(--accent)" font-size="11" font-weight="600">电机+机械: P(s) = 0.18 / (0.002s + 0.001)</text>
- <text x="400" y="85" fill="var(--text-tertiary)" font-size="10">Kt=0.18Nm/A . J=0.002 . B=0.001</text>
+ <text x="400" y="85" fill="var(--text-tertiary)" font-size="10">Kt=0.15Nm/A . J=0.002 . B=0.001</text>
 
  <text x="750" y="55" fill="var(--text-secondary)" font-size="12" font-weight="600">闭环带宽: 扭矩~50Hz . 电流~2kHz</text>
  <text x="750" y="75" fill="var(--text-secondary)" font-size="11">GM&gt;10dB . PM&gt;45deg . 20kHz采样</text>
@@ -509,7 +509,7 @@
  <tr><td>NeuroCore 控制中枢MCU</td><td>STM32H743</td><td>ARM Cortex-M7, 480MHz, FPU</td><td>高性能FOC控制，丰富外设(CAN/SPI/I2C)</td></tr>
  <tr><td>IMU</td><td>BMI270</td><td>6轴, 16-bit, 低噪声陀螺仪</td><td>Bosch车规级，姿态估计+步态检测</td></tr>
  <tr><td>电机驱动</td><td>DRV8316</td><td>3相, 40V, 8A峰值, SPI接口</td><td>集成FOC, 低RDS(on), 紧凑封装</td></tr>
- <tr><td>执行电机</td><td>CubeMars AKE60-8</td><td>KV 60-90, 15Nm峰值, &lt;500g</td><td>高扭矩密度，低齿槽转矩，适合穿戴力控</td></tr>
+ <tr><td>执行电机</td><td>CubeMars AKE60-8</td><td>KV 60-90, 12Nm峰值, &lt;500g</td><td>高扭矩密度，低齿槽转矩，适合穿戴力控</td></tr>
  <tr><td>电池</td><td>21700 Li-ion × 6</td><td>22.2V 48Wh, 6S1P, 含BMS</td><td>高能量密度，标准电芯，可更换</td></tr>
  </tbody>
  </table></div>
