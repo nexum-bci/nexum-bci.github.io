@@ -416,56 +416,56 @@ a { color: var(--nexum); text-decoration: none; }
     <filter id="ss"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.05"/></filter>
     <linearGradient id="pants" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1a1e"/><stop offset="100%" stop-color="#0d0d12"/></linearGradient>
     <linearGradient id="motor" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#d8d8e0"/><stop offset="50%" stop-color="#a0a0a8"/><stop offset="100%" stop-color="#707078"/></linearGradient>
-    <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="var(--accent)"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#0096f0"/></marker>
   </defs>
-  <rect width="900" height="460" rx="16" fill="var(--bg-card)"/>
+  <rect width="900" height="460" rx="16" fill="#ffffff"/>
 
   <!-- Title -->
-  <text x="450" y="30" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">Nexum One 完整系统 — 从神经意图到物理动作</text>
+  <text x="450" y="30" text-anchor="middle" fill="#0096f0" font-size="14" font-weight="700">Nexum One 完整系统 — 从神经意图到物理动作</text>
 
   <!-- ===== TOP: SIGNAL FLOW PIPELINE ===== -->
   <g transform="translate(60,50)">
     <!-- Step 1: Brain/EEG -->
-    <rect x="0" y="0" width="160" height="56" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5" filter="url(#ss)"/>
-    <text x="80" y="22" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">EEG-Sense 意图感知头带</text>
-    <text x="80" y="42" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">8ch干电极 · MRCP检测 · ~40ms</text>
+    <rect x="0" y="0" width="160" height="56" rx="12" fill="#f7f8fa" stroke="rgba(0,0,0,0.08)" stroke-width="1.5" filter="url(#ss)"/>
+    <text x="80" y="22" text-anchor="middle" fill="#0096f0" font-size="12" font-weight="700">EEG-Sense 意图感知头带</text>
+    <text x="80" y="42" text-anchor="middle" fill="#999999" font-size="10">8ch干电极 · MRCP检测 · ~40ms</text>
     <!-- Arrow -->
-    <line x1="165" y1="28" x2="210" y2="28" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#ar)" opacity="0.6"/>
-    <text x="187" y="20" text-anchor="middle" fill="var(--accent)" font-size="8" font-weight="600">BLE</text>
+    <line x1="165" y1="28" x2="210" y2="28" stroke="#0096f0" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#ar)" opacity="0.6"/>
+    <text x="187" y="20" text-anchor="middle" fill="#0096f0" font-size="8" font-weight="600">BLE</text>
 
     <!-- Step 2: AI Processing -->
-    <rect x="215" y="0" width="170" height="56" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5" filter="url(#ss)"/>
-    <text x="300" y="22" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">NeuroCore 边缘AI处理器</text>
-    <text x="300" y="42" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">EEGNet推理 · RL策略 · ~55ms</text>
+    <rect x="215" y="0" width="170" height="56" rx="12" fill="#f7f8fa" stroke="rgba(0,0,0,0.08)" stroke-width="1.5" filter="url(#ss)"/>
+    <text x="300" y="22" text-anchor="middle" fill="#0096f0" font-size="12" font-weight="700">NeuroCore 边缘AI处理器</text>
+    <text x="300" y="42" text-anchor="middle" fill="#999999" font-size="10">EEGNet推理 · RL策略 · ~55ms</text>
     <!-- Arrow -->
-    <line x1="390" y1="28" x2="435" y2="28" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#ar)" opacity="0.6"/>
-    <text x="412" y="20" text-anchor="middle" fill="var(--accent)" font-size="8" font-weight="600">UART</text>
+    <line x1="390" y1="28" x2="435" y2="28" stroke="#0096f0" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#ar)" opacity="0.6"/>
+    <text x="412" y="20" text-anchor="middle" fill="#0096f0" font-size="8" font-weight="600">UART</text>
 
     <!-- Step 3: Execution -->
-    <rect x="440" y="0" width="170" height="56" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5" filter="url(#ss)"/>
-    <text x="525" y="22" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">NeuroSuit 神经意图肌动服</text>
-    <text x="525" y="42" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">直驱电机 · 力矩输出 · ~60ms</text>
+    <rect x="440" y="0" width="170" height="56" rx="12" fill="#f7f8fa" stroke="rgba(0,0,0,0.08)" stroke-width="1.5" filter="url(#ss)"/>
+    <text x="525" y="22" text-anchor="middle" fill="#0096f0" font-size="12" font-weight="700">NeuroSuit 神经意图肌动服</text>
+    <text x="525" y="42" text-anchor="middle" fill="#999999" font-size="10">直驱电机 · 力矩输出 · ~60ms</text>
 
     <!-- Latency badge -->
-    <rect x="640" y="8" width="90" height="40" rx="20" fill="var(--accent-subtle)"/>
-    <text x="685" y="24" text-anchor="middle" fill="var(--accent)" font-size="9" font-weight="600">端到端</text>
-    <text x="685" y="40" text-anchor="middle" fill="var(--accent)" font-size="15" font-weight="800">~150ms</text>
+    <rect x="640" y="8" width="90" height="40" rx="20" fill="rgba(0,150,240,0.08)"/>
+    <text x="685" y="24" text-anchor="middle" fill="#0096f0" font-size="9" font-weight="600">端到端</text>
+    <text x="685" y="40" text-anchor="middle" fill="#0096f0" font-size="15" font-weight="800">~150ms</text>
   </g>
 
   <!-- ===== MIDDLE: PERSON WEARING THE SYSTEM ===== -->
   <g transform="translate(265,140)">
     <!-- Head + EEG-Sense -->
-    <ellipse cx="60" cy="18" rx="18" ry="22" fill="none" stroke="var(--text-secondary)" stroke-width="1.5"/>
+    <ellipse cx="60" cy="18" rx="18" ry="22" fill="none" stroke="#666666" stroke-width="1.5"/>
     <!-- Headband -->
     <path d="M 42 15 Q 60 25 78 15" fill="none" stroke="#1a1a1e" stroke-width="5" stroke-linecap="round"/>
     <circle cx="48" cy="17" r="1.2" fill="#555"/><circle cx="60" cy="20" r="1.2" fill="#555"/><circle cx="72" cy="17" r="1.2" fill="#555"/>
     <circle cx="82" cy="16" r="2" fill="#0096f0" opacity="0.9"/>
     <!-- Neck -->
-    <rect x="54" y="38" width="12" height="8" rx="3" fill="none" stroke="var(--text-secondary)" stroke-width="1"/>
+    <rect x="54" y="38" width="12" height="8" rx="3" fill="none" stroke="#666666" stroke-width="1"/>
     <!-- Torso -->
-    <line x1="60" y1="46" x2="60" y2="100" stroke="var(--text-secondary)" stroke-width="1.5"/>
-    <line x1="60" y1="62" x2="40" y2="85" stroke="var(--text-secondary)" stroke-width="1"/>
-    <line x1="60" y1="62" x2="80" y2="85" stroke="var(--text-secondary)" stroke-width="1"/>
+    <line x1="60" y1="46" x2="60" y2="100" stroke="#666666" stroke-width="1.5"/>
+    <line x1="60" y1="62" x2="40" y2="85" stroke="#666666" stroke-width="1"/>
+    <line x1="60" y1="62" x2="80" y2="85" stroke="#666666" stroke-width="1"/>
 
     <!-- NeuroSuit pants -->
     <path d="M 48 98 L 48 200 L 72 200 L 72 98 Z" fill="url(#pants)" opacity="0.9"/>
@@ -482,21 +482,21 @@ a { color: var(--nexum); text-decoration: none; }
 
   <!-- Signal waves from headband (EEG reading) -->
   <g opacity="0.4">
-    <path d="M 320 150 Q 325 145 330 150 Q 335 155 340 150 Q 345 145 350 150" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
-    <path d="M 315 155 Q 320 148 325 155 Q 330 162 335 155 Q 340 148 345 155 Q 350 162 355 155" fill="none" stroke="var(--accent)" stroke-width="1"/>
+    <path d="M 320 150 Q 325 145 330 150 Q 335 155 340 150 Q 345 145 350 150" fill="none" stroke="#0096f0" stroke-width="1.5"/>
+    <path d="M 315 155 Q 320 148 325 155 Q 330 162 335 155 Q 340 148 345 155 Q 350 162 355 155" fill="none" stroke="#0096f0" stroke-width="1"/>
   </g>
 
   <!-- Data flow annotation: EEG → BLE → NeuroCore (left side) -->
   <g transform="translate(140,165)">
-    <rect x="0" y="0" width="90" height="22" rx="11" fill="var(--accent-subtle)"/>
-    <text x="45" y="14" text-anchor="middle" fill="var(--accent)" font-size="9" font-weight="600">脑电信号</text>
-    <line x1="90" y1="11" x2="260" y2="-40" stroke="var(--accent)" stroke-width="1" stroke-dasharray="3,2" opacity="0.3"/>
+    <rect x="0" y="0" width="90" height="22" rx="11" fill="rgba(0,150,240,0.08)"/>
+    <text x="45" y="14" text-anchor="middle" fill="#0096f0" font-size="9" font-weight="600">脑电信号</text>
+    <line x1="90" y1="11" x2="260" y2="-40" stroke="#0096f0" stroke-width="1" stroke-dasharray="3,2" opacity="0.3"/>
   </g>
 
   <!-- Data flow annotation: NeuroCore → UART → NeuroSuit (right side) -->
   <g transform="translate(400,230)">
-    <rect x="0" y="0" width="90" height="22" rx="11" fill="var(--accent-subtle)"/>
-    <text x="45" y="14" text-anchor="middle" fill="var(--accent)" font-size="9" font-weight="600">力矩指令</text>
+    <rect x="0" y="0" width="90" height="22" rx="11" fill="rgba(0,150,240,0.08)"/>
+    <text x="45" y="14" text-anchor="middle" fill="#0096f0" font-size="9" font-weight="600">力矩指令</text>
   </g>
 
   <!-- Feedback loop arrow -->
@@ -507,16 +507,16 @@ a { color: var(--nexum); text-decoration: none; }
 
   <!-- ===== BOTTOM: SPECS ROW ===== -->
   <g transform="translate(60,400)">
-    <rect x="0" y="0" width="780" height="40" rx="20" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
-    <text x="100" y="25" text-anchor="middle" fill="var(--text-secondary)" font-size="11">8ch EEG</text>
-    <line x1="180" y1="10" x2="180" y2="30" stroke="var(--border)" stroke-width="1"/>
-    <text x="280" y="25" text-anchor="middle" fill="var(--text-secondary)" font-size="11">250SPS采样</text>
-    <line x1="360" y1="10" x2="360" y2="30" stroke="var(--border)" stroke-width="1"/>
-    <text x="460" y="25" text-anchor="middle" fill="var(--text-secondary)" font-size="11">~2.5kg总重</text>
-    <line x1="540" y1="10" x2="540" y2="30" stroke="var(--border)" stroke-width="1"/>
-    <text x="620" y="25" text-anchor="middle" fill="var(--text-secondary)" font-size="11">15Nm峰值扭矩</text>
-    <line x1="700" y1="10" x2="700" y2="30" stroke="var(--border)" stroke-width="1"/>
-    <text x="740" y="25" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="700">V1 髋部</text>
+    <rect x="0" y="0" width="780" height="40" rx="20" fill="#f7f8fa" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+    <text x="100" y="25" text-anchor="middle" fill="#666666" font-size="11">8ch EEG</text>
+    <line x1="180" y1="10" x2="180" y2="30" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+    <text x="280" y="25" text-anchor="middle" fill="#666666" font-size="11">250SPS采样</text>
+    <line x1="360" y1="10" x2="360" y2="30" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+    <text x="460" y="25" text-anchor="middle" fill="#666666" font-size="11">~2.5kg总重</text>
+    <line x1="540" y1="10" x2="540" y2="30" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+    <text x="620" y="25" text-anchor="middle" fill="#666666" font-size="11">15Nm峰值扭矩</text>
+    <line x1="700" y1="10" x2="700" y2="30" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+    <text x="740" y="25" text-anchor="middle" fill="#0096f0" font-size="11" font-weight="700">V1 髋部</text>
   </g>
 </svg>
 </div>
@@ -769,7 +769,7 @@ a { color: var(--nexum); text-decoration: none; }
 </tr>
 <tr>
 <td><strong>程天科技回归医疗级EEG</strong></td>
-<td>🟡 中</td>
+<td>🟡 中 — 可竞争</td>
 <td>2-3年先发窗口。快速推进，抢在程天之前获NMPA</td>
 </tr>
 </tbody>
