@@ -111,7 +111,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p><strong>问题</strong>：步行中的EEG信噪比极差。运动伪迹淹没脑电信号。MRCP（运动准备电位，5-30μV）被背景脑电（~100μV）和步态震荡掩盖。</p>
 
-<p><strong>什么变了</strong>：EEGNet（2018，仅2000参数）被验证可从带噪EEG中分类运动意图。深度学习去噪方法（2023-2025）将干电极SNR推至44dB。没有单个模型突破，但工程实践的积累使首次达到可分发的可靠性基线。</p>
+<p><strong>什么变了</strong>：EEGNet（2018，仅2000参数）被验证可从带噪EEG中分类运动意图。深度学习去噪方法（2023-2025）将干电极SNR推至44dB。没有单个模型突破，但工程实践的积累使首次达到可分发的可靠性基线。2024-2025年微针阵列干电极（MNAE）取得突破：接触阻抗降至2.6kΩ，信号幅度超过湿电极39-44%，首次在物理层面接近湿电极的性能。</p>
 
 <p><strong>谁试过</strong>：g.tec做上肢EEG康复（recoveriX），不做下肢。Duke/Nicolelis Walk Again Project（2016）用EEG驱动下肢外骨骼证明了原理可行但未商业化。</p>
 
@@ -208,6 +208,21 @@ a { color: var(--nexum); text-decoration: none; }
 
 
 <p>竞争差异化体现在三个维度：<strong>品类定义权</strong>（目前无商用产品占据EEG+下肢外骨骼交叉点）、<strong>临床数据飞轮</strong>（EEG+步态+肌力的纵向队列数据，后来者无法短期内复制）、<strong>监管先发优势</strong>（NMPA创新器械绿色通道+NMPA准入的时间优势）。</p>
+
+<h3 id="competition-chengtain">中国关键竞品分析</h3>
+
+<h4>程天科技</h4>
+<ul>
+<li><strong>医疗线UGO</strong>：1000+医院，NMPA获证，62万+人次。无EEG。</li>
+<li><strong>消费线Ascentiz</strong>：Kickstarter $253万，1.75kg，AI芯片。无EEG。</li>
+<li><strong>EEG+脊电临床研究</strong>：真实存在。但这是与诚益通的R&D项目，不是程天的产品线。</li>
+</ul>
+
+<h4>安杰莱科技（杭州）</h4>
+<p>中国唯一明确以无创脑机接口+外骨骼为核心技术的公司。LiteStepper单下肢康复外骨骼，采用健侧肢体主动引领患侧步态再学习的方案。2022年Pre-A轮数千万元。与Nexum的关键区别：安杰莱做的是单下肢、健侧引领、偏瘫康复——Nexum做的是EEG直接解码运动意图、双下肢辅助，并且面向更广泛的适应症。</p>
+
+<h4>赛博灵科（博灵脑机）</h4>
+<p>AC5上肢运动辅助增强系统（2025 Q4上市），HC2手部柔性外骨骼（2026年5月上市），AM5上肢外骨骼主动康复系统（2026年1月获优先审批）。全部聚焦上肢，不做下肢。</p>
 
 <h3 id="competition-chengtain">程天科技：关键案例分析</h3>
 
@@ -633,20 +648,28 @@ a { color: var(--nexum); text-decoration: none; }
 <li>院内外骨骼定价：¥48-126万/台（竞品基准）</li>
 </ul>
 
-<h3 id="market-tomorrow">7.2 明天（老年行动辅助）</h3>
+<h3 id="market-payment">7.2 支付路径</h3>
+
+<p><strong>中国：</strong>11省市外骨骼康复纳入医保（报销45-65%），2025上半年累计报销3.2亿元，惠及1.8万人次。2025年3月湖北首发非侵入BCI医疗服务定价¥966/次。2026年1月八部门发文明确支持脑机接口进入养老场景。浙江省率先将外骨骼和BCI训练产品纳入辅具补贴目录。</p>
+
+<p><strong>美国：</strong>CMS K1007代码（$91,032/台），2024年4月生效，Medicare Part B覆盖。Ekso已收到首笔付款。</p>
+
+<p><strong>日本：</strong>Cyberdyne HAL医保覆盖10种神经肌肉疾病，¥11,000/次。</p>
+
+<h3 id="market-tomorrow">7.3 明天（老年行动辅助）</h3>
 <p><strong>$6.8B 可及市场</strong></p>
 <ul>
 <li>中国60岁以上人口3.23亿</li>
 <li>跌倒预防 + 行动辅助</li>
 </ul>
 
-<h3 id="market-future">7.3 后天（消费级增强）</h3>
+<h3 id="market-future">7.4 后天（消费级增强）</h3>
 <p><strong>$15B+ 可及市场</strong></p>
 <ul>
 <li>同一条神经意图映射，不同的执行器形态</li>
 </ul>
 
-<h3 id="revenue-model">7.4 收入模型</h3>
+<h3 id="revenue-model">7.5 收入模型</h3>
 
 <table>
 <thead>
