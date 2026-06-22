@@ -44,8 +44,8 @@ tr:hover td{background:var(--bg)}
 <div class="stat-grid">
 <div class="stat-card"><div class="stat-num">30+</div><div class="stat-label">全球外骨骼公司</div></div>
 <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">同时做EEG+下肢</div></div>
-<div class="stat-card"><div class="stat-num">$0.5B</div><div class="stat-label">2025 康复外骨骼 SAM（美元）</div></div>
-<div class="stat-card"><div class="stat-num">$2.9B</div><div class="stat-label">2035 康复外骨骼 SAM（美元）</div></div>
+<div class="stat-card"><div class="stat-num">$0.4-0.5B</div><div class="stat-label">2025 康复外骨骼 SAM（美元）</div></div>
+<div class="stat-card"><div class="stat-num">$1.8-2.9B</div><div class="stat-label">2035 康复外骨骼 SAM（美元）</div></div>
 </div>
 </div>
 
@@ -60,14 +60,14 @@ tr:hover td{background:var(--bg)}
 <tr><td>Cyberdyne</td><td>日本</td><td>2004</td><td>HAL 下肢型</td><td>EMG（肌电）</td><td>¥11K/次</td><td>$200M+</td><td>FDA+PMDA</td></tr>
 <tr><td>Wandercraft</td><td>法国</td><td>2012</td><td>Atalante X, Eve</td><td>自平衡</td><td>€200K</td><td>$175M</td><td>FDA+CE</td></tr>
 <tr><td>ExoAtlet</td><td>卢森堡</td><td>2013</td><td>ExoAtlet II, Bambini</td><td>电机驱动</td><td>€95K</td><td>$8M</td><td>FDA+CE</td></tr>
-<tr><td>SuitX/Ottobock</td><td>美国</td><td>2011</td><td>Phoenix</td><td>IMU</td><td>$40K</td><td>$24M</td><td>FDA+CE</td></tr>
+<tr><td>SuitX (Ottobock)</td><td>美国</td><td>2011</td><td>Phoenix</td><td>IMU</td><td>$40K</td><td>$24M</td><td>FDA+CE</td></tr>
 <tr><td>Angel Robotics</td><td>韩国</td><td>2017</td><td>WalkON, Angelex</td><td>IMU+力控</td><td>B2B</td><td>$25M</td><td>KOSDAQ上市</td></tr>
 </table>
 
 <h3>EEG-BCI 康复（交叉赛道）</h3>
 <table>
 <tr><th>公司</th><th>国家</th><th>产品</th><th>技术</th><th>做下肢?</th></tr>
-<tr><td>g.tec recoveriX</td><td>奥地利</td><td>recoveriX</td><td>EEG+FES（运动想象→电刺激）</td><td>❌ 仅上肢</td></tr>
+<tr><td>g.tec medical engineering</td><td>奥地利</td><td>recoveriX</td><td>EEG+FES（运动想象→电刺激）</td><td>❌ 仅上肢</td></tr>
 <tr><td>赛博灵科/博灵脑机</td><td>中国</td><td>AC5, HC2, AM5</td><td>EEG+外骨骼（主动康复）</td><td>❌ 仅上肢</td></tr>
 <tr><td>迈联医疗</td><td>中国</td><td>脑控康复</td><td>EEG+外骨骼</td><td>❌ 仅上肢</td></tr>
 <tr><td>RehabSwift</td><td>澳大利亚</td><td>RehabSwift</td><td>EEG+FES</td><td>❌ 仅上肢</td></tr>
@@ -109,7 +109,7 @@ tr:hover td{background:var(--bg)}
 <h3>EEG 步行信噪比的物理极限</h3>
 <p>运动伪迹与神经信号共享相同的频带和空间位置。被动干电极在真实步行中epoch拒绝率接近100%（Oliveira 2016）。Porr et al.（PLOS ONE 2023）提出"SNR-wall"理论——噪声超过某个阈值后，任何信号处理算法都无法恢复原始信号。这不是工程问题，是物理规律。</p>
 
-<p><strong>2024-2025突破：</strong>微针阵列干电极（MNAE）接触阻抗降至2.6kΩ@10Hz，信号幅度超过湿电极39-44%（Materials Today Nano 2026）。有源干电极SNR达1.27dB，与湿电极1.30dB几乎无差。干电极的"信号质量瓶颈"在物理层面首次被突破。</p>
+<p><strong>2024-2025突破：</strong>微针阵列干电极（MNAE）接触阻抗降至2.6kΩ@10Hz，信号幅度超过湿电极39-44%（Materials Today Nano 2026）。有源干电极SNR达1.27dB（归一化指标），与湿电极1.30dB几乎无差。干电极的"信号质量瓶颈"在物理层面首次被突破。</p>
 
 <h3>跨学科团队极度稀缺</h3>
 <p>需要同时掌握EEG信号处理（神经科学背景）、外骨骼控制（机器人学背景）、嵌入式系统（EE背景）、临床康复（医学背景）——四种人才不在同一个圈子里。中国2025年才成立全国脑机接口教育联合体（天津大学牵头14所高校），培养周期5-8年。</p>
@@ -118,7 +118,7 @@ tr:hover td{background:var(--bg)}
 <p>BCI和外骨骼各自有独立的监管分类，但组合产品的审评路径在NMPA/FDA/CE均无先例。中国2025年6月才发布首个外骨骼行业标准YY/T 1973-2025（2026年7月实施），2025年3月才首次为BCI单独立项（国家医保局）。</p>
 
 <h3>资金真空</h3>
-<p>三家上市外骨骼公司（Ekso, ReWalk, Cyberdyne）市值长期低于$300M且从未盈利。纯BCI公司还在早期阶段。交叉点的故事没有成功案例让投资人参照。中国BCI+外骨骼赛道单笔融资不超过1亿元量级，远不够覆盖硬件+软件+临床认证的全周期成本。</p>
+<p>三家上市外骨骼公司（Ekso, ReWalk, Cyberdyne）市值长期低于$300M且从未盈利。纯BCI公司还在早期阶段。交叉点没有可参照的成功商业化案例。中国BCI+外骨骼赛道单笔融资不超过1亿元量级，远不够覆盖硬件+软件+临床认证的全周期成本。</p>
 
 <div class="callout-good">
 <strong>Nexum的成立时机：</strong>四个条件在2025-2026年首次同时满足——干电极物理突破 + QDD电机扭矩密度突破 + 中国11省外骨骼医保+BCI定价落地 + NMPA创新器械绿色通道加速。这是历史级别的窗口。
@@ -134,7 +134,7 @@ tr:hover td{background:var(--bg)}
 
 <table>
 <tr><th></th><th>上肢 EEG 康复</th><th>下肢 EEG 外骨骼</th></tr>
-<tr><td>代表公司</td><td>g.tec recoveriX, 赛博灵科 AC5, 迈联医疗</td><td>Nexum One（唯一）</td></tr>
+<tr><td>代表公司</td><td>赛博灵科 AC5, 迈联医疗（中国）</td><td>Nexum One（唯一）</td></tr>
 <tr><td>患者基数（中国）</td><td>脑卒中上肢功能障碍约 800 万人</td><td>脑卒中偏瘫+不完全性SCI+老年行动力下降 ≈ 1,500 万+</td></tr>
 <tr><td>单次治疗价格</td><td>¥140-190（recoveriX）/ ¥966（BCI适配费）</td><td>设备 ¥18,000（医院）/ ¥3,999+¥499/年（居家）</td></tr>
 <tr><td>使用场景</td><td>医院治疗室，治疗师操作</td><td>医院 + 居家 + 社区。独立使用</td></tr>
