@@ -225,7 +225,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <blockquote>
 <p><strong>EEG-Sense头带</strong> — 运动头带形态，80g，8通道干电极，BLE无线<br>
-<strong>NeuroCore 控制盒</strong> — 120×80×30mm，铝合金，STM32H7，48Wh可更换电池，一个开关<br>
+<strong>NeuroCore 边缘AI处理器</strong> — 120×80×30mm，铝合金，STM32H7，48Wh可更换电池，一个开关<br>
 <strong>NeuroSuit 肌动服</strong> — 碳纤维骨架缝在弹性织物里，髋两侧直驱电机</p>
 </blockquote>
 
@@ -236,7 +236,7 @@ a { color: var(--nexum); text-decoration: none; }
 <ol>
 <li>大脑生成MRCP（运动准备电位）——自主运动前200-500ms出现</li>
 <li>EEG-Sense头带检测（8通道，250SPS，EEGNet分类）</li>
-<li>BLE传输至腰部 NeuroCore 控制盒</li>
+<li>BLE传输至腰部 NeuroCore 边缘AI处理器</li>
 <li>AI翻译引擎：EEG意图 + IMU步态相位 → 最优力矩曲线</li>
 <li>髋两侧直驱电机执行辅助力矩（15Nm峰值，8Nm持续）</li>
 <li>力传感器反馈 → PID控制回路确保安全</li>
@@ -297,7 +297,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <h3>典型使用流程</h3>
 <ol>
-<li><strong>穿戴（~10秒）</strong>：患者坐在床边，套上NeuroSuit 肌动服，戴上EEG-Sense头带，扣上腰间 NeuroCore 控制盒，按电源键。</li>
+<li><strong>穿戴（~10秒）</strong>：患者坐在床边，套上NeuroSuit 肌动服，戴上EEG-Sense头带，扣上腰间 NeuroCore 边缘AI处理器，按电源键。</li>
 <li><strong>校准（~30秒）</strong>：系统自动检测EEG电极阻抗、IMU零位、电机编码器原点。</li>
 <li><strong>使用（30-60分钟）</strong>：患者站立。EEG检测到运动意图→提前200-500ms预判→AI计算力矩→电机在髋关节输出辅助力。</li>
 <li><strong>结束</strong>：按电源键关机。设备放回充电底座。使用数据自动记录。</li>
