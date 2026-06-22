@@ -1,47 +1,42 @@
 # 逐念而行 · Nexum
 
-**神经重连AI系统** — 赛道：人机共生
+**从人类神经意图到物理世界动作的通用映射** — 人机共生
 
-逐念而行是一家AI公司。读取大脑的运动意图，生成个性化的助力策略，驱动轻量级身体装置执行，并根据恢复进展持续调整——从大脑到肌肉的AI。
+非侵入地读取大脑运动意图，AI翻译为关节控制指令，直驱电机执行辅助力矩——帮助那些生物通路已经断裂的人重新走路。
 
 ## 产品
 
-**Nexum One** — 首款神经重连AI系统。
+**Nexum One** — 首款神经意图外骨骼。三件套，服装式穿戴。
 
-- **EEG-Sense** — 8通道干电极头带（80g），检测运动准备电位
-- **NeuroSuit** — 碳纤维锚定+织物包裹+鲍登线缆驱动（<1.5 kg），执行髋关节辅助
-- **Nexum App** — 运行个性化AI策略
+| 产品 | 名称 | 说明 |
+|------|------|------|
+| EEG-Sense | 意图感知头带 | 8通道干电极，80g，MRCP检测，BLE 5.2 |
+| NeuroCore | 边缘AI处理器 | STM32H7，48Wh，EEGNet + RL策略网络，端到端~150ms |
+| NeuroSuit | 神经意图肌动服 | 碳纤维骨架嵌入弹性织物，直驱电机×2，~2.5kg，15Nm |
 
-两个版本：Clinical（$18,000，医院）和 Home（$3,999 + $499/年，家用）。
+两种版本：Clinical $18,000（医院） / Home $3,999 + $499/年（居家）。
 
-## Repo 结构
+## 关键数字
 
-逐念而行已拆分为 7 个独立 repo：
+- ~2.5kg 系统总重 · 15Nm峰值扭矩 · 10秒穿脱
+- ~150-200ms 端到端延迟 · 8ch干电极 250SPS
+- 服装式设计，可内穿于常规衣物
 
-| Repo | 说明 |
-|------|------|
-| [nexum-bci.github.io](https://github.com/nexum-bci/nexum-bci.github.io) | 主站（本 repo） |
-| [product](https://github.com/nexum-bci/product) | 产品渲染、可视化 |
-| [bp](https://github.com/nexum-bci/bp) | 商业计划书、Pitch Deck |
-| [docs](https://github.com/nexum-bci/docs) | 工程/临床/注册文档 |
-| [algorithms](https://github.com/nexum-bci/algorithms) | 肌骨仿真、TCN、联邦学习 |
-| [hardware](https://github.com/nexum-bci/hardware) | PCB、机械、BOM |
-| [firmware](https://github.com/nexum-bci/firmware) | 嵌入式固件 |
+## 市场
+
+神经康复 $1.3B（2025）→ 老年行动力 $6.8B → 消费增强 $15B+。NMPA二类创新器械，目标2028年获证。
 
 ## 团队
 
-六人核心。
+- **赵子睿** — 产品/架构/技术方向。Columbia EE MSc，华为Futurewire，8年CTO
+- **汪牧星** — 算法/联邦学习。NEU PhD candidate，Edinburgh MSc Distinction，pFedAC第一作者
 
-- **赵子睿** — 产品定义、系统架构、技术方向。哥伦比亚大学EE硕士，华为美国研究院Futurewei IoT Lab，8年CTO
-- **汪牧星** — 算法研究与联邦学习架构。美国东北大学博士候选人，爱丁堡大学统计学硕士。pFedAC第一作者
-- **临床负责人**（招募中）— 康复医学背景，主导NMPA临床试验方案设计与执行
-- **EEG硬件负责人**（招募中）— 脑电采集系统设计、干电极优化、信号处理
-- **NMPA注册负责人**（招募中）— 医疗器械注册、质量管理体系（ISO 13485）
-- **产品设计师**（招募中）— 可穿戴设备工业设计、用户体验
+## 链接
 
-## 状态
-
-Pre-revenue。原型阶段。种子轮 2026 Q3。NMPA二类创新器械申报 2027 Q1。
+- [商业计划书](https://nexum-bci.github.io/nexum-bp.html)
+- [产品页](https://nexum-bci.github.io/product.html)
+- [技术架构](https://nexum-bci.github.io/technology.html)
+- [GitHub](https://github.com/nexum-bci)
 
 ---
 
