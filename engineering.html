@@ -518,9 +518,24 @@
  <!-- Risks + Prototype -->
  <div class="content-card">
  <h2>关键工程风险</h2>
- <div class="risk-grid">
- <div class="risk-card"><h4>EEG信号质量</h4><p>信噪比不足 → 自适应滤波 + 运动伪迹抑制</p></div>
- <div class="risk-card"><h4>端到端延迟</h4><p>目标延迟~150-200ms → 模型量化(INT8)+算子融合+CoreML/ONNX优化</p></div>
+	 <div style="overflow-x:auto;margin-top:20px">
+	 <table style="width:100%;border-collapse:collapse;font-size:13px">
+	 <thead><tr style="background:var(--accent-subtle)">
+	 <th style="text-align:left;padding:12px 16px;font-weight:600;color:var(--accent);border-bottom:2px solid var(--border)">风险</th>
+	 <th style="text-align:center;padding:12px 16px;font-weight:600;color:var(--accent);border-bottom:2px solid var(--border);width:80px">严重性</th>
+	 <th style="text-align:left;padding:12px 16px;font-weight:600;color:var(--accent);border-bottom:2px solid var(--border)">应对策略</th>
+	 </tr></thead>
+	 <tbody>
+	 <tr><td style="padding:12px 16px;border-bottom:1px solid var(--border)"><strong>EEG步行信噪比</strong><br><span style="font-size:11px;color:var(--text-tertiary)">运动伪迹淹没脑电信号，MRCP 5-30&mu;V vs 背景~100&mu;V</span></td><td style="text-align:center;padding:12px 16px;border-bottom:1px solid var(--border)">&#x1F534; 高</td><td style="padding:12px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--text-secondary)">IMU混合控制为主，EEG为预测辅助。EEG失效&rarr;IMU独立工作</td></tr>
+	 <tr><td style="padding:12px 16px;border-bottom:1px solid var(--border)"><strong>端到端延迟超标</strong><br><span style="font-size:11px;color:var(--text-tertiary)">目标~150ms，资源受限硬件上可能>200ms</span></td><td style="text-align:center;padding:12px 16px;border-bottom:1px solid var(--border)">&#x1F7E1; 中高</td><td style="padding:12px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--text-secondary)">INT8量化+算子融合+CoreML/ONNX推理优化，目标&lt;5ms</td></tr>
+	 <tr><td style="padding:12px 16px;border-bottom:1px solid var(--border)"><strong>直驱电机力控精度</strong><br><span style="font-size:11px;color:var(--text-tertiary)">低速力矩纹波影响辅助平滑性</span></td><td style="text-align:center;padding:12px 16px;border-bottom:1px solid var(--border)">&#x1F7E1; 中高</td><td style="padding:12px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--text-secondary)">FOC矢量控制+高分辨率磁编码器+PID力控闭环1kHz</td></tr>
+	 <tr><td style="padding:12px 16px;border-bottom:1px solid var(--border)"><strong>多节点通信同步</strong><br><span style="font-size:11px;color:var(--text-tertiary)">EEG头带+控制盒+电机三节点BLE/UART协同</span></td><td style="text-align:center;padding:12px 16px;border-bottom:1px solid var(--border)">&#x1F7E1; 中</td><td style="padding:12px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--text-secondary)">硬件触发同步+看门狗+CRC校验，三级降级策略</td></tr>
+	 <tr><td style="padding:12px 16px;border-bottom:1px solid var(--border)"><strong>电池续航</strong><br><span style="font-size:11px;color:var(--text-tertiary)">48Wh目标6h，电机满载时续航可能降至3-4h</span></td><td style="text-align:center;padding:12px 16px;border-bottom:1px solid var(--border)">&#x1F7E1; 中</td><td style="padding:12px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--text-secondary)">动态功耗管理+低功耗待机+可更换电池设计</td></tr>
+	 <tr><td style="padding:12px 16px;border-bottom:1px solid var(--border)"><strong>热管理</strong><br><span style="font-size:11px;color:var(--text-tertiary)">持续工作发热需保证皮肤接触安全</span></td><td style="text-align:center;padding:12px 16px;border-bottom:1px solid var(--border)">&#x1F7E2; 低</td><td style="padding:12px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--text-secondary)">铝合金外壳被动散热+温度监控+软件热节流</td></tr>
+	 <tr><td style="padding:12px 16px;border-bottom:1px solid var(--border)"><strong>NMPA二类器械合规</strong><br><span style="font-size:11px;color:var(--text-tertiary)">IEC 62304+ISO 13485+GB 9706.1</span></td><td style="text-align:center;padding:12px 16px;border-bottom:1px solid var(--border)">&#x1F7E1; 中高</td><td style="padding:12px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--text-secondary)">提前12个月启动预测试+资深注册专员+绿色通道</td></tr>
+	 </tbody>
+	 </table>
+	 </div>
  <div class="risk-card"><h4>直驱电机力控精度</h4><p>低速力矩纹波 → 优化FOC算法+高分辨率编码器反馈</p></div>
  <div class="risk-card"><h4>系统集成</h4><p>多节点同步 → 硬件触发同步+看门狗+CRC校验</p></div>
  <div class="risk-card"><h4>电池续航</h4><p>48Wh→6h使用 → 动态功耗管理+低功耗待机</p></div>
