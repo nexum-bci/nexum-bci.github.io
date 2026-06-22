@@ -56,7 +56,7 @@
  <filter id="sh"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="var(--text)" flood-opacity="0.06"/></filter>
  <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="var(--text-tertiary)"/></marker>
  </defs>
- <rect width="960" height="520" rx="12" fill="var(--bg-card)"/>
+ <rect width="960" height="680" rx="12" fill="var(--bg-card)"/>
  <text x="480" y="36" text-anchor="middle" fill="var(--text)" font-size="16" font-weight="700">Nexum One 系统架构</text>
  <!-- EEG-Sense -->
  <g filter="url(#sh)"><rect x="40" y="70" width="240" height="160" rx="14" fill="url(#bg1)" stroke="var(--border)" stroke-width="1.5"/><rect x="40" y="70" width="240" height="40" rx="14" fill="#7c3aed" opacity="0.12"/><rect x="40" y="96" width="240" height="14" fill="#7c3aed" opacity="0.12"/></g>
@@ -214,7 +214,7 @@
  <span class="diagram-title">电源树</span>
  <span class="diagram-desc">电压轨与功耗分配</span>
 </div>
- <svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+ <svg viewBox="0 0 1000 680" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
   <defs>
     <filter id="sh2"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.05"/></filter>
     <marker id="ar2" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="var(--text-tertiary)"/></marker>
@@ -275,13 +275,13 @@
   <text x="707" y="426" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">ADS1299 AVDD</text>
 
   <!-- USB-C Charge -->
-  <rect x="20" y="140" width="220" height="52" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1" stroke-dasharray="5,3"/>
+  <rect x="20" y="140" width="220" height="52" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
   <text x="130" y="162" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">USB-C PD 充电</text>
   <text x="130" y="180" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">20V · 3A (60W) · BQ25713</text>
   <line x1="130" y1="140" x2="130" y2="110" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#ar2)"/>
 
   <!-- Power Budget Table -->
-  <g transform="translate(20, 228)">
+  <g transform="translate(20, 268)">
     <rect x="0" y="0" width="280" height="190" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
     <text x="140" y="22" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">电源预算汇总</text>
     <line x1="10" y1="34" x2="270" y2="34" stroke="var(--border)" stroke-width="1"/>
@@ -295,7 +295,7 @@
     <text x="18" y="165" fill="var(--text)" font-size="11" font-weight="700">总功耗估算</text><text x="200" y="165" fill="var(--accent)" font-size="11" font-weight="700" text-anchor="end">~40W (峰值)</text>
   </g>
 
-  <text x="500" y="585" text-anchor="middle" fill="var(--text-secondary)" font-size="11">电压轨与功耗分配</text>
+  <text x="500" y="660" text-anchor="middle" fill="var(--text-secondary)" font-size="11">电压轨与功耗分配</text>
 </svg>
  </div>
 
@@ -305,12 +305,12 @@
  <span class="diagram-title">固件任务结构</span>
  <span class="diagram-desc">RTOS 任务优先级与周期</span>
 </div>
- <svg viewBox="0 0 1000 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+ <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
  <defs>
  <filter id="sh3"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.05"/></filter>
  <marker id="ar3" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="var(--text-tertiary)"/></marker>
  </defs>
- <rect width="1000" height="400" rx="12" fill="var(--bg-card)"/>
+ <rect width="1000" height="500" rx="12" fill="var(--bg-card)"/>
 
  <!-- nRF52832 Header -->
  <g filter="url(#sh3)"><rect x="20" y="40" width="220" height="60" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="20" y="40" width="220" height="30" rx="12" fill="#7c3aed" opacity="0.12"/><rect x="20" y="56" width="220" height="14" fill="#7c3aed" opacity="0.12"/></g>
@@ -371,12 +371,12 @@
  <text x="615" y="221" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">事件触发+100ms . P2+P1</text>
 
  <!-- Timing bar -->
- <rect x="20" y="258" width="960" height="48" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
- <text x="35" y="278" fill="var(--text)" font-size="11" font-weight="700">时序:</text>
- <rect x="80" y="268" width="80" height="20" rx="5" fill="#6366f1" opacity="0.15"/>
- <text x="120" y="282" text-anchor="middle" fill="#7c3aed" font-size="10" font-weight="700">20kHz FOC</text>
- <rect x="168" y="268" width="75" height="20" rx="5" fill="var(--accent)" opacity="0.12"/>
- <text x="205" y="282" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="700">10kHz Enc</text>
+ <rect x="20" y="310" width="960" height="48" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
+ <text x="35" y="330" fill="var(--text)" font-size="11" font-weight="700">时序:</text>
+ <rect x="80" y="320" width="80" height="20" rx="5" fill="#6366f1" opacity="0.15"/>
+ <text x="120" y="334" text-anchor="middle" fill="#7c3aed" font-size="10" font-weight="700">20kHz FOC</text>
+ <rect x="168" y="320" width="75" height="20" rx="5" fill="var(--accent)" opacity="0.12"/>
+ <text x="205" y="334" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="700">10kHz Enc</text>
  <rect x="251" y="268" width="75" height="20" rx="5" fill="var(--accent)" opacity="0.10"/>
  <text x="288" y="282" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="700">2kHz Trq</text>
  <rect x="334" y="268" width="80" height="20" rx="5" fill="var(--accent)" opacity="0.08"/>
@@ -384,7 +384,7 @@
  <rect x="422" y="268" width="80" height="20" rx="5" fill="var(--accent)" opacity="0.06"/>
  <text x="462" y="282" text-anchor="middle" fill="var(--accent)" font-size="10" font-weight="700">250Hz EEG</text>
 
- <text x="500" y="445" text-anchor="middle" fill="var(--text-secondary)" font-size="10">RTOS 优先级与周期</text>
+ <text x="500" y="485" text-anchor="middle" fill="var(--text-secondary)" font-size="10">RTOS 优先级与周期</text>
 </svg>
  </div>
 
