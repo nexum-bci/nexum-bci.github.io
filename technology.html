@@ -385,7 +385,7 @@ footer {
 <section class="hero">
  <div class="container">
  <h1>从神经意图到物理动作 — 意图解码层的工作原理</h1>
- <p>人机共生  ·  EEG预测意图→意图解码为指令→直驱执行→持续优化  ·  端到端~150-200ms</p>
+ <p>EEG预测意图→意图解码为指令→直驱执行→持续优化  ·  端到端~150-200ms</p>
  </div>
 </section>
 
@@ -450,7 +450,7 @@ footer {
  <rect x="30" y="66" width="270" height="18" fill="var(--accent-subtle)"/>
  </g>
  <text x="165" y="68" text-anchor="middle" fill="var(--accent)" font-size="16" font-weight="700">1. EEG-Sense 意图感知头带</text>
- <text x="165" y="112" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">脑信号采集</text>
+ <text x="165" y="112" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">运动意图采集</text>
  <text x="165" y="136" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">8通道干电极  ·  总重 80g</text>
  <text x="165" y="156" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">ADS1299 + nRF52832</text>
  <text x="165" y="176" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">250 SPS  ·  24-bit ADC</text>
@@ -533,7 +533,7 @@ footer {
  <div class="step-card">
  <div class="step-icon">2</div>
  <h3>翻译意图</h3>
- <p>AI引擎将EEG预测的意图"翻译"为具体关节控制指令。EEGNet提取脑信号特征，强化学习策略网络生成个性化辅助方案。416肌肉骨骼模型作为离线训练引擎（非实时控制），在仿真环境中预训练初始策略。</p>
+ <p>AI引擎将EEG预测的意图"翻译"为具体关节控制指令。EEGNet提取运动意图特征，强化学习策略网络生成个性化辅助方案。416肌肉骨骼模型作为离线训练引擎（非实时控制），在仿真环境中预训练初始策略。</p>
  <div class="tech-detail">
  <span>EEGNet</span>
  <span>强化学习</span>
@@ -1069,7 +1069,7 @@ footer {
  <div class="faq-list" >
  <div class="faq-item">
  <button class="faq-question">EEGNet相比传统CNN有什么优势？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
- <div class="faq-answer">EEGNet是专为EEG信号设计的轻量级卷积网络。相比传统CNN，深度可分离卷积减少参数量约90%，时空卷积核更有效捕捉脑信号的时空特征。边缘设备上推理时间&lt;30ms。</div>
+ <div class="faq-answer">EEGNet是专为EEG信号设计的轻量级卷积网络。相比传统CNN，深度可分离卷积减少参数量约90%，时空卷积核更有效捕捉运动意图的时空特征。边缘设备上推理时间&lt;30ms。</div>
  </div>
  <div class="faq-item">
  <button class="faq-question">416肌肉数字孪生模型是如何构建的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
