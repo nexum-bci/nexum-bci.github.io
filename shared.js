@@ -62,6 +62,7 @@
       '</div>'+
       '<div class="footer-col">'+
         '<h5>深度</h5>'+
+        '<a href="'+(isIndex?'industry.html':'industry.html')+'">行业背调</a>'+
         '<a href="'+(isIndex?'engineering.html':'engineering.html')+'">工程架构</a>'+
         '<a href="'+(isIndex?'clinical-protocol.html':'clinical-protocol.html')+'">临床方案</a>'+
         '<a href="'+(isIndex?'regulatory-strategy.html':'regulatory-strategy.html')+'">注册策略</a>'+
