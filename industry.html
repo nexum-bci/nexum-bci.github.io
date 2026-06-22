@@ -364,59 +364,58 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <h3>一、技术风险</h3>
 
 <table>
-<tr><th>风险</th><th>概率</th><th>最坏情况</th><th>会完吗</th><th>应对</th></tr>
-<tr><td><strong>EEG步行信噪比在真实患者中远低于实验室</strong></td><td>中高</td><td>预临床n=30时EEG分类准确率降至40-50%，系统实质退化为IMU外骨骼</td><td>不会</td><td>IMU+力控外骨骼本身可独立销售。EEG定位为"增强功能"而非"核心功能"</td></tr>
-<tr><td><strong>Sim-to-Real Gap导致RL策略失效</strong></td><td>中</td><td>仿真训练策略在真人上输出不合理力矩，患者不适</td><td>不会</td><td>PID安全限幅是最终控制权威。V1用规则力矩查表+PID为主力</td></tr>
-<tr><td><strong>干电极长期佩戴导致皮肤刺激</strong></td><td>低中</td><td>8小时佩戴后阻抗升高，患者投诉</td><td>不会</td><td>可更换为MNAE微针阵列或半干电极方案</td></tr>
-<tr><td><strong>EEGNet被新架构碾压</strong></td><td>低</td><td>Transformer全面超越CNN，方案过时</td><td>不会</td><td>ONNX Runtime支持模型热切换。解码器是可替换模块</td></tr>
+<tr><th>风险</th><th>概率</th><th>最坏情况</th><th>是否致命</th><th>应对</th></tr>
+<tr><td><strong>EEG步行信噪比在真实患者中远低于实验室</strong></td><td>中高</td><td>预临床n=30时EEG分类准确率降至40-50%，系统实质退化为IMU外骨骼</td><td>否</td><td>IMU+力控外骨骼本身可独立销售。EEG定位为"增强功能"而非"核心功能"</td></tr>
+<tr><td><strong>Sim-to-Real Gap导致RL策略失效</strong></td><td>中</td><td>仿真训练策略在真人上输出不合理力矩，患者不适</td><td>否</td><td>PID安全限幅是最终控制权威。V1用规则力矩查表+PID为主力</td></tr>
+<tr><td><strong>干电极长期佩戴导致皮肤刺激</strong></td><td>低中</td><td>8小时佩戴后阻抗升高，患者投诉</td><td>否</td><td>可更换为MNAE微针阵列或半干电极方案</td></tr>
+<tr><td><strong>EEGNet被新架构碾压</strong></td><td>低</td><td>Transformer全面超越CNN，方案过时</td><td>否</td><td>ONNX Runtime支持模型热切换。解码器是可替换模块</td></tr>
 </table>
 
 <h3>二、政策与监管风险</h3>
 
 <table>
-<tr><th>风险</th><th>概率</th><th>最坏情况</th><th>会完吗</th><th>应对</th></tr>
-<tr><td><strong>NMPA将BCI+外骨骼升至Class III</strong></td><td>中</td><td>需多中心RCT 100-150例，¥400-800万，18-24个月</td><td>不会</td><td>先申请IMU纯模式II类（非AI版），获批后变更注册加AI模块</td></tr>
-<tr><td><strong>外骨骼医保试点停止或缩减</strong></td><td>低</td><td>11省医保因安全事件/财政压力叫停，支付能力骤降</td><td>不会</td><td>美国CMS K1007已生效。医院有独立采购动力。中国市场不是唯一支付方</td></tr>
+<tr><th>风险</th><th>概率</th><th>最坏情况</th><th>是否致命</th><th>应对</th></tr>
+<tr><td><strong>NMPA将BCI+外骨骼升至Class III</strong></td><td>中</td><td>需多中心RCT 100-150例，¥400-800万，18-24个月</td><td>否</td><td>先申请IMU纯模式II类（非AI版），获批后变更注册加AI模块</td></tr>
+<tr><td><strong>外骨骼医保试点停止或缩减</strong></td><td>低</td><td>11省医保因安全事件/财政压力叫停，支付能力骤降</td><td>否</td><td>美国CMS K1007已生效。医院有独立采购动力。中国市场不是唯一支付方</td></tr>
 </table>
 
 <h3>三、竞争风险</h3>
 
 <table>
-<tr><th>风险</th><th>概率</th><th>最坏情况</th><th>会完吗</th><th>应对</th></tr>
-<tr><td><strong>程天科技2年内将EEG+外骨骼产品化</strong></td><td>中高</td><td>程天利用600+医院渠道+NMPA经验抢先推出。品类定义权丧失</td><td>不会</td><td>程天做框架式+脊电，Nexum做服装式+EEG，是不同的产品形态和患者人群，可以共存</td></tr>
-<tr><td><strong>极壳/傅利叶/大艾进入交叉点</strong></td><td>低</td><td>有资金和渠道的玩家补齐EEG能力</td><td>不会</td><td>四种能力系统整合的壁垒被低估——否则过去20年早有人做了。补齐至少2-3年</td></tr>
-<tr><td><strong>巨头入场(Apple/Samsung)</strong></td><td>低</td><td>收购BCI公司推出消费级外骨骼</td><td>不会</td><td>巨头做消费级，Nexum做医疗级(NMPA壁垒)。入场即验证赛道</td></tr>
+<tr><th>风险</th><th>概率</th><th>最坏情况</th><th>是否致命</th><th>应对</th></tr>
+<tr><td><strong>程天科技2年内将EEG+外骨骼产品化</strong></td><td>中高</td><td>程天利用600+医院渠道+NMPA经验抢先推出。品类定义权丧失</td><td>否</td><td>程天做框架式+脊电，Nexum做服装式+EEG，是不同的产品形态和患者人群，可以共存</td></tr>
+<tr><td><strong>极壳/傅利叶/大艾进入交叉点</strong></td><td>低</td><td>有资金和渠道的玩家补齐EEG能力</td><td>否</td><td>四种能力系统整合的壁垒被低估——否则过去20年早有人做了。补齐至少2-3年</td></tr>
+<tr><td><strong>巨头入场(Apple/Samsung)</strong></td><td>低</td><td>收购BCI公司推出消费级外骨骼</td><td>否</td><td>巨头做消费级，Nexum做医疗级(NMPA壁垒)。入场即验证赛道</td></tr>
 </table>
 
 <h3>四、供应链风险</h3>
 
 <table>
-<tr><th>风险</th><th>概率</th><th>最坏情况</th><th>会完吗</th><th>应对</th></tr>
-<tr><td><strong>CubeMars AKE60-8停产或优先大客户</strong></td><td>低中</td><td>产能被锁定，小批量排期6个月+</td><td>不会</td><td>备选MAXON EC-i或步科定制QDD。预留3个月库存</td></tr>
-<tr><td><strong>Hailo-8L断供(以色列地缘)</strong></td><td>低</td><td>停产或出口受限</td><td>不会</td><td>STM32H7自带CMSIS-NN可推理。备选地平线征程3或Google Coral</td></tr>
-<tr><td><strong>ADS1299缺货</strong></td><td>低</td><td>TI交期延长至52周</td><td>不会</td><td>备选ADI AD7779或ADS1298。预留6个月库存</td></tr>
+<tr><th>风险</th><th>概率</th><th>最坏情况</th><th>是否致命</th><th>应对</th></tr>
+<tr><td><strong>CubeMars AKE60-8停产或优先大客户</strong></td><td>低中</td><td>产能被锁定，小批量排期6个月+</td><td>否</td><td>备选MAXON EC-i或步科定制QDD。预留3个月库存</td></tr>
+<tr><td><strong>Hailo-8L断供(以色列地缘)</strong></td><td>低</td><td>停产或出口受限</td><td>否</td><td>STM32H7自带CMSIS-NN可推理。备选地平线征程3或Google Coral</td></tr>
+<tr><td><strong>ADS1299缺货</strong></td><td>低</td><td>TI交期延长至52周</td><td>否</td><td>备选ADI AD7779或ADS1298。预留6个月库存</td></tr>
 </table>
 
 <h3>五、团队与执行风险</h3>
 
 <table>
-<tr><th>风险</th><th>概率</th><th>最坏情况</th><th>会完吗</th><th>应对</th></tr>
+<tr><th>风险</th><th>概率</th><th>最坏情况</th><th>是否致命</th><th>应对</th></tr>
 <tr><td><strong>关键创始人离职或健康问题</strong></td><td>低</td><td>无法继续参与</td><td>可能延误</td><td>股权vesting+cliff绑定。知识文档化。顾问委员会过渡支持</td></tr>
-<tr><td><strong>临床PI、嵌入式关键岗位长期空缺</strong></td><td>中高</td><td>预临床无法启动，注册路径受阻</td><td>不会</td><td>兼职临床顾问+学术合作模式启动。BCI临床研究对年轻PI有学术吸引力</td></tr>
+<tr><td><strong>临床PI、嵌入式关键岗位长期空缺</strong></td><td>中高</td><td>预临床无法启动，注册路径受阻</td><td>否</td><td>兼职临床顾问+学术合作模式启动。BCI临床研究对年轻PI有学术吸引力</td></tr>
 </table>
 
 <h3>六、财务风险</h3>
 
 <table>
-<tr><th>风险</th><th>概率</th><th>最坏情况</th><th>会完吗</th><th>应对</th></tr>
-<tr><td><strong>种子轮融资失败或缩水至$1-2M</strong></td><td>中</td><td>仅支撑12个月而非18个月</td><td>不会</td><td>Plan B：先做EEG-Sense+NeuroCore(不含NeuroSuit)，BOM $300，作为BCI开发平台销售($1,499-2,000)，12个月内创收</td></tr>
-<tr><td><strong>A轮融资窗口关闭，需自给自足</strong></td><td>低中</td><td>2028年资本市场恶化，无法融资</td><td>不会</td><td>医院设备租赁(¥3,000-5,000/月/台)。5台=¥15,000-25,000/月。团队缩减聚焦服务</td></tr>
+<tr><th>风险</th><th>概率</th><th>最坏情况</th><th>是否致命</th><th>应对</th></tr>
+<tr><td><strong>种子轮融资失败或缩水至$1-2M</strong></td><td>中</td><td>仅支撑12个月而非18个月</td><td>否</td><td>Plan B：先做EEG-Sense+NeuroCore(不含NeuroSuit)，BOM $300，作为BCI开发平台销售($1,499-2,000)，12个月内创收</td></tr>
+<tr><td><strong>A轮融资窗口关闭，需自给自足</strong></td><td>低中</td><td>2028年资本市场恶化，无法融资</td><td>否</td><td>医院设备租赁(¥3,000-5,000/月/台)。5台=¥15,000-25,000/月。团队缩减聚焦服务</td></tr>
 </table>
 
 <div class="highlight-box">
-<strong>底线：什么情况下Nexum会"完了"？</strong><br><br>
-仅一种情况：<strong>EEG步行信噪比在真实患者中完全不可用 + IMU纯模式产品价值不足以支撑商业模型。</strong>两个条件同时发生的概率极低。IMU外骨骼本身是已验证品类(Ekso/ReWalk)，Nexum在形态(~2.5kg vs 15-25kg)和价格(¥18万 vs ¥48-126万)上有巨大优势。即使EEG完全失效，Nexum仍是一家有价值的轻量化外骨骼公司。<br><br>
-<strong>其他所有风险都不会让Nexum"完了"——只会改变时间线、成本、估值或竞争格局。</strong>最坏情况不是"做不成"，而是"比预期慢、比预期贵、比预期难"——这在硬件+医疗+AI的交叉赛道中属正常水平。唯一不可逆的风险是创始团队放弃——除此之外，每种风险都有Plan B/C。
+<strong>底线：唯一致命情景</strong><br><br><strong>EEG步行信噪比在真实患者中完全不可用 + IMU纯模式产品价值不足以支撑商业模型。</strong>两个条件同时发生的概率极低。IMU外骨骼本身是已验证品类(Ekso/ReWalk)，Nexum在形态(~2.5kg vs 15-25kg)和价格(¥18万 vs ¥48-126万)上有巨大优势。即使EEG完全失效，Nexum仍是一家有价值的轻量化外骨骼公司。<br><br>
+<strong>所有其他风险均不构成生存威胁——其影响限于时间线延长、成本增加、估值调整或竞争格局变化。</strong>在此类硬件+医疗+AI交叉赛道中，最坏情况通常不是"无法实现"，而是"进度和成本超出预期"——每种风险均有Plan B或Plan C应对。
 </div>
 
 <h2 style="margin-top:0" id="exit">13. 退出路径</h2><h2 style="margin-top:0" id="exit">13. 退出路径</h2>
