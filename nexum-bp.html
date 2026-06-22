@@ -116,7 +116,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <ol>
 <li><strong>非侵入脑机接口达到了可用精度</strong>——CMU Bin He实验室2025年于Nature Communications发表非侵入EEG解码精细运动意图的突破性成果。下肢步态离散意图分类（”走/停”）已由多篇独立研究验证——Gwin et al.（2011, NeuroImage）、Wagner et al.（2012, NeuroImage）、Sburlea et al.（2015, J. Neural Eng.）。人可以非侵入地直接感知自己的运动意图了。</li>
-<li><strong>可穿戴机器人硬件成熟了</strong>——学术界已验证的混合架构（碳纤维锚定+织物包裹+线缆驱动）经十多年研发积累，已证明力传输效率>70%、总重<1.5kg的轻量化穿戴工程可行。线缆驱动的临床安全性积累了二十年数据。柔性织物和轻量化材料不再是瓶颈。</li>
+<li><strong>可穿戴机器人硬件成熟了</strong>——学术界已验证的混合架构（碳纤维锚定+织物包裹+线缆驱动）经十多年研发积累，已证明力传输效率>70%、总重~2.5kg的轻量化穿戴工程可行。线缆驱动的临床安全性积累了二十年数据。柔性织物和轻量化材料不再是瓶颈。</li>
 <li><strong>个性化AI具备了工程化条件</strong>——肌骨建模（416肌肉+206骨骼+Hill型柔顺肌腱）+ GPU并行强化学习（2048仿真世界，日产53亿步态样本，零人工标注），让”为每个患者生成专属康复策略”从学术论文变成可部署软件（详见3.2节）。</li>
 <li><strong>政策框架到位</strong>——中国2025年将脑机接口列入国家未来产业、发布非侵入BCI医疗服务定价（¥960-966/次）。美国Medicare 2024年为个人用外骨骼建立$91,032支付标准。中美日德已建立外骨骼和BCI的支付标准。</li>
 </ol>
@@ -126,7 +126,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <h3 id="nexum-one">1.4 Nexum One：首款神经重连AI系统</h3>
 
-<p><strong>Nexum One是逐念而行的第一款产品。</strong>它是一个AI系统，有三个物理模块作为载体：<strong>EEG-Sense</strong>（8通道干电极头带，80g）读取大脑的运动准备电位；<strong>NeuroSuit</strong>（碳纤维锚定+织物包裹+线缆驱动，&lt;1.5kg）执行髋关节辅助；<strong>Nexum App</strong>提供患者交互界面。AI策略运行在腰部控制盒的嵌入式芯片上。<strong>端到端系统延迟&lt;185ms</strong>（40ms EEG采集+55ms AI推理+60ms执行+30ms反馈），<strong>峰值辅助力矩15Nm</strong>（持续8Nm），<strong>48Wh可更换电池</strong>支持6小时连续使用。</p>
+<p><strong>Nexum One是逐念而行的第一款产品。</strong>它是一个AI系统，有三个物理模块作为载体：<strong>EEG-Sense</strong>（8通道干电极头带，80g）读取大脑的运动准备电位；<strong>NeuroSuit</strong>（碳纤维锚定+织物包裹+线缆驱动，~2.5kg）执行髋关节辅助；<strong>Nexum App</strong>提供患者交互界面。AI策略运行在腰部控制盒的嵌入式芯片上。<strong>端到端系统延迟&lt;185ms</strong>（40ms EEG采集+55ms AI推理+60ms执行+30ms反馈），<strong>峰值辅助力矩15Nm</strong>（持续8Nm），<strong>48Wh可更换电池</strong>支持6小时连续使用。</p>
 
 <p>患者想”站起来”——大脑在动作发生前0.5-2秒产生准备电位，EEG-Sense检测到，AI生成该患者当前肌力状态下的最优助力策略，NeuroSuit执行。没有按钮，没有模式切换。随着神经和肌肉的恢复，AI自动调整策略——<strong>这周的策略和上周不同，因为这个患者的身体已经不同了</strong>。</p>
 
@@ -415,7 +415,7 @@ sEMG双模态神经接口</h3>
 
 <p>Nexum One是一套完整的神经重连系统，患者从头到腰穿戴三个互联模块：</p>
 <p><strong>① EEG头带（头部）</strong> — 8通道干电极，80g，佩戴于发际线上方，外观类似运动头带。通过蓝牙低功耗（BLE）将原始脑电数据发送至腰部主控单元。不需要导电凝胶，不需要专业人员辅助佩戴。每次使用前自检电极阻抗，阻抗过高时App提示用户调整位置。</p>
-<p><strong>② NeuroSuit（躯干到腿部）</strong> — 外观类似一条压缩裤，腰部内置碳纤维髋部锚定结构和两个标准化关节电机。鲍登线缆从腰部电机连接至髋关节两侧的锚定点。多通道织物sEMG电极嵌入裤腿内侧，接触大腿主要肌群。腰部后方有一个小型控制盒（含主控芯片、IMU、电池、BLE模块），重量约200g，别在腰带位置。NeuroSuit总重<1.5kg。</p>
+<p><strong>② NeuroSuit（躯干到腿部）</strong> — 外观类似一条压缩裤，腰部内置碳纤维髋部锚定结构和两个标准化关节电机。鲍登线缆从腰部电机连接至髋关节两侧的锚定点。多通道织物sEMG电极嵌入裤腿内侧，接触大腿主要肌群。腰部后方有一个小型控制盒（含主控芯片、IMU、电池、BLE模块），重量约200g，别在腰带位置。NeuroSuit总重~2.5kg。</p>
 <p><strong>③ Nexum App（手机端）</strong> — 运行在患者或治疗师的手机上。临床版含治疗师管理后台，可同时查看20+患者的康复数据和进度。家庭版提供每日训练计划、实时生物反馈和每周康复报告。</p>
 <p><strong>系统工作流程</strong>：EEG头带检测运动准备电位 → BLE发送至腰部控制盒 → 控制盒内的嵌入式芯片运行AI模型（DL提取EEG特征 + MSK模型生成力矩 + RL策略优化） → 电机驱动线缆施加髋关节助力 → sEMG和IMU实时反馈形成闭环 → 所有数据通过App上传至云端（患者可选择仅本地处理，原始生理信号本地处理，仅脱敏后的模型改善数据上传）。每次训练结束后，AI根据当次数据更新患者的数字孪生模型，下次训练时策略已经不同。</p>
 
@@ -953,7 +953,7 @@ $300+电机$300+碳纤维$150+织物+电缆+电池+控制器=$1,500-2,000（qty
 <tr class="even"><td>Gwin et al., <em>NeuroImage</em> (2011)</td><td>跑步机步行中EEG与步态周期耦合：感觉运动皮层alpha/beta功率在步态周期内显著调制</td><td>n=8健康受试者；稳态步行，非意图检测</td></tr>
 <tr class="odd"><td>Wagner et al., <em>NeuroImage</em> (2012)</td><td>Lokomat辅助步行中EEG调制：主动步行时mu/beta节律显著抑制</td><td>n=14健康受试者；机器人辅助，非地面步行</td></tr>
 <tr class="even"><td>Sburlea et al., <em>J. Neural Eng.</em> (2015)</td><td>EEG检测步行起始意图：脑卒中患者离线准确率64%（范围18-85%）</td><td>起始检测，非停止；离线分析，非实时</td></tr>
-<tr class="odd"><td>软体exosuit学术文献 (2013–2024)</td><td>线缆驱动+织物包裹混合外骨骼架构：力传输效率>70%，总重<1.5kg，FDA已批一款康复设备</td><td>多篇Science/Nature子刊验证；多代迭代</td></tr>
+<tr class="odd"><td>软体exosuit学术文献 (2013–2024)</td><td>线缆驱动+织物包裹混合外骨骼架构：力传输效率>70%，总重~2.5kg，FDA已批一款康复设备</td><td>多篇Science/Nature子刊验证；多代迭代</td></tr>
 </tbody>
 </table>
 
