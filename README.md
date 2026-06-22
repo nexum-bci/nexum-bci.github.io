@@ -11,7 +11,7 @@
 | 产品 | 名称 | 说明 |
 |------|------|------|
 | EEG-Sense | 意图感知头带 | 8通道干电极，80g，MRCP检测，BLE 5.2 |
-| NeuroCore | 边缘AI处理器 | STM32H7，48Wh，EEGNet + RL策略网络，端到端~150ms |
+| NeuroCore | 控制中枢 | STM32H7，48Wh，EEGNet + RL策略网络，端到端~150ms |
 | NeuroSuit | 神经意图肌动服 | 碳纤维骨架嵌入弹性织物，直驱电机×2，~2.5kg，15Nm |
 
 两种版本：Clinical $18,000（医院） / Home $3,999 + $499/年（居家）。
