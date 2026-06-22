@@ -93,11 +93,11 @@ a { color: var(--nexum); text-decoration: none; }
 
 <h2 id="what-we-do">1. 我们在做什么</h2>
 
-<p>逐念而行构建从人类神经意图到物理世界动作的实时映射层——非侵入读取脑电运动意图，AI翻译为关节控制指令，直驱电机执行辅助力矩。</p>
+<p>逐念而行构建从人类神经意图到物理世界动作的实时映射层——非侵入读取脑电运动意图，意图解码为关节控制指令，直驱电机执行辅助力矩。</p>
 
 <p>全行业在解决同一个核心问题：如何缩短从人类产生运动意图到物理动作执行之间的延迟。Neuralink用侵入式脑植入，Meta用肌电腕带，Apple用眼动追踪。逐念而行选择非侵入EEG + 外骨骼路线，面向脊髓损伤和卒中偏瘫患者——那些生物信号通路已经断裂的人。</p>
 
-<p><strong>核心壁垒：AI翻译引擎。</strong>人类的运动意图以脑电信号的形式存在，但这些信号无法直接驱动电机。Nexum的AI翻译引擎完成这个转换：EEGNet从8通道脑电中实时分类运动意图，强化学习策略网络将意图与步态相位映射为最优力矩曲线。策略在GPU服务器上的肌骨仿真环境中训练数亿步后，蒸馏为不到5MB的轻量神经网络，部署到嵌入式设备。这是软件与数据的护城河——硬件可被复制，但经过千万次真实使用训练的AI策略无法复制。</p>
+<p><strong>核心壁垒：神经意图映射层。</strong>人类的运动意图以脑电信号的形式存在，但这些信号无法直接驱动电机。Nexum的神经意图映射层完成这个转换：EEGNet从8通道脑电中实时解码运动意图，强化学习策略网络将意图与步态相位映射为最优力矩曲线。策略在GPU服务器上的肌骨仿真环境中训练数亿步后，蒸馏为不到5MB的轻量神经网络，部署到嵌入式设备。这是软件与数据的护城河——硬件可被复制，但经过真实使用数据持续训练的解码策略无法复制。</p>
 
 <blockquote>
 <p><strong>产品只有一个：Nexum One</strong> — 神经意图外骨骼。从人类神经意图到物理世界动作的通用映射。</p>
@@ -237,7 +237,7 @@ a { color: var(--nexum); text-decoration: none; }
 <li>大脑生成MRCP（运动准备电位）——自主运动前200-500ms出现</li>
 <li>EEG-Sense 意图感知头带检测（8通道，250SPS，EEGNet分类）</li>
 <li>BLE传输至腰部 NeuroCore 边缘AI处理器</li>
-<li>AI翻译引擎：EEG意图 + IMU步态相位 → 最优力矩曲线</li>
+<li>神经意图映射层：EEG意图 + IMU步态相位 → 最优力矩曲线</li>
 <li>髋两侧直驱电机执行辅助力矩（15Nm峰值，8Nm持续）</li>
 <li>力传感器反馈 → PID控制回路确保安全</li>
 </ol>
@@ -330,7 +330,7 @@ a { color: var(--nexum); text-decoration: none; }
     <circle cx="195" cy="165" r="3" fill="#0096f0" opacity="0.8"/>
     <text x="122" y="230" text-anchor="middle" fill="#1a1f2e" font-size="15" font-weight="700">NeuroCore 边缘AI处理器</text>
     <text x="122" y="252" text-anchor="middle" fill="#999999" font-size="12">STM32H7 · 48Wh</text>
-    <text x="122" y="272" text-anchor="middle" fill="#0096f0" font-size="11" font-weight="600">AI意图翻译引擎</text>
+    <text x="122" y="272" text-anchor="middle" fill="#0096f0" font-size="11" font-weight="600">AI意图解码系统</text>
   </g>
   <line x1="577" y1="180" x2="607" y2="180" stroke="#0096f0" stroke-width="2" stroke-dasharray="4,3" opacity="0.5"/>
   <polygon points="607,175 615,180 607,185" fill="#0096f0" opacity="0.5"/>
@@ -370,7 +370,7 @@ a { color: var(--nexum); text-decoration: none; }
 <thead><tr><th>层级</th><th>功能</th><th>核心技术</th><th>成熟度</th></tr></thead>
 <tbody>
 <tr><td><strong>感知层</strong></td><td>读取神经意图与运动状态</td><td>EEG 8ch干电极（MRCP检测）+ IMU×4（9轴，100Hz）+ 力传感器×2（扭矩反馈）</td><td>验证级</td></tr>
-<tr><td><strong>翻译层</strong></td><td>意图分类+策略生成</td><td>EEGNet（~2000参数）+ 简化肌骨模型（2-4DOF髋关节）+ 离线RL策略网络（PPO/SAC，仿真预训练）</td><td>验证级</td></tr>
+<tr><td><strong>解码层</strong></td><td>意图分类+策略生成</td><td>EEGNet（~2000参数）+ 简化肌骨模型（2-4DOF髋关节）+ 离线RL策略网络（PPO/SAC，仿真预训练）</td><td>验证级</td></tr>
 <tr><td><strong>执行层</strong></td><td>力矩输出+安全控制</td><td>直驱电机×2（15Nm/8Nm）+ FOC矢量控制 + PID力控闭环（1kHz）</td><td>产品级</td></tr>
 <tr><td><strong>进化层</strong></td><td>个性化+长期优化</td><td>离线联邦学习（跨患者模型更新，非实时）+ 数字孪生（V2+）</td><td>研究级</td></tr>
 </tbody>
@@ -396,7 +396,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p><strong>为什么混合：</strong>EEG提供"提前预判使用者即将迈步"的预测能力（比纯IMU快200-500ms），IMU提供"精确判定当前步态相位"的实时精度。两者互补，而非替代。当EEG失效时，IMU独立工作——安全无影响。</p>
 
-<h3 id="tech-translation">5.3 翻译层：从意图到力矩</h3>
+<h3 id="tech-translation">5.3 解码层：从意图到力矩</h3>
 
 <p><strong>意图分类器（EEGNet）</strong></p>
 <ul>
@@ -862,7 +862,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <ol>
 <li><strong>临床数据飞轮</strong>：每一台在医院使用的Nexum One都在产生真实临床数据。患者步态+EEG+肌力恢复的纵向队列数据，是任何后来者无法在短期内复制的。程天科技在外骨骼领域积累8年，但其数据不含EEG维度。</li>
-<li><strong>AI翻译引擎的累积优势</strong>：同一个患者使用100次，AI的策略已经完全不同。出院带回家的患者继续使用，数据持续反馈到仿真训练中。这是软件护城河——硬件可复制，数据不可。</li>
+<li><strong>神经意图映射层的累积优势</strong>：同一个患者使用100次，AI的策略已经完全不同。出院带回家的患者继续使用，数据持续反馈到仿真训练中。这是软件护城河——硬件可复制，数据不可。</li>
 <li><strong>品牌认知</strong>：有望成为全球首款获批的EEG下肢外骨骼。品类一旦建立，后来者将面对品类定义者的先发优势。</li>
 <li><strong>全球扩展路径</strong>：取得中国NMPA认证后，利用已有临床数据申请FDA 510(k)和CE MDR。结合中国临床数据体量与制造成本结构，具备全球定价优势。</li>
 </ol>
