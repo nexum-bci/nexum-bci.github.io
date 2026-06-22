@@ -328,17 +328,19 @@ p{color:var(--text-secondary);}
 
 /* ===== EXPANDABLE SPECS ===== */
 .specs-detail{margin-top:48px;}
-.specs-group{border:1px solid var(--border);border-radius:var(--radius-md);margin-bottom:12px;overflow:hidden;}
-.specs-group-title{width:100%;text-align:left;background:var(--bg-card);border:none;padding:16px 20px;cursor:pointer;font-size:14px;font-weight:600;color:var(--text);display:flex;justify-content:space-between;align-items:center;transition:background var(--transition);}
-.specs-group-title:hover{background:var(--bg);}
-.specs-group-title .arrow{font-size:12px;transition:transform var(--transition);color:var(--text-tertiary);}
-.specs-group.open .specs-group-title .arrow{transform:rotate(180deg);}
-.specs-group-content{padding:0 20px 16px;display:none;font-size:13px;color:var(--text-secondary);line-height:1.8;}
-.specs-group.open .specs-group-content{display:block;}
-.specs-group-content .spec-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);}
-.specs-group-content .spec-row:last-child{border-bottom:none;}
-.specs-group-content .spec-key{color:var(--text);font-weight:500;}
-.specs-group-content .spec-val{color:var(--text-secondary);}
+.specs-group{border:1px solid var(--border);border-radius:var(--radius-md);margin-bottom:8px;overflow:hidden}
+.specs-group-title{width:100%;text-align:left;background:var(--bg-card);border:none;padding:14px 20px;cursor:pointer;font-size:14px;font-weight:600;color:var(--text);display:flex;justify-content:space-between;align-items:center;transition:background var(--transition);font-family:inherit}
+.specs-group-title:hover{background:var(--accent-subtle)}
+.specs-group-title .arrow{font-size:11px;transition:transform .25s ease;color:var(--text-tertiary)}
+.specs-group.open .specs-group-title{background:var(--accent-subtle)}
+.specs-group.open .specs-group-title .arrow{transform:rotate(180deg)}
+.specs-group-content{display:none;font-size:13px;color:var(--text-secondary);line-height:1.6}
+.specs-group.open .specs-group-content{display:block}
+.specs-group-content .spec-row{display:flex;justify-content:space-between;padding:8px 20px;border-bottom:1px solid var(--border)}
+.specs-group-content .spec-row:last-child{border-bottom:none}
+.specs-group-content .spec-row:hover{background:var(--bg)}
+.specs-group-content .spec-key{color:var(--text);font-weight:500}
+.specs-group-content .spec-val{color:var(--text-secondary)}
 
 /* ===== CARE AND MAINTENANCE ===== */
 .care-section{background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -1007,63 +1009,19 @@ footer {
 </div>
 
 <!-- EXPANDABLE SPECS -->
-<section class="section" id="specs-detail" style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+
+
+<!-- CTA -->
+<section class="cta-section">
  <div class="container">
- <div class="text-center section-label">详细规格</div>
- <h2 class="text-center">技术规格</h2>
- <div class="specs-detail">
- <div class="specs-group">
- <button class="specs-group-title" style="cursor:pointer">EEG-Sense 意图感知头带 <span class="arrow">&#9660;</span></button>
- <div class="specs-group-content">
- <div class="spec-row"><span class="spec-key">电极类型</span><span class="spec-val">干电极（Ag/AgCl涂层）</span></div>
- <div class="spec-row"><span class="spec-key">通道数</span><span class="spec-val">8通道</span></div>
- <div class="spec-row"><span class="spec-key">采样率</span><span class="spec-val">250 SPS</span></div>
- <div class="spec-row"><span class="spec-key">ADC精度</span><span class="spec-val">24 bit</span></div>
- <div class="spec-row"><span class="spec-key">信号带宽</span><span class="spec-val">0.5-100 Hz</span></div>
- <div class="spec-row"><span class="spec-key">共模抑制比</span><span class="spec-val">&gt;100 dB</span></div>
- <div class="spec-row"><span class="spec-key">无线通信</span><span class="spec-val">蓝牙5.2 BLE</span></div>
- <div class="spec-row"><span class="spec-key">续航时间</span><span class="spec-val">8小时</span></div>
- <div class="spec-row"><span class="spec-key">充电时间</span><span class="spec-val">2小时</span></div>
- <div class="spec-row"><span class="spec-key">重量</span><span class="spec-val">80g</span></div>
- </div>
- </div>
- <div class="specs-group">
- <button class="specs-group-title" style="cursor:pointer">NeuroSuit 神经意图肌动服 <span class="arrow">&#9660;</span></button>
- <div class="specs-group-content">
- <div class="spec-row"><span class="spec-key">驱动方式</span><span class="spec-val">直驱电机（Direct-Drive）</span></div>
- <div class="spec-row"><span class="spec-key">峰值扭矩</span><span class="spec-val">15 Nm</span></div>
- <div class="spec-row"><span class="spec-key">持续扭矩</span><span class="spec-val">8 Nm</span></div>
- <div class="spec-row"><span class="spec-key">结构材料</span><span class="spec-val">碳纤维/铝合金</span></div>
- <div class="spec-row"><span class="spec-key">关节覆盖</span><span class="spec-val">髋/膝/踝</span></div>
- <div class="spec-row"><span class="spec-key">传感器</span><span class="spec-val">磁编码器+6轴IMU</span></div>
- <div class="spec-row"><span class="spec-key">穿脱时间</span><span class="spec-val">&lt;10秒</span></div>
- <div class="spec-row"><span class="spec-key">续航时间</span><span class="spec-val">6小时</span></div>
- <div class="spec-row"><span class="spec-key">电池类型</span><span class="spec-val">锂聚合物 1500mAh</span></div>
- <div class="spec-row"><span class="spec-key">充电时间</span><span class="spec-val">2小时</span></div>
- <div class="spec-row"><span class="spec-key">控制方式</span><span class="spec-val">AI自动 / 手动微调</span></div>
- <div class="spec-row"><span class="spec-key">重量</span><span class="spec-val">~2.5kg（含电池）</span></div>
- </div>
- </div>
- <div class="specs-group">
- <button class="specs-group-title" style="cursor:pointer">NeuroCore 边缘AI处理器 <span class="arrow">&#9660;</span></button>
- <div class="specs-group-content">
- <div class="spec-row"><span class="spec-key">处理器</span><span class="spec-val">ARM Cortex-A78AE x4</span></div>
- <div class="spec-row"><span class="spec-key">AI加速器</span><span class="spec-val">NPU 4 TOPS</span></div>
- <div class="spec-row"><span class="spec-key">内存</span><span class="spec-val">8GB LPDDR5</span></div>
- <div class="spec-row"><span class="spec-key">操作系统</span><span class="spec-val">RT-Linux</span></div>
- <div class="spec-row"><span class="spec-key">推理框架</span><span class="spec-val">TensorRT/ONNX Runtime</span></div>
- <div class="spec-row"><span class="spec-key">AI模型</span><span class="spec-val">EEGNet + PPO</span></div>
- <div class="spec-row"><span class="spec-key">无线</span><span class="spec-val">蓝牙5.2 + Wi-Fi 6</span></div>
- <div class="spec-row"><span class="spec-key">显示屏</span><span class="spec-val">3.5寸触摸屏</span></div>
- <div class="spec-row"><span class="spec-key">续航时间</span><span class="spec-val">8小时</span></div>
- <div class="spec-row"><span class="spec-key">重量</span><span class="spec-val">120g</span></div>
- </div>
- </div>
+ <h2>开启神经重连之旅</h2>
+ <p>如有意向使用 Nexum One，或希望作为合作伙伴加入临床研究，请联系我们。</p>
+ <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+ <a href="%E9%80%90%E5%BF%B5%E8%80%8C%E8%A1%8C_Nexum_BP.html" class="cta-btn">查看商业计划书</a>
+ <a href="mailto:hello@nexum.ai" class="cta-btn" style="background:transparent;color:var(--accent)!important;border:2px solid var(--accent);">联系团队</a>
  </div>
  </div>
 </section>
-
-
 
 
 <script src="shared.js"></script>
