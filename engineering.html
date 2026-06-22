@@ -35,7 +35,7 @@
 <section class="page-header">
  <div class="container">
  <h1>工程架构</h1>
- <p class="page-sub">人机共生 · 系统架构 · 工程框图 · 器件选型</p>
+ <p class="page-sub">神经意图→物理动作 · 系统架构 · 工程框图 · 器件选型</p>
  </div>
 </section>
 
@@ -45,7 +45,7 @@
  <!-- System Architecture Overview -->
  <div class="content-card" style="margin-bottom:24px">
  <h2>系统架构</h2>
- <p>四节点闭环：EEG-Sense 采集神经信号 → Nexum App AI推理 → 控制盒驱动电机 → NeuroSuit 输出力矩。</p>
+ <p>意图→翻译→执行三阶段闭环：EEG-Sense 采集神经信号 → Nexum App 意图解码 → 控制盒驱动电机 → NeuroSuit 输出力矩。</p>
  <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin:20px 0">
  <svg viewBox="0 0 960 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
  <defs>
@@ -83,7 +83,7 @@
  <!-- NeuroSuit -->
  <g filter="url(#sh)"><rect x="700" y="300" width="220" height="160" rx="14" fill="url(#bg4)" stroke="var(--accent)" stroke-width="1.5"/><rect x="700" y="300" width="220" height="40" rx="14" fill="#f59e0b" opacity="0.12"/><rect x="700" y="326" width="220" height="14" fill="#f59e0b" opacity="0.12"/></g>
  <text x="810" y="325" text-anchor="middle" fill="var(--accent)" font-size="15" font-weight="700">NeuroSuit 髋部模块</text>
- <text x="810" y="365" text-anchor="middle" fill="var(--text-secondary)" font-size="12">碳纤维锚定  ·  鲍登线缆</text>
+ <text x="810" y="365" text-anchor="middle" fill="var(--text-secondary)" font-size="12">碳纤维锚定  ·  直驱电机</text>
  <text x="810" y="385" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">力传感器反馈  ·  ~2.5kg</text>
  <text x="810" y="430" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">力矩执行</text>
  <line x1="620" y1="360" x2="695" y2="360" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar)"/>
@@ -520,8 +520,8 @@
  <h2>关键工程风险</h2>
  <div class="risk-grid">
  <div class="risk-card"><h4>EEG信号质量</h4><p>信噪比不足 → 自适应滤波 + 运动伪迹抑制</p></div>
- <div class="risk-card"><h4>实时解码延迟</h4><p>延迟需＜55ms → 模型量化(INT8)+算子融合+TensorRT</p></div>
- <div class="risk-card"><h4>鲍登线缆摩擦力</h4><p>力传输效率下降 → 优化布线路径+PTFE内衬管</p></div>
+ <div class="risk-card"><h4>端到端延迟</h4><p>目标延迟~150-200ms → 模型量化(INT8)+算子融合+CoreML/ONNX优化</p></div>
+ <div class="risk-card"><h4>直驱电机力控精度</h4><p>低速力矩纹波 → 优化FOC算法+高分辨率编码器反馈</p></div>
  <div class="risk-card"><h4>系统集成</h4><p>多节点同步 → 硬件触发同步+看门狗+CRC校验</p></div>
  <div class="risk-card"><h4>电池续航</h4><p>48Wh→6h使用 → 动态功耗管理+低功耗待机</p></div>
  <div class="risk-card"><h4>热管理</h4><p>持续工作发热 → 铝合金散热+温度监控+热节流</p></div>

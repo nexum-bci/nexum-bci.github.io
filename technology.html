@@ -384,8 +384,8 @@ footer {
 <!-- HERO -->
 <section class="hero">
  <div class="container">
- <h1>AI闭环架构</h1>
- <p>人机共生  ·  EEG预测→AI策略→直驱执行→持续优化  ·  端到端~155ms</p>
+ <h1>从神经意图到物理动作 — AI翻译层的工作原理</h1>
+ <p>人机共生  ·  EEG预测意图→AI翻译为指令→直驱执行→持续优化  ·  端到端~155ms</p>
  </div>
 </section>
 
@@ -393,7 +393,7 @@ footer {
 <section class="section loop-section" id="loop">
  <div class="container">
  <div class="section-label">AI闭环</div>
- <h2>从大脑到动作</h2>
+ <h2>读意图 → 翻译 → 执行 → 进化</h2>
  <div class="loop-svg-wrap">
 	 <svg viewBox="0 0 860 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI闭环四阶段流程图">
 	 <defs>
@@ -523,7 +523,7 @@ footer {
  <div class="step-card">
  <div class="step-icon">1</div>
  <h3>读取意图</h3>
- <p>EEG采集运动准备电位（MRCP），在动作发生前约0.5秒预测运动意图。8通道干电极，250 SPS。IMU+力传感器提供运动中的主要控制信号。EEG负责"预测"，IMU负责"感知"。</p>
+ <p>EEG采集运动准备电位（MRCP），在动作前200-500ms预测运动意图。8通道干电极，250 SPS。IMU+力传感器为主力控制信号——EEG负责"预测想做什么"，IMU负责"感知正在做什么"。</p>
  <div class="tech-detail">
  <span>EEG</span>
  <span>运动准备电位</span>
@@ -534,8 +534,8 @@ footer {
  </div>
  <div class="step-card">
  <div class="step-icon">2</div>
- <h3>生成策略</h3>
- <p>AI引擎融合EEG意图与IMU状态，EEGNet提取特征，强化学习策略网络生成个性化辅助方案。416肌肉骨骼模型作为离线训练引擎（非实时控制），在仿真环境中训练初始策略。</p>
+ <h3>翻译意图</h3>
+ <p>AI引擎将EEG预测的意图"翻译"为具体关节控制指令。EEGNet提取脑信号特征，强化学习策略网络生成个性化辅助方案。416肌肉骨骼模型作为离线训练引擎（非实时控制），在仿真环境中预训练初始策略。</p>
  <div class="tech-detail">
  <span>EEGNet</span>
  <span>强化学习</span>
@@ -812,6 +812,9 @@ footer {
  <div class="bench-row"><span class="bench-label">延迟典型范围</span><span class="bench-value">150-200ms</span></div>
  </div>
  </div>
+ <div style="margin-top:24px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:12px;color:var(--text-tertiary);max-width:700px;margin-left:auto;margin-right:auto;">
+      参考来源：EEG MRCP检测方法基于 Lew et al. 2012 (Front. Neuroeng.)；EEG→外骨骼有效性参照 Donati et al. 2016 (Sci. Rep.) 及 Rong/Xu et al. 2026 SYSU RCT (Ann. Neurol.)；离线肌肉骨骼仿真参照 Molinaro et al. 2024 (Nature)。王/杨/Su 2026 (arXiv:2605.14423) 为联邦强化学习协同行走的学术方法。
+ </div>
  </div>
 </section>
 
@@ -953,7 +956,7 @@ footer {
  </div>
  <div class="faq-item">
  <button class="faq-question">416肌肉数字孪生模型是如何构建的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
- <div class="faq-answer">基于OpenSim框架，涵盖416块肌肉的骨骼拓扑、力-长度与力-速度关系。通过运动捕捉与表面EMG信号个性化校准。需要明确：这是离线训练引擎（如MuscleMimic/EPFL相关学术工作），不是实时控制系统。策略在仿真中预训练后部署到边缘设备，推理时使用简化模型，而非完整416肌肉实时仿真。</div>
+ <div class="faq-answer">416肌肉骨骼模型是离线训练引擎，不是实时控制系统。基于OpenSim框架，涵盖416块肌肉的骨骼拓扑、力-长度与力-速度关系。通过运动捕捉与表面EMG信号个性化校准。强化学习策略在仿真中预训练后部署到边缘设备，推理时使用简化模型，而非完整416肌肉实时仿真。</div>
  </div>
  <div class="faq-item">
  <button class="faq-question">强化学习是如何在边缘设备上训练的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
@@ -965,7 +968,7 @@ footer {
  </div>
  <div class="faq-item">
  <button class="faq-question">系统延迟是如何构成的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
- <div class="faq-answer">基线~155ms：EEG采集40ms（硬件触发+DMA）→ AI推理55ms（EEGNet量化为INT8，TensorRT优化）→ 蓝牙通信~20ms → 执行器60ms（直驱电机FOC控制）。实际系统延迟受电磁干扰、蓝牙信号强度影响，典型范围150-200ms。EEG运动准备电位检测在动作前约0.5s发生，与系统延迟叠加后，用户仍能感知到平滑的辅助响应。</div>
+ <div class="faq-answer">基线~155ms：EEG采集40ms（硬件触发+DMA）→ AI推理55ms（EEGNet量化为INT8，TensorRT优化）→ 蓝牙通信~20ms → 执行器60ms（直驱电机FOC控制）。实际系统延迟受电磁干扰、蓝牙信号强度影响，典型范围150-200ms。EEG运动准备电位检测在动作前约0.5s发生，与系统延迟叠加后，用户仍能感知到平滑的辅助响应。需要明确：EEG控制外骨骼的延迟在学术文献中通常报告150-500ms范围（Donati 2016; Rong/Xu 2026），150-200ms属于合理范围。</div>
  </div>
  <div class="faq-item">
  <button class="faq-question">系统如何适应不同用户的肌肉状态差异？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
