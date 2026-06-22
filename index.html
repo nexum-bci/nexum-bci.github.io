@@ -1227,6 +1227,20 @@ footer a:hover{color:var(--text)}
   gap: 16px;
   justify-items: center;
 }
+/* Force 3-across layout even without .mockup-grid wrapper */
+#app .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+#app .mockup-card {
+  flex: 0 0 auto;
+  max-width: 260px;
+}
+@media(max-width:860px){#app .mockup-card{max-width:220px}}
+@media(max-width:640px){#app .container{flex-direction:column;align-items:center}#app .mockup-card{max-width:300px}}
+
 .mockup-grid .phone-frame {
   --phone-width: 240px;
   --phone-height: 520px;
