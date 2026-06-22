@@ -486,7 +486,7 @@ footer {
  <line x1="462" y1="95" x2="496" y2="95" stroke="var(--text-tertiary)" stroke-width="1.5"/>
  <polygon points="496,91 504,95 496,99" fill="var(--text-tertiary)"/>
 
- <!-- Control Box -->
+ <!-- NeuroCore 控制盒 -->
  <g filter="url(#s1)">
  <rect x="508" y="30" width="195" height="130" rx="16" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1.5"/>
  <rect x="508" y="30" width="195" height="40" rx="16" fill="var(--accent-subtle)"/>
@@ -631,7 +631,7 @@ footer {
  <span class="spec-tag">8h续航</span>
  </div>
  <div class="component-connector">
- <strong>数据流向 Control Box：</strong>蓝牙5.2实时传输原始脑电信号至 Control Box，延迟&lt;20ms。内置9轴IMU辅助识别头部运动，提升意图识别准确率。
+ <strong>数据流向 NeuroCore 控制盒：</strong>蓝牙5.2实时传输原始脑电信号至 NeuroCore 控制盒，延迟&lt;20ms。内置9轴IMU辅助识别头部运动，提升意图识别准确率。
  </div>
  <div class="outcome">EEG预测运动意图（MRCP检测准确率70-85%），IMU+力传感器提供运动中的主要控制信号。EEG+IMU混合控制是最可靠方案。</div>
  </div>
@@ -677,11 +677,11 @@ footer {
  <line x1="100" y1="100" x2="200" y2="100" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
  <text x="150" y="148" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">碳纤维骨架  ·  直驱电机  ·  ~2.5kg</text>
  </svg>
- <img src="docs/render_2_controlbox.jpg" alt="NeuroCore 边缘AI处理器" loading="lazy" decoding="async">
+ <img src="docs/render_2_controlbox.jpg" alt="NeuroCore 控制盒" loading="lazy" decoding="async">
  </div>
  <div class="card-content">
  <div class="section-label">02 &#183; 生成 Generate</div>
- <h3>NeuroCore 边缘AI处理器</h3>
+ <h3>NeuroCore 控制盒</h3>
  <p class="en">AI Intent Translation Engine</p>
  <p class="desc">Nexum One 的运算大脑。EEG+IMU多模态融合，强化学习策略网络实时将运动意图"翻译"为精准关节控制指令。4 TOPS NPU边缘推理，无需云端。3.5寸触摸屏支持实时状态显示和手动微调。416肌肉骨骼模型作为离线训练环境使用。</p>
  <div class="spec-tags">
@@ -692,7 +692,7 @@ footer {
  <span class="spec-tag">离线孪生训练</span>
  </div>
  <div class="component-connector">
- <strong>从 EEG-Sense 接收 → 发送到 NeuroSuit：</strong>Control Box 接收EEG+IMU信号，经EEGNet解码运动意图，强化学习策略生成辅助方案，通过蓝牙5.2发送驱动指令至 NeuroSuit。
+ <strong>从 EEG-Sense 接收 → 发送到 NeuroSuit：</strong>NeuroCore 控制盒接收EEG+IMU信号，经EEGNet解码运动意图，强化学习策略生成辅助方案，通过蓝牙5.2发送驱动指令至 NeuroSuit。
  </div>
  <div class="outcome">EEG用于预测"想做什么"，IMU用于感知"正在做什么"。两者结合，实现平滑自然的辅助。</div>
  </div>
@@ -752,7 +752,7 @@ footer {
  <span class="spec-tag">10秒穿脱</span>
  </div>
  <div class="component-connector">
- <strong>从 Control Box 接收驱动指令：</strong>直驱电机毫秒级响应，完成关节助力。内置磁编码器 + 6轴IMU实时反馈关节角度，闭环控制确保精度与安全。
+ <strong>从 NeuroCore 控制盒接收驱动指令：</strong>直驱电机毫秒级响应，完成关节助力。内置磁编码器 + 6轴IMU实时反馈关节角度，闭环控制确保精度与安全。
  </div>
  <div class="outcome">在正确的时间、正确的关节、施加正确的力</div>
  </div>
@@ -766,7 +766,7 @@ footer {
  <div class="text-center section-label">完整系统</div>
  <h2 class="text-center">三位一体，无缝协作</h2>
  <p style="text-align:center;max-width:680px;margin:0 auto;font-size:15px;color:var(--text-secondary);line-height:1.7;">
-      EEG-Sense 读取脑信号 → Control Box 生成辅助策略 → NeuroSuit 执行关节助力 → 联邦学习持续进化。
+      EEG-Sense 读取脑信号 → NeuroCore 控制盒生成辅助策略 → NeuroSuit 执行关节助力 → 联邦学习持续进化。
       完整闭环，从意念到动作。
  </p>
  <div class="system-flow-diagram">
@@ -778,7 +778,7 @@ footer {
  <div class="sys-arrow">→</div>
  <div class="sys-node">
  <div class="sys-node-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
- <div class="sys-node-label">Control Box</div>
+ <div class="sys-node-label">NeuroCore 控制盒</div>
  <div class="sys-node-sub">AI策略生成</div>
  </div>
  <div class="sys-arrow">→</div>
@@ -849,7 +849,7 @@ footer {
  <div class="box-grid">
  <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><path d="M6 2v6l3-2 3 2V2"/><rect x="1" y="10" width="22" height="10" rx="1"/><circle cx="12" cy="16" r="2"/><path d="M12 14v-1"/></svg></div><h4>EEG-Sense 头带</h4><p>8通道干电极EEG头带，可调节佩戴，内置蓝牙及电池</p></div>
  <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div><h4>NeuroSuit 肌动服</h4><p>碳纤维 + 直驱电机，3个尺码，10秒穿脱</p></div>
- <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h4>NeuroCore 处理器</h4><p>边缘AI计算，EEG+IMU融合，触摸屏操作</p></div>
+ <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h4>NeuroCore 控制盒</h4><p>边缘AI计算，EEG+IMU融合，触摸屏操作</p></div>
  <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h4>充电底座</h4><p>三合一无线充电，同时为三个模块供电</p></div>
  <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M10 5v14"/><circle cx="7" cy="8" r="1"/><circle cx="15" cy="8" r="1"/></svg></div><h4>配件包</h4><p>备用干电极、绑带、线缆保护套、清洁工具</p></div>
  <div class="box-item"><div class="box-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h4>快速入门指南</h4><p>图文部署指南，10分钟完成首次设置</p></div>
@@ -924,11 +924,11 @@ footer {
  </div>
  <div class="faq-item">
  <button class="faq-question">多久需要充电一次？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
- <div class="faq-answer">EEG-Sense续航8小时，Control Box续航8小时，NeuroSuit续航~6小时。三合一充电底座2小时充满所有模块。可选购备用电池包。</div>
+ <div class="faq-answer">EEG-Sense续航8小时，NeuroCore 控制盒续航8小时，NeuroSuit续航~6小时。三合一充电底座2小时充满所有模块。可选购备用电池包。</div>
  </div>
  <div class="faq-item">
  <button class="faq-question">系统可以自行穿脱吗？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
- <div class="faq-answer">NeuroSuit 10秒快穿，弹性材料 + 快速卡扣。大多数用户可在他人协助下完成。上肢功能较好的用户可独立穿脱。EEG-Sense头带和Control Box均可单手操作。</div>
+ <div class="faq-answer">NeuroSuit 10秒快穿，弹性材料 + 快速卡扣。大多数用户可在他人协助下完成。上肢功能较好的用户可独立穿脱。EEG-Sense头带和NeuroCore 控制盒均可单手操作。</div>
  </div>
  <div class="faq-item">
  <button class="faq-question">AI 模型会共享用户数据吗？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
@@ -936,7 +936,7 @@ footer {
  </div>
  <div class="faq-item">
  <button class="faq-question">系统在户外环境下能正常工作吗？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
- <div class="faq-answer">可以。EEG信号在户外可能受阳光和汗水影响，建议佩戴遮阳帽。Control Box具备IP54防尘防水，小雨可正常使用。极端天气（暴雨、高温）建议室内使用。</div>
+ <div class="faq-answer">可以。EEG信号在户外可能受阳光和汗水影响，建议佩戴遮阳帽。NeuroCore 控制盒具备IP54防尘防水，小雨可正常使用。极端天气（暴雨、高温）建议室内使用。</div>
  </div>
  <div class="faq-item">
  <button class="faq-question">系统可以配合轮椅或其他辅助设备使用吗？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
@@ -998,7 +998,7 @@ footer {
  </div>
  <div class="care-item">
  <div class="care-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
- <h4>NeuroCore 保养</h4>
+ <h4>NeuroCore 控制盒 保养</h4>
  <p>保持清洁和良好散热，电子元件需防潮防尘。</p>
  <ul>
  <li>用微湿软布擦拭外壳</li>
@@ -1035,7 +1035,7 @@ footer {
  <img src="docs/render_4_system.jpg" alt="Nexum One 系统全览" loading="lazy" decoding="async" style="object-position:62% center">
  <img src="docs/render_1_eeg.jpg" alt="EEG-Sense 头带特写" loading="lazy" decoding="async">
  <img src="docs/render_3_neurosuit.jpg" alt="NeuroSuit 肌动服穿戴" loading="lazy" decoding="async">
- <img src="docs/render_2_controlbox.jpg" alt="NeuroCore 处理器" loading="lazy" decoding="async">
+ <img src="docs/render_2_controlbox.jpg" alt="NeuroCore 控制盒" loading="lazy" decoding="async">
  <img src="docs/render_4_walking.jpg" alt="行走辅助场景" loading="lazy" decoding="async">
  <img src="docs/render_clinical_v2.jpg" alt="临床使用场景" loading="lazy" decoding="async">
  </div>
@@ -1090,7 +1090,7 @@ footer {
  </div>
  </div>
  <div class="specs-group">
- <button class="specs-group-title">NeuroCore 边缘AI处理器 <span class="arrow">&#9660;</span></button>
+ <button class="specs-group-title">NeuroCore 控制盒 <span class="arrow">&#9660;</span></button>
  <div class="specs-group-content">
  <div class="spec-row"><span class="spec-key">处理器</span><span class="spec-val">ARM Cortex-A78AE x4</span></div>
  <div class="spec-row"><span class="spec-key">AI加速器</span><span class="spec-val">NPU 4 TOPS</span></div>
@@ -1112,7 +1112,7 @@ footer {
 <section class="section gallery-section" style="padding-bottom:24px">
  <div class="container">
  <div class="text-center section-label">内部结构</div>
- <h2 class="text-center">Control Box 分解视图</h2>
+ <h2 class="text-center">NeuroCore 控制盒 分解视图</h2>
  <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:24px;margin-top:32px">
  <svg class="exploded-svg" viewBox="0 0 950 520" xmlns="http://www.w3.org/2000/svg">
  <defs>
