@@ -25,7 +25,7 @@
       '</div>'+
       '<div class="nav-actions">'+
         '<button class="theme-btn" id="themeToggle" aria-label="切换主题"></button>'+
-        '<a href="'+(isIndex?'':'')+'逐念而行_Nexum_BP.html" class="nav-cta">'+
+        '<a href="'+(isIndex?'':'')+'nexum-bp.html" class="nav-cta">'+
           'BP <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>'+
         '</a>'+
       '</div>'+
@@ -70,7 +70,7 @@
       '<div class="footer-col">'+
         '<h5>更多</h5>'+
         '<a href="'+(isIndex?'production-bom.html':'production-bom.html')+'">生产 BOM</a>'+
-        '<a href="'+(isIndex?'':'')+'逐念而行_Nexum_BP.html">商业计划书</a>'+
+        '<a href="'+(isIndex?'':'')+'nexum-bp.html">商业计划书</a>'+
         '<a href="https://github.com/nexum-bci" target="_blank" rel="noopener">GitHub</a>'+
         '<a href="mailto:hello@nexum.ai">hello@nexum.ai</a>'+
       '</div>'+
