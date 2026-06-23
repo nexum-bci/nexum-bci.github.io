@@ -26,7 +26,7 @@
       '<div class="nav-actions">'+
         '<button class="theme-btn" id="themeToggle" aria-label="切换主题"></button>'+
         '<a href="'+(isIndex?'':'')+'nexum-bp.html" class="nav-cta">'+
-          'BP <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>'+
+          '商业计划书 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>'+
         '</a>'+
       '</div>'+
       '<button class="nav-toggle" id="navToggle" aria-label="菜单">'+
@@ -43,7 +43,7 @@
           '<img src="'+(isIndex?'':'')+'favicon.svg" width="28" height="28" alt="Nexum">'+
           '<span>逐念而行 Nexum</span>'+
         '</a>'+
-        '<p class="footer-tagline">从神经意图到物理动作。读懂大脑运动意图，帮身体走路。人机共生，是终点也是起点。</p>'+
+        '<p class="footer-tagline">从神经意图到物理动作的通用映射。<br>Nexum One — 在你想动之前，助力已经就绪。</p>'+
         '<div class="footer-social">'+
           '<a href="https://github.com/nexum-bci" target="_blank" rel="noopener" aria-label="GitHub">'+
             '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>'+
@@ -54,14 +54,14 @@
         '</div>'+
       '</div>'+
       '<div class="footer-col">'+
-        '<h5>了解 Nexum</h5>'+
+        '<h5>产品</h5>'+
         '<a href="'+(isIndex?'product.html':'product.html')+'">产品概览</a>'+
         '<a href="'+(isIndex?'technology.html':'technology.html')+'">技术架构</a>'+
         '<a href="'+(isIndex?'app.html':'app.html')+'">配套应用</a>'+
         '<a href="'+(isIndex?'product-renders.html':'product-renders.html')+'">产品渲染</a>'+
       '</div>'+
       '<div class="footer-col">'+
-        '<h5>深度</h5>'+
+        '<h5>研究</h5>'+
         '<a href="'+(isIndex?'industry.html':'industry.html')+'">行业研究</a>'+
         '<a href="'+(isIndex?'engineering.html':'engineering.html')+'">工程架构</a>'+
         '<a href="'+(isIndex?'clinical-protocol.html':'clinical-protocol.html')+'">临床研究方案</a>'+
@@ -69,7 +69,7 @@
         '<a href="'+(isIndex?'prd.html':'prd.html')+'">产品需求文档</a>'+
       '</div>'+
       '<div class="footer-col">'+
-        '<h5>更多</h5>'+
+        '<h5>资源</h5>'+
         '<a href="'+(isIndex?'production-bom.html':'production-bom.html')+'">生产BOM</a>'+
         '<a href="'+(isIndex?'':'')+'nexum-bp.html">商业计划书</a>'+
         '<a href="https://github.com/nexum-bci" target="_blank" rel="noopener">GitHub</a>'+
@@ -77,7 +77,7 @@
       '</div>'+
     '</div>'+
     '<div class="footer-bottom">'+
-      '<p>&copy; 2026 逐念而行 Nexum · 人机共生 · 上海</p>'+
+      '<p>&copy; 2026 逐念而行 Nexum &nbsp;·&nbsp; <a href="mailto:hello@nexum.ai" style="color:var(--text-tertiary)">hello@nexum.ai</a></p>'+
     '</div>'+
   '</footer>';
 
