@@ -27,7 +27,28 @@ tr:hover td{background:var(--bg)!important}
 .highlight-box{background:var(--accent-subtle);border-left:4px solid var(--accent);padding:20px 24px;margin:24px 0;border-radius:0 10px 10px 0;font-size:14px;line-height:1.7}
 .callout-good{background:rgba(16,185,129,.06);border-left:4px solid #10b981;padding:20px 24px;margin:24px 0;border-radius:0 10px 10px 0;font-size:14px;line-height:1.7}
 h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
-@media(max-width:768px){.stat-grid{grid-template-columns:1fr 1fr}.content-card{margin-bottom:24px}}
+@media(max-width:768px){
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .content-card{margin-bottom:24px}
+  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
+  th,td{min-width:120px}
+}
+@media(max-width:480px){
+  .stat-grid{grid-template-columns:1fr}
+  .content-card{padding:16px}
+}
+@media print {
+  nav, footer, .btt-btn, .theme-btn { display: none !important; }
+  body { font-size: 11pt; line-height: 1.6; color: #000; background: #fff; padding: 0; }
+  .content-card { break-inside: avoid; page-break-inside: avoid; margin-bottom: 16px; border: 1px solid #ddd; }
+  h2 { font-size: 16pt; page-break-after: avoid; }
+  h3 { font-size: 13pt; page-break-after: avoid; }
+  table { font-size: 9pt; page-break-inside: avoid; }
+  th { background: #f0f0f0 !important; color: #000 !important; }
+  tr:nth-child(even) td { background: #fafafa !important; }
+  a { color: #000; text-decoration: underline; }
+  .highlight-box, .callout-good { background: #f9f9f9; border-left: 4px solid #999; }
+}
 </style>
 </head>
 <body>
@@ -263,29 +284,40 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <div class="content-card" style="margin-bottom:32px">
 <h2 style="margin-top:0" id="tech-paths">7. 技术路径</h2>
 
-<h3>感知层：EEG信号采集与解码</h3>
-<p><strong>ADC芯片：</strong>TI ADS1299（8通道24-bit, 1μVpp输入噪声, CMRR -110dB, ~$51-67）。250SPS采样率，SPI接口直连MCU。内置偏置驱动和导联脱落检测。</p>
-<p><strong>头带MCU：</strong>nRF52832（Cortex-M4F @64MHz, BLE 5.0, ~$5-8）。负责信号预处理：50Hz陷波→0.5-45Hz带通滤波→共平均参考(CAR)。检测到MRCP时将数据发送至NeuroCore。</p>
-<p><strong>干电极：</strong>Ag/AgCl涂层pin电极（$5-15/通道）。长期方向：MNAE微针阵列（2026年接触阻抗2.6kΩ, 信号幅度超湿电极39-44%）。</p>
+<h3 style="color:#1d4ed8;border-left:4px solid #2563eb;padding:4px 0 4px 14px;margin-bottom:16px;">神经感知层 <span style="font-weight:400;font-size:13px;color:var(--text-tertiary);">信号采集与预处理 · EEG-Sense 意图感知头带</span></h3>
+<div style="background:rgba(37,99,235,0.03);border-left:2px solid rgba(37,99,235,0.15);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:8px;">
+<p style="margin-top:0;"><strong style="color:#2563eb;">ADC芯片</strong> TI ADS1299 — 8通道24-bit, 1μVpp输入噪声, CMRR -110dB, ~$51-67, 250SPS, SPI接口直连MCU, 内置偏置驱动和导联脱落检测。</p>
+<p><strong style="color:#2563eb;">头带MCU</strong> nRF5340 — 双核Cortex-M33, BLE 5.2, ~$5-8。信号预处理链：50Hz陷波→0.5-45Hz带通滤波→共平均参考(CAR)。MRCP检测触发数据发送至NeuroCore。</p>
+<p><strong style="color:#2563eb;">干电极</strong> Ag/AgCl涂层pin电极（$5-15/通道）。长期方向：MNAE微针阵列（2026年接触阻抗2.6kΩ, 信号幅度超湿电极39-44%）。</p>
+<p style="margin-bottom:0;"><strong style="color:#2563eb;">IMU+力传感器</strong> BMI270 6轴IMU×4（大腿/小腿，100Hz）+ 应变片扭矩反馈×2（髋双侧）。IMU为主力控制信号源，EEG为预测增强。EEG失效时系统无缝降级至纯IMU模式。</p>
+</div>
 
-<h3>解码层：从脑电到力矩</h3>
-<p><strong>意图分类器：</strong>EEGNet（Lawhern 2018, ~2000参数紧凑CNN）。输入8ch×250Hz×100ms滑动窗口→输出四类运动意图。INT8量化后嵌入式推理&lt;5ms。2024-2025年Transformer架构（TOTEM, EEG-Deformer）在跨subject泛化上开始超越EEGNet基线。</p>
-<p><strong>RL策略网络：</strong>PPO/SAC算法，在NVIDIA Isaac Gym仿真环境中训练数亿步后蒸馏为&lt;5MB轻量网络。肌骨模型为2-4DOF简化髋关节模型（OpenSim框架），仅离线训练用，不部署到嵌入式设备。</p>
-<p><strong>运动意图范式：</strong>MRCP离线95%/在线63-83%，预测运动前350-600ms——比纯IMU方案快200-500ms。混合MI+SSVEP方案在准确率和疲劳度间平衡。</p>
+<h3 style="color:#6d28d9;border-left:4px solid #7c3aed;padding:4px 0 4px 14px;margin-bottom:16px;">意图解码层 <span style="font-weight:400;font-size:13px;color:var(--text-tertiary);">从脑电到力矩 · NeuroCore 控制中枢</span></h3>
+<div style="background:rgba(124,58,237,0.03);border-left:2px solid rgba(124,58,237,0.15);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:8px;">
+<p style="margin-top:0;"><strong style="color:#7c3aed;">意图分类器</strong> EEGNet（Lawhern 2018, ~2000参数紧凑CNN）。输入8ch×250Hz×100ms滑动窗口→输出四类运动意图。INT8量化后嵌入式推理&lt;5ms。2024-2025年Transformer架构（TOTEM, EEG-Deformer）在跨subject泛化上开始超越EEGNet基线。</p>
+<p><strong style="color:#7c3aed;">RL策略网络</strong> 离线训练+在线推理。离线：基于NEU NeuMove Lab的MyoSuite/MyoWarp框架，416块肌肉的柔性肌腱Hill-type肌骨模型仿真人体步行——RL策略（PPO/SAC）在此环境中学习不同步态相位对应的关节力矩。在线：EEGNet分类运动意图+IMU检测步态相位→RL策略输出力矩。肌骨模型不进入实时控制回路，RL策略是两者之间的桥梁。当前裸步行仿真已验证，需扩展至外骨骼动力学+混合穿戴结构的联合仿真环境。</p>
+<p style="margin-bottom:0;"><strong style="color:#7c3aed;">运动意图范式</strong> MRCP离线95%/在线63-83%，预测运动前200-500ms——比纯IMU方案快200-500ms。混合MI+SSVEP方案在准确率和疲劳度间平衡。</p>
+</div>
 
-<h3>执行层：直驱电机与力控</h3>
-<p><strong>电机：</strong>CubeMars AKE60-8准直驱（260g, 12.5Nm峰值/5Nm持续, 8:1行星减速, ~$200-300/个）。髋关节×2。QDD在反向驱动性和控制带宽上全面优于谐波减速。</p>
-<p><strong>FOC驱动：</strong>TMC4671硬件FOC控制器（100kHz）+ AS5047P 14-bit磁编码器（$4-6）+ 应变片扭矩反馈。PID力控闭环1kHz。</p>
-<p><strong>主控+AI：</strong>STM32H743（Cortex-M7 @480MHz, FreeRTOS）实时控制 + Hailo-8L（13 TOPS @1.5W, ~$70）AI推理。ONNX Runtime统一框架。</p>
+<h3 style="color:#047857;border-left:4px solid #059669;padding:4px 0 4px 14px;margin-bottom:16px;">力控执行层 <span style="font-weight:400;font-size:13px;color:var(--text-tertiary);">直驱电机与力控 · NeuroSuit 神经意图肌动服</span></h3>
+<div style="background:rgba(5,150,105,0.03);border-left:2px solid rgba(5,150,105,0.15);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:8px;">
+<p style="margin-top:0;"><strong style="color:#059669;">电机</strong> CubeMars AKE60-8准直驱 — 260g, 12.5Nm峰值/5Nm持续, 8:1行星减速, ~$200-300/个, 髋关节×2。QDD在反向驱动性和控制带宽上全面优于谐波减速。</p>
+<p><strong style="color:#059669;">FOC驱动</strong> TMC4671硬件FOC控制器（100kHz）+ AS5047P 14-bit磁编码器（$4-6）+ 应变片扭矩反馈。PID力控闭环1kHz。</p>
+<p style="margin-bottom:0;"><strong style="color:#059669;">主控+AI（位于NeuroCore）</strong> STM32H743（Cortex-M7 @480MHz, FreeRTOS）负责实时FOC控制与传感器融合。Hailo-8L（13 TOPS @1.5W, ~$70）执行EEGNet推理与RL策略前向，ONNX Runtime统一框架。芯片物理上集成在NeuroCore控制中枢内。</p>
+</div>
 
-<h3>结构层：碳纤维骨架</h3>
-<p><strong>碳纤维：</strong>T700级预浸料编织布$12-35/kg。Toray医疗级（$50-200/kg, FDA认证）用于患者接触部位。恒神工业级（$9-15/kg）用于非接触结构件。用量约0.5-1.5kg/套。</p>
-<p><strong>弹性织物：</strong>运动压缩裤基底（参照2XU/CW-X梯度压缩设计）。碳纤维锚定骨架缝入织物，多点压力分散。无刚性外框。可内穿于常规衣物。</p>
+<h3 style="color:#b45309;border-left:4px solid #d97706;padding:4px 0 4px 14px;margin-bottom:16px;">穿戴结构层 <span style="font-weight:400;font-size:13px;color:var(--text-tertiary);">碳纤维骨架 · 服装式集成</span></h3>
+<div style="background:rgba(217,119,6,0.03);border-left:2px solid rgba(217,119,6,0.15);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:8px;">
+<p style="margin-top:0;"><strong style="color:#d97706;">碳纤维</strong> T700级预浸料编织布$12-35/kg。Toray医疗级（$50-200/kg, FDA认证）用于患者接触部位。恒神工业级（$9-15/kg）用于非接触结构件。用量约0.5-1.5kg/套。</p>
+<p style="margin-bottom:0;"><strong style="color:#d97706;">弹性织物</strong> 运动压缩裤基底（参照2XU/CW-X梯度压缩设计）。碳纤维锚定骨架缝入织物，多点压力分散。无刚性外框。可内穿于常规衣物。</p>
+</div>
 
-<h3>进化层：联邦学习（V2阶段）</h3>
-<p><strong>FLEEG</strong>（Guan NTU, Neural Networks 2024）：9个异构MI数据集跨患者联邦学习，提升8.4%。验证了多医院场景下联邦学习的可行性。</p>
-<p><strong>pFedAC</strong>（Wang/Yang/Su, arXiv:2605.14423）：单时间尺度联邦Actor-Critic。超越独立PPO 2.63倍和FedAvg PPO 3.78倍——Nexum个性化策略进化的核心学术支撑。</p>
-<p><strong>隐私架构：</strong>原始EEG/步态数据不离设备。仅加密模型梯度上传。V2阶段引入（2028年后），V1阶段策略离线预训练不做在线学习。</p>
+<h3 style="color:#be123c;border-left:4px solid #e11d48;padding:4px 0 4px 14px;margin-bottom:16px;">策略进化层 <span style="font-weight:400;font-size:13px;color:var(--text-tertiary);">联邦学习（V2阶段）· 长期数据壁垒</span></h3>
+<div style="background:rgba(225,29,72,0.03);border-left:2px solid rgba(225,29,72,0.15);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:8px;">
+<p style="margin-top:0;"><strong style="color:#e11d48;">FLEEG</strong>（Guan NTU, Neural Networks 2024）：9个异构MI数据集跨患者联邦学习，提升8.4%。验证了多医院场景下联邦学习的可行性。</p>
+<p><strong style="color:#e11d48;">pFedAC</strong>（Wang et al., arXiv:2605.14423）：单时间尺度联邦Actor-Critic。超越独立PPO 2.63倍，超越FedAvg PPO 3.78倍——Nexum个性化策略进化的核心学术支撑。</p>
+<p style="margin-bottom:0;"><strong style="color:#e11d48;">隐私架构</strong> 原始EEG/步态数据不离设备。仅加密模型梯度上传。V2阶段引入（2028年后），V1阶段策略离线预训练不做在线学习。</p>
+</div>
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
@@ -309,7 +341,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 </table>
 
 <div class="callout-good">
-<strong>中国政策顺风最强：</strong>11省医保+BCI定价+辅具补贴+八部门养老BCI支持+创新器械绿色通道——五层政策同时在推。这是全球唯一具备完整政策闭环的市场。
+<strong>中国政策顺风最强：</strong>11省医保+BCI定价+辅具补贴+八部门养老BCI支持+创新器械绿色通道——五层政策同时在推。这是目前具备最完整政策闭环的市场之一。
 </div>
 </div>
 
@@ -465,7 +497,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <div class="highlight-box">
 <p><strong>唯一性已经过系统性验证。</strong>全球30+外骨骼公司中，无一同时具备非侵入EEG+下肢外骨骼产品。8家EEG-BCI公司全部只做上肢。5个关键学术团队中，Courtine（EPFL）做的是侵入式脑脊接口，Bin He（CMU）做的是手指级精细控制，均未进入下肢外骨骼产品化。</p>
 <p><strong>窗口期2-3年。</strong>程天科技的EEG+脊电R&D一旦转化为产品，交叉点将不再空白。Wandercraft Eve（2026美国上市）将验证居家外骨骼市场。g.tec可能向下肢延伸。</p>
-<p><strong>中国提供最强顺风。</strong>11省外骨骼医保+BCI定价+辅具补贴+八部门养老BCI政策+创新器械绿色通道——五层政策同时在推。这是全球唯一具备完整政策闭环的市场。</p>
+<p><strong>中国提供最强顺风。</strong>11省外骨骼医保+BCI定价+辅具补贴+八部门养老BCI政策+创新器械绿色通道——五层政策同时在推。这是目前具备最完整政策闭环的市场之一。</p>
 <p><strong>供应链已验证。</strong>所有核心器件有公开报价，BOM支撑$5,000售价。技术栈无不可达标的瓶颈。</p>
 </div>
 </div>

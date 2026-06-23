@@ -6,7 +6,7 @@
 :root {
   --bg: #FAFAFA; --bg-card: #FFFFFF; --border: rgba(0,0,0,0.08);
   --text: #1d1d1f; --text-secondary: #86868b; --text-tertiary: #6e6e73;
-  --accent: #0071e3; --accent-hover: #0077ED;
+  --accent: #0096f0; --accent-hover: #0aa2ff;
   --accent-subtle: rgba(0,113,227,0.08);
   --radius: 20px; --radius-sm: 12px; --radius-pill: 999px;
   --max-w: 980px; --section-p: 100px 24px;

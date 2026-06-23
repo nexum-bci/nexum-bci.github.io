@@ -84,38 +84,11 @@
   document.body.insertAdjacentHTML('afterbegin', navHTML);
   document.body.insertAdjacentHTML('beforeend', footerHTML);
 
-  // ===== THEME TOGGLE =====
-  // Restore theme from localStorage on load
-  (function() {
-    var savedTheme = localStorage.getItem('nexum-theme');
-    if (savedTheme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
-  
-  // ===== SPA ENHANCEMENTS =====
-  
-  // Prefetch links on hover for instant navigation
-  document.querySelectorAll('a[href*=".html"]').forEach(function(link){
-    var prefetched = false;
-    link.addEventListener('mouseenter',function(){
-      if(!prefetched){
-        var prefetch = document.createElement('link');
-        prefetch.rel = 'prefetch';
-        prefetch.href = link.href;
-        document.head.appendChild(prefetch);
-        prefetched = true;
-      }
-    },{once:true});
-  });
-
-  // Update nav active state on page load
-  document.querySelectorAll('.nav-links a').forEach(function(link){
-    if(link.getAttribute('href') && page.indexOf(link.getAttribute('href').replace('.html','')) > -1){
-      link.classList.add('active');
-    }
-  });
-
-})();
+  // ===== THEME =====
+  var savedTheme = localStorage.getItem('nexum-theme');
+  if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
 
   var toggle = document.getElementById('themeToggle');
   if (toggle) {
@@ -124,8 +97,7 @@
     toggle.addEventListener('click', function() {
       var isDark = document.documentElement.hasAttribute('data-theme');
       toggle.classList.add('rotating');
-      var myToggle = toggle;
-      setTimeout(function() { myToggle.classList.remove('rotating'); }, 400);
+      setTimeout(function() { toggle.classList.remove('rotating'); }, 400);
       if (isDark) {
         document.documentElement.removeAttribute('data-theme');
         localStorage.setItem('nexum-theme', 'light');
@@ -138,116 +110,67 @@
     });
   }
 
-  // ===== MOBILE NAV TOGGLE =====
-  (function() {
-    var navToggleBtn = document.getElementById('navToggle');
-    var navEl = document.querySelector('nav');
-    if (navToggleBtn && navEl) {
-      navToggleBtn.addEventListener('click', function() {
-        navEl.classList.toggle('nav-open');
-      });
-      document.querySelectorAll('.nav-link').forEach(function(link) {
-        link.addEventListener('click', function() {
-          navEl.classList.remove('nav-open');
-        });
-      });
-      window.addEventListener('scroll', function() {
-        navEl.classList.remove('nav-open');
-      }, { passive: true });
-    }
-  
-  // ===== SPA ENHANCEMENTS =====
-  
-  // Prefetch links on hover for instant navigation
-  document.querySelectorAll('a[href*=".html"]').forEach(function(link){
-    var prefetched = false;
-    link.addEventListener('mouseenter',function(){
-      if(!prefetched){
-        var prefetch = document.createElement('link');
-        prefetch.rel = 'prefetch';
-        prefetch.href = link.href;
-        document.head.appendChild(prefetch);
-        prefetched = true;
-      }
-    },{once:true});
-  });
-
-  // Update nav active state on page load
-  document.querySelectorAll('.nav-links a').forEach(function(link){
-    if(link.getAttribute('href') && page.indexOf(link.getAttribute('href').replace('.html','')) > -1){
-      link.classList.add('active');
-    }
-  });
-
-})();
-
-  // ===== ACTIVE NAV LINK =====
-  (function() {
-    var curPage = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav-link').forEach(function(link) {
-      var href = link.getAttribute('href');
-      if (href === curPage || href === '#' + curPage.replace('.html', '')) {
-        link.classList.add('active');
-      }
+  // ===== MOBILE NAV =====
+  var navToggleBtn = document.getElementById('navToggle');
+  var navEl = document.querySelector('nav');
+  if (navToggleBtn && navEl) {
+    navToggleBtn.addEventListener('click', function() {
+      navEl.classList.toggle('nav-open');
     });
-  
-  // ===== SPA ENHANCEMENTS =====
-  
-  // Prefetch links on hover for instant navigation
-  document.querySelectorAll('a[href*=".html"]').forEach(function(link){
+    document.querySelectorAll('.nav-link').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navEl.classList.remove('nav-open');
+      });
+    });
+    window.addEventListener('scroll', function() {
+      navEl.classList.remove('nav-open');
+    }, { passive: true });
+  }
+
+  // ===== SPA: PREFETCH + ACTIVE LINK =====
+  document.querySelectorAll('a[href*=".html"]').forEach(function(link) {
     var prefetched = false;
-    link.addEventListener('mouseenter',function(){
-      if(!prefetched){
+    link.addEventListener('mouseenter', function() {
+      if (!prefetched) {
         var prefetch = document.createElement('link');
         prefetch.rel = 'prefetch';
         prefetch.href = link.href;
         document.head.appendChild(prefetch);
         prefetched = true;
       }
-    },{once:true});
+    }, { once: true });
   });
 
-  // Update nav active state on page load
-  document.querySelectorAll('.nav-links a').forEach(function(link){
-    if(link.getAttribute('href') && page.indexOf(link.getAttribute('href').replace('.html','')) > -1){
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && page.indexOf(href.replace('.html','')) > -1) {
       link.classList.add('active');
     }
   });
 
-})();
-
-  // ===== NAV SLL BEHAVIOR =====
-  // Adds .nav-scrolled for opacity change and .nav-shrink for height reduction
+  // ===== NAV SCROLL BEHAVIOR =====
   (function() {
     var navEl = document.querySelector('nav');
     var lastScrollY = window.scrollY;
     var ticking = false;
-
     if (!navEl) return;
 
     function updateNav() {
       var scrollY = window.scrollY;
-
-      // Scrolled state — intensify glass blur when past threshold
       if (scrollY > 20) {
         navEl.classList.add('nav-scrolled');
       } else {
         navEl.classList.remove('nav-scrolled');
       }
-
-      // Shrink nav height on scroll down, restore on scroll up
       if (scrollY > 80 && scrollY > lastScrollY + 5) {
         navEl.classList.add('nav-shrink');
       } else if (scrollY < lastScrollY - 5 || scrollY < 80) {
         navEl.classList.remove('nav-shrink');
       }
-
       lastScrollY = scrollY;
     }
 
-    // Set initial state (handles page load with existing scroll position)
     updateNav();
-
     window.addEventListener('scroll', function() {
       if (!ticking) {
         window.requestAnimationFrame(function() {
@@ -257,45 +180,18 @@
         ticking = true;
       }
     }, { passive: true });
-  
-  // ===== SPA ENHANCEMENTS =====
-  
-  // Prefetch links on hover for instant navigation
-  document.querySelectorAll('a[href*=".html"]').forEach(function(link){
-    var prefetched = false;
-    link.addEventListener('mouseenter',function(){
-      if(!prefetched){
-        var prefetch = document.createElement('link');
-        prefetch.rel = 'prefetch';
-        prefetch.href = link.href;
-        document.head.appendChild(prefetch);
-        prefetched = true;
-      }
-    },{once:true});
-  });
-
-  // Update nav active state on page load
-  document.querySelectorAll('.nav-links a').forEach(function(link){
-    if(link.getAttribute('href') && page.indexOf(link.getAttribute('href').replace('.html','')) > -1){
-      link.classList.add('active');
-    }
-  });
-
-})();
+  })();
 
   // ===== PAGE TRANSITION =====
   var style = document.createElement('style');
   style.textContent = 'body{opacity:0;animation:fadeIn .4s cubic-bezier(0.16,1,0.3,1) forwards}@keyframes fadeIn{to{opacity:1}}';
   document.head.appendChild(style);
 
-  // Smooth fade-out on internal navigation
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a');
     if (!link) return;
     var href = link.getAttribute('href');
-    // Only intercept relative internal links (no protocol, no hash, no mailto)
     if (!href || href.startsWith('#') || href.startsWith('//') || href.indexOf(':') !== -1) return;
-
     e.preventDefault();
     document.body.style.transition = 'opacity .2s ease';
     document.body.style.opacity = '0';
@@ -304,7 +200,6 @@
     }, 200);
   });
 
-  // Handle bfcache — restore opacity when navigating back
   window.addEventListener('pageshow', function(e) {
     if (e.persisted) {
       document.body.style.opacity = '1';
@@ -312,43 +207,23 @@
     }
   });
 
-  // ===== BACK-TO-TOP BUTTON =====
+  // ===== BACK-TO-TOP =====
   var btt = document.createElement('button');
   btt.className = 'btt-btn';
   btt.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>';
   btt.setAttribute('aria-label', '回到顶部');
   btt.style.cssText = 'position:fixed;bottom:28px;right:28px;z-index:999;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);box-shadow:0 4px 16px rgba(0,0,0,0.1);transition:all 0.3s cubic-bezier(.16,1,.3,1);opacity:0;pointer-events:none';
-  btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
-  btt.addEventListener('mouseenter',function(){this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.15)'});
-  btt.addEventListener('mouseleave',function(){this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.1)'});
+  btt.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  btt.addEventListener('mouseenter', function() { this.style.transform = 'translateY(-3px)'; this.style.boxShadow = '0 8px 28px rgba(0,0,0,0.15)'; });
+  btt.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0)'; this.style.boxShadow = '0 4px 16px rgba(0,0,0,0.1)'; });
   document.body.appendChild(btt);
-  window.addEventListener('scroll',function(){
-    if(window.scrollY>400){btt.style.opacity='1';btt.style.pointerEvents='auto'}
-    else{btt.style.opacity='0';btt.style.pointerEvents='none'}
-  });
-
-
-  // ===== SPA ENHANCEMENTS =====
-  
-  // Prefetch links on hover for instant navigation
-  document.querySelectorAll('a[href*=".html"]').forEach(function(link){
-    var prefetched = false;
-    link.addEventListener('mouseenter',function(){
-      if(!prefetched){
-        var prefetch = document.createElement('link');
-        prefetch.rel = 'prefetch';
-        prefetch.href = link.href;
-        document.head.appendChild(prefetch);
-        prefetched = true;
-      }
-    },{once:true});
-  });
-
-  // Update nav active state on page load
-  document.querySelectorAll('.nav-links a').forEach(function(link){
-    if(link.getAttribute('href') && page.indexOf(link.getAttribute('href').replace('.html','')) > -1){
-      link.classList.add('active');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      btt.style.opacity = '1';
+      btt.style.pointerEvents = 'auto';
+    } else {
+      btt.style.opacity = '0';
+      btt.style.pointerEvents = 'none';
     }
   });
-
 })();

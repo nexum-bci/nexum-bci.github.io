@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#FAFAFA">
 <meta name="color-scheme" content="light dark">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="逐念而行 Nexum —   ·  神经意图外骨骼">
+<meta property="og:title" content="逐念而行 Nexum — 神经意图外骨骼">
 <meta property="og:description" content="Nexum One 神经意图外骨骼：EEG+IMU读取运动意图，意图解码，直驱执行。读懂大脑运动意图，帮身体走路。">
 <meta property="og:type" content="website">
 <meta property="og:image" content="favicon.svg">
@@ -67,8 +67,8 @@ ul{list-style:none}
   --text: #1d1d1f;
   --text-secondary: #86868b;
   --text-tertiary: #6e6e73;
-  --accent: #0071e3;
-  --accent-hover: #0077ED;
+  --accent: #0096f0;
+  --accent-hover: #0aa2ff;
   --accent-subtle: rgba(0,113,227,0.08);
   --radius: 20px;
   --radius-sm: 12px;
@@ -89,7 +89,7 @@ ul{list-style:none}
   --text: #FFFFFF;
   --text-secondary: #a1a1a6;
   --text-tertiary: #6e6e73;
-  --accent: #0071e3;
+  --accent: #0096f0;
   --accent-hover: #409cff;
   --accent-subtle: rgba(0,113,227,0.12);
   --shadow-sm: none;
@@ -231,7 +231,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px) 
   margin-bottom:20px
 }
 .hero-title{
-  font-size:64px;
+  font-size:clamp(32px,5vw,64px);
   font-weight:700;
   line-height:1.08;
   letter-spacing:-1.2px;
@@ -1018,7 +1018,6 @@ footer a:hover{color:var(--text)}
    TABLET: 769-1024px
    ============================================================ */
 @media(min-width:769px) and (max-width:1024px){
-  .hero-title{font-size:48px}
   .section-title{font-size:30px}
   .problem-headline{font-size:44px}
   .grid-4{grid-template-columns:1fr 1fr;gap:20px}
@@ -1036,10 +1035,8 @@ footer a:hover{color:var(--text)}
 @media(max-width:768px){
   .footer-inner{grid-template-columns:1fr 1fr;gap:32px}
   :root{--section-p:80px 20px}
-  .hero-title{font-size:36px;letter-spacing:-1px}
   .hero-tagline{font-size:15px;color:var(--text-secondary);max-width:560px;margin:0 auto 36px;line-height:1.6}
 .hero-sub{font-size:16px}
-  .section-title{font-size:26px}
   .section-sub{font-size:14px;margin-bottom:8px}
   .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;gap:20px}
   .problem-stats{flex-direction:column;align-items:center;gap:20px}
@@ -1079,7 +1076,6 @@ footer a:hover{color:var(--text)}
    ============================================================ */
 @media(max-width:480px){.app-mockups{grid-template-columns:1fr;max-width:280px}
   .footer-inner{grid-template-columns:1fr}
-  .hero-title{font-size:28px}
   .hero-tagline{font-size:15px;color:var(--text-secondary);max-width:560px;margin:0 auto 36px;line-height:1.6}
 .hero-sub{font-size:15px}
   .footer-grid{grid-template-columns:1fr}
@@ -2449,7 +2445,7 @@ a{text-decoration:none!important}
  </div>
  <div class="hero-metrics">
  <div class="metric"><div class="metric-num">9,400 万</div><div class="metric-label">全球患者</div><div class="metric-sub">脑卒中存活者</div></div>
- <div class="metric"><div class="metric-num">~150-200ms</div><div class="metric-label">系统延迟</div><div class="metric-sub">EEG→AI→执行</div></div>
+ <div class="metric"><div class="metric-num">~150-200ms</div><div class="metric-label">系统延迟</div><div class="metric-sub">感知→解码→执行</div></div>
  <div class="metric"><div class="metric-num">8ch</div><div class="metric-label">EEG通道</div><div class="metric-sub">干电极</div></div>
  <div class="metric"><div class="metric-num">~2.5kg</div><div class="metric-label">穿戴重量</div><div class="metric-sub">碳纤维</div></div>
  <div class="metric"><div class="metric-num">12Nm</div><div class="metric-label">峰值助力</div><div class="metric-sub">直驱电机</div></div>
@@ -2469,7 +2465,7 @@ a{text-decoration:none!important}
  </div>
  <div class="problem-stats">
  <div class="problem-stat reveal"><div class="problem-stat-num">9,400 万</div><div class="problem-stat-label">全球脑卒中存活者</div><div class="problem-stat-desc">WHO 2024  ·  60%遗留运动功能障碍</div></div>
- <div class="problem-stat reveal"><div class="problem-stat-num">1,500 万</div><div class="problem-stat-label">每年新增患者</div><div class="problem-stat-desc">年增5%  ·  2030年突破2000万</div></div>
+ <div class="problem-stat reveal"><div class="problem-stat-num">1,200 万</div><div class="problem-stat-label">每年新增患者</div><div class="problem-stat-desc">WHO数据  ·  年增5%  ·  2030年突破2000万</div></div>
  <div class="problem-stat reveal"><div class="problem-stat-num">$30,000+</div><div class="problem-stat-label">人均年康复费用</div><div class="problem-stat-desc">美国  ·  中国等效¥8-15万/年</div></div>
  </div>
  <p class="problem-context reveal">传统康复：治疗师手动辅助，被动、低效。Nexum：读懂大脑的意图，在身体想动的时候给正确的力。不是替代治疗师——是让每一次训练都精准有效。</p>
@@ -2483,7 +2479,7 @@ a{text-decoration:none!important}
  <div class="container">
  <div class="section-title-center">
  <h2 class="section-title">Nexum One</h2>
- <p class="section-sub section-sub-center" style="font-size:14px;max-width:800px">神经意图解码层 · 三大模块 · V1 髋部 → V2 髋膝 → V3 全身</p>
+ <p class="section-sub section-sub-center" style="font-size:14px;max-width:800px">五层技术栈 · 三大模块 · V1 髋部 → V2 髋膝 → V3 全身</p>
  </div>
  <div class="product-grid">
  <!-- EEG-Sense -->
@@ -2552,31 +2548,31 @@ a{text-decoration:none!important}
 <section id="technology" class="section tech-section" style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
  <div class="container">
  <div class="section-title-center">
- <h2 class="section-title">读意图 → 解码 → 执行 → 进化</h2>
- <p class="section-sub section-sub-center">四步闭环，端到端~150-200ms。每一步都在进化。</p>
+ <h2 class="section-title">神经感知 → 意图解码 → 力控执行 → 策略进化</h2>
+ <p class="section-sub section-sub-center">四步闭环，端到端~150-200ms。五层技术栈，每一步都在进化。</p>
  </div>
  <div class="tech-flow">
  <div class="tech-step reveal">
  <div class="step-num">01</div>
- <div class="step-title">读取意图</div>
+ <div class="step-title">神经感知</div>
  <div class="step-desc">EEG预测运动意图（MRCP检测，提前~0.5s），IMU+力传感器提供运动中的主要控制信号，多模态融合</div>
  <div class="step-time">~40ms</div>
  </div>
  <div class="tech-step reveal">
  <div class="step-num">02</div>
- <div class="step-title">解码意图</div>
- <div class="step-desc">AI引擎将EEG预测的意图解码为具体关节控制指令，强化学习策略网络实时生成个性化辅助方案</div>
+ <div class="step-title">意图解码</div>
+ <div class="step-desc">离线训练+在线推理。416肌骨模型仿真训练RL策略；在线时EEGNet分类意图+IMU检步态→策略输出力矩</div>
  <div class="step-time">~55ms</div>
  </div>
  <div class="tech-step reveal">
  <div class="step-num">03</div>
- <div class="step-title">执行动作</div>
+ <div class="step-title">力控执行</div>
  <div class="step-desc">直驱电机精准执行关节助力，FOC矢量控制，碳纤维骨架确保力传导效率</div>
  <div class="step-time">~60ms</div>
  </div>
  <div class="tech-step reveal">
  <div class="step-num">04</div>
- <div class="step-title">持续进化</div>
+ <div class="step-title">策略进化</div>
  <div class="step-desc">个性化模型随使用持续优化（研究阶段），本地数据不离设备，动态适应恢复进程</div>
  <div class="step-time">~30ms</div>
  </div>
@@ -2589,7 +2585,7 @@ a{text-decoration:none!important}
  <span class="latency-eeg">EEG采集 40ms</span>
  <span class="latency-pre">预处理 20ms</span>
  <span class="latency-ai">AI策略 55ms</span>
- <span class="latency-act">执行 60ms</span>
+ <span class="latency-act">力控执行 60ms</span>
  <span class="latency-learn">学习 10ms</span>
  </div>
  <div class="latency-labels">
@@ -2618,7 +2614,7 @@ a{text-decoration:none!important}
 			 <p>30+竞品全景  ·  技术路径  ·  市场与支付  ·  供应链</p>
 			 </a>
 
-			 <a href="product.html" class="portal-card" style="--accent:#0071e3">
+			 <a href="product.html" class="portal-card" style="--accent:#0096f0">
 		 <span class="portal-card-label">产品</span>
 		 <h3>产品概览</h3>
 		 <p>三件套深度展示  ·  工作流程  ·  技术规格  ·  FAQ</p>

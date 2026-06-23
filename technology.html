@@ -21,7 +21,7 @@
 <style>
 :root {
   --bg: #FAFAFA; --bg-card: #FFFFFF; --border: rgba(0,0,0,0.08);
-  --text: #1d1d1f; --text-secondary: #86868b; --text-tertiary: #6e6e73; --accent: #0071e3;
+  --text: #1d1d1f; --text-secondary: #86868b; --text-tertiary: #6e6e73; --accent: #0096f0;
   --nav-bg: rgba(255,255,255,0.8);
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
   --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
@@ -398,7 +398,7 @@ footer {
 <section class="section loop-section" id="loop">
  <div class="container">
  <div class="section-label">AI闭环</div>
- <h2>读意图 → 解码 → 执行 → 进化</h2>
+ <h2>神经感知 → 意图解码 → 力控执行 → 策略进化</h2>
  <div class="loop-svg-wrap">
 	 <svg viewBox="0 0 860 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI闭环四阶段流程图">
 	 <defs>
@@ -410,25 +410,25 @@ footer {
 	 </defs>
 	 <g filter="url(#s)"><circle cx="175" cy="100" r="46" fill="url(#sg1)"/></g>
 	 <text x="175" y="102" text-anchor="middle" dominant-baseline="central" fill="#fff" font-size="20" font-weight="700">1</text>
-	 <text x="175" y="172" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="600">读意图</text>
+	 <text x="175" y="172" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="600">神经感知</text>
 	 <text x="175" y="192" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">~40ms</text>
 	 <line x1="221" y1="100" x2="289" y2="100" stroke="var(--border)" stroke-width="2"/>
 	 <polygon points="289,95 299,100 289,105" fill="var(--text-tertiary)"/>
 	 <g filter="url(#s)"><circle cx="345" cy="100" r="46" fill="url(#sg2)"/></g>
 	 <text x="345" y="102" text-anchor="middle" dominant-baseline="central" fill="#fff" font-size="20" font-weight="700">2</text>
-	 <text x="345" y="172" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="600">解码意图</text>
+	 <text x="345" y="172" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="600">意图解码</text>
 	 <text x="345" y="192" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">~55ms</text>
 	 <line x1="391" y1="100" x2="459" y2="100" stroke="var(--border)" stroke-width="2"/>
 	 <polygon points="459,95 469,100 459,105" fill="var(--text-tertiary)"/>
 	 <g filter="url(#s)"><circle cx="515" cy="100" r="46" fill="url(#sg3)"/></g>
 	 <text x="515" y="102" text-anchor="middle" dominant-baseline="central" fill="#fff" font-size="20" font-weight="700">3</text>
-	 <text x="515" y="172" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="600">执行动作</text>
+	 <text x="515" y="172" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="600">力控执行</text>
 	 <text x="515" y="192" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">~60ms</text>
 	 <line x1="561" y1="100" x2="629" y2="100" stroke="var(--border)" stroke-width="2"/>
 	 <polygon points="629,95 639,100 629,105" fill="var(--text-tertiary)"/>
 	 <g filter="url(#s)"><circle cx="685" cy="100" r="46" fill="url(#sg4)"/></g>
 	 <text x="685" y="102" text-anchor="middle" dominant-baseline="central" fill="#fff" font-size="20" font-weight="700">4</text>
-	 <text x="685" y="172" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="600">进化(研究阶段)</text>
+	 <text x="685" y="172" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="600">策略进化</text>
 	 <text x="685" y="192" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">~10ms</text>
 	 <path d="M685,146 C685,228 175,228 175,146" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6,4" fill="none" opacity="0.55"/>
 	 <polygon points="179,144 175,138 171,144" fill="var(--accent)" opacity="0.55"/>
@@ -440,7 +440,7 @@ footer {
 <section class="section" style="padding-top:0">
  <div class="container">
  <div class="section-label">系统架构总览</div>
- <h2>Nexum One 四大模块协同</h2>
+ <h2>Nexum One 五层技术栈协同</h2>
  <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px;margin:32px 0 0">
  <svg viewBox="0 0 960 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
  <defs>
@@ -457,7 +457,7 @@ footer {
  <text x="165" y="68" text-anchor="middle" fill="var(--accent)" font-size="16" font-weight="700">1. EEG-Sense 意图感知头带</text>
  <text x="165" y="112" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">运动意图采集</text>
  <text x="165" y="136" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">8通道干电极  ·  总重 80g</text>
- <text x="165" y="156" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">ADS1299 + nRF52832</text>
+ <text x="165" y="156" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">ADS1299 + nRF5340</text>
  <text x="165" y="176" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">250 SPS  ·  24-bit ADC</text>
  <text x="165" y="200" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="600">MRCP 运动准备电位检测</text>
 
@@ -491,7 +491,7 @@ footer {
  <text x="805" y="68" text-anchor="middle" fill="var(--accent)" font-size="16" font-weight="700">3. NeuroCore 控制中枢</text>
  <text x="805" y="112" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="600">边缘计算 + 电机驱动</text>
  <text x="805" y="136" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">STM32H743 + nRF5340</text>
- <text x="805" y="156" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">DRV8316 FOC 电机驱动</text>
+ <text x="805" y="156" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">TMC4671 FOC + DRV8316 驱动</text>
  <text x="805" y="176" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">BMI270 IMU  ·  6S 48Wh 电池</text>
  <text x="805" y="200" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="600">安全看门狗  ·  扭矩限幅</text>
 
@@ -525,7 +525,7 @@ footer {
  <div class="steps-grid">
  <div class="step-card">
  <div class="step-icon">1</div>
- <h3>读意图</h3>
+ <h3>神经感知</h3>
  <p>EEG采集运动准备电位（MRCP），在动作前200-500ms预测运动意图。8通道干电极，250 SPS。IMU+力传感器为主力控制信号——EEG负责"预测想做什么"，IMU负责"感知正在做什么"。</p>
  <div class="tech-detail">
  <span>EEG</span>
@@ -537,18 +537,18 @@ footer {
  </div>
  <div class="step-card">
  <div class="step-icon">2</div>
- <h3>解码意图</h3>
- <p>AI引擎将EEG预测的意图解码为具体关节控制指令。EEGNet提取运动意图特征，强化学习策略网络生成个性化辅助方案。416肌肉骨骼模型作为离线训练引擎（非实时控制），在仿真环境中预训练初始策略。</p>
+ <h3>意图解码</h3>
+ <p>离线训练+在线推理双时间线。离线：416块肌肉的柔性肌腱Hill-type肌骨模型仿真步行，RL策略学习步态→力矩映射。在线：EEGNet分类运动意图+IMU检测步态→RL策略输出力矩指令。肌骨模型不进入实时控制回路。</p>
  <div class="tech-detail">
  <span>EEGNet</span>
  <span>强化学习</span>
- <span>416肌肉孪生</span>
+ <span>Hill-type肌骨仿真</span>
  <span>策略网络</span>
  </div>
  </div>
  <div class="step-card">
  <div class="step-icon">3</div>
- <h3>执行动作</h3>
+ <h3>力控执行</h3>
  <p>直驱电机精准控制关节辅助力，FOC矢量控制。碳纤维骨架优化力传输，12Nm峰值扭矩覆盖日常步行所需。</p>
  <div class="tech-detail">
  <span>直驱电机</span>
@@ -560,7 +560,7 @@ footer {
  <div class="step-card">
  <div class="step-icon">4</div>
  <h3>进化（研究阶段）</h3>
- <p>个性化模型随使用持续优化（研究验证阶段）。本地数据不离设备，联邦学习框架在多中心临床中验证收敛性与有效性。416肌肉骨骼模型用于离线仿真训练，非实时控制。</p>
+ <p>个性化模型随使用持续优化（研究验证阶段）。本地数据不离设备，联邦学习框架在多中心临床中验证收敛性与有效性。Hill-type肌骨仿真模型用于离线仿真训练，非实时控制。</p>
  <div class="tech-detail">
  <span>联邦学习</span>
  <span>隐私保护</span>
@@ -945,45 +945,51 @@ footer {
  <div class="text-center section-label">技术选型</div>
  <h2 class="text-center">技术栈一览</h2>
  <div class="stack-grid">
- <div class="stack-card">
- <h4>神经信号采集</h4>
+ <div class="stack-card" style="border-top:3px solid #2563eb;">
+ <h4 style="color:#2563eb;">神经感知层</h4>
+ <div class="stack-item"><span class="stack-key">产品</span><span class="stack-val">EEG-Sense 意图感知头带</span></div>
  <div class="stack-item"><span class="stack-key">电极类型</span><span class="stack-val">干电极（Ag/AgCl涂层）</span></div>
- <div class="stack-item"><span class="stack-key">通道数</span><span class="stack-val">8通道</span></div>
- <div class="stack-item"><span class="stack-key">采样率</span><span class="stack-val">250 SPS</span></div>
- <div class="stack-item"><span class="stack-key">ADC分辨率</span><span class="stack-val">24 bit</span></div>
- <div class="stack-item"><span class="stack-key">信号带宽</span><span class="stack-val">0.5-100 Hz</span></div>
- <div class="stack-item"><span class="stack-key">共模抑制比</span><span class="stack-val">&gt;100 dB</span></div>
+ <div class="stack-item"><span class="stack-key">通道数</span><span class="stack-val">8通道 250 SPS / 24-bit</span></div>
+ <div class="stack-item"><span class="stack-key">ADC</span><span class="stack-val">TI ADS1299 (CMRR -110dB)</span></div>
+ <div class="stack-item"><span class="stack-key">MCU</span><span class="stack-val">nRF5340 (双核Cortex-M33)</span></div>
+ <div class="stack-item"><span class="stack-key">信号带宽</span><span class="stack-val">0.5-45Hz · 50Hz陷波</span></div>
  </div>
- <div class="stack-card">
- <h4>AI 推理引擎</h4>
- <div class="stack-item"><span class="stack-key">神经网络</span><span class="stack-val">EEGNet (Custom)</span></div>
- <div class="stack-item"><span class="stack-key">学习范式</span><span class="stack-val">强化学习 (PPO)</span></div>
- <div class="stack-item"><span class="stack-key">仿真模型</span><span class="stack-val">416肌肉骨骼模型（离线）</span></div>
- <div class="stack-item"><span class="stack-key">推理框架</span><span class="stack-val">TensorRT / ONNX</span></div>
- <div class="stack-item"><span class="stack-key">训练框架</span><span class="stack-val">PyTorch + Flower</span></div>
- <div class="stack-item"><span class="stack-key">模型压缩</span><span class="stack-val">INT8 量化</span></div>
+ <div class="stack-card" style="border-top:3px solid #7c3aed;">
+ <h4 style="color:#7c3aed;">意图解码层</h4>
+ <div class="stack-item"><span class="stack-key">产品</span><span class="stack-val">NeuroCore 控制中枢</span></div>
+ <div class="stack-item"><span class="stack-key">神经网络</span><span class="stack-val">EEGNet (~2000参数)</span></div>
+ <div class="stack-item"><span class="stack-key">学习范式</span><span class="stack-val">强化学习 (PPO/SAC)</span></div>
+ <div class="stack-item"><span class="stack-key">肌骨模型</span><span class="stack-val">全身416块肌肉柔性肌腱肌骨（离线训练）</span></div>
+ <div class="stack-item"><span class="stack-key">AI芯片</span><span class="stack-val">Hailo-8L (13 TOPS @1.5W)</span></div>
+ <div class="stack-item"><span class="stack-key">推理框架</span><span class="stack-val">ONNX Runtime · INT8量化</span></div>
  </div>
- <div class="stack-card">
- <h4>执行器系统</h4>
- <div class="stack-item"><span class="stack-key">驱动方式</span><span class="stack-val">直驱电机 (Direct-Drive)</span></div>
- <div class="stack-item"><span class="stack-key">峰值扭矩</span><span class="stack-val">12Nm</span></div>
- <div class="stack-item"><span class="stack-key">持续扭矩</span><span class="stack-val">5Nm</span></div>
- <div class="stack-item"><span class="stack-key">结构材料</span><span class="stack-val">碳纤维 / 铝合金</span></div>
- <div class="stack-item"><span class="stack-key">传感器</span><span class="stack-val">编码器 + 6轴IMU</span></div>
- <div class="stack-item"><span class="stack-key">穿脱时间</span><span class="stack-val">&lt;10s</span></div>
+ <div class="stack-card" style="border-top:3px solid #059669;">
+ <h4 style="color:#059669;">力控执行层</h4>
+ <div class="stack-item"><span class="stack-key">产品</span><span class="stack-val">NeuroSuit 神经意图肌动服</span></div>
+ <div class="stack-item"><span class="stack-key">驱动方式</span><span class="stack-val">直驱电机 (QDD)</span></div>
+ <div class="stack-item"><span class="stack-key">电机型号</span><span class="stack-val">CubeMars AKE60-8</span></div>
+ <div class="stack-item"><span class="stack-key">峰值/持续</span><span class="stack-val">12.5Nm / 5Nm</span></div>
+ <div class="stack-item"><span class="stack-key">主控</span><span class="stack-val">STM32H743 + TMC4671+DRV8316</span></div>
+ <div class="stack-item"><span class="stack-key">力控闭环</span><span class="stack-val">PID 1kHz</span></div>
  </div>
- <div class="stack-card">
- <h4>通信与系统</h4>
- <div class="stack-item"><span class="stack-key">无线协议</span><span class="stack-val">BLE 5.0 BLE</span></div>
- <div class="stack-item"><span class="stack-key">通信延迟</span><span class="stack-val">&lt;20ms</span></div>
- <div class="stack-item"><span class="stack-key">安全传输</span><span class="stack-val">AES-256 加密</span></div>
+ <div class="stack-card" style="border-top:3px solid #d97706;">
+ <h4 style="color:#d97706;">穿戴结构层</h4>
+ <div class="stack-item"><span class="stack-key">产品</span><span class="stack-val">NeuroSuit 神经意图肌动服</span></div>
+ <div class="stack-item"><span class="stack-key">碳纤维</span><span class="stack-val">T700级预浸料 ~0.8kg</span></div>
+ <div class="stack-item"><span class="stack-key">弹性织物</span><span class="stack-val">梯度压缩裤基底</span></div>
+ <div class="stack-item"><span class="stack-key">整机重量</span><span class="stack-val">~2.5kg</span></div>
+ <div class="stack-item"><span class="stack-key">穿脱时间</span><span class="stack-val">&lt;10秒 · 可内穿</span></div>
+ <div class="stack-item"><span class="stack-key">形态</span><span class="stack-val">服装式 · 无刚性外框</span></div>
+ </div>
+ <div class="stack-card" style="border-top:3px solid #e11d48;">
+ <h4 style="color:#e11d48;">策略进化层</h4>
+ <div class="stack-item"><span class="stack-key">阶段</span><span class="stack-val">V2（2028年后）</span></div>
+ <div class="stack-item"><span class="stack-key">算法</span><span class="stack-val">pFedAC 联邦Actor-Critic</span></div>
  <div class="stack-item"><span class="stack-key">移动端</span><span class="stack-val">iOS / Android App</span></div>
+ <div class="stack-item"><span class="stack-key">通信</span><span class="stack-val">BLE 5.0 · AES-256</span></div>
  <div class="stack-item"><span class="stack-key">固件升级</span><span class="stack-val">OTA</span></div>
- <div class="stack-item"><span class="stack-key">数据存储</span><span class="stack-val">本地加密存储</span></div>
- </div>
- </div>
- </div>
-</section>
+ <div class="stack-item"><span class="stack-key">数据隐私</span><span class="stack-val">原始数据不离设备</span></div>
+ </div></section>
 
 <!-- ROADMAP -->
 <section class="section" id="roadmap" style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
@@ -1077,7 +1083,7 @@ footer {
  </div>
  <div class="faq-item">
  <button class="faq-question">416肌肉数字孪生模型是如何构建的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
- <div class="faq-answer">416肌肉骨骼模型是离线训练引擎，不是实时控制系统。基于OpenSim框架，涵盖416块肌肉的骨骼拓扑、力-长度与力-速度关系。通过运动捕捉与表面EMG信号个性化校准。强化学习策略在仿真中预训练后部署到边缘设备，推理时使用简化模型，而非完整416肌肉实时仿真。</div>
+ <div class="faq-answer">全身416块肌肉的柔性肌腱Hill-type肌骨仿真模型是离线训练引擎，不是实时控制系统。基于NEU NeuMove Lab的MyoSuite/MyoWarp框架，涵盖下肢关键肌群的Hill-type肌骨模型（力-长度-速度关系+肌腱顺应性）。通过运动捕捉与表面EMG信号个性化校准。强化学习策略在仿真中预训练后部署到边缘设备，推理时使用简化模型，而非完整416肌肉实时仿真。</div>
  </div>
  <div class="faq-item">
  <button class="faq-question">强化学习是如何在边缘设备上训练的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
@@ -1123,7 +1129,7 @@ footer {
  <div class="glossary-item"><h4>强化学习 (RL)</h4><p>智能体通过环境交互与奖励信号学习最优策略。Nexum采用PPO算法。</p></div>
  <div class="glossary-item"><h4>联邦学习 (FL)</h4><p>多设备协同训练全局模型，原始数据不离本地，保护用户隐私。</p></div>
  <div class="glossary-item"><h4>直驱电机 (Direct-Drive Motor)</h4><p>电机直接驱动关节，无需减速器或线缆传动。响应快、精度高、可靠性好。商用外骨骼主流方案。</p></div>
- <div class="glossary-item"><h4>数字孪生 / 肌肉骨骼模型</h4><p>物理系统的虚拟镜像。416肌肉骨骼模型（基于OpenSim）用于离线仿真与策略预训练，非实时控制。实时推理使用简化模型。</p></div>
+ <div class="glossary-item"><h4>数字孪生 / 肌肉骨骼模型</h4><p>物理系统的虚拟镜像。Hill-type肌骨仿真模型（基于NEU NeuMove Lab的MyoSuite/MyoWarp）用于离线仿真与策略预训练，非实时控制。实时推理使用简化模型。</p></div>
  <div class="glossary-item"><h4>运动准备电位 (BP)</h4><p>自主运动前约1.5-2秒出现的EEG缓慢负向电位，运动意图的最早期可检测信号。</p></div>
  <div class="glossary-item"><h4>PPO算法</h4><p>Proximal Policy Optimization，通过限制策略更新步长防止训练震荡的稳定RL算法。</p></div>
  <div class="glossary-item"><h4>IMU (惯性测量单元)</h4><p>集成加速度计与陀螺仪，实时测量关节角度与运动状态。</p></div>
