@@ -175,7 +175,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p>Nexum One分为离线训练和在线运行两条时间线：</p>
 
-<p><strong>离线训练（GPU服务器）</strong>：全身神经力学肌骨模型（416 MTU, Hill-type肌肉-柔顺肌腱）仿真人体步行。RL策略在此环境中训练，学习从步态相位到关节力矩的映射函数。训练完成后经策略蒸馏压缩为轻量网络（&lt;5MB），部署至嵌入式设备。肌骨模型本身不离开服务器，不进入实时控制回路。</p>
+<p><strong>离线训练（GPU服务器）</strong>：柔性肌腱的神经力学全身肌骨模型（416 MTU, Hill-type）仿真人体步行。RL策略在此环境中训练，学习从步态相位到关节力矩的映射函数。训练完成后经策略蒸馏压缩为轻量网络（&lt;5MB），部署至嵌入式设备。肌骨模型本身不离开服务器，不进入实时控制回路。</p>
 
 <p><strong>在线运行（嵌入式设备）</strong>：EEG检测运动意图（四类：行走/停止/起立/无意图），IMU检测步态相位。RL策略接收这两组信号，输出关节力矩指令→直驱电机执行。EEG失效时系统无缝降级至纯IMU模式。</p>
 
@@ -185,7 +185,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p><strong>具身智能+运控落地的完整能力。</strong>创始人从机器人硬件、多模态数采、医疗标品，到强化学习运控，全栈做过。这不是一个"EEG实验室+外骨骼代工厂"的拼接项目——整套技术栈自研自建。</p>
 
-<p><strong>全身肌骨仿真作为RL训练场。</strong>416 MTU Hill-type肌骨模型是高精度强化学习的仿真环境——不是产品功能，是策略训练工具。RL策略在此环境中学会理解"这个患者"的身体后，蒸馏部署到嵌入式芯片，推理时不再依赖仿真。</p>
+<p><strong>全身肌骨仿真作为RL训练场。</strong>柔性肌腱的神经力学肌骨模型（416 MTU, Hill-type）是高精度强化学习的仿真环境——不是产品功能，是策略训练工具。RL策略在此环境中学会理解"这个患者"的身体后，蒸馏部署到嵌入式芯片，推理时不再依赖仿真。</p>
 
 <p>种子轮要解决的核心问题：将肌骨仿真从独立步行扩展至包含外骨骼动力学与穿戴结构力学的联合仿真环境，在此基础上训练RL策略，并完成首台服装式原型机。</p>
 
@@ -218,7 +218,7 @@ a { color: var(--nexum); text-decoration: none; }
 <p>三家上市外骨骼公司（Ekso, ReWalk, Cyberdyne）市值长期低于$300M且从未盈利。纯BCI公司还在早期阶段。中国BCI+外骨骼赛道单笔融资不超过1亿元量级，远不够覆盖硬件+软件+临床认证的全周期成本。没有可参照的成功商业化案例。</p>
 
 <h3>为什么Nexum现在切入</h3>
-<p>上述四个障碍在2025-2026年首次同时松动：干电极物理突破+QDD电机扭矩密度突破+中国11省外骨骼医保+BCI定价落地+NMPA绿色通道加速。此外，Nexum自建了<strong>全身神经力学肌骨仿真环境（416 MTU, Hill-type肌肉-柔顺肌腱）</strong>，作为RL策略的高精度训练环境——仿真精度直接决定部署策略的性能上限。</p>
+<p>上述四个障碍在2025-2026年首次同时松动：干电极物理突破+QDD电机扭矩密度突破+中国11省外骨骼医保+BCI定价落地+NMPA绿色通道加速。此外，Nexum自建了<strong>柔性肌腱的神经力学全身肌骨仿真环境（416 MTU, Hill-type）</strong>，作为RL策略的高精度训练环境——仿真精度直接决定部署策略的性能上限。</p>
 
 <h3>我们的四个战略选择</h3>
 
@@ -467,7 +467,7 @@ a { color: var(--nexum); text-decoration: none; }
 <thead><tr><th>层级</th><th>产品模块</th><th>功能</th><th>核心技术</th><th>成熟度</th></tr></thead>
 <tbody>
 <tr><td><strong>神经感知层</strong></td><td>EEG-Sense 意图感知头带</td><td>读取神经意图与运动状态</td><td>EEG 8ch干电极（MRCP检测）+ IMU×4（6轴，100Hz）+ 力传感器×2（扭矩反馈）</td><td>验证级</td></tr>
-<tr><td><strong>意图解码层</strong></td><td>NeuroCore 控制中枢</td><td>意图分类+策略生成</td><td>EEGNet（~2000参数）+ 全身神经力学肌骨模型（416 MTU, Hill-type肌肉-柔顺肌腱） + 离线RL策略网络（PPO/SAC，仿真预训练）</td><td>验证级</td></tr>
+<tr><td><strong>意图解码层</strong></td><td>NeuroCore 控制中枢</td><td>意图分类+策略生成</td><td>EEGNet（~2000参数）+ 柔性肌腱的神经力学全身肌骨模型（416 MTU, Hill-type） + 离线RL策略网络（PPO/SAC，仿真预训练）</td><td>验证级</td></tr>
 <tr><td><strong>力控执行层</strong></td><td>NeuroSuit 神经意图肌动服</td><td>力矩输出+安全控制</td><td>直驱电机×2（12.5Nm峰值/5Nm持续）+ FOC矢量控制 + PID力控闭环（1kHz）</td><td>产品级</td></tr>
 <tr><td><strong>穿戴结构层</strong></td><td>NeuroSuit 神经意图肌动服</td><td>轻量化承力+舒适穿戴</td><td>碳纤维骨架（T700级预浸料，~0.8kg）+ 弹性织物基底（梯度压缩设计）+ 无刚性外框</td><td>产品级</td></tr>
 <tr><td><strong>策略进化层</strong></td><td>联邦学习平台（V2）</td><td>个性化+长期优化</td><td>离线联邦学习（跨患者模型更新，非实时，V2阶段）</td><td>研究级</td></tr>
@@ -500,7 +500,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p><strong>离线训练（GPU服务器）</strong></p>
 <ul>
-<li>已构建全身神经力学肌骨模型（416 MTU, Hill-type肌肉-柔顺肌腱），可仿真人体步行</li>
+<li>已构建柔性肌腱的神经力学全身肌骨模型（416 MTU, Hill-type），可仿真人体步行</li>
 <li>RL策略（PPO/SAC）在该高精度仿真环境中训练，学会"不同步态相位需要多少关节力矩"</li>
 <li>训练完成后策略网络蒸馏为轻量模型，部署至嵌入式设备。肌骨模型本身留在服务器，不进入实时控制回路</li>
 <li>当前状态：已验证裸肌骨建模与步行仿真。需扩展至包含外骨骼动力学+混合穿戴结构的联合仿真环境</li>
@@ -832,7 +832,7 @@ a { color: var(--nexum); text-decoration: none; }
 <table>
 <thead><tr><th>风险</th><th style="white-space:nowrap">严重性</th><th>应对策略</th></tr></thead>
 <tbody>
-<tr><td><strong>肌骨模型→外骨骼联合仿真能否打通</strong></td><td style="white-space:nowrap">🔴 高</td><td>416肌骨模型目前仅能仿真独立步行。需扩展至包含外骨骼动力学+混合穿戴结构的联合仿真环境，才能作为RL策略的有效训练场。该扩展从未被验证</td></tr>
+<tr><td><strong>肌骨模型→外骨骼联合仿真能否打通</strong></td><td style="white-space:nowrap">🔴 高</td><td>神经力学肌骨模型目前仅能仿真独立步行。需扩展至包含外骨骼动力学+混合穿戴结构的联合仿真环境，才能作为RL策略的有效训练场。该扩展从未被验证</td></tr>
 <tr><td><strong>EEG步行信噪比不达标</strong></td><td style="white-space:nowrap">🔴 高</td><td>混合感知架构：IMU为主控制信号，EEG为预测辅助。EEG失效时系统无缝降级至纯IMU模式，安全不受影响</td></tr>
 <tr><td><strong>关键人才招聘延迟</strong></td><td style="white-space:nowrap">🔴 高</td><td>临床PI和嵌入式工程师为P0优先级。种子轮资金中40%用于团队薪酬，确保有竞争力的待遇吸引人才</td></tr>
 <tr><td><strong>技术合伙人兼职风险</strong></td><td style="white-space:nowrap">🔴 高</td><td>AI策略负责人2027年前为兼职状态（博士在读）。关键算法开发进度需在项目计划中充分考虑此约束</td></tr>
