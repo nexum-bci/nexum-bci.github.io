@@ -280,8 +280,8 @@ footer {
 <!-- HERO -->
 <section class="hero">
  <div class="container">
- <h1>从神经意图到物理动作 — 意图解码层的工作原理</h1>
- <p>EEG预测意图→意图解码为指令→直驱执行→持续优化  ·  端到端~150-200ms</p>
+ <h1>神经意图解码：从EEG到外骨骼动作</h1>
+ <p>EEG预测意图，AI解码为关节指令，直驱电机执行，策略持续进化。端到端闭环 ~150-200ms（实验室条件）。</p>
  </div>
 </section>
 
@@ -402,7 +402,7 @@ footer {
  <!-- Bottom bar: latency -->
  <rect x="30" y="440" width="900" height="40" rx="20" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
  <text x="480" y="466" text-anchor="middle" fill="var(--text-secondary)" font-size="13">
-    端到端闭环 ~150-200ms | 150-200ms EEG→AI→执行
+    端到端闭环 ~150-200ms（实验室条件）
  </text>
 </svg>
  </div>
@@ -490,7 +490,7 @@ footer {
  <div class="latency-row"><span class="dot" style="background:#f59e0b;"></span><span class="label">传感器反馈与闭环调整</span><span class="ms">10ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;">5.4%</span></div>
  </div>
  <div style="margin-top:24px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:12px;color:var(--text-tertiary);max-width:700px;margin-left:auto;margin-right:auto;">
-      注：实验室标准环境测得（25&deg;C，湿度50%，无障碍物）。基线延迟约155ms，实际系统延迟受电磁干扰、蓝牙信号强度及个体差异影响，典型范围150-200ms。
+      注：实验室标准环境测得（25&deg;C，湿度50%，无障碍物）。基线延迟约185ms（详见下方延迟分解），实际系统延迟受电磁干扰、蓝牙信号强度及个体差异影响，典型范围150-200ms。
  </div>
  </div>
 </section>
@@ -775,10 +775,10 @@ footer {
  <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2024 Q4</div><h4>EEGNet模型部署</h4><p>轻量化EEGNet在边缘设备实现实时推理，单次推理延迟&lt;50ms。</p></div>
 <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 H1</div><h4>干电极EEG原型迭代</h4><p>8通道干电极头带V2完成，自适应滤波算法优化，信噪比提升至可用水平。EEGNet模型结构确定。</p></div>
 <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2025 H2</div><h4>MyoSuite肌骨仿真搭建</h4><p>416肌肉Hill-type模型仿真环境搭建完成，GPU并行训练管线就绪。RL策略离线预训练启动。</p></div>
-<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2026 H2</div><h4>首台原型 + IMU 控制闭环</h4><p>服装式原型机集成，IMU步态相位检测闭环，直驱电机12.5Nm力矩输出验证。</p></div>
-<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2027 H1</div><h4>EEG+IMU 集成，实验室验证</h4><p>EEG-Sense + NeuroCore + NeuroSuit 三件套联调。EEGNet实时分类+RL策略网络嵌入式部署。实验室环境端到端延迟验证。</p></div>
-<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2027 H2</div><h4>预临床研究 n=30</h4><p>单中心单臂前后对照研究启动。主要终点：安全性（零SADE）、意图识别AUC-ROC&gt;0.80。中期数据读出。</p></div>
-<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2028 H1</div><h4>NMPA 创新器械申请</h4><p>提交二类创新医疗器械注册申请。IEC 62304+ISO 13485文档包完成。A轮融资窗口开启。</p></div>
+<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2026 H2（进行中）</div><h4>首台原型 + IMU 控制闭环</h4><p>服装式原型机集成，IMU步态相位检测闭环，直驱电机12.5Nm力矩输出验证。</p></div>
+<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2027 H1（计划）</div><h4>EEG+IMU 集成，实验室验证</h4><p>EEG-Sense + NeuroCore + NeuroSuit 三件套联调。EEGNet实时分类+RL策略网络嵌入式部署。实验室环境端到端延迟验证。</p></div>
+<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2027 H2（计划）</div><h4>预临床研究 n=30</h4><p>单中心单臂前后对照研究启动。主要终点：安全性（零SADE）、意图识别AUC-ROC&gt;0.80。中期数据读出。</p></div>
+<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">2028 H1（计划）</div><h4>NMPA 创新器械申请</h4><p>提交二类创新医疗器械注册申请。IEC 62304+ISO 13485文档包完成。A轮融资窗口开启。</p></div>
  </div>
  </div>
 </section>
@@ -932,8 +932,8 @@ footer {
  <div class="comp-stat">~500ms</div>
  <div class="comp-stat-label">响应延迟</div>
  <div class="comp-check">表面电刺激</div>
- <div class="comp-check">固定刺激模式</div>
- <div class="comp-check">无学习能力</div>
+ <div class="comp-check">预设刺激模式</div>
+ <div class="comp-check">开环控制</div>
  <div class="comp-check">需专业人员操作</div>
  </div>
  <div class="comp-card">
@@ -942,8 +942,8 @@ footer {
  <div class="comp-stat">0 Nm</div>
  <div class="comp-stat-label">主动助力</div>
  <div class="comp-check">纯机械支撑</div>
- <div class="comp-check">无传感反馈</div>
- <div class="comp-check">无法个性化适配</div>
+ <div class="comp-check">无主动传感反馈</div>
+ <div class="comp-check">通用适配</div>
  <div class="comp-check">重量 3-6kg</div>
  </div>
  </div>
@@ -989,7 +989,7 @@ footer {
  </div>
  <div class="faq-item">
  <button class="faq-question">系统延迟是如何构成的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
- <div class="faq-answer">基线~155ms：EEG采集40ms（硬件触发+DMA）→ AI推理55ms（EEGNet量化为INT8，TensorRT优化）→ 蓝牙通信~20ms → 执行器60ms（直驱电机FOC控制）。实际系统延迟受电磁干扰、蓝牙信号强度影响，典型范围150-200ms。EEG运动准备电位检测在动作前约0.5s发生，与系统延迟叠加后，用户仍能感知到平滑的辅助响应。需要明确：EEG控制外骨骼的延迟在学术文献中通常报告150-500ms范围（Donati 2016; Rong/Xu 2026），150-200ms属于合理范围。</div>
+ <div class="faq-answer">基线约185ms：EEG采集40ms → 信号预处理20ms → AI推理55ms → 执行器响应60ms（含通信） → 传感器反馈与闭环调整10ms。实际系统延迟受电磁干扰、蓝牙信号强度影响，典型范围150-200ms。EEG运动准备电位在动作前约0.5s即可检测，与系统延迟叠加后，用户仍能感知到平滑的辅助响应。需要明确：EEG控制外骨骼的延迟在学术文献中通常报告150-500ms范围（Donati 2016; Rong/Xu 2026），150-200ms属于合理范围。</div>
  </div>
  <div class="faq-item">
  <button class="faq-question">系统如何适应不同用户的肌肉状态差异？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
@@ -1024,7 +1024,7 @@ footer {
  <div class="glossary-item"><h4>联邦学习 (FL)</h4><p>多设备协同训练全局模型，原始数据不离本地，保护用户隐私。</p></div>
  <div class="glossary-item"><h4>直驱电机 (Direct-Drive Motor)</h4><p>电机直接驱动关节，无需减速器或线缆传动。响应快、精度高、可靠性好。商用外骨骼主流方案。</p></div>
  <div class="glossary-item"><h4>数字孪生 / 肌肉骨骼模型</h4><p>物理系统的虚拟镜像。Hill-type肌骨仿真模型（基于NEU NeuMove Lab的MyoSuite）用于离线仿真与策略预训练，非实时控制。实时推理使用简化模型。</p></div>
- <div class="glossary-item"><h4>运动准备电位 (BP)</h4><p>自主运动前约1.5-2秒出现的EEG缓慢负向电位，运动意图的最早期可检测信号。</p></div>
+ <div class="glossary-item"><h4>预备电位 (BP/Bereitschaftspotential)</h4><p>自主运动前约1.5-2秒出现的EEG缓慢负向电位，运动意图的最早期可检测信号。</p></div>
  <div class="glossary-item"><h4>PPO算法</h4><p>Proximal Policy Optimization，通过限制策略更新步长防止训练震荡的稳定RL算法。</p></div>
  <div class="glossary-item"><h4>IMU (惯性测量单元)</h4><p>集成加速度计与陀螺仪，实时测量关节角度与运动状态。</p></div>
  <div class="glossary-item"><h4>模型量化</h4><p>从FP32到INT8精度转换，减少4倍模型体积，加速推理。</p></div>
