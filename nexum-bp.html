@@ -175,7 +175,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p>Nexum One分为离线训练和在线运行两条时间线：</p>
 
-<p><strong>离线训练（GPU服务器）</strong>：416块肌肉的柔性肌腱Hill-type肌骨模型（基于MyoSuite/MyoWarp，NEU NeuMove Lab）仿真人体步行。RL策略在这个高精度仿真环境中训练，学会"不同步态相位需要多少关节力矩"。训练完成后策略蒸馏为轻量网络（&lt;5MB），部署至嵌入式设备。肌骨模型本身不离开服务器，不进入实时控制回路。</p>
+<p><strong>离线训练（GPU服务器）</strong>：全身神经力学肌骨模型（416块肌肉，Hill-type柔顺肌腱）（基于MyoSuite/MyoWarp，NEU NeuMove Lab）仿真人体步行。RL策略在这个高精度仿真环境中训练，学会"不同步态相位需要多少关节力矩"。训练完成后策略蒸馏为轻量网络（&lt;5MB），部署至嵌入式设备。肌骨模型本身不离开服务器，不进入实时控制回路。</p>
 
 <p><strong>在线运行（嵌入式设备）</strong>：EEG检测运动意图（四类：行走/停止/起立/无意图），IMU检测步态相位。RL策略接收这两组信号，输出关节力矩指令→直驱电机执行。EEG失效时系统无缝降级至纯IMU模式。</p>
 
@@ -467,7 +467,7 @@ a { color: var(--nexum); text-decoration: none; }
 <thead><tr><th>层级</th><th>产品模块</th><th>功能</th><th>核心技术</th><th>成熟度</th></tr></thead>
 <tbody>
 <tr><td><strong>神经感知层</strong></td><td>EEG-Sense 意图感知头带</td><td>读取神经意图与运动状态</td><td>EEG 8ch干电极（MRCP检测）+ IMU×4（6轴，100Hz）+ 力传感器×2（扭矩反馈）</td><td>验证级</td></tr>
-<tr><td><strong>意图解码层</strong></td><td>NeuroCore 控制中枢</td><td>意图分类+策略生成</td><td>EEGNet（~2000参数）+ 全身416块肌肉的柔性肌腱Hill-type肌骨模型 + 离线RL策略网络（PPO/SAC，仿真预训练）</td><td>验证级</td></tr>
+<tr><td><strong>意图解码层</strong></td><td>NeuroCore 控制中枢</td><td>意图分类+策略生成</td><td>EEGNet（~2000参数）+ 全身全身神经力学肌骨模型（416块肌肉，Hill-type柔顺肌腱） + 离线RL策略网络（PPO/SAC，仿真预训练）</td><td>验证级</td></tr>
 <tr><td><strong>力控执行层</strong></td><td>NeuroSuit 神经意图肌动服</td><td>力矩输出+安全控制</td><td>直驱电机×2（12Nm峰值/5Nm持续）+ FOC矢量控制 + PID力控闭环（1kHz）</td><td>产品级</td></tr>
 <tr><td><strong>穿戴结构层</strong></td><td>NeuroSuit 神经意图肌动服</td><td>轻量化承力+舒适穿戴</td><td>碳纤维骨架（T700级预浸料，~0.8kg）+ 弹性织物基底（梯度压缩设计）+ 无刚性外框</td><td>产品级</td></tr>
 <tr><td><strong>策略进化层</strong></td><td>联邦学习平台（V2）</td><td>个性化+长期优化</td><td>离线联邦学习（跨患者模型更新，非实时，V2阶段）</td><td>研究级</td></tr>
@@ -500,7 +500,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p><strong>离线训练（GPU服务器）</strong></p>
 <ul>
-<li>基于NEU NeuMove Lab的MyoSuite/MyoWarp框架，已构建全身416块肌肉的柔性肌腱Hill-type肌骨模型，可仿真人体步行</li>
+<li>基于NEU NeuMove Lab的MyoSuite/MyoWarp框架，已构建全身全身神经力学肌骨模型（416块肌肉，Hill-type柔顺肌腱），可仿真人体步行</li>
 <li>RL策略（PPO/SAC）在该高精度仿真环境中训练，学会"不同步态相位需要多少关节力矩"</li>
 <li>训练完成后策略网络蒸馏为轻量模型，部署至嵌入式设备。肌骨模型本身留在服务器，不进入实时控制回路</li>
 <li>当前状态：已验证裸肌骨建模与步行仿真。需扩展至包含外骨骼动力学+混合穿戴结构的联合仿真环境</li>
