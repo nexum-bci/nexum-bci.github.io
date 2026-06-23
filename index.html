@@ -2554,25 +2554,25 @@ a{text-decoration:none!important}
  <div class="tech-flow">
  <div class="tech-step reveal">
  <div class="step-num">01</div>
- <div class="step-title">神经感知</div>
+ <div class="step-title">神经感知层</div>
  <div class="step-desc">EEG预测运动意图（MRCP检测，提前~0.5s），IMU+力传感器提供运动中的主要控制信号，多模态融合</div>
  <div class="step-time">~40ms</div>
  </div>
  <div class="tech-step reveal">
  <div class="step-num">02</div>
- <div class="step-title">意图解码</div>
+ <div class="step-title">意图解码层</div>
  <div class="step-desc">离线训练+在线推理。416肌骨模型仿真训练RL策略；在线时EEGNet分类意图+IMU检步态→策略输出力矩</div>
  <div class="step-time">~55ms</div>
  </div>
  <div class="tech-step reveal">
  <div class="step-num">03</div>
- <div class="step-title">力控执行</div>
+ <div class="step-title">力控执行层</div>
  <div class="step-desc">直驱电机精准执行关节助力，FOC矢量控制，碳纤维骨架确保力传导效率</div>
  <div class="step-time">~60ms</div>
  </div>
  <div class="tech-step reveal">
  <div class="step-num">04</div>
- <div class="step-title">策略进化</div>
+ <div class="step-title">策略进化层</div>
  <div class="step-desc">个性化模型随使用持续优化（研究阶段），本地数据不离设备，动态适应恢复进程</div>
  <div class="step-time">~30ms</div>
  </div>
@@ -2582,15 +2582,11 @@ a{text-decoration:none!important}
  <span>端到端系统延迟 <strong>~150-200ms</strong>（基线约155ms）</span>
  </div>
  <div class="latency-bar reveal">
- <span class="latency-eeg">EEG采集 40ms</span>
+ <span class="latency-eeg">EEG 40ms</span>
  <span class="latency-pre">预处理 20ms</span>
- <span class="latency-ai">AI策略 55ms</span>
- <span class="latency-act">力控执行 60ms</span>
- <span class="latency-learn">学习 10ms</span>
- </div>
- <div class="latency-labels">
- <span>0ms</span>
- <span>150-200ms 端到端</span>
+ <span class="latency-ai">AI推理 55ms</span>
+ <span class="latency-act">执行 60ms</span>
+ <span class="latency-learn">反馈 10ms</span>
  </div>
  <div class="section-footer">
  <a href="technology.html">查看技术架构详情 →</a>

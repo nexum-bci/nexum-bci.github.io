@@ -447,7 +447,7 @@ footer {
 <section class="hero">
  <div class="container">
  <h1>Nexum One 神经意图外骨骼</h1>
- <p>神经意图解码层。三个模块，从运动意图到肌肉的完整闭环。端到端延迟 ~150-200ms。</p>
+ <p>神经意图解码层。三个模块，从运动意图到肌肉的完整闭环。端到端闭环 ~150-200ms（详见技术架构）。</p>
  <p style="font-size:14px;color:var(--text-tertiary);max-width:560px;margin:0 auto 48px;">让每一次训练，机器都在正确的时间施加正确的力。</p>
  <div class="hero-metrics">
  <div class="metric"><div class="metric-value">8ch</div><div class="metric-label">EEG 通道</div></div>
@@ -528,7 +528,7 @@ footer {
  <!-- Bottom: latency summary -->
  <rect x="20" y="175" width="862" height="36" rx="18" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
  <text x="451" y="198" text-anchor="middle" fill="var(--text-secondary)" font-size="12">
-    端到端延迟 ~150-200ms
+    端到端闭环 ~150-200ms（详见技术架构）
  </text>
 
  <!-- Version badges -->
@@ -553,25 +553,25 @@ footer {
  <div class="pipeline">
  <div class="pipeline-step">
  <div class="step-icon">1</div>
- <h4>读取</h4>
+ <h4>神经感知层</h4>
  <p>EEG-Sense 8通道干电极捕捉运动意图</p>
  </div>
  <div class="pipeline-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
  <div class="pipeline-step">
  <div class="step-icon">2</div>
- <h4>解码</h4>
+ <h4>意图解码层</h4>
  <p>AI引擎将EEG预测的意图解码为关节控制指令，生成个性化辅助策略</p>
  </div>
  <div class="pipeline-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
  <div class="pipeline-step">
  <div class="step-icon">3</div>
- <h4>执行</h4>
+ <h4>力控执行层</h4>
  <p>NeuroSuit 在正确的时间、关节施加正确的力</p>
  </div>
  <div class="pipeline-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
  <div class="pipeline-step evolve">
  <div class="step-icon">4</div>
- <h4>进化</h4>
+ <h4>策略进化层</h4>
  <p>个性化AI模型随使用持续优化（研究阶段），本地数据不离设备</p>
  </div>
  </div>
@@ -768,7 +768,7 @@ footer {
  <div class="text-center section-label">系统协作</div>
  <h2 class="text-center">三位一体</h2>
  <p style="text-align:center;max-width:680px;margin:0 auto;font-size:15px;color:var(--text-secondary);line-height:1.7;">
-      EEG-Sense 读取运动意图 → NeuroCore 控制中枢生成辅助策略 → NeuroSuit 执行关节助力 → 策略进化层策略进化。
+      神经感知层（EEG-Sense）→ 意图解码层（NeuroCore）→ 力控执行层（NeuroSuit）→ 策略进化层。
       完整闭环，从意念到动作。
  </p>
  <div class="system-flow-diagram">

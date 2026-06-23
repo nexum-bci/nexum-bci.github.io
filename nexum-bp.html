@@ -55,7 +55,7 @@ body {
   h1 { font-size: 28px; }
   h2 { font-size: 20px; margin-top: 32px; }
   h3 { font-size: 16px; margin-top: 24px; }
-  table { font-size: 11px; }
+  table { font-size: 11px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   th, td { padding: 8px 10px; }
 }
 @media(max-width:480px){
@@ -160,7 +160,8 @@ a { color: var(--nexum); text-decoration: none; }
 </div>
 <h1 id="nexum">逐念而行</h1>
 <h2 id="definition" style="font-size:20px;font-weight:700;margin-top:4px;margin-bottom:6px;border:none;padding-bottom:0;color:var(--text-secondary);">从人类神经意图到物理世界动作的通用映射</h2>
-<p style="font-size:13px;color:var(--text-tertiary);margin-top:0;margin-bottom:2px;">首款产品：Nexum One — 神经意图外骨骼 &nbsp;|&nbsp; 长期愿景：人机共生</p>
+<p style="font-size:13px;color:var(--text-tertiary);margin-top:0;margin-bottom:0;">WHY：闭合断掉的神经回路 &nbsp;→&nbsp; HOW：神经意图到物理动作的通用映射层 &nbsp;→&nbsp; WHAT：首款载体 Nexum One 神经意图外骨骼</p>
+<p style="font-size:13px;color:var(--text-tertiary);margin-top:2px;margin-bottom:2px;">长期愿景：人机共生</p>
 
 <div style="text-align:center;margin:20px 0;padding:14px;background:var(--info-bg);border-radius:8px;font-size:13px;color:var(--text-secondary)">
 <strong>种子轮 $3-5M</strong> &nbsp;·&nbsp; <a href="mailto:hello@nexum.ai" style="color:var(--nexum)">hello@nexum.ai</a> &nbsp;·&nbsp; 2026年6月
@@ -176,7 +177,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p><strong>第一，意图预判——在运动发生之前，而非之后。</strong>按钮与倾斜传感器属指令输入型交互，患者"告知"机器。肌电（Cyberdyne HAL）依赖肌肉收缩后的残余电信号，本质仍为被动响应。脑电图通过检测运动准备电位（MRCP），在大脑形成运动意图后200-500ms、肌肉尚未收缩前即完成信号采集。对于步态启动和模式切换——步行至站立、站立至就坐等跌倒高发时刻——这一预判窗口构成安全性的必要条件。脑电图在整个步态周期中持续运行，不仅识别启动意图，同时监测模式切换、主动参与度和疲劳状态。主动参与驱动神经可塑性——这是康复，而非代偿。脑电图与IMU持续融合：前者回答"意图"，后者回答"状态"。两者非替代关系。脑电图误判时，IMU提供地面真相否决执行；IMU滞后的时间窗口，由脑电图填补。</p>
 
-<p><strong>第二，个体化建模——理解特定患者的身体，而非通用模板。</strong>通用助力曲线假设所有髋关节生物力学参数一致。实际上，同一患者的股四头肌肌力可能仅为正常值的30%，腘绳肌可能处于痉挛状态。对两名患者施加相同的辅助力矩，对一人可能产生显著改善，对另一人则构成伤害。柔性肌腱的神经力学肌骨模型（双侧扩展416 MTU, Hill-type）为每位患者构建数字孪生，强化学习策略在其上训练数亿步——学习目标并非"人类"的通用步态模式，而是"该患者"的个体化最优策略。Luo, Su et al.（Nature, 2024）已首次验证该管线可行性：强化学习策略在仿真环境中完成训练后，零样本迁移至物理外骨骼，代谢成本降低24%。</p>
+<p><strong>第二，个体化建模——理解特定患者的身体，而非通用模板。</strong>通用助力曲线假设所有髋关节生物力学参数一致。实际上，同一患者的股四头肌肌力可能仅为正常值的30%，腘绳肌可能处于痉挛状态。对两名患者施加相同的辅助力矩，对一人可能产生显著改善，对另一人则构成伤害。柔性肌腱的神经力学肌骨模型（双侧扩展416 MTU, Hill-type，以下简称神经力学肌骨模型）为每位患者构建数字孪生，强化学习策略在其上训练数亿步——学习目标并非"人类"的通用步态模式，而是"该患者"的个体化最优策略。Luo, Su et al.（Nature, 2024）已首次验证该管线可行性：强化学习策略在仿真环境中完成训练后，零样本迁移至物理外骨骼，代谢成本降低24%。</p>
 
 <p><strong>第三，可穿戴形态——轻至居家使用的物理前提。</strong>15-25kg的框架式外骨骼为丧失站立能力的患者设计，重量来自不可妥协的物理约束——必须支撑完全无法承重的躯体。但目标人群具备站立能力，所需为辅助而非支撑。碳纤维锚定结构提供超过70%的力传输效率，弹性织物基底实现多点压力分散与贴合。刚性传力路径嵌入柔性穿戴界面，系统总重约2.5kg。轻量化形态是产品从医疗机构进入家庭空间的物理前提。</p>
 
@@ -388,7 +389,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <h3>意图解码：离线训练 + 在线推理</h3>
 
-<p>肌骨模型与EEG不直接对接——RL策略是桥梁。离线：柔性肌腱的神经力学全身肌骨模型（双侧扩展416 MTU, Hill-type）仿真人体步行，RL策略在此环境中训练后蒸馏部署（&lt;5MB）。Nature 2024（Luo, Su et al.）首次验证了sim2real RL外骨骼策略从仿真到真机的零样本迁移可行性——RL外骨骼控制从学术论文走向工程产品的关键路径已打通。在线：EEGNet+RL策略在NeuroCore（STM32H7+NPU）上推理，接收EEG意图+IMU步态相位，输出力矩指令。</p>
+<p>肌骨模型与EEG不直接对接——RL策略是桥梁。离线：神经力学肌骨模型仿真人体步行，RL策略在此环境中训练后蒸馏部署（&lt;5MB）。Nature 2024（Luo, Su et al.）首次验证了sim2real RL外骨骼策略从仿真到真机的零样本迁移可行性——RL外骨骼控制从学术论文走向工程产品的关键路径已打通。在线：EEGNet+RL策略在NeuroCore（STM32H7+NPU）上推理，接收EEG意图+IMU步态相位，输出力矩指令。</p>
 
 <h3>力控执行与安全架构</h3>
 
@@ -418,7 +419,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 
 
-<h3 id="system-diagram">5.7 完整系统架构</h3>
+<h3 id="system-diagram">完整系统架构</h3>
 
 <div style="background:var(--card-bg);border-radius:12px;padding:16px;margin:20px 0;text-align:center">
 <svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:900px;height:auto;display:inline-block">
@@ -539,31 +540,38 @@ a { color: var(--nexum); text-decoration: none; }
 
 <h3>支付路径</h3>
 <table>
-<tr><th>市场</th><th>机制</th><th>金额</th><th>状态</th></tr>
+<thead><tr><th>市场</th><th>机制</th><th>金额</th><th>状态</th></tr></thead>
+<tbody>
 <tr><td>中国</td><td>外骨骼康复医保（11省市）</td><td>报销45-65%</td><td>2024-2025启动</td></tr>
 <tr><td>中国</td><td>非侵入BCI定价</td><td>¥966/次</td><td>2025.3</td></tr>
 <tr><td>美国</td><td>CMS K1007</td><td>$91,032/台</td><td>2024.4</td></tr>
 <tr><td>日本</td><td>国民健康保险</td><td>¥11,000/次</td><td>2016（HAL）</td></tr>
+</tbody>
 </table>
 
 <p>中国60岁以上人口3.23亿（2025）。服装式轻量形态使居家/社区场景成为可能——这是15-25kg框架式外骨骼无法覆盖的市场。</p>
 
 <h3>收入模型</h3>
 <table>
-<tr><th>阶段</th><th>模式</th><th>定价</th><th>目标</th></tr>
+<thead><tr><th>阶段</th><th>模式</th><th>定价</th><th>目标</th></tr></thead>
+<tbody>
 <tr><td>2028-2030</td><td>B2B 医院采购</td><td>$18,000/台</td><td>20→120台/年</td></tr>
 <tr><td>2030-2032</td><td>B2B2C 医院处方+患者购买</td><td>$3,999 + $499/年</td><td>120→500台/年</td></tr>
 <tr><td>2032+</td><td>B2C 消费者</td><td>待定</td><td>视市场扩展</td></tr>
+</tbody>
 </table>
 
-<h2 id="roadmap">7. 路线图</h2>
+<p style="font-size:13px;color:var(--text-tertiary)">上述支付路径与定价体系的核心逻辑是：只有当产品真正闭合神经回路——而非仅是一个可穿戴执行器——市场才愿意为其支付溢价。</p>
 
+<h2 id="roadmap">7. 路线图</h2>
 
 <h3>V1（2026-2028）</h3>
 
 <table>
+<tbody>
 <tr><td><strong>融资</strong></td><td>种子轮 $3-5M</td></tr>
 <tr><td><strong>里程碑</strong></td><td>2026 H2：原型机V1 + IMU闭环 + EEG行走信号采集<br>2027 H1：EEG+IMU融合 + 实验室端到端验证<br>2027 H2：预临床 n=30 启动<br>2028 H1：NMPA申请提交</td></tr>
+</tbody>
 </table>
 
 <h3>种子轮资金用途（$3-5M）</h3>
@@ -582,12 +590,16 @@ a { color: var(--nexum); text-decoration: none; }
 <h3>财务预测</h3>
 
 <table>
-<tr><th></th><th>2028</th><th>2029</th><th>2030</th><th>2031</th></tr>
+<thead><tr><th></th><th>2028</th><th>2029</th><th>2030</th><th>2031</th></tr></thead>
+<tbody>
 <tr><td>销售台数</td><td>—</td><td>20</td><td>120</td><td>500</td></tr>
 <tr><td>收入</td><td>—</td><td>$360K</td><td>$2.2M</td><td>$9M</td></tr>
 <tr><td>毛利率</td><td>—</td><td>45%</td><td>55%</td><td>65%</td></tr>
+</tbody>
 </table>
 <p>预计2031年盈亏平衡，平衡点约350台。</p>
+
+<p style="font-size:13px;color:var(--text-tertiary)">从V1到V3，Nexum One始终围绕同一条主线演进：让神经回路闭合得更早、更精准、更广泛。</p>
 
 <h3>V2（2028-2030）：NMPA 获证</h3>
 <p>Pre-A $5-7M。2028 H2 NMPA获证，2029首批20台交付，2030年扩展至100家医院+启动FDA 510(k)。</p>
@@ -600,17 +612,20 @@ a { color: var(--nexum); text-decoration: none; }
 <h2 id="ip">8. 知识产权</h2>
 
 <table>
-<tr><th>层面</th><th>内容</th><th>状态</th></tr>
+<thead><tr><th>层面</th><th>内容</th><th>状态</th></tr></thead>
+<tbody>
 <tr><td>方法专利</td><td>EEG+IMU混合意图检测与融合方法</td><td>计划申请（2026）</td></tr>
 <tr><td>系统专利</td><td>服装式结构设计与直驱电机髋关节集成</td><td>计划申请（2026-2027）</td></tr>
 <tr><td>软件著作权</td><td>EEGNet推理引擎、RL策略网络</td><td>计划登记（2027-2028）</td></tr>
+</tbody>
 </table>
 <p>PCT途径覆盖中美欧日。核心算法以软件著作权+商业秘密保护。</p>
 
 <h2 id="risks">9. 关键风险</h2>
 
 <table>
-<tr><th>风险</th><th>严重性</th><th>应对</th></tr>
+<thead><tr><th>风险</th><th>严重性</th><th>应对</th></tr></thead>
+<tbody>
 <tr><td>肌骨模型→外骨骼联合仿真能否打通</td><td style="color:#dc2626;font-weight:700">高</td><td>需扩展至联合仿真环境，该扩展从未被验证</td></tr>
 <tr><td>EEG步行信噪比不达标</td><td style="color:#dc2626;font-weight:700">高</td><td>IMU为地面真相，EEG错判时电机不启动。预临床首要终点为安全性验证</td></tr>
 <tr><td>关键人才招聘延迟</td><td style="color:#dc2626;font-weight:700">高</td><td>种子轮40%资金用于团队薪酬</td></tr>
@@ -620,6 +635,7 @@ a { color: var(--nexum); text-decoration: none; }
 <tr><td>知识产权保护空白</td><td style="color:#d97706;font-weight:700">中高</td><td>种子轮到位后立即启动PCT申请</td></tr>
 <tr><td>竞争对手进入EEG+下肢赛道</td><td style="color:#ca8a04;font-weight:700">中</td><td>2-3年窗口期内完成NMPA获证</td></tr>
 <tr><td>医保编码归属不确定</td><td style="color:#ca8a04;font-weight:700">中</td><td>与医保部门早期沟通</td></tr>
+</tbody>
 </table>
 
 <h2 id="team">10. 团队</h2>
@@ -630,12 +646,14 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p><strong>核心待招聘</strong></p>
 <table>
-<tr><th>优先级</th><th>岗位</th><th>核心能力</th></tr>
+<thead><tr><th>优先级</th><th>岗位</th><th>核心能力</th></tr></thead>
+<tbody>
 <tr><td>P0</td><td>临床PI</td><td>康复医学，主导NMPA临床试验</td></tr>
 <tr><td>P0</td><td>嵌入式系统工程师</td><td>STM32/ARM，FOC，FreeRTOS</td></tr>
 <tr><td>P0</td><td>机械/控制工程师</td><td>碳纤维结构，直驱电机集成，力控算法</td></tr>
 <tr><td>P1</td><td>EEG算法工程师</td><td>EEG信号处理，EEGNet/CNN</td></tr>
 <tr><td>P1</td><td>NMPA注册负责人</td><td>医疗器械注册，ISO 13485</td></tr>
+</tbody>
 </table>
 
 <h2 id="after-nmpa">11. 获证之后</h2>
@@ -660,7 +678,6 @@ a { color: var(--nexum); text-decoration: none; }
 <blockquote>
 <p><strong>逐念而行</strong> — 从人类神经意图到物理世界动作的通用映射。</p>
 </blockquote>
-
 
 <div style="text-align:center;margin-top:24px;padding:16px;background:var(--info-bg);border-radius:8px;border:1px solid var(--border)">
 <p style="font-size:13px;color:var(--text-secondary);margin:0"><strong>种子轮融资 $3-5M</strong> &nbsp;·&nbsp; 联系：<a href="mailto:hello@nexum.ai">hello@nexum.ai</a></p>
