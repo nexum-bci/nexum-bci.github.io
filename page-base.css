@@ -16,6 +16,9 @@
   --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
   --nav-height: 64px;
   --nav-height-scroll: 56px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 [data-theme="dark"] {
   --bg: #000000; --bg-card: #1c1c1e; --border: rgba(255,255,255,0.08);
@@ -103,7 +106,13 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 .page-section{padding:var(--section-p)}
 .page-header{position:relative;padding:120px 24px 40px;text-align:center;overflow:hidden}
 .page-header h1{font-size:40px;font-weight:700;letter-spacing:-0.8px;line-height:1.12;margin-bottom:12px}
-.page-header .page-sub{font-size:16px;color:var(--text-secondary);max-width:600px;margin:0 auto;line-height:1.6}
+/* Section subtitle */
+.page-sub{font-size:16px;color:var(--text-secondary);max-width:600px;margin:0 auto;line-height:1.6}
+
+/* Hero section (sub-pages) — Apple minimal */
+.hero{
+  padding:140px 24px 100px;text-align:center;position:relative;overflow:hidden;
+}
 .section-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:8px}
 
 /* Hero subtle parallax gradient animation */
@@ -877,7 +886,8 @@ th,td{border-color:var(--border)}
    ============================================================ */
 
 /* Consistent image display */
-img{max-width:100%;height:auto;display:block;border-radius:0}
+img{max-width:100%;height:auto;display:block;border-radius:0;opacity:0;transition:opacity .5s ease}
+img.loaded{opacity:1}
 .card img,.content-card img,.render-img img{border-radius:var(--radius-sm)}
 
 /* Consistent text selection */
