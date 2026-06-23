@@ -112,7 +112,8 @@ blockquote {
 code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 13px; color: var(--text); }
 ul, ol { margin: 10px 0 10px 28px; color: var(--text); }
 li { margin: 5px 0; }
-hr { border: none; border-top: 1px solid var(--hr); margin: 40px 0; }
+hr { border: none; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 48px 0; }
+	::selection { background: var(--nexum); color: #fff; }
 a { color: var(--nexum); text-decoration: none; }
 /* Theme toggle */
 .theme-toggle-bp {
@@ -379,7 +380,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <h3>神经感知：EEG + IMU持续融合</h3>
 
-<p>不是"EEG启动然后IMU接手"。是两者在整个步态周期中持续参与，实时融合：</p>
+<p>两者非串行接力关系，而是在整个步态周期中并行运行、持续融合：</p>
 
 <ul>
 <li><strong>EEG</strong>：8通道干电极，250SPS，EEGNet分类{行走/停止/起立/无意图}。持续回答"你想做什么"——不仅是起步意图，还包括模式切换预测、主动参与度监测（神经可塑性的关键）、疲劳检测（α/θ频谱变化早于身体疲劳表现）。</li>
@@ -413,9 +414,9 @@ a { color: var(--nexum); text-decoration: none; }
 
 <h3>策略进化层：个性化无感自适应</h3>
 
-<p>RL策略不是部署完就固定了。同一个患者在疲劳时和精力充沛时，步态模式完全不同。从室内平地走到室外上坡，环境变了。三个月康复后肌肉力量改善，身体变了。策略需要跟着变——患者不需要做任何设置，系统通过EEG+IMU双模态持续感知状态变化，自动切换最适策略。</p>
+<p>RL策略部署后并非固化不变。同一患者在疲劳状态与精力充沛时的步态模式存在显著差异；从室内平地步行至室外坡道，环境参数改变；经历三个月康复训练后，肌肉力量已发生变化——策略须随患者状态同步演进。系统通过脑电图与IMU双模态持续感知上述变化，无需患者进行任何手动设置，自动切换至当前最适策略。</p>
 
-<p>这不是V2的远期功能。这是从第一天就在系统架构里的设计：每台设备本地积累的EEG+IMU+步态+力矩数据，通过联邦学习框架实现跨患者模型更新——原始数据永不离开设备，仅加密梯度上传。第1000个患者使用的AI，比第1个患者使用的更聪明。这是硬件公司无法复制的软件护城河。</p>
+<p>此非V2远期规划，而是自系统架构设计之初即嵌入的核心能力：每台设备在本地持续积累脑电图、IMU、步态与力矩数据，通过联邦学习框架实现跨患者模型更新——原始数据始终留存于设备端，仅加密梯度参与聚合。第一千名患者使用的策略网络，优于第一名患者使用的版本。这一数据网络效应构成硬件公司无法复制的结构性护城河。</p>
 
 <p style="font-size:13px;color:var(--text-tertiary)">这一架构的本质，是在每一台设备上闭合一条从大脑皮层到肌肉的完整神经回路——系统越用，回路越通畅。</p>
 
