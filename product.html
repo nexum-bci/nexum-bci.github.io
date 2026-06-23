@@ -302,100 +302,17 @@ footer p{font-size:13px;color:var(--text-tertiary);line-height:2.2}
 <!-- HERO -->
 <section class="hero">
  <div class="container">
+ <div class="section-label">Product</div>
  <h1>Nexum One 神经意图外骨骼</h1>
- <p>神经意图解码层：三个模块构成从运动意图到肌肉的完整闭环。端到端延迟 ~150-200ms（实验室条件，详见技术架构）。</p>
- <p style="font-size:14px;color:var(--text-tertiary);max-width:560px;margin:0 auto 48px;">EEG预测意图，IMU感知运动状态，AI调度辅助力矩——多模态融合实现精准助力。</p>
+ <p class="page-sub">三个模块，从运动意图到肌肉的完整闭环。端到端延迟 ~150-200ms（实验室条件）。</p>
+ <p style="font-size:14px;color:var(--text-tertiary);max-width:560px;margin:0 auto 48px;">EEG预测意图，IMU感知运动状态，AI调度辅助力矩 — 多模态融合实现精准助力。</p>
  <div class="hero-metrics">
  <div class="metric"><div class="metric-value">8ch</div><div class="metric-label">EEG 通道</div></div>
- <div class="metric"><div class="metric-value">~80g</div><div class="metric-label">EEG-Sense 头带重量</div></div>
- <div class="metric"><div class="metric-value">~2.5kg</div><div class="metric-label">系统总重（80g+350g+~2.1kg）</div></div>
+ <div class="metric"><div class="metric-value">~80g</div><div class="metric-label">EEG-Sense 头带</div></div>
+ <div class="metric"><div class="metric-value">~2.5kg</div><div class="metric-label">系统总重</div></div>
  <div class="metric"><div class="metric-value">~150-200ms</div><div class="metric-label">端到端延迟</div></div>
  <div class="metric"><div class="metric-value">12.5Nm</div><div class="metric-label">峰值助力</div></div>
  </div>
- </div>
-
- <div style="max-width:900px;margin:48px auto 0">
- <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
- <defs>
- <filter id="s1"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.06"/></filter>
- </defs>
- <!-- EEG-Sense -->
- <g filter="url(#s1)">
- <rect x="20" y="30" width="195" height="130" rx="16" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1.5"/>
- <rect x="20" y="30" width="195" height="40" rx="16" fill="var(--accent-subtle)"/>
- <rect x="20" y="56" width="195" height="14" fill="var(--accent-subtle)"/>
- </g>
- <text x="117" y="55" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">EEG-Sense 意图感知头带</text>
- <text x="117" y="94" text-anchor="middle" fill="var(--text)" font-size="13" font-weight="600">8通道干电极 · 250 SPS</text>
- <text x="117" y="114" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">80g  ·  BLE 5.0  ·  24-bit ADC</text>
- <text x="117" y="132" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">MRCP 运动准备电位检测</text>
- <!-- Arrow -->
- <line x1="218" y1="95" x2="252" y2="95" stroke="var(--text-tertiary)" stroke-width="1.5"/>
- <polygon points="252,91 260,95 252,99" fill="var(--text-tertiary)"/>
-
- <!-- Nexum App -->
- <g filter="url(#s1)">
- <rect x="264" y="30" width="195" height="130" rx="16" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1.5"/>
- <rect x="264" y="30" width="195" height="40" rx="16" fill="var(--accent-subtle)"/>
- <rect x="264" y="56" width="195" height="14" fill="var(--accent-subtle)"/>
- </g>
- <text x="361" y="55" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">Nexum App</text>
- <text x="361" y="94" text-anchor="middle" fill="var(--text)" font-size="13" font-weight="600">个性化 AI 推理引擎</text>
- <text x="361" y="114" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">EEGNet  ·  强化学习策略</text>
- <text x="361" y="132" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">ONNX Runtime 边缘推理</text>
- <text x="361" y="152" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">~55ms</text>
- <!-- Arrow -->
- <line x1="462" y1="95" x2="496" y2="95" stroke="var(--text-tertiary)" stroke-width="1.5"/>
- <polygon points="496,91 504,95 496,99" fill="var(--text-tertiary)"/>
-
- <!-- NeuroCore 控制中枢 -->
- <g filter="url(#s1)">
- <rect x="508" y="30" width="195" height="130" rx="16" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1.5"/>
- <rect x="508" y="30" width="195" height="40" rx="16" fill="var(--accent-subtle)"/>
- <rect x="508" y="56" width="195" height="14" fill="var(--accent-subtle)"/>
- </g>
- <text x="605" y="55" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">NeuroCore 控制中枢</text>
- <text x="605" y="94" text-anchor="middle" fill="var(--text)" font-size="13" font-weight="600">边缘计算 + 电机驱动</text>
- <text x="605" y="114" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">STM32H743  ·  DRV8316</text>
- <text x="605" y="132" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">6S Li-ion  ·  48Wh</text>
- <text x="605" y="152" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="600">~60ms</text>
- <!-- Arrow -->
- <line x1="706" y1="95" x2="740" y2="95" stroke="var(--text-tertiary)" stroke-width="1.5"/>
- <polygon points="740,91 748,95 740,99" fill="var(--text-tertiary)"/>
-
- <!-- NeuroSuit -->
- <g filter="url(#s1)">
- <rect x="752" y="30" width="130" height="130" rx="16" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1.5"/>
- <rect x="752" y="30" width="130" height="40" rx="16" fill="var(--accent-subtle)"/>
- <rect x="752" y="56" width="130" height="14" fill="var(--accent-subtle)"/>
- </g>
- <text x="817" y="55" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">NeuroSuit</text>
- <text x="817" y="94" text-anchor="middle" fill="var(--text)" font-size="13" font-weight="600">碳纤维骨架 · 直驱电机</text>
- <text x="817" y="114" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">髋部助力 · 12.5Nm峰值</text>
- <text x="817" y="132" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">~2.5kg  ·  10秒穿脱</text>
-
- <!-- Connection labels -->
- <text x="235" y="80" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">BLE</text>
- <text x="479" y="80" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">BLE</text>
- <text x="723" y="80" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">UART</text>
-
- <!-- Bottom: latency summary -->
- <rect x="20" y="175" width="862" height="36" rx="18" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
- <text x="451" y="198" text-anchor="middle" fill="var(--text-secondary)" font-size="12">
-    端到端闭环 ~150-200ms（详见技术架构）
- </text>
-
- <!-- Version badges -->
- <rect x="20" y="225" width="210" height="80" rx="14" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
- <text x="125" y="255" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">Clinical 版</text>
- <text x="125" y="275" text-anchor="middle" fill="var(--text)" font-size="17" font-weight="800">$18,000</text>
- <text x="125" y="295" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">医院康复科专用</text>
-
- <rect x="248" y="225" width="210" height="80" rx="14" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
- <text x="353" y="255" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="700">Home 版</text>
- <text x="353" y="275" text-anchor="middle" fill="var(--text)" font-size="17" font-weight="800">$3,999+$499/年</text>
- <text x="353" y="295" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">居家康复  ·  联邦学习</text>
-</svg>
  </div>
 </section>
 

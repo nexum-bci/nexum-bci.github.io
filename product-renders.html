@@ -24,14 +24,28 @@ img{opacity:1!important}
 .module-body p{font-size:14px;color:var(--text-secondary);line-height:1.5;margin:0}
 .module-body .tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--accent-subtle);color:var(--accent);margin-top:10px}
 @media(max-width:768px){.module-grid{grid-template-columns:1fr}}
+
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:32px 0}
+.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center}
+.stat-num{font-size:34px;font-weight:800;color:var(--accent);letter-spacing:-1.5px;line-height:1.1}
+.stat-label{font-size:13px;color:var(--text-tertiary);margin-top:6px}
+@media(max-width:768px){.stat-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.stat-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <section class="page-header">
  <div class="container">
+ <div class="section-label">Product Gallery</div>
  <h1>产品渲染</h1>
- <p class="page-sub">Nexum One 神经意图外骨骼 — EEG-Sense · NeuroCore · NeuroSuit</p>
+ <p class="page-sub">Nexum One 神经意图外骨骼 · EEG-Sense · NeuroCore · NeuroSuit</p>
+ <div class="stat-grid" style="margin-top:40px">
+ <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">核心模块</div></div>
+ <div class="stat-card"><div class="stat-num">80g</div><div class="stat-label">EEG-Sense</div></div>
+ <div class="stat-card"><div class="stat-num">~2.5kg</div><div class="stat-label">系统总重</div></div>
+ <div class="stat-card"><div class="stat-num">12.5Nm</div><div class="stat-label">峰值助力</div></div>
+ </div>
  </div>
 </section>
 

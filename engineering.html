@@ -48,14 +48,28 @@
   a{color:#000!important}
   table{font-size:9pt}
 }
+
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:32px 0}
+.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center}
+.stat-num{font-size:34px;font-weight:800;color:var(--accent);letter-spacing:-1.5px;line-height:1.1}
+.stat-label{font-size:13px;color:var(--text-tertiary);margin-top:6px}
+@media(max-width:768px){.stat-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.stat-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <section class="page-header">
  <div class="container">
+ <div class="section-label">Engineering</div>
  <h1>工程架构</h1>
- <p class="page-sub">神经意图→物理动作 · 系统架构 · 工程框图 · 器件选型</p>
+ <p class="page-sub">Nexum One 工程实现 — 5层工程视图 · D-01至D-05 · 从系统框图到PCB堆叠</p>
+ <div class="stat-grid" style="margin-top:40px">
+ <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">工程视图</div></div>
+ <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">通信协议</div></div>
+ <div class="stat-card"><div class="stat-num">7</div><div class="stat-label">关键器件</div></div>
+ <div class="stat-card"><div class="stat-num">7</div><div class="stat-label">工程风险项</div></div>
+ </div>
  </div>
 </section>
 

@@ -61,14 +61,28 @@ tbody tr:hover{background:var(--accent-subtle)}
   th,td{padding:10px 12px}
   pre{padding:14px 16px;font-size:12.5px}
 }
+
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:32px 0}
+.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center}
+.stat-num{font-size:34px;font-weight:800;color:var(--accent);letter-spacing:-1.5px;line-height:1.1}
+.stat-label{font-size:13px;color:var(--text-tertiary);margin-top:6px}
+@media(max-width:768px){.stat-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.stat-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <section class="page-header">
  <div class="container">
+ <div class="section-label">Product Requirements</div>
  <h1>产品需求文档</h1>
  <p class="page-sub">Nexum One 产品需求 — 用户需求 → 工程需求 → 功能需求 → 成功标准</p>
+ <div class="stat-grid" style="margin-top:40px">
+ <div class="stat-card"><div class="stat-num">8</div><div class="stat-label">用户需求</div></div>
+ <div class="stat-card"><div class="stat-num">28</div><div class="stat-label">功能需求</div></div>
+ <div class="stat-card"><div class="stat-num">P0</div><div class="stat-label">最高优先级</div></div>
+ <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">竞品对标</div></div>
+ </div>
  </div>
 </section>
 

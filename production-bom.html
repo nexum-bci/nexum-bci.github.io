@@ -319,14 +319,28 @@ sub, sup {
     th, td { padding: 8px 10px; }
     pre { padding: 14px 16px; font-size: 12.5px; }
 }
+
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:32px 0}
+.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center}
+.stat-num{font-size:34px;font-weight:800;color:var(--accent);letter-spacing:-1.5px;line-height:1.1}
+.stat-label{font-size:13px;color:var(--text-tertiary);margin-top:6px}
+@media(max-width:768px){.stat-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.stat-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <section class="page-header">
  <div class="container">
+ <div class="section-label">Bill of Materials</div>
  <h1>生产BOM</h1>
- <p class="page-sub">Nexum One 神经意图外骨骼 · 生产BOM — 物料清单 · 供应商 · 成本核算</p>
+ <p class="page-sub">Nexum One 神经意图外骨骼 · 物料清单 · 供应商 · 成本核算</p>
+ <div class="stat-grid" style="margin-top:40px">
+ <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">核心模块</div></div>
+ <div class="stat-card"><div class="stat-num">~¥4,860</div><div class="stat-label">原型BOM</div></div>
+ <div class="stat-card"><div class="stat-num">~¥2,773</div><div class="stat-label">量产BOM @100</div></div>
+ <div class="stat-card"><div class="stat-num">~¥2,080</div><div class="stat-label">量产BOM @1000</div></div>
+ </div>
  </div>
 </section>
 
