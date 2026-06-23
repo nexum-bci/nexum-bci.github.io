@@ -100,7 +100,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <div class="content-card" style="margin-bottom:32px">
 <h2 style="margin-top:0" id="competition">1. 全球竞品全景</h2>
 
-<h3>医疗级外骨骼（传统阵营）</h3>
+<h3>医疗级外骨骼（成熟企业）</h3>
 <table>
 <tr><th>公司</th><th>国家</th><th>成立</th><th>产品</th><th>控制</th><th>价格（$美元 / ¥人民币）</th><th>累计融资（$美元 / ¥人民币）</th><th>认证</th></tr>
 <tr><td>Ekso Bionics</td><td>美国</td><td>2005</td><td>EksoNR, Indego（~23kg）</td><td>重心移动传感器+IMU</td><td>~$200K</td><td>$150M+</td><td>FDA</td></tr>
@@ -184,7 +184,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <tr><th></th><th>上肢 EEG 康复</th><th>下肢 EEG 外骨骼</th></tr>
 <tr><td>代表公司</td><td>赛博灵科 AC5, 迈联医疗（中国）</td><td>Nexum One（唯一）</td></tr>
 <tr><td>患者基数（中国）</td><td>脑卒中上肢功能障碍约 800 万人</td><td>脑卒中偏瘫+不完全性SCI+老年行动力下降 ≈ 1,500 万+</td></tr>
-<tr><td>单次治疗价格</td><td>¥140-190（recoveriX）/ ¥966（BCI适配费）</td><td>设备 ¥18,000（医院）/ ¥3,999+¥499/年（居家）</td></tr>
+<tr><td>单次治疗价格</td><td>¥140-190（recoveriX）/ ¥966（BCI适配费）</td><td>设备 $18,000（医院）/ $3,999+$499/年（居家）</td></tr>
 <tr><td>使用场景</td><td>医院治疗室，治疗师操作</td><td>医院 + 居家 + 社区。独立使用</td></tr>
 <tr><td>技术难度</td><td>坐姿，头部静止，EEG信号稳定</td><td>步行，全身运动伪迹，EEG信号淹没在噪声中</td></tr>
 <tr><td>竞争格局</td><td>已有 3+ 家商用产品，红海初现</td><td>空白。全球无一商用产品</td></tr>
@@ -221,13 +221,13 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <tr><td>监管壁垒</td><td>无。任何消费电子公司可随时进入</td><td>NMPA/FDA 认证，12-24个月审批周期</td></tr>
 <tr><td>支付方</td><td>个人消费者。价格敏感</td><td>医保报销。11省外骨骼医保 + CMS K1007</td></tr>
 <tr><td>毛利率</td><td>硬件利润 ~30-40%，无软件recurring</td><td>设备 ~52-64% + 软件订阅 $499/年</td></tr>
-<tr><td>数据护城河</td><td>无。IMU数据无临床价值</td><td>EEG+步态+肌力纵向临床数据，后来者无法复制</td></tr>
+<tr><td>数据护城河</td><td>有限。IMU数据不含神经信号维度</td><td>EEG+步态+肌力纵向临床数据，后来者无法复制</td></tr>
 <tr><td>竞品密度</td><td>已有10+家，包括Samsung、程天等大厂</td><td>EEG+下肢交叉点全球零家</td></tr>
 <tr><td>扩展路径</td><td>无法向上进入医疗（缺监管基础）</td><td>可从医疗向下延伸至消费</td></tr>
 </table>
 
 <div class="highlight-box">
-<strong>核心逻辑：</strong>消费外骨骼是商品生意——卷价格、卷渠道、卷品牌。医疗外骨骼是平台生意——监管壁垒锁定市场准入，临床数据构建护城河，医保覆盖提供支付确定性，软件订阅创造recurring revenue。Nexum 的 EEG 技术是医疗级差异化——把它放进 $599 的消费产品里是浪费。先拿 NMPA 证建立监管护城河，再用联邦学习积累临床数据飞轮，最后从医疗向消费延展——这才是三层市场阶梯的正确打开顺序。
+<strong>核心逻辑：</strong>消费外骨骼是商品生意——竞争集中在价格、渠道、品牌。医疗外骨骼是平台生意——监管壁垒锁定市场准入，临床数据构建护城河，医保覆盖提供支付确定性，软件订阅创造recurring revenue。Nexum 的 EEG 技术是医疗级差异化——把它放进 $599 的消费产品里是浪费。先拿 NMPA 证建立监管护城河，再用联邦学习积累临床数据飞轮，最后从医疗向消费延展——这才是三层市场阶梯的正确打开顺序。
 </div>
 </div>
 
@@ -250,7 +250,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 </table>
 
 <div class="highlight-box">
-<strong>侵入式解决的是"精度"问题（单神经元控制光标），非侵入式解决的是"规模"问题（数千万患者可及）。</strong>Nexum的目标是让患者在康复科和家里使用外骨骼——这个场景不需要单神经元精度，需要的是零风险、低成本、可规模化。侵入式BCI目前30个患者、$数十万/人、3年设备寿命——这是奢侈品逻辑，不是Nexum的逻辑。
+<strong>侵入式解决的是"精度"问题（单神经元控制光标），非侵入式解决的是"规模"问题（数千万患者可及）。</strong>Nexum的目标是让患者在康复科和家里使用外骨骼——这个场景不需要单神经元精度，需要的是零风险、低成本、可规模化。侵入式BCI目前30个患者、$数十万/人、3年设备寿命——这是面向小众高端应用的逻辑，而非大规模可及性的逻辑。
 
 <p style="margin-top:12px">更重要的是，<strong>侵入式和非侵入式不是竞争关系</strong>。它们是同一技术栈的不同层：侵入式服务"重建功能"（让完全瘫痪的人用脑控制电脑），非侵入式服务"恢复+增强"（让不完全瘫痪的人重新走路）。Nexum选择后者，因为后者的人群更大、支付路径更成熟、监管更可预期。</p>
 </div>
@@ -387,7 +387,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <tr><td>NeuroSuit 神经意图肌动服（单关节简化）</td><td>$1,525</td><td>$1,900</td></tr>
 <tr><td><strong>硬件总BOM</strong></td><td><strong>$1,800</strong></td><td><strong>$2,400</strong></td></tr>
 </table>
-<p style="font-size:13px;color:var(--text-tertiary);margin-top:8px">支撑$5,000售价毛利率52-64%。所有价格来自DigiKey/Mouser/Alibaba公开报价（2026年6月）。批量采购可降低15-30%。</p>
+<p style="font-size:13px;color:var(--text-tertiary);margin-top:8px">BOM为物料成本，不含组装、测试、包装等制造成本。家用版售价$3,999对应毛利率约40-55%（含制造成本估算）。所有价格来自DigiKey/Mouser/Alibaba公开报价（2026年6月）。</p>
 </div>
 
 <div class="content-card" style="margin-bottom:32px">

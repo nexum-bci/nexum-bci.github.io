@@ -470,22 +470,22 @@ footer {
  <h2 class="text-center">~150-200ms 端到端延迟分解</h2>
  <div class="latency-bar">
  <div class="latency-seg s1" style="flex:4;"><span>40ms</span></div>
- <div class="latency-seg s2" style="flex:5.5;"><span>55ms</span></div>
  <div class="latency-seg s3" style="flex:2;"><span>20ms</span></div>
+ <div class="latency-seg s2" style="flex:5.5;"><span>55ms</span></div>
  <div class="latency-seg s4" style="flex:6;"><span>60ms</span></div>
  <div class="latency-seg s5" style="flex:1;"><span>10ms</span></div>
  </div>
  <div class="latency-labels">
  <div style="flex:4;">EEG采集</div>
- <div style="flex:5.5;">AI推理</div>
  <div style="flex:2;">预处理</div>
+ <div style="flex:5.5;">AI推理</div>
  <div style="flex:6;">执行器</div>
  <div style="flex:1;">反馈</div>
  </div>
  <div class="latency-details">
  <div class="latency-row"><span class="dot" style="background:#6366f1;"></span><span class="label">EEG信号采集</span><span class="ms">40ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;min-width:40px;">21.6%</span></div>
- <div class="latency-row"><span class="dot" style="background:var(--accent);"></span><span class="label">AI推理与策略生成</span><span class="ms">55ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;">29.7%</span></div>
  <div class="latency-row"><span class="dot" style="background:#06b6d4;"></span><span class="label">信号预处理与特征提取</span><span class="ms">20ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;">10.8%</span></div>
+ <div class="latency-row"><span class="dot" style="background:var(--accent);"></span><span class="label">AI推理与策略生成</span><span class="ms">55ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;">29.7%</span></div>
  <div class="latency-row"><span class="dot" style="background:#10b981;"></span><span class="label">执行器响应与机械动作</span><span class="ms">60ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;">32.4%</span></div>
  <div class="latency-row"><span class="dot" style="background:#f59e0b;"></span><span class="label">传感器反馈与闭环调整</span><span class="ms">10ms</span><span class="pct" style="color:var(--text-tertiary);font-size:13px;">5.4%</span></div>
  </div>
@@ -794,7 +794,7 @@ footer {
  <div class="bench-row"><span class="bench-label">MRCP检测准确率（EEG-only）</span><span class="bench-value">70-85%</span></div>
  <div class="bench-row"><span class="bench-label">意图提前识别时间</span><span class="bench-value">~0.5s</span></div>
  <div class="bench-row"><span class="bench-label">信号采样率</span><span class="bench-value">250 SPS</span></div>
- <div class="bench-row"><span class="bench-label">信号带宽</span><span class="bench-value">0.5-100 Hz</span></div>
+ <div class="bench-row"><span class="bench-label">信号带宽</span><span class="bench-value">0.5-45Hz（50Hz陷波）</span></div>
  <hr class="bench-divider">
  <div class="bench-row"><span class="bench-label">EEG采集延迟占比</span><span class="bench-value">40ms (21.6%)</span></div>
  </div>
