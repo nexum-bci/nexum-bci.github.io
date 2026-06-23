@@ -48,6 +48,9 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
   a { color: #000; text-decoration: underline; }
   .highlight-box, .callout-good { background: #f9f9f9; border-left: 4px solid #999; }
 }
+
+.check-yes{color:#10b981;font-weight:700;font-size:14px}
+.check-no{color:#ef4444;font-weight:700;font-size:14px}
 </style>
 </head>
 <body>
@@ -117,12 +120,12 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <h3>EEG-BCI 康复（交叉赛道）</h3>
 <table>
 <tr><th>公司</th><th>国家</th><th>产品</th><th>技术</th><th>做下肢?</th></tr>
-<tr><td>g.tec medical engineering</td><td>奥地利</td><td>recoveriX</td><td>EEG+FES（运动想象→电刺激，含下肢FES但非步行外骨骼）</td><td>❌ 非步行外骨骼</td></tr>
-<tr><td>赛博灵科/博灵脑机</td><td>中国</td><td>AC5, HC2, AM5</td><td>EEG+外骨骼（主动康复）</td><td>❌ 仅上肢</td></tr>
-<tr><td>迈联医疗</td><td>中国</td><td>脑控康复</td><td>EEG+外骨骼</td><td>❌ 仅上肢</td></tr>
-<tr><td>RehabSwift</td><td>澳大利亚</td><td>RehabSwift</td><td>EEG+FES</td><td>❌ 仅上肢</td></tr>
-<tr><td>Neurable</td><td>美国</td><td>MW75 Neuro</td><td>EEG耳机（消费级）</td><td>❌ 不做外骨骼</td></tr>
-<tr><td>NextMind（Apple收购）</td><td>法国→美国</td><td>视觉BCI</td><td>视觉诱发电位</td><td>❌ 不做外骨骼</td></tr>
+<tr><td>g.tec medical engineering</td><td>奥地利</td><td>recoveriX</td><td>EEG+FES（运动想象→电刺激，含下肢FES但非步行外骨骼）</td><td><span class="check-no">✗</span> 非步行外骨骼</td></tr>
+<tr><td>赛博灵科/博灵脑机</td><td>中国</td><td>AC5, HC2, AM5</td><td>EEG+外骨骼（主动康复）</td><td><span class="check-no">✗</span> 仅上肢</td></tr>
+<tr><td>迈联医疗</td><td>中国</td><td>脑控康复</td><td>EEG+外骨骼</td><td><span class="check-no">✗</span> 仅上肢</td></tr>
+<tr><td>RehabSwift</td><td>澳大利亚</td><td>RehabSwift</td><td>EEG+FES</td><td><span class="check-no">✗</span> 仅上肢</td></tr>
+<tr><td>Neurable</td><td>美国</td><td>MW75 Neuro</td><td>EEG耳机（消费级）</td><td><span class="check-no">✗</span> 不做外骨骼</td></tr>
+<tr><td>NextMind（Apple收购）</td><td>法国→美国</td><td>视觉BCI</td><td>视觉诱发电位</td><td><span class="check-no">✗</span> 不做外骨骼</td></tr>
 </table>
 
 <h3>中国外骨骼生态</h3>
@@ -369,7 +372,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <table>
 <tr><th>模块</th><th>核心器件</th><th>型号</th><th>单价</th><th>来源</th></tr>
 <tr><td>EEG ADC</td><td>8通道24-bit</td><td>TI ADS1299</td><td>$51-67</td><td>DigiKey/Mouser</td></tr>
-<tr><td>头带MCU</td><td>双核BLE 5.0</td><td>Nordic nRF5340</td><td>$4-7</td><td>DigiKey</td></tr>
+<tr><td>头带MCU</td><td>双核BLE 5.2</td><td>Nordic nRF5340</td><td>$4-7</td><td>DigiKey</td></tr>
 <tr><td>头带电池</td><td>LiPo 300-500mAh</td><td>小型软包</td><td>$5-8</td><td>定制</td></tr>
 <tr><td>干电极</td><td>Ag/AgCl涂层pin</td><td>×8</td><td>$5-15/个</td><td>供应商定制</td></tr>
 <tr><td>主控MCU</td><td>Cortex-M7 480MHz</td><td>STM32H743</td><td>$11-17</td><td>DigiKey</td></tr>

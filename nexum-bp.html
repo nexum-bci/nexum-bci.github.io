@@ -150,6 +150,9 @@ a { color: var(--nexum); text-decoration: none; }
   hr { border-top: 1px solid #ddd; }
   svg { max-width: 100%; page-break-inside: avoid; }
 }
+
+.check-yes{color:#10b981;font-weight:700;font-size:14px}
+.check-no{color:#ef4444;font-weight:700;font-size:14px}
 </style>
 </head>
 <body>
@@ -235,15 +238,15 @@ a { color: var(--nexum); text-decoration: none; }
 <table>
 <thead><tr><th>产品</th><th>控制方式</th><th>EEG?</th><th>下肢?</th></tr></thead>
 <tbody>
-<tr><td>EksoNR</td><td>按钮+IMU</td><td>❌</td><td>✅</td></tr>
-<tr><td>ReWalk</td><td>倾斜传感器</td><td>❌</td><td>✅</td></tr>
-<tr><td>HAL (Cyberdyne)</td><td><strong>EMG</strong>（肌电）</td><td>❌</td><td>✅</td></tr>
-<tr><td>Indego</td><td>按钮</td><td>❌</td><td>✅</td></tr>
-<tr><td>Wandercraft</td><td>自平衡</td><td>❌</td><td>✅</td></tr>
-<tr><td>g.tec recoveriX</td><td><strong>EEG</strong>（非侵入）</td><td>✅</td><td>❌ 上肢</td></tr>
-<tr><td>赛博灵科 AC5</td><td><strong>EEG</strong>（非侵入）</td><td>✅</td><td>❌ 上肢</td></tr>
-<tr><td>RehabSwift</td><td><strong>EEG</strong>（非侵入）</td><td>✅</td><td>❌ 上肢</td></tr>
-<tr><td><strong>Nexum One</strong></td><td><strong>EEG+IMU</strong>（非侵入）</td><td>✅</td><td>✅</td></tr>
+<tr><td>EksoNR</td><td>按钮+IMU</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td></tr>
+<tr><td>ReWalk</td><td>倾斜传感器</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td></tr>
+<tr><td>HAL (Cyberdyne)</td><td><strong>EMG</strong>（肌电）</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td></tr>
+<tr><td>Indego</td><td>按钮</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td></tr>
+<tr><td>Wandercraft</td><td>自平衡</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td></tr>
+<tr><td>g.tec recoveriX</td><td><strong>EEG</strong>（非侵入）</td><td><span class="check-yes">✓</span></td><td><span class="check-no">✗</span> 上肢</td></tr>
+<tr><td>赛博灵科 AC5</td><td><strong>EEG</strong>（非侵入）</td><td><span class="check-yes">✓</span></td><td><span class="check-no">✗</span> 上肢</td></tr>
+<tr><td>RehabSwift</td><td><strong>EEG</strong>（非侵入）</td><td><span class="check-yes">✓</span></td><td><span class="check-no">✗</span> 上肢</td></tr>
+<tr><td><strong>Nexum One</strong></td><td><strong>EEG+IMU</strong>（非侵入）</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
 </tbody>
 </table>
 
