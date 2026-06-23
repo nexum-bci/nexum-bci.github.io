@@ -19,20 +19,7 @@
 <title>产品需求 - Nexum 逐念而行</title>
 <style>
 
-[data-theme="dark"] {
-  --bg: #000; --bg-card: #1c1c1e; --border: rgba(255,255,255,0.06);
-  --text: #fff; --text-secondary: #a1a1a6; --text-tertiary: #6e6e73;
-  --accent-subtle: rgba(0,113,227,0.12); --shadow-sm: none; --shadow-md: none;
-}
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{}
-img{max-width:100%;height:auto;display:block}
-a{color:var(--accent);text-decoration:none;transition:color .2s ease}
-a:hover{opacity:.8}
-nav a,footer a{text-decoration:none!important}
-::selection{background:var(--accent);color:#fff}
+/* PRD-specific overrides */
 
 .container{max-width:var(--max-w);margin:0 auto;padding:40px 32px}
 
@@ -65,19 +52,7 @@ tbody tr:nth-child(even){background:rgba(0,0,0,0.015)}
 [data-theme="dark"] tbody tr:nth-child(even){background:rgba(255,255,255,0.02)}
 tbody tr:hover{background:var(--accent-subtle)}
 
-/* ===== FOOTER ===== */
-footer{background:var(--bg-card);border-top:1px solid var(--border);padding:64px 24px 40px;transition:background .35s ease}
-.footer-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px}
-.footer-inner h5{font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text-secondary);margin-bottom:16px}
-footer a,footer p{font-size:13px;color:var(--text-secondary);line-height:2.2}
-footer a{display:block}
-footer a:hover{color:var(--text)}
-.footer-brand p{font-size:13px;color:var(--text-tertiary);margin-top:8px;max-width:280px;line-height:1.65}
-.footer-bottom{max-width:var(--max-w);margin:48px auto 0;padding-top:24px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--text-tertiary)}
 @media(max-width:768px){
-  .footer-inner{grid-template-columns:1fr 1fr;gap:32px}
-  .footer-inner>div:first-child{grid-column:1/-1}
-  footer{padding:48px 20px 32px}
   .container{padding:24px 16px}
   h1{font-size:28px}
   h2{font-size:22px}
@@ -86,8 +61,6 @@ footer a:hover{color:var(--text)}
   th,td{padding:10px 12px}
   pre{padding:14px 16px;font-size:12.5px}
 }
-@media(max-width:480px){.footer-inner{grid-template-columns:1fr}}
-@media print{nav,.footer,.theme-btn,.nav-cta,.nav-toggle{display:none!important}body{background:#fff;color:#000}h1{-webkit-text-fill-color:#000;background:none}h2{color:var(--accent);border-bottom-color:rgba(0,0,0,0.1)}table{font-size:10pt}}
 </style>
 </head>
 <body>
