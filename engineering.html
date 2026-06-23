@@ -33,6 +33,18 @@
 .risk-card h4{font-size:14px;color:var(--text);margin-bottom:4px}
 .risk-card p{font-size:12px;color:var(--text-tertiary);margin:0}
 @media(max-width:768px){.risk-grid{grid-template-columns:1fr}.diagram-header{flex-direction:column;align-items:flex-start;gap:6px}.diagram-desc{margin-left:0}.diagram-section{padding:20px}}
+
+/* Print styles */
+@media print{
+  nav,.footer,.theme-btn,.nav-cta{display:none!important}
+  body{background:#fff!important;color:#000!important;font-size:10pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page-header{padding:20px 0!important}
+  .page-header::before{display:none}
+  .diagram-section,.content-card{break-inside:avoid;border:1px solid #ddd!important;box-shadow:none!important}
+  svg text{fill:#000!important}
+  a{color:#000!important}
+  table{font-size:9pt}
+}
 </style>
 </head>
 <body>

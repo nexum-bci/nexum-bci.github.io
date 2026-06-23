@@ -331,7 +331,19 @@ footer p{font-size:13px;color:var(--text-tertiary);line-height:2.2}
 .mb-48{margin-bottom:48px;}
 
 /* ===== PRINT ===== */
-@media print{.nav,.footer,.cta-section{display:none!important;}body{background:#fff;color:#000;}.section{padding:40px 0;}}
+@media print{
+  nav,.footer,.cta-section,.theme-btn,.nav-cta,#themeToggle,[aria-label="回到顶部"]{display:none!important}
+  body{background:#fff!important;color:#000!important;font-size:11pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .section{padding:24px 0!important}
+  .hero{padding:20px 0!important;min-height:auto!important}
+  .hero::before{display:none}
+  .step-card,.bench-card,.stack-card,.comp-card,.latency-row,.pub-item,.glossary-item,.content-card,.ethics-content{break-inside:avoid;border:1px solid #ddd!important;box-shadow:none!important}
+  .loop-svg-wrap svg text[fill^="var"]{fill:#000!important}
+  .latency-bar{background:#e0e0e0!important}
+  .latency-seg span{color:#fff!important}
+  a{color:#000!important;text-decoration:underline}
+  table{font-size:10pt}
+}
 
 @media(max-width:480px){.hero{padding:120px 16px 60px;}.section{padding:60px 0;}.latency-bar{height:36px;}.latency-seg{font-size:10px;}}
 
@@ -929,6 +941,7 @@ footer {
  <h4><span class="bench-icon" style="background:#f59e0b;">&#9729;</span>系统总览</h4>
  <div class="bench-row"><span class="bench-label">端到端延迟</span><span class="bench-value">~150-200ms</span></div>
  <div class="bench-row"><span class="bench-label">系统总重（含电池）</span><span class="bench-value">~2.5kg</span></div>
+	 <div style="font-size:11px;color:var(--text-tertiary);margin-top:4px;text-align:center">80g EEG-Sense + 350g NeuroCore + ~2.1kg NeuroSuit</div>
  <div class="bench-row"><span class="bench-label">综合续航时间</span><span class="bench-value">~6h</span></div>
  <div class="bench-row"><span class="bench-label">无线通信</span><span class="bench-value">BLE 5.0</span></div>
  <hr class="bench-divider">

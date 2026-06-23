@@ -452,7 +452,7 @@ footer {
  <div class="hero-metrics">
  <div class="metric"><div class="metric-value">8ch</div><div class="metric-label">EEG 通道</div></div>
  <div class="metric"><div class="metric-value">~80g</div><div class="metric-label">EEG-Sense 头带重量</div></div>
- <div class="metric"><div class="metric-value">~2.5kg</div><div class="metric-label">系统总重</div></div>
+ <div class="metric"><div class="metric-value">~2.5kg</div><div class="metric-label">系统总重（80g+350g+~2.1kg）</div></div>
  <div class="metric"><div class="metric-value">~150-200ms</div><div class="metric-label">端到端延迟</div></div>
  <div class="metric"><div class="metric-value">12.5Nm</div><div class="metric-label">峰值助力</div></div>
  </div>
@@ -745,7 +745,7 @@ footer {
  <div class="section-label">03 &#183; 执行 Execute</div>
  <h3>NeuroSuit 神经意图肌动服</h3>
  <p class="en">Exoskeleton Execution System</p>
- <p class="desc">直驱电机+碳纤维骨架。V1髋部，12.5Nm峰值扭矩，5Nm持续扭矩。~2.5kg系统总重，10秒穿脱，独立使用。</p>
+ <p class="desc">直驱电机+碳纤维骨架。V1髋部，12.5Nm峰值扭矩，5Nm持续扭矩。80g + 350g + ~2.1kg = ~2.5kg系统总重，10秒穿脱，独立使用。</p>
  <div class="spec-tags">
  <span class="spec-tag">~2.5kg</span>
  <span class="spec-tag">12.5Nm峰值</span>
@@ -910,10 +910,6 @@ footer {
  <div class="faq-answer">NeuroSuit 10秒快穿，弹性材料 + 快速卡扣。大多数用户可在他人协助下完成。上肢功能较好的用户可独立穿脱。EEG-Sense 意图感知头带和NeuroCore 控制中枢均可单手操作。</div>
  </div>
  <div class="faq-item">
- <button class="faq-question">AI 模型会共享用户数据吗？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
- <div class="faq-answer">不会。采用联邦学习架构，模型更新在本地完成，仅加密模型梯度上传。原始数据始终存储在本地，可随时退出联邦学习。</div>
- </div>
- <div class="faq-item">
  <button class="faq-question">系统在户外环境下能正常工作吗？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
  <div class="faq-answer">可以。EEG信号在户外可能受阳光和汗水影响，建议佩戴遮阳帽。NeuroCore 控制中枢具备IP54防尘防水，小雨可正常使用。极端天气（暴雨、高温）建议室内使用。</div>
  </div>
@@ -1005,10 +1001,7 @@ footer {
  </div>
 </section>
 
-
-
 <!-- EXPANDABLE SPECS -->
-
 
 <!-- CTA -->
 <section class="cta-section">
@@ -1022,7 +1015,6 @@ footer {
  </div>
 </section>
 
-
 <script src="shared.js"></script>
 <script>
 document.querySelectorAll("img").forEach(function(img){if(img.complete)img.classList.add("loaded");else img.addEventListener("load",function(){img.classList.add("loaded")})});
@@ -1035,4 +1027,3 @@ document.querySelectorAll('.specs-group-title').forEach(function(btn){btn.addEve
 </script>
 </body>
 </html>
-
