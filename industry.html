@@ -295,7 +295,7 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <h3 style="color:#6d28d9;border-left:4px solid #7c3aed;padding:4px 0 4px 14px;margin-bottom:16px;">意图解码层 <span style="font-weight:400;font-size:13px;color:var(--text-tertiary);">从脑电到力矩 · NeuroCore 控制中枢</span></h3>
 <div style="background:rgba(124,58,237,0.03);border-left:2px solid rgba(124,58,237,0.15);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:8px;">
 <p style="margin-top:0;"><strong style="color:#7c3aed;">意图分类器</strong> EEGNet（Lawhern 2018, ~2000参数紧凑CNN）。输入8ch×250Hz×100ms滑动窗口→输出四类运动意图。INT8量化后嵌入式推理&lt;5ms。2024-2025年Transformer架构（TOTEM, EEG-Deformer）在跨subject泛化上开始超越EEGNet基线。</p>
-<p><strong style="color:#7c3aed;">RL策略网络</strong> 离线训练+在线推理。离线：基于NEU NeuMove Lab的MyoSuite/MyoWarp框架，全身神经力学肌骨模型（416 MTU, Hill-type肌肉-柔顺肌腱）仿真人体步行——RL策略（PPO/SAC）在此环境中学习不同步态相位对应的关节力矩。在线：EEGNet分类运动意图+IMU检测步态相位→RL策略输出力矩。肌骨模型不进入实时控制回路，RL策略是两者之间的桥梁。当前裸步行仿真已验证，需扩展至外骨骼动力学+混合穿戴结构的联合仿真环境。</p>
+<p><strong style="color:#7c3aed;">RL策略网络</strong> 离线训练+在线推理。离线：基于NEU NeuMove Lab的MyoSuite框架，全身神经力学肌骨模型（416 MTU, Hill-type肌肉-柔顺肌腱）仿真人体步行——RL策略（PPO/SAC）在此环境中学习不同步态相位对应的关节力矩。在线：EEGNet分类运动意图+IMU检测步态相位→RL策略输出力矩。肌骨模型不进入实时控制回路，RL策略是两者之间的桥梁。当前裸步行仿真已验证，需扩展至外骨骼动力学+混合穿戴结构的联合仿真环境。</p>
 <p style="margin-bottom:0;"><strong style="color:#7c3aed;">运动意图范式</strong> MRCP离线95%/在线63-83%，预测运动前200-500ms——比纯IMU方案快200-500ms。混合MI+SSVEP方案在准确率和疲劳度间平衡。</p>
 </div>
 

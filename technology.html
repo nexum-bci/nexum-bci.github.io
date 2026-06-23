@@ -1085,7 +1085,7 @@ footer {
  </div>
  <div class="faq-item">
  <button class="faq-question">416肌肉数字孪生模型是如何构建的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
- <div class="faq-answer">全身416块肌肉的柔性肌腱Hill-type肌骨仿真模型是离线训练引擎，不是实时控制系统。基于NEU NeuMove Lab的MyoSuite/MyoWarp框架，涵盖下肢关键肌群的Hill-type肌骨模型（力-长度-速度关系+肌腱顺应性）。通过运动捕捉与表面EMG信号个性化校准。强化学习策略在仿真中预训练后部署到边缘设备，推理时使用简化模型，而非完整416肌肉实时仿真。</div>
+ <div class="faq-answer">全身416块肌肉的柔性肌腱Hill-type肌骨仿真模型是离线训练引擎，不是实时控制系统。基于NEU NeuMove Lab的MyoSuite框架，涵盖下肢关键肌群的Hill-type肌骨模型（力-长度-速度关系+肌腱顺应性）。通过运动捕捉与表面EMG信号个性化校准。强化学习策略在仿真中预训练后部署到边缘设备，推理时使用简化模型，而非完整416肌肉实时仿真。</div>
  </div>
  <div class="faq-item">
  <button class="faq-question">强化学习是如何在边缘设备上训练的？<span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg></span></button>
@@ -1131,7 +1131,7 @@ footer {
  <div class="glossary-item"><h4>强化学习 (RL)</h4><p>智能体通过环境交互与奖励信号学习最优策略。Nexum采用PPO算法。</p></div>
  <div class="glossary-item"><h4>联邦学习 (FL)</h4><p>多设备协同训练全局模型，原始数据不离本地，保护用户隐私。</p></div>
  <div class="glossary-item"><h4>直驱电机 (Direct-Drive Motor)</h4><p>电机直接驱动关节，无需减速器或线缆传动。响应快、精度高、可靠性好。商用外骨骼主流方案。</p></div>
- <div class="glossary-item"><h4>数字孪生 / 肌肉骨骼模型</h4><p>物理系统的虚拟镜像。Hill-type肌骨仿真模型（基于NEU NeuMove Lab的MyoSuite/MyoWarp）用于离线仿真与策略预训练，非实时控制。实时推理使用简化模型。</p></div>
+ <div class="glossary-item"><h4>数字孪生 / 肌肉骨骼模型</h4><p>物理系统的虚拟镜像。Hill-type肌骨仿真模型（基于NEU NeuMove Lab的MyoSuite）用于离线仿真与策略预训练，非实时控制。实时推理使用简化模型。</p></div>
  <div class="glossary-item"><h4>运动准备电位 (BP)</h4><p>自主运动前约1.5-2秒出现的EEG缓慢负向电位，运动意图的最早期可检测信号。</p></div>
  <div class="glossary-item"><h4>PPO算法</h4><p>Proximal Policy Optimization，通过限制策略更新步长防止训练震荡的稳定RL算法。</p></div>
  <div class="glossary-item"><h4>IMU (惯性测量单元)</h4><p>集成加速度计与陀螺仪，实时测量关节角度与运动状态。</p></div>
