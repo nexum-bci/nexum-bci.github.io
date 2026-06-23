@@ -143,8 +143,11 @@
 
   document.querySelectorAll('.nav-link').forEach(function(link) {
     var href = link.getAttribute('href');
-    if (href && page.indexOf(href.replace('.html','')) > -1) {
-      link.classList.add('active');
+    if (href) {
+      var linkPage = href.replace('.html','').replace('#','');
+      if (linkPage && page === linkPage + '.html') {
+        link.classList.add('active');
+      }
     }
   });
 
@@ -192,6 +195,7 @@
     if (!link) return;
     var href = link.getAttribute('href');
     if (!href || href.startsWith('#') || href.startsWith('//') || href.indexOf(':') !== -1) return;
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
     e.preventDefault();
     document.body.style.transition = 'opacity .2s ease';
     document.body.style.opacity = '0';

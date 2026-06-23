@@ -318,7 +318,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <h2 id="product">4. 产品：Nexum One</h2>
 
-<p>Nexum One由三个物理模块组成。穿戴形态为紧身衣式：碳纤维锚定骨架嵌入高弹性织物，多点压力分散，无需刚性外框。无外置显示屏，仅一个电源按钮。</p>
+<p>Nexum One由四个物理模块组成：EEG-Sense意图感知头带、NeuroCore控制中枢（含3.5寸触摸屏）、NeuroSuit神经意图肌动服、Nexum App。穿戴形态为紧身衣式：碳纤维锚定骨架嵌入高弹性织物，多点压力分散，无需刚性外框。</p>
 
 <blockquote>
 <p><strong>EEG-Sense 意图感知头带</strong> — 运动头带形态，80g，8通道干电极，BLE无线<br>
@@ -443,7 +443,7 @@ a { color: var(--nexum); text-decoration: none; }
     <rect x="58" y="75" width="10" height="30" rx="3" fill="#3a3a40"/>
     <rect x="182" y="75" width="10" height="30" rx="3" fill="#3a3a40"/>
     <text x="125" y="270" text-anchor="middle" fill="#1a1f2e" font-size="15" font-weight="700">NeuroSuit 神经意图肌动服</text>
-    <text x="125" y="290" text-anchor="middle" fill="#999999" font-size="12">~2.5kg · 12Nm · 10s穿脱</text>
+    <text x="125" y="290" text-anchor="middle" fill="#999999" font-size="12">~2.5kg · 12.5Nm · 10s穿脱</text>
   </g>
 </svg>
 <p style="font-size:11px;color:var(--text-tertiary);margin-top:8px">Nexum One 三模块系统 — 从神经意图感知到物理动作执行</p>
@@ -468,7 +468,7 @@ a { color: var(--nexum); text-decoration: none; }
 <tbody>
 <tr><td><strong>神经感知层</strong></td><td>EEG-Sense 意图感知头带</td><td>读取神经意图与运动状态</td><td>EEG 8ch干电极（MRCP检测）+ IMU×4（6轴，100Hz）+ 力传感器×2（扭矩反馈）</td><td>验证级</td></tr>
 <tr><td><strong>意图解码层</strong></td><td>NeuroCore 控制中枢</td><td>意图分类+策略生成</td><td>EEGNet（~2000参数）+ 全身神经力学肌骨模型（416 MTU, Hill-type肌肉-柔顺肌腱） + 离线RL策略网络（PPO/SAC，仿真预训练）</td><td>验证级</td></tr>
-<tr><td><strong>力控执行层</strong></td><td>NeuroSuit 神经意图肌动服</td><td>力矩输出+安全控制</td><td>直驱电机×2（12Nm峰值/5Nm持续）+ FOC矢量控制 + PID力控闭环（1kHz）</td><td>产品级</td></tr>
+<tr><td><strong>力控执行层</strong></td><td>NeuroSuit 神经意图肌动服</td><td>力矩输出+安全控制</td><td>直驱电机×2（12.5Nm峰值/5Nm持续）+ FOC矢量控制 + PID力控闭环（1kHz）</td><td>产品级</td></tr>
 <tr><td><strong>穿戴结构层</strong></td><td>NeuroSuit 神经意图肌动服</td><td>轻量化承力+舒适穿戴</td><td>碳纤维骨架（T700级预浸料，~0.8kg）+ 弹性织物基底（梯度压缩设计）+ 无刚性外框</td><td>产品级</td></tr>
 <tr><td><strong>策略进化层</strong></td><td>联邦学习平台（V2）</td><td>个性化+长期优化</td><td>离线联邦学习（跨患者模型更新，非实时，V2阶段）</td><td>研究级</td></tr>
 </tbody>
@@ -673,7 +673,7 @@ a { color: var(--nexum); text-decoration: none; }
     <line x1="360" y1="10" x2="360" y2="30" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
     <text x="460" y="25" text-anchor="middle" fill="#666666" font-size="11">~2.5kg总重</text>
     <line x1="540" y1="10" x2="540" y2="30" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
-    <text x="620" y="25" text-anchor="middle" fill="#666666" font-size="11">12Nm峰值扭矩</text>
+    <text x="620" y="25" text-anchor="middle" fill="#666666" font-size="11">12.5Nm峰值扭矩</text>
     <line x1="700" y1="10" x2="700" y2="30" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
     <text x="740" y="25" text-anchor="middle" fill="#0096f0" font-size="11" font-weight="700">V1 髋部</text>
   </g>
@@ -850,7 +850,7 @@ a { color: var(--nexum); text-decoration: none; }
 <p>哥伦比亚大学电子工程硕士（机器学习方向）。华为美国研究院Futurewei IoT Lab。江苏欣网（宇树金牌合作伙伴）与南京智擎机器人技术负责人八年。12年具身智能运动控制与硬件产品落地经验。因髋关节撞击综合征（FAI）亲身经历两年行动障碍——这一经历直接定义了公司的产品方向与临床理解。</p>
 
 <p><strong>汪牧星</strong></p>
-<p>美国东北大学计算机工程博士候选人（联邦学习方向）。爱丁堡大学统计学硕士（Distinction）。单时间尺度联邦Actor-Critic（pFedAC）第一作者（arXiv:2605.14423）。博士在读，预计2027年毕业，此前以学术合作与兼职方式参与。负责AI策略引擎与联邦学习架构。</p>
+<p>美国东北大学计算机工程博士候选人（联邦学习方向）。爱丁堡大学统计学硕士（Distinction）。单时间尺度联邦Actor-Critic（pFedAC）第一作者（arXiv:2605.14423）。博士在读，预计2027年毕业，此前以学术合作与兼职方式参与。负责联邦学习与个性化AI模型。</p>
 
 <p><strong>核心待招聘岗位</strong></p>
 
@@ -911,7 +911,7 @@ a { color: var(--nexum); text-decoration: none; }
 <tbody>
 <tr><td>Donati et al., <em>Sci Rep</em> (2016) — Walk Again Project</td><td>8例完全性SCI，EEG外骨骼+VR训练后50%感觉/运动改善</td><td>n=8，非随机，非盲法</td></tr>
 <tr><td>Bin He Lab (CMU), <em>Nature Comms</em> (2025)</td><td>非侵入EEG实时解码精细手指运动，~81%准确率</td><td>手指级解码，验证方法可行性</td></tr>
-<tr><td>Hao Su Lab (2025)</td><td>0.38kg/unit膝关节外骨骼，峰值12Nm</td><td>QDD硬件密度验证</td></tr>
+<tr><td>Hao Su Lab (2025)</td><td>0.38kg/unit膝关节外骨骼，峰值12.5Nm</td><td>QDD硬件密度验证</td></tr>
 <tr><td>Lawhern et al., EEGNet (2018)</td><td>~2000参数CNN架构，跨受试者EEG分类</td><td>行业标准架构</td></tr>
 <tr><td>Cochrane (2020)</td><td>4项RCT荟萃，外骨骼辅助步行OR=2.11</td><td>步行独立性改善</td></tr>
 <tr><td>Yang et al., <em>Front Neurol</em> (2024)</td><td>34 RCT荟萃，外骨骼显著改善FMA-LE +1.15分</td><td>荟萃分析</td></tr>
