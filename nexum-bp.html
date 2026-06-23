@@ -724,7 +724,20 @@ a { color: var(--nexum); text-decoration: none; }
 </tbody>
 </table>
 
+<button id="bttBtn" aria-label="回到顶部" style="position:fixed;bottom:28px;right:28px;z-index:999;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--bg);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);opacity:0;pointer-events:none;transition:all .3s ease"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg></button>
+
 <script>
+(function() {
+  var btt = document.getElementById('bttBtn');
+  window.addEventListener('scroll', function() {
+    btt.style.opacity = window.scrollY > 400 ? '1' : '0';
+    btt.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
+  });
+  btt.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  btt.addEventListener('mouseenter', function() { this.style.transform = 'translateY(-3px)'; });
+  btt.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0)'; });
+})();
+
 (function() {
   var saved = localStorage.getItem('nexum-theme');
   if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
