@@ -134,18 +134,20 @@ a { color: var(--nexum); text-decoration: none; }
 }
 .theme-toggle-bp:hover { border-color: var(--nexum); }
 @media print {
-  body { padding: 20px 28px; font-size: 11.5px; line-height: 1.68; background: #fff; color: #1a1f2e; }
-  h1 { font-size: 26px; -webkit-text-fill-color: var(--nexum); background: none; padding-bottom: 10px; page-break-after: avoid; }
-  h2 { font-size: 18px; margin-top: 26px; margin-bottom: 8px; page-break-after: avoid; }
-  h3 { font-size: 15px; margin-top: 18px; margin-bottom: 6px; page-break-after: avoid; }
-  table { font-size: 10px; page-break-inside: avoid; }
-  p { margin: 6px 0; }
-  blockquote { padding: 8px 14px; margin: 10px 0; page-break-inside: avoid; background: #f3f7fc; color: #4a5568; }
-  ul, ol { margin: 6px 0 6px 22px; }
-  td { color: #555; border-bottom: 1px solid #e5e7eb; }
-  tr:nth-child(even) { background: #f7f8fa; }
+  @page { margin: 2cm; }
+  body { padding: 0; font-size: 11pt; line-height: 1.65; background: #fff; color: #000; }
+  h1 { font-size: 22pt; -webkit-text-fill-color: var(--nexum); background: none; padding-bottom: 8px; page-break-after: avoid; }
+  h2 { font-size: 15pt; margin-top: 24px; margin-bottom: 8px; page-break-before: auto; page-break-after: avoid; }
+  h3 { font-size: 12pt; margin-top: 16px; margin-bottom: 6px; page-break-after: avoid; }
+  table { font-size: 9pt; page-break-inside: avoid; }
+  p { margin: 4px 0; orphans: 2; widows: 2; }
+  blockquote { padding: 8px 14px; margin: 10px 0; page-break-inside: avoid; background: #f3f7fc; color: #333; }
+  ul, ol { margin: 4px 0 4px 20px; page-break-inside: avoid; }
+  td { color: #333; border-bottom: 1px solid #ddd; }
+  tr:nth-child(even) { background: #f9f9f9; }
   .theme-toggle-bp { display: none; }
-  hr { border-top: 1px solid #e0e0e0; }
+  hr { border-top: 1px solid #ddd; }
+  svg { max-width: 100%; page-break-inside: avoid; }
 }
 </style>
 </head>
@@ -263,7 +265,7 @@ a { color: var(--nexum); text-decoration: none; }
 <strong>Nexum App</strong> — 患者端+治疗师端</p>
 </blockquote>
 
-<p>穿戴体验接近高弹性压缩运动裤。电机不宽于胯。可内穿于常规衣物内。穿脱~10秒。</p>
+<p>穿戴体验接近高弹性压缩运动裤，电机宽度不超出髋部轮廓，可内穿于常规衣物。系统穿脱时间约10秒。</p>
 
 <h3>工作原理</h3>
 
@@ -529,6 +531,8 @@ a { color: var(--nexum); text-decoration: none; }
 </svg>
 </div>
 
+<p style="font-size:13px;color:var(--text-tertiary);text-align:center;margin-top:16px">上述五层架构使Nexum One成为目前唯一满足轻量化、意图预判、居家安全三项约束的下肢外骨骼系统——这是打开以下可寻址市场的产品基础。</p>
+
 <h2 id="market">6. 市场</h2>
 
 <p>首发目标人群：中国不完全性SCI约200万人，卒中后遗偏瘫约1300万人，其中能站立、有行走改善潜力约1500万人。全球康复外骨骼TAM $1.3B（2025），CAGR 15-25%。</p>
@@ -591,6 +595,8 @@ a { color: var(--nexum); text-decoration: none; }
 <h3>V3（2030-2032）：规模化</h3>
 <p>A轮 $15-20M。获证后扩展 → 老年行动辅助 → 消费增强 → 全球扩展。</p>
 
+<p style="font-size:13px;color:var(--text-tertiary);text-align:center;margin-top:16px">上述路线图的执行依赖对核心IP的有效保护。以下为知识产权布局。</p>
+
 <h2 id="ip">8. 知识产权</h2>
 
 <table>
@@ -605,15 +611,15 @@ a { color: var(--nexum); text-decoration: none; }
 
 <table>
 <tr><th>风险</th><th>严重性</th><th>应对</th></tr>
-<tr><td>肌骨模型→外骨骼联合仿真能否打通</td><td>🔴 高</td><td>需扩展至联合仿真环境，该扩展从未被验证</td></tr>
-<tr><td>EEG步行信噪比不达标</td><td>🔴 高</td><td>IMU为地面真相，EEG错判时电机不启动。预临床首要终点为安全性验证</td></tr>
-<tr><td>关键人才招聘延迟</td><td>🔴 高</td><td>种子轮40%资金用于团队薪酬</td></tr>
-<tr><td>技术合伙人兼职</td><td>🔴 高</td><td>2027年前兼职，开发计划已考虑此约束</td></tr>
-<tr><td>Sim-to-Real迁移差距</td><td>🟡 中高</td><td>V1阶段PID为最终控制权威</td></tr>
-<tr><td>NMPA审评周期不确定</td><td>🟡 中高</td><td>提前12个月启动，利用绿色通道</td></tr>
-<tr><td>知识产权保护空白</td><td>🟡 中高</td><td>种子轮到位后立即启动PCT申请</td></tr>
-<tr><td>竞争对手进入EEG+下肢赛道</td><td>🟡 中</td><td>2-3年窗口期内完成NMPA获证</td></tr>
-<tr><td>医保编码归属不确定</td><td>🟡 中</td><td>与医保部门早期沟通</td></tr>
+<tr><td>肌骨模型→外骨骼联合仿真能否打通</td><td style="color:#dc2626;font-weight:700">高</td><td>需扩展至联合仿真环境，该扩展从未被验证</td></tr>
+<tr><td>EEG步行信噪比不达标</td><td style="color:#dc2626;font-weight:700">高</td><td>IMU为地面真相，EEG错判时电机不启动。预临床首要终点为安全性验证</td></tr>
+<tr><td>关键人才招聘延迟</td><td style="color:#dc2626;font-weight:700">高</td><td>种子轮40%资金用于团队薪酬</td></tr>
+<tr><td>技术合伙人兼职</td><td style="color:#dc2626;font-weight:700">高</td><td>2027年前兼职，开发计划已考虑此约束</td></tr>
+<tr><td>Sim-to-Real迁移差距</td><td style="color:#d97706;font-weight:700">中高</td><td>V1阶段PID为最终控制权威</td></tr>
+<tr><td>NMPA审评周期不确定</td><td style="color:#d97706;font-weight:700">中高</td><td>提前12个月启动，利用绿色通道</td></tr>
+<tr><td>知识产权保护空白</td><td style="color:#d97706;font-weight:700">中高</td><td>种子轮到位后立即启动PCT申请</td></tr>
+<tr><td>竞争对手进入EEG+下肢赛道</td><td style="color:#ca8a04;font-weight:700">中</td><td>2-3年窗口期内完成NMPA获证</td></tr>
+<tr><td>医保编码归属不确定</td><td style="color:#ca8a04;font-weight:700">中</td><td>与医保部门早期沟通</td></tr>
 </table>
 
 <h2 id="team">10. 团队</h2>
@@ -644,6 +650,8 @@ a { color: var(--nexum); text-decoration: none; }
 </ol>
 
 <h2 id="vision">12. 人机共生</h2>
+
+<p>NMPA获证所启动的数据飞轮与品类定义权，并非终点——而是通往以下长期愿景的通道。</p>
 
 <p>Nexum One是起点。神经意图映射层一旦建成，从医疗康复到老年行动力到全人群增强，是同一条技术线在不同人群上的展开。</p>
 
