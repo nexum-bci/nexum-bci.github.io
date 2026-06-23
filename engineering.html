@@ -178,7 +178,7 @@
  <text x="530" y="185" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">CSP  ·  FBCSP  ·  LDA  ·  100ms滑动窗</text>
  <rect x="405" y="200" width="250" height="30" rx="8" fill="var(--bg-card)" stroke="var(--border)" stroke-width="1"/>
  <text x="530" y="213" text-anchor="middle" fill="var(--text)" font-size="11">BLE指令发送  ·  意图编码  ·  模式管理</text>
- <text x="530" y="225" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">行走/助行/蹲起</text>
+ <text x="530" y="225" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">行走/站起/停止</text>
 
  <!-- Arrow: Phone → Control Box -->
  <line x1="530" y1="245" x2="530" y2="295" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar1)"/>
@@ -441,7 +441,7 @@
  <!-- FBCSP + LDA -->
  <g filter="url(#sh4)"><rect x="404" y="30" width="185" height="65" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="404" y="30" width="185" height="28" rx="10" fill="var(--accent-subtle)"/><rect x="404" y="46" width="185" height="12" fill="var(--accent-subtle)"/></g>
  <text x="496" y="50" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">FBCSP特征 + LDA分类</text>
- <text x="496" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">5频带: 0.5-40Hz</text>
+ <text x="496" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">5频带: 0.5-45Hz</text>
  <text x="496" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">LDA -> 意图概率 . 70-80%单次</text>
 
  <line x1="589" y1="62" x2="617" y2="62" stroke="var(--text-tertiary)" stroke-width="1.5" marker-end="url(#ar4)"/>
@@ -449,7 +449,7 @@
  <!-- Intent Decode -->
  <g filter="url(#sh4)"><rect x="621" y="30" width="155" height="65" rx="10" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/><rect x="621" y="30" width="155" height="28" rx="10" fill="var(--accent-subtle)"/><rect x="621" y="46" width="155" height="12" fill="var(--accent-subtle)"/></g>
  <text x="698" y="50" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="700">意图解码</text>
- <text x="698" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">行走/上楼梯/停止</text>
+ <text x="698" y="72" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">行走/站起/停止/无意图</text>
  <text x="698" y="86" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">指数滑动平均 . 滞后100ms</text>
 
  <!-- Arrow down to torque chain -->
@@ -584,7 +584,7 @@
 	 <tr><td style="padding:12px 16px;border-bottom:1px solid var(--border)"><strong>多节点通信同步</strong><br><span style="font-size:11px;color:var(--text-tertiary)">EEG头带+控制盒+电机三节点BLE/UART协同</span></td><td style="text-align:center;padding:12px 16px;border-bottom:1px solid var(--border)"><span class="risk-med">中</span></td><td style="padding:12px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--text-secondary)">硬件触发同步+看门狗+CRC校验，三级降级策略</td></tr>
 	 <tr><td style="padding:12px 16px;border-bottom:1px solid var(--border)"><strong>电池续航</strong><br><span style="font-size:11px;color:var(--text-tertiary)">48Wh目标6h，电机满载时续航可能降至3-4h</span></td><td style="text-align:center;padding:12px 16px;border-bottom:1px solid var(--border)"><span class="risk-med">中</span></td><td style="padding:12px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--text-secondary)">动态功耗管理+低功耗待机+可更换电池设计</td></tr>
 	 <tr><td style="padding:12px 16px;border-bottom:1px solid var(--border)"><strong>热管理</strong><br><span style="font-size:11px;color:var(--text-tertiary)">持续工作发热需保证皮肤接触安全</span></td><td style="text-align:center;padding:12px 16px;border-bottom:1px solid var(--border)"><span class="risk-low">低</span></td><td style="padding:12px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--text-secondary)">铝合金外壳被动散热+温度监控+软件热节流</td></tr>
-	 <tr><td style="padding:12px 16px;border-bottom:1px solid var(--border)"><strong>NMPA二类器械合规</strong><br><span style="font-size:11px;color:var(--text-tertiary)">IEC 62304+ISO 13485+GB 9706.1</span></td><td style="text-align:center;padding:12px 16px;border-bottom:1px solid var(--border)"><span class="risk-med">中高</span></td><td style="padding:12px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--text-secondary)">提前12个月启动预测试+资深注册专员+绿色通道</td></tr>
+	 <tr><td style="padding:12px 16px;border-bottom:1px solid var(--border)"><strong>NMPA器械合规</strong><br><span style="font-size:11px;color:var(--text-tertiary)">IEC 62304+ISO 13485+GB 9706.1</span></td><td style="text-align:center;padding:12px 16px;border-bottom:1px solid var(--border)"><span class="risk-med">中高</span></td><td style="padding:12px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--text-secondary)">提前12个月启动预测试+资深注册专员+绿色通道</td></tr>
 	 </tbody>
 	 </table>
 	 </div>
