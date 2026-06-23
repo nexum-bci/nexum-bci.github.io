@@ -135,25 +135,25 @@ a { color: var(--nexum); text-decoration: none; }
 }
 .theme-toggle-bp:hover { border-color: var(--nexum); }
 @media print {
-  @page { margin: 2cm; }
-  body { padding: 0; font-size: 11pt; line-height: 1.65; background: #fff; color: #000; }
-  h1 { font-size: 22pt; -webkit-text-fill-color: var(--nexum); background: none; padding-bottom: 8px; page-break-after: avoid; }
-  h2 { font-size: 15pt; margin-top: 24px; margin-bottom: 8px; page-break-before: auto; page-break-after: avoid; }
-  h3 { font-size: 12pt; margin-top: 16px; margin-bottom: 6px; page-break-after: avoid; }
-  table { font-size: 9pt; page-break-inside: avoid; }
-  p { margin: 4px 0; orphans: 2; widows: 2; }
-  blockquote { padding: 8px 14px; margin: 10px 0; page-break-inside: avoid; background: #f3f7fc; color: #333; }
-  ul, ol { margin: 4px 0 4px 20px; page-break-inside: avoid; }
-  td { color: #333; border-bottom: 1px solid #ddd; }
-  tr:nth-child(even) { background: #f9f9f9; }
-  .theme-toggle-bp { display: none; }
-  hr { border-top: 1px solid #ddd; }
-  svg { max-width: 100%; page-break-inside: avoid; }
-}
-
-.check-yes{color:#10b981;font-weight:700;font-size:14px}
-.check-no{color:#ef4444;font-weight:700;font-size:14px}
-</style>
+	  @page { margin: 1.8cm 1.6cm; }
+	  body { padding: 28px 0 24px; font-size: 10pt; line-height: 1.75; background: #fff; color: #1a1f2e; }
+	  h1 { font-size: 24pt; -webkit-text-fill-color: #0096f0; background: none; padding-bottom: 14px; margin-bottom: 18px; page-break-after: avoid; }
+	  h2 { font-size: 15pt; margin-top: 28px; margin-bottom: 10px; page-break-before: auto; page-break-after: avoid; border-bottom: 1px solid #0096f0; padding-bottom: 6px; }
+	  h3 { font-size: 12pt; margin-top: 22px; margin-bottom: 8px; color: #0096f0; page-break-after: avoid; }
+	  table { font-size: 8.5pt; page-break-inside: avoid; }
+	  p { margin: 10px 0; orphans: 3; widows: 3; }
+	  blockquote { padding: 12px 18px; margin: 16px 0; page-break-inside: avoid; background: #f3f7fc; border-left: 3px solid #0096f0; color: #4a5568; }
+	  ul, ol { margin: 8px 0 8px 24px; page-break-inside: avoid; }
+	  th { background: #0096f0; color: #fff; }
+	  td { color: #333; border-bottom: 1px solid #ddd; }
+	  tr:nth-child(even) { background: #f9f9f9; }
+	  .theme-toggle-bp { display: none; }
+	  hr { border: none; height: 1px; background: #e0e0e0; margin: 32px 0; }
+	  svg { max-width: 100%; page-break-inside: avoid; }
+	  a { color: #0096f0; }
+	  .check-yes{color:#10b981;font-weight:700}
+	  .check-no{color:#ef4444;font-weight:700}
+	}</style>
 </head>
 <body>
 <button class="theme-toggle-bp" id="bpThemeToggle" aria-label="切换主题" title="切换深色/浅色模式">
