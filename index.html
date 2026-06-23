@@ -490,8 +490,8 @@
   z-index:10;
   box-shadow:0 0 0 1px rgba(255,255,255,0.06)
 }
-.phone-screen{overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none}
-.phone-screen::-webkit-scrollbar{display:none};
+.phone-screen{
+  overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none;
   width:100%;
   height:100%;
   border-radius:30px;
@@ -501,7 +501,6 @@
   flex-direction:column;
   background:#000;
   color:#fff;
-  /* Figure SVG colors (always on dark phone bg) */
   --fig-body-fill: rgba(255,255,255,0.04);
   --fig-body-stroke: rgba(255,255,255,0.08);
   --fig-joint-fill: rgba(255,255,255,0.55);
@@ -510,6 +509,7 @@
   --fig-inactive-bg: rgba(255,255,255,0.06);
   --fig-inactive-border: rgba(255,255,255,0.08);
 }
+.phone-screen::-webkit-scrollbar{display:none}
 .phone-screen-content{
   flex:1;
   padding:38px 12px 12px;

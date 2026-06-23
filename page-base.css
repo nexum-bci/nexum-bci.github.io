@@ -6,6 +6,7 @@
 :root {
   --bg: #FAFAFA; --bg-card: #FFFFFF; --border: rgba(0,0,0,0.08);
   --text: #1d1d1f; --text-secondary: #86868b; --text-tertiary: #6e6e73;
+  --text-quaternary: #aeaeb2; --bg-secondary: #f5f5f7;
   --accent: #0096f0; --accent-hover: #0aa2ff;
   --accent-subtle: rgba(0,113,227,0.08);
   --radius: 20px; --radius-sm: 12px; --radius-pill: 999px;
@@ -23,6 +24,7 @@
 [data-theme="dark"] {
   --bg: #000000; --bg-card: #1c1c1e; --border: rgba(255,255,255,0.08);
   --text: #FFFFFF; --text-secondary: #a1a1a6; --text-tertiary: #6e6e73;
+  --text-quaternary: #48484a; --bg-secondary: #2c2c2e;
   --accent-hover: #409cff; --accent-subtle: rgba(0,113,227,0.12);
   --shadow-sm: none; --shadow-md: none; --shadow-lg: none;
 }
@@ -158,7 +160,7 @@ ol li::marker{color:var(--accent);font-weight:600}
 /* When heading is directly followed by a grid/diagram/table container */
 h2 + .portal-grid,h2 + .product-grid,h2 + .gallery,
 h2 + .mockup-grid,h2 + .comp-grid,h2 + .steps-grid,
-h2 + .diagram-section,h2 + .table-wrap,h2 + .risk-grid,
+h2 + .diagram-section,h2 + .table-wrap,h2 + .table-wrapper,h2 + .risk-grid,
 h2 + .stat-grid,h2 + .check-grid,h2 + .timeline,
 h2 + .g2,h2 + .g3,h2 + .g4,h2 + .grid-2,h2 + .grid-3,h2 + .grid-4,
 h2 + div > .portal-grid:first-child,
@@ -168,7 +170,7 @@ h2 + div > .product-grid:first-child{
 
 h3 + .portal-grid,h3 + .product-grid,h3 + .gallery,
 h3 + .mockup-grid,h3 + .comp-grid,h3 + .steps-grid,
-h3 + .diagram-section,h3 + .table-wrap,h3 + .risk-grid,
+h3 + .diagram-section,h3 + .table-wrap,h3 + .table-wrapper,h3 + .risk-grid,
 h3 + .stat-grid,h3 + .check-grid,.h3 + .timeline,
 h3 + .g2,h3 + .g3,h3 + .g4,h3 + .grid-2,h3 + .grid-3,h3 + .grid-4{
   margin-top:24px
@@ -364,13 +366,8 @@ td{padding:12px 16px;font-size:13px}
   [data-theme="dark"] .nav-links{background:rgba(28,28,30,.96)!important}
 }
 
-/* Link underline — left-to-right Apple style */
-a:not(.nav-cta):not(.nav-logo):not(.btn):not(.footer-logo):not(.footer-social a):not(.footer-col a):not(.nav-links a):not(.portal-card){
-  
-}
-a:not(.nav-cta):not(.nav-logo):not(.btn):not(.footer-logo):not(.footer-social a):not(.footer-col a):not(.nav-links a):not(.portal-card):hover{
-  opacity:.8
-}
+/* Generic link hover */
+a:not([class]):hover{opacity:.8}
 
 /* ============================================================
    APPLE-STYLE ANIMATIONS
@@ -393,24 +390,8 @@ a:not(.nav-cta):not(.nav-logo):not(.btn):not(.footer-logo):not(.footer-social a)
 .reveal-delay-1{transition-delay:.05s}.reveal-delay-2{transition-delay:.1s}
 .reveal-delay-3{transition-delay:.15s}.reveal-delay-4{transition-delay:.2s}.reveal-delay-5{transition-delay:.25s}
 
-/* Card spring hover — translateY + subtle scale + shadow lift */
-.card,.content-card,.market-card,.why-card,.team-card,.product-card,.portal-card,.render-card,.diagram-section{
-  transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s cubic-bezier(.16,1,.3,1),border-color .3s ease;
-}
-.card:hover,.content-card:hover{transform:translateY(-4px) scale(1.01);box-shadow:var(--shadow-lg)}
-[data-theme="dark"] .card:hover,[data-theme="dark"] .content-card:hover{box-shadow:0 4px 24px rgba(0,0,0,.5)}
-
-/* Link hover — subtle lift + color shift */
-a:not(.nav-cta):not(.nav-logo):not(.btn):not(.footer-logo):not(.footer-social a):not(.footer-col a){
-  transition:color .25s ease,opacity .25s ease;
-}
-a:not(.nav-cta):not(.nav-logo):not(.btn):not(.footer-logo):not(.footer-social a):not(.footer-col a):hover{
-  opacity:.75;
-}
-
-/* Table row hover */
-tbody tr{transition:background .2s ease}
-tbody tr:hover{background:var(--accent-subtle)}
+/* All card transitions are now defined once in the Unified Interaction System below.
+   Link and table hover behaviors are also consolidated there for single-source consistency. */
 
 /* Portal card accent bar animation */
 .portal-card::before{
@@ -473,6 +454,7 @@ tbody tr:hover{background:var(--accent-subtle)}
 }
 
 /* Focus ring for keyboard navigation (accessibility) */
+:focus{outline:none}
 :focus-visible{
   outline:2px solid var(--accent);
   outline-offset:2px;
@@ -584,7 +566,7 @@ tbody tr{transition:background .15s ease}
 tbody tr:hover td{background:var(--accent-subtle)}
 tbody tr:nth-child(even) td{background:rgba(0,0,0,0.008)}
 [data-theme="dark"] tbody tr:nth-child(even) td{background:rgba(255,255,255,0.01)}
-tbody tr:hover td{background:var(--accent-subtle)!important}
+tbody tr:hover td{background:var(--accent-subtle)}
 .card-header,.content-card-header{
   padding:16px 20px;border-bottom:1px solid var(--border);
   font-size:13px;font-weight:600;color:var(--text);
@@ -675,11 +657,8 @@ img:not([alt]){outline:2px solid var(--border);outline-offset:-2px}
    PERFORMANCE OPTIMIZATION — reduce jank, faster rendering
    ============================================================ */
 
-/* Hint browser for smooth animations */
-.card,.portal-card,.product-card,.phone-mockup,
-.theme-btn,.nav-cta,.btt-btn,.render-img img{
-  will-change:transform
-}
+/* Hint browser for continuously animated elements only */
+.btt-btn{will-change:transform}
 
 /* Reduce animation work on mobile */
 @media(max-width:768px){
@@ -689,8 +668,8 @@ img:not([alt]){outline:2px solid var(--border);outline-offset:-2px}
   .card,.portal-card,.product-card{transition-duration:.25s}
 }
 
-/* Instant rendering for above-fold content */
-.page-header,.hero,.section:first-of-type{content-visibility:visible}
+/* Defer off-screen sections for faster initial render */
+.page-section,.section{content-visibility:auto;contain-intrinsic-size:auto 500px}
 
 /* Font rendering optimization */
 body{text-rendering:optimizeSpeed}
@@ -745,15 +724,18 @@ textarea,[contenteditable]{
    Focus: visible ring. All transitions: spring easing.
    ============================================================ */
 
-/* All interactive elements — spring transitions */
-a,button,.card,.portal-card,.product-card,.render-card,
-.market-card,.why-card,.team-card,.risk-card,.stat-card,
-.phone-mockup,.render-img img,.diagram-section,.content-card,
+/* All interactive elements — base transitions + tap highlight removal */
+.card,.content-card,.portal-card,.product-card,.render-card,
+.market-card,.why-card,.team-card,.risk-card,.stat-card,.diagram-section{
+  transition:transform .4s var(--ease-apple),box-shadow .4s var(--ease-apple),border-color .3s ease;
+  -webkit-tap-highlight-color:transparent
+}
+a,button,.phone-mockup,.render-img img,
 .faq-question,.specs-group-title,.theme-btn,.nav-cta,.btt-btn{
   -webkit-tap-highlight-color:transparent
 }
 
-/* Press state — universal scale-down feedback */
+/* Press state — universal scale-down feedback (instant spring) */
 button:active:not(.theme-btn):not(.nav-toggle),
 .btn:active,.nav-cta:active,.portal-card:active,
 .phone-mockup:active,.faq-question:active,.specs-group-title:active{
@@ -761,13 +743,12 @@ button:active:not(.theme-btn):not(.nav-toggle),
   transition:transform .1s var(--ease-apple)
 }
 
-/* Card universal hover — lift + shadow */
+/* Card universal hover — Apple-subtle lift */
 .card:hover,.content-card:hover,.market-card:hover,.why-card:hover,
 .team-card:hover,.portal-card:hover,.product-card:hover,.render-card:hover,
 .risk-card:hover,.stat-card:hover,.diagram-section:hover{
   transform:translateY(-3px);
-  box-shadow:var(--shadow-lg);
-  transition:transform .4s var(--ease-apple),box-shadow .4s var(--ease-apple)
+  box-shadow:var(--shadow-lg)
 }
 
 /* Dark mode hover — deeper shadow */
@@ -860,8 +841,8 @@ th,td{border-color:var(--border)}
 /* Focus ring — keyboard accessibility */
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
 
-/* Remove borders from non-card elements */
-.page-header,.section,.hero,.page-section{border:none!important}
+/* Non-card elements have no borders */
+.page-header,.section,.hero,.page-section{border:none}
 
 /* Tablet breakpoint */
 @media(min-width:769px) and (max-width:1024px){
@@ -901,6 +882,9 @@ th,td{border-color:var(--border)}
 /* Consistent image display */
 img{max-width:100%;height:auto;display:block;border-radius:0;opacity:0;transition:opacity .5s ease}
 img.loaded{opacity:1}
+/* Fallback: show images if JS disabled */
+@media(scripting:none){img{opacity:1}}
+noscript img{opacity:1}
 .card img,.content-card img,.render-img img{border-radius:var(--radius-sm)}
 
 /* Consistent text selection */
@@ -928,13 +912,6 @@ hr{border:none;height:1px;background:var(--border);margin:32px 0}
 /* Consistent code inline */
 code{font-family:'SF Mono',monospace;font-size:.9em;background:var(--accent-subtle);color:var(--accent);padding:2px 6px;border-radius:4px}
 
-/* Print optimization */
-@media print{
-  nav,footer,.theme-btn,.nav-cta,.btt-btn,.back-to-top{display:none!important}
-  body{background:#fff!important;color:#000!important;font-size:12pt}
-  a{color:#000!important}
-  .card,.content-card{box-shadow:none!important;border:1px solid #ddd!important;break-inside:avoid}
-}
 
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
