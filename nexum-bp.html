@@ -193,6 +193,8 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p>这四个技术——EEG预判、个性化肌骨模型、混合轻量穿戴、多层安全——每一个单独拿出来都是现有技术。但<strong>同时解决这四个问题</strong>，是这个1500万人的群体等了二十年没人做成的事。</p>
 
+<p>本质上，EEG和IMU是同一种东西——传感器，只是在不同抽象层级。IMU回答"身体现在在哪"，EEG回答"大脑现在想干什么"。两者融合后，RL策略的输入维度更高、预判更早。Nature 2024已证明纯IMU+RL能让外骨骼降低代谢成本24%。Nexum在此基础上增加EEG维度——同样一条sim2real管线，多了一个意图信号源。这不是两套技术的拼凑，是同一套架构在不同维度的扩展。</p>
+
 <p>纯IMU模式本身就是一个可用的轻量外骨骼（~2.5kg, $3,999，可居家使用）。EEG让它从"能用"变成"懂你"。</p>
 
 <blockquote style="text-align:center;font-size:18px;padding:18px 24px;background:var(--quote-bg)">
