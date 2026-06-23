@@ -78,7 +78,7 @@ tbody tr:hover{background:var(--accent-subtle)}
 <h2>产品定义</h2>
 <p>Nexum One 是一套下肢运动功能重建的<strong>神经意图外骨骼系统</strong>。通过非侵入 EEG 读取运动意图，经 EEG 信号处理与 IMU 混合控制生成辅助策略，经由直驱电机在髋关节执行辅助力矩。</p>
 <p><strong>目标人群：</strong> 保留皮层功能但运动执行受损的脑卒中幸存者和不完全性 SCI 患者。</p>
-<p><strong>监管分类：</strong> NMPA II 类创新医疗器械。</p>
+<p><strong>目标监管分类：</strong> NMPA II 类创新医疗器械（以分类界定结果为准）。</p>
 <hr />
 <h2>用户需求 → 工程需求</h2>
 <div class="table-wrapper"><table>
@@ -186,7 +186,7 @@ tbody tr:hover{background:var(--accent-subtle)}
 </tr>
 <tr>
 <td>EEG-06</td>
-<td>无线传输（BLE 5.0）预处理数据至手机</td>
+<td>无线传输（BLE 5.2，nRF5340）预处理数据至手机</td>
 <td>P0</td>
 <td>必须</td>
 </tr>
@@ -223,7 +223,7 @@ tbody tr:hover{background:var(--accent-subtle)}
 </tr>
 <tr>
 <td>MOT-02</td>
-<td>峰值辅助力矩: 12Nm 持续 3s</td>
+<td>峰值辅助力矩: 12.5Nm / 持续5Nm</td>
 <td>P0</td>
 <td>必须</td>
 </tr>
@@ -272,7 +272,7 @@ tbody tr:hover{background:var(--accent-subtle)}
 </tr>
 <tr>
 <td>AI-02</td>
-<td>意图类别: "行走"、"停止"、"站起"、"坐下"、"休息"</td>
+<td>意图类别: "行走"、"停止"、"站起/坐下"、"无意图"（4类，与BP一致）</td>
 <td>P0</td>
 <td>必须</td>
 </tr>
@@ -478,7 +478,7 @@ tbody tr:hover{background:var(--accent-subtle)}
 </tbody>
 </table></div>
 <hr />
-<h2>不是范围边界</h2>
+<h2>非目标范围</h2>
 <ul>
 <li><strong>不是全身外骨骼</strong> — V1 仅限髋关节。膝/踝关节留待 V2+。</li>
 <li><strong>不适用于完全瘫痪</strong> — 需保留皮层运动功能。无法形成运动意图者 EEG 方案无效。</li>
@@ -503,8 +503,8 @@ tbody tr:hover{background:var(--accent-subtle)}
 <tr>
 <td>系统重量</td>
 <td>&lt;2.5 kg</td>
-<td>~25 kg</td>
-<td>~13.5 kg</td>
+<td>~23 kg</td>
+<td>~23 kg</td>
 <td>~12 kg</td>
 </tr>
 <tr>
@@ -524,8 +524,8 @@ tbody tr:hover{background:var(--accent-subtle)}
 <tr>
 <td>价格（临床版）</td>
 <td>$18,000</td>
-<td>$75,000–95,000</td>
-<td>$85,000–100,000</td>
+<td>~$200,000</td>
+<td>$91,000</td>
 <td>$60,000–80,000</td>
 </tr>
 <tr>
