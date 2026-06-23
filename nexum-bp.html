@@ -403,7 +403,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <h3 id="tech-overview">5.1 五层技术栈</h3>
 
-<p>Nexum One的技术架构分为四层——前三层构成实时控制闭环（感知→解码→执行），第四层是物理载体。成熟度标注：产品级 / 验证级。</p>
+<p>Nexum One的技术架构分为五层——前三层构成实时控制闭环（感知→解码→执行），后两层构成长期壁垒（结构→进化）。成熟度标注：产品级 / 验证级 / 研究级。</p>
 
 <table>
 <thead><tr><th>层级</th><th>产品模块</th><th>功能</th><th>核心技术</th><th>成熟度</th></tr></thead>
@@ -412,6 +412,7 @@ a { color: var(--nexum); text-decoration: none; }
 <tr><td><strong>意图解码层</strong></td><td>NeuroCore 控制中枢</td><td>意图分类+策略生成</td><td>EEGNet（~2000参数）+ 柔性肌腱的神经力学全身肌骨模型（416 MTU, Hill-type） + 离线RL策略网络（仿真预训练）</td><td>验证级</td></tr>
 <tr><td><strong>力控执行层</strong></td><td>NeuroSuit 神经意图肌动服</td><td>力矩输出+安全控制</td><td>直驱电机×2（12.5Nm峰值/5Nm持续）+ FOC矢量控制 + PID力控闭环（1kHz）</td><td>产品级</td></tr>
 <tr><td><strong>穿戴结构层</strong></td><td>NeuroSuit 神经意图肌动服</td><td>轻量化承力+舒适穿戴</td><td>碳纤维骨架（T700级预浸料，~0.8kg）+ 弹性织物基底（梯度压缩设计）+ 无刚性外框</td><td>产品级</td></tr>
+<tr><td><strong>策略进化层</strong></td><td>个性化更新（远期）</td><td>长期自适应</td><td>跨患者模型更新方案（远期R&D，非V1交付范围）</td><td>研究级</td></tr>
 </tbody>
 </table>
 
@@ -484,7 +485,11 @@ a { color: var(--nexum); text-decoration: none; }
 <li><strong>与框架式的本质区别</strong>：Ekso/ReWalk/程天等框架式外骨骼重15-25kg，刚性外骨骼穿在衣物外。服装式将执行器集成到衣物内部，穿脱&lt;10秒，重心贴近人体，无刚性外框压迫</li>
 </ul>
 
-<h3 id="tech-safety">5.6 安全架构</h3>
+<h3 id="tech-evolution">5.6 策略进化层：个性化更新（远期）</h3>
+
+<p>V1阶段不包含在线学习——RL策略离线预训练后固定部署。远期（V2+）探索跨患者模型更新方案，属于R&D方向，不在当前产品路线图中。</p>
+
+<h3 id="tech-safety">5.7 安全架构</h3>
 
 <p>作为穿戴式医疗设备，安全设计是技术栈的基础而非附加：</p>
 <ul>
@@ -497,7 +502,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 
 
-<h3 id="system-diagram">5.7 完整系统架构</h3>
+<h3 id="system-diagram">5.8 完整系统架构</h3>
 
 <div style="background:var(--card-bg);border-radius:12px;padding:16px;margin:20px 0;text-align:center">
 <svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:900px;height:auto;display:inline-block">
@@ -795,7 +800,7 @@ a { color: var(--nexum); text-decoration: none; }
 </tbody>
 </table>
 
-<p>种子轮最优先招聘：临床PI、嵌入式系统、机械/控制工程师。学术合作网络（肌骨仿真等方向）为种子轮到位后的首要建设任务。</p>
+<p>种子轮最优先招聘：临床PI、嵌入式系统、机械/控制工程师。学术合作网络为种子轮到位后的首要建设任务。</p>
 
 <h2 id="after-nmpa">11. 获证之后</h2>
 
@@ -812,7 +817,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p>Nexum One是起点。神经意图映射层一旦建成，从医疗康复到老年行动力到全人群增强，是同一条技术线在不同人群上的展开。</p>
 
-<p>这不是一个外骨骼公司。从医疗康复到老年行动力到全人群增强，同一条神经意图映射层在不同人群上展开——这是一个定义"人机共生"品类的公司。</p>
+<p>这不是一个外骨骼公司。这是一个定义"人机共生"品类的公司。Licklider在1960年预言了Man-Computer Symbiosis，等了66年——神经系统和机器系统融合成同一个身体的工程条件，在2026年首次被满足。</p>
 
 <blockquote>
 <p><strong>逐念而行</strong> — 从人类神经意图到物理世界动作的通用映射。</p>
