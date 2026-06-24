@@ -271,7 +271,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 <div style="text-align:left;margin:0 0 32px 0;padding:12px 20px;background:var(--card-bg);border-radius:8px;border:1px solid var(--border);font-size:12px;line-height:2;color:var(--text-secondary)">
 <strong style="color:var(--text);font-size:13px">目录</strong><br>
-<a href="#problem">1. 问题与空白</a> &nbsp; <a href="#why-now">2. 为什么此刻可行</a> &nbsp; <a href="#product">3. Nexum One</a> &nbsp; <a href="#team">4. 团队</a> &nbsp; <a href="#market">5. 市场</a> &nbsp; <a href="#competition">6. 竞争</a> &nbsp; <a href="#tech">7. 技术</a> &nbsp; <a href="#regulatory">8. 监管</a> &nbsp; <a href="#roadmap">9. 路线图</a> &nbsp; <a href="#moats">10. 护城河</a> &nbsp; <a href="#risks">11. 风险</a> &nbsp; <a href="#vision">12. 愿景</a> &nbsp;·&nbsp; <a href="#appendix">附录</a>
+<a href="#problem">1. 问题与空白</a> &nbsp; <a href="#why-now">2. 为什么此刻可行</a> &nbsp; <a href="#product">3. Nexum One</a> &nbsp; <a href="#team">4. 团队</a> &nbsp; <a href="#market">5. 市场</a> &nbsp; <a href="#competition">6. 竞争</a> &nbsp; <a href="#tech">7. 技术</a> &nbsp; <a href="#regulatory">8. 监管路径</a> &nbsp; <a href="#roadmap">9. 路线图</a> &nbsp; <a href="#moats">10. 护城河</a> &nbsp; <a href="#risks">11. 风险</a> &nbsp; <a href="#vision">12. 愿景</a> &nbsp;·&nbsp; <a href="#appendix">附录</a>
 </div>
 
 
@@ -539,11 +539,11 @@ a { color: var(--nexum); text-decoration: none; }
 <h3>支付路径</h3>
 
 <table>
-<tr><th>市场</th><th>机制</th><th>金额</th><th>状态</th></tr>
-<tr><td>中国</td><td>外骨骼康复医保（11+省市）</td><td>报销45-65%</td><td>2024-2025启动</td></tr>
-<tr><td>中国</td><td>非侵入BCI医疗服务定价</td><td>¥966/次（已扩展至17省）</td><td>2025.3落地</td></tr>
-<tr><td>美国</td><td>CMS K1007 个人外骨骼</td><td>$91,032/台</td><td>2024.4生效</td></tr>
-<tr><td>日本</td><td>国民健康保险</td><td>¥11,000/次</td><td>2016起（HAL先例）</td></tr>
+<tr><th>市场</th><th>机制</th><th>金额</th><th>对Nexum的影响</th></tr>
+<tr><td>中国</td><td>外骨骼康复医保（11+省市，报销45-65%）+ BCI医疗服务定价¥966/次（17省）</td><td>患者自付比例显著降低</td><td>加速医院采购决策，缩短回款周期</td></tr>
+<tr><td>美国</td><td>CMS K1007个人外骨骼$91,032/台；FDA breakthrough device designation</td><td>$91,032/台</td><td>FDA 510(k)路径，可利用中国临床数据</td></tr>
+<tr><td>日本</td><td>国民健康保险覆盖HAL ¥11,000/次（2016先例）</td><td>¥11,000/次</td><td>PMDA可参考HAL审评先例</td></tr>
+<tr><td>欧盟</td><td>CE MDR；部分国家将外骨骼纳入康复支付体系</td><td>视国家而定</td><td>结合中国制造成本结构，具备全球定价优势</td></tr>
 </table>
 
 <p>中国60岁以上人口3.23亿（国家统计局，2025）。服装式轻量形态使居家/社区场景成为可能——这是15-25kg框架式外骨骼无法覆盖的增量市场。</p>
@@ -623,6 +623,8 @@ a { color: var(--nexum); text-decoration: none; }
 <!-- ===== 7. TECHNICAL ARCHITECTURE ===== -->
 <h2 id="tech">7. 技术架构</h2>
 
+<p>Nexum One的技术架构围绕一条核心管线组织：神经信号采集 → 意图解码 → 力矩执行 → 策略持续进化。五层栈中，前三层构成实时控制闭环，后两层构成长期壁垒。</p>
+
 <h3>五层技术栈</h3>
 
 <table>
@@ -633,8 +635,6 @@ a { color: var(--nexum); text-decoration: none; }
 <tr><td><strong>穿戴结构层</strong></td><td>NeuroSuit</td><td>碳纤维骨架（T700, ~0.8kg）+ 弹性织物 + 无刚性外框</td><td>产品级</td></tr>
 <tr><td><strong>策略进化层</strong></td><td>个性化自适应</td><td>联邦学习跨患者模型更新——EEG+IMU双模态驱动</td><td>研究级</td></tr>
 </table>
-
-<p>前三层构成实时控制闭环（感知→解码→执行），后两层构成长期壁垒（结构→进化）。</p>
 
 <div style="background:var(--card-bg);border-radius:12px;padding:16px;margin:24px 0;text-align:center">
 <svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:900px;height:auto;display:inline-block" aria-label="Nexum One 完整系统架构：从神经意图感知到物理动作执行">
@@ -741,7 +741,7 @@ a { color: var(--nexum); text-decoration: none; }
 
 
 <!-- ===== 8. REGULATORY ===== -->
-<h2 id="regulatory">8. 监管路径与支付</h2>
+<h2 id="regulatory">8. 监管路径</h2>
 
 <h3>NMPA创新器械路径</h3>
 
@@ -754,15 +754,6 @@ a { color: var(--nexum); text-decoration: none; }
 <tr><td>注册申报</td><td>2028 H1</td><td>提交NMPA注册申请。目标分类：II类创新器械（以分类界定结果为准）</td></tr>
 </table>
 
-<h3>支付落地</h3>
-
-<table>
-<tr><th>市场</th><th>已落地政策</th><th>对Nexum的影响</th></tr>
-<tr><td>中国</td><td>11+省市外骨骼康复医保（报销45-65%）；BCI医疗服务定价¥966/次（17省）</td><td>降低患者自付比例，加速医院采购决策</td></tr>
-<tr><td>美国</td><td>CMS K1007：个人外骨骼$91,032/台；FDA breakthrough device designation可能</td><td>FDA 510(k)路径，利用中国临床数据</td></tr>
-<tr><td>日本</td><td>国民健康保险覆盖HAL ¥11,000/次（2016先例）</td><td>PMDA可参考HAL审评路径</td></tr>
-<tr><td>欧盟</td><td>CE MDR；部分国家将外骨骼纳入康复支付</td><td>结合中国制造成本结构，全球定价优势</td></tr>
-</table>
 
 
 
