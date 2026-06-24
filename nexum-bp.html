@@ -332,7 +332,12 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p>通用助力曲线假设所有髋关节生物力学参数一致。实际上，同一患者的股四头肌肌力可能仅为正常值的30%，腘绳肌可能处于痉挛状态。对两名患者施加相同力矩，对一人可能改善步态，对另一人则构成伤害。</p>
 
-<p>神经力学肌骨模型（双侧扩展416 MTU, Hill-type肌肉-柔性肌腱）为每位患者构建个性化的仿真环境，RL策略在其上训练数亿步——学习目标并非"人类"的通用步态模式，而是该患者的个体化最优策略。Luo, Su et al.（Nature, 2024）首次验证了该管线可行性：RL策略在仿真中训练后，零样本迁移至物理外骨骼，代谢成本降低24%。</p>
+<p>神经力学肌骨模型（双侧扩展416 MTU, Hill-type肌肉-柔性肌腱，基于NEU NeuMove Lab的MyoSuite框架与MyoWarp GPU仿真引擎）为每位患者构建个性化的仿真环境，RL策略在其上训练数亿步——学习目标并非"人类"的通用步态模式，而是该患者的个体化最优策略。Luo, Su et al.（Nature, 2024）首次验证了该管线可行性：RL策略在仿真中训练后，零样本迁移至物理外骨骼，代谢成本降低24%。</p>
+
+<div style="text-align:center;margin:20px 0">
+<img src="docs/compliant_tendon.gif" alt="柔性肌腱Hill-type肌骨模型 — 416 MTU个性化仿真" style="max-width:100%;width:600px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08)" loading="lazy">
+<p style="font-size:11px;color:var(--text-tertiary);margin-top:6px">柔性肌腱Hill-type肌骨模型 — 416肌肉-肌腱单元个性化仿真（NEU NeuMove Lab MyoSuite/MyoWarp）</p>
+</div>
 
 <p><strong>过去为何不可行：</strong>肌骨仿真与嵌入式部署分属不同学科。全身416 MTU模型的实时仿真需要工作站级算力，无法部署到嵌入式设备。RL策略从仿真到真机的迁移（sim2real gap）在2024年之前从未在外骨骼领域被验证。</p>
 
