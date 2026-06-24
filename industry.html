@@ -289,6 +289,18 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <strong>全球外骨骼行业20年，所有玩家都在做框架式——因为它是为"完全不能站的人"设计的。</strong>但完全不能站的人只有100万（中国），不完全瘫痪、能站但走不好的人有1500万。后者从未被当作外骨骼的目标用户——因为EEG信号需要患者有残留运动意图才能解码，框架式外骨骼不需要读脑电，所以没人想到把EEG和外骨骼组合在一起。
 
 <p style="margin-top:12px">Nexum的服装式选择不是"做了一个更轻的外骨骼"，而是<strong>定义了一个新患者群</strong>——那群能站、能走、但走不好的人。他们不需要一个机器人框架把他们托起来，他们需要的是在正确的时间、正确的关节、施加正确的辅助力。这就是EEG的价值。</p>
+
+<div style="margin-top:24px"><h3 style="font-size:15px;margin-bottom:14px">产品形态对比：四种方案，一个最优解</h3></div>
+<div class="table-wrap"><table>
+<tr><th>形态</th><th>代表</th><th>力传递</th><th>穿戴</th><th>适合偏瘫</th><th>就绪度</th></tr>
+<tr><td><strong>刚性框架+连杆</strong></td><td>极壳, 程天EasyGo</td><td>✅</td><td>❌ 5-10min</td><td>❌ 假设自主平衡</td><td>✅</td></tr>
+<tr><td><strong>髋+膝双关节</strong></td><td>程天UGO, HAL</td><td>✅</td><td>❌ 10-15min</td><td>⚠️ EEG不足驱动双关节</td><td>⚠️ V2</td></tr>
+<tr><td><strong>纯柔性织物</strong></td><td>Myant, Siren</td><td>❌ 无法定向力矩</td><td>✅</td><td>❌ 传感可，执行不可</td><td>❌</td></tr>
+<tr><td><strong>混合穿戴（Nexum）</strong></td><td>Nexum One</td><td>✅ 碳纤维 >70%</td><td>✅ ~10s</td><td>✅ 为不完全瘫痪设计</td><td>✅</td></tr>
+</table></div>
+
+<p style="margin-top:16px"><strong>混合穿戴不是拼凑——是目标人群×功能需求×技术成熟度的数学交点。</strong>碳纤维锚定结构仅在髋关节处提供刚性力传递路径，弹性压缩织物负责多点压力分散与贴合。刚性传力路径嵌入柔性穿戴界面——力矩精准到达关节，穿戴仅需10秒。四个前提条件在2025-2026年才首次同时成立：干电极EEG突破、QDD电机扭矩密度达标、碳纤维成本降至工业级、EEG+IMU交叉人才出现。在此之前，混合穿戴无论证基础。</p>
+
 </div>
 </div>
 
@@ -331,6 +343,29 @@ h3{font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
 <p><strong style="color:#e11d48;">pFedAC</strong>（Wang et al., arXiv:2605.14423）：单时间尺度联邦Actor-Critic。超越独立PPO 2.63倍，超越FedAvg PPO 3.78倍——Nexum个性化策略进化的核心学术支撑。</p>
 <p style="margin-bottom:0;"><strong style="color:#e11d48;">隐私架构</strong> 原始EEG/步态数据不离设备。仅加密模型梯度上传。V2阶段引入（2028年后），V1阶段策略离线预训练不做在线学习。</p>
 </div>
+</div>
+
+<div class="content-card" style="margin-bottom:32px">
+<h2 style="margin-top:0">分层控制架构：EEG与RL的垂直分工</h2>
+
+<p>Nexum One的控制架构常被误解为"EEG检测意图→IMU接管执行"的接力模式。实际架构是EEG与RL策略在整个步态周期中持续协同——分工不在时间轴上，在抽象层级上：<strong>EEG回答"想做什么"（离散意图分类），RL策略回答"怎么做"（连续力矩输出，个性化）。</strong></p>
+
+<div class="table-wrap" style="margin-top:20px"><table>
+<tr><th>维度</th><th>EEG分类</th><th>RL策略 (pFedAC)</th></tr>
+<tr><td>回答的问题</td><td>想做什么？</td><td>怎么做？</td></tr>
+<tr><td>输出类型</td><td>离散（4类意图）</td><td>连续（力矩曲线）</td></tr>
+<tr><td>时间尺度</td><td>单次检测（~55ms）</td><td>跨训练session持续进化</td></tr>
+<tr><td>个性化方式</td><td>固定分类器</td><td>联邦聚合+本地微调</td></tr>
+<tr><td>为什么是4类</td><td>目标人群功能需求边界</td><td>4类内部的精度由RL负责</td></tr>
+</table></div>
+
+<p><strong>EEG的四分类不是技术短板——是目标人群的功能需求边界。</strong>偏瘫患者需要的运动模态：坐→站、平地步行、站→坐、无意图（静止）——恰好四类。MRCP的时空分辨率已验证可支持4-5类可靠分类。再多则误判率上升——在康复场景中，误判的代价远大于分类种类的收益。跑步、上楼、骑车是Phase 3消费增强的场景。</p>
+
+<p><strong>RL策略在全身肌骨模型+外骨骼动力学的联合仿真中离线训练。</strong>416 MTU Hill-type肌骨模型仿真人体步行，在此之上叠加Nexum One的外骨骼动力学（髋关节电机+碳纤维锚定+压缩衣力传递特性）。RL策略（PPO/SAC）在联合仿真中训练数亿步——训练完成后，策略网络（~几MB权重）部署到NeuroCore边缘设备。在线推理时仅做前向传播，不运行完整肌骨仿真。Luo, Su et al.（Nature, 2024）已验证该sim2real管线：RL策略仿真训练后零样本迁移至物理外骨骼，代谢成本降低24%。Nexum在此基础上增加EEG维度——策略获得更早的预判能力和更高状态空间分辨率。</p>
+
+<p><strong>pFedAC联邦强化学习：跨患者知识共享。</strong>传统RL需要每个新患者从头训练。pFedAC（Wang et al., arXiv:2605.14423）的联邦Actor-Critic框架：每个患者本地训练后仅上传策略梯度（非原始EEG或步态数据），聚合服务器合并为全局基础策略下发——新患者在此基础上少量微调即可达到高度个性化。实验数据：超越独立PPO 2.63倍，超越FedAvg PPO 3.78倍。</p>
+
+<p><strong>EEG在完整步态周期中持续运行——不是一次性检测开关。</strong>四个维度：(1) 步态启动MRCP检测（动作前200-500ms）；(2) 模式切换预判（步行→站立、站立→就坐，跌倒高发时刻）；(3) 主动参与度监测（μ节律去同步化反映运动皮层激活水平，驱动神经可塑性）；(4) EEG-IMU交叉验证（EEG判断与IMU冲突时，以IMU为地面真相否决执行）。IMU是地面真相传感器，EEG是预判增强传感器。两者持续融合，非接力关系。</p>
 </div>
 
 <div class="content-card" style="margin-bottom:32px">
