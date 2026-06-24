@@ -264,25 +264,14 @@ a { color: var(--nexum); text-decoration: none; }
 
 <p style="margin:0 0 14px 0"><strong style="color:var(--text);font-weight:800">空白。</strong>全球30余家外骨骼公司中，尚无任何一家同时拥有非侵入EEG与下肢外骨骼的商用产品。中国约1500万患者（脑卒中偏瘫+不完全性SCI）具备站立能力但无法独立行走——大脑运动皮层完好，指令无法抵达肌肉。在院内外骨骼（$85K以上，23kg）与轮椅之间，存在一个未被定义的产品真空。现有产品全部为丧失站立能力的患者设计，这1500万人不属于它们的目标人群。</p>
 
-<p style="margin:0 0 14px 0"><strong style="color:var(--text);font-weight:800">方案。</strong>Nexum One读取EEG运动意图（动作前200-500ms），经RL策略解码为个性化髋关节辅助力矩。碳纤维混合穿戴形态——刚性锚定传递力矩，柔性织物承载穿戴——系统总重约2.5kg，10秒穿脱，可居家独立使用。定价：Clinical版$18,000（医院），Home版$3,999+$499/年（居家）。</p>
+<p style="margin:0 0 14px 0"><strong style="color:var(--text);font-weight:800">方案。</strong>Nexum One读取EEG运动意图（动作前200-500ms），经RL策略解码为个性化髋关节辅助力矩。碳纤维混合穿戴形态——刚性锚定传递力矩，柔性织物承载穿戴——系统总重约2.5kg，10秒穿脱，可居家独立使用。定价：Clinical版 $18,000（医院）&nbsp;·&nbsp; Home版 $3,999 + $499/年（居家）。</p>
 
 <p style="margin:0"><strong style="color:var(--text);font-weight:800">时机。</strong>四项前提条件在2025-2026年首次同时成立：干电极物理突破使消费级EEG首次具备临床可用性、QDD电机扭矩密度达标（260g/12.5Nm）、中国11省外骨骼医保+BCI医疗服务定价（¥966/次）落地、NMPA创新器械绿色通道加速。窗口期2-3年。种子轮募资$3-5M，单一可验证目标：<strong>18个月内，在实验室环境中证明EEG意图检测结合个性化助力对目标患者步态功能产生可测量的改善。</strong></p>
 </div>
 
-<div style="text-align:left;margin:0 0 32px 0;padding:16px 20px;background:var(--card-bg);border-radius:8px;border:1px solid var(--border);font-size:12px;line-height:2;color:var(--text-secondary)">
-<strong style="color:var(--text);font-size:13px">文档结构</strong><br>
-<a href="#problem">1. 问题与空白</a> — 临床现实、治疗断层、产品真空<br>
-<a href="#why-now">2. 为什么此刻可行</a> — 四项工程条件的集成论证：每项条件的含义、历史障碍、2025突破<br>
-<a href="#product">3. Nexum One 系统</a> — 产品形态、模块、规格、工作原理<br>
-<a href="#team">4. 团队</a> — 创始人、核心成员、待招聘岗位<br>
-<a href="#market">5. 市场与商业模型</a> — TAM/SAM/SOM、支付路径、收入预测<br>
-<a href="#competition">6. 竞争格局</a> — 全球竞品矩阵、中国关键玩家<br>
-<a href="#tech">7. 技术架构</a> — 五层技术栈、安全架构、联邦学习<br>
-<a href="#regulatory">8. 监管路径与支付</a> — NMPA创新器械、医保覆盖、全球策略<br>
-<a href="#roadmap">9. 路线图与资金用途</a> — 种子轮→Pre-A→A轮、财务预测<br>
-<a href="#moats">10. 结构性护城河</a> — 数据飞轮、软件壁垒、品类定义权<br>
-<a href="#risks">11. 风险与知识产权</a> — 关键风险矩阵、IP布局<br>
-<a href="#vision">12. 人机共生</a> — 长期愿景 · <a href="#appendix">附录：关键引用</a>
+<div style="text-align:left;margin:0 0 32px 0;padding:12px 20px;background:var(--card-bg);border-radius:8px;border:1px solid var(--border);font-size:12px;line-height:2;color:var(--text-secondary)">
+<strong style="color:var(--text);font-size:13px">目录</strong><br>
+<a href="#problem">1. 问题与空白</a> &nbsp; <a href="#why-now">2. 为什么此刻可行</a> &nbsp; <a href="#product">3. Nexum One</a> &nbsp; <a href="#team">4. 团队</a> &nbsp; <a href="#market">5. 市场</a> &nbsp; <a href="#competition">6. 竞争</a> &nbsp; <a href="#tech">7. 技术</a> &nbsp; <a href="#regulatory">8. 监管</a> &nbsp; <a href="#roadmap">9. 路线图</a> &nbsp; <a href="#moats">10. 护城河</a> &nbsp; <a href="#risks">11. 风险</a> &nbsp; <a href="#vision">12. 愿景</a> &nbsp;·&nbsp; <a href="#appendix">附录</a>
 </div>
 
 
@@ -297,7 +286,7 @@ a { color: var(--nexum); text-decoration: none; }
 <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">现有EEG+下肢商用产品</div></div>
 </div>
 
-<p>中国脑卒中幸存者约2600万人（GBD 2021, Ji et al., Nutr Metab Cardiovasc Dis, 2025），近半数遗留偏瘫。不完全性脊髓损伤（ISCI）约200万人（GBD 2021估算）。流行病学数据综合估算，其中<strong>具备站立能力但无法独立行走</strong>的患者约1500万。大脑运动中枢完好，通往肌肉的神经通路受损——意识尚存，指令无法抵达。</p>
+<p>中国脑卒中幸存者约2,600万人（GBD 2021, Ji et al., Nutr Metab Cardiovasc Dis, 2025），近半数遗留偏瘫。不完全性脊髓损伤（ISCI）约200万人（GBD 2021估算）。流行病学数据综合估算，其中<strong>具备站立能力但无法独立行走</strong>的患者约1500万。大脑运动中枢完好，通往肌肉的神经通路受损——意识尚存，指令无法抵达。</p>
 
 <div class="callout callout-insight">
 <strong>治疗断层的本质：</strong>现行标准路径——医院内，治疗师辅助步态训练，每次30-60分钟，每周3-5次。出院后，轮椅。约40%的脑卒中幸存者终身无法恢复独立行走（American Stroke Association）；出院后6-12个月内，40-50%至少经历一次跌倒（Weerdesteyn et al., J Rehabil Res Dev, 2008）。
@@ -414,18 +403,19 @@ a { color: var(--nexum); text-decoration: none; }
 <div style="background:var(--card-bg);border-radius:12px;padding:16px;margin:24px 0;text-align:center">
 <svg viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:900px;height:auto;display:inline-block" aria-label="Nexum One 三模块系统：EEG-Sense → NeuroCore → NeuroSuit">
   <defs>
-    <filter id="ss-modules"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000" flood-opacity="0.06"/></filter>
-    <linearGradient id="neuroGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a2e"/><stop offset="100%" stop-color="#1a1a1e"/></linearGradient>
+    <filter id="ss-modules"><feDropShadow dx="0" dy="3" stdDeviation="8" flood-color="#000" flood-opacity="0.08"/></filter>
+    <linearGradient id="headGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a2e"/><stop offset="100%" stop-color="#1a1a1e"/></linearGradient>
     <linearGradient id="boxGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a4a50"/><stop offset="100%" stop-color="#2a2a2e"/></linearGradient>
+    <linearGradient id="suitGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a2e"/><stop offset="100%" stop-color="#1a1a1e"/></linearGradient>
     <linearGradient id="motorGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d0d0d8"/><stop offset="100%" stop-color="#888890"/></linearGradient>
   </defs>
-  <rect width="900" height="360" rx="16" fill="var(--bg-card)"/>
+  <rect width="900" height="360" rx="16" fill="#fafafa"/>
   <g transform="translate(30,30)" filter="url(#ss-modules)">
-    <rect x="0" y="0" width="250" height="300" rx="16" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
-    <path d="M 60 160 Q 60 60 125 55 Q 190 60 190 160" fill="none" stroke="#1a1a1e" stroke-width="18" stroke-linecap="round"/>
-    <path d="M 65 160 Q 65 68 125 63 Q 185 68 185 160" fill="none" stroke="#2a2a30" stroke-width="14" stroke-linecap="round"/>
-    <circle cx="75" cy="100" r="4" fill="#555"/><circle cx="95" cy="78" r="4" fill="#555"/><circle cx="115" cy="72" r="4" fill="#555"/><circle cx="125" cy="70" r="4" fill="#555"/><circle cx="135" cy="72" r="4" fill="#555"/><circle cx="155" cy="78" r="4" fill="#555"/><circle cx="175" cy="100" r="4" fill="#555"/><circle cx="125" cy="68" r="4" fill="#555"/>
-    <circle cx="195" cy="110" r="4" fill="#0096f0" opacity="0.9"/><circle cx="195" cy="110" r="8" fill="#0096f0" opacity="0.2"/>
+    <rect x="0" y="0" width="250" height="300" rx="16" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.5"/>
+    <path d="M 60 160 Q 60 60 125 55 Q 190 60 190 160" fill="none" stroke="url(#headGrad)" stroke-width="18" stroke-linecap="round"/>
+    <path d="M 65 160 Q 65 68 125 63 Q 185 68 185 160" fill="none" stroke="url(#headGrad)" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="75" cy="100" r="3.5" fill="#999"/><circle cx="95" cy="78" r="3.5" fill="#999"/><circle cx="115" cy="72" r="3.5" fill="#999"/><circle cx="125" cy="70" r="3.5" fill="#999"/><circle cx="135" cy="72" r="3.5" fill="#999"/><circle cx="155" cy="78" r="3.5" fill="#999"/><circle cx="175" cy="100" r="3.5" fill="#999"/>
+    <circle cx="195" cy="110" r="5" fill="var(--nexum)" opacity="0.9"/><circle cx="195" cy="110" r="10" fill="var(--nexum)" opacity="0.15"/>
     <text x="125" y="210" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="700">EEG-Sense 意图感知头带</text>
     <text x="125" y="232" text-anchor="middle" fill="var(--text-tertiary)" font-size="12">8ch干电极 · 80g</text>
     <text x="125" y="252" text-anchor="middle" fill="var(--nexum)" font-size="11" font-weight="600">神经感知层</text>
@@ -434,13 +424,13 @@ a { color: var(--nexum); text-decoration: none; }
   <polygon points="315,175 323,180 315,185" fill="var(--nexum)" opacity="0.5"/>
   <text x="300" y="170" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">BLE</text>
   <g transform="translate(328,30)" filter="url(#ss-modules)">
-    <rect x="0" y="0" width="244" height="300" rx="16" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="0" y="0" width="244" height="300" rx="16" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.5"/>
     <rect x="42" y="55" width="160" height="120" rx="14" fill="url(#boxGrad)"/>
     <rect x="62" y="70" width="120" height="62" rx="6" fill="#0a0a10"/>
     <rect x="72" y="78" width="100" height="12" rx="3" fill="#1a3a5a"/>
     <rect x="72" y="94" width="60" height="8" rx="2" fill="#0a2a4a"/>
     <rect x="72" y="106" width="80" height="6" rx="2" fill="#0a2a4a"/>
-    <circle cx="152" cy="114" r="8" fill="none" stroke="var(--nexum)" stroke-width="2"/>
+    <circle cx="152" cy="114" r="8" fill="none" stroke="var(--nexum)" stroke-width="2.5"/>
     <rect x="82" y="180" width="40" height="8" rx="3" fill="#1a1a1e"/>
     <circle cx="195" cy="165" r="3" fill="var(--nexum)" opacity="0.8"/>
     <text x="122" y="230" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="700">NeuroCore 控制中枢</text>
@@ -451,11 +441,11 @@ a { color: var(--nexum); text-decoration: none; }
   <polygon points="607,175 615,180 607,185" fill="var(--nexum)" opacity="0.5"/>
   <text x="592" y="170" text-anchor="middle" fill="var(--text-tertiary)" font-size="9">UART</text>
   <g transform="translate(620,30)" filter="url(#ss-modules)">
-    <rect x="0" y="0" width="250" height="300" rx="16" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5"/>
+    <rect x="0" y="0" width="250" height="300" rx="16" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.5"/>
     <rect x="65" y="55" width="120" height="16" rx="6" fill="#252528"/>
-    <path d="M 65 68 L 65 220 Q 65 235 80 235 L 95 235 L 95 68 Z" fill="url(#neuroGrad)"/>
-    <path d="M 155 68 L 155 220 Q 155 235 170 235 L 185 235 L 185 68 Z" fill="url(#neuroGrad)"/>
-    <path d="M 95 68 Q 125 85 155 68" fill="url(#neuroGrad)"/>
+    <path d="M 65 68 L 65 220 Q 65 235 80 235 L 95 235 L 95 68 Z" fill="url(#suitGrad)"/>
+    <path d="M 155 68 L 155 220 Q 155 235 170 235 L 185 235 L 185 68 Z" fill="url(#suitGrad)"/>
+    <path d="M 95 68 Q 125 85 155 68" fill="url(#suitGrad)"/>
     <ellipse cx="55" cy="160" rx="14" ry="22" fill="url(#motorGrad)"/><ellipse cx="55" cy="160" rx="8" ry="14" fill="#a0a0a8"/>
     <ellipse cx="195" cy="160" rx="14" ry="22" fill="url(#motorGrad)"/><ellipse cx="195" cy="160" rx="8" ry="14" fill="#a0a0a8"/>
     <rect x="58" y="75" width="10" height="30" rx="3" fill="#3a3a40"/>
@@ -568,7 +558,7 @@ a { color: var(--nexum); text-decoration: none; }
 <table>
 <tr><th>项目</th><th>金额</th><th>说明</th></tr>
 <tr><td>ASP</td><td>$3,999</td><td>Home版一次性售价</td></tr>
-<tr><td>COGS</td><td>~$1,400（35%毛利率@1K台）→ ~$800（65%毛利率@10K台）</td><td>碳纤维$80 + 电机×2 $160 + EEG头带$120 + MCU/IMU/电池$180 + 织物$90 + 组装$120 + 其他</td></tr>
+<tr><td>COGS</td><td>~$1,400（35%毛利率@1K台）→ ~$800（65%毛利率@10K台）</td><td>碳纤维 $80 &nbsp;·&nbsp; 电机×2 $160 &nbsp;·&nbsp; EEG头带 $120 &nbsp;·&nbsp; MCU/IMU/电池 $180 &nbsp;·&nbsp; 织物 $90 &nbsp;·&nbsp; 组装 $120 &nbsp;·&nbsp; 其他</td></tr>
 <tr><td>年度订阅</td><td>$499/年</td><td>软件更新 + 联邦学习策略升级 + 治疗师远程监控</td></tr>
 <tr><td>LTV（5年）</td><td>$3,999 + $499×5 = $6,494</td><td>不含 Clinical版（$18,000/台，B2B采购周期1-2年）</td></tr>
 </table>
@@ -650,20 +640,20 @@ a { color: var(--nexum); text-decoration: none; }
     <linearGradient id="motor-arch" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#d8d8e0"/><stop offset="50%" stop-color="#a0a0a8"/><stop offset="100%" stop-color="#707078"/></linearGradient>
     <marker id="ar-arch" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="var(--nexum)"/></marker>
   </defs>
-  <rect width="900" height="460" rx="16" fill="var(--bg-card)"/>
+  <rect width="900" height="460" rx="16" fill="#fafafa"/>
   <text x="450" y="30" text-anchor="middle" fill="var(--nexum)" font-size="14" font-weight="700">Nexum One 完整系统 — 从神经意图到物理动作</text>
   <g transform="translate(60,50)">
-    <rect x="0" y="0" width="160" height="56" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5" filter="url(#ss-arch)"/>
+    <rect x="0" y="0" width="160" height="56" rx="12" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.5" filter="url(#ss-arch)"/>
     <text x="80" y="22" text-anchor="middle" fill="var(--nexum)" font-size="12" font-weight="700">EEG-Sense 意图感知头带</text>
     <text x="80" y="42" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">8ch干电极 · MRCP检测 · ~40ms</text>
     <line x1="165" y1="28" x2="210" y2="28" stroke="var(--nexum)" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#ar-arch)" opacity="0.6"/>
     <text x="187" y="20" text-anchor="middle" fill="var(--nexum)" font-size="8" font-weight="600">BLE</text>
-    <rect x="215" y="0" width="170" height="56" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5" filter="url(#ss-arch)"/>
+    <rect x="215" y="0" width="170" height="56" rx="12" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.5" filter="url(#ss-arch)"/>
     <text x="300" y="22" text-anchor="middle" fill="var(--nexum)" font-size="12" font-weight="700">NeuroCore 控制中枢</text>
     <text x="300" y="42" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">EEGNet推理 · RL策略 · ~55ms</text>
     <line x1="390" y1="28" x2="435" y2="28" stroke="var(--nexum)" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#ar-arch)" opacity="0.6"/>
     <text x="412" y="20" text-anchor="middle" fill="var(--nexum)" font-size="8" font-weight="600">UART</text>
-    <rect x="440" y="0" width="170" height="56" rx="12" fill="var(--bg)" stroke="var(--border)" stroke-width="1.5" filter="url(#ss-arch)"/>
+    <rect x="440" y="0" width="170" height="56" rx="12" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.5" filter="url(#ss-arch)"/>
     <text x="525" y="22" text-anchor="middle" fill="var(--nexum)" font-size="12" font-weight="700">NeuroSuit 神经意图肌动服</text>
     <text x="525" y="42" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">直驱电机 · 力矩输出 · ~60ms</text>
     <rect x="640" y="8" width="90" height="40" rx="20" fill="var(--accent-dim)"/>
@@ -671,12 +661,12 @@ a { color: var(--nexum); text-decoration: none; }
     <text x="685" y="40" text-anchor="middle" fill="var(--nexum)" font-size="15" font-weight="800">~150ms</text>
   </g>
   <g transform="translate(265,140)">
-    <ellipse cx="60" cy="18" rx="18" ry="22" fill="none" stroke="#888" stroke-width="1.5"/>
+    <ellipse cx="60" cy="18" rx="18" ry="22" fill="none" stroke="#555" stroke-width="1.5"/>
     <path d="M 42 15 Q 60 25 78 15" fill="none" stroke="#1a1a1e" stroke-width="5" stroke-linecap="round"/>
     <circle cx="48" cy="17" r="1.2" fill="#777"/><circle cx="60" cy="20" r="1.2" fill="#777"/><circle cx="72" cy="17" r="1.2" fill="#777"/>
     <circle cx="82" cy="16" r="2" fill="var(--nexum)" opacity="0.9"/>
     <rect x="54" y="38" width="12" height="8" rx="3" fill="none" stroke="#888" stroke-width="1"/>
-    <line x1="60" y1="46" x2="60" y2="100" stroke="#888" stroke-width="1.5"/>
+    <line x1="60" y1="46" x2="60" y2="100" stroke="#555" stroke-width="1.5"/>
     <line x1="60" y1="62" x2="40" y2="85" stroke="#888" stroke-width="1"/>
     <line x1="60" y1="62" x2="80" y2="85" stroke="#888" stroke-width="1"/>
     <path d="M 48 98 L 48 200 L 72 200 L 72 98 Z" fill="url(#pants)" opacity="0.9"/>
@@ -706,15 +696,15 @@ a { color: var(--nexum); text-decoration: none; }
   <circle cx="60" cy="340" r="3" fill="#10b981" opacity="0.3"/>
   <circle cx="850" cy="340" r="3" fill="#10b981" opacity="0.3"/>
   <g transform="translate(60,400)">
-    <rect x="0" y="0" width="780" height="40" rx="20" fill="var(--bg)" stroke="var(--border)" stroke-width="1"/>
+    <rect x="0" y="0" width="780" height="40" rx="20" fill="#ffffff" stroke="#e5e5e5" stroke-width="1"/>
     <text x="100" y="25" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">8ch EEG</text>
-    <line x1="180" y1="10" x2="180" y2="30" stroke="var(--border)" stroke-width="1"/>
+    <line x1="180" y1="10" x2="180" y2="30" stroke="#d0d0d0" stroke-width="1"/>
     <text x="280" y="25" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">250SPS采样</text>
-    <line x1="360" y1="10" x2="360" y2="30" stroke="var(--border)" stroke-width="1"/>
+    <line x1="360" y1="10" x2="360" y2="30" stroke="#d0d0d0" stroke-width="1"/>
     <text x="460" y="25" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">~2.5kg总重</text>
-    <line x1="540" y1="10" x2="540" y2="30" stroke="var(--border)" stroke-width="1"/>
+    <line x1="540" y1="10" x2="540" y2="30" stroke="#d0d0d0" stroke-width="1"/>
     <text x="620" y="25" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">12.5Nm峰值扭矩</text>
-    <line x1="700" y1="10" x2="700" y2="30" stroke="var(--border)" stroke-width="1"/>
+    <line x1="700" y1="10" x2="700" y2="30" stroke="#d0d0d0" stroke-width="1"/>
     <text x="740" y="25" text-anchor="middle" fill="var(--nexum)" font-size="11" font-weight="700">V1 髋部</text>
   </g>
 </svg>
