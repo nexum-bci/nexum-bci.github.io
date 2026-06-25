@@ -181,7 +181,7 @@ a:hover { opacity: 0.75; }
 
 <div class="stat-row" style="margin:0 0 24px 0">
 <div class="stat-item" style="background:var(--bg)"><div class="stat-num">~1,500万</div><div class="stat-label">中国患者·能站立·无法行走</div></div>
-<div class="stat-item" style="background:var(--bg)"><div class="stat-num">0</div><div class="stat-label">现有EEG+下肢商用产品</div></div>
+<div class="stat-item" style="background:var(--bg)"><div class="stat-num">0</div><div class="stat-label">轻量可穿戴EEG+下肢产品</div></div>
 <div class="stat-item" style="background:var(--bg)"><div class="stat-num">~2.5kg</div><div class="stat-label">Nexum One 系统总重</div></div>
 <div class="stat-item" style="background:var(--bg)"><div class="stat-num">$2-3M</div><div class="stat-label">天使轮融资目标</div></div>
 </div>
@@ -189,7 +189,7 @@ a:hover { opacity: 0.75; }
 <p style="margin:0 0 14px 0;font-size:16px;color:var(--text);font-weight:800;letter-spacing:0.5px">执行摘要</p>
 
 <table style="margin:0;font-size:13px;border:none">
-<tr style="background:none"><td style="border:none;padding:6px 10px 6px 0;color:var(--nexum);font-weight:700;white-space:nowrap;vertical-align:top;width:65px">1. 空白</td><td style="border:none;padding:6px 0;color:var(--text-secondary)">全球30余家外骨骼公司，尚无一家同时拥有非侵入EEG与下肢外骨骼的商用产品。中国约1500万患者具备站立能力但无法独立行走——大脑运动皮层完好，指令无法抵达肌肉。在院内外骨骼（$85K以上，23kg）与轮椅之间，存在一个产品真空。</td></tr>
+<tr style="background:none"><td style="border:none;padding:6px 10px 6px 0;color:var(--nexum);font-weight:700;white-space:nowrap;vertical-align:top;width:65px">1. 空白</td><td style="border:none;padding:6px 0;color:var(--text-secondary)">2025-2026年中国已出现首批BCI+下肢外骨骼临床案例（臻泰智能、翔宇医疗、依瑞德），但全部是医院级刚性框架系统（10-20kg+，40-80万/套），用于治疗室场景。全球尚无公司推出<strong>轻量可穿戴形态（~2.5kg）的EEG+下肢外骨骼</strong>——中国约1500万患者具备站立能力但无法独立行走，在院内外骨骼与轮椅之间存在产品真空。</td></tr>
 <tr style="background:none"><td style="border:none;padding:6px 10px 6px 0;color:var(--nexum);font-weight:700;white-space:nowrap;vertical-align:top">2. 方案</td><td style="border:none;padding:6px 0;color:var(--text-secondary)">Nexum One 读取EEG运动意图（离散分类），经RL策略解码为个性化髋关节辅助力矩。系统总重约2.5kg，10秒穿脱。B2B先行：Clinical版$18,000（医院，医保覆盖45-65%）→积累临床数据→Home版$3,999+$499/年（处方→居家）。</td></tr>
 <tr style="background:none"><td style="border:none;padding:6px 10px 6px 0;color:var(--nexum);font-weight:700;white-space:nowrap;vertical-align:top">3. 时机</td><td style="border:none;padding:6px 0;color:var(--text-secondary)">干电极、QDD电机、碳纤维成本、AI边缘推理、中国BCI医保定价——五项前提在2025-2026年首次同时成立。天使轮$2-3M，单一目标：<strong>18个月内，在实验室中证明EEG意图检测结合个性化助力对目标患者步态功能产生可测量的改善。</strong></td></tr>
 <tr style="background:none"><td style="border:none;padding:6px 10px 6px 0;color:var(--nexum);font-weight:700;white-space:nowrap;vertical-align:top">4. 规模</td><td style="border:none;padding:6px 0;color:var(--text-secondary)">首发200-500万脑卒中/SCI恢复期患者（Clinical版，B2B医院渠道）。同一技术栈沿人群扩展：老年肌少症（4800万，IMU版）→消费增强。临床验证建立数据和信任壁垒，消费市场释放规模——以临床为起点的<strong>可穿戴机器人</strong>路径。</td></tr>
@@ -270,6 +270,10 @@ a:hover { opacity: 0.75; }
 
 <p><strong>过去为何不可行：</strong>步行头部加速度1-3g，MRCP幅值仅5-30μV，信噪比可达-40dB。</p>
 <p><strong>2025年突破：</strong>微针阵列干电极阻抗降至2.6kΩ@10Hz，信号幅度超湿电极39-44%（Materials Today Nano, 2026）。实验室跑步机EEG分类准确率82-95%（Dong et al., 2024）。Contreras-Vidal Lab (U Houston, 2014-2020) 验证了行走中EEG信号包含步态运动学信息。中国研究团队已实现非侵入EEG实时闭环控制下肢外骨骼行走并引入双侧触觉反馈。真实世界自由行走——尚无公开演示，天使轮核心验证假设。</p>
+
+<div class="callout callout-insight">
+<strong>2026年关键验证事件：</strong>中山三院+臻泰智能RCT（Annals of Neurology, 2026.1）首次以I级证据证明BCI+下肢外骨骼训练在步行速度、肌力、耐力、抑郁情绪上显著优于单纯外骨骼（BCI精度95.2%，反应时1.15秒）。依瑞德"汉脑·知行"2026年5月完成全国首例无创BCI临床应用——脑膜瘤术后软瘫患者不到1个月恢复独立行走。翔宇医疗联合蚌埠医科大学实现BCI+外骨骼使完全截瘫患者8周内恢复连续行走15-20分钟。<strong>EEG+外骨骼的技术方向已被多个独立团队验证。</strong>
+</div>
 
 <h3>二、控制策略：从通用曲线到个体化肌骨模型</h3>
 
@@ -508,46 +512,61 @@ a:hover { opacity: 0.75; }
 <!-- ===== 6. COMPETITION ===== -->
 <h2 id="competition">6. 竞争格局</h2>
 
-<p>战略选择定义了产品边界。边界内呈现清晰结构：<strong>外骨骼公司不做EEG，EEG公司不做下肢。交叉点空白。</strong></p>
+<p>战略选择定义了产品边界。2025-2026年，中国首批BCI+下肢外骨骼临床案例落地——但全部是<strong>医院级刚性框架系统</strong>（10-20kg+，40-80万/套），用于治疗室场景。Nexum是唯一从<strong>居家场景出发，以轻量可穿戴形态（~2.5kg）实现EEG+外骨骼</strong>的架构。</p>
 
-<h3>全球竞品矩阵</h3>
-<table>
-<tr><th>产品</th><th>控制方式</th><th>EEG?</th><th>下肢?</th><th>重量</th><th>价格</th></tr>
-<tr><td>EksoNR</td><td>按钮+IMU</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>23kg</td><td>~$200K</td></tr>
-<tr><td>ReWalk P6.0</td><td>倾斜传感器</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>23kg</td><td>$91K</td></tr>
-<tr><td>HAL (Cyberdyne)</td><td>EMG</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>~14kg</td><td>¥11K/次</td></tr>
-<tr><td>Indego</td><td>按钮</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>~12kg</td><td>—</td></tr>
-<tr><td>Wandercraft Eve</td><td>摇杆</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>~15kg</td><td>~$38K</td></tr>
-<tr><td>g.tec recoveriX</td><td>EEG+FES</td><td><span class="check-yes">✓</span></td><td><span class="check-no">✗ 上肢</span></td><td>—</td><td>—</td></tr>
-<tr><td>赛博灵科 AC5</td><td>sEMG+EEG</td><td><span class="check-yes">✓</span></td><td><span class="check-no">✗ 上肢</span></td><td>—</td><td>—</td></tr>
-<tr><td>RehabSwift</td><td>EEG+FES</td><td><span class="check-yes">✓</span></td><td><span class="check-no">✗ 上肢</span></td><td>—</td><td>—</td></tr>
-<tr style="background:var(--accent-dim)"><td><strong>Nexum One</strong></td><td><strong>EEG+IMU</strong></td><td><strong><span class="check-yes">✓</span></strong></td><td><strong><span class="check-yes">✓</span></strong></td><td><strong>~2.5kg</strong></td><td><strong>Clinical $18K · Home $3,999</strong></td></tr>
-</table>
+	<h3>中国BCI+外骨骼：2026年竞争实况</h3>
+	<table>
+	<tr><th>公司/系统</th><th>BCI方案</th><th>外骨骼形态</th><th>重量</th><th>价格</th><th>场景</th><th>控制策略</th></tr>
+	<tr><td><strong>臻泰智能</strong> ZhenTec-NT1</td><td>EEG（29导半干式）</td><td>刚性框架下肢外骨骼</td><td>~15-20kg（推测）</td><td>42-78万/套（中标价）</td><td>医院治疗室</td><td>EEG分类→固定步态模式</td></tr>
+	<tr><td><strong>翔宇医疗</strong>（688626）</td><td>自研BCI芯片</td><td>下肢外骨骼步行康复训练器（NMPA注册）</td><td>~15-20kg（推测）</td><td>医院采购，未公开零售价</td><td>医院治疗室</td><td>EEG触发→预设助力曲线</td></tr>
+	<tr><td><strong>依瑞德</strong> "汉脑·知行"</td><td>EEG+fNIRS光电双模</td><td>配套下肢外骨骼</td><td>未披露（推测>15kg）</td><td>未公开</td><td>医院治疗室</td><td>EEG+fNIRS融合→外骨骼执行</td></tr>
+	<tr><td><strong>程天科技</strong></td><td><span class="check-no">✗ 无EEG</span></td><td>UGO刚性框架 / Ascentiz消费版（1.75kg）</td><td>1.75-20kg</td><td>KS $253万</td><td>医院+消费</td><td>IMU+力传感器</td></tr>
+	<tr><td><strong>大艾机器人</strong></td><td><span class="check-no">✗ 无EEG</span></td><td>艾动/艾康/神行（中国首个NMPA外骨骼注册证，2018）</td><td>~20kg</td><td>医院采购</td><td>医院</td><td>按钮+IMU</td></tr>
+	<tr style="background:var(--accent-dim)"><td><strong>Nexum One</strong></td><td><strong>EEG（8ch干电极）</strong></td><td><strong>混合穿戴：碳纤维锚点+弹性织物</strong></td><td><strong>~2.5kg</strong></td><td><strong>Clinical $18K · Home $3,999</strong></td><td><strong>居家+医院</strong></td><td><strong>EEG分类+RL个性化力矩+联邦学习</strong></td></tr>
+	</table>
 
-<h3>中国关键玩家</h3>
-<table>
-<tr><th>公司</th><th>产品</th><th>优势</th><th>关键区别</th></tr>
-<tr><td><strong>程天科技</strong></td><td>UGO, Ascentiz（1.75kg, KS $253万）</td><td>1000+机构，NMPA获证</td><td>无EEG</td></tr>
-<tr><td><strong>大艾机器人</strong></td><td>艾动/艾康/神行（中国首个NMPA外骨骼注册证，2018）</td><td>300+医院，7系列产品</td><td>无EEG</td></tr>
-<tr><td><strong>安杰莱科技</strong></td><td>LiteStepper（单下肢）</td><td>健侧引领</td><td>单下肢，无EEG</td></tr>
-<tr><td><strong>赛博灵科</strong></td><td>AC5, HC2, AM5</td><td>sEMG+EEG+外骨骼</td><td>全部上肢</td></tr>
-</table>
+	<div class="callout callout-insight">
+	<strong>关键事实：</strong>中山三院+臻泰智能的RCT研究（Annals of Neurology, 2026年1月）首次以I级证据证明：BCI+外骨骼训练在步行速度、肌力、耐力上显著优于单纯外骨骼训练。BCI控制精度95.2%，反应时1.15秒。依瑞德"汉脑·知行"2026年5月完成全国首例无创BCI临床应用——脑膜瘤术后软瘫患者不到1个月恢复独立行走。<br><br>
+	<strong>这些案例验证了EEG+外骨骼的技术方向——但不是Nexum的竞争对手。</strong>它们的形态（刚性框架15-20kg+）、场景（医院治疗室）、价格（40-80万）与Nexum的目标（轻量可穿戴~2.5kg、居家使用、$3,999）属于不同品类。就像车载GPS和手机导航——同在"定位导航"赛道，但形态和场景完全不同。
+	</div>
 
-<div class="callout callout-key">
-<strong>竞争差异化：</strong>品类定义权（无商用产品占据此交叉点）、临床数据飞轮（EEG+步态+肌力纵向队列）、监管先发优势（NMPA绿色通道，窗口期2-3年）。
-</div>
+	<h3>全球竞品矩阵</h3>
+	<table>
+	<tr><th>产品</th><th>控制方式</th><th>EEG?</th><th>下肢?</th><th>形态</th><th>重量</th><th>价格</th></tr>
+	<tr><td>EksoNR</td><td>按钮+IMU</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>刚性框架</td><td>23kg</td><td>~$200K</td></tr>
+	<tr><td>ReWalk P6.0</td><td>倾斜传感器</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>刚性框架</td><td>23kg</td><td>$91K</td></tr>
+	<tr><td>HAL (Cyberdyne)</td><td>EMG</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>刚性框架</td><td>~14kg</td><td>¥11K/次</td></tr>
+	<tr><td>臻泰智能 ZhenTec</td><td>EEG</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td>刚性框架</td><td>~15-20kg（推测）</td><td>42-78万</td></tr>
+	<tr><td>翔宇医疗</td><td>EEG</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td>刚性框架</td><td>~15-20kg（推测）</td><td>医院采购</td></tr>
+	<tr style="background:var(--accent-dim)"><td><strong>Nexum One</strong></td><td><strong>EEG+IMU</strong></td><td><strong><span class="check-yes">✓</span></strong></td><td><strong><span class="check-yes">✓</span></strong></td><td><strong>混合穿戴</strong></td><td><strong>~2.5kg</strong></td><td><strong>Clinical $18K · Home $3,999</strong></td></tr>
+	</table>
 
-<div class="callout callout-insight" style="margin-top:32px">
-<p style="font-size:15px;color:var(--text);font-weight:800;margin:0 0 12px 0;letter-spacing:0.5px">投资逻辑</p>
-<p style="margin:0 0 6px 0"><strong>1. 空白。</strong>全球30+外骨骼+8家EEG康复公司，交叉点零商用产品。</p>
-<p style="margin:0 0 6px 0"><strong>2. 时机。</strong>干电极+QDD电机+碳纤维成本+AI边缘推理+中国医保/BCI定价——五项前提2025-2026首次同时成立。</p>
-<p style="margin:0 0 6px 0"><strong>3. 壁垒。</strong>临床数据飞轮×软件网络效应×品类定义权×全球成本结构——后来者追赶成本随时间递增。</p>
-<p style="margin:0 0 6px 0"><strong>4. 规模。</strong>同一技术栈：医疗康复（$0.5B SAM）→老年行动力（$3B+）→消费增强（$7B+）。每次扩张时BOM成本已接近前一市场的边际成本。</p>
-<p style="margin:0 0 6px 0"><strong>5. 路径。</strong>Clinical版B2B医院（$18,000，医保覆盖）→积累临床数据和处方习惯→Home版（$3,999+$499/年）B2B2C。照护者负担降低是核心购买驱动力。</p>
-<p style="margin:0"><strong>6. 团队。</strong>BCI+具身智能交叉人才密度极低。创始人横跨EEG研究+机器人产业化八年+FAI亲身经历。</p>
-</div>
+	<h3>差异化：品类定义，而非技术参数</h3>
+	<p>臻泰/翔宇/依瑞德验证了EEG+外骨骼的可行性。但它们的产品形态与Nexum形成<strong>品类级差异</strong>，而非参数级差异：</p>
+	<table>
+	<tr><th>维度</th><th>医院BCI+外骨骼（臻泰/翔宇/依瑞德）</th><th>Nexum One</th></tr>
+	<tr><td><strong>形态</strong></td><td>刚性框架，为全瘫患者提供全身支撑</td><td><strong>混合穿戴，为可站立患者提供辅助力矩</strong></td></tr>
+	<tr><td><strong>场景</strong></td><td>医院治疗室，治疗师操作，每次30-60分钟</td><td><strong>居家日常使用，自主穿脱，全天候辅助</strong></td></tr>
+	<tr><td><strong>控制</strong></td><td>EEG分类→触发固定步态模式</td><td><strong>EEG离散分类+RL策略输出个性化连续力矩</strong></td></tr>
+	<tr><td><strong>进化</strong></td><td>固定软件，无用户级策略更新</td><td><strong>联邦学习：每新增一名患者改进全局策略</strong></td></tr>
+	<tr><td><strong>价格</strong></td><td>40-80万/套（B2B医院采购）</td><td><strong>$18K Clinical · $3,999 Home</strong></td></tr>
+	<tr><td><strong>人群</strong></td><td>完全瘫痪/严重功能障碍，需要全身支撑</td><td><strong>能站立但无法独立行走，需要辅助而非支撑</strong></td></tr>
+	</table>
 
+	<div class="callout callout-key">
+	<strong>竞争定位：</strong>Nexum不声称"唯一做EEG+外骨骼的公司"。Nexum是<strong>唯一从居家场景倒推设计、以轻量可穿戴形态实现EEG+下肢外骨骼的公司</strong>。医院竞品的架构从全瘫患者向上兼容——它们几乎不可能"减配"成居家产品（框架去掉后力传递路径不复存在）。Nexum的架构从居家场景出发——临床版是"增强版"而非"减配版"。品类定义权的窗口期2-3年。
+	</div>
 
+	<div class="callout callout-insight" style="margin-top:32px">
+	<p style="font-size:15px;color:var(--text);font-weight:800;margin:0 0 12px 0;letter-spacing:0.5px">投资逻辑</p>
+	<p style="margin:0 0 6px 0"><strong>1. 验证。</strong>2025-2026年中国首批BCI+下肢外骨骼临床案例（中山三院RCT、依瑞德首例临床应用）证明EEG+外骨骼的技术方向成立，且BCI+外骨骼优于单纯外骨骼（Annals of Neurology, 2026）。</p>
+	<p style="margin:0 0 6px 0"><strong>2. 空白。</strong>所有现有方案均为医院级刚性框架（10-20kg+，40-80万/套）。轻量可穿戴形态（~2.5kg，$3,999）的EEG+下肢外骨骼——全球零产品。</p>
+	<p style="margin:0 0 6px 0"><strong>3. 时机。</strong>干电极+QDD电机+碳纤维成本+AI边缘推理+中国医保/BCI定价——五项前提2025-2026首次同时成立。</p>
+	<p style="margin:0 0 6px 0"><strong>4. 壁垒。</strong>临床数据飞轮（EEG+步态+肌力纵向队列）×软件网络效应（联邦学习）×品类定义权（首个居家EEG+外骨骼）×全球成本结构——后来者追赶成本随时间递增。</p>
+	<p style="margin:0 0 6px 0"><strong>5. 规模。</strong>同一技术栈：医疗康复（$0.5B SAM）→老年行动力（$3B+）→消费增强（$7B+）。每次扩张时BOM成本接近前一市场边际成本。</p>
+	<p style="margin:0 0 6px 0"><strong>6. 路径。</strong>Clinical版B2B医院（$18,000，医保覆盖）→积累临床数据和处方习惯→Home版（$3,999+$499/年）B2B2C。照护者负担降低是核心购买驱动力。</p>
+	<p style="margin:0"><strong>7. 团队。</strong>BCI+具身智能交叉人才密度极低。创始人横跨EEG研究+机器人产业化八年+FAI亲身经历。</p>
+	</div>
 
 <!-- ===== 7. TECH ===== -->
 <h2 id="tech">7. 技术架构</h2>
@@ -784,7 +803,19 @@ a:hover { opacity: 0.75; }
 	</tbody>
 	</table>
 
-	<h3>B. 市场与政策引用</h3>
+	<h3>B. 中国BCI+外骨骼临床落地案例（2025-2026，已验证）</h3>
+<p style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;">以下案例均来自公开可查的学术论文、政府官方报道或企业公告。这些案例证明EEG+下肢外骨骼已从实验室进入临床——但全部为医院级刚性框架系统，与Nexum的轻量可穿戴形态属于不同品类。</p>
+<table>
+<thead><tr><th style="width:22%">机构/系统</th><th style="width:28%">方案</th><th style="width:28%">关键结果</th><th style="width:22%">证据来源</th></tr></thead>
+<tbody>
+<tr><td><strong>中山三院+臻泰智能</strong><br>ZhenTec-NT1</td><td>29导半干式EEG+下肢外骨骼，RCT（n=21），4周干预</td><td>BCI精度95.2%，反应时1.15秒。脑控组在肌力、步行速度、耐力、抑郁情绪上显著优于单纯外骨骼组</td><td>Annals of Neurology (2026.1)<br>DOI: 10.1002/ana.78144</td></tr>
+<tr><td><strong>武汉依瑞德"汉脑·知行"</strong></td><td>EEG+fNIRS光电双模态，5分钟适配，驱动下肢外骨骼</td><td>脑膜瘤术后软瘫患者<1个月恢复独立行走。训练准确率85%+。已完成近10例治疗</td><td>武汉东湖高新区政府网站 (2026.6)<br>湖北日报 (2026.5)</td></tr>
+<tr><td><strong>翔宇医疗+蚌埠医科大学</strong></td><td>自研BCI芯片+下肢外骨骼，"中枢-外周-中枢"闭环</td><td>42岁完全截瘫患者8周后连续行走15-20分钟。2025年发布13款BCI设备，2026年目标百款</td><td>东方财富网 (2026.1)<br>同花顺财经 (2026.1)</td></tr>
+<tr><td><strong>珠江医院</strong><br>华南首个BCI临床研究病房</td><td>无创干电极EEG+下肢外骨骼，驱动站立与步态训练</td><td>41岁SCI患者重建站立与规范步行训练。华南首个BCI临床研究病房（2025.6）</td><td>羊城晚报 (2025.6)<br>南方都市报 (2025.6)</td></tr>
+</tbody>
+</table>
+
+<h3>C. 市场与政策引用</h3>
 <table>
 <thead><tr><th style="width:28%">出处</th><th style="width:44%">数据</th><th style="width:28%">来源</th></tr></thead>
 <tbody>
