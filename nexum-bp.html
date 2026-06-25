@@ -2,9 +2,8 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-
 <meta property="og:title" content="逐念而行 · Nexum — 商业计划书">
-<meta property="og:description" content="逐念而行 Nexum 天使轮商业计划书。从人类神经意图到物理世界动作的神经意图映射层。">
+<meta property="og:description" content="逐念而行 Nexum 天使轮商业计划书。AI驱动的可穿戴机器人平台，首个落地场景为神经功能重建。">
 <meta property="og:type" content="website">
 <meta property="og:image" content="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -121,92 +120,22 @@ a { color: var(--nexum); text-decoration: none; }
 .check-yes{color:#10b981;font-weight:700}
 .check-no{color:#ef4444;font-weight:700}
 .check-warn{color:#f59e0b;font-weight:700}
-
-/* ===== Callout boxes ===== */
-.callout {
-  margin: 24px 0;
-  padding: 20px 24px;
-  border-radius: 8px;
-  font-size: 14px;
-  line-height: 1.65;
-}
-.callout-insight {
-  background: var(--info-bg);
-  border-left: 4px solid var(--nexum);
-  color: var(--text-secondary);
-}
-.callout-key {
-  background: var(--accent-dim);
-  border: 1px solid var(--border);
-  text-align: center;
-  font-size: 15px;
-  color: var(--text);
-}
-.callout-risk {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  font-size: 13px;
-  color: var(--text-secondary);
-}
-
-/* ===== Section intro ===== */
-.section-intro {
-  font-size: 14px;
-  color: var(--text-tertiary);
-  margin-bottom: 8px;
-  letter-spacing: 0.5px;
-}
-
-/* ===== Stat row ===== */
-.stat-row {
-  display: flex;
-  gap: 18px;
-  margin: 24px 0;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.stat-item {
-  text-align: center;
-  padding: 22px 18px;
-  background: var(--card-bg);
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  min-width: 130px;
-  flex: 1;
-}
-.stat-num {
-  font-size: 30px;
-  font-weight: 800;
-  color: var(--nexum);
-  letter-spacing: -1px;
-  line-height: 1.1;
-}
-.stat-label {
-  font-size: 12px;
-  color: var(--text-tertiary);
-  margin-top: 4px;
-}
-
-/* ===== Theme toggle ===== */
+.callout { margin: 24px 0; padding: 20px 24px; border-radius: 8px; font-size: 14px; line-height: 1.65; }
+.callout-insight { background: var(--info-bg); border-left: 4px solid var(--nexum); color: var(--text-secondary); }
+.callout-key { background: var(--accent-dim); border: 1px solid var(--border); text-align: center; font-size: 15px; color: var(--text); }
+.callout-risk { background: var(--card-bg); border: 1px solid var(--border); font-size: 13px; color: var(--text-secondary); }
+.section-intro { font-size: 14px; color: var(--text-tertiary); margin-bottom: 8px; letter-spacing: 0.5px; }
+.stat-row { display: flex; gap: 18px; margin: 24px 0; flex-wrap: wrap; justify-content: center; }
+.stat-item { text-align: center; padding: 22px 18px; background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border); min-width: 130px; flex: 1; }
+.stat-num { font-size: 30px; font-weight: 800; color: var(--nexum); letter-spacing: -1px; line-height: 1.1; }
+.stat-label { font-size: 12px; color: var(--text-tertiary); margin-top: 4px; }
 .theme-toggle-bp {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-  color: var(--text);
-  transition: all 0.3s ease;
+  position: fixed; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--bg); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; z-index: 999;
+  color: var(--text); transition: all 0.3s ease;
 }
 .theme-toggle-bp:hover { border-color: var(--nexum); }
-
 @media print {
   @page { margin: 1.8cm 1.6cm; }
   body { padding: 28px 0 24px; font-size: 9.5pt; line-height: 1.55; background: #fff; color: #1a1f2e; }
@@ -214,20 +143,12 @@ a { color: var(--nexum); text-decoration: none; }
   h2 { font-size: 15pt; margin-top: 28px; margin-bottom: 10px; page-break-before: auto; page-break-after: avoid; border-bottom: 1px solid #0096f0; padding-bottom: 6px; }
   h3 { font-size: 12pt; margin-top: 22px; margin-bottom: 8px; color: #0096f0; page-break-after: avoid; }
   table { font-size: 8.5pt; page-break-inside: avoid; }
-  p { margin: 10px 0; orphans: 3; widows: 3; }
-  blockquote { padding: 12px 18px; margin: 16px 0; page-break-inside: avoid; background: #f3f7fc; border-left: 3px solid #0096f0; color: #4a5568; }
-  ul, ol { margin: 8px 0 8px 24px; page-break-inside: avoid; }
-  th { background: #0096f0; color: #fff; }
-  td { color: #333; border-bottom: 1px solid #ddd; }
-  tr:nth-child(even) { background: #f9f9f9; }
   .theme-toggle-bp { display: none; }
-  hr { border: none; height: 1px; background: #e0e0e0; margin: 32px 0; }
-  svg { max-width: 100%; page-break-inside: avoid; }
-  a { color: #0096f0; }
-  .check-yes{color:#10b981;font-weight:700}
-  .check-no{color:#ef4444;font-weight:700}
   .callout { border: 1px solid #ddd; background: #f9f9f9; }
   .stat-item { border: 1px solid #ddd; background: #f9f9f9; }
+  .check-yes{color:#10b981;font-weight:700}
+  .check-no{color:#ef4444;font-weight:700}
+  .check-warn{color:#f59e0b;font-weight:700}
 }
 </style>
 </head>
@@ -237,7 +158,6 @@ a { color: var(--nexum); text-decoration: none; }
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
 
-<!-- ===== HEADER ===== -->
 <div style="text-align:center;margin-bottom:28px;padding-bottom:18px;border-bottom:3px solid var(--nexum)">
 <p style="font-size:11px;color:var(--text-tertiary);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px">Confidential — For Investor Use Only</p>
 </div>
@@ -247,15 +167,15 @@ a { color: var(--nexum); text-decoration: none; }
 </div>
 
 <h1 id="nexum">逐念而行</h1>
-<h2 style="font-size:20px;font-weight:700;margin-top:4px;margin-bottom:16px;border:none;padding-bottom:0;color:var(--text-secondary);">从人类神经意图到物理世界动作的通用映射</h2>
+<h2 style="font-size:20px;font-weight:700;margin-top:4px;margin-bottom:16px;border:none;padding-bottom:0;color:var(--text-secondary);">AI驱动的可穿戴机器人平台</h2>
 
-<p style="font-size:14px;color:var(--text-tertiary);max-width:700px;margin:0 auto 24px;text-align:center;line-height:1.7">具身智能的下一个形态，不是机器人更像人——而是机器人与人体共生。可穿戴机器人是这个方向的第一种产品形态：它不是独立于人体运行的智能体，而是穿在人身上、理解人的意图、在身体需要时精准助力的系统。Nexum从最需要这个能力的场景——神经功能重建——切入，以临床市场为起点建立数据和信任壁垒，沿同一技术线向老年行动辅助和消费增强扩展。</p>
+<p style="font-size:14px;color:var(--text-tertiary);max-width:700px;margin:0 auto 24px;text-align:center;line-height:1.7">具身智能的下一个形态，不是机器人更像人——而是机器人与人体共生。可穿戴机器人是这个方向的第一种产品形态。Nexum的核心是一个跨个体持续学习的智能控制平台，首个落地场景为神经功能重建——从最需要这个能力的临床市场切入，沿同一技术线向老年行动辅助和消费增强扩展。</p>
 
 <div style="text-align:center;margin:20px 0;padding:14px;background:var(--info-bg);border-radius:8px;font-size:13px;color:var(--text-secondary)">
 <strong>天使轮 $2-3M</strong> &nbsp;·&nbsp; <a href="mailto:hello@nexum.ai">hello@nexum.ai</a> &nbsp;·&nbsp; 2026年6月
 </div>
 
-<!-- ===== 1. EXECUTIVE SUMMARY ===== -->
+<!-- ===== EXECUTIVE SUMMARY ===== -->
 <div style="margin:28px 0 32px 0;padding:28px 32px;background:var(--info-bg);border-radius:8px;border-left:4px solid var(--nexum);font-size:14px;line-height:1.65;color:var(--text-secondary)">
 
 <div class="stat-row" style="margin:0 0 24px 0">
@@ -268,21 +188,21 @@ a { color: var(--nexum); text-decoration: none; }
 <p style="margin:0 0 14px 0;font-size:16px;color:var(--text);font-weight:800;letter-spacing:0.5px">执行摘要</p>
 
 <table style="margin:0;font-size:13px;border:none">
-<tr style="background:none"><td style="border:none;padding:6px 10px 6px 0;color:var(--nexum);font-weight:700;white-space:nowrap;vertical-align:top;width:65px">1. 空白</td><td style="border:none;padding:6px 0;color:var(--text-secondary)">全球30余家外骨骼公司，尚无任何一家同时拥有非侵入EEG与下肢外骨骼的商用产品。中国约1500万患者（脑卒中偏瘫+不完全性SCI）具备站立能力但无法独立行走——大脑运动皮层完好，指令无法抵达肌肉。在院内外骨骼（$85K以上，23kg）与轮椅之间，存在一个未被定义的产品真空。</td></tr>
-<tr style="background:none"><td style="border:none;padding:6px 10px 6px 0;color:var(--nexum);font-weight:700;white-space:nowrap;vertical-align:top">2. 方案</td><td style="border:none;padding:6px 0;color:var(--text-secondary)">Nexum One 读取EEG运动意图（动作前200-500ms，做离散分类而非连续控制），经RL策略解码为个性化髋关节辅助力矩。系统总重约2.5kg，10秒穿脱。B2B先行：Clinical版$18,000（医院，医保覆盖45-65%）→积累临床数据→Home版$3,999+$499/年（处方→居家）。</td></tr>
-<tr style="background:none"><td style="border:none;padding:6px 10px 6px 0;color:var(--nexum);font-weight:700;white-space:nowrap;vertical-align:top">3. 时机</td><td style="border:none;padding:6px 0;color:var(--text-secondary)">干电极、QDD电机、碳纤维成本、AI边缘推理、中国BCI医保定价——五项前提在2025-2026年首次同时成立。窗口期2-3年。天使轮募资$2-3M，单一可验证目标：<strong>18个月内，在实验室中证明EEG意图检测结合个性化助力对目标患者步态功能产生可测量的改善。</strong></td></tr>
-<tr style="background:none"><td style="border:none;padding:6px 10px 6px 0;color:var(--nexum);font-weight:700;white-space:nowrap;vertical-align:top">4. 规模</td><td style="border:none;padding:6px 0;color:var(--text-secondary)">首发目标200-500万脑卒中/SCI恢复期患者（Clinical版$18,000，B2B医院渠道，医保覆盖）。验证后沿同一技术线扩展：老年肌少症（4800万人，IMU版）→消费增强。临床市场建立数据和信任壁垒→消费市场释放规模。从患者到家庭照护者到老龄化社会——这不是一个小众医疗器械的故事，是以临床为起点的<strong>人机共生平台</strong>的扩展路径。</td></tr>
+<tr style="background:none"><td style="border:none;padding:6px 10px 6px 0;color:var(--nexum);font-weight:700;white-space:nowrap;vertical-align:top;width:65px">1. 空白</td><td style="border:none;padding:6px 0;color:var(--text-secondary)">全球30余家外骨骼公司，尚无一家同时拥有非侵入EEG与下肢外骨骼的商用产品。中国约1500万患者具备站立能力但无法独立行走——大脑运动皮层完好，指令无法抵达肌肉。在院内外骨骼（$85K以上，23kg）与轮椅之间，存在一个产品真空。</td></tr>
+<tr style="background:none"><td style="border:none;padding:6px 10px 6px 0;color:var(--nexum);font-weight:700;white-space:nowrap;vertical-align:top">2. 方案</td><td style="border:none;padding:6px 0;color:var(--text-secondary)">Nexum One 读取EEG运动意图（离散分类），经RL策略解码为个性化髋关节辅助力矩。系统总重约2.5kg，10秒穿脱。B2B先行：Clinical版$18,000（医院，医保覆盖45-65%）→积累临床数据→Home版$3,999+$499/年（处方→居家）。</td></tr>
+<tr style="background:none"><td style="border:none;padding:6px 10px 6px 0;color:var(--nexum);font-weight:700;white-space:nowrap;vertical-align:top">3. 时机</td><td style="border:none;padding:6px 0;color:var(--text-secondary)">干电极、QDD电机、碳纤维成本、AI边缘推理、中国BCI医保定价——五项前提在2025-2026年首次同时成立。天使轮$2-3M，单一目标：<strong>18个月内，在实验室中证明EEG意图检测结合个性化助力对目标患者步态功能产生可测量的改善。</strong></td></tr>
+<tr style="background:none"><td style="border:none;padding:6px 10px 6px 0;color:var(--nexum);font-weight:700;white-space:nowrap;vertical-align:top">4. 规模</td><td style="border:none;padding:6px 0;color:var(--text-secondary)">首发200-500万脑卒中/SCI恢复期患者（Clinical版，B2B医院渠道）。同一AI平台沿人群扩展：老年肌少症（4800万，IMU版）→消费增强。临床市场建立数据和信任壁垒→消费市场释放规模。这不是小众医疗器械——是以临床为起点的<strong>可穿戴机器人平台</strong>的扩展路径。</td></tr>
 </table>
 </div>
 
 <div style="text-align:left;margin:0 0 32px 0;padding:10px 14px;background:var(--card-bg);border-radius:8px;border:1px solid var(--border);font-size:11px;line-height:2.2;color:var(--text-secondary)">
 <strong style="color:var(--text);font-size:13px">目录</strong><br>
-<a href="#problem">1. 问题与空白</a> &nbsp; <a href="#why-now">2. 为什么此刻可行</a> &nbsp; <a href="#product">3. Nexum One</a> &nbsp; <a href="#team">4. 团队</a> &nbsp; <a href="#market">5. 市场</a> &nbsp; <a href="#competition">6. 竞争</a> &nbsp; <a href="#tech">7. 技术</a> &nbsp; <a href="#regulatory">8. 监管路径</a> &nbsp; <a href="#roadmap">9. 路线图</a> &nbsp; <a href="#moats">10. 护城河</a> &nbsp; <a href="#risks">11. 风险</a> &nbsp; <a href="#vision">12. 愿景</a> &nbsp;·&nbsp; <a href="#appendix">附录</a>
+<a href="#problem">1. 问题与空白</a> &nbsp; <a href="#why-now">2. 为什么此刻可行</a> &nbsp; <a href="#product">3. Nexum One</a> &nbsp; <a href="#team">4. 团队</a> &nbsp; <a href="#market">5. 市场</a> &nbsp; <a href="#competition">6. 竞争</a> &nbsp; <a href="#tech">7. 技术</a> &nbsp; <a href="#regulatory">8. 监管</a> &nbsp; <a href="#roadmap">9. 路线图</a> &nbsp; <a href="#moats">10. 护城河</a> &nbsp; <a href="#risks">11. 风险</a> &nbsp; <a href="#vision">12. 愿景</a> &nbsp;·&nbsp; <a href="#appendix">附录</a>
 </div>
 
 
 
-<!-- ===== 1. PROBLEM & GAP ===== -->
+<!-- ===== 1. PROBLEM ===== -->
 <h2 id="problem">1. 问题与空白</h2>
 
 <div class="stat-row">
@@ -292,130 +212,114 @@ a { color: var(--nexum); text-decoration: none; }
 <div class="stat-item"><div class="stat-num">40–50%</div><div class="stat-label">出院后6–12月内跌倒</div></div>
 </div>
 
-<p>中国脑卒中幸存者约2,600万人（GBD 2021, Ji et al., Nutr Metab Cardiovasc Dis, 2025），近半数遗留偏瘫。不完全性脊髓损伤（ISCI）约200万人（GBD 2021估算）。流行病学数据综合估算，其中<strong>具备站立能力但无法独立行走</strong>的患者约1500万。大脑运动中枢完好，通往肌肉的神经通路受损——意识尚存，指令无法抵达。</p>
+<p>中国脑卒中幸存者约2,600万人（GBD 2021），近半数遗留偏瘫；不完全性脊髓损伤约200万人。其中<strong>具备站立能力但无法独立行走</strong>的患者约1500万。大脑运动中枢完好，通往肌肉的神经通路受损——意识尚存，指令无法抵达。出院后，轮椅。</p>
 
 <div class="callout callout-insight">
-<strong>治疗断层的本质：</strong>现行标准路径——医院内，治疗师辅助步态训练，每次30-60分钟，每周3-5次。出院后，轮椅。约40%的脑卒中幸存者终身无法恢复独立行走（American Stroke Association）；出院后6-12个月内，40-50%至少经历一次跌倒（Weerdesteyn et al., J Rehabil Res Dev, 2008）。
-</div>
+<strong>治疗断层：</strong>医院内治疗师辅助步态训练，每次30-60分钟，每周3-5次。出院后无产品衔接。约40%的脑卒中幸存者终身无法恢复独立行走（American Stroke Association）；出院后6-12个月内40-50%至少经历一次跌倒（Weerdesteyn et al., 2008）。</div>
 
 <table>
 <tr><th>人群</th><th>规模（中国）</th><th>特征</th><th>EEG价值</th><th>Nexum定位</th></tr>
-<tr><td><strong>脑卒中偏瘫（恢复期）</strong></td><td>~200-500万可及</td><td>皮层完好，通路受损，6-12月恢复窗口</td><td>核心——绕过受损通路读取意图</td><td>首发目标，Clinical版</td></tr>
-<tr><td><strong>不完全脊髓损伤</strong></td><td>~200万</td><td>保留部分神经通路，站立能力存在</td><td>核心——同上</td><td>首发目标</td></tr>
-<tr><td><strong>创伤性脑损伤</strong></td><td>~300万</td><td>认知可能受损，运动通路完整</td><td>视认知功能而定</td><td>扩展方向，需个体化评估</td></tr>
-<tr><td><strong>老年肌少症（重度行动障碍）</strong></td><td>~4800万（肌少症）× 需辅助比例</td><td>大脑正常，肌肉退化，步态不稳易跌倒</td><td>有限——大脑正常发指令，问题在肌肉执行</td><td>第二阶段，IMU版更匹配</td></tr>
+<tr><td><strong>脑卒中偏瘫（恢复期）</strong></td><td>~200-500万可及</td><td>皮层完好，通路受损</td><td>核心——绕过受损通路读取意图</td><td>首发目标</td></tr>
+<tr><td><strong>不完全脊髓损伤</strong></td><td>~200万</td><td>保留部分神经通路</td><td>核心</td><td>首发目标</td></tr>
+<tr><td><strong>创伤性脑损伤</strong></td><td>~300万</td><td>运动通路完整</td><td>视认知功能</td><td>扩展方向</td></tr>
+<tr><td><strong>老年肌少症（重度行动障碍）</strong></td><td>~4800万肌少症×需辅助比例</td><td>大脑正常，肌肉退化</td><td>有限——问题在肌肉执行</td><td>第二阶段IMU版</td></tr>
 </table>
 
-<p>1500万是流行病学估算的上限，上述核心人群（脑卒中恢复期+不完全SCI）的近期可及规模约200-500万。这一人群背后是隐形但更庞大的需求：<strong>家庭照护者的负担。</strong>脑卒中居家照护者平均每周投入20-40小时在辅助移动和防跌倒监督上，60-70%报告焦虑或抑郁，首要压力来源是"害怕老人摔倒"（赵等, 中华护理杂志, 2023）。降低照护负担是驱动家庭购买决策的核心因素。</p>
-
-<p>现有外骨骼产品为更高损伤级别的患者设计，而非这1500万人：</p>
+<p>1500万是流行病学估算上限，首发核心人群（脑卒中恢复期+不完全SCI）约200-500万。这背后是家庭照护者的巨大负担：每周20-40小时辅助移动和防跌倒监督，60-70%报告焦虑或抑郁，首要压力来源是"害怕老人摔倒"（赵等, 中华护理杂志, 2023）。<strong>降低照护负担是驱动家庭购买决策的核心因素。</strong></p>
 
 <table>
-<tr><th>产品</th><th>重量</th><th>价格</th><th>使用场景</th><th>为何不适用目标人群</th></tr>
-<tr><td>EksoNR</td><td>23kg</td><td>~$200K</td><td>仅限医疗机构，治疗师操作</td><td>太重、太贵、无法居家</td></tr>
-<tr><td>ReWalk P6.0</td><td>23kg</td><td>$91K</td><td>须双拐支撑+专人监护</td><td>要求上肢力量，目标人群多为偏瘫</td></tr>
-<tr><td>HAL (Cyberdyne)</td><td>~14kg</td><td>¥11K/次（租赁）</td><td>医院专用，需BWS悬吊</td><td>EMG被动响应，非EEG预判</td></tr>
+<tr><th>产品</th><th>重量</th><th>价格</th><th>使用场景</th><th>为何不适用</th></tr>
+<tr><td>EksoNR</td><td>23kg</td><td>~$200K</td><td>医院，治疗师操作</td><td>太重、太贵、无法居家</td></tr>
+<tr><td>ReWalk P6.0</td><td>23kg</td><td>$91K</td><td>双拐+专人监护</td><td>要求上肢力量</td></tr>
+<tr><td>HAL (Cyberdyne)</td><td>~14kg</td><td>¥11K/次</td><td>医院BWS悬吊</td><td>EMG被动响应</td></tr>
 </table>
 
 <div class="callout callout-key">
-<strong>核心空白：</strong>在院内外骨骼（$85K以上，15-25kg）与轮椅之间，存在一个产品真空。填补这一空白需要同时解决神经信号读取、个体化控制、轻量化硬件和监管支付通道——这不是一个技术的突破，是一个体系的整合。
+<strong>核心空白：</strong>在院内外骨骼与轮椅之间，存在一个产品真空。填补它需要同时解决神经信号读取、个体化控制、轻量化硬件和监管支付通道——不是单一技术的突破，是体系的整合。
 </div>
 
-<p>这个真空的范围远超医院病房。当一个脑卒中患者出院后只能坐轮椅，受影响的不只是他一个人——是配偶必须请假陪护、是子女不敢远行、是每年数十万次本可预防的跌倒骨折占用急诊资源。<strong>人机共生不是一个技术概念，是对这个社会问题的工程回答。</strong>以下展开的技术论证，每一节都在回答同一个问题：对那个大脑完好但身体不听使唤的人，我们能做什么——以及为什么是现在。</p>
+<p>这个真空的范围远超医院病房。当一个患者出院后只能坐轮椅，受影响的不只是他一个人——是配偶必须请假陪护，是子女不敢远行，是每年数十万次本可预防的跌倒骨折占用急诊资源。<strong>人机共生不是一个技术概念，是对这个社会问题的工程回答。</strong></p>
 
 
 
 <!-- ===== 2. WHY NOW ===== -->
 <h2 id="why-now">2. 为什么此刻可行</h2>
 
-<p class="section-intro">以下逐一展开。它们并非并列的技术清单，而是共同回答一个问题：对于大脑运动皮层完好但神经通路受损的患者，如何在不依赖治疗师的情况下，让机器理解他们想做什么、并以适合他们身体的方式提供辅助。每一项单独存在时都无用武之地，但组合在一起时互相依存。2025-2026年，这个组合首次能够被同时满足。</p>
+<p class="section-intro">以下逐一展开。它们共同回答一个问题：对大脑完好但神经通路受损的患者，如何在不依赖治疗师的情况下，让机器理解他们想做什么、并以适合他们身体的方式提供辅助。2025-2026年，这个组合首次能够被同时满足。</p>
 
 <h3>一、神经接口：从被动响应到主动预判</h3>
 
 <table>
 <tr><th style="width:25%">控制方式</th><th style="width:25%">代表产品</th><th>本质</th><th>局限</th></tr>
-<tr><td>按钮/摇杆</td><td>EksoNR, Indego</td><td>患者"告知"机器</td><td>指令输入型，非意图驱动</td></tr>
-<tr><td>倾斜传感器</td><td>ReWalk</td><td>检测姿态变化</td><td>动作发生后才响应</td></tr>
-<tr><td>EMG肌电</td><td>HAL (Cyberdyne)</td><td>肌肉收缩后残余电信号</td><td>被动响应，非预判</td></tr>
-<tr><td><span class="b">EEG脑电图</span></td><td><strong>Nexum One</strong></td><td><strong>运动准备电位（MRCP），动作前200-500ms</strong></td><td><strong>主动预判</strong></td></tr>
+<tr><td>按钮/摇杆</td><td>EksoNR, Indego</td><td>患者告知机器</td><td>指令输入型</td></tr>
+<tr><td>倾斜传感器</td><td>ReWalk</td><td>检测姿态变化</td><td>动作后响应</td></tr>
+<tr><td>EMG肌电</td><td>HAL (Cyberdyne)</td><td>肌肉残余电信号</td><td>被动响应</td></tr>
+<tr><td><span class="b">EEG脑电图</span></td><td><strong>Nexum One</strong></td><td><strong>MRCP，动作前200-500ms</strong></td><td><strong>主动预判</strong></td></tr>
 </table>
 
-<p>EEG通过检测MRCP，在大脑形成运动意图后200-500ms、肌肉尚未收缩前即完成信号采集。但它的价值远不止步态启动——它在整个步态周期中持续提供四个维度的信号，每个维度都是IMU无法替代的：</p>
+<p>EEG通过检测MRCP，在肌肉收缩前200-500ms即完成信号采集。它持续提供四个维度的信号：</p>
 
 <table>
-<tr><th>EEG功能</th><th>机制</th><th>为什么IMU无法替代</th></tr>
-<tr><td>意图分类</td><td>MRCP（动作前200-500ms）</td><td>IMU只能检测已发生的姿态变化——"已经跌倒了"才有信号</td></tr>
-<tr><td>模式切换预判</td><td>意图转换电位（步行→站立、站立→就坐）</td><td>IMU在姿态完成后才确认切换，滞后200-500ms——恰是跌倒高发窗口</td></tr>
-<tr><td>主动参与度</td><td>μ节律去同步化反映运动皮层激活水平</td><td>IMU无法区分"主动想走"与"被机器拖着走"——这是神经可塑性的驱动力</td></tr>
-<tr><td>疲劳检测</td><td>α/θ频谱变化早于身体疲劳表现</td><td>IMU检测步态代偿性不对称时，患者已处于疲劳后期</td></tr>
+<tr><th>功能</th><th>机制</th><th>为什么IMU无法替代</th></tr>
+<tr><td>意图分类</td><td>MRCP（动作前200-500ms）</td><td>IMU只能检测已发生的姿态变化</td></tr>
+<tr><td>模式切换预判</td><td>意图转换电位</td><td>IMU滞后200-500ms——恰是跌倒高发窗口</td></tr>
+<tr><td>主动参与度</td><td>μ节律去同步化</td><td>IMU无法区分"主动想走"与"被机器拖着走"</td></tr>
+<tr><td>疲劳检测</td><td>α/θ频谱变化</td><td>IMU检测代偿性不对称时患者已疲劳后期</td></tr>
 </table>
 
-<p>EEG与IMU持续融合：前者回答"意图"，后者回答"状态"。EEG误判时，IMU否决执行。二者不是串行接力，而是在整个步态周期中并行运行、交叉验证。</p>
-
-<p><strong>过去为何不可行：</strong>步行产生的头部加速度（1-3g）通过电极-皮肤界面耦合为mV级噪声，而MRCP幅值仅为5-30μV——信噪比可达-40dB。运动伪迹与神经信号共享相同频带，是EEG步态解码的根本性物理挑战。</p>
-
-<p><strong>2025年的突破：</strong>微针阵列干电极在阻抗层面取得突破——静坐条件下接触阻抗降至2.6kΩ@10Hz，信号幅度超过传统湿电极39-44%（Materials Today Nano, 2026）。实验室跑步机环境中，EEG步态意图检测准确率已达82-95%（Dong et al., 2024及多项研究综合）。真实世界自由行走场景下的EEG可靠性——尚无任何团队公开发表演示。此为天使轮期间需验证的核心技术假设。</p>
+<p><strong>过去为何不可行：</strong>步行头部加速度1-3g，MRCP幅值仅5-30μV，信噪比可达-40dB。</p>
+<p><strong>2025年突破：</strong>微针阵列干电极阻抗降至2.6kΩ@10Hz，信号幅度超湿电极39-44%（Materials Today Nano, 2026）。实验室跑步机EEG准确率82-95%（Dong et al., 2024）。真实世界自由行走——尚无公开演示，天使轮核心验证假设。</p>
 
 <h3>二、控制策略：从通用曲线到个体化肌骨模型</h3>
 
-<p>通用助力曲线假设所有髋关节生物力学参数一致。实际上，同一患者的股四头肌肌力可能仅为正常值的30%，腘绳肌可能处于痉挛状态。对两名患者施加相同力矩，对一人可能改善步态，对另一人则构成伤害。</p>
+<p>通用助力曲线假设所有髋关节生物力学参数一致。同一患者股四头肌肌力可能仅为正常30%，腘绳肌可能痉挛。对两名患者施加相同力矩，对一人可能改善步态，对另一人构成伤害。</p>
 
-<p>神经力学肌骨模型（双侧扩展416 MTU, Hill-type肌肉-柔性肌腱，基于NEU NeuMove Lab的MyoSuite框架与MyoWarp GPU仿真引擎）为每位患者构建个性化的仿真环境，RL策略在其上训练数亿步——学习目标并非"人类"的通用步态模式，而是该患者的个体化最优策略。Luo, Su et al.（Nature, 2024）首次验证了该管线可行性：RL策略在仿真中训练后，零样本迁移至物理外骨骼，代谢成本降低24%。</p>
+<p>神经力学肌骨模型（416 MTU, Hill-type，基于NEU NeuMove Lab的MyoSuite/MyoWarp）为每位患者构建个性化仿真环境，RL策略训练数亿步——学习目标是该患者的个体化最优策略。Luo, Su et al.（Nature, 2024）验证了sim2real可行性：代谢成本降低24%。</p>
 
 <div style="text-align:center;margin:20px 0">
-<img src="docs/compliant_tendon.gif?v=2" alt="柔性肌腱Hill-type肌骨模型 — 416 MTU个性化仿真" style="max-width:100%;width:600px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08)">
+<img src="docs/compliant_tendon.gif?v=2" alt="柔性肌腱Hill-type肌骨模型" style="max-width:100%;width:600px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08)">
 <p style="font-size:11px;color:var(--text-tertiary);margin-top:6px">柔性肌腱Hill-type肌骨模型 — 416肌肉-肌腱单元个性化仿真（NEU NeuMove Lab MyoSuite/MyoWarp）</p>
 </div>
 
-<p><strong>过去为何不可行：</strong>肌骨仿真与嵌入式部署分属不同学科。全身416 MTU模型的实时仿真需要工作站级算力，无法部署到嵌入式设备。RL策略从仿真到真机的迁移（sim2real gap）在2024年之前从未在外骨骼领域被验证。</p>
+<p><strong>过去为何不可行：</strong>肌骨仿真与嵌入式部署分属不同学科，sim2real gap在2024年前从未在外骨骼领域被验证。</p>
+<p><strong>2024-2025年突破：</strong>策略蒸馏至几MB部署边缘设备。pFedAC（Wang et al., arXiv:2605.14423）实现跨患者知识共享——新患者仅需少量微调。</p>
 
-<p><strong>2024-2025年的突破：</strong>策略网络经蒸馏后仅需几MB权重即可部署到边缘设备——在线推理不再运行416肌肉的完整仿真，只做前向传播。pFedAC联邦强化学习（Wang et al., arXiv:2605.14423）进一步使个性化从"每人都从头学"变成"跨人知识共享"——新患者在全局基础策略上只需少量微调，实验显示超越独立PPO 2.63倍，超越FedAvg PPO 3.78倍。</p>
+<h3>三、生理负反馈：必须诚实面对的挑战</h3>
 
-<p><strong>一个必须在天使轮回答的核心问题：生理负反馈。</strong>当外骨骼施加辅助力矩时，肌肉内的本体感受器（肌梭和高尔基腱器）检测到关节力矩的外部来源，通过脊髓反射通路降低目标肌群的激活水平——神经系统"知道"有外力在帮忙，自动减少自身出力。康复工程领域将这一现象称为"slacking"效应（Marchal-Crespo & Reinkensmeyer, J Neuroeng Rehabil, 2009）。表面上看，这与Nexum的核心康复逻辑——"主动参与驱动神经可塑性"——构成矛盾：机器越帮，人越不出力，神经可塑性无从谈起。</p>
+<p>外骨骼施加辅助力矩→肌梭和高尔基腱器检测到外部力→脊髓反射降低肌肉激活。这一"slacking"效应（Marchal-Crespo & Reinkensmeyer, 2009）与Nexum的康复逻辑——"主动参与驱动神经可塑性"——构成表面矛盾。</p>
 
-<p>但这个矛盾不是二元的。slacking是连续而非开关式的：辅助力矩与肌肉激活之间存在剂量-效应关系——辅助减少时，肌肉会重新激活。这与康复治疗师的手法逻辑一致：治疗师托着患者的腿提供刚好足够的辅助，患者自己也在努力，治疗师根据感觉逐渐减力。"辅助多少"与"患者出了多少力"之间，存在一个可动态调节的平衡点。这一策略在工程上被称为"assist-as-needed"（AAN），已有文献证明其在EMG引导下可以减轻slacking效应（Marchal-Crespo & Reinkensmeyer, 2009）。</p>
+<p><strong>为什么逻辑上不是死路：</strong>slacking是连续的——辅助力矩与肌肉激活之间存在剂量-效应关系。Assist-as-Needed（AAN）策略在EMG引导下已被证明能减轻slacking。Nexum的假设是EEG可以提供比EMG更早的检测窗口（MRCP提前200-500ms），使RL策略在slacking反射完全建立前就调整辅助力矩。</p>
 
-<p><strong>Nexum的假设是：EEG可以提供比EMG更早的检测窗口，从而更有效地实现AAN。</strong>μ节律（8-12Hz）的事件相关去同步化（ERD）反映运动皮层的激活水平（Pfurtscheller & Lopes da Silva, Clin Neurophysiol, 1999），这一指标在肌肉激活发生变化之前即可检测到参与度的变化。而MRCP（运动准备电位）更在动作发生前200-500ms就已出现——这意味着RL策略有可能在slacking反射完全建立之前，就已经根据EEG检测到的参与度水平调整了辅助力矩。整个控制逻辑不是"检测到slacking→关掉辅助"，而是"持续感知参与度→动态调整辅助→使患者始终处于'刚好需要努力'的区间"。</p>
+<p><strong>诚实声明：</strong>该逻辑在工程上成立，但临床有效性未经证实。如果天使轮预临床（n=30）证明EEG-ERD与肌肉激活的相关性不足以支撑AAN实时调控，产品方向需根本性调整。<strong>降低验证风险的四条并行策略：</strong>多模态融合（EEG+EMG+IMU+力传感器交叉校验）、分阶段验证（先做离散三分类再做连续调控）、分层患者（先在皮层保留较好的年轻患者中验证）、渐进减力（周级别调整降低对单次精度依赖）。</p>
 
-<p><strong>诚实声明：</strong>上述逻辑在工程上成立，但其临床有效性未经证实。目前没有公开的临床证据表明EEG引导的自适应辅助能够可靠地对抗slacking效应。如果天使轮的预临床研究（n=30）证明EEG-ERD与肌肉激活之间的相关性不足以支撑AAN策略的实时调控——即EEG检测不到足够早、足够可靠的参与度变化信号——那么上述逻辑链断裂，Nexum One的产品方向需要根本性调整。<strong>天使轮的存在意义，就是在投入大规模临床和注册成本之前，用最少的资金验证这个最核心的技术假设。</strong></p>
+<h3>四、硬件形态：从23kg框架到2.5kg服装</h3>
 
-<p><strong>降低验证风险的工程策略。</strong>上述假设的验证不依赖单一的"全或无"实验，Nexum采取四条并行策略：（1）多模态融合——EEG做早期意图检测，表面EMG做肌肉激活测量，IMU+力传感器做地面真相，四者交叉校验，任一失效时其余通道提供冗余；（2）分阶段验证——先验证EEG能否将参与度可靠分为高/中/低三档（分类比连续回归可靠），成功后再细化至连续调控；（3）分层患者——先在皮层功能保留较好的年轻患者中验证，再逐步扩展适应症；（4）渐进减力——AAN在周级别上降低平均辅助水平，降低对单次测量精度的依赖。</p>
-
-<h3>三、硬件形态：从23kg框架到2.5kg服装</h3>
-
-<p>15-25kg的框架式外骨骼为丧失站立能力的患者设计，重量来自不可妥协的物理约束——必须支撑完全无法承重的躯体。但目标人群具备站立能力，所需为辅助而非支撑。碳纤维锚定结构（T700级预浸料，~0.8kg）提供超过70%的力传输效率，弹性压缩织物基底实现多点压力分散。系统总重约2.5kg——这是产品从医疗机构进入家庭空间的物理前提。</p>
-
-<p><strong>过去为何不可行：</strong>将执行器集成到衣物内部而非外部框架，要求三个条件同时满足：电机足够轻且扭矩密度足够高、碳纤维工业成本降至可量产水平、EEG头带足够轻（不增加头部负担）。任何一个条件不达标，服装式形态都无法成立。</p>
-
-<p><strong>2025年的突破：</strong>QDD准直驱电机扭矩密度达标（CubeMars AKE60-8, 260g输出12.5Nm峰值）。T700级碳纤维预浸料工业级成本降至$12-35/kg。微针干电极使8通道EEG头带重量降至80g。三个条件首次同时满足。</p>
-
-<h3>四、为什么这条路径通向更大的市场</h3>
-
-<p>表面上看，Nexum选择了一条窄路——有限的人群、复杂的技术组合、漫长的临床验证。但这条路径的选择逻辑不是"退而求其次"，而是<strong>只有从最难的临床场景切入，才能建立向更大市场扩展的技术基础和信任壁垒。</strong></p>
-
-<p>为什么消费外骨骼（如极壳Hypershell $599/2.2kg）走不了这条路？因为它们的技术栈缺少两个关键能力：一是神经信号读取（无法知道用户想做什么，只能被动响应姿态变化），二是个体化控制（固定助力曲线无法适配不同患者的肌力不对称）。这两项能力对健康消费者是"加分项"，对患者是"准入门槛"——没有它们，产品根本进不了医院。而一旦在医院场景中被验证，这两项能力在消费市场中就是无法复制的技术壁垒。</p>
-
-<p>为什么医院外骨骼（如Ekso $200K/23kg）无法向下延伸？因为它们的设计约束决定了它们只能在医疗机构内由专业人员操作——重量、价格和使用流程是为全瘫患者优化的。它们不可能"减配"成居家产品，因为这需要从头重新设计整个硬件架构。Nexum从第一天就以居家使用为设计前提，这使得从临床→居家的延伸是自然的，而非被迫的架构重构。</p>
-
-<p><strong>Nexum是唯一一个从居家场景出发、具备神经信号读取和个性化控制能力、且成本结构允许从临床向消费市场延伸的产品架构。</strong>先做临床不是因为消费市场做不了——是因为只有临床市场能建立"这个产品真的有效"的不可替代性。当Clinical版在200-500万患者的恢复期被验证有效、当IMU版在此基础上向4800万肌少症老人扩展——那时的竞争壁垒不是价格或渠道，而是"只有我们的产品有数据证明它真的能降低跌倒风险"。</p>
+<p>15-25kg框架式外骨骼为丧失站立能力的患者设计。目标人群具备站立能力，所需为辅助。碳纤维锚定结构（T700, ~0.8kg）提供>70%力传输效率。系统总重约2.5kg——产品从医疗机构进入家庭空间的物理前提。</p>
+<p><strong>过去为何不可行：</strong>电机轻量化、碳纤维成本、EEG头带重量三个条件需同时满足。</p>
+<p><strong>2025年突破：</strong>CubeMars AKE60-8（260g/12.5Nm）；T700碳纤维$12-35/kg；8通道EEG头带80g。</p>
 
 <h3>五、监管与支付：从真空到通路</h3>
 
-<p>脑机接口与外骨骼各自具备独立监管分类，组合产品的审评路径在NMPA、FDA、CE三大体系下均无先例可循。三家已上市外骨骼公司（Ekso、ReWalk/Lifeward、Cyberdyne）长期市值低于$300M，均未实现运营盈利，导致该交叉领域长期资本供给不足。</p>
+<p>组合产品审评路径在NMPA、FDA、CE三大体系下均无先例。三家上市外骨骼公司长期市值<$300M，均未盈利，导致该交叉领域资本供给不足。</p>
+<p><strong>2024-2025年突破：</strong>YY/T 1973-2025（首个外骨骼行业标准）；BCI医疗服务定价¥966/次（17省）；11+省市外骨骼康复医保（45-65%）；NMPA 2025年第63号公告加速审评。审批通道与支付通道在中国首次同时存在。</p>
 
-<p><strong>2024-2025年的突破：</strong>中国于2025年6月发布首个外骨骼行业标准YY/T 1973-2025。2025年3月首次为脑机接口单独设立医疗服务价格项目（¥966/次，已扩展至17省）。11+省市将外骨骼康复纳入医保支付试点（报销比例45-65%）。NMPA创新医疗器械绿色通道明确加速外骨骼及脑机接口审评（2025年第63号公告）。该交叉领域的审批通道与支付通道在中国首次同时存在。</p>
+<h3>六、为什么这条路径通向更大的市场</h3>
+
+<p>消费外骨骼（Hypershell $599/2.2kg）无法向临床延伸——它们缺少神经信号读取和个体化控制，这两项能力对患者是准入门槛。医院外骨骼（Ekso $200K/23kg）无法向下延伸——架构为全瘫患者优化，无法"减配"成居家产品。</p>
+
+<p><strong>Nexum是唯一从居家场景出发、具备神经信号读取和个性化控制、且成本结构允许从临床向消费延伸的架构。</strong>当Clinical版在200-500万恢复期患者中被验证有效，当IMU版向4800万肌少症老人扩展——竞争壁垒不是价格或渠道，是"只有Nexum有临床数据证明它真的有效"。</p>
 
 <div class="callout callout-key">
-对目标患者而言，任何一个条件的缺失都会使整个方案失效。非侵入EEG之所以必要，是因为目标人群的大脑运动皮层完好，问题出在神经通路——只有EEG能在肌肉收缩前200-500ms检测到运动意图，这是其他控制方式做不到的。个体化肌骨模型之所以必要，是因为通用助力曲线对肌力不对称的患者是危险的——同一个力矩对一人是治疗、对另一人是伤害。轻量服装式之所以必要，不是因为"更舒服"，是因为23kg的框架式设备无法进入居家场景，而目标人群恰恰需要居家使用——他们在医院的治疗时间每周只有3-5次、每次30-60分钟，其余时间在轮椅上度过。阻碍不在于单项技术的缺失，在于此前无人将这四者整合于同一产品。2025-2026年，Nexum One做到了。<br><br>
-这一品类的边界由以下战略选择定义：<strong>非侵入EEG</strong>（非肌电）&nbsp;·&nbsp; <strong>下肢</strong>（非上肢）&nbsp;·&nbsp; <strong>医疗康复</strong>（非消费增强）&nbsp;·&nbsp; <strong>服装式</strong>（非框架式）。聚焦不是限制——对于大脑完好但神经通路受损的患者，这些选择缺一不可。对于其他人群（如老年肌少症），部分组件（如EEG）可能不是必需的——这是产品策略上的主动选择，而非技术的局限。
+对目标患者而言，任何一个条件的缺失都会使整个方案失效。非侵入EEG之所以必要，是因为问题出在神经通路。个体化肌骨模型之所以必要，是因为通用助力对肌力不对称的患者是危险的。轻量化之所以必要，是因为23kg设备无法进入居家场景——而目标人群每周只在医院训练3-5次，每次30-60分钟，其余时间在轮椅上。<br><br>
+这一品类由以下战略选择定义：<strong>非侵入EEG</strong>（非肌电）&nbsp;·&nbsp; <strong>下肢</strong>（非上肢）&nbsp;·&nbsp; <strong>医疗康复</strong>（非消费增强）&nbsp;·&nbsp; <strong>服装式</strong>（非框架式）。对于大脑完好但神经通路受损的患者，这些选择缺一不可。对于其他人群，部分组件可能不是必需的——这是产品策略上的主动选择。
 </div>
 
 
 
-<!-- ===== 3. NEXUM ONE SYSTEM ===== -->
+<!-- ===== 3. PRODUCT ===== -->
 <h2 id="product">3. Nexum One 系统</h2>
 
-<p>Nexum One将EEG意图分类、RL策略推理、直驱电机执行集成于一个可穿戴系统。需要明确的是：EEG在此架构中的角色是<strong>离散意图分类</strong>（判断你想"走""站""坐"还是"无意图"），而非连续控制每步的力矩大小。EEG回答"想做什么"，IMU回答"现在在哪一步"，RL策略融合二者后决定"该给多少力"——这一分工避免了"脑控外骨骼"这一不切实际的期望，将EEG的作用精确限定在它擅长的范围内。<strong>在你想动之前，系统已经就绪。</strong></p>
+<p>Nexum One将EEG意图分类、RL策略推理、直驱电机执行集成为一个可穿戴系统。EEG做离散分类（走/站/坐/无意图），RL策略融合EEG分类+IMU步态相位+力传感器反馈决定力矩输出——<strong>在你想动之前，系统已经就绪。</strong></p>
 
 <div class="stat-row">
 <div class="stat-item"><div class="stat-num">~2.5kg</div><div class="stat-label">系统总重</div></div>
@@ -426,27 +330,24 @@ a { color: var(--nexum); text-decoration: none; }
 </div>
 
 <h3>四个物理模块</h3>
-
 <blockquote>
-<p><strong>EEG-Sense 意图感知头带</strong> — 运动头带形态，80g，8通道干电极，250SPS，BLE 5.2<br>
-<strong>NeuroCore 控制中枢</strong> — 120×80×30mm，STM32H7+NPU，48Wh，3.5寸触摸屏<br>
-<strong>NeuroSuit 神经意图肌动服</strong> — 碳纤维骨架嵌入弹性压缩织物，髋两侧直驱电机<br>
+<p><strong>EEG-Sense 意图感知头带</strong> — 80g，8通道干电极，250SPS，BLE 5.2<br>
+<strong>NeuroCore 控制中枢</strong> — 120×80×30mm，STM32H7+NPU，48Wh<br>
+<strong>NeuroSuit 神经意图肌动服</strong> — 碳纤维骨架嵌入弹性织物，髋两侧直驱电机<br>
 <strong>Nexum App</strong> — 患者端训练监控 + 治疗师端患者管理</p>
 </blockquote>
-
-<p>穿戴体验接近高弹性压缩运动裤，电机宽度不超出髋部轮廓，可内穿于常规衣物。</p>
+<p>穿戴体验接近高弹性压缩运动裤，可内穿于常规衣物。</p>
 
 <h3>工作原理</h3>
-
 <ol>
-<li>大脑生成MRCP——自主运动前200-500ms出现</li>
-<li>EEG-Sense检测（8通道，250SPS）→ BLE传输至NeuroCore</li>
-<li>神经意图映射：EEG意图 + IMU步态相位 + 力传感器反馈 → RL策略输出力矩曲线</li>
-<li>直驱电机执行（12.5Nm峰值 / 5Nm持续）→ PID闭环安全控制</li>
+<li>大脑生成MRCP——自主运动前200-500ms</li>
+<li>EEG-Sense检测→BLE传输至NeuroCore</li>
+<li>神经意图映射：EEG意图+IMU步态相位+力传感器反馈→RL策略输出力矩曲线</li>
+<li>直驱电机执行（12.5Nm峰值/5Nm持续）→PID闭环安全控制</li>
 </ol>
 
 <div style="background:var(--card-bg);border-radius:12px;padding:16px;margin:24px 0;text-align:center">
-<svg viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:900px;height:auto;display:inline-block" aria-label="Nexum One 三模块系统：EEG-Sense → NeuroCore → NeuroSuit">
+<svg viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:900px;height:auto;display:inline-block" aria-label="Nexum One 三模块系统">
   <defs>
     <filter id="ss-modules"><feDropShadow dx="0" dy="3" stdDeviation="8" flood-color="#000" flood-opacity="0.08"/></filter>
     <linearGradient id="headGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a2e"/><stop offset="100%" stop-color="#1a1a1e"/></linearGradient>
@@ -472,9 +373,7 @@ a { color: var(--nexum); text-decoration: none; }
     <rect x="0" y="0" width="244" height="300" rx="16" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.5"/>
     <rect x="42" y="55" width="160" height="120" rx="14" fill="url(#boxGrad)"/>
     <rect x="62" y="70" width="120" height="62" rx="6" fill="#0a0a10"/>
-    <rect x="72" y="78" width="100" height="12" rx="3" fill="#1a3a5a"/>
-    <rect x="72" y="94" width="60" height="8" rx="2" fill="#0a2a4a"/>
-    <rect x="72" y="106" width="80" height="6" rx="2" fill="#0a2a4a"/>
+    <rect x="72" y="78" width="100" height="12" rx="3" fill="#1a3a5a"/><rect x="72" y="94" width="60" height="8" rx="2" fill="#0a2a4a"/><rect x="72" y="106" width="80" height="6" rx="2" fill="#0a2a4a"/>
     <circle cx="152" cy="114" r="8" fill="none" stroke="var(--nexum)" stroke-width="2.5"/>
     <rect x="82" y="180" width="40" height="8" rx="3" fill="#1a1a1e"/>
     <circle cx="195" cy="165" r="3" fill="var(--nexum)" opacity="0.8"/>
@@ -503,26 +402,22 @@ a { color: var(--nexum); text-decoration: none; }
 </div>
 
 <h3>产品形态</h3>
+<p>前述战略选择定义了产品边界。以下聚焦两个核心工程设计问题。</p>
 
-<p>前述四个战略选择（非侵入EEG · 下肢 · 医疗 · 服装式）定义了产品的物理边界。此处聚焦边界内的两个核心工程设计问题：为什么是混合穿戴，以及为什么首代产品只在髋关节施加辅助。</p>
-
-<h4>混合穿戴：刚性传力路径 + 柔性穿戴界面</h4>
-
-<p>15-25kg的框架式外骨骼为丧失站立能力的患者设计。Nexum的目标人群具备站立能力，所需为辅助而非支撑。但纯柔性织物无法传递定向力矩——它能感知运动但无法辅助运动。混合穿戴是两极之间的工程最优解：碳纤维锚定结构仅在髋关节处提供刚性力传递路径，弹性压缩织物将系统稳固贴合在身体上，系统总重约2.5kg。</p>
+<h4>混合穿戴：刚性传力 + 柔性穿戴</h4>
+<p>框架式外骨骼为丧失站立能力的患者设计。Nexum的目标人群具备站立能力，所需为辅助而非支撑。纯柔性织物无法传递定向力矩。混合穿戴是两极之间的工程最优解。</p>
 
 <table>
-<tr><th>形态</th><th>代表产品</th><th>力传递精度</th><th>穿戴便利</th><th>适合偏瘫</th></tr>
-<tr><td>刚性框架+连杆</td><td>极壳 Hypershell, 程天 EasyGo</td><td><span class="check-yes">✓</span> 高</td><td><span class="check-no">✗</span> 5-10min</td><td><span class="check-no">✗</span> 假设用户能自主平衡</td></tr>
-<tr><td>髋+膝双关节</td><td>程天 UGO, HAL</td><td><span class="check-yes">✓</span> 高</td><td><span class="check-no">✗</span> 10-15min, 需协助</td><td><span class="check-warn">~</span> EEG控制不足以驱动双关节</td></tr>
-<tr><td>纯柔性织物</td><td>Myant Skiin, Siren</td><td><span class="check-no">✗</span> 无法传递定向力矩</td><td><span class="check-yes">✓</span></td><td><span class="check-no">✗</span> 传感可行，执行不可行</td></tr>
-<tr><td><strong>混合穿戴（Nexum）</strong></td><td><strong>Nexum One</strong></td><td><strong><span class="check-yes">✓</span> 碳纤维锚定 >70%效率</strong></td><td><strong><span class="check-yes">✓</span> ~10秒</strong></td><td><strong><span class="check-yes">✓</span> 为不完全瘫痪设计</strong></td></tr>
+<tr><th>形态</th><th>代表</th><th>力传递精度</th><th>穿戴便利</th><th>适合偏瘫</th></tr>
+<tr><td>刚性框架+连杆</td><td>极壳, 程天 EasyGo</td><td><span class="check-yes">✓</span> 高</td><td><span class="check-no">✗</span> 5-10min</td><td><span class="check-no">✗</span></td></tr>
+<tr><td>髋+膝双关节</td><td>程天 UGO, HAL</td><td><span class="check-yes">✓</span> 高</td><td><span class="check-no">✗</span> 10-15min</td><td><span class="check-warn">~</span></td></tr>
+<tr><td>纯柔性织物</td><td>Myant Skiin</td><td><span class="check-no">✗</span> 无法传递力矩</td><td><span class="check-yes">✓</span></td><td><span class="check-no">✗</span></td></tr>
+<tr><td><strong>混合穿戴（Nexum）</strong></td><td><strong>Nexum One</strong></td><td><strong><span class="check-yes">✓</span> >70%效率</strong></td><td><strong><span class="check-yes">✓</span> ~10秒</strong></td><td><strong><span class="check-yes">✓</span></strong></td></tr>
 </table>
 
-<h4>为什么首代产品只做髋关节</h4>
-
-<p>目标人群的髋屈肌群部分失能——步行启动是核心障碍。膝关节在摆动期可由惯性完成屈曲，股四头肌在支撑期仍能提供部分稳定。这意味着首代产品只需在髋关节施加辅助力矩：一个电机、一个关节。第二代（2028-2030）扩展至髋+膝双关节，第三代（2030+）扩展至全身多关节——每代对应控制算法成熟度与功能需求的扩展边界。</p>
-
-<p><strong>精确定义：</strong>碳纤维锚定结构（T700级预浸料，~0.8kg）仅在髋关节处提供刚性力传递路径——这是力矩从电机到达身体的最短路径。弹性压缩织物负责将锚定点稳固贴合在身体上——多点压力分散，无需刚性框架环绕全身。电机（CubeMars AKE60-8, 260g）通过碳纤维锚定结构与身体刚性耦合。织物不传递力矩，只传递穿戴的舒适感。</p>
+<h4>首代产品：髋关节</h4>
+<p>目标人群髋屈肌群部分失能——步行启动是核心障碍。膝关节在摆动期由惯性屈曲，股四头肌在支撑期维持。首代产品一个电机、一个关节。第二代（2028-2030）髋+膝，第三代（2030+）全身多关节。</p>
+<p><strong>精确定义：</strong>碳纤维锚定结构（T700, ~0.8kg）仅在髋关节处提供刚性力传递路径。弹性织物负责贴身固定。电机（CubeMars AKE60-8, 260g）通过碳纤维与身体刚性耦合。织物不传递力矩，只传递舒适感。</p>
 
 
 
@@ -530,25 +425,16 @@ a { color: var(--nexum); text-decoration: none; }
 <h2 id="team">4. 团队</h2>
 
 <div class="callout callout-insight">
-<strong>为什么是这个团队：</strong>脑机接口与具身智能在历史上是两条独立发展的技术轨迹，交叉人才密度极低。同时具备两者的研发与产业化背景，是逐念而行得以定义人机共生品类的结构性原因。
+<strong>为什么是这个团队：</strong>脑机接口与具身智能是两条独立技术轨迹，交叉人才密度极低。同时具备两者的研发与产业化背景，是定义此品类的结构性前提。
 </div>
 
 <table>
 <tr><th style="width:18%">成员</th><th style="width:42%">背景</th><th>关键能力</th></tr>
-<tr>
-<td><strong>赵子睿</strong></td>
-<td>哥伦比亚大学电子工程硕士（机器学习方向）。华为美国研究院（Futurewei IoT Lab）。归国后担任宇树金牌合作伙伴智擎机器人CTO八年——横跨人形机器人硬件、强化学习运控、具身智能大脑、医疗场景落地。</td>
-<td>脑机接口研究 + 机器人产业化 + 医疗场景。因髋关节撞击综合征（FAI）亲身经历两年行动障碍——这一经历直接定义了公司的产品方向与临床理解。</td>
-</tr>
-<tr>
-<td><strong>汪牧星</strong></td>
-<td>美国东北大学计算机工程博士候选人。爱丁堡大学统计学硕士（Distinction）。pFedAC第一作者（arXiv:2605.14423）——联邦Actor-Critic框架，跨患者RL策略分布式更新，超越独立PPO 2.63倍。</td>
-<td>联邦强化学习——使Nexum的策略网络随患者数量增加而持续进化，构成核心数据护城河。</td>
-</tr>
+<tr><td><strong>赵子睿</strong></td><td>哥伦比亚大学EE硕士（机器学习）。华为美国研究院Futurewei IoT Lab。智擎机器人CTO八年——人形机器人硬件、RL运控、具身智能、医疗场景落地。</td><td>BCI研究+机器人产业化+医疗场景。因FAI亲身经历两年行动障碍，直接定义了产品方向。</td></tr>
+<tr><td><strong>汪牧星</strong></td><td>NEU计算机工程博士候选人。Edinburgh统计学硕士（Distinction）。pFedAC第一作者（arXiv:2605.14423）——联邦Actor-Critic，跨患者RL分布式更新。</td><td>联邦强化学习——策略随用户增长进化，构成核心数据护城河。</td></tr>
 </table>
 
 <h3>核心待招聘（天使轮资金覆盖）</h3>
-
 <table>
 <tr><th>优先级</th><th>岗位</th><th>核心能力</th></tr>
 <tr><td>P0</td><td>临床PI</td><td>康复医学，主导NMPA临床试验</td></tr>
@@ -564,64 +450,56 @@ a { color: var(--nexum); text-decoration: none; }
 <h2 id="market">5. 市场与商业模型</h2>
 
 <h3>TAM → SAM → SOM</h3>
-
 <table>
 <tr><th></th><th>范围</th><th>规模</th><th>依据</th></tr>
-<tr><td><strong>TAM</strong></td><td>全球康复外骨骼 + 老年行动辅助 + 消费增强</td><td>$1.3B（2025，仅康复）→ $4.2B（2030，含老年）→ $12B+（2035，含消费）</td><td>MarketsandMarkets; Grand View Research; 中国60+人口3.23亿（国家统计局2025），其中约30%存在行动障碍</td></tr>
-<tr><td><strong>SAM</strong></td><td>中国市场：1500万目标患者 + 60岁以上行动障碍人群</td><td>$0.4-0.5B（2025，仅医疗康复）→ $2B+（2032，含老年）</td><td>1500万 × 5%渗透率 × $3,999 = ~$3B（Home版TAM）；初期按B2B医院采购路径保守估算</td></tr>
-<tr><td><strong>SOM</strong></td><td>Nexum One 从NMPA获证到规模化</td><td>20台(2029) → 120台(2030) → 500台(2031)</td><td>B2B医院→B2B2C处方→B2C消费。中国约1600家三甲医院，初期渗透率<1%</td></tr>
+<tr><td><strong>TAM</strong></td><td>全球康复外骨骼+老年行动辅助+消费增强</td><td>$1.3B（2025）→$4.2B（2030）→$12B+（2035）</td><td>MarketsandMarkets; 中国60+人口3.23亿（国家统计局2025），~30%存在行动障碍</td></tr>
+<tr><td><strong>SAM</strong></td><td>中国市场：1500万目标患者+60岁以上行动障碍</td><td>$0.4-0.5B（2025）→$2B+（2032）</td><td>1500万×5%渗透率×$3,999≈$3B（Home版）；初期B2B保守估算</td></tr>
+<tr><td><strong>SOM</strong></td><td>Nexum One NMPA获证→规模化</td><td>20台(2029)→120台(2030)→500台(2031)</td><td>B2B医院→B2B2C处方→B2C消费。中国~1600家三甲医院</td></tr>
 </table>
 
-<h3>市场三阶段展开</h3>
-
+<h3>市场三阶段</h3>
 <table>
 <tr><th>阶段</th><th>人群</th><th>规模</th><th>触发条件</th></tr>
-<tr><td>2028-2030 · 医疗康复</td><td>脑卒中偏瘫 + 不完全SCI（~1500万人）</td><td>SAM $0.4-0.5B</td><td>NMPA获证 + 医保覆盖</td></tr>
-<tr><td>2030-2032 · 老年行动力</td><td>中国60+人口3.23亿，~30%（约9700万）存在不同程度行动障碍</td><td>TAM增量 $3B+</td><td>医疗器械→健康消费品类扩展 + 药店/电商渠道</td></tr>
-<tr><td>2032+ · 全人群增强</td><td>户外运动、体力劳动、军事——任何需要髋关节助力的场景</td><td>TAM增量 $7B+</td><td>消费品牌建立 + 规模效应使BOM成本降至$1,500以下</td></tr>
+<tr><td>2028-2030 · 医疗康复</td><td>脑卒中偏瘫+不完全SCI（~1500万）</td><td>SAM $0.4-0.5B</td><td>NMPA获证+医保覆盖</td></tr>
+<tr><td>2030-2032 · 老年行动力</td><td>60+人口3.23亿，~30%行动障碍</td><td>TAM增量$3B+</td><td>医疗器械→健康消费品+药店/电商</td></tr>
+<tr><td>2032+ · 全人群增强</td><td>户外运动、体力劳动、军事</td><td>TAM增量$7B+</td><td>消费品牌+BOM降至$1,500以下</td></tr>
 </table>
 
 <div class="callout callout-insight">
-<strong>核心逻辑：</strong>神经意图映射层是同一条技术线在三个不同人群上的展开。随着规模扩大，BOM成本下降，每次进入新市场时产品定价已接近前一个市场的边际成本——这是典型的科技成本曲线驱动的市场扩张。
+<strong>核心逻辑：</strong>同一AI平台在三个不同人群上展开。规模扩大→BOM成本下降→每次进入新市场时定价已接近前一市场的边际成本。典型的科技成本曲线驱动的市场扩张。
 </div>
 
-<p>中国60岁以上人口3.23亿（国家统计局，2025）。服装式轻量形态使居家/社区场景成为可能——这是15-25kg框架式外骨骼无法覆盖的增量市场。</p>
-
-<p><strong>市场进入路径：B2B先行，逐步向居家延伸。</strong>Nexum不会直接从C端切入。第一阶段面向医院，通过Clinical版（$18,000/台，医保报销45-65%）进入康复科/神经内科，由治疗师操作，在受控环境中积累临床数据和医生处方习惯。第二阶段（Pre-A后），基于临床证据推动Home版（$3,999+$499/年）的医保/商保覆盖，打通"医院处方→居家使用"的B2B2C路径。直接向消费者销售一款$3,999的EEG外骨骼在当前阶段不现实——支付意愿不足，且缺乏临床背书。<strong>支付主体不仅是患者本人：降低照护者负担（减少防跌倒监督时间、减轻心理焦虑）是驱动家庭购买决策的更核心因素。</strong></p>
+<p><strong>市场进入路径：B2B先行，逐步向居家延伸。</strong>Nexum不直接从C端切入。第一阶段通过Clinical版（$18,000，医保45-65%）进入医院，积累临床数据和处方习惯。第二阶段基于临床证据推动Home版（$3,999+$499/年）医保/商保覆盖。<strong>支付主体不仅是患者：降低照护者负担是驱动家庭购买决策的更核心因素。</strong></p>
 
 <h3>支付路径</h3>
-
 <table>
-<tr><th>市场</th><th>机制</th><th>金额</th><th>对Nexum的影响</th></tr>
-<tr><td>中国</td><td>外骨骼康复医保（11+省市，报销45–65%）+ BCI医疗服务定价¥966/次（17省）</td><td>患者自付比例显著降低</td><td>加速医院采购决策，缩短回款周期</td></tr>
-<tr><td>美国</td><td>CMS K1007个人外骨骼$91,032/台；FDA breakthrough device designation</td><td>$91,032/台</td><td>FDA 510(k)路径，可利用中国临床数据</td></tr>
-<tr><td>日本</td><td>国民健康保险覆盖HAL ¥11,000/次（2016先例）</td><td>¥11,000/次</td><td>PMDA可参考HAL审评先例</td></tr>
-<tr><td>欧盟</td><td>CE MDR；部分国家将外骨骼纳入康复支付体系</td><td>视国家而定</td><td>结合中国制造成本结构，具备全球定价优势</td></tr>
+<tr><th>市场</th><th>机制</th><th>金额</th><th>影响</th></tr>
+<tr><td>中国</td><td>外骨骼康复医保（11+省市，45–65%）+BCI定价¥966/次（17省）</td><td>患者自付显著降低</td><td>加速医院采购</td></tr>
+<tr><td>美国</td><td>CMS K1007 $91,032/台；FDA breakthrough device</td><td>$91,032/台</td><td>510(k)路径，中国数据</td></tr>
+<tr><td>日本</td><td>国民健康保险覆盖HAL ¥11,000/次（2016先例）</td><td>¥11,000/次</td><td>PMDA参考HAL路径</td></tr>
+<tr><td>欧盟</td><td>CE MDR；部分国家纳入康复支付</td><td>视国家</td><td>中国制造成本优势</td></tr>
 </table>
 
 <h3>收入模型</h3>
-
 <table>
 <tr><th>阶段</th><th>模式</th><th>定价</th><th>台数/年</th><th>收入</th></tr>
-<tr><td>2028-2030</td><td>B2B 医院采购</td><td>$18,000/台</td><td>20 → 120</td><td>$360K → $2.16M</td></tr>
-<tr><td>2030-2032</td><td>B2B2C 处方+购买</td><td>$3,999 + $499/年</td><td>120 → 500</td><td>$2.16M → $9M</td></tr>
-<tr><td>2032+</td><td>B2C 消费者</td><td>待定</td><td>视市场扩展</td><td>—</td></tr>
+<tr><td>2028-2030</td><td>B2B医院采购</td><td>$18,000/台</td><td>20→120</td><td>$360K→$2.16M</td></tr>
+<tr><td>2030-2032</td><td>B2B2C处方+购买</td><td>$3,999+$499/年</td><td>120→500</td><td>$2.16M→$9M</td></tr>
+<tr><td>2032+</td><td>B2C消费者</td><td>待定</td><td>视扩展</td><td>—</td></tr>
 </table>
 
-<h3>单位经济学（Home版，1000台规模）</h3>
-
+<h3>单位经济学（Home版，1K台）</h3>
 <table>
 <tr><th>项目</th><th>金额</th><th>说明</th></tr>
 <tr><td>ASP</td><td>$3,999</td><td>Home版一次性售价</td></tr>
-<tr><td>COGS</td><td>~$1,400（35%毛利率@1K台）→ ~$800（65%毛利率@10K台）</td><td>碳纤维 $80 &nbsp;·&nbsp; 电机×2 $160 &nbsp;·&nbsp; EEG头带 $120 &nbsp;·&nbsp; MCU/IMU/电池 $180 &nbsp;·&nbsp; 织物 $90 &nbsp;·&nbsp; 组装 $120 &nbsp;·&nbsp; 其他</td></tr>
-<tr><td>年度订阅</td><td>$499/年</td><td>软件更新 + 联邦学习策略升级 + 治疗师远程监控</td></tr>
-<tr><td>LTV（5年）</td><td>$3,999 + $499×5 = $6,494</td><td>不含 Clinical版（$18,000/台，B2B采购周期1-2年）</td></tr>
+<tr><td>COGS</td><td>~$1,400（35%@1K）→~$800（65%@10K）</td><td>碳纤维$80·电机×2$160·EEG头带$120·MCU/IMU/电池$180·织物$90·组装$120</td></tr>
+<tr><td>年度订阅</td><td>$499/年</td><td>软件更新+联邦学习策略升级+治疗师远程监控</td></tr>
+<tr><td>LTV（5年）</td><td>$3,999+$499×5=$6,494</td><td>不含Clinical版（$18,000/台）</td></tr>
 </table>
-
-<p>毛利率路径：45%（2029，小批量）→ 55%（2030，量产）→ 65%（2031，规模效应）。预计2031年盈亏平衡（平衡点约350台）。</p>
+<p>毛利率：45%（2029）→55%（2030）→65%（2031）。盈亏平衡约350台。</p>
 
 <div class="callout callout-insight">
-<strong>定价逻辑：</strong>只有当产品真正闭合神经回路——而非仅是一个可穿戴执行器——市场才愿意为其支付溢价。Clinical版$18,000对标现有医院外骨骼的1/10价格，Home版$3,999对标高端康复器械+年度服务费模式。
+<strong>定价逻辑：</strong>当产品闭合神经回路——而非仅是可穿戴执行器——市场才愿支付溢价。Clinical版$18,000为现有医院外骨骼的1/10；Home版$3,999对标高端康复器械+年度服务费。
 </div>
 
 
@@ -629,17 +507,16 @@ a { color: var(--nexum); text-decoration: none; }
 <!-- ===== 6. COMPETITION ===== -->
 <h2 id="competition">6. 竞争格局</h2>
 
-<p>四个战略选择（非侵入EEG + 下肢 + 医疗 + 服装式）定义了Nexum One的产品边界。在此边界内，竞争格局呈现一个清晰的结构：<strong>外骨骼公司不做EEG，EEG公司不做下肢。交叉点完全空白。</strong></p>
+<p>战略选择定义了产品边界。边界内呈现清晰结构：<strong>外骨骼公司不做EEG，EEG公司不做下肢。交叉点空白。</strong></p>
 
 <h3>全球竞品矩阵</h3>
-
 <table>
 <tr><th>产品</th><th>控制方式</th><th>EEG?</th><th>下肢?</th><th>重量</th><th>价格</th></tr>
 <tr><td>EksoNR</td><td>按钮+IMU</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>23kg</td><td>~$200K</td></tr>
 <tr><td>ReWalk P6.0</td><td>倾斜传感器</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>23kg</td><td>$91K</td></tr>
-<tr><td>HAL (Cyberdyne)</td><td>EMG（肌电）</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>~14kg</td><td>¥11K/次</td></tr>
+<tr><td>HAL (Cyberdyne)</td><td>EMG</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>~14kg</td><td>¥11K/次</td></tr>
 <tr><td>Indego</td><td>按钮</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>~12kg</td><td>—</td></tr>
-<tr><td>Wandercraft Eve</td><td>自平衡/摇杆</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>~15kg</td><td>~$38K</td></tr>
+<tr><td>Wandercraft Eve</td><td>摇杆</td><td><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td><td>~15kg</td><td>~$38K</td></tr>
 <tr><td>g.tec recoveriX</td><td>EEG+FES</td><td><span class="check-yes">✓</span></td><td><span class="check-no">✗ 上肢</span></td><td>—</td><td>—</td></tr>
 <tr><td>赛博灵科 AC5</td><td>EEG</td><td><span class="check-yes">✓</span></td><td><span class="check-no">✗ 上肢</span></td><td>—</td><td>—</td></tr>
 <tr><td>RehabSwift</td><td>EEG+FES</td><td><span class="check-yes">✓</span></td><td><span class="check-no">✗ 上肢</span></td><td>—</td><td>—</td></tr>
@@ -647,51 +524,49 @@ a { color: var(--nexum); text-decoration: none; }
 </table>
 
 <h3>中国关键玩家</h3>
-
 <table>
-<tr><th>公司</th><th>产品</th><th>优势</th><th>与Nexum关键区别</th></tr>
-<tr><td><strong>程天科技</strong></td><td>UGO（医用）, Ascentiz（消费1.75kg, Kickstarter $253万）</td><td>1000+机构，NMPA获证，92万+人次</td><td>无EEG。EEG+脊电为R&D阶段，非产品线</td></tr>
-<tr><td><strong>安杰莱科技</strong></td><td>LiteStepper（单下肢）</td><td>健侧引领患侧，偏瘫康复</td><td>单下肢、健侧引领、无EEG。Nexum做双下肢、EEG直接解码意图</td></tr>
-<tr><td><strong>Wandercraft</strong></td><td>Eve（个人版~15kg, 2026美国上市）</td><td>自平衡，唯一做个人家用外骨骼的公司</td><td>摇杆控制，非EEG。一旦Eve验证居家市场，将吸引更多竞争者</td></tr>
-<tr><td><strong>赛博灵科</strong></td><td>AC5, HC2, AM5</td><td>EEG+外骨骼，主动康复</td><td>三款产品全部上肢，不做下肢</td></tr>
+<tr><th>公司</th><th>产品</th><th>优势</th><th>关键区别</th></tr>
+<tr><td><strong>程天科技</strong></td><td>UGO, Ascentiz（1.75kg, KS $253万）</td><td>1000+机构，NMPA获证</td><td>无EEG</td></tr>
+<tr><td><strong>安杰莱科技</strong></td><td>LiteStepper（单下肢）</td><td>健侧引领</td><td>单下肢，无EEG</td></tr>
+<tr><td><strong>Wandercraft</strong></td><td>Eve（~15kg, 2026美国上市）</td><td>自平衡</td><td>摇杆控制，无EEG</td></tr>
+<tr><td><strong>赛博灵科</strong></td><td>AC5, HC2, AM5</td><td>EEG+外骨骼</td><td>全部上肢</td></tr>
 </table>
 
 <div class="callout callout-key">
-<strong>竞争差异化的三个支柱：</strong>品类定义权（无商用产品占据此交叉点）、临床数据飞轮（EEG+步态+肌力纵向队列，后来者无法短期复制）、监管先发优势（NMPA创新器械绿色通道，窗口期2-3年）。
+<strong>竞争差异化：</strong>品类定义权（无商用产品占据此交叉点）、临床数据飞轮（EEG+步态+肌力纵向队列）、监管先发优势（NMPA绿色通道，窗口期2-3年）。
 </div>
 
 <div class="callout callout-insight" style="margin-top:32px">
-<p style="font-size:15px;color:var(--text);font-weight:800;margin:0 0 12px 0;letter-spacing:0.5px">Nexum投资逻辑</p>
-<p style="margin:0 0 6px 0"><strong>1. 空白 = 机会。</strong>全球30+外骨骼公司 + 8家EEG康复公司，交叉点零商用产品。Nexum One是目前唯一聚焦此交叉点的系统。</p>
-<p style="margin:0 0 6px 0"><strong>2. 时机 = 窗口。</strong>干电极+QDD电机+碳纤维成本+中国医保/BCI定价——四项前提在2025-2026年首次同时成立。窗口期2-3年。</p>
-<p style="margin:0 0 6px 0"><strong>3. 壁垒 = 复利。</strong>不是单一专利或认证，而是临床数据飞轮×软件网络效应×品类定义权×全球成本结构的四维复合壁垒。后来者的追赶成本随时间递增。</p>
-<p style="margin:0 0 6px 0"><strong>4. 规模 = 三层展开。</strong>同一技术线在医疗康复（$0.5B SAM）→ 老年行动力（$3B+）→ 消费增强（$7B+）三层人群上顺序展开。每次市场扩张时，BOM成本已接近前一市场的边际成本。</p>
-<p style="margin:0 0 6px 0"><strong>5. 路径 = B2B先行。</strong>Clinical版（$18,000，医保覆盖）→医院渠道积累临床数据和处方习惯→Home版（$3,999+$499/年）打通"医院处方→居家使用"的B2B2C路径。不直接从C端切入——居家康复设备的付费决策者是家属，而非患者本人。降低照护者的防跌倒监督负担是核心购买驱动力。</p>
-<p style="margin:0"><strong>6. 团队 = 交叉点。</strong>脑机接口+具身智能的交叉人才密度极低。创始人横跨EEG研究+机器人产业化八年+FAI亲身经历——这三者的交集，是定义品类的结构性前提。</p>
+<p style="font-size:15px;color:var(--text);font-weight:800;margin:0 0 12px 0;letter-spacing:0.5px">投资逻辑</p>
+<p style="margin:0 0 6px 0"><strong>1. 空白。</strong>全球30+外骨骼+8家EEG康复公司，交叉点零商用产品。</p>
+<p style="margin:0 0 6px 0"><strong>2. 时机。</strong>干电极+QDD电机+碳纤维成本+AI边缘推理+中国医保/BCI定价——五项前提2025-2026首次同时成立。</p>
+<p style="margin:0 0 6px 0"><strong>3. 壁垒。</strong>临床数据飞轮×软件网络效应×品类定义权×全球成本结构——后来者追赶成本随时间递增。</p>
+<p style="margin:0 0 6px 0"><strong>4. 规模。</strong>同一AI平台：医疗康复（$0.5B SAM）→老年行动力（$3B+）→消费增强（$7B+）。每次扩张时BOM成本已接近前一市场的边际成本。</p>
+<p style="margin:0 0 6px 0"><strong>5. 路径。</strong>Clinical版B2B医院（$18,000，医保覆盖）→积累临床数据和处方习惯→Home版（$3,999+$499/年）B2B2C。照护者负担降低是核心购买驱动力。</p>
+<p style="margin:0"><strong>6. 团队。</strong>BCI+具身智能交叉人才密度极低。创始人横跨EEG研究+机器人产业化八年+FAI亲身经历。</p>
 </div>
 
 
 
-<!-- ===== 7. TECHNICAL ARCHITECTURE ===== -->
+<!-- ===== 7. TECH ===== -->
 <h2 id="tech">7. 技术架构</h2>
 
-<p>Nexum One的技术架构围绕一条核心管线：神经信号采集 → 意图解码 → 力矩执行 → 策略持续进化。五层栈中前三层构成实时控制闭环，后两层构成长期壁垒。</p>
+<p>Nexum One的技术架构围绕一条核心管线：神经信号采集→意图解码→力矩执行→策略进化。五层栈中前三层构成实时控制闭环，后两层构成长期壁垒。</p>
 
-<p><strong>一个关键的架构澄清：EEG在此管线中的角色是离散意图分类，而非连续力矩控制。</strong>EEG解码的是运动模态（走/站/坐/无意图），不是每步该给多少牛顿米的力。这一设计基于非侵入EEG的物理现实：步行运动伪迹（头部1-3g加速度）与神经信号（5-30μV MRCP）共享频带，信噪比可达-40dB，使得连续力控在工程上不可行（详见Ch.2条件一）。离散分类则利用了MRCP的时空特性——在动作前200-500ms的时间窗口内，即使信噪比低，四分类仍可达到82-95%的准确率（Dong et al., 2024）。力矩的个性化输出由RL策略根据EEG分类+IMU步态相位+力传感器反馈+用户历史参数共同决定。</p>
+<p><strong>关键架构澄清：EEG做离散分类，不做连续力控。</strong>步行运动伪迹（头部1-3g）与神经信号（MRCP 5-30μV）共享频带，信噪比-40dB，连续力控在工程上不可行。离散四分类（走/站/坐/无意图）利用MRCP在动作前200-500ms的时空窗口，准确率82-95%（Dong et al., 2024）。力矩的个性化输出由RL策略根据EEG分类+IMU步态相位+力传感器反馈+用户历史参数共同决定。</p>
 
 <h3>五层技术栈</h3>
-
 <table>
 <tr><th>层级</th><th>产品模块</th><th>核心能力</th><th>成熟度</th></tr>
-<tr><td><strong>神经感知层</strong></td><td>EEG-Sense</td><td>8ch干电极MRCP检测 + IMU×4 + 力传感器×2</td><td>验证级</td></tr>
-<tr><td><strong>意图解码层</strong></td><td>NeuroCore</td><td>EEGNet + 神经力学肌骨模型（双侧416 MTU, Hill-type） + 离线RL策略</td><td>验证级</td></tr>
-<tr><td><strong>力控执行层</strong></td><td>NeuroSuit</td><td>直驱电机×2（12.5Nm/5Nm）+ FOC + PID力控（1kHz）</td><td>产品级</td></tr>
-<tr><td><strong>穿戴结构层</strong></td><td>NeuroSuit</td><td>碳纤维骨架（T700, ~0.8kg）+ 弹性织物 + 无刚性外框</td><td>产品级</td></tr>
-<tr><td><strong>策略进化层</strong></td><td>个性化自适应</td><td>联邦学习跨患者模型更新——EEG+IMU双模态驱动</td><td>研究级</td></tr>
+<tr><td><strong>神经感知层</strong></td><td>EEG-Sense</td><td>8ch干电极MRCP+IMU×4+力传感器×2</td><td>验证级</td></tr>
+<tr><td><strong>意图解码层</strong></td><td>NeuroCore</td><td>EEGNet+神经力学肌骨模型（416 MTU, Hill-type）+离线RL策略</td><td>验证级</td></tr>
+<tr><td><strong>力控执行层</strong></td><td>NeuroSuit</td><td>直驱电机×2（12.5Nm/5Nm）+FOC+PID（1kHz）</td><td>产品级</td></tr>
+<tr><td><strong>穿戴结构层</strong></td><td>NeuroSuit</td><td>碳纤维骨架（T700, ~0.8kg）+弹性织物</td><td>产品级</td></tr>
+<tr><td><strong>策略进化层</strong></td><td>个性化自适应</td><td>联邦学习跨患者模型更新——EEG+IMU双模态</td><td>研究级</td></tr>
 </table>
 
 <div style="background:var(--card-bg);border-radius:12px;padding:16px;margin:24px 0;text-align:center">
-<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:900px;height:auto;display:inline-block" aria-label="Nexum One 完整系统架构：从神经意图感知到物理动作执行">
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:900px;height:auto;display:inline-block" aria-label="Nexum One 完整系统架构">
   <defs>
     <filter id="ss-arch"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.05"/></filter>
     <linearGradient id="pants" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1a1e"/><stop offset="100%" stop-color="#0d0d12"/></linearGradient>
@@ -702,21 +577,17 @@ a { color: var(--nexum); text-decoration: none; }
   <text x="450" y="30" text-anchor="middle" fill="var(--nexum)" font-size="14" font-weight="700">Nexum One 完整系统 — 从神经意图到物理动作</text>
   <g transform="translate(60,50)">
     <rect x="0" y="0" width="160" height="56" rx="12" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.5" filter="url(#ss-arch)"/>
-    <text x="80" y="22" text-anchor="middle" fill="var(--nexum)" font-size="12" font-weight="700">EEG-Sense 意图感知头带</text>
-    <text x="80" y="42" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">8ch干电极 · MRCP检测 · ~40ms</text>
+    <text x="80" y="22" text-anchor="middle" fill="var(--nexum)" font-size="12" font-weight="700">EEG-Sense 意图感知头带</text><text x="80" y="42" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">8ch干电极 · MRCP检测 · ~40ms</text>
     <line x1="165" y1="28" x2="210" y2="28" stroke="var(--nexum)" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#ar-arch)" opacity="0.6"/>
     <text x="187" y="20" text-anchor="middle" fill="var(--nexum)" font-size="8" font-weight="600">BLE</text>
     <rect x="215" y="0" width="170" height="56" rx="12" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.5" filter="url(#ss-arch)"/>
-    <text x="300" y="22" text-anchor="middle" fill="var(--nexum)" font-size="12" font-weight="700">NeuroCore 控制中枢</text>
-    <text x="300" y="42" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">EEGNet推理 · RL策略 · ~55ms</text>
+    <text x="300" y="22" text-anchor="middle" fill="var(--nexum)" font-size="12" font-weight="700">NeuroCore 控制中枢</text><text x="300" y="42" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">EEGNet推理 · RL策略 · ~55ms</text>
     <line x1="390" y1="28" x2="435" y2="28" stroke="var(--nexum)" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#ar-arch)" opacity="0.6"/>
     <text x="412" y="20" text-anchor="middle" fill="var(--nexum)" font-size="8" font-weight="600">UART</text>
     <rect x="440" y="0" width="170" height="56" rx="12" fill="#ffffff" stroke="#e5e5e5" stroke-width="1.5" filter="url(#ss-arch)"/>
-    <text x="525" y="22" text-anchor="middle" fill="var(--nexum)" font-size="12" font-weight="700">NeuroSuit 神经意图肌动服</text>
-    <text x="525" y="42" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">直驱电机 · 力矩输出 · ~60ms</text>
+    <text x="525" y="22" text-anchor="middle" fill="var(--nexum)" font-size="12" font-weight="700">NeuroSuit 神经意图肌动服</text><text x="525" y="42" text-anchor="middle" fill="var(--text-tertiary)" font-size="10">直驱电机 · 力矩输出 · ~60ms</text>
     <rect x="640" y="8" width="90" height="40" rx="20" fill="var(--accent-dim)"/>
-    <text x="685" y="24" text-anchor="middle" fill="var(--nexum)" font-size="9" font-weight="600">端到端</text>
-    <text x="685" y="40" text-anchor="middle" fill="var(--nexum)" font-size="15" font-weight="800">~150ms</text>
+    <text x="685" y="24" text-anchor="middle" fill="var(--nexum)" font-size="9" font-weight="600">端到端</text><text x="685" y="40" text-anchor="middle" fill="var(--nexum)" font-size="15" font-weight="800">~150ms</text>
   </g>
   <g transform="translate(265,140)">
     <ellipse cx="60" cy="18" rx="18" ry="22" fill="none" stroke="#555" stroke-width="1.5"/>
@@ -725,8 +596,7 @@ a { color: var(--nexum); text-decoration: none; }
     <circle cx="82" cy="16" r="2" fill="var(--nexum)" opacity="0.9"/>
     <rect x="54" y="38" width="12" height="8" rx="3" fill="none" stroke="#555" stroke-width="1"/>
     <line x1="60" y1="46" x2="60" y2="100" stroke="#555" stroke-width="1.5"/>
-    <line x1="60" y1="62" x2="40" y2="85" stroke="#555" stroke-width="1"/>
-    <line x1="60" y1="62" x2="80" y2="85" stroke="#555" stroke-width="1"/>
+    <line x1="60" y1="62" x2="40" y2="85" stroke="#555" stroke-width="1"/><line x1="60" y1="62" x2="80" y2="85" stroke="#555" stroke-width="1"/>
     <path d="M 48 98 L 48 200 L 72 200 L 72 98 Z" fill="url(#pants)" opacity="0.9"/>
     <path d="M 50 98 L 50 200 L 73 200 L 73 98 Z" fill="url(#pants)" opacity="0.9"/>
     <rect x="47" y="96" width="26" height="4" rx="2" fill="#252528"/>
@@ -740,29 +610,17 @@ a { color: var(--nexum); text-decoration: none; }
     <path d="M 320 150 Q 325 145 330 150 Q 335 155 340 150 Q 345 145 350 150" fill="none" stroke="var(--nexum)" stroke-width="1.5"/>
     <path d="M 315 155 Q 320 148 325 155 Q 330 162 335 155 Q 340 148 345 155 Q 350 162 355 155" fill="none" stroke="var(--nexum)" stroke-width="1"/>
   </g>
-  <g transform="translate(140,165)">
-    <rect x="0" y="0" width="90" height="22" rx="11" fill="var(--accent-dim)"/>
-    <text x="45" y="14" text-anchor="middle" fill="var(--nexum)" font-size="9" font-weight="600">脑电信号</text>
-    <line x1="90" y1="11" x2="260" y2="-40" stroke="var(--nexum)" stroke-width="1" stroke-dasharray="3,2" opacity="0.3"/>
-  </g>
-  <g transform="translate(400,230)">
-    <rect x="0" y="0" width="90" height="22" rx="11" fill="var(--accent-dim)"/>
-    <text x="45" y="14" text-anchor="middle" fill="var(--nexum)" font-size="9" font-weight="600">力矩指令</text>
-  </g>
+  <g transform="translate(140,165)"><rect x="0" y="0" width="90" height="22" rx="11" fill="var(--accent-dim)"/><text x="45" y="14" text-anchor="middle" fill="var(--nexum)" font-size="9" font-weight="600">脑电信号</text><line x1="90" y1="11" x2="260" y2="-40" stroke="var(--nexum)" stroke-width="1" stroke-dasharray="3,2" opacity="0.3"/></g>
+  <g transform="translate(400,230)"><rect x="0" y="0" width="90" height="22" rx="11" fill="var(--accent-dim)"/><text x="45" y="14" text-anchor="middle" fill="var(--nexum)" font-size="9" font-weight="600">力矩指令</text></g>
   <path d="M 60 340 Q 200 380 400 340 Q 600 300 750 340 Q 820 360 850 340" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.4"/>
   <text x="450" y="375" text-anchor="middle" fill="#10b981" font-size="10" font-weight="600">力传感器 + IMU反馈闭环</text>
-  <circle cx="60" cy="340" r="3" fill="#10b981" opacity="0.3"/>
-  <circle cx="850" cy="340" r="3" fill="#10b981" opacity="0.3"/>
+  <circle cx="60" cy="340" r="3" fill="#10b981" opacity="0.3"/><circle cx="850" cy="340" r="3" fill="#10b981" opacity="0.3"/>
   <g transform="translate(60,400)">
     <rect x="0" y="0" width="780" height="40" rx="20" fill="#ffffff" stroke="#e5e5e5" stroke-width="1"/>
-    <text x="100" y="25" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">8ch EEG</text>
-    <line x1="180" y1="10" x2="180" y2="30" stroke="#d0d0d0" stroke-width="1"/>
-    <text x="280" y="25" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">250SPS采样</text>
-    <line x1="360" y1="10" x2="360" y2="30" stroke="#d0d0d0" stroke-width="1"/>
-    <text x="460" y="25" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">~2.5kg总重</text>
-    <line x1="540" y1="10" x2="540" y2="30" stroke="#d0d0d0" stroke-width="1"/>
-    <text x="620" y="25" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">12.5Nm峰值扭矩</text>
-    <line x1="700" y1="10" x2="700" y2="30" stroke="#d0d0d0" stroke-width="1"/>
+    <text x="100" y="25" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">8ch EEG</text><line x1="180" y1="10" x2="180" y2="30" stroke="#d0d0d0" stroke-width="1"/>
+    <text x="280" y="25" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">250SPS采样</text><line x1="360" y1="10" x2="360" y2="30" stroke="#d0d0d0" stroke-width="1"/>
+    <text x="460" y="25" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">~2.5kg总重</text><line x1="540" y1="10" x2="540" y2="30" stroke="#d0d0d0" stroke-width="1"/>
+    <text x="620" y="25" text-anchor="middle" fill="var(--text-tertiary)" font-size="11">12.5Nm峰值扭矩</text><line x1="700" y1="10" x2="700" y2="30" stroke="#d0d0d0" stroke-width="1"/>
     <text x="740" y="25" text-anchor="middle" fill="var(--nexum)" font-size="11" font-weight="700">V1 髋部</text>
   </g>
 </svg>
@@ -770,157 +628,120 @@ a { color: var(--nexum); text-decoration: none; }
 </div>
 
 <h3>分层控制：EEG与RL的垂直分工</h3>
-
-<p>EEG与RL的分工不在时间轴上，在抽象层级上：<strong>EEG回答"想做什么"（离散意图分类），RL策略回答"怎么做"（连续力矩输出，个性化）。</strong>四分类（坐→站、行走、站→坐、无意图）覆盖目标人群在康复阶段的全部功能需求。四分类不是技术妥协——是目标人群的功能需求边界。</p>
+<p>EEG与RL的分工不在时间轴，在抽象层级：<strong>EEG回答"想做什么"（离散分类），RL回答"怎么做"（连续力矩，个性化）。</strong>四分类覆盖目标人群康复阶段的全部功能需求。</p>
 
 <table>
 <tr><th>输入信号</th><th>频率</th><th>作用</th></tr>
-<tr><td>EEG意图分类</td><td>事件驱动</td><td>确定运动模态（行走/起立/就坐/静止）</td></tr>
-<tr><td>IMU 6轴姿态</td><td>100Hz</td><td>步态相位检测、关节角度、平衡状态</td></tr>
-<tr><td>力传感器扭矩反馈</td><td>1kHz</td><td>实际输出力矩闭环校验</td></tr>
-<tr><td>步态相位检测</td><td>离散事件</td><td>摆动期/支撑期/双支撑期切换</td></tr>
-<tr><td>用户历史适应参数</td><td>会话级偏移量</td><td>个性化偏移（肌力、痉挛程度、疲劳轨迹）</td></tr>
+<tr><td>EEG意图分类</td><td>事件驱动</td><td>确定运动模态</td></tr>
+<tr><td>IMU 6轴姿态</td><td>100Hz</td><td>步态相位、关节角度、平衡</td></tr>
+<tr><td>力传感器反馈</td><td>1kHz</td><td>力矩闭环校验</td></tr>
+<tr><td>步态相位检测</td><td>离散</td><td>摆动/支撑/双支撑期</td></tr>
+<tr><td>用户历史参数</td><td>会话级</td><td>个性化偏移</td></tr>
 </table>
-<p>同一个"行走"分类，针对不同患者、不同步态相位、不同疲劳程度，RL策略输出完全不同的力矩曲线。</p>
 
-<p>离线训练阶段，神经力学肌骨模型（416 MTU, Hill-type）仿真生成上述状态空间，RL策略在此环境中学习从状态到力矩的映射关系。</p><p>在线推理时，策略网络以1kHz频率接收完整状态输入，输出力矩指令——<strong>EEG不直接控制电机，它通过RL策略间接决定"此刻应该输出多少力"。这是意图驱动执行与脑控机器的本质区别。</strong></p>
-
-<h3>安全架构：五维并行</h3>
-
+<h3>安全架构</h3>
 <table>
 <tr><th>维度</th><th>机制</th><th>独立性</th></tr>
-<tr><td>扭矩安全</td><td>12.5Nm峰值＜健康成人髋部力矩1/3。硬件级扭矩限幅</td><td>独立于软件控制回路</td></tr>
-<tr><td>意图安全</td><td>EEG"行走"+IMU"坐下"→电机不执行。IMU为地面真相</td><td>混合架构本质安全</td></tr>
-<tr><td>执行安全</td><td>三层控制环：FOC(1kHz,硬件级)→PID(500Hz)→步态分类(100Hz,建议性)</td><td>各层独立停机能力</td></tr>
-<tr><td>物理安全</td><td>急停按钮直连电机使能引脚。关节机械限位(屈曲≤90°,伸展≤20°)</td><td>与主控逻辑独立</td></tr>
-<tr><td>数据安全</td><td>EEG原始数据仅存本地。云端上传需主动授权。IEC 62304/ISO 13485</td><td>设计即隐私</td></tr>
+<tr><td>扭矩安全</td><td>12.5Nm<健康成人髋部力矩1/3，硬件级限幅</td><td>独立于软件</td></tr>
+<tr><td>意图安全</td><td>EEG"行走"+IMU"坐下"→电机不执行</td><td>混合架构本质安全</td></tr>
+<tr><td>执行安全</td><td>FOC(1kHz硬件)→PID(500Hz)→步态分类(100Hz建议)</td><td>各层独立停机</td></tr>
+<tr><td>物理安全</td><td>急停按钮直连电机使能引脚；关节机械限位</td><td>与主控逻辑独立</td></tr>
+<tr><td>数据安全</td><td>EEG原始数据仅存本地；IEC 62304/ISO 13485</td><td>设计即隐私</td></tr>
 </table>
+<p>三级降级：全功能→IMU纯模式（功能降级，安全不降级）→零扭矩停止。预临床（n=30）验证安全性。</p>
 
-<p>三级降级：全功能 → IMU纯模式（功能降级，安全不降级）→ 零扭矩安全停止。最终验证通过预临床研究（n=30），首要终点为不良事件率。</p>
-
-<h3>联邦学习：从"每人都从头学"到"跨人知识共享"</h3>
-
-<p>pFedAC（Wang et al., arXiv:2605.14423）的联邦Actor-Critic框架：每个患者在本地训练后，仅上传策略梯度（非原始EEG/步态数据）到聚合服务器；新患者在全局基础策略上只需少量微调，即可达到高度个性化。<strong>第一千名患者使用的策略网络，优于第一名患者使用的版本。</strong>每一台设备都在改进全局模型——原始数据始终留存于设备端，仅加密梯度参与聚合。这一数据网络效应构成硬件公司无法复制的结构性护城河。</p>
+<h3>联邦学习</h3>
+<p>pFedAC（Wang et al., arXiv:2605.14423）：每个患者仅上传策略梯度（非原始EEG/步态数据），新患者微调即可达到高度个性化。<strong>第一千名患者的策略优于第一名——这是硬件产品不可能实现的改进曲线。</strong></p>
 
 
 
-<!-- ===== 8. REGULATORY ===== -->
+<!-- ===== 8-12: REGULATORY, ROADMAP, MOATS, RISKS, VISION ===== -->
 <h2 id="regulatory">8. 监管路径</h2>
-
-<p>NMPA创新医疗器械特别审查程序（绿色通道）是Nexum One的核心审评路径。以下为当前规划的五个阶段及时间线：</p>
-
-<h3>NMPA创新器械路径</h3>
-
+<p>NMPA创新医疗器械特别审查程序（绿色通道）是核心审评路径。</p>
 <table>
 <tr><th>阶段</th><th>时间</th><th>关键动作</th></tr>
-<tr><td>分类界定</td><td>2026 H2</td><td>提交分类界定申请。非侵入BCI+外骨骼组合产品尚无先例。2026.3分类指南草案中非侵入BCI康复可能归入II类或III类——需密切关注最终稿</td></tr>
-<tr><td>创新器械认定</td><td>2027 H1</td><td>申请NMPA创新医疗器械特别审查程序（绿色通道）。三项核心专利需在申请前提交</td></tr>
-<tr><td>型式检验</td><td>2027 H1-H2</td><td>EMC、安规、性能检验。EEG+外骨骼组合尚无现行检验标准，需与检验院沟通制定检验方案</td></tr>
-<tr><td>临床研究</td><td>2027 H2-2028 H1</td><td>预临床n=30 → 视分类结果决定是否需确证性临床试验</td></tr>
-<tr><td>注册申报</td><td>2028 H1</td><td>提交NMPA注册申请。目标分类：II类创新器械（以分类界定结果为准）</td></tr>
+<tr><td>分类界定</td><td>2026 H2</td><td>提交分类界定申请。非侵入BCI+外骨骼组合产品尚无先例</td></tr>
+<tr><td>创新器械认定</td><td>2027 H1</td><td>申请绿色通道，三项核心专利需在申请前提交</td></tr>
+<tr><td>型式检验</td><td>2027 H1-H2</td><td>EMC、安规、性能检验</td></tr>
+<tr><td>临床研究</td><td>2027 H2-2028 H1</td><td>预临床n=30→视分类结果决定确证性试验</td></tr>
+<tr><td>注册申报</td><td>2028 H1</td><td>目标分类：II类创新器械（以界定结果为准）</td></tr>
 </table>
 
 
 
-
-<!-- ===== 9. ROADMAP ===== -->
 <h2 id="roadmap">9. 路线图与资金用途</h2>
 
-<h3>天使轮资金用途（$2-3M，12-18个月跑道）</h3>
-
+<h3>天使轮资金用途（$2-3M，12-18个月）</h3>
 <table>
 <tr><th>用途</th><th>占比</th><th>金额</th><th>产出</th></tr>
-<tr><td>团队薪酬（7人×18个月）</td><td>40%</td><td>$800K-1.2M</td><td>完整工程+临床团队到位</td></tr>
-<tr><td>原型开发（硬件+EEG+肌骨仿真+软件）</td><td>25%</td><td>$500-750K</td><td>V1原型机 + IMU闭环 + EEG行走信号采集</td></tr>
-<tr><td>预临床研究（n=30）</td><td>15%</td><td>$300-450K</td><td>安全性数据 + 效应量估计</td></tr>
-<tr><td>NMPA注册启动</td><td>10%</td><td>$200-300K</td><td>分类界定 + 创新器械认定申请</td></tr>
+<tr><td>团队薪酬（7人×18个月）</td><td>40%</td><td>$800K-1.2M</td><td>完整工程+临床团队</td></tr>
+<tr><td>原型开发</td><td>25%</td><td>$500-750K</td><td>V1原型+IMU闭环+EEG行走信号采集</td></tr>
+<tr><td>预临床研究（n=30）</td><td>15%</td><td>$300-450K</td><td>安全性数据+效应量估计</td></tr>
+<tr><td>NMPA注册启动</td><td>10%</td><td>$200-300K</td><td>分类界定+创新器械认定</td></tr>
 <tr><td>运营及其他</td><td>10%</td><td>$200-300K</td><td>—</td></tr>
 </table>
 
 <div class="callout callout-key">
-<strong>天使轮单一可验证目标：</strong>在实验室环境中，证明EEG意图检测结合个性化助力对目标患者步态功能产生可测量的改善。该结果决定是否推进Pre-A轮融资。
+<strong>天使轮单一可验证目标：</strong>在实验室环境中，证明EEG意图检测结合个性化助力对目标患者步态功能产生可测量的改善。该结果决定是否推进Pre-A轮。
 </div>
 
 <h3>三阶段路线图</h3>
-
 <table>
 <tr><th></th><th>V1 · 天使轮（2026-2028）</th><th>V2 · Pre-A（2028-2030）</th><th>V3 · A轮（2030-2032）</th></tr>
 <tr><td><strong>融资</strong></td><td>$2-3M</td><td>$6-10M</td><td>$20-30M</td></tr>
-<tr><td><strong>里程碑</strong></td><td>2026 H2: 原型V1+IMU闭环<br>2027 H1: EEG+IMU融合验证<br>2027 H2: 预临床n=30<br>2028 H1: NMPA申请提交</td><td>2028 H2: NMPA获证<br>2029: 首批20台交付<br>2030: 100家医院<br>启动FDA 510(k)</td><td>获证后规模化<br>老年行动辅助<br>消费增强<br>全球扩展</td></tr>
-<tr><td><strong>台数</strong></td><td>—</td><td>20 → 120</td><td>120 → 500</td></tr>
-<tr><td><strong>收入</strong></td><td>—</td><td>$360K → $2.16M</td><td>$2.16M → $9M</td></tr>
+<tr><td><strong>里程碑</strong></td><td>2026 H2:原型+IMU闭环<br>2027 H1:EEG+IMU融合<br>2027 H2:预临床n=30<br>2028 H1:NMPA申请</td><td>2028 H2:获证<br>2029:首批20台<br>2030:100家医院+FDA 510(k)</td><td>规模化<br>老年行动辅助<br>消费增强<br>全球扩展</td></tr>
+<tr><td><strong>台数</strong></td><td>—</td><td>20→120</td><td>120→500</td></tr>
+<tr><td><strong>收入</strong></td><td>—</td><td>$360K→$2.16M</td><td>$2.16M→$9M</td></tr>
 </table>
 
 
 
-<!-- ===== 10. STRUCTURAL MOATS ===== -->
 <h2 id="moats">10. 结构性护城河</h2>
 
-<p>NMPA认证是市场准入壁垒，而非结构性护城河。后者在获证之后开始建立，其本质特征是：后来者的追赶成本随时间递增，而非递减。</p>
+<p>NMPA认证是市场准入壁垒。结构性护城河在获证后建立——后来者的追赶成本随时间递增。</p>
 
 <table>
 <tr><th style="width:18%">护城河</th><th style="width:42%">机制</th><th>为什么难以复制</th></tr>
-<tr>
-<td><strong>临床数据飞轮</strong></td>
-<td>每一台Nexum One产生EEG+步态+肌力恢复的纵向队列数据。程天8年积累的外骨骼数据不含EEG维度——这个维度的缺失意味着其<strong>数据无法用于训练神经意图映射模型</strong>。</td>
-<td>EEG+步态配对数据的采集需要已部署的硬件基数。后来者即使造出同类硬件，也需要数年积累同等规模的数据集。</td>
-</tr>
-<tr>
-<td><strong>软件网络效应</strong></td>
-<td>同一患者使用100次后，RL策略已完全不同。联邦学习使每新增一名患者都在改进全局基础策略。原始数据留存设备端，仅加密梯度参与聚合。</td>
-<td>硬件可复制，数据不可。第一千名患者的体验优于第一名——这是硬件产品不可能实现的改进曲线。</td>
-</tr>
-<tr>
-<td><strong>品类定义权</strong></td>
-<td>有望成为全球首款获批的EEG下肢外骨骼。后来者将面对品类定义者的先发优势——临床认知、医生处方习惯、科室采购标准。</td>
-<td>医疗器械的处方习惯一旦建立，转换成本极高。首个获批产品定义整个品类的临床评估框架。</td>
-</tr>
-<tr>
-<td><strong>全球成本结构</strong></td>
-<td>中国制造成本 + 中国临床数据体量 → FDA 510(k) / CE MDR → 全球定价优势。CMS K1007定价$91,032/台，Nexum Clinical版$18,000——在不触发价格战的前提下具备充足的定价空间。</td>
-<td>在中国完成制造+临床+获证的完整链路，叠加全球注册，后来者需要同时具备中国供应链和全球监管能力。</td>
-</tr>
+<tr><td><strong>临床数据飞轮</strong></td><td>每台设备产生EEG+步态+肌力纵向队列。程天8年外骨骼数据不含EEG维度——<strong>无法用于训练神经意图映射模型。</strong></td><td>EEG+步态配对数据需要已部署的硬件基数。后来者需数年积累同等规模数据集。</td></tr>
+<tr><td><strong>软件网络效应</strong></td><td>同患者使用100次后RL策略已完全不同。联邦学习使每新增一名患者都在改进全局基础策略。</td><td>硬件可复制，数据不可。第一千名患者的体验优于第一名——硬件产品不可能实现的改进曲线。</td></tr>
+<tr><td><strong>品类定义权</strong></td><td>有望成为全球首款获批的EEG下肢外骨骼。后来者面对品类定义者的先发优势——临床认知、处方习惯、采购标准。</td><td>医疗器械处方习惯一旦建立，转换成本极高。首个获批产品定义整个品类的临床评估框架。</td></tr>
+<tr><td><strong>全球成本结构</strong></td><td>中国制造+中国临床数据体量→FDA 510(k)/CE MDR→全球定价优势。CMS K1007定价$91,032/台，Nexum Clinical版$18,000。</td><td>在中国完成制造+临床+获证的完整链路，后来者需同时具备中国供应链和全球监管能力。</td></tr>
 </table>
 
 
 
-<!-- ===== 11. RISKS & IP ===== -->
 <h2 id="risks">11. 风险与知识产权</h2>
 
 <h3>关键风险矩阵</h3>
-
 <table>
 <tr><th>风险</th><th>严重性</th><th>应对策略</th></tr>
-<tr><td>肌骨模型→外骨骼联合仿真能否打通</td><td style="color:#dc2626;font-weight:700">高</td><td>该扩展从未被验证。天使轮核心工作流之一。Nature 2024已证明sim2real管线可行性，Nexum需在此基础上增加EEG维度</td></tr>
-<tr><td>EEG步行信噪比不达标</td><td style="color:#dc2626;font-weight:700">高</td><td>实验室跑步机EEG准确率82-95%。真实世界自由行走——尚无公开演示。天使轮需验证的核心技术假设。若EEG不可靠，产品退化为纯IMU外骨骼——需重新定位至消费辅助市场（对标极壳Hypershell等），价格和重量均需下调，与当前BP的商业模型不同</td></tr>
-<tr><td>关键人才招聘延迟</td><td style="color:#dc2626;font-weight:700">高</td><td>天使轮40%资金用于团队薪酬（7人×18个月）。核心岗位已定义清晰的能力画像</td></tr>
-<tr><td>技术合伙人兼职</td><td style="color:#dc2626;font-weight:700">高</td><td>2027年前兼职，开发计划已考虑此约束。三条并行工作流可独立推进</td></tr>
-<tr><td>生理负反馈（slacking）削弱康复效果</td><td style="color:#dc2626;font-weight:700">高</td><td>外骨骼辅助可能通过本体感受反射降低患者自身的肌肉激活（详见Ch.2条件二）。若EEG引导的AAN策略无法在预临床中证明效果，"主动参与驱动神经可塑性"的核心逻辑不成立，Nexum的EEG差异化失去临床依据。产品需根本性重新定位</td></tr>
-<tr><td>Sim-to-Real迁移差距</td><td style="color:#d97706;font-weight:700">中高</td><td>V1阶段PID为最终控制权威。RL策略输出为建议性力矩曲线，PID在硬件级执行安全限幅</td></tr>
-<tr><td>NMPA分类不确定</td><td style="color:#d97706;font-weight:700">中高</td><td>2026.3分类指南草案中非侵入BCI康复可能归入III类。提前12个月启动注册，利用绿色通道。天使轮资金覆盖分类界定申请</td></tr>
-<tr><td>知识产权保护空白</td><td style="color:#d97706;font-weight:700">中高</td><td>天使轮到位后立即启动PCT申请（2026）。核心算法以软件著作权+商业秘密双重保护</td></tr>
-<tr><td>竞争对手进入EEG+下肢赛道</td><td style="color:#ca8a04;font-weight:700">中</td><td>2-3年窗口期内完成NMPA获证。品类定义权+临床数据飞轮构成后来者壁垒</td></tr>
+<tr><td>生理负反馈（slacking）削弱康复效果</td><td style="color:#dc2626;font-weight:700">高</td><td>若EEG-AAN无法在预临床中证明效果，核心逻辑不成立，产品需根本性重新定位</td></tr>
+<tr><td>肌骨模型→外骨骼联合仿真能否打通</td><td style="color:#dc2626;font-weight:700">高</td><td>该扩展从未被验证。天使轮核心工作流之一</td></tr>
+<tr><td>EEG步行信噪比不达标</td><td style="color:#dc2626;font-weight:700">高</td><td>实验室准确率82-95%。真实行走——尚无公开演示。若不可靠，产品退化为纯IMU外骨骼，进入不同市场</td></tr>
+<tr><td>关键人才招聘延迟</td><td style="color:#dc2626;font-weight:700">高</td><td>天使轮40%资金用于团队薪酬</td></tr>
+<tr><td>技术合伙人兼职</td><td style="color:#dc2626;font-weight:700">高</td><td>2027年前兼职，开发计划已考虑</td></tr>
+<tr><td>Sim-to-Real迁移差距</td><td style="color:#d97706;font-weight:700">中高</td><td>V1阶段PID为最终控制权威</td></tr>
+<tr><td>NMPA分类不确定</td><td style="color:#d97706;font-weight:700">中高</td><td>提前12个月启动注册</td></tr>
+<tr><td>知识产权保护空白</td><td style="color:#d97706;font-weight:700">中高</td><td>天使轮到位后立即启动PCT申请</td></tr>
+<tr><td>竞争对手进入EEG+下肢赛道</td><td style="color:#ca8a04;font-weight:700">中</td><td>窗口期内完成NMPA获证+数据飞轮壁垒</td></tr>
 </table>
 
 <h3>知识产权布局</h3>
-
 <table>
 <tr><th>层面</th><th>内容</th><th>时间</th></tr>
 <tr><td>方法专利</td><td>EEG+IMU混合意图检测与融合方法</td><td>2026</td></tr>
 <tr><td>系统专利</td><td>服装式结构设计与直驱电机髋关节集成</td><td>2026-2027</td></tr>
 <tr><td>软件著作权</td><td>EEGNet推理引擎、RL策略网络</td><td>2027-2028</td></tr>
 </table>
-
 <p>PCT途径覆盖中美欧日。核心算法以软件著作权+商业秘密保护。</p>
 
 
 
-<!-- ===== 12. VISION ===== -->
-<h2 id="vision">12. 人机共生</h2>
+<h2 id="vision">12. 愿景</h2>
 
-<p>Nexum One是起点。神经意图映射层一旦建成，从医疗康复到老年行动力到全人群增强，是同一条技术线在不同人群上的展开。这背后的核心资产不是任何一个具体的硬件版本，而是<strong>肌骨仿真环境+RL策略训练管线+联邦学习框架</strong>——这套基础设施随用户规模增长而持续进化，每新增一个用户的数据都在改进全局策略。</p>
+<p>Nexum One是起点。神经意图映射层一旦建成，同一AI平台从医疗康复到老年行动力到全人群增强依次展开。核心资产是肌骨仿真环境+RL策略训练管线+联邦学习框架——这套基础设施随用户规模增长而持续进化。</p>
 
-<p>具身智能的下一个形态，不是机器人更像人——而是可穿戴机器人成为人体的延伸。人形机器人教会机器如何独立行动。可穿戴机器人教会机器如何与人协同行动。后者是一个更大的技术挑战，也是一个更大的市场。<strong>这不是一个外骨骼公司。这是一个定义"人机共生"品类的公司。</strong></p>
+<p>具身智能的下一个形态，不是机器人更像人——而是可穿戴机器人成为人体的延伸。人形机器人教会机器如何独立行动。可穿戴机器人教会机器如何与人协同行动。后者是更大的技术挑战，也是更大的市场。<strong>这不是一个外骨骼公司。这是一个定义"人机共生"品类的公司。</strong></p>
 
 <p>Licklider在1960年预言了Man-Computer Symbiosis。等了66年。工程条件在2026年首次同时满足。</p>
 
@@ -939,23 +760,26 @@ a { color: var(--nexum); text-decoration: none; }
 
 <hr>
 
+
+
 <!-- ===== APPENDIX ===== -->
 <h2 id="appendix">附录：关键证据与引用</h2>
-
-<p style="font-size:13px;color:var(--text-secondary);margin-bottom:20px;">以下所有证据来自公开可查的学术论文、政府文件、企业公告或权威媒体报道。BP中的所有主张均基于这些公开可查证据。</p>
+<p style="font-size:13px;color:var(--text-secondary);margin-bottom:20px;">以下所有证据来自公开可查的学术论文、政府文件、企业公告或权威媒体报道。</p>
 
 <h3>A. 临床与学术引用</h3>
 <table>
 <thead><tr><th style="width:28%">出处</th><th style="width:44%">关键发现</th><th style="width:28%">备注</th></tr></thead>
 <tbody>
-<tr><td>Donati et al., <em>Sci Rep</em> (2016)</td><td>Walk Again Project：8例完全性SCI，EEG外骨骼+VR训练后50%（4/8）AIS分级从完全性转为不完全性</td><td>n=8，非随机，非盲法</td></tr>
+<tr><td>Donati et al., <em>Sci Rep</em> (2016)</td><td>Walk Again Project：8例完全SCI，EEG外骨骼+VR训练后50% AIS分级改善</td><td>n=8，非随机，非盲法</td></tr>
 <tr><td>Bin He Lab (CMU), <em>Nature Comms</em> (2025)</td><td>非侵入EEG实时解码精细手指运动，~81%准确率</td><td>验证方法可行性</td></tr>
 <tr><td>Luo et al., <em>IEEE T Robot</em> (2025)</td><td>0.38kg/unit膝关节外骨骼，峰值12.5Nm</td><td>QDD硬件密度验证</td></tr>
 <tr><td>Lawhern et al., EEGNet (2018)</td><td>~2000参数CNN架构，跨受试者EEG分类</td><td>行业标准架构</td></tr>
 <tr><td>Cochrane (2020)</td><td>4项RCT荟萃，外骨骼辅助步行OR=2.11</td><td>步行独立性改善</td></tr>
 <tr><td>Yang et al., <em>Front Neurol</em> (2024)</td><td>34 RCT荟萃，外骨骼显著改善FMA-LE +1.15分</td><td>荟萃分析</td></tr>
 <tr><td>Chiu et al., <em>Global Spine J</em> (2025)</td><td>HAL(EMG) vs 被动外骨骼：6MWT改善高39%</td><td>意图驱动vs被动</td></tr>
-<tr><td>Luo, Su et al., <em>Nature</em> (2024)</td><td>sim2real RL外骨骼步态策略：仿真训练后零样本迁移至真实外骨骼</td><td>RL外骨骼从仿真到真机的首个Nature验证</td></tr>
+<tr><td>Luo, Su et al., <em>Nature</em> (2024)</td><td>sim2real RL外骨骼步态策略：零样本迁移至真实外骨骼</td><td>RL外骨骼首个Nature验证</td></tr>
+<tr><td>Marchal-Crespo & Reinkensmeyer, <em>J Neuroeng Rehabil</em> (2009)</td><td>综述：assist-as-needed控制策略及其对抗slacking的理论基础</td><td>康复机器人控制策略经典文献</td></tr>
+<tr><td>Pfurtscheller & Lopes da Silva, <em>Clin Neurophysiol</em> (1999)</td><td>ERD/ERS基本机制：μ节律去同步化反映运动皮层激活</td><td>EEG基础机制</td></tr>
 </tbody>
 </table>
 
@@ -964,15 +788,16 @@ a { color: var(--nexum); text-decoration: none; }
 <thead><tr><th style="width:28%">出处</th><th style="width:44%">数据</th><th style="width:28%">来源</th></tr></thead>
 <tbody>
 <tr><td>国家医保局 (2025.3)</td><td>非侵入BCI定价¥966/次（已扩展至17省）</td><td>医疗服务价格项目</td></tr>
-<tr><td>11省市外骨骼医保 (2024-2025)</td><td>外骨骼康复纳入医保支付试点</td><td>省级医保局</td></tr>
+<tr><td>11省市外骨骼医保 (2024-2025)</td><td>外骨骼康复纳入医保支付试点，报销45-65%</td><td>省级医保局</td></tr>
 <tr><td>国家脑科学计划</td><td>首年拨款31.48亿（2021）</td><td>科技部</td></tr>
-<tr><td>CMS (2024)</td><td>Medicare K1007：个人外骨骼$91,032/台</td><td>适用于Ekso/ReWalk Personal</td></tr>
-<tr><td>程天科技/同济医院 (2026)</td><td>首例脑-脊-机三融合康复</td><td>单例临床案例</td></tr>
+<tr><td>CMS (2024)</td><td>Medicare K1007：个人外骨骼$91,032/台</td><td>适用于Ekso/ReWalk</td></tr>
 <tr><td>极壳Hypershell</td><td>消费外骨骼累计融资$120M，估值~$400M</td><td>品类存在性验证</td></tr>
 <tr><td>国家统计局 (2025)</td><td>中国60+人口3.23亿，占总人口23.0%</td><td>正式数据</td></tr>
-<tr><td>Feigin et al., <em>Int J Stroke</em> (2022)</td><td>WSO全球卒中实况报告：全球9400万卒中幸存者，年新发1200万</td><td>GBD 2021</td></tr>
+<tr><td>Feigin et al., <em>Int J Stroke</em> (2022)</td><td>全球9400万卒中幸存者，年新发1200万</td><td>GBD 2021</td></tr>
 </tbody>
 </table>
+
+
 
 <button id="bttBtn" aria-label="回到顶部" style="position:fixed;bottom:28px;right:28px;z-index:999;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--bg);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);opacity:0;pointer-events:none;transition:all .3s ease"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg></button>
 
@@ -995,13 +820,8 @@ a { color: var(--nexum); text-decoration: none; }
   if (btn) {
     btn.addEventListener('click', function() {
       var isDark = document.documentElement.hasAttribute('data-theme');
-      if (isDark) {
-        document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('nexum-theme', 'light');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('nexum-theme', 'dark');
-      }
+      if (isDark) { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('nexum-theme', 'light'); }
+      else { document.documentElement.setAttribute('data-theme', 'dark'); localStorage.setItem('nexum-theme', 'dark'); }
     });
   }
 })();
