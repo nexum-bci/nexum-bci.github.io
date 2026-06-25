@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品与技术路径思考 — Nexum 逐念而行</title>
+<link rel="stylesheet" href="page-base.css">
+<style>
+body { padding-top: 80px; }
+.container { max-width: 820px; margin: 0 auto; padding: 40px 24px 80px; }
+h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+.byline { font-size: 14px; color: var(--text-tertiary); margin-bottom: 40px; }
+h2 { font-size: 22px; font-weight: 700; margin-top: 48px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); color: var(--text); }
+h3 { font-size: 17px; font-weight: 600; margin-top: 32px; margin-bottom: 10px; color: var(--text); }
+p { font-size: 15px; line-height: 1.75; margin-bottom: 14px; color: var(--text-secondary); }
+table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+th { background: var(--accent-subtle); color: var(--accent); padding: 10px 14px; text-align: left; font-weight: 600; font-size: 12px; }
+td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; }
+ul, ol { margin: 8px 0 16px 24px; color: var(--text-secondary); }
+li { margin: 5px 0; line-height: 1.65; }
+strong { color: var(--text); }
+.callout { margin: 24px 0; padding: 20px 24px; border-radius: 8px; background: var(--accent-subtle); border-left: 3px solid var(--accent); font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+hr { border: none; height: 1px; background: var(--border); margin: 40px 0; }
+.footnote { font-size: 13px; color: var(--text-tertiary); margin-top: 48px; }
+@media (max-width: 768px) { .container { padding: 24px 16px 60px; } h1 { font-size: 26px; } }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>产品与技术路径思考</h1>
+<p class="byline">Nexum 逐念而行 · 内部技术讨论整理 · 2026年6月</p>
+
+<p>本文档整理了Nexum团队在产品定义、技术架构、市场路径和关键挑战等方面的深入讨论。它不是一个正式的产品规格或商业计划——它是我们思考过程的诚实记录，包括尚未解决的问题和不确定的判断。</p>
+
+<hr>
+
+<h2>一、目标人群的特征</h2>
+
+<p>Nexum One的核心目标人群是<strong>大脑运动皮层完好但神经通路受损、具备站立能力但无法独立行走</strong>的患者。这不是一个模糊的"1500万"数字——需要精确理解这个人群的物理特征：</p>
+
+<table>
+<tr><th>特征</th><th>含义</th><th>产品影响</th></tr>
+<tr><td>能承载自身重量</td><td>不需要外骨骼"托举"他们</td><td>框架式设计没有必要，柔性穿戴可行</td></tr>
+<tr><td>有残留运动意图</td><td>EEG可以读到MRCP信号</td><td>脑机接口的作用域存在</td></tr>
+<tr><td>髋屈肌群部分失能</td><td>抬腿启动是核心障碍</td><td>V1聚焦髋关节——一个电机、一个关节</td></tr>
+<tr><td>平衡能力减退</td><td>但不是完全丧失</td><td>需要辅助力矩而非替代力矩</td></tr>
+</table>
+
+<p>流行病学估算的上限约1500万人（脑卒中偏瘫+不完全SCI），但处于恢复窗口期、认知功能完好、适合EEG训练的<strong>近期可及人群约200-500万</strong>。以此为起点，可逐步扩展至创伤性脑损伤后行走障碍（约300万）、老年肌少症重度行动障碍（约4800万肌少症患者中的重度者）等更广泛的人群。</p>
+
+<p>对不同人群，EEG的价值不同：</p>
+
+<table>
+<tr><th>人群</th><th>问题出在哪</th><th>EEG的价值</th><th>适用产品</th></tr>
+<tr><td>脑卒中恢复期偏瘫</td><td>大脑→肌肉的通路受损</td><td>核心——绕过受损通路读取意图</td><td>Nexum One Clinical</td></tr>
+<tr><td>不完全SCI</td><td>脊髓传导受损，皮层完好</td><td>核心——同上</td><td>Nexum One Clinical</td></tr>
+<tr><td>创伤性脑损伤</td><td>认知可能受损，运动通路完整</td><td>视认知功能而定</td><td>需个体化评估</td></tr>
+<tr><td>老年肌少症</td><td>肌肉本身退化，大脑正常</td><td>有限——大脑在正常发指令，问题在肌肉执行</td><td>IMU版更合适</td></tr>
+</table>
+
+<hr>
+
+<h2>二、EEG在系统中的真实角色</h2>
+
+<p>一个重要的澄清：<strong>EEG在此架构中做的是离散意图分类，而非连续力矩控制。</strong>它判断的是"你想走、站、坐还是无意图"，而不是"这一步该给多少牛顿米的力"。这一设计不是技术妥协，而是基于非侵入EEG的物理现实：</p>
+
+<ul>
+<li>步行运动伪迹（头部加速度1-3g）与神经信号（MRCP 5-30μV）共享频带，信噪比可达-40dB</li>
+<li>连续力控在这种信噪比下不可行</li>
+<li>四分类（走/站/坐/无意图）利用了MRCP的时空特性——在动作前200-500ms的窗口内，准确率可达82-95%（实验室跑步机条件）</li>
+<li>真实世界自由行走的EEG可靠性——尚无任何团队公开发表演示</li>
+</ul>
+
+<p>力矩的个性化输出由RL策略根据五个信息源共同决定：EEG分类（离散）、IMU步态相位（连续100Hz）、力传感器反馈（连续1kHz）、步态事件检测（离散）、用户历史适应参数（会话级偏移）。<strong>EEG不直接控制电机——它通过RL策略间接影响力矩输出。这是"意图驱动"与"脑控"的本质区别。</strong></p>
+
+<div class="callout">
+<strong>一个需要诚实的判断：</strong>对于slacking检测（判断患者是否在"划水"），EMG直接测量肌肉激活可能比EEG间接推参与度更可靠。EEG的优势不在slacking检测本身，而在步态模式切换（走→站、站→坐）的提前预判——这个窗口是跌倒高发时刻，IMU和EMG都无法提前捕捉。Nexum的策略是多模态融合：EEG做预判+EMG做肌肉验证+IMU做地面真相，三者互补而非互斥。
+</div>
+
+<hr>
+
+<h2>三、产品形态决策</h2>
+
+<h3>3.1 为什么是混合穿戴（刚性传力+柔性穿戴）</h3>
+
+<p>四种可能的形态，目标人群的物理约束决定了最优解：</p>
+
+<table>
+<tr><th>形态</th><th>代表</th><th>力传递</th><th>穿戴</th><th>为什么不适合我们的目标人群</th></tr>
+<tr><td>刚性框架+连杆</td><td>极壳Hypershell、程天EasyGo</td><td>高</td><td>5-10min</td><td>假设用户能自主平衡；刚性连杆路径过长，EEG的0.5s预判优势被机械响应吃掉</td></tr>
+<tr><td>髋+膝双关节</td><td>程天UGO、HAL</td><td>高</td><td>10-15min</td><td>EEG四分类不足以驱动双关节独立力控；V2方向但需算法成熟后</td></tr>
+<tr><td>纯柔性织物+sEMG</td><td>Myant Skiin</td><td>无法传递力矩</td><td>好</td><td>传感可行但执行不可行；纯织物传递不了12.5Nm</td></tr>
+<tr><td><strong>混合穿戴</strong></td><td><strong>Nexum One</strong></td><td><strong>碳纤维锚定>70%</strong></td><td><strong>~10秒</strong></td><td><strong>刚柔分工：刚性传力矩，柔性做穿戴</strong></td></tr>
+</table>
+
+<p><strong>精确定义：</strong>碳纤维锚定结构仅在髋关节处提供刚性力传递路径——这是力矩从电机到达身体的最短路径。弹性压缩织物将锚定点稳固贴合在身体上——多点压力分散，无需刚性框架环绕全身。电机通过碳纤维直接与身体耦合。织物不传递力矩，只传递舒适感。</p>
+
+<h3>3.2 为什么V1只做髋关节</h3>
+
+<p>不是工程上的权宜之计，是功能需求的正确定位：目标人群髋屈肌群部分失能——抬腿启动是核心障碍。膝关节在摆动期由惯性自然屈曲，在支撑期由股四头肌维持——这两个阶段对电机辅助的依赖远小于髋关节的启动阶段。<strong>先解决"启动走路"，再解决"走得更自然"。</strong>第二代扩展髋+膝，第三代扩展全身多关节——每代对应控制算法成熟度与功能需求的扩展边界。</p>
+
+<hr>
+
+<h2>四、市场路径：为什么先做临床，不做消费</h2>
+
+<p>这是一个需要诚实回答的战略选择。纯IMU消费外骨骼是一个被极壳Hypershell（$599/2.2kg）验证过的市场——如果Nexum的目标只是"做一个更好的消费外骨骼"，用肌骨模型+RL去差异化，技术上可行。但这条路的挑战是：</p>
+
+<ul>
+<li>消费外骨骼是BOM成本和渠道效率的竞争——品牌和渠道>技术</li>
+<li>RL策略+肌骨模型的技术优势无法在消费场景被客户感知——"个性化助力"在$599的价位段是一个消费者无法判断真伪的营销词</li>
+<li>作为初创公司，Nexum在供应链和品牌上没有任何优势参与这场竞争</li>
+</ul>
+
+<p><strong>Nexum走临床路径不是因为"消费市场拼不过"，而是因为EEG恰好是进入临床市场的钥匙——而临床市场是建立规模化壁垒的必经之路。</strong></p>
+
+<p>市场进入顺序：</p>
+
+<table>
+<tr><th>阶段</th><th>产品</th><th>渠道</th><th>定价</th><th>目标</th></tr>
+<tr><td>天使轮（2026-2028）</td><td>Clinical版原型</td><td>实验室验证+预临床n=30</td><td>—</td><td>证明EEG+个性化助力的可行性</td></tr>
+<tr><td>Pre-A（2028-2030）</td><td>Clinical版$18,000</td><td>B2B医院采购，医保覆盖45-65%</td><td>$18,000</td><td>积累临床数据和医生处方习惯</td></tr>
+<tr><td>A轮（2030-2032）</td><td>Home版$3,999+$499/年</td><td>B2B2C处方→居家</td><td>$3,999+$499/年</td><td>临床背书→消费者信任</td></tr>
+<tr><td>消费扩展（2032+）</td><td>IMU版（去EEG，更轻更便宜）</td><td>B2C零售</td><td>待定</td><td>规模效应降BOM后自然切入</td></tr>
+</table>
+
+<div class="callout">
+<strong>照护者负担是隐性但核心的付费驱动力。</strong>脑卒中居家照护者平均每周投入20-40小时在辅助移动和防跌倒监督上，60-70%报告焦虑或抑郁——排名第一的压力来源是"害怕老人摔倒"。Home版的购买决策者通常不是患者本人，而是子女——他们支付$3,999+$499/年的意愿，取决于产品是否能减少他们"时刻盯着"的负担，而不只是老人自己能走多少步。
+</div>
+
+<hr>
+
+<h2>五、关键挑战与备案</h2>
+
+<h3>5.1 生理负反馈（slacking）</h3>
+
+<p>外骨骼施加辅助力矩→肌梭和高尔基腱器检测到外部力→脊髓反射降低肌肉激活。康复工程文献将此称为"slacking"效应（Marchal-Crespo & Reinkensmeyer, 2009）。这与Nexum的核心逻辑——"主动参与驱动神经可塑性"——构成表面矛盾。</p>
+
+<p><strong>为什么逻辑上不是死路：</strong>slacking是连续而非开关式的——辅助力矩与肌肉激活之间存在剂量-效应关系。Assist-as-Needed（AAN）策略在EMG引导下已被证明能减轻slacking效应。Nexum的假设是EEG可以比EMG更早地检测到参与度变化，从而更有效地实现AAN。<strong>但这个假设未经临床验证。</strong></p>
+
+<p><strong>如果AAN不成立：</strong>"主动参与驱动神经可塑性"的核心逻辑需要根本性调整。产品可能退化为"辅助行走+防跌倒"而不是"促进神经恢复"——临床价值降低、产品差异化减弱、市场定位需重新评估。</p>
+
+<h3>5.2 EEG在真实行走中的可靠性</h3>
+
+<p>实验室跑步机上82-95%的EEG分类准确率是基于受控条件。自由行走中头部运动的加剧、出汗导致的电极阻抗变化、注意力分散对皮层信号的影响——这些都是天使轮需要首次在真实场景中测试的。</p>
+
+<p><strong>降低验证风险的工程策略：</strong>(1)多模态融合，EEG+EMG+IMU+力传感器交叉校验；(2)分阶段验证，先做离散分类（高/中/低参与度），再做连续调控；(3)分层患者，先在皮层保留较好的年轻患者中验证；(4)渐进减力，周级别调整，降低对单次测量精度的依赖。</p>
+
+<h3>5.3 是否存在更简单的替代方案</h3>
+
+<p>有。(1)EMG-guided AAN（HAL路径）对slacking检测可能更可靠——因为EMG直接测量肌肉激活。(2)纯IMU外骨骼对老年消费市场是更优解——更轻、更便宜、不需要EEG校准。(3)髋部防摔气囊+家庭适老化改造+肌力训练的组合，对单纯防摔可能更简单有效。</p>
+
+<p><strong>Nexum不选这些方案，不是因为它们不行——是因为它们解决的是不同的问题。</strong>Nexum要解决的是：对于大脑完好但神经通路受损的患者，如何在不依赖治疗师的情况下，实现"理解意图→个性化辅助→促进恢复"的完整闭环。这个问题的约束条件决定了方案的复杂度。</p>
+
+<hr>
+
+<h2>六、为什么这个方案在2026年是可行的</h2>
+
+<p>这个方案不是"发明了什么新技术"——每一项单独都有现成方案。但五项前提在2025-2026年首次同时成立：</p>
+
+<table>
+<tr><th>条件</th><th>过去</th><th>2025-2026</th></tr>
+<tr><td>干电极EEG</td><td>阻抗过高，步态伪迹无法处理</td><td>微针阵列阻抗降至2.6kΩ@10Hz，信号幅度超湿电极39-44%</td></tr>
+<tr><td>准直驱电机</td><td>扭矩密度不足以驱动穿戴式设备</td><td>260g输出12.5Nm峰值，使轻量执行机构成为可能</td></tr>
+<tr><td>碳纤维成本</td><td>工业级价格过高</td><td>T700级降至$12-35/kg，可进入消费/医疗产品成本区间</td></tr>
+<tr><td>AI边缘推理</td><td>需要云端/工作站</td><td>策略蒸馏至几MB部署到嵌入式设备</td></tr>
+<tr><td>监管与支付</td><td>无审评路径、无定价</td><td>BCI单独定价¥966/次；11+省市外骨骼医保报销45-65%；NMPA绿色通道</td></tr>
+</table>
+
+<hr>
+
+<h2>七、竞品格局中的位置</h2>
+
+<table>
+<tr><th>类型</th><th>公司</th><th>做什么</th><th>不做EEG</th><th>不做下肢</th></tr>
+<tr><td>框架式医院外骨骼</td><td>Ekso/ReWalk</td><td>全瘫患者医院内使用，23kg/$91K-200K</td><td>✓</td><td></td></tr>
+<tr><td>EMG外骨骼</td><td>HAL (Cyberdyne)</td><td>肌电控制，~14kg，医院BWS悬吊</td><td>✓</td><td></td></tr>
+<tr><td>消费外骨骼</td><td>极壳/程天EasyGo</td><td>户外/轻量，$599-2500，1.75-2.2kg</td><td>✓</td><td></td></tr>
+<tr><td>EEG上肢康复</td><td>g.tec/赛博灵科</td><td>EEG+FES，上肢，不做下肢</td><td></td><td>✓</td></tr>
+<tr><td>个人家用外骨骼</td><td>Wandercraft Eve</td><td>自平衡，~15kg，~$38K，摇杆控制</td><td>✓</td><td></td></tr>
+<tr><td><strong>Nexum One</strong></td><td><strong>逐念而行</strong></td><td><strong>EEG+IMU+RL，~2.5kg，Clinical/Home双版本</strong></td><td></td><td></td></tr>
+</table>
+
+<p>竞品格局的核心发现：外骨骼公司不做EEG，EEG公司不做下肢——<strong>交叉点目前空白，但需要更具体地理解为什么空白。</strong>不是因为所有人都没想到，而是因为五项前提在2026年之前从未同时成立。如果条件不具备时强行做交叉点，结果就是一个既不轻便、又无临床价值的四不像。</p>
+
+<hr>
+
+<h2>八、诚实声明</h2>
+
+<p><strong>本文档中讨论的以下假设尚未被临床验证：</strong></p>
+
+<ul>
+<li>EEG在自由行走（非跑步机）中的四分类准确率能否维持82%以上</li>
+<li>EEG-ERD与肌肉激活的相关性是否足够支撑AAN实时调控</li>
+<li>AAN策略能否显著对抗slacking效应</li>
+<li>个性化RL策略在真人上的零样本迁移是否有效（Nature 2024只验证了通用策略）</li>
+<li>联邦学习在康复场景中的实际收敛速度和个性化效果</li>
+</ul>
+
+<p><strong>天使轮（$2-3M，18个月）的核心目标正是验证这些假设中最关键的一个：</strong>在实验室环境中，证明EEG意图检测结合个性化助力能够对目标患者的步态功能产生可测量的改善。如果这个假设失败，产品方向需要根本性调整。</p>
+
+<p class="footnote">本文件仅供内部讨论和合作伙伴交流，不构成投资建议或产品承诺。其中引用的学术文献均为公开可得，关键政策文件均为公开政府文件。</p>
+
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>
