@@ -117,6 +117,9 @@ li { margin: 5px 0; }
 hr { border: none; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 48px 0; }
 ::selection { background: var(--nexum); color: #fff; }
 a { color: var(--nexum); text-decoration: none; }
+.check-yes{color:#10b981;font-weight:700}
+.check-no{color:#ef4444;font-weight:700}
+.check-warn{color:#f59e0b;font-weight:700}
 
 /* ===== Callout boxes ===== */
 .callout {
@@ -457,10 +460,10 @@ a { color: var(--nexum); text-decoration: none; }
 
 <table>
 <tr><th>形态</th><th>代表产品</th><th>力传递精度</th><th>穿戴便利</th><th>适合偏瘫</th></tr>
-<tr><td>刚性框架+连杆</td><td>极壳 Hypershell, 程天 EasyGo</td><td>✅ 高</td><td>❌ 5-10min</td><td>❌ 假设用户能自主平衡</td></tr>
-<tr><td>髋+膝双关节</td><td>程天 UGO, HAL</td><td>✅ 高</td><td>❌ 10-15min, 需协助</td><td>⚠️ EEG控制不足以驱动双关节</td></tr>
-<tr><td>纯柔性织物</td><td>Myant Skiin, Siren</td><td>❌ 无法传递定向力矩</td><td>✅</td><td>❌ 传感可行，执行不可行</td></tr>
-<tr><td><strong>混合穿戴（Nexum）</strong></td><td><strong>Nexum One</strong></td><td><strong>✅ 碳纤维锚定 >70%效率</strong></td><td><strong>✅ ~10秒</strong></td><td><strong>✅ 为不完全瘫痪设计</strong></td></tr>
+<tr><td>刚性框架+连杆</td><td>极壳 Hypershell, 程天 EasyGo</td><td><span class="check-yes">✓</span> 高</td><td><span class="check-no">✗</span> 5-10min</td><td><span class="check-no">✗</span> 假设用户能自主平衡</td></tr>
+<tr><td>髋+膝双关节</td><td>程天 UGO, HAL</td><td><span class="check-yes">✓</span> 高</td><td><span class="check-no">✗</span> 10-15min, 需协助</td><td><span class="check-warn">~</span> EEG控制不足以驱动双关节</td></tr>
+<tr><td>纯柔性织物</td><td>Myant Skiin, Siren</td><td><span class="check-no">✗</span> 无法传递定向力矩</td><td><span class="check-yes">✓</span></td><td><span class="check-no">✗</span> 传感可行，执行不可行</td></tr>
+<tr><td><strong>混合穿戴（Nexum）</strong></td><td><strong>Nexum One</strong></td><td><strong><span class="check-yes">✓</span> 碳纤维锚定 >70%效率</strong></td><td><strong><span class="check-yes">✓</span> ~10秒</strong></td><td><strong><span class="check-yes">✓</span> 为不完全瘫痪设计</strong></td></tr>
 </table>
 
 <p><strong>精确定义：</strong>碳纤维锚定结构仅在髋关节处提供刚性力传递路径——这是力矩从电机到达身体的最短路径。弹性压缩织物负责将锚定点稳固贴合在身体上——多点压力分散，无需刚性框架环绕全身。电机（CubeMars AKE60-8, 260g）通过碳纤维锚定结构与身体刚性耦合。织物不传递力矩，只传递穿戴的舒适感。</p>
