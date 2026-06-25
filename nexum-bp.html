@@ -269,7 +269,7 @@ a:hover { opacity: 0.75; }
 </table>
 
 <p><strong>过去为何不可行：</strong>步行头部加速度1-3g，MRCP幅值仅5-30μV，信噪比可达-40dB。</p>
-<p><strong>2025年突破：</strong>微针阵列干电极阻抗降至2.6kΩ@10Hz，信号幅度超湿电极39-44%（Materials Today Nano, 2026）。实验室跑步机EEG准确率82-95%（Dong et al., 2024）。真实世界自由行走——尚无公开演示，天使轮核心验证假设。</p>
+<p><strong>2025年突破：</strong>微针阵列干电极阻抗降至2.6kΩ@10Hz，信号幅度超湿电极39-44%（Materials Today Nano, 2026）。实验室跑步机EEG分类准确率82-95%（Dong et al., 2024）。Contreras-Vidal Lab (U Houston, 2014-2020) 验证了行走中EEG信号包含步态运动学信息。中国研究团队已实现非侵入EEG实时闭环控制下肢外骨骼行走并引入双侧触觉反馈。真实世界自由行走——尚无公开演示，天使轮核心验证假设。</p>
 
 <h3>二、控制策略：从通用曲线到个体化肌骨模型</h3>
 
@@ -767,24 +767,24 @@ a:hover { opacity: 0.75; }
 <h2 id="appendix">附录：关键证据与引用</h2>
 <p style="font-size:13px;color:var(--text-secondary);margin-bottom:20px;">以下所有证据来自公开可查的学术论文、政府文件、企业公告或权威媒体报道。</p>
 
-<h3>A. 临床与学术引用</h3>
-<table>
-<thead><tr><th style="width:28%">出处</th><th style="width:44%">关键发现</th><th style="width:28%">备注</th></tr></thead>
-<tbody>
-<tr><td>Donati et al., <em>Sci Rep</em> (2016)</td><td>Walk Again Project：8例完全SCI，EEG外骨骼+VR训练后50% AIS分级改善</td><td>n=8，非随机，非盲法</td></tr>
-<tr><td>Bin He Lab (CMU), <em>Nature Comms</em> (2025)</td><td>非侵入EEG实时解码精细手指运动，~81%准确率</td><td>验证方法可行性</td></tr>
-<tr><td>Luo et al., <em>IEEE T Robot</em> (2025)</td><td>0.38kg/unit膝关节外骨骼，峰值12.5Nm</td><td>QDD硬件密度验证</td></tr>
-<tr><td>Lawhern et al., EEGNet (2018)</td><td>~2000参数CNN架构，跨受试者EEG分类</td><td>行业标准架构</td></tr>
-<tr><td>Cochrane (2020)</td><td>4项RCT荟萃，外骨骼辅助步行OR=2.11</td><td>步行独立性改善</td></tr>
-<tr><td>Yang et al., <em>Front Neurol</em> (2024)</td><td>34 RCT荟萃，外骨骼显著改善FMA-LE +1.15分</td><td>荟萃分析</td></tr>
-<tr><td>Chiu et al., <em>Global Spine J</em> (2025)</td><td>HAL(EMG) vs 被动外骨骼：6MWT改善高39%</td><td>意图驱动vs被动</td></tr>
-<tr><td>Luo, Su et al., <em>Nature</em> (2024)</td><td>sim2real RL外骨骼步态策略：零样本迁移至真实外骨骼</td><td>RL外骨骼首个Nature验证</td></tr>
-<tr><td>Marchal-Crespo & Reinkensmeyer, <em>J Neuroeng Rehabil</em> (2009)</td><td>综述：assist-as-needed控制策略及其对抗slacking的理论基础</td><td>康复机器人控制策略经典文献</td></tr>
-<tr><td>Pfurtscheller & Lopes da Silva, <em>Clin Neurophysiol</em> (1999)</td><td>ERD/ERS基本机制：μ节律去同步化反映运动皮层激活</td><td>EEG基础机制</td></tr>
-</tbody>
-</table>
+<h3>A. EEG+下肢外骨骼：学术验证全景</h3>
+	<p style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;">以下按证据强度排列。核心问题：非侵入EEG能否为下肢外骨骼提供可用的运动意图信号？取决于EEG承担什么角色。<strong>离散分类（走/站/坐/无意图）在实验室跑步机条件下准确率82-95%，已被多个独立实验室验证。连续力矩估计在真实行走中信噪比-40dB，学术界无成功先例。</strong>Nexum的架构选择（EEG离散分类+RL连续力矩）正是基于此证据边界。</p>
+	<table>
+	<thead><tr><th style="width:28%">出处</th><th style="width:44%">关键发现</th><th style="width:28%">对Nexum的意义</th></tr></thead>
+	<tbody>
+	<tr><td>Donati et al., <em>Sci Rep</em> (2016)<br>Nicolelis Lab, Duke</td><td>Walk Again Project：8例完全SCI，非侵入EEG控制下肢外骨骼+VR训练，12个月后50%患者AIS分级改善</td><td><strong>最高相关度。</strong>EEG→下肢外骨骼可行，伴随神经可塑性改善</td></tr>
+	<tr><td>Contreras-Vidal Lab, U Houston<br><em>J Neural Eng</em> (2014-2020)</td><td>非侵入EEG在跑步机行走中解码下肢运动学，解码器相关度r&gt;0.5。验证行走中EEG包含步态相关信息</td><td>行走EEG可用但需复杂解码。支持Nexum的"EEG做离散分类"保守设计</td></tr>
+	<tr><td>He et al., <em>Nature Comms</em> (2025)<br>Bin He Lab, CMU</td><td>非侵入EEG实时解码精细手指运动，~81%准确率</td><td>方法学验证。下肢步态比手指更简单（周期性），迁移可行性高</td></tr>
+	<tr><td>中国研究团队<br>《实时脑机接口控制行走外骨骼》</td><td>非侵入EEG实时控制下肢外骨骼行走，引入双侧触觉反馈增强闭环稳定性</td><td><strong>直接验证。</strong>EEG→下肢外骨骼行走的实时闭环控制</td></tr>
+	<tr><td>Luo, Su et al., <em>Nature</em> (2024)</td><td>RL策略在肌骨仿真中训练后零样本迁移至真实外骨骼，代谢成本降低24%</td><td>RL→外骨骼sim2real已被验证。Nexum叠加EEG意图信号</td></tr>
+	<tr><td>《利用sEMG在外骨骼辅助行走中对控制定律进行对比与域自适应评估》</td><td>基于学习的控制策略优于固定控制律，核心挑战是跨被试泛化——域自适应可缩小泛化差距</td><td>支持RL策略+pFedAC联邦学习方向</td></tr>
+	<tr><td>《外骨骼康复机器人中物理与信息交互的协同进展：综述》</td><td>全面综述物理与信息交互协同。结论：多模态融合是主流趋势，单一信号源均存在瓶颈</td><td>支持EEG+IMU+力传感器多模态架构</td></tr>
+	<tr><td>《当机器骨骼学会柔顺：解剖对齐与自适应控制》</td><td>刚性外骨骼正被淘汰，自适应柔顺控制+解剖对齐是下一代方向</td><td>支持碳纤维锚点+弹性织物混合穿戴方案</td></tr>
+	<tr><td>《外骨骼机器人sEMG综述：运动意图识别技术与应用》</td><td>sEMG可在肌肉激活前30-100ms检测意图。卒中患者肌肉激活模式异常，信号漂移是主要挑战</td><td>解释Nexum选EEG而非sEMG：神经通路问题在肌肉上游</td></tr>
+	</tbody>
+	</table>
 
-<h3>B. 市场与政策引用</h3>
+	<h3>B. 市场与政策引用</h3>
 <table>
 <thead><tr><th style="width:28%">出处</th><th style="width:44%">数据</th><th style="width:28%">来源</th></tr></thead>
 <tbody>
