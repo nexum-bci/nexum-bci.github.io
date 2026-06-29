@@ -17,12 +17,12 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: -apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans SC','Segoe UI','Microsoft YaHei',sans-serif;
-  max-width:1080px; margin:0 auto; padding:64px 48px 56px 48px;
+  max-width:1080px; margin:0 auto; padding:64px 48px 64px 48px;
   color:var(--text); line-height:1.75; font-size:14.5px;
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
   background:var(--bg); font-weight:400;
 }
-h1 { font-size:38px; font-weight:900; letter-spacing:-0.5px; margin:0 0 6px 0; color:var(--primary-dark); border-bottom:5px solid var(--primary); padding-bottom:24px; line-height:1.12; }
+h1 { font-size:36px; font-weight:900; letter-spacing:-0.5px; margin:0 0 6px 0; color:var(--primary-dark); border-bottom:5px solid var(--primary); padding-bottom:24px; line-height:1.12; }
 h2 { font-size:19px; font-weight:800; margin-top:60px; margin-bottom:20px; color:var(--primary-dark); border-left:5px solid var(--primary); padding:8px 0 8px 16px; letter-spacing:-0.2px; line-height:1.3; background:linear-gradient(90deg,rgba(45,74,74,.05),transparent); }
 h3 { font-size:15.5px; font-weight:700; margin-top:44px; margin-bottom:16px; color:var(--primary-dark); display:flex; align-items:center; gap:8px; }
 h3::before { content:''; display:inline-block; width:7px; height:7px; border-radius:2px; background:var(--primary); flex-shrink:0; }
@@ -49,7 +49,7 @@ table table td { font-size:10.5px; padding:2px 6px; border:none; background:tran
 table table tr:nth-child(even) td { background:transparent !important; }
 
 /* Callouts */
-.callout { margin:32px 0; padding:24px 28px; border-radius:12px; font-size:13.5px; line-height:1.72; }
+.callout { margin:28px 0; padding:22px 26px; border-radius:10px; font-size:13.5px; line-height:1.75; }
 .callout strong { font-weight:700; }
 .callout-key { background:linear-gradient(135deg,rgba(45,74,74,.04),rgba(45,74,74,.02)); border:1px solid rgba(45,74,74,.12); text-align:center; font-size:14px; color:var(--text); }
 .callout-insight { background:linear-gradient(135deg,#f8faf9,#fafbfa); border-left:5px solid var(--primary); color:var(--text-secondary); }
@@ -82,7 +82,51 @@ table table tr:nth-child(even) td { background:transparent !important; }
 
 /* TOC sidebar */
 .toc-sidebar {
-  position:fixed; left:0; top:0; width:210px; height:100vh;
+  position:fixed; left:0; top:0; width:220px; height:100vh;
+  background:#fafbfb; border-right:1px solid var(--gray-200);
+  overflow-y:auto; padding:24px 16px; z-index:999;
+  font-size:11.5px; line-height:1.7; box-shadow:1px 0 8px rgba(0,0,0,.03);
+}
+.toc-sidebar h4 {
+  font-size:11px; font-weight:700; color:var(--text-tertiary); text-transform:uppercase;
+  letter-spacing:1.5px; margin:0 0 16px 0; padding:0 0 10px 0;
+  border-bottom:1px solid var(--gray-200);
+}
+.toc-sidebar a {
+  display:block; color:var(--text-secondary); text-decoration:none;
+  padding:3px 10px; border-radius:5px; transition:all .12s;
+  border-left:2px solid transparent; font-size:11.5px;
+}
+.toc-sidebar a:hover {
+  color:var(--primary-dark); background:var(--primary-light);
+  border-left-color:var(--primary);
+}
+.toc-sidebar a.sub { 
+  padding-left:22px; font-size:10.5px; color:var(--text-tertiary);
+}
+.toc-sidebar a.sub:hover { color:var(--text-secondary); }
+.toc-sidebar .toc-part {
+  font-size:10px; font-weight:700; color:var(--text-tertiary); text-transform:uppercase;
+  letter-spacing:1px; padding:12px 10px 4px; margin-top:4px;
+  border-top:1px solid var(--gray-200); cursor:default;
+}
+.toc-sidebar .toc-highlight {
+  font-weight:700; color:var(--green) !important;
+  background:rgba(58,125,90,.04); border-left-color:var(--green) !important;
+}
+.toc-toggle {
+  position:fixed; left:12px; top:12px; z-index:1001;
+  width:28px; height:28px; background:var(--primary-dark); color:#fff;
+  border:none; border-radius:6px; cursor:pointer; font-size:13px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.12); transition:opacity .2s;
+}
+.toc-toggle:hover { opacity:.85; }
+.toc-sidebar.collapsed { left:-220px; }
+body { margin-left:220px; }
+body.toc-collapsed { margin-left:0; }
+/* original toc removed */
+.NOOP { height:100vh;
   background:#f8f9fa; border-right:1px solid var(--gray-200);
   overflow-y:auto; padding:20px 14px; z-index:999;
   font-size:11.5px; line-height:1.6;
@@ -303,11 +347,12 @@ body {
 </style>
 <button class="toc-toggle" onclick="document.querySelector('.toc-sidebar').classList.toggle('collapsed');document.body.classList.toggle('toc-collapsed')" title="目录">☰</button>
 <nav class="toc-sidebar">
-<h4>目录</h4>
-<a href="#section-0" style="font-weight:700">★ 核心叙事（Pitch Deck）</a>
-<a href="#section-0b" class="sub">问题 · 现状 · 方案</a>
+<h4>导航</h4>
+<a href="#section-0" class="toc-highlight">核心叙事（Pitch Deck）</a>
+<a href="#section-0" class="sub">问题与现状</a>
+<a href="#section-0c" class="sub">方案与品类定义</a>
 <a href="#section-0d" class="sub">时机 · 团队 · 路径</a>
-<a href="#section-1" style="margin-top:8px">第二部分 · 支撑分析</a>
+<span class="toc-part">支撑分析</span>
 <a href="#section-1">一、政策与市场</a>
 <a href="#section-2">二、需求全景（44场景）</a>
 <a href="#sec-2-1" class="sub">2.1 B2C基础（10场景）</a>
@@ -328,7 +373,7 @@ body {
 <a href="#sec-5-2" class="sub">5.2 核心单位经济学</a>
 <a href="#sec-5-3" class="sub">5.3 最优收入结构</a>
 <a href="#section-6">六、竞品格局</a>
-<a href="#section-6b" class="sub" style="font-weight:700;color:var(--primary-dark)">★ 六.2 膝关节银发市场（核心）</a>
+<a href="#section-6b" class="sub toc-highlight">六.2 膝关节银发市场</a>
 <a href="#section-6b2" class="sub">六.3 替代方案局限性</a>
 <a href="#section-6c" class="sub">六.4 外骨骼可行性</a>
 <a href="#section-6d" class="sub">六.5 假肢市场中长期</a>
@@ -420,10 +465,8 @@ body {
 <a href="https://github.com/bones-manifold/BP">B&amp;M BP Repo</a>
 </div>
 
-<div style="background:linear-gradient(135deg,rgba(45,74,74,.08),rgba(45,74,74,.03));border:2px solid rgba(45,74,74,.15);border-radius:12px;padding:18px 24px;margin-bottom:28px;text-align:center">
-<div style="font-size:13px;color:var(--text-tertiary);margin-bottom:6px">两部分 · 17章 · 130+张表 · 249款竞品分析</div>
-<div style="font-size:15px;color:var(--text);line-height:1.8">
-<strong style="font-size:16px;color:var(--green)">核心章节 →</strong>
+<div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px;padding:14px 20px;margin-bottom:32px;text-align:center;font-size:13px;color:var(--text-secondary)">
+两部分 · 17章 · 130+张表 · 249款竞品 · <a href="#section-6b" style="color:var(--green);font-weight:700">核心章节 → 六.2</a> | <a href="#section-7a" style="color:var(--primary-dark);font-weight:600">七.2</a> · <a href="#section-7c" style="color:var(--primary-dark);font-weight:600">七.4</a> · <a href="#section-8" style="color:var(--primary-dark);font-weight:600">八</a>
 <a href="#section-6b" style="display:inline-block;background:var(--green);color:#fff;padding:6px 20px;border-radius:6px;text-decoration:none;font-weight:700;font-size:15px;margin:0 8px">六.2 膝关节银发市场深度分析</a>
 <br>其他核心：
 <a href="#section-7a" style="color:var(--primary-dark);font-weight:700;text-decoration:underline">七.2 产品定义</a> ·
@@ -965,7 +1008,7 @@ Bones不需要自建工厂。不需要自建海外团队。不需要从零学供
 <strong>Bones的竞争策略：</strong>消费端做Bones品牌膝关节硬件。工业/假肢端可探索技术授权模式。核心竞争力是硬件+算法的垂直整合。
 </div>
 
-<h2 id="section-6b" style="background:linear-gradient(90deg,rgba(58,125,90,.08),transparent);border-left-color:var(--green)">六.2 膝关节银发市场深度分析 ★ 核心章节</h2>
+<h2 id="section-6b">六.2 膝关节银发市场深度分析</h2>
 
 <div class="callout callout-key" style="text-align:left;font-size:15px;">
 <strong>核心命题：不是"我们有肌骨模型+RL所以做膝关节外骨骼"——而是"全球5.28亿人受膝关节骨关节炎困扰，当前所有解决方案都是妥协，存在一个巨大的产品空白"。</strong><br><br>
