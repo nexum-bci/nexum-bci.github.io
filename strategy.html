@@ -407,7 +407,84 @@ body {
 <a href="https://bonesmanifold.com/nexum-bp.html" style="color:var(--primary);text-decoration:none;margin-left:16px">逐念而行 BP</a>
 </div>
 
+
 <h1>外骨骼 · 产品战略决策</h1>
+
+<div style="background:linear-gradient(135deg,rgba(45,74,74,.08),rgba(45,74,74,.03));border:2px solid rgba(45,74,74,.15);border-radius:12px;padding:18px 24px;margin-bottom:24px;text-align:center">
+<div style="font-size:13px;color:var(--text-tertiary);margin-bottom:6px">本文档共两部分 · 17章 · 130+张表 · 阅读时间约45分钟</div>
+<div style="font-size:15px;color:var(--text);line-height:1.8">
+<strong style="font-size:16px;color:var(--green)">如果只读一章，读这一章 →</strong>
+<a href="#section-6b" style="display:inline-block;background:var(--green);color:#fff;padding:6px 20px;border-radius:6px;text-decoration:none;font-weight:700;font-size:15px;margin:0 8px">六.2 膝关节银发市场深度分析</a>
+<br>其他核心章节：
+<a href="#section-7a" style="color:var(--primary-dark);font-weight:700;text-decoration:underline">七.2 完整产品定义</a> ·
+<a href="#section-7c" style="color:var(--primary-dark);font-weight:700;text-decoration:underline">七.4 资源聚焦策略</a> ·
+<a href="#section-8" style="color:var(--primary-dark);font-weight:700;text-decoration:underline">八、最终战略推荐</a>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART ZERO: EXECUTIVE NARRATIVE — the pitch deck -->
+<!-- ============================================================ -->
+
+<h2 id="section-0">核心叙事：一个被忽视的万亿美元级问题</h2>
+
+<div class="callout callout-key" style="text-align:left;font-size:16px;">
+<strong>全球5.28亿人受骨关节炎困扰，其中60-85%为膝关节受累——3.2-4.5亿人。</strong>终生患病风险41-46%。每年造成约<strong>1万亿美元</strong>的经济损失（直接医疗+生产力丧失+非正式照护）。<br><br>
+从拐杖（$3B市场）到护膝（$2B）到止痛药（$19B+）到关节置换（280万例/年），存在一个<strong>$200B+的连续解决方案谱</strong>——但每一个方案都是妥协：拐杖占用双手且上楼无效·护膝1年废弃率72%·轮椅加速肌肉萎缩·手术不可逆且20-25%效果不佳。<br><br>
+<strong>在"药物/护具不够用"和"手术还太早"之间，存在一个覆盖数亿人、持续10-15年的治疗缺口。</strong>目前没有任何产品能同时做到：减少膝关节内侧负荷、保持肌肉功能、辅助上下楼、解放双手、日常穿戴不显眼。<br><br>
+<strong>这就是Bones要解决的问题。</strong>
+</div>
+
+<h2 id="section-0b">解决方案：个性化膝关节外骨骼</h2>
+
+<table>
+<tr><th style="width:18%">维度</th><th style="width:40%">Bones方案</th><th>竞品差距</th></tr>
+<tr><td><strong>控制策略</strong></td><td><strong>强化学习（RL）个性化力矩</strong>——同一台设备对100个用户输出100种策略。每个人的膝关节磨损模式不同（内侧vs外侧·不同严重程度），需要不同的力矩曲线</td><td>全行业使用固定PID/阻抗控制或通用AI预测——所有用户收到相同的助力策略。无法区分内侧vs外侧OA</td></tr>
+<tr><td><strong>核心参数</strong></td><td>直接优化<strong>膝关节内收力矩（KAM）</strong>——这是膝OA的核心生物力学指标，解释69%的内侧间室负荷变异。KAM减少20%+即有临床显著性</td><td>竞品优化代谢成本或步态对称性——这些是间接指标。髋关节外骨骼甚至可能<strong>增加</strong>膝关节负荷（Virginia Tech研究：增加9-13%）</td></tr>
+<tr><td><strong>数据飞轮</strong></td><td><strong>联邦学习pFedAC</strong>——第1000个用户的设备比第1个精准一个数量级。跨用户策略共享，越用越好</td><td>所有外骨骼公司是数据孤岛。用户A的数据不会让用户B受益</td></tr>
+<tr><td><strong>底层模型</strong></td><td><strong>416肌肉Hill型模型</strong>——唯一能建模半月板、十字韧带等膝关节软组织的方案。刚体连杆模型无法做到</td><td>全行业使用刚体连杆模型（OpenSim简化版）——无法区分肌肉力量与关节接触力的贡献</td></tr>
+<tr><td><strong>场景覆盖</strong></td><td>Gen 0覆盖80%日常疼痛场景（行走·上下楼·坐-站）。Gen 2覆盖100%（含蹲便器——中国独有痛点·竞品零覆盖）</td><td>竞品仅覆盖行走和上下楼——占老人膝痛场景的约35%。坐-站（20-50次/天）·长时间站立·蹲起——均未覆盖</td></tr>
+<tr><td><strong>产品形态</strong></td><td>Gen 0: 外挂电机·2-2.5kg·"丑但有用"→ Gen 2: 护膝化外观·1.5-2kg→ Gen 3: <1kg·织物集成·"看不见"</td><td>Skip MO/GO: $5,000·延迟发货·3.2kg。远也PowerKnee: <1kg但JD月销仅数百。DNSYS Z1: $1,998·通用AI非个性化</td></tr>
+</table>
+
+<h2 id="section-0c">为什么是现在</h2>
+
+<table>
+<tr><th>信号</th><th>数据</th></tr>
+<tr><td><strong>政策</strong></td><td>十五五规划首次写入具身智能·八部门联合发文支持外骨骼/肌肉外甲·民政部设科技创新基金·工信部推万台级实景实训</td></tr>
+<tr><td><strong>市场</strong></td><td>中国外骨骼市场5年增长15倍（2021 ¥6.8亿→2025 ¥105.6亿）·2026年1-4月线上零售额+785.5%·全球市场CAGR 29-49%</td></tr>
+<tr><td><strong>资本</strong></td><td>极壳$120M（蚂蚁+美团领投）·程天¥5亿+·傅利叶¥15亿+·强脑¥20亿+估值¥120亿·海尔亲自下场</td></tr>
+<tr><td><strong>技术</strong></td><td>RL+肌骨模型+联邦学习三大技术栈成熟·电机/电池/碳纤维供应链完备·消费外骨骼BOM已降至$400-800区间</td></tr>
+<tr><td><strong>竞争窗口</strong></td><td>膝关节外骨骼7-8家竞品全部处于原型/Kickstarter/早期阶段·无一实现规模化·无一实现盈利·无一使用RL个性化力矩</td></tr>
+</table>
+
+<h2 id="section-0d">团队：全行业唯一的复合技术背景</h2>
+
+<div class="callout callout-green">
+<strong>创始团队具备全行业稀缺的复合能力：全身多关节RL运控方法论 + 416肌肉Hill型模型的深度结合。</strong><br>
+人形机器人运控（20-40DOF）→外骨骼（1-6DOF）= 方法论上的降维迁移。全外骨骼行业无第二人同时具备这两个技术栈。<br>
+极壳/海尔/程天的创始人懂硬件/渠道/制造。伟思/大艾的创始人懂医疗器械/临床。<strong>Bones的创始人懂的是"怎么让机器理解人体并协同运动"——这是外骨骼从"会动的铁架子"升级到"智能设备"最关键的能力。</strong>
+</div>
+
+<h2 id="section-0e">执行路径：4年从原型到隐形化</h2>
+
+<table>
+<tr><th>阶段</th><th>时间</th><th>产品</th><th>核心目标</th><th>资本</th></tr>
+<tr><td><strong>Gen 0</strong></td><td>0-6月</td><td>单膝原型·外挂电机·3kg·RL力矩验证</td><td>KAM减少>20% vs PID·10人测试·仿真验证</td><td>自有资金</td></tr>
+<tr><td><strong>Gen 1</strong></td><td>6-18月</td><td>双膝碳纤维·2-2.5kg·30秒穿戴·Kickstarter</td><td>下楼制动60%+·首批100-500台·海外验证</td><td>天使 $500K-1.5M</td></tr>
+<tr><td><strong>Gen 2</strong></td><td>18-30月</td><td>1.5-2kg·护膝化外观·左右腿独立RL·千人联邦学习</td><td>NPS>60·年销1000+台·B2B客户3-5家</td><td>Seed $2-5M</td></tr>
+<tr><td><strong>Gen 3</strong></td><td>30-48月</td><td><1kg·织物集成·"看不出是外骨骼"</td><td>年销10000+台·纳入医保·万人联邦学习</td><td>A轮 $8-15M</td></tr>
+</table>
+
+<div class="callout callout-key" style="text-align:left;font-size:15px;">
+<strong>以下为支撑分析的完整正文。</strong>上述核心叙事中的每一个论断，都可以在下文中找到详细的数据来源、竞品对比和论证过程。<br>
+第一部分（核心叙事）：问题→方案→时机→团队→路径<br>
+第二部分（支撑分析）：<strong><a href="#section-1">一至八章 + 附录</a></strong> —— 政策与市场·44场景需求·7种产品形态·商业模式·249款竞品数据库·完整产品定义·生物力学·战略执行
+</div>
+
+<hr style="border:none;border-top:3px solid var(--primary);margin:48px 0 32px">
+
+
 <p style="font-size:14px;color:var(--text-tertiary);margin-bottom:36px">Bones &amp; Manifold 内部研究 · 2026年6月</p>
 
 <div style="background:linear-gradient(135deg,rgba(45,74,74,.08),rgba(45,74,74,.03));border:2px solid rgba(45,74,74,.15);border-radius:12px;padding:18px 24px;margin-bottom:24px;text-align:center">
@@ -422,15 +499,11 @@ body {
 </div>
 </div>
 
-<div class="callout callout-key" style="text-align:left;font-size:15px;">
-<strong>核心问题：Bones拥有全行业唯一的416肌肉Hill型肌骨模型+RL个性化力矩+联邦学习——这些技术资产应该转化成什么产品、卖给谁、怎么赚钱。</strong><br><br>
-<strong>分析方法：</strong>不从技术出发——从市场和用户出发。先穷尽所有可能（8个关节×7种产品形态×26类需求人群=1456种理论组合），再按需求刚性、支付意愿、竞争强度、Bones匹配度四个维度筛选收敛。<br><br>
-<strong>核心结论：</strong>聚焦单一产品线——<strong>中国市场的膝关节消费外骨骼</strong>。卖给中国5000万膝关节退化的老年人（子女购买）。用RL个性化力矩+肌骨模型做竞品做不到的个性化辅助。App是硬件的配套服务（不独立收费）。肌骨模型是硬件的引擎（不单独售卖）。假肢SDK是正确的方向但不是现在的任务。<br><br>
-<strong>战略决策：</strong>聚焦单一产品线。实现品类领先。<br><br>
-<strong>时机：</strong>2026年中国外骨骼市场处于品类定义窗口期。政策（十五五+八部门+民政部基金）、市场（5年15倍+线上785%增长）、技术（RL+肌骨模型成熟）三重共振。窗口2-3年。
-</div>
 
 
+
+
+<h2 style="text-align:center;color:var(--text-tertiary);border:none;background:none;font-size:16px;margin-top:64px">—— 第二部分：支撑分析 ——</h2>
 
 <h2 id="section-1">一、政策与市场：2026为何是外骨骼元年</h2>
 
