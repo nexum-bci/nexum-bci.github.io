@@ -32,7 +32,7 @@ p strong { color:var(--text); font-weight:700; }
 strong { color:var(--primary-dark); font-weight:700; }
 
 /* Tables - refined */
-table { width:100%; border-collapse:separate; border-spacing:0; margin:24px 0; font-size:12px; border-radius:10px; overflow:hidden; border:1px solid var(--gray-200); box-shadow:0 1px 4px rgba(0,0,0,.05); }
+table { width:100%; border-collapse:separate; border-spacing:0; margin:26px 0 32px; font-size:12px; border-radius:10px; overflow:hidden; border:1px solid var(--gray-200); box-shadow:0 1px 4px rgba(0,0,0,.05); }
 th { background:var(--gray-900); color:#fff; padding:11px 13px; text-align:left; font-weight:600; font-size:9.5px; letter-spacing:0.8px; text-transform:uppercase; border-bottom:3px solid var(--primary); }
 th:first-child { border-radius:10px 0 0 0; }
 th:last-child { border-radius:0 10px 0 0; }
@@ -488,7 +488,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <!-- PITCH DECK -->
 <!-- ============================================================ -->
 
-<h2 id="section-0">一、问题</h2>
+<h2 id="section-0" style="border-left-color:var(--green)">一、问题</h2>
 
 <div class="callout callout-danger" style="font-size:15.5px;line-height:1.9">
 <strong style="font-size:19px;display:block;margin-bottom:8px">地球上每两秒钟，就有一位老人因为膝盖疼痛而选择不出门。</strong>
@@ -505,7 +505,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <strong>王阿姨、Robert、山田太太——他们是全球5.28亿膝关节OA患者中的三个。</strong>不同的国家，不同的文化，不同样的支付体系——但面对的是同一个问题：在止痛药和关节置换之间的10-15年里，没有任何真正有效的解决方案。这个人群的日常需求不是登山、徒步、越野跑——而是下楼买菜、走完trail、去超市、从沙发上站起来。他们需要的不是一个"增强运动表现"的户外装备——他们需要一个<strong>能让他们继续正常生活的产品</strong>。
 </div>
 
-<h2 id="section-0b">二、现状：一个价值两千亿美元的问题，没有一个好答案</h2>
+<h2 id="section-0b" style="border-left-color:var(--green)">二、现状：一个价值两千亿美元的问题，没有一个好答案</h2>
 
 <p>全球每年为膝关节疼痛支付的费用超过<strong>$200B</strong>——涵盖拐杖（$3B）、护膝支具（$2B）、功能鞋（¥50亿中国市场）、止痛药（$19B+仅美国）、注射治疗、物理治疗、以及每年280万例膝关节置换手术。但<strong>这个市场里的每一个产品都是妥协</strong>。</p>
 
@@ -529,10 +529,10 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <strong style="font-size:15px">不是"外骨骼解决不了这个问题"。是"还没有人认真为这个人群做过外骨骼"。</strong>
 </div>
 
-<h2 id="section-0c">三、Bones的方案：一台真正理解你膝盖的机器</h2>
+<h2 id="section-0c" style="border-left-color:var(--green)">三、Bones的方案：一台真正理解你膝盖的机器</h2>
 
 <table>
-<tr><th style="width:16%">维度</th><th style="width:42%">Bones</th><th style="width:42%">为什么竞品做不到</th></tr>
+<tr><th style="width:16%">维度</th><th style="width:42%;background:var(--green);color:#fff">Bones</th><th style="width:42%">为什么竞品做不到</th></tr>
 <tr><td><strong>产品形态</strong></td><td><strong>消费级膝关节外骨骼硬件。</strong>Gen 0：外挂电机·2-2.5kg——先解决"有用"。Gen 2：运动护具外观·1.5-2.0kg·电机紧凑外置于膝关节铰链处。Gen 3：柔性执行器集成·外观接近普通服装。App配套：子女端KAM可视化+跌倒告警</td><td>竞品面向户外运动（Skip/DNSYS/极壳），或外观偏向医疗器械（远也PowerKnee三条绑带）。<strong>无人为膝关节OA老年人群做过完整的产品定义</strong></td></tr>
 <tr><td><strong>核心控制</strong></td><td><strong>RL个性化力矩。</strong>同一台设备对内侧OA输出外翻力矩（减少内侧负荷），对外侧OA输出内翻力矩。<strong>直接优化膝关节内收力矩（KAM）</strong>——膝OA的核心生物力学指标，解释69%的内侧间室负荷变异。目标<strong style="color:var(--green)">KAM减少20%+</strong></td><td>全行业用PID或通用AI——所有用户收到相同策略。优化目标是代谢成本或步态对称性——这些是间接指标，不是KAM。无法区分内侧vs外侧磨损</td></tr>
 <tr><td><strong>场景覆盖</strong></td><td><strong style="color:var(--green);font-size:15px">Gen 0覆盖80%疼痛场景</strong>（行走·上下楼·坐-站——最高频+最疼痛的四个场景）。Gen 2覆盖100%（含蹲便器蹲起——中国独有痛点·竞品零覆盖）。竞品场景覆盖率仅约35%</td><td>坐-站（每天20-50次）、长时间站立、蹲起——竞品全部未覆盖。这些恰好是老人最频繁遇到的日常动作，也是疼痛最剧烈的时刻</td></tr>
@@ -541,7 +541,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <tr><td><strong>制造策略</strong></td><td>Bones做消费硬件品牌。核心部件（定制减速器、碳纤维框架、控制PCB）逐步自研或深度定制。整机组装初期依托产业合作资源。首发中国（全球最大膝OA人群·最熟悉渠道），Gen 1 Kickstarter验证美国需求，Gen 2-3拓展欧洲和日本</td><td>远也自研硬件全链条（投入高、周期长）。极壳自建品牌和渠道（资本密集）。Bones走中间路线：核心自研+合作组装</td></tr>
 </table>
 
-<h2 id="section-0c2">三.2 品类定义：这不叫"外骨骼"</h2>
+<h2 id="section-0c2" style="border-left-color:var(--green)">三.2 品类定义：这不叫"外骨骼"</h2>
 
 <div class="callout callout-key" style="text-align:left;font-size:15px;line-height:1.9">
 <strong>"外骨骼"这个词对老年人意味着什么？</strong><br>
@@ -558,7 +558,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <tr><td style="background:rgba(58,125,90,.06)"><strong>推荐策略</strong></td><td colspan="4"><strong>双名称体系：</strong>消费者端使用功能描述型名称（如"膝动力"或"行走助手"）——老人和子女一眼能理解。技术端和投资人端保留"膝关节外骨骼"作为品类术语——保持行业对标和专业性。<strong>这就像Dyson不叫自己"吸尘器公司"而叫"空气科技公司"——但产品页上写的是"吸尘器"。</strong></td></tr>
 </table>
 
-<h2 id="section-0c3">三.3 产品边界：能解决什么、不能解决什么</h2>
+<h2 id="section-0c3" style="border-left-color:var(--green)">三.3 产品边界：能解决什么、不能解决什么</h2>
 
 <div class="callout callout-danger" style="text-align:left;font-size:14.5px;line-height:1.9">
 <strong>在描述这个产品的潜力之前，必须明确它的边界。以下不是"谦虚"——是工程诚实。</strong>
@@ -584,7 +584,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 </div>
 
 
-<h2 id="section-0c4">三.4 竞争格局：为什么别人没有做</h2>
+<h2 id="section-0c4" style="border-left-color:var(--green)">三.4 竞争格局：为什么别人没有做</h2>
 
 <div class="callout callout-key" style="text-align:left;font-size:15px;line-height:1.9">
 <strong>如果膝关节OA外骨骼是一个如此巨大的机会，为什么极壳（$120M融资）、Skip（Google X背景）、DNSYS、远也科技都没有做？他们不可能看不到这个市场。</strong><br><br>
@@ -610,7 +610,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 </div>
 
 
-<h2 id="section-0d">四、时机：2026——所有条件在同一时刻成熟</h2>
+<h2 id="section-0d" style="border-left-color:var(--green)">四、时机：2026——所有条件在同一时刻成熟</h2>
 
 <table>
 <tr><th>条件</th><th>为什么是现在</th></tr>
@@ -621,7 +621,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <tr><td><strong>竞争窗口</strong></td><td>膝关节外骨骼赛道7-8家参与者全部处于原型/Kickstarter/早期量产阶段。无一家实现规模化盈利。无一家使用RL个性化力矩。无一家专为膝关节OA老年人群设计产品。品类定义权尚未确立。竞争格局预计2027-2028年趋于明朗——<strong>现在入场是最佳时机</strong></td></tr>
 </table>
 
-<h2 id="section-0e">五、团队：全行业唯一具备这两种能力的人</h2>
+<h2 id="section-0e" style="border-left-color:var(--green)">五、团队：全行业唯一具备这两种能力的人</h2>
 
 <div class="callout callout-green" style="font-size:14.5px;line-height:1.9">
 全外骨骼行业，没有其他人同时具备这两个能力：<strong>全身多关节强化学习运控</strong>，和<strong>416肌肉Hill型模型的深度学习</strong>。<br><br>
@@ -630,7 +630,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 我们做的是消费硬件品牌。核心部件逐步自研，算法与控制全链条自主。这个能力是硬件产品内部最核心的差异化引擎。
 </div>
 
-<h2 id="section-0f">六、路径：四年，从有用到无形</h2>
+<h2 id="section-0f" style="border-left-color:var(--green)">六、路径：四年，从有用到无形</h2>
 
 <table>
 <tr><th>阶段</th><th>时间</th><th>产品</th><th>核心验证</th><th>资本</th></tr>
