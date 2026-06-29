@@ -136,7 +136,45 @@ body.toc-collapsed { margin-left:0; }
   }
 }
 
-@media(max-width:768px){@media(max-width:768px){@media(max-width:768px){@media(max-width:768px){ body{padding:28px 18px;font-size:14px} h1{font-size:28px} h2{font-size:18px} table{font-size:10.5px;display:block;overflow-x:auto} }
+@media(max-width:768px){@media(max-width:768px){@media(max-width:768px){/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  body { margin-left:0 !important; padding:48px 32px 40px; }
+  .toc-sidebar { display:none !important; }
+  .toc-toggle { display:none !important; }
+  table { font-size:11px; }
+  td { font-size:11px; padding:8px 10px; }
+  th { font-size:8.5px; padding:8px 10px; }
+}
+@media(max-width:768px){
+  body { padding:32px 16px 28px; font-size:13px; margin-left:0 !important; }
+  h1 { font-size:26px; padding-bottom:16px; }
+  h2 { font-size:17px; margin-top:40px; border-left-width:4px; padding-left:12px; }
+  h3 { font-size:14px; margin-top:32px; }
+  h3::before { width:5px; height:5px; }
+  table { font-size:10px; display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  td { font-size:10px; padding:7px 8px; }
+  th { font-size:7.5px; padding:7px 8px; letter-spacing:0.4px; }
+  .callout { padding:16px 18px; margin:24px 0; font-size:12.5px; }
+  .badge-red,.badge-green,.badge-blue,.badge-orange { font-size:9px; padding:2px 7px; }
+  .score-5,.score-4,.score-3,.score-2,.score-1 { width:48px; height:6px; }
+  .back-to-top { width:36px; height:36px; bottom:20px; right:16px; font-size:16px; }
+  .nav-links { font-size:10px; }
+  .nav-links a { margin-left:8px; }
+  .toc-sidebar,.toc-toggle { display:none !important; }
+  table table { font-size:9px; }
+  table table td { font-size:9px; padding:1px 3px; }
+}
+@media(max-width:480px){
+  body { padding:24px 12px 20px; font-size:12.5px; }
+  h1 { font-size:22px; }
+  h2 { font-size:15px; margin-top:32px; }
+  h3 { font-size:13px; margin-top:28px; }
+  table { font-size:9px; }
+  td { font-size:9px; padding:5px 6px; }
+  th { font-size:7px; padding:5px 6px; letter-spacing:0.3px; }
+  .callout { padding:12px 14px; margin:18px 0; font-size:11.5px; border-radius:8px; }
+  .back-to-top { width:32px; height:32px; bottom:16px; right:12px; }
+}
 
 /* Watermark */
 body::before {
@@ -942,7 +980,107 @@ Bones不需要自建工厂。不需要自建海外团队。不需要从零学供
 </tr>
 </table>
 
-<h3>6.2.4 场景频率×疼痛强度矩阵</h3>
+<h3>
+<h3>6.2.5 各场景的产品解决方案映射（按可实现性排序）</h3>
+
+<div class="callout callout-key" style="text-align:left;font-size:14px;">
+<strong>以下将10个膝OA日常场景逐一映射到Bones的技术能力与产品形态，明确哪些场景可通过硬件解决、哪些可通过App解决、哪些当前技术无法解决、以及哪些需要Gen 2/3的迭代才能实现。</strong>
+</div>
+
+<table>
+<tr><th style="width:3%">#</th><th style="width:12%">场景</th><th style="width:8%">频率</th><th style="width:8%">疼痛强度</th><th style="width:18%">需要的产品能力</th><th style="width:12%">技术方案</th><th style="width:8%">可实现阶段</th><th style="width:8%">解决程度</th><th>局限性</th></tr>
+
+<tr><td><strong>1</strong></td><td><strong>平地行走>10min</strong></td><td>1-3次/天</td><td>6-7</td>
+<td>支撑相膝关节内侧卸载·减少KAM</td>
+<td><strong>硬件：</strong>RL控制电机在支撑相输出外翻力矩·个性化KAM减少策略<br><strong>App：</strong>实时KAM可视化·行走距离建议</td>
+<td style="background:rgba(58,125,90,.12)"><strong>Gen 0</strong></td>
+<td style="background:rgba(58,125,90,.12)"><strong>可解决</strong><br>目标KAM减少20%+</td>
+<td>行走速度变化时需要RL自适应调整力矩时机——PID无法应对</td></tr>
+
+<tr><td><strong>2</strong></td><td><strong>下楼梯/下坡</strong></td><td>1-4次/天</td><td><strong>8-9</strong></td>
+<td>支撑相膝关节内侧卸载 + <strong>偏心控制制动</strong>·减少股四头肌离心收缩负荷</td>
+<td><strong>硬件：</strong>RL控制电机在下坡/下楼时输出受控制动（负力矩）·吸收冲击能量<br><strong>App：</strong>下楼次数/姿态报告</td>
+<td style="background:rgba(58,125,90,.12)"><strong>Gen 0</strong></td>
+<td style="background:rgba(58,125,90,.12)"><strong>可解决</strong><br>目标减冲60%+</td>
+<td>下楼时膝关节承受346%体重——制动控制的安全性是第一优先级。任何控制失误都可能导致老人摔倒</td></tr>
+
+<tr><td><strong>3</strong></td><td><strong>从椅子站起</strong></td><td><strong>20-50次/天</strong></td><td>6-8</td>
+<td>检测坐→站意图·输出额外的伸展辅助力矩</td>
+<td><strong>硬件：</strong>IMU检测躯干前倾+力传感器检测腿部发力→RL输出坐-站辅助力矩<br><strong>App：</strong>坐-站次数统计</td>
+<td style="background:rgba(58,125,90,.12)"><strong>Gen 0</strong></td>
+<td style="background:rgba(58,125,90,.12)"><strong>可解决</strong><br>目标减少40%股四头肌需求</td>
+<td>竞品几乎未覆盖此场景。但坐-站涉及90°以上屈膝——电机需要在此角度下仍能输出有效力矩</td></tr>
+
+<tr><td><strong>4</strong></td><td><strong>上楼梯</strong></td><td>1-4次/天</td><td>7-8</td>
+<td>支撑相膝关节伸展辅助·减少股四头肌向心收缩负荷</td>
+<td><strong>硬件：</strong>RL控制电机在支撑相输出伸展力矩</td>
+<td style="background:rgba(58,125,90,.12)"><strong>Gen 0</strong></td>
+<td style="background:rgba(58,125,90,.12)"><strong>可解决</strong></td>
+<td>上楼比下楼容易解决——向心收缩控制比偏心制动简单。竞品大多数覆盖了此场景</td></tr>
+
+<tr><td><strong>5</strong></td><td><strong>长时间站立</strong></td><td>1-2次/天</td><td>5-6</td>
+<td>检测持续站立→膝关节微屈锁定（~5°）·减少关节囊拉伸</td>
+<td><strong>硬件：</strong>IMU检测静止站立状态·电机输出微小伸展力矩维持微屈角度<br><strong>App：</strong>站立时长提醒</td>
+<td style="background:rgba(192,128,64,.10)"><strong>Gen 1</strong></td>
+<td style="background:rgba(58,125,90,.08)"><strong>部分解决</strong></td>
+<td><strong>竞品零覆盖。</strong>但站立时膝关节负荷仅107%体重——制动需求很低。主要是"不锁死"的舒适性需求。续航是瓶颈（站立可能持续30-60分钟）</td></tr>
+
+<tr><td><strong>6</strong></td><td><strong>上下坡/不平路面</strong></td><td>1-2次/天</td><td>6-7</td>
+<td>实时地形自适应·变力矩输出·稳定控制</td>
+<td><strong>硬件：</strong>RL实时感知地形变化（IMU+力传感器融合）→动态调整力矩策略<br><strong>App：</strong>地形适应性报告</td>
+<td style="background:rgba(192,128,64,.10)"><strong>Gen 1-2</strong></td>
+<td style="background:rgba(192,128,64,.10)"><strong>部分解决</strong></td>
+<td><strong>RL的优势场景。</strong>不平路面=力矩需求多变·固定PID无法应对。但需要大量训练数据（MyoWarp仿真可部分解决）</td></tr>
+
+<tr><td><strong>7</strong></td><td><strong>蹲便器蹲起</strong></td><td>1-3次/天</td><td><strong>9-10</strong></td>
+<td>检测深度屈膝（>90°）→输出最大伸展辅助力矩</td>
+<td><strong>硬件：</strong>电机在90-140°屈膝角度下输出最大伸展力矩<br><strong>App：</strong>不适配</td>
+<td style="background:rgba(192,128,64,.12)"><strong>Gen 2</strong></td>
+<td style="background:rgba(192,128,64,.10)"><strong>部分解决</strong></td>
+<td><strong>中国独有痛点·竞品零覆盖。</strong>但深度屈膝时电机力臂变短·需要更高的电机扭矩（30-50Nm）·且绑带在深屈膝时容易滑移。Gen 0-1不以此为核心场景</td></tr>
+
+<tr><td><strong>8</strong></td><td><strong>公交/地铁台阶</strong></td><td>1-2次/天</td><td>7-8</td>
+<td>检测异常台阶高度（15-25cm vs 正常15cm）·输出更大的辅助力矩</td>
+<td><strong>硬件：</strong>IMU检测台阶高度异常·RL自动调整力矩输出</td>
+<td style="background:rgba(58,125,90,.10)"><strong>Gen 1</strong></td>
+<td style="background:rgba(58,125,90,.08)"><strong>部分解决</strong></td>
+<td>台阶检测技术上可行（IMU+力矩传感器）·但公交车场景拥挤·穿戴外骨骼上下车不便。</td></tr>
+
+<tr><td><strong>9</strong></td><td><strong>蹲下捡东西</strong></td><td>2-5次/天</td><td><strong>8-9</strong></td>
+<td>检测深度屈膝·输出<strong>短时高扭矩</strong>辅助蹲起</td>
+<td><strong>硬件：</strong>电机在2-5秒内输出峰值力矩辅助蹲起</td>
+<td style="background:rgba(192,128,64,.10)"><strong>Gen 1</strong></td>
+<td style="background:rgba(58,125,90,.08)"><strong>部分解决</strong></td>
+<td>短时高扭矩=电池放电能力强·电机散热要求高。每天仅2-5次·不是高频场景</td></tr>
+
+<tr><td><strong>10</strong></td><td><strong>夜间起床</strong></td><td>1-2次/天</td><td>6-7</td>
+<td>检测长时间静止后首次运动→"晨僵模式"·自动增加初始辅助力矩</td>
+<td><strong>硬件：</strong>IMU检测长时间静止(>30min)→首次运动时输出更大的辅助力矩·持续3-5步后恢复标准策略<br><strong>App：</strong>不适配</td>
+<td style="background:rgba(58,125,90,.10)"><strong>Gen 1</strong></td>
+<td style="background:rgba(58,125,90,.08)"><strong>可解决</strong></td>
+<td>"晨僵模式"技术难度低（逻辑判断即可实现）·但需要Gen 0有足够的用户数据来验证此功能的有效性</td></tr>
+</table>
+
+<h3>6.2.6 场景覆盖率与产品路径的对应关系</h3>
+
+<table>
+<tr><th>产品阶段</th><th>可覆盖场景</th><th>覆盖率</th><th>核心能力</th></tr>
+<tr><td><strong>Gen 0</strong>（原型·0-6月）</td><td>场景1-4（行走·上下楼·坐-站）</td><td><strong>覆盖80%的疼痛场景</strong>（4个最高频+最痛场景）</td><td>RL力矩控制·IMU步态检测·支撑相KAM减少·偏心制动</td></tr>
+<tr><td><strong>Gen 1</strong>（KS·6-18月）</td><td>+场景5-6,8-10（站立·不平路面·公交·捡东西·夜间）</td><td><strong>覆盖92%</strong></td><td>地形自适应·静止检测·异常台阶检测·晨僵模式</td></tr>
+<tr><td><strong>Gen 2</strong>（量产·18-30月）</td><td>+场景7（蹲便器）</td><td><strong>覆盖100%</strong></td><td>深度屈膝辅助·高扭矩输出·绑带防滑移·肌骨模型内外侧区分</td></tr>
+</table>
+
+<div class="callout callout-key" style="text-align:left;font-size:15px;">
+<strong>场景-产品映射的核心结论：</strong><br><br>
+<strong>Gen 0就能覆盖80%的疼痛场景。</strong>行走+上下楼+坐-站——这四个场景覆盖了老人日常膝关节疼痛的绝大多数时刻。这意味着一个最小可用产品在解决真实问题上就已经具备竞争力。<br><br>
+<strong>蹲便器是最难但最痛的中国独有场景（疼痛强度9-10/10）。</strong>需要Gen 2的技术成熟度才能解决——因为涉及深度屈膝下的高扭矩输出和绑带稳定。但这是竞品完全没有覆盖的差异化场景。<br><br>
+<strong>竞品覆盖了场景1,2,4（行走·上下楼）——但用的是通用AI/固定PID。</strong>Bones的RL个性化力矩在场景1（平地行走）和场景6（不平路面）的优势最大——因为这两个场景的力矩需求最个性化（每个人磨损模式不同·每步地形不同）。<br><br>
+<strong>App在以下场景不可替代硬件：</strong>场景2（下楼需要制动——纯App无法提供物理制动）·场景3（坐-站需要物理辅助力矩——App无法替代肌肉力量）·场景7（蹲便器需要物理辅助——App完全无用）。<br>
+<strong>App在以下场景提供增量价值：</strong>场景1（KAM可视化·子女端步态报告）·场景5（站立时长提醒）·场景10（夜间首次运动检测）。
+</div>
+
+
+6.2.4 场景频率×疼痛强度矩阵</h3>
 
 <table>
 <tr><th>场景</th><th>每天发生次数</th><th>疼痛强度(1-10)</th><th>影响生活质量</th><th>DNSYS Z1</th><th>PowerKnee</th><th>智行</th><th>Bones</th></tr>
