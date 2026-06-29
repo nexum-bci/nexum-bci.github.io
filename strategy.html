@@ -18,25 +18,25 @@
 body {
   font-family: -apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans SC','Segoe UI','Microsoft YaHei',sans-serif;
   max-width:1080px; margin:0 auto; padding:64px 48px 64px 48px;
-  color:var(--text); line-height:1.75; font-size:14.5px;
+  color:var(--text); line-height:1.8; font-size:15px;
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
   background:var(--bg); font-weight:400;
 }
 h1 { font-size:36px; font-weight:900; letter-spacing:-0.5px; margin:0 0 6px 0; color:var(--primary-dark); border-bottom:5px solid var(--primary); padding-bottom:24px; line-height:1.12; }
-h2 { font-size:19px; font-weight:800; margin-top:60px; margin-bottom:20px; color:var(--primary-dark); border-left:5px solid var(--primary); padding:8px 0 8px 16px; letter-spacing:-0.2px; line-height:1.3; background:linear-gradient(90deg,rgba(45,74,74,.05),transparent); }
+h2 { font-size:19px; font-weight:800; margin-top:64px; margin-bottom:22px; color:var(--primary-dark); border-left:5px solid var(--primary); padding:8px 0 8px 16px; letter-spacing:-0.2px; line-height:1.3; background:linear-gradient(90deg,rgba(45,74,74,.05),transparent); }
 h3 { font-size:15.5px; font-weight:700; margin-top:44px; margin-bottom:16px; color:var(--primary-dark); display:flex; align-items:center; gap:8px; }
 h3::before { content:''; display:inline-block; width:7px; height:7px; border-radius:2px; background:var(--primary); flex-shrink:0; }
-h4 { font-size:14px; font-weight:700; margin-top:32px; margin-bottom:10px; color:var(--gray-700); }
-p { margin:14px 0; color:var(--text-secondary); font-size:14px; }
+h4 { font-size:14.5px; font-weight:700; margin-top:36px; margin-bottom:12px; color:var(--primary-dark); border-bottom:1px solid var(--gray-200); padding-bottom:6px; }
+p { margin:16px 0; color:var(--text-secondary); font-size:14.5px; line-height:1.8; }
 p strong { color:var(--text); font-weight:700; }
 strong { color:var(--primary-dark); font-weight:700; }
 
 /* Tables - refined */
 table { width:100%; border-collapse:separate; border-spacing:0; margin:24px 0; font-size:12px; border-radius:10px; overflow:hidden; border:1px solid var(--gray-200); box-shadow:0 1px 4px rgba(0,0,0,.05); }
-th { background:var(--gray-900); color:#fff; padding:10px 12px; text-align:left; font-weight:600; font-size:9.5px; letter-spacing:0.8px; text-transform:uppercase; border-bottom:2px solid #444; }
+th { background:var(--gray-900); color:#fff; padding:11px 13px; text-align:left; font-weight:600; font-size:9.5px; letter-spacing:0.8px; text-transform:uppercase; border-bottom:3px solid var(--primary); }
 th:first-child { border-radius:10px 0 0 0; }
 th:last-child { border-radius:0 10px 0 0; }
-td { padding:9px 12px; border-bottom:1px solid var(--gray-100); vertical-align:middle; color:var(--text-secondary); font-size:12px; background:#fff; line-height:1.5; }
+td { padding:10px 13px; border-bottom:1px solid var(--gray-100); vertical-align:middle; color:var(--text-secondary); font-size:12px; background:#fff; line-height:1.55; }
 tr:hover td { background:var(--gray-50); }
 tr:last-child td { border-bottom:none; }
 tr:last-child td:first-child { border-radius:0 0 0 10px; }
@@ -264,6 +264,9 @@ body {
   }
 }
 
+
+tr.row-highlight td { background:rgba(58,125,90,.04) !important; font-weight:600; }
+tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 </style>
 </head>
 <body>
@@ -345,6 +348,9 @@ body {
   }
 }
 
+
+tr.row-highlight td { background:rgba(58,125,90,.04) !important; font-weight:600; }
+tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 </style>
 <button class="toc-toggle" onclick="document.querySelector('.toc-sidebar').classList.toggle('collapsed');document.body.classList.toggle('toc-collapsed')" title="目录">☰</button>
 <nav class="toc-sidebar">
@@ -449,6 +455,9 @@ body {
   }
 }
 
+
+tr.row-highlight td { background:rgba(58,125,90,.04) !important; font-weight:600; }
+tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 </style>
 <a href="#" class="back-to-top" title="回到顶端">↑</a>
 
@@ -483,7 +492,7 @@ body {
 
 <div class="callout callout-danger" style="font-size:15.5px;line-height:1.9">
 <strong style="font-size:19px;display:block;margin-bottom:8px">地球上每两秒钟，就有一位老人因为膝盖疼痛而选择不出门。</strong>
-全球<strong>5.28亿</strong>人患有骨关节炎，其中膝关节占60-85%——<strong>3.2至4.5亿人</strong>。终生患病风险<strong style="color:var(--red)">41-46%</strong>。每年造成约<strong style="color:var(--red)">1万亿美元</strong>经济损失，超过全球糖尿病负担的总和。<br><br>
+全球<strong>5.28亿</strong>人患有骨关节炎，其中膝关节占60-85%——<strong>3.2至4.5亿人</strong>。终生患病风险<strong style="color:var(--red)">41-46%</strong>。每年造成约<strong style="font-size:16px;color:var(--red)">1万亿美元</strong>经济损失，超过全球糖尿病负担的总和。<br><br>
 膝关节骨关节炎不是"老了自然会有的小毛病"。它是一个<strong>持续恶化、不可逆转、最终只能换关节</strong>的进行性疾病。从第一次膝盖疼痛到接受全膝关节置换，平均病程<strong style="color:var(--red)">10-15年</strong>。在这10-15年里——每一天，每一步，每一次上下楼——疼痛都在提醒患者：你的身体在衰退。
 </div>
 
@@ -503,7 +512,7 @@ body {
 <table>
 <tr><th style="width:14%">现有方案</th><th style="width:10%">年市场规模</th><th style="width:38%">它解决了什么</th><th style="width:38%">它没解决什么——而这才是关键</th></tr>
 <tr><td><strong>拐杖</strong></td><td>$3.0B</td><td>单点支撑，对侧使用可减少KAM约20%</td><td><strong>多数老人默认同侧使用——反而加重病情</strong>（Chan 2005）。上楼完全无效。占用一只手。56%的人宁愿用雨伞代替拐杖以避免"残疾"标签（Maximo 2024）</td></tr>
-<tr><td><strong>膝关节支具</strong></td><td>$1.4-2.0B</td><td>被动外翻矫正，减少KAM约10%</td><td><strong style="color:var(--red)">1年废弃率72%</strong>（Squyer 2013）。不舒服、闷热、下滑需反复调整。固定矫正角度无法适应不同活动。静态方案对动态问题</td></tr>
+<tr><td><strong>膝关节支具</strong></td><td>$1.4-2.0B</td><td>被动外翻矫正，减少KAM约10%</td><td><strong style="font-size:15px;color:var(--red)">1年废弃率72%</strong>（Squyer 2013）。不舒服、闷热、下滑需反复调整。固定矫正角度无法适应不同活动。静态方案对动态问题</td></tr>
 <tr><td><strong>功能鞋</strong></td><td>¥40亿（足力健巅峰）</td><td>防滑、减震、舒适</td><td><strong>零膝关节力学干预。</strong>足力健验证了中国子女的付费意愿——但它改变不了膝关节内收力矩。品质崩塌后品牌溃败，留下的是<strong>一个被验证的、未被满足的巨大需求</strong></td></tr>
 <tr><td><strong>止痛药/注射</strong></td><td>$19B+（仅美国）</td><td>缓解疼痛、消炎</td><td><strong>化学掩盖，非力学干预。</strong>NSAID长期使用损伤胃肠和肾脏。皮质类固醇注射每3-4月需重复且可能加速软骨流失。患者需要减少关节负荷，不是麻痹神经末梢</td></tr>
 <tr><td><strong>轮椅/代步车</strong></td><td>$1.5-2.2B</td><td>100%卸载，恢复移动能力</td><td><strong>完全消除负重=股四头肌萎缩加速。</strong>股四头肌无力是膝OA最重要的可调控风险因素——既是病因也是后果。轮椅解决了移动，但牺牲了行走能力本身</td></tr>
