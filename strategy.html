@@ -522,7 +522,7 @@ body {
 <tr><td><strong>场景覆盖</strong></td><td><strong style="color:var(--green);font-size:15px">Gen 0覆盖80%疼痛场景</strong>（行走·上下楼·坐-站——最高频+最疼痛的四个场景）。Gen 2覆盖100%（含蹲便器蹲起——中国独有痛点·竞品零覆盖）。竞品场景覆盖率仅约35%</td><td>坐-站（每天20-50次）、长时间站立、蹲起——竞品全部未覆盖。这些恰好是老人最频繁遇到的日常动作，也是疼痛最剧烈的时刻</td></tr>
 <tr><td><strong>底层模型</strong></td><td><strong>416肌肉Hill型模型。</strong>唯一能建模半月板、十字韧带、髌股关节等软组织力学特性的方案。从肌肉激活→关节接触力→最优力矩的完整计算链路</td><td>全行业使用刚体连杆模型（OpenSim简化版）。刚体无法建模半月板的非线性黏弹性、十字韧带的张力-应变关系、肌肉共收缩对关节负荷的影响</td></tr>
 <tr><td><strong>数据飞轮</strong></td><td><strong>联邦学习pFedAC。</strong>第1000个用户的设备比第1个精准一个数量级。跨用户策略共享，越用越好。这是全行业无人拥有的数据网络效应</td><td>所有外骨骼公司是数据孤岛。用户A的数据不会让用户B受益。每一台设备都在从零开始</td></tr>
-<tr><td><strong>制造策略</strong></td><td>Bones做消费硬件品牌。核心部件（定制减速器、碳纤维框架、控制PCB）逐步自研或深度定制。整机组装初期依托产业合作资源。首发中国市场，Kickstarter验证海外需求，逐步全球化</td><td>远也自研硬件全链条（投入高、周期长）。极壳自建品牌和渠道（资本密集）。Bones走中间路线：核心自研+合作组装</td></tr>
+<tr><td><strong>制造策略</strong></td><td>Bones做消费硬件品牌。核心部件（定制减速器、碳纤维框架、控制PCB）逐步自研或深度定制。整机组装初期依托产业合作资源。首发中国（全球最大膝OA人群·最熟悉渠道），Gen 1 Kickstarter验证美国需求，Gen 2-3拓展欧洲和日本</td><td>远也自研硬件全链条（投入高、周期长）。极壳自建品牌和渠道（资本密集）。Bones走中间路线：核心自研+合作组装</td></tr>
 </table>
 
 <h2 id="section-0c2">三-B、品类定义：这不叫"外骨骼"</h2>
@@ -1154,6 +1154,67 @@ Bones不需要自建工厂。不需要自建海外团队。不需要从零学供
 </table>
 
 <h3>
+
+<h3>6.2.4-B 海外老年消费者深度分析——全球市场的关键差异</h3>
+
+<div class="callout callout-key" style="text-align:left;font-size:14px;">
+<strong>膝关节OA是全球性问题（5.28亿患者），但不同市场的消费者行为、支付体系、文化心理存在根本性差异。以下从四个核心海外市场展开，与6.2.4-A的中国市场分析构成完整的全球用户画像。</strong>
+</div>
+
+<h4>北美市场（美国/加拿大）——独立生活伦理与保险支付体系</h4>
+
+<table>
+<tr><th>维度</th><th>详情</th></tr>
+<tr><td><strong>核心用户画像</strong></td><td>65-75岁退休人群。住在郊区独立住宅（需开车出行）。活跃退休生活——hiking、高尔夫、旅行。膝关节OA被视为"影响生活质量的慢性病"而非"老了自然会有"。强烈的独立生活意愿——"I want to stay independent"是核心情感驱动</td></tr>
+<tr><td><strong>支付体系</strong></td><td>Medicare（联邦医保）覆盖膝关节OA的保守治疗：物理治疗、处方支具、皮质类固醇注射。膝关节置换（TKA）由Medicare Part A覆盖（$1,676免赔额）。<strong>消费级外骨骼不在Medicare覆盖范围内</strong>——需自费或通过FSA/HSA（健康储蓄账户）购买。Skip MO/GO正在推动FSA/HSA支付资格</td></tr>
+<tr><td><strong>购买决策者</strong></td><td><strong>老年人自己（>50%）。</strong>独立决策，自己搜索Amazon、看YouTube测评、比价。子女参与度低于中国。包装和营销应面向使用者本人</td></tr>
+<tr><td><strong>价格心理</strong></td><td>$500-1,500可接受（参考高端消费电子/运动装备）。$2,000+需要"医学必要性"证明。$5,000（Skip MO/GO定价）=高端户外装备价格带——可接受但市场小</td></tr>
+<tr><td><strong>社交心理</strong></td><td>相对于中国老人，美国老人对使用辅助设备的羞耻感较低。"保持独立"的叙事比"怕被看作残疾人"更强。产品外观参考运动护具/户外装备——而非医疗器械</td></tr>
+<tr><td><strong>渠道</strong></td><td>线上为主。Amazon评论+YouTube测评是核心信任来源。Kickstarter验证创新产品。REI等户外零售商可触达活跃老年人群。骨科医生推荐是重要信任背书</td></tr>
+<tr><td><strong>关键差异</strong></td><td>①自购为主（非子女购买）②保险支付是规模化关键（FSA/HSA→Medicare覆盖）③独立生活叙事>孝心叙事④"keep hiking/playing golf"是核心价值主张</td></tr>
+</table>
+
+<h4>欧洲市场（德国/法国/北欧）——医保体系与严谨消费</h4>
+
+<table>
+<tr><th>维度</th><th>详情</th></tr>
+<tr><td><strong>核心用户画像</strong></td><td>65-80岁。较高的公共医保覆盖率。对产品品质和认证要求极高。德国和北欧消费者特别注重产品的技术可信度——CE认证是基本门槛</td></tr>
+<tr><td><strong>支付体系</strong></td><td>德国：法定医疗保险（GKV）覆盖处方康复设备。LINDERA（德国AI步态App）已纳入DiPA（数字健康应用）目录——证明数字健康产品可通过医保报销。法国：Sécurité Sociale覆盖部分康复辅具。北欧：高税收高福利，公共医疗体系完善</td></tr>
+<tr><td><strong>购买决策者</strong></td><td>老年人自己，但高度依赖医生/物理治疗师的推荐。欧洲消费者对"广告宣传"持怀疑态度——临床数据和专业推荐是关键</td></tr>
+<tr><td><strong>价格心理</strong></td><td>€500-1,500如果医保覆盖则自付极低。纯自费产品市场较小。进入医保目录的商业价值远大于自费零售</td></tr>
+<tr><td><strong>认证要求</strong></td><td>CE标志（欧盟强制性）。医疗功能宣称需MDR（医疗器械法规）认证。德国DiPA需要数据安全和临床效果证明</td></tr>
+<tr><td><strong>渠道</strong></td><td>医疗供应渠道（Sanitätshaus）+ 线上。骨科医生和物理治疗师推荐是关键。德国有成熟的康复辅具零售网络</td></tr>
+<tr><td><strong>关键差异</strong></td><td>①认证是市场准入前提②医保覆盖决定市场规模③医生推荐>广告营销④消费决策周期长但忠诚度高</td></tr>
+</table>
+
+<h4>日本市场——超老龄化社会的先驱经验</h4>
+
+<table>
+<tr><th>维度</th><th>详情</details></th></tr>
+<tr><td><strong>核心用户画像</strong></td><td>70-85岁。全球老龄化率最高的国家（65岁以上占29.3%）。独居老人比例高。步行+公共交通为主要出行方式。Cyberdyne HAL和Honda Walking Assist已建立"外骨骼"的公众认知——但认知停留在"医疗设备"</td></tr>
+<tr><td><strong>支付体系</strong></td><td>介護保険（长期护理保险）覆盖部分康复辅具。租赁模式成熟（Cyberdyne HAL租金¥158,400/3个月）。消费级产品需自费——日本老人储蓄率高·支付能力较强</td></tr>
+<tr><td><strong>购买决策者</strong></td><td>老年人自己为主。日本老人独立性较强。但独居比例高意味着购买决策缺少家庭支持——产品必须极致简单·不需要子女帮助设置</td></tr>
+<tr><td><strong>社交心理</strong></td><td>"迷惑をかけたくない"（不想给别人添麻烦）是核心情感驱动——与中国"孝心经济"不同但同样强烈。产品不能显眼——日本社会的同调压力极高。小型化、隐蔽化设计是刚性需求</td></tr>
+<tr><td><strong>价格心理</strong></td><td>¥50,000-150,000（$350-1,000）可接受。¥200,000+（$1,400+）需要介護保険覆盖</td></tr>
+<tr><td><strong>关键差异</strong></td><td>①超高龄社会=最大的人均需求密度②Cyberdyne/Honda已建立品类认知③租赁模式成熟④"不给社会添麻烦"=独居老人自购意愿强⑤小型化设计是刚性需求</td></tr>
+</table>
+
+<h4>全球市场优先级与进入策略</h4>
+
+<table>
+<tr><th>优先级</th><th>市场</th><th>进入时机</th><th>策略</th></tr>
+<tr style="background:rgba(58,125,90,.08)"><td><strong>P0</strong></td><td><strong>中国</strong></td><td>Gen 0-1</td><td>首发市场。最大膝OA人群。最熟悉的渠道与用户。线下体验+子女购买。政策东风（十五五·八部门·民政基金）</td></tr>
+<tr style="background:rgba(58,125,90,.06)"><td><strong>P1</strong></td><td><strong>美国</strong></td><td>Gen 1（Kickstarter）</td><td>KS验证海外需求。Amazon+独立站。独立生活叙事。"Keep hiking, keep living"。长期目标：FSA/HSA→Medicare覆盖</td></tr>
+<tr style="background:rgba(58,125,90,.04)"><td><strong>P2</strong></td><td><strong>欧洲</strong></td><td>Gen 2-3</td><td>CE认证先行。瞄准德国DiPA/医保准入。医生推荐渠道。临床数据积累后进入</td></tr>
+<tr style="background:rgba(58,125,90,.02)"><td><strong>P3</strong></td><td><strong>日本</strong></td><td>Gen 2-3</td><td>小型化设计成熟后进入。介護保険覆盖探索。与本土品牌（Cyberdyne/Honda）差异化：消费级·非医疗</td></tr>
+</table>
+
+<div class="callout callout-key" style="text-align:left;font-size:14px;">
+<strong>全球用户画像的核心结论：</strong>中国=子女购买·孝心叙事·线下体验。美国=自我购买·独立叙事·线上渠道·保险支付。欧洲=医生推荐·认证门槛·医保覆盖。日本=独居老人·小型隐蔽·租赁模式。<br><br>
+<strong>Bones的产品平台需要适应这四个市场的根本差异——不是"一套产品卖全球"，而是"同一个技术平台·四种本地化策略"。</strong>Gen 0-1聚焦中国（最熟悉·最大市场）。Gen 1通过Kickstarter验证美国需求。Gen 2-3逐步拓展欧洲和日本。
+</div>
+
+
 <h3>6.2.5 各场景的产品解决方案映射（按可实现性排序）</h3>
 
 <div class="callout callout-key" style="text-align:left;font-size:14px;">
