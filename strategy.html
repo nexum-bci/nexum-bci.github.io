@@ -274,87 +274,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 </head>
 <body>
 
-<style>
-.toc-sidebar {
- position:fixed; left:0; top:0; width:220px; height:100vh;
- background:#f8f9fa; border-right:1px solid var(--gray-200);
- overflow-y:auto; padding:20px 16px; z-index:999;
- font-size:12px; line-height:1.6;
-}
-.toc-sidebar h4 {
- font-size:13px; font-weight:800; color:var(--primary-dark);
- margin:0 0 12px 0; padding-bottom:8px; border-bottom:2px solid var(--primary);
-}
-.toc-sidebar a {
- display:block; color:var(--text-secondary); text-decoration:none;
- padding:3px 8px; border-radius:4px; transition:all .15s;
- border-left:2px solid transparent;
-}
-.toc-sidebar a:hover, .toc-sidebar a.active {
- color:var(--primary-dark); background:var(--primary-light);
- border-left-color:var(--primary);
-}
-.toc-sidebar a.sub { padding-left:20px; font-size:11px; }
-.toc-toggle {
- position:fixed; left:8px; top:8px; z-index:1001;
- width:32px; height:32px; background:var(--primary-dark); color:#fff;
- border:none; border-radius:6px; cursor:pointer; font-size:16px;
- display:flex; align-items:center; justify-content:center;
- box-shadow:0 2px 6px rgba(0,0,0,.15);
-}
-.toc-sidebar.collapsed { left:-240px; }
-body { margin-left:240px; }
-body.toc-collapsed { margin-left:0; }
-@media(max-width:768px){ .toc-sidebar{display:none} body{margin-left:0} .toc-toggle{display:none} }
-@media print { .toc-sidebar{display:none} body{margin-left:0} .toc-toggle{display:none} .back-to-top{display:none} }
 
-/* Watermark */
-body::before {
- content: "Bones & Manifold · 骨骼流形";
- position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-25deg);
- font-size: 120px; font-weight: 900; color: rgba(0,0,0,.025);
- white-space: nowrap; pointer-events: none; z-index: 0;
- letter-spacing: 8px; font-family: 'Inter',-apple-system,sans-serif;
-}
-@media print {
- body::before {
- content: "Bones & Manifold · 骨骼流形";
- position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-25deg);
- font-size: 100px; color: rgba(0,0,0,.04); print-color-adjust: exact;
- -webkit-print-color-adjust: exact;
- }
-}
-
-
-/* Anti-copy protection */
-body {
- -webkit-user-select: none;
- -moz-user-select: none;
- -ms-user-select: none;
- user-select: none;
- -webkit-touch-callout: none;
-}
-@media print {
- body { -webkit-user-select: text; user-select: text; }
-}
-
-
-/* Anti-screenshot overlay - screen only */
-@media screen {
- body::after {
- content: "CONFIDENTIAL · Bones & Manifold · 骨骼流形 · 内部文件";
- position: fixed; top: 0; left: 0; width: 100%; height: 100%;
- display: flex; align-items: center; justify-content: center;
- font-size: 28px; font-weight: 900; color: rgba(0,0,0,.04);
- pointer-events: none; z-index: 9999;
- letter-spacing: 4px; white-space: nowrap;
- }
-}
-
-
-tr.row-highlight td { background:rgba(58,125,90,.04) !important; font-weight:600; }
-tr.row-warning td { background:rgba(192,128,64,.04) !important; }
-</style>
 <button class="toc-toggle" onclick="document.querySelector('.toc-sidebar').classList.toggle('collapsed');document.body.classList.toggle('toc-collapsed')" title="目录">☰</button>
 <nav class="toc-sidebar">
 <h4>导航</h4>
@@ -403,63 +323,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 </nav>
 
 
-<style>
-.back-to-top {
- position:fixed; bottom:32px; right:32px; width:44px; height:44px;
- background:var(--primary-dark); color:#fff; border:none; border-radius:50%;
- font-size:20px; cursor:pointer; opacity:0.7; transition:opacity .2s;
- box-shadow:0 2px 8px rgba(0,0,0,.15); z-index:1000;
- display:flex; align-items:center; justify-content:center; text-decoration:none;
-}
-.back-to-top:hover { opacity:1; }
 
-/* Watermark */
-body::before {
- content: "Bones & Manifold · 骨骼流形";
- position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-25deg);
- font-size: 120px; font-weight: 900; color: rgba(0,0,0,.025);
- white-space: nowrap; pointer-events: none; z-index: 0;
- letter-spacing: 8px; font-family: 'Inter',-apple-system,sans-serif;
-}
-@media print {
- body::before {
- content: "Bones & Manifold · 骨骼流形";
- position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-25deg);
- font-size: 100px; color: rgba(0,0,0,.04); print-color-adjust: exact;
- -webkit-print-color-adjust: exact;
- }
-}
-
-
-/* Anti-copy protection */
-body {
- -webkit-user-select: none;
- -moz-user-select: none;
- -ms-user-select: none;
- user-select: none;
- -webkit-touch-callout: none;
-}
-@media print {
- body { -webkit-user-select: text; user-select: text; }
-}
-
-
-/* Anti-screenshot overlay - screen only */
-@media screen {
- body::after {
- content: "CONFIDENTIAL · Bones & Manifold · 骨骼流形 · 内部文件";
- position: fixed; top: 0; left: 0; width: 100%; height: 100%;
- display: flex; align-items: center; justify-content: center;
- font-size: 28px; font-weight: 900; color: rgba(0,0,0,.04);
- pointer-events: none; z-index: 9999;
- letter-spacing: 4px; white-space: nowrap;
- }
-}
-
-
-tr.row-highlight td { background:rgba(58,125,90,.04) !important; font-weight:600; }
-tr.row-warning td { background:rgba(192,128,64,.04) !important; }
-</style>
 <a href="#" class="back-to-top" title="回到顶端">↑</a>
 
 
