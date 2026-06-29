@@ -18,7 +18,7 @@
 body {
   font-family: -apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans SC','Segoe UI','Microsoft YaHei',sans-serif;
   max-width:1080px; margin:0 auto; padding:64px 48px 72px 48px;
-  color:var(--text); line-height:1.8; font-size:15px;
+  color:var(--text); line-height:1.82; font-size:15px;
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
   background:var(--bg); font-weight:400;
 }
@@ -27,7 +27,7 @@ h2 { font-size:19px; font-weight:800; margin-top:64px; margin-bottom:22px; color
 h3 { font-size:15.5px; font-weight:700; margin-top:44px; margin-bottom:16px; color:var(--primary-dark); display:flex; align-items:center; gap:8px; }
 h3::before { content:''; display:inline-block; width:7px; height:7px; border-radius:2px; background:var(--primary); flex-shrink:0; }
 h4 { font-size:14.5px; font-weight:700; margin-top:36px; margin-bottom:12px; color:var(--primary-dark); border-bottom:1px solid var(--gray-200); padding-bottom:6px; }
-p { margin:16px 0; color:var(--text-secondary); font-size:14.5px; line-height:1.8; }
+p { margin:16px 0; color:var(--text-secondary); font-size:14.5px; line-height:1.82; }
 p strong { color:var(--text); font-weight:700; }
 strong { color:var(--primary-dark); font-weight:700; }
 
@@ -41,11 +41,11 @@ tr:hover td { background:var(--gray-50); }
 tr:last-child td { border-bottom:none; }
 tr:last-child td:first-child { border-radius:0 0 0 10px; }
 tr:last-child td:last-child { border-radius:0 0 10px 0; }
-tr:nth-child(even) td { background:var(--gray-50); }
-tr:nth-child(even):hover td { background:#e8ebef; }
+tr:nth-child(even) td { background:rgba(0,0,0,.015); }
+tr:nth-child(even):hover td { background:rgba(0,0,0,.03); }
 td strong { color:var(--text); font-weight:600; }
 table table { box-shadow:none; border:none; margin:0; }
-table table td { font-size:10.5px; padding:2px 6px; border:none; background:transparent !important; }
+table table td { font-size:10.5px; padding:2px 6px; border:none !important; background:transparent !important; }
 table table tr:nth-child(even) td { background:transparent !important; }
 
 /* Callouts */
@@ -355,14 +355,17 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <button class="toc-toggle" onclick="document.querySelector('.toc-sidebar').classList.toggle('collapsed');document.body.classList.toggle('toc-collapsed')" title="目录">☰</button>
 <nav class="toc-sidebar">
 <h4>导航</h4>
-<a href="#section-0" class="toc-highlight">核心叙事（Pitch Deck）</a>
-<a href="#section-0" class="sub">问题与现状</a>
+<div style="font-size:10px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;padding:4px 8px;margin-bottom:4px">核心叙事</div>
+<a href="#section-0">一、问题</a>
+<a href="#section-0b" class="sub">二、现状</a>
 <a href="#section-0c" class="sub">三.1 方案</a>
 <a href="#section-0c2" class="sub">三.2 品类定义</a>
 <a href="#section-0c3" class="sub">三.3 产品边界</a>
 <a href="#section-0c4" class="sub">三.4 竞争格局</a>
 <a href="#section-0c5" class="sub">三.5 市场策略</a>
-<a href="#section-0d" class="sub">时机 · 团队 · 路径</a>
+<a href="#section-0d" class="sub">四、时机</a>
+<a href="#section-0e" class="sub">五、团队</a>
+<a href="#section-0f" class="sub">六、路径</a>
 <span class="toc-part">支撑分析</span>
 <a href="#section-1">一、政策与市场</a>
 <a href="#section-2">二、需求全景（44场景）</a>
@@ -384,7 +387,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <a href="#sec-5-2" class="sub">5.2 核心单位经济学</a>
 <a href="#sec-5-3" class="sub">5.3 最优收入结构</a>
 <a href="#section-6">六、竞品格局</a>
-<a href="#section-6b" class="sub toc-highlight">六.2 膝关节银发市场</a>
+<a href="#section-6b" class="sub" style="font-weight:700;color:var(--green)">★ 六.2 膝关节银发市场</a>
 <a href="#section-6b2" class="sub">六.3 替代方案局限性</a>
 <a href="#section-6c" class="sub">六.4 外骨骼可行性</a>
 <a href="#section-6d" class="sub">六.5 假肢市场中长期</a>
@@ -609,6 +612,24 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <strong>4. 渠道壁垒。</strong>老年产品的线下渠道（社区、药店、养老机构、医院康复科）——极壳的Kickstarter+Amazon模式无法触达。这是为什么线上退货率80%+。但海尔200+线下店证明了渠道是存在的——只是大多数科技创业者不知道如何进入。<br><br>
 <strong>5. "不性感"的偏见。</strong>VC喜欢投"超人"叙事——增强人类、超越极限。帮助老人走路的故事在融资pitch中天然吃亏。但<strong>全球5.28亿膝关节OA患者、每年1万亿美元经济损失、中国3.23亿老年人——这个市场不需要"性感"，它需要"有用"。</strong>
 </div>
+
+
+<h2 id="section-0c5">三.5 市场策略：首发中国，面向全球</h2>
+
+<div class="callout callout-key" style="text-align:left;font-size:15px;line-height:1.9">
+<strong>膝关节OA是一个全球性问题——5.28亿患者分布在每一个老龄化社会。创业公司的资源有限，正确的策略不是"做全球还是做中国"，而是"从哪里开始，以什么节奏拓展"。</strong>
+</div>
+<table>
+<tr><th style="width:12%">阶段</th><th style="width:15%">市场</th><th style="width:15%">时机</th><th style="width:28%">为什么从这里开始</th><th style="width:30%">进入方式</th></tr>
+<tr style="background:rgba(58,125,90,.08)"><td><strong>Phase 0-1</strong></td><td><strong>中国</strong></td><td>Gen 0-1</td><td>全球最大膝OA单一市场（3.23亿60+·~1亿运动能力下降）。政策东风最强劲。供应链最完整。创始团队最熟悉渠道与用户</td><td>线下社区/养老机构体验→子女App下单。参考海尔200+线下店模式</td></tr>
+<tr style="background:rgba(58,125,90,.04)"><td><strong>Phase 1-2</strong></td><td><strong>北美</strong></td><td>Gen 1</td><td>全球最大消费外骨骼线上市场。Kickstarter验证PMF。老年用户自购意愿高于中国。FSA/HSA支付路径可探索</td><td>Kickstarter→Amazon→独立站。独立生活叙事</td></tr>
+<tr style="background:rgba(58,125,90,.02)"><td><strong>Phase 2-3</strong></td><td><strong>欧洲</strong></td><td>Gen 2-3</td><td>德国DiPA数字健康应用目录可覆盖。CE认证后进入医保体系。骨科医生推荐渠道成熟</td><td>CE认证→医生推荐→医保准入。临床数据驱动的慢决策市场</td></tr>
+<tr><td><strong>Phase 3+</strong></td><td><strong>日本</strong></td><td>Gen 3</td><td>全球老龄化率最高（65+占29.3%）。介護保険覆盖。独居老人自购意愿强。小型化设计刚性需求</td><td>小型化产品成熟后进入。租赁模式</td></tr>
+</table>
+<div class="callout callout-green" style="text-align:left;font-size:14px;line-height:1.8">
+<strong>核心逻辑：同一技术平台，四种本地化策略。</strong>硬件全球统一。本地化的是叙事、定价、渠道。不是"在四个市场同时启动"，是"用四个阶段覆盖四个市场"。
+</div>
+
 
 
 <h2 id="section-0d" style="border-left-color:var(--green)">四、时机：2026——所有条件在同一时刻成熟</h2>
