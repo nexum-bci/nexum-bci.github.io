@@ -145,6 +145,24 @@ body.toc-collapsed { margin-left:0; }
 }
 
 @media(max-width:768px){@media(max-width:768px){@media(max-width:768px){@media(max-width:768px){ body{padding:28px 18px;font-size:14px} h1{font-size:28px} h2{font-size:18px} table{font-size:10.5px;display:block;overflow-x:auto} }
+
+/* Watermark */
+body::before {
+  content: "Bones & Manifold · 骨骼流形";
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-25deg);
+  font-size: 120px; font-weight: 900; color: rgba(0,0,0,.025);
+  white-space: nowrap; pointer-events: none; z-index: 0;
+  letter-spacing: 8px; font-family: 'Inter',-apple-system,sans-serif;
+}
+@media print {
+  body::before {
+    content: "Bones & Manifold · 骨骼流形";
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-25deg);
+    font-size: 100px; color: rgba(0,0,0,.04); print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -182,6 +200,24 @@ body { margin-left:220px; }
 body.toc-collapsed { margin-left:0; }
 @media(max-width:768px){ .toc-sidebar{display:none} body{margin-left:0} .toc-toggle{display:none} }
 @media print { .toc-sidebar{display:none} body{margin-left:0} .toc-toggle{display:none} .back-to-top{display:none} }
+
+/* Watermark */
+body::before {
+  content: "Bones & Manifold · 骨骼流形";
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-25deg);
+  font-size: 120px; font-weight: 900; color: rgba(0,0,0,.025);
+  white-space: nowrap; pointer-events: none; z-index: 0;
+  letter-spacing: 8px; font-family: 'Inter',-apple-system,sans-serif;
+}
+@media print {
+  body::before {
+    content: "Bones & Manifold · 骨骼流形";
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-25deg);
+    font-size: 100px; color: rgba(0,0,0,.04); print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
 </style>
 <button class="toc-toggle" onclick="document.querySelector('.toc-sidebar').classList.toggle('collapsed');document.body.classList.toggle('toc-collapsed')" title="目录">☰</button>
 <nav class="toc-sidebar">
@@ -234,6 +270,24 @@ body.toc-collapsed { margin-left:0; }
   display:flex; align-items:center; justify-content:center; text-decoration:none;
 }
 .back-to-top:hover { opacity:1; }
+
+/* Watermark */
+body::before {
+  content: "Bones & Manifold · 骨骼流形";
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-25deg);
+  font-size: 120px; font-weight: 900; color: rgba(0,0,0,.025);
+  white-space: nowrap; pointer-events: none; z-index: 0;
+  letter-spacing: 8px; font-family: 'Inter',-apple-system,sans-serif;
+}
+@media print {
+  body::before {
+    content: "Bones & Manifold · 骨骼流形";
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-25deg);
+    font-size: 100px; color: rgba(0,0,0,.04); print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
 </style>
 <a href="#" class="back-to-top" title="回到顶端">↑</a>
 
