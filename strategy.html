@@ -369,7 +369,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <a href="#section-0" class="sub">问题与现状</a>
 <a href="#section-0c" class="sub">方案 · 品类 · 边界</a>
 <a href="#section-0d" class="sub">时机 · 团队 · 路径</a>
-<a href="#section-0g" class="sub">投资人常见问题（FAQ）</a>
+<a href="#section-0g" class="sub">关键问题与论证</a>
 <span class="toc-part">支撑分析</span>
 <a href="#section-1">1、政策与市场</a>
 <a href="#section-2">2、需求全景（44场景）</a>
@@ -3202,4 +3202,15 @@ Bones &amp; Manifold · 外骨骼产品战略决策 · 2026年6月<br>
 
 
 </body>
-</html>
+</html
+<tr><td><strong>21</strong></td><td><strong>Gen 0到Gen 3的单元经济学如何演变？</strong></td><td>Gen 0（原型·0-6月）：BOM约$300-500（单膝·手工组装），无收入。Gen 1（KS·6-18月）：BOM约$400-600（双膝·小批量），ASP $1,299-1,799，毛利率35-45%，首500台收入$0.65-0.9M。Gen 2（量产·18-30月）：BOM约$350-500（规模效应+自研减速器+碳纤维良率提升），ASP $1,299-1,999，毛利率45-55%，年销1000+台。Gen 3（规模化·30-48月）：BOM约$250-400（万人级量产+柔性执行器），ASP $999-1,599，毛利率50-60%，年销10000+台。<strong>关键拐点</strong>在年销3000-5000台：BOM降幅超过ASP降幅，毛利率开始扩大</td></tr>
+
+<tr><td><strong>22</strong></td><td><strong>为什么骨科医生不推荐外骨骼？</strong></td><td>核心原因是<strong>缺乏临床证据</strong>——不是"证明无效"，是"尚未证明有效"。策略：先通过消费级市场积累真实世界数据（1000个用户6个月VAS/KAM/NPS数据），用RWE和骨科医生对话。参考：CGM从"医生不推荐"到"标准护理"用了约10年，第一步是Dexcom OTC认证让消费者推动医生</td></tr>
+
+<tr><td><strong>23</strong></td><td><strong>和膝关节支具的本质区别是什么？</strong></td><td>支具是被动的三点弯曲弹簧（KAM减少~10%，固定矫正角度，1年废弃率72%）。Bones是主动的动态执行器（KAM减少目标20%+，RL实时调整力矩，只在需要时助力）。支具对所有活动输出相同的矫正力，Bones对走路/下楼/上坡分别输出不同的力矩策略。内侧OA和外侧OA需要相反方向的力矩——支具只能做外翻，Bones可以做双向</td></tr>
+
+<tr><td><strong>24</strong></td><td><strong>RL策略需要多少用户数据才开始有效？前100个用户怎么办？</strong></td><td>RL策略分两阶段：<strong>离线预训练</strong>——在MyoWarp仿真中用公开数据集（10000+人运动捕捉）+合成数据训练基础策略，第1个用户拿到的是"万人数据训练的通用策略"。KAM减少>20%已在仿真中验证。<strong>在线个性化</strong>——每个用户使用后通过联邦学习微调，第100个用户后联邦学习的聚合优势开始显现。前100个用户不会"裸奔"</td></tr>
+
+<tr><td><strong>25</strong></td><td><strong>产品会不会让老人产生依赖、肌肉萎缩？</strong></td><td>外骨骼提供的是<strong>补充力矩而非替代力矩</strong>——用户仍需用自身肌肉完成大部分动作。膝关节OA的恶性循环本身就导致肌肉萎缩（疼痛→不动→更弱→更痛），外骨骼通过减痛来增加活动量，反而有助于维持肌肉功能。如进入二类器械认证阶段，股四头肌力量变化应作为临床研究的次要终点指标</td></tr>
+
+>
