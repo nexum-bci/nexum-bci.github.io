@@ -361,6 +361,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <a href="#section-0c2" class="sub">三.2 品类定义</a>
 <a href="#section-0c3" class="sub">三.3 产品边界</a>
 <a href="#section-0c4" class="sub">三.4 竞争格局</a>
+<a href="#section-0c5" class="sub">三.5 市场策略</a>
 <a href="#section-0d" class="sub">时机 · 团队 · 路径</a>
 <span class="toc-part">支撑分析</span>
 <a href="#section-1">一、政策与市场</a>
@@ -3128,6 +3129,80 @@ Bones &amp; Manifold · 外骨骼产品战略决策 · 2026年6月<br>
 研究范围：全球外骨骼市场·249款产品·40+国家·25+细分赛道<br>
 数据来源：Exoskeleton Report 2026 产品目录 · ABI Research · IIM · GII · MarketsandMarkets · 商务部 · 各公司财报/公告/Kickstarter/公开报道
 </div>
+
+
+<h3>B.6 机械工程与结构设计</h3>
+<table>
+<tr><th style="width:15%">术语</th><th style="width:10%">缩写</th><th>解释</th></tr>
+<tr><td><strong>行星减速器</strong></td><td>—</td><td>Planetary Gearbox。由太阳轮、行星轮和外齿圈组成的紧凑型减速机构。外骨骼中用于将电机的高速低扭矩转换为低速高扭矩。减速比通常3:1~10:1。相比谐波减速器，行星减速器噪音更低、反向驱动性更好，但体积稍大</td></tr>
+<tr><td><strong>谐波减速器</strong></td><td>—</td><td>Harmonic Drive。利用弹性变形实现高精度减速的机构。减速比可达50:1~160:1。体积小、精度极高（零背隙），但反向驱动性差（自锁）。人形机器人关节常用，外骨骼中较少使用（需要反向驱动的场景不适用）</td></tr>
+<tr><td><strong>反向驱动</strong></td><td>—</td><td>Backdrivability。减速器输出端可以被外力自由带动的能力。对于外骨骼至关重要——当电机不工作时，用户应该能自由活动关节而不感受到阻力。低减速比（<10:1）通常可反向驱动，高减速比需要离合器辅助</td></tr>
+<tr><td><strong>串联弹性执行器</strong></td><td>SEA</td><td>Series Elastic Actuator。在电机和负载之间串联一个弹性元件（弹簧）的执行器设计。优点：力控精度高、抗冲击、安全（弹性元件吸收冲击能量）。缺点：带宽受限。外骨骼和假肢中广泛使用</td></tr>
+<tr><td><strong>碳纤维</strong></td><td>CF</td><td>Carbon Fiber。由碳原子组成的轻质高强材料。外骨骼框架常用T700/T800级碳纤维（拉伸强度~4900/5880MPa）。密度约1.6g/cm³（钢的1/5）。异形件加工良率低（行业普遍~50%）是制造成本高的重要原因</td></tr>
+<tr><td><strong>钛合金</strong></td><td>Ti</td><td>Titanium Alloy。常用的TC4(Ti-6Al-4V)钛合金强度与钢相当但密度仅4.4g/cm³（钢的56%）。生物相容性好，适合与皮肤接触的部件。价格$200-400/kg，远高于碳纤维</td></tr>
+<tr><td><strong>镁合金</strong></td><td>Mg</td><td>Magnesium Alloy。密度仅1.8g/cm³，是最轻的结构金属。远也PowerKnee的关节壳体和传动箱使用镁合金。缺点是耐腐蚀性较差</td></tr>
+<tr><td><strong>Bowden线缆</strong></td><td>—</td><td>由内钢丝和外护套组成的柔性力传递系统（原理同自行车刹车线）。软体外骨骼（Harvard Exosuit、Skip MO/GO）常用。优点：电机可远离关节（减轻远端重量）。缺点：摩擦导致力传递效率仅48-70%</td></tr>
+<tr><td><strong>直接驱动</strong></td><td>—</td><td>Direct Drive。电机直接安装在关节处，无中间传动机构。优点：零背隙、可反向驱动、力控精度极高。缺点：电机体积重量大（需要大扭矩直接输出）。适合对控制精度要求极高的场景</td></tr>
+<tr><td><strong>IP防护等级</strong></td><td>IP</td><td>Ingress Protection。国际防护等级标准。IP54=防尘（5级）+防溅水（4级）。IP67=完全防尘（6级）+短时间浸泡（7级）。消费外骨骼通常IP54（防雨雪），工业/军事可达IP67</td></tr>
+<tr><td><strong>聚醚醚酮</strong></td><td>PEEK</td><td>Polyether Ether Ketone。高性能热塑性塑料。强度接近金属但密度仅1.3g/cm³。耐高温（250°C）、耐化学腐蚀、生物相容性好。可用于外骨骼的非承重结构和衬垫</td></tr>
+</table>
+
+<h3>B.7 步态分析与运动学</h3>
+<table>
+<tr><th style="width:15%">术语</th><th style="width:10%">缩写</th><th>解释</th></tr>
+<tr><td><strong>支撑相</strong></td><td>—</td><td>Stance Phase。步态周期中足部接触地面的阶段，占整个步态周期的约60%。细分为：足跟触地(Heel Strike)→承重反应(Loading Response)→支撑中期(Midstance)→支撑末期(Terminal Stance)→预摆动(Pre-swing)。膝关节在支撑相承受最大负荷（行走时261-280%体重）</td></tr>
+<tr><td><strong>摆动相</strong></td><td>—</td><td>Swing Phase。步态周期中足部离开地面的阶段，占约40%。细分为：初期摆动(Initial Swing)→中期摆动(Mid Swing)→末期摆动(Terminal Swing)。髋关节外骨骼通常在此阶段提供助力</td></tr>
+<tr><td><strong>足偏角</strong></td><td>FPA</td><td>Foot Progression Angle。足长轴与前进方向之间的夹角。外旋（toe-out）可减少KAM约13.5%（Lancet RCT, Uhlrich 2025）。步态再训练APP的核心调整参数</td></tr>
+<tr><td><strong>步频</strong></td><td>—</td><td>Cadence。每分钟的步数（steps/min）。正常成人步频约100-130步/分。膝OA患者的步频通常降低以减轻每一步的疼痛</td></tr>
+<tr><td><strong>步长</strong></td><td>—</td><td>Step Length。一侧足跟触地到对侧足跟触地的距离。膝OA患者通常缩短步长以减少支撑相时间</td></tr>
+<tr><td><strong>步幅</strong></td><td>—</td><td>Stride Length。同一侧足跟连续两次触地之间的距离。等于两步长之和</td></tr>
+<tr><td><strong>单支撑相</strong></td><td>—</td><td>Single Limb Support。仅一条腿支撑体重的阶段。对支撑腿的膝关节负荷最大</td></tr>
+<tr><td><strong>双支撑相</strong></td><td>—</td><td>Double Limb Support。双腿同时触地的阶段。行走速度越慢，双支撑相越长。老年人通常增加双支撑相以提高稳定性</td></tr>
+</table>
+
+<h3>B.8 膝关节解剖与病理</h3>
+<table>
+<tr><th style="width:15%">术语</th><th style="width:10%">缩写</th><th>解释</th></tr>
+<tr><td><strong>股骨</strong></td><td>—</td><td>Femur。大腿骨。膝关节的上半部分。股骨远端有两个髁（内侧髁和外侧髁），与胫骨平台形成关节</td></tr>
+<tr><td><strong>胫骨</strong></td><td>—</td><td>Tibia。小腿的主要承重骨。胫骨近端形成胫骨平台，与股骨髁构成胫股关节。内侧胫骨平台承受60-80%的膝关节负荷</td></tr>
+<tr><td><strong>髌骨</strong></td><td>—</td><td>Patella。膝盖骨。嵌在股四头肌腱内，与股骨滑车构成髌股关节。髌股关节在下楼梯和深度屈膝时承受最高负荷</td></tr>
+<tr><td><strong>半月板</strong></td><td>—</td><td>Meniscus。膝关节内C形纤维软骨。内侧半月板比外侧更易受损。功能：分散负荷（增加接触面积约50%）、缓冲冲击、稳定关节。半月板撕裂或切除后，关节接触应力增加约200-300%，显著加速OA进展</td></tr>
+<tr><td><strong>前交叉韧带</strong></td><td>ACL</td><td>Anterior Cruciate Ligament。防止胫骨前移和旋转不稳。ACL损伤后，即使重建手术，10-15年内膝OA发生率仍高达50-80%</td></tr>
+<tr><td><strong>后交叉韧带</strong></td><td>PCL</td><td>Posterior Cruciate Ligament。防止胫骨后移。比ACL更粗更强。PCL损伤较少见</td></tr>
+<tr><td><strong>内侧副韧带</strong></td><td>MCL</td><td>Medial Collateral Ligament。膝关节内侧的韧带，抵抗外翻力。MCL损伤常见于膝关节外侧受到冲击</td></tr>
+<tr><td><strong>外侧副韧带</strong></td><td>LCL</td><td>Lateral Collateral Ligament。膝关节外侧的韧带，抵抗内翻力</td></tr>
+<tr><td><strong>髌股关节</strong></td><td>PFJ</td><td>Patellofemoral Joint。髌骨与股骨滑车之间的关节。下楼梯时PFJ承受的压力可达体重的3-4倍。孤立性髌股关节炎在女性中更常见</td></tr>
+<tr><td><strong>胫股关节</strong></td><td>TFJ</td><td>Tibiofemoral Joint。股骨与胫骨之间的主要承重关节。分为内侧间室和外侧间室。内侧间室OA最常见（占60-70%）</td></tr>
+<tr><td><strong>膝关节内翻/外翻</strong></td><td>—</td><td>Varus/Valgus。内翻（O型腿）=膝关节向内弯曲，内侧间室负荷增加。外翻（X型腿）=膝关节向外弯曲，外侧间室负荷增加。内翻畸形是内侧间室OA最重要的结构风险因素</td></tr>
+</table>
+
+<h3>B.9 下肢肌肉解剖</h3>
+<table>
+<tr><th style="width:15%">术语</th><th style="width:10%">缩写</th><th>解释</th></tr>
+<tr><td><strong>股四头肌</strong></td><td>—</td><td>Quadriceps。大腿前侧肌群，由四块肌肉组成：股直肌(RF)、股内侧肌(VM)、股外侧肌(VL)、股中间肌(VI)。主要功能：膝关节伸展。股四头肌无力是膝OA最重要的可调控风险因素——肌力每下降10%，OA进展风险增加约20%</td></tr>
+<tr><td><strong>股内侧肌</strong></td><td>VMO</td><td>Vastus Medialis Obliquus。股四头肌最内侧的肌纤维束，对髌骨稳定至关重要。VMO萎缩是髌股疼痛综合征的核心机制</td></tr>
+<tr><td><strong>腘绳肌</strong></td><td>—</td><td>Hamstrings。大腿后侧肌群：股二头肌(BF)、半腱肌(ST)、半膜肌(SM)。功能：膝关节屈曲+髋关节伸展。腘绳肌紧张会增加膝关节屈曲力矩</td></tr>
+<tr><td><strong>腓肠肌</strong></td><td>—</td><td>Gastrocnemius。小腿后侧的主要肌肉（小腿肚）。跨膝关节和踝关节（双关节肌）。在支撑相协助膝关节屈曲</td></tr>
+<tr><td><strong>比目鱼肌</strong></td><td>—</td><td>Soleus。腓肠肌深层的小腿肌肉。仅跨踝关节（单关节肌）。在支撑相提供跖屈力矩——间接影响膝关节负荷</td></tr>
+<tr><td><strong>股直肌</strong></td><td>RF</td><td>Rectus Femoris。股四头肌中唯一跨髋关节和膝关节的双关节肌。功能：膝关节伸展+髋关节屈曲。其双关节特性意味着髋外骨骼的助力会通过RF影响膝关节力矩</td></tr>
+<tr><td><strong>臀中肌</strong></td><td>—</td><td>Gluteus Medius。髋关节外展肌。臀中肌无力=Trendelenburg步态（对侧骨盆下沉）→改变膝关节力线→增加KAM</td></tr>
+<tr><td><strong>髂胫束</strong></td><td>ITB</td><td>Iliotibial Band。从髋部延伸至胫骨外侧的厚筋膜束。ITB过紧可增加膝关节外侧负荷</td></tr>
+</table>
+
+<h3>B.10 临床评估工具</h3>
+<table>
+<tr><th style="width:15%">术语</th><th style="width:10%">缩写</th><th>解释</th></tr>
+<tr><td><strong>视觉模拟评分</strong></td><td>VAS</td><td>Visual Analog Scale。0（无痛）到10（最剧烈疼痛）的疼痛评分工具。膝OA临床研究最常用的主要终点指标。最小临床重要差异(MCID)通常为2分</td></tr>
+<tr><td><strong>数字评分法</strong></td><td>NRS</td><td>Numeric Rating Scale。与VAS类似的0-10分疼痛评分，但通过口头或书面数字完成，操作更简便</td></tr>
+<tr><td><strong>WOMAC评分</strong></td><td>WOMAC</td><td>Western Ontario and McMaster Universities Osteoarthritis Index。膝/髋OA最广泛使用的功能评估量表。包含三个维度：疼痛（5项）、僵硬（2项）、日常生活功能（17项）。总分0-96分，分数越高=症状越重</td></tr>
+<tr><td><strong>KOOS评分</strong></td><td>KOOS</td><td>Knee injury and Osteoarthritis Outcome Score。WOMAC的扩展版。包含五个维度：疼痛、症状、日常生活功能、运动/娱乐功能、膝关节相关生活质量。共42项</td></tr>
+<tr><td><strong>Kellgren-Lawrence分级</strong></td><td>KL</td><td>X线片评估OA严重程度的5级评分：0=无OA，1=可疑（轻微骨赘），2=轻度（明确骨赘+关节间隙可疑狭窄），3=中度（关节间隙中度狭窄），4=重度（关节间隙消失+骨硬化+骨变形）</td></tr>
+<tr><td><strong>净推荐值</strong></td><td>NPS</td><td>Net Promoter Score。用户推荐意愿的0-10分指标。9-10=推荐者，7-8=中立者，0-6=贬损者。NPS=%推荐者-%贬损者。>50为优秀，>70为世界级。外骨骼行业尚无公开NPS数据</td></tr>
+<tr><td><strong>最小临床重要差异</strong></td><td>MCID</td><td>Minimal Clinically Important Difference。患者能感知到的最小改善幅度。膝OA的VAS MCID约2分，WOMAC MCID约12分</td></tr>
+<tr><td><strong>六分钟步行测试</strong></td><td>6MWT</td><td>Six-Minute Walk Test。评估功能运动能力的标准化测试。膝OA患者通常显著低于健康同龄人。是外骨骼临床效果验证的常用客观指标</td></tr>
+<tr><td><strong>计时起立-行走测试</strong></td><td>TUG</td><td>Timed Up and Go。从椅子上站起、行走3米、转身、走回、坐下的计时测试。>13.5秒提示跌倒风险增加</td></tr>
+</table>
+
 
 </body>
 </html>
