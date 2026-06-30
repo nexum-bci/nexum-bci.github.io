@@ -318,6 +318,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <a href="#section-7">7、膝关节产品定义与执行</a>
 <a href="#section-7-1" class="sub">7.1 战略演进</a>
 <a href="#section-7a" class="sub" style="font-weight:700;color:var(--green)">★ 7.2 产品定义</a>
+<a href="#sec-7-2-5" class="sub">7.2.5 硬件架构布局</a>
 <a href="#section-7b" class="sub">7.3 生物力学与人机工程</a>
 <a href="#section-7c" class="sub">7.4 执行计划</a>
 <a href="#section-8">8、聚焦膝关节·战略路线图</a>
@@ -565,7 +566,25 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <td>三阶段验证：①<strong>内部验证</strong>（Gen 0·10-30人·MyoWarp仿真+步态实验室KAM实测+用户主观反馈·"确实不疼了"）②<strong>真实世界数据</strong>（Gen 1-2·100-1000人·设备数据+NPS+疼痛量表WOMAC+功能测试·6个月随访）③<strong>第三方临床研究</strong>（Gen 2+·与高校/医院合作·RCT或准实验设计·发表同行评审论文）。关键指标：KAM减少%（力学）+ WOMAC疼痛子量表改善%（临床）+ NPS（满意度）+ 12个月持续使用率（粘性）。不依赖FDA/NMPA路径但临床数据将用于医保谈判和医生推荐</td></tr>
 
 <tr><td><strong>10</strong></td><td><strong>制造怎么办？供应链风险？</strong></td>
-<td><strong>中国是全链条国产化的最大优势——BOM已进入消费级可负担区间。</strong>核心部件策略：①碳纤维框架——初期外购标准管材（国产碳纤维管¥200-400/kg·国产化率>80%），量产后开模定制（模具费¥30-80K·单件成本降至¥80-150）。②电机——CubeMars GL40（¥200-400/台·外骨骼常用）或宇树电机，双膝需2台。③减速器——初期用5:1行星减速器（¥100-200/台），量产后评估绿的谐波定制谐波方案（全球市占率>35%·比进口便宜50%·精度更高）。④电池——18650 4S1P电池包（¥80-150·2-3小时续航），量产后可定制异形电池嵌入框架。⑤传感器——IMU（博世BMI270或国产替代·¥20-50）+力传感器（¥50-100）。<strong>BOM合计$400-800，ASP $1,299-1,999，毛利率35-50%。</strong>整机组装初期依托产业合作资源（含代工厂家·月产能100-500台起步），不走自建工厂重资产路线。风险：量产一致性是最大挑战——从10台到1000台需要质量体系（ISO 13485虽非强制但强烈建议）</td></tr>
+<td><strong>中国是全链条国产化的最大优势——BOM已进入消费级可负担区间。</strong>以下为Gen 1双膝系统完整BOM测算（每台）：<br><br>
+<table style="margin:8px 0;font-size:11px">
+<tr><th>组件</th><th>方案</th><th>单价（¥）</th><th>用量</th><th>小计（¥）</th><th>可信度</th></tr>
+<tr><td>碳纤维框架</td><td>国产碳纤维管/板（光威/中复神鹰）</td><td>200-400/kg</td><td>~1.5kg</td><td><strong>300-600</strong></td><td>中（标准管材价·未含加工费）</td></tr>
+<tr><td>电机</td><td>CubeMars GL40或宇树同等</td><td>200-400/台</td><td>2台</td><td><strong>400-800</strong></td><td>高（公开零售价）</td></tr>
+<tr><td>行星减速器</td><td>5:1行星减速器·量产后评估绿的谐波定制</td><td>100-200/台</td><td>2台</td><td><strong>200-400</strong></td><td>中（标准件价格）</td></tr>
+<tr><td>电池</td><td>18650 4S1P（14.8V·2000-3000mAh）</td><td>80-150</td><td>1组</td><td><strong>80-150</strong></td><td>高（成熟供应链）</td></tr>
+<tr><td>IMU传感器</td><td>博世BMI270或国产替代</td><td>20-50</td><td>4个</td><td><strong>80-200</strong></td><td>高（博世BMI270约¥30/个）</td></tr>
+<tr><td>力传感器</td><td>国产应变片或压电式</td><td>50-100</td><td>2个</td><td><strong>100-200</strong></td><td>低（需定制·可能更贵）</td></tr>
+<tr><td>控制PCB+MCU</td><td>STM32或同等·含电机驱动·蓝牙</td><td>150-300</td><td>1套</td><td><strong>150-300</strong></td><td>中（设计+打样+元器件）</td></tr>
+<tr><td>电磁离合器</td><td>安全关键件·断电脱开零阻力</td><td>50-100</td><td>2个</td><td><strong>100-200</strong></td><td>中（标准电磁件·需选型）</td></tr>
+<tr><td>绑带+护垫+外壳</td><td>透气织物+EVA/硅胶护垫+塑料外壳</td><td>100-250</td><td>1套</td><td><strong>100-250</strong></td><td>低（工效学关键·需打样测试）</td></tr>
+<tr><td>腰带+线缆+连接器</td><td>弹性腰带+屏蔽电缆+防水连接器</td><td>100-200</td><td>1套</td><td><strong>100-200</strong></td><td>低（连接器选型影响可靠性）</td></tr>
+<tr><td>包装+说明书</td><td>彩盒+快速入门指南</td><td>30-60</td><td>1套</td><td><strong>30-60</strong></td><td>高</td></tr>
+<tr style="background:rgba(0,150,240,0.06)"><td><strong>物料BOM合计</strong></td><td></td><td></td><td></td><td><strong>¥1,640-3,360</strong>（≈$230-470）</td><td></td></tr>
+<tr style="background:rgba(0,150,240,0.06)"><td>组装+测试+包装人工</td><td>初期手工组装·量产后半自动化</td><td>100-200/台</td><td></td><td><strong>¥100-200</strong></td><td>低（取决于批量）</td></tr>
+<tr style="background:rgba(0,150,240,0.1)"><td><strong>制造成本合计</strong></td><td></td><td></td><td></td><td><strong>¥1,740-3,560</strong>（≈$240-500）</td><td></td></tr>
+</table><br>
+<strong>诚实结论：</strong>①Gen 1小批量（<500台）时，制造成本约$350-600，不是$400-800。文档早期引用的$400-800是偏乐观的全口径（含部分摊销）。②毛利率取决于ASP和渠道结构——如果KS直接销售（省去经销商），$1,299-1,799 ASP对应毛利率40-55%。如果走JD/天猫（平台扣点+物流），毛利率降至30-40%。③量产后（Gen 2+），BOM可降至$300-500，主要通过碳纤维开模（单件成本降50%）和减速器自研/国产替代。④定价因市场不同：中国¥3,999-4,999（含13%增值税+渠道费），北美$1,299-1,799（KS+Amazon），欧洲€1,199-1,699（含VAT），日本¥60,000-80,000（含消费税）。同一台设备出厂价相同（~¥6,500-9,000≈$900-1,200），终端价差异来自税收、物流、渠道费用。⑤组装初期依托产业合作资源（含代工厂家·月产能100-500台起步）。不走自建工厂重资产路线。风险：量产一致性是最大挑战——从10台到1000台需要质量体系（ISO 13485虽非强制但强烈建议）。上述BOM中标注"低可信度"的项目需要实际询价后才能确认</td></tr>
 
 <tr><td><strong>11</strong></td><td><strong>为什么不先做App？那不需要硬件，不是更快吗？</strong></td>
 <td><strong>硬件是"能不能"，App是"好不好"——顺序不能颠倒。</strong>中国健康App市场已被充分验证：付费转化率<3%，12月留存<15%。App独立变现在中国几乎不可能盈利。App在Bones生态中的正确定位：<strong>硬件配套增值服务</strong>——①子女端KAM可视化（远程查看父母膝关节负荷变化·"爸妈今天膝盖压力大吗"是子女每周都想知道的答案）②跌倒检测与告警（老人跌倒后自动通知子女+定位·这是子女付费的最强驱动力）③疼痛日记+步态趋势（为医生提供客观数据）。不独立变现，但能显著提升硬件NPS和复购率。类比：Peloton先有自行车（硬件验证需求）→App订阅贡献利润。Nike先有跑鞋→Nike+强化粘性。膝关节疼痛是<strong>物理问题</strong>——力学的关节负荷无法通过软件减少。先做App是本末倒置</td></tr>
@@ -2633,6 +2652,26 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 <strong>Gen 0的产品一句话描述：</strong><br>
 中国版："送给爸妈的智能护膝——下楼不疼·走路轻松·你在手机上就能看到效果"<br>
 海外版："The smart knee brace that learns how YOU walk——Hike longer. Descend without pain. Track your progress."
+</div>
+
+<h3 id="sec-7-2-5">7.2.5 硬件架构：电机、电池、主控的物理布局</h3>
+
+<p style="font-size:12px;color:var(--text-tertiary)">膝关节外骨骼的物理布局直接影响重量分布、穿戴舒适度和用户接受度。参考DNSYS Z1（膝部集成）和Skip MO/GO（腰带供电）两种已验证方案，Bones采用<strong>腰带供电+膝部执行</strong>的混合架构——取两者的工程优势。</p>
+
+<table>
+<tr><th>组件</th><th>位置</th><th>方案</th><th>重量</th><th>为什么放这里</th></tr>
+<tr><td><strong>电机+减速器</strong></td><td>膝关节外侧（左右各一）</td><td>CubeMars GL40（~200g/台）或宇树同等规格。5:1行星减速器</td><td>~500g（双膝合计）</td><td>力矩输出最直接的位置，与关节旋转轴对齐。无需额外传动机构。外骨骼行业通用方案（DNSYS Z1、MIT Dephy均采用）</td></tr>
+<tr><td><strong>电池</strong></td><td><strong>腰带（臀部上方）</strong></td><td>18650 4S1P（4节串联·14.8V·2000-3000mAh）</td><td>~220g（含外壳）</td><td>腰带是最稳定的承载位置，晃动最小。Skip MO/GO验证了腰带供电对老年人的友好性。如果放大腿绑带，电池重量会导致绑带下滑——这是护膝类产品1年废弃率72%的核心原因之一</td></tr>
+<tr><td><strong>主控盒子</strong></td><td>腰带（与电池同舱）</td><td>STM32或同等MCU + 电机驱动 + IMU数据处理 + 蓝牙模块</td><td>~80g</td><td>与电池共享腰带舱位，减少独立盒子的体积。通过细电缆沿大腿绑带走线到双膝电机。对外只露出两根线（左膝、右膝），老年用户友好</td></tr>
+<tr><td><strong>碳纤维框架</strong></td><td>大腿段+小腿段+膝关节铰链</td><td>国产碳纤维管/板（光威/中复神鹰）。大腿段从腰带连接点到膝上绑带。小腿段从膝下绑带到小腿中部。膝关节铰链：铝合金+碳纤维混合</td><td>~800g（双膝合计）</td><td>碳纤维是外骨骼行业标准材料（刚度/重量比最优）。国产碳纤维管¥200-400/kg，量产后开模成本降至¥80-150/件</td></tr>
+<tr><td><strong>绑带+护垫</strong></td><td>大腿上、大腿下/膝上、小腿</td><td>透气弹性织物+魔术贴。参考运动护膝的穿戴方式——30秒完成。护垫采用EVA或硅胶——防滑+舒适</td><td>~200g（双膝合计）</td><td>绑带是用户接触面，直接决定舒适度和穿戴便利性。参考运动护具设计——非医疗器械外观</td></tr>
+<tr><td><strong>腰带</strong></td><td>腰部</td><td>弹性织物腰带，后腰部分加宽以容纳电池+主控舱。前侧快拆扣</td><td>~100g</td><td>腰带是整个系统的"基座"——承载电池和主控，为大腿框架提供锚点。类似登山腰包的穿戴体验</td></tr>
+<tr><td><strong>线缆</strong></td><td>腰带→大腿→膝部</td><td>细径屏蔽电缆，沿大腿绑带内侧走线。连接器需防水（IP54）和可靠拔插寿命</td><td>~50g</td><td>线缆管理是用户体验的关键。参考Skip MO/GO将线埋在裤子内侧的方案。Gen 2+可评估无线电机方案（但当前功耗和延迟不满足要求）</td></tr>
+</table>
+
+<div class="callout callout-key" style="text-align:left;font-size:14px;">
+<strong>Gen 1重量预算：电机500g + 碳纤维框架800g + 绑带200g + 电池220g + 主控80g + 腰带100g + 线缆50g = <span style="color:var(--accent)">~1,950g（约2.0kg）</span>。</strong>加安全冗余和外壳，<strong>2.0-2.5kg是现实的</strong>。对比：DNSYS Z1每腿2.5kg（双膝5kg），远也PowerKnee约3kg/腿。我们轻一半的核心原因：电池放腰带共用而非每条腿各挂一组。<br><br>
+<strong>工程风险（诚实标注）：</strong>①腰带电缆到膝盖的连接器——拔插寿命和防水是容易出问题的点 ②双膝IMU数据同步——无线有延迟风险，有线更可靠但影响穿戴便利 ③线缆管理——老人自己穿的时候线不能缠住。Skip MO/GO通过把线埋在裤子里解决了③——我们需要类似方案。
 </div>
 
 <h2 id="section-7b">7.3 生物力学与人机工程验证</h2>
