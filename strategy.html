@@ -2,6 +2,8 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
 <meta http-equiv="Cache-Control" content="public, max-age=3600">
 <link rel="dns-prefetch" href="//github.com">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -4417,8 +4419,13 @@ document.addEventListener('keydown', function(e) {
  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'S') { e.preventDefault(); return false; }
 });
 document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+document.addEventListener('keydown', function(e) {
+ if (e.key === 'F12') { e.preventDefault(); return false; }
+ if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) { e.preventDefault(); return false; }
+});
 </script>
 
-<!-- deployed: 2026-07-01 23:39:53 北京时间 -->
+
+<!-- deployed: 2026-07-01 23:40:24 北京时间 -->
 </body>
 </html> 
