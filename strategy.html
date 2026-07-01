@@ -172,6 +172,9 @@ tr.warning-row td {
 .nav-links a:hover { color:var(--primary-dark); }
 
 /* Print */
+@page {
+ @bottom-center { content: counter(page); font-size: 9pt; color: #999; }
+}
 @media print {
  body, body * { display:none !important; }
  body::after {
@@ -331,6 +334,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <a href="#sec-7-2-8" class="sub">7.2.8 全维健康闭环论证</a>
 <a href="#section-7b" class="sub">7.3 生物力学与人机工程</a>
 <a href="#section-7c" class="sub">7.4 执行计划</a>
+<a href="#sec-7-5" class="sub">7.5 商业化路线图</a>
 <a href="#section-8">8、聚焦膝关节·战略路线图</a>
 <a href="#sec-8-1" class="sub">8.1 执行路线图</a>
 <a href="#sec-8-2" class="sub">8.2 资本需求</a>
@@ -3348,6 +3352,117 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 App定位为硬件配套增值服务，不独立变现。肌骨模型嵌入硬件作为核心技术引擎。<strong>假肢控制SDK是与膝关节消费硬件完全独立的业务线</strong>——不同客户（假肢制造商B2B vs 消费者B2C）、不同商业模式（软件授权 vs 硬件品牌）、不同监管路径（医疗认证 vs 消费电子）。假肢SDK在Phase 3+独立评估和启动，届时需要独立的团队和预算。两条线共享底层肌骨模型技术，但执行上完全分离。<br><br>
 <strong>一个平台。全维健康闭环。多品牌分层。全球市场。Phase 1聚焦骨骼流形·老年膝OA。实现品类领先。</strong>
 </div>
+
+<h2 id="sec-7-5">7.5 商业化路线图：测试·认证·营销·销售的完整闭环</h2>
+
+<div class="callout callout-key" style="text-align:left;font-size:14px;">
+<strong>产品做出来只是第一步。从原型到消费者手中，需要完整的测试验证、合规认证、营销推广、销售转化和售后服务体系。</strong>以下按中国和海外双线规划，每个阶段明确做什么、谁来做、花多少钱、达到什么效果。
+</div>
+
+<h3 id="sec-7-5-1">7.5.1 测试与验证方案（国内+海外双线）</h3>
+
+<table>
+<tr><th>阶段</th><th>测试类型</th><th>地点</th><th>人数</th><th>时长</th><th>核心指标</th><th>预算</th></tr>
+<tr><td><strong>Gen 0 · 内部验证</strong></td><td>RL仿真+功能原型测试</td><td>南京·内部</td><td>10人</td><td>4-8周</td><td>RL仿真KAM减少>20% vs PID·原型机功能完整度·安全性(零安全事故)</td><td>$3-5K</td></tr>
+<tr><td><strong>Gen 0 · 用户初测</strong></td><td>10名老年用户穿戴测试·南京社区招募</td><td>南京·养老社区</td><td>10人(60-80岁·K-L 2-3级)</td><td>4-6周</td><td>主观疼痛VAS改善>30%·持续使用率>70%·穿戴成功率>90%</td><td>$5-8K</td></tr>
+<tr><td><strong>Gen 1 · 国内扩展</strong></td><td>30-50名用户测试·南京+上海</td><td>南京+上海·养老机构</td><td>30-50人</td><td>8-12周</td><td>RL实机KAM减少>15% vs PID(步态实验室)·30天使用率>70%·NPS>50·6MWT改善</td><td>$20-30K</td></tr>
+<tr><td><strong>Gen 1 · 海外预测试</strong></td><td>KS预热·Landing Page A/B测试</td><td>线上·面向北美</td><td>Email 1,000+</td><td>4-8周</td><td>Email转化率>3%·Landing Page停留>2min·预购意向>100人</td><td>$3-5K</td></tr>
+<tr><td><strong>Gen 2 · 临床合作</strong></td><td>1家三甲医院·步态实验室KAM实测+WOMAC量表</td><td>南京/上海·三甲康复科</td><td>30-50人</td><td>12-24周</td><td>KAM减少(实验室金标准)·WOMAC疼痛子量表改善·6MWT变化·12月使用率</td><td>$30-50K</td></tr>
+<tr><td><strong>Gen 2 · KS发货验证</strong></td><td>首批100-500台·真实世界数据</td><td>北美+欧洲+中国</td><td>100-500人</td><td>6个月</td><td>退货率<25%·NPS>60·30天使用率>70%·联邦学习冷启动</td><td>按订单预收款·无额外预算</td></tr>
+</table>
+
+<div class="callout callout-insight">
+<strong>测试策略的核心原则：</strong>①先仿真后真人·先少后多·先短后长 ②国内优先（成本低·触达快·语言无障碍）③海外测试依赖KS平台（天然筛选早期科技采纳者）④每个阶段设置Go/No-Go标准——不达标不进入下一阶段。
+</div>
+
+<h3 id="sec-7-5-2">7.5.2 认证与合规路线图</h3>
+
+<table>
+<tr><th>市场</th><th>认证</th><th>类型</th><th>时间</th><th>费用</th><th>关键要求</th></tr>
+<tr><td><strong>中国</strong></td><td>无需NMPA</td><td>消费电子产品</td><td>Gen 0起</td><td>$0</td><td>产品定义为"运动辅助设备"·不宣称医疗功能·包装说明书规避治疗性表述</td></tr>
+<tr><td><strong>中国</strong></td><td>SRRC(无线电)</td><td>蓝牙设备强制</td><td>Gen 1(6-8周)</td><td>$2-3K</td><td>蓝牙模块需通过SRRC认证·可委托认证代理</td></tr>
+<tr><td><strong>中国</strong></td><td>3C(如果含充电器)</td><td>锂电池安全</td><td>Gen 1</td><td>$1-2K</td><td>18650电池包需通过3C或UN38.3(运输安全)</td></tr>
+<tr><td><strong>北美</strong></td><td>FCC</td><td>射频设备强制</td><td>Gen 1(8-12周)</td><td>$5-10K</td><td>蓝牙+WiFi模块FCC认证·可委托FCC认证实验室</td></tr>
+<tr><td><strong>北美</strong></td><td>UL/ETL(建议·非强制)</td><td>产品安全</td><td>Gen 1-2</td><td>$10-20K</td><td>电池+充电系统安全·虽然不是强制但Amazon/线下零售通常要求</td></tr>
+<tr><td><strong>欧洲</strong></td><td>CE(EMC+LVD)</td><td>强制性</td><td>Gen 2(12-16周)</td><td>$15-25K</td><td>电磁兼容+低电压指令·可自我声明(非医疗设备)</td></tr>
+<tr><td><strong>欧洲</strong></td><td>CE(RED)</td><td>无线电设备指令</td><td>Gen 2</td><td>含在CE费用内</td><td>蓝牙功能需符合RED</td></tr>
+<tr><td><strong>日本</strong></td><td>技適(MIC)</td><td>无线电强制</td><td>Gen 3</td><td>$5-10K</td><td>日本无线电法规·需当地代理</td></tr>
+<tr><td><strong>全球</strong></td><td>ISO 13485(建议)</td><td>医疗器械质量管理</td><td>Gen 2+</td><td>$20-30K</td><td>非强制但强烈建议·为未来二类器械认证做准备·提升量产质量体系</td></tr>
+</table>
+
+<div class="callout callout-insight">
+<strong>认证策略：消费级定位是最大的监管红利。</strong>当前Gen 0-2定位为消费电子产品（运动辅助/健康穿戴），避免NMPA/FDA医疗认证（5-8年·$50-100M）。参考极壳Hypershell和Skip MO/GO的先例——两者均以消费电子身份在中国和美国正常销售。Gen 3+在积累真实世界数据后，评估二类器械认证以进入医保支付体系。
+</div>
+
+<h3 id="sec-7-5-3">7.5.3 营销与推广策略（分市场·分人群）</h3>
+
+<h4>中国市场营销（Phase 1·老年膝OA·膝安品牌）</h4>
+
+<table>
+<tr><th>渠道</th><th>策略</th><th>目标</th><th>预算</th></tr>
+<tr><td><strong>线下社区体验</strong></td><td>南京/上海/杭州养老社区·"试穿一周"活动·老人体验后子女下单</td><td>转化率>15%·单点月销10-20台</td><td>$5-10K/城市</td></tr>
+<tr><td><strong>微信生态</strong></td><td>公众号科普(膝OA知识)+小程序下单+子女社群运营</td><td>公众号5K+关注·社群1K+活跃</td><td>$2-3K/月</td></tr>
+<tr><td><strong>京东+天猫</strong></td><td>旗舰店·详情页突出"子女给爸妈买的健康产品"·视频展示RL vs PID对比</td><td>月销50-100台</td><td>平台扣点5-8%+广告$5-10K/月</td></tr>
+<tr><td><strong>抖音/快手</strong></td><td>真人实测视频·老人试用前后对比·医生/KOL背书</td><td>视频播放10万+·引流到京东/微信</td><td>$5-10K/月</td></tr>
+<tr><td><strong>养老机构合作</strong></td><td>与养老机构签订体验合作协议·机构推荐+分成</td><td>10-20家合作机构</td><td>$2-5K/家(体验设备+培训)</td></tr>
+</table>
+
+<h4>海外营销（Phase 1-2·Kickstarter+Amazon）</h4>
+
+<table>
+<tr><th>渠道</th><th>策略</th><th>目标</th><th>预算</th></tr>
+<tr><td><strong>Kickstarter</strong></td><td>视频(2-3min·RL vs PID对比+老人实测)+早鸟价$999-1,299+Stretch Goals</td><td>$100-300K·1,000+支持者</td><td>$15-25K(视频+PR+广告)</td></tr>
+<tr><td><strong>Amazon</strong></td><td>US+EU站点·FBA物流·A+Content详情页·Vine评论计划</td><td>月销30-50台·评分>4.0</td><td>平台扣点15%+广告$5-10K/月</td></tr>
+<tr><td><strong>独立站(Shopify)</strong></td><td>品牌官网·内容营销(博客+测评)·SEO·邮件营销</td><td>月销10-20台·毛利率更高(省平台费)</td><td>$2-3K/月</td></tr>
+<tr><td><strong>YouTube测评</strong></td><td>寄送样机给科技/健康/户外类YouTuber(10-50万订阅)·客观第三方测评</td><td>5-10个测评视频·总播放100万+</td><td>$5-10K(样机成本+运费)</td></tr>
+<tr><td><strong>Reddit/Quora</strong></td><td>在r/kneepain、r/osteoarthritis、r/exoskeleton等社区参与讨论·软性植入</td><td>品牌搜索量提升</td><td>$0(创始人时间投入)</td></tr>
+</table>
+
+<div class="callout callout-key" style="text-align:left;font-size:14px;">
+<strong>不同市场的叙事完全不同：</strong>中国=孝心经济("给爸妈买个好膝盖")·北美=独立生活("Stay active. Stay independent.")·欧洲=品质+医保("Mobility is dignity.")·日本=不给别人添麻烦("人に迷惑をかけない")。<b>同一个产品，四种营销叙事。需要本地化团队或合作伙伴。</b>
+</div>
+
+<h3 id="sec-7-5-4">7.5.4 Kickstarter众筹详细方案</h3>
+
+<table>
+<tr><th>要素</th><th>方案</th></tr>
+<tr><td><strong>时机</strong></td><td>Gen 1原型完成+RL vs PID对比视频拍摄+30人国内测试数据收集完毕后（预计Gen 1第12-15个月）</td></tr>
+<tr><td><strong>目标金额</strong></td><td>$100,000-300,000（保守·参考DNSYS Z1 $500K+和Vastnaut One $1.26M）</td></tr>
+<tr><td><strong>价格梯队</strong></td><td>Super Early Bird $899(限100台)→Early Bird $1,099(限200台)→KS Special $1,299→Retail $1,799</td></tr>
+<tr><td><strong>视频内容</strong></td><td>①老人(68岁·膝OA)穿戴前后对比：下楼·走路·坐-站 ②RL vs PID双屏对比：同一动作·不同策略 ③创始人讲述：为什么做这个产品 ④产品特写：碳纤维框架·30秒穿戴·App界面</td></tr>
+<tr><td><strong>预热期</strong></td><td>KS上线前4-8周·Landing Page收集Email·Facebook/Instagram广告测试·Reddit/ProductHunt社区预热·目标收集Email 1,000+</td></tr>
+<tr><td><strong>物流方案</strong></td><td>中国直发（深圳/香港）·使用EasyShip/ShipBob等跨境物流平台·北美7-14天·欧洲10-21天</td></tr>
+<tr><td><strong>预算</strong></td><td>视频制作$8-12K + PR/广告$5-10K + KS平台费5% + 支付手续费3-5% = 总计$15-25K</td></tr>
+</table>
+
+<h3 id="sec-7-5-5">7.5.5 销售渠道与转化漏斗</h3>
+
+<table>
+<tr><th>阶段</th><th>中国</th><th>海外</th></tr>
+<tr><td><strong>认知(Awareness)</strong></td><td>抖音/快手短视频·微信朋友圈广告·养老社区地推</td><td>KS·YouTube·Reddit·Facebook Ads</td></tr>
+<tr><td><strong>兴趣(Interest)</strong></td><td>公众号文章·小程序产品页·线下体验活动</td><td>Landing Page·Amazon产品页·独立站博客</td></tr>
+<tr><td><strong>决策(Decision)</strong></td><td>"试穿一周"·子女社群口碑·医生推荐</td><td>KS早鸟价·Amazon评论·YouTube测评</td></tr>
+<tr><td><strong>购买(Purchase)</strong></td><td>微信小程序·京东·天猫·线下社区代下单</td><td>KS·Amazon·独立站</td></tr>
+<tr><td><strong>留存(Retention)</strong></td><td>App子女端·周报推送·使用数据可视化</td><td>App·Email newsletter·社区</td></tr>
+<tr><td><strong>推荐(Referral)</strong></td><td>"爸妈用了好·推荐给邻居/亲戚"·NPS>60</td><td>Amazon评论·社交媒体分享·KS Update</td></tr>
+</table>
+
+<div class="callout callout-green">
+<strong>关键转化率目标：</strong>中国线下体验→购买 15%+ · KS Landing Page→购买 3-5% · Amazon Listing→购买 5-8% · NPS>60(Gen 2) · 30天退货率<20% · 12个月持续使用率>60%
+</div>
+
+<h3 id="sec-7-5-6">7.5.6 售后与客户成功</h3>
+
+<table>
+<tr><th>环节</th><th>方案</th><th>目标</th></tr>
+<tr><td><strong>退货政策</strong></td><td>中国：7天无理由·海外：30天退货·产品问题免费换新</td><td>退货率<20%(行业平均30-50%)</td></tr>
+<tr><td><strong>保修</strong></td><td>1年整机保修·碳纤维框架终身保修·电机3年保修</td><td>保修期内返修率<5%</td></tr>
+<tr><td><strong>客服</strong></td><td>中文：微信+电话(工作日9-21点)·英文：Email+Chat(Zendesk)·日本：Line</td><td>响应时间<4小时·满意度>85%</td></tr>
+<tr><td><strong>App支持</strong></td><td>子女端远程协助·使用教程·FAQ·社区论坛</td><td>App月活>70%·教程完成率>80%</td></tr>
+<tr><td><strong>用户社群</strong></td><td>微信社群(中国)·Facebook Group(海外)·月度线上分享会</td><td>社群活跃度>30%·NPS>60</td></tr>
+</table>
+
+
 
 <h2 id="section-8">8、聚焦膝关节：战略推荐与执行路线图</h2>
 
