@@ -17,7 +17,7 @@
  --gray-50: #f7f8f9; --gray-100: #eff1f3; --gray-200: #e2e5e8;
  --gray-500: #6b7280; --gray-700: #364153; --gray-900: #181a1f;
  --text: #181a1f; --text-secondary: #4a5058; --text-tertiary: #9499a0;
- --bg: #fff;
+ --bg: #ffffff;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
@@ -25,7 +25,7 @@ body {
  max-width:1080px; margin:0 auto; padding:64px 24px 72px 24px;
  color:var(--text); line-height:1.82; font-size:15.5px;
  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
- background:var(--bg); font-weight:400;
+ background:#fff; font-weight:400;
 }
 h1 { font-size:38px; font-weight:900; letter-spacing:-0.3px; margin:0 0 6px 0; color:#0096f0; border-bottom:5px solid #0096f0; padding-bottom:24px; line-height:1.12; }
 h2 { font-size:19px; font-weight:800; margin-top:64px; margin-bottom:22px; color:#000; border-left:5px solid #0096f0; padding:8px 0 8px 16px; letter-spacing:-0.2px; line-height:1.3; }
@@ -41,7 +41,7 @@ table { width:100%; border-collapse:separate; border-spacing:0; margin:26px 0 32
 th { background:#0096f0; color:#fff; padding:11px 13px; text-align:left; font-weight:600; font-size:9.5px; letter-spacing:0.8px; text-transform:uppercase; border-bottom:2px solid #0096f0; }
 th:first-child { border-radius:10px 0 0 0; }
 th:last-child { border-radius:0 10px 0 0; }
-td { padding:10px 13px; border-bottom:1px solid var(--gray-100); vertical-align:middle; color:var(--text-secondary); font-size:12px; background:#fff; line-height:1.55; }
+td { padding:10px 13px; border-bottom:1px solid var(--gray-100); vertical-align:middle; color:var(--text-secondary); font-size:12px; background:#fff !important; line-height:1.55; }
 tr:hover td { background:var(--gray-50); }
 tr:last-child td { border-bottom:none; }
 tr:last-child td:first-child { border-radius:0 0 0 10px; }
@@ -88,7 +88,7 @@ table table tr:nth-child(even) td { background:transparent !important; }
 /* TOC sidebar */
 .toc-sidebar {
  position:fixed; left:0; top:0; width:280px; height:100vh;
- background:var(--bg); border-right:1px solid var(--gray-200); box-shadow:1px 0 8px rgba(0,0,0,.03);
+ background:#fff; border-right:1px solid var(--gray-200); box-shadow:1px 0 8px rgba(0,0,0,.03);
  overflow-y:auto; overflow-x:hidden; padding:24px 14px; z-index:999;
  font-size:11.5px; line-height:1.7; box-shadow:1px 0 8px rgba(0,0,0,.03);
 }
@@ -2924,7 +2924,7 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 <div style="text-align:center;margin:16px 0"><a href="#" onclick="openModal('img/compliant_tendon.gif');return false" title="点击查看大图"><img src="img/compliant_tendon.gif" style="border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.06);max-width:500px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.06)" loading="lazy" alt="416肌肉模型"></a><div style="font-size:12px;color:var(--text-tertiary);margin-top:6px">416肌肉Hill型肌骨模型 — 全行业唯一的"人体仿真引擎"</div></div>
 
 <h3 id="sec-7-2-5">7.2.5 硬件架构：电机、电池、主控的物理布局</h3>
-<div style="text-align:center;margin-top:16px">
+<div style="text-align:center;margin:16px 0">
 <div style="display:inline-flex;gap:24px;padding:20px 28px;background:#f8fafc;border:1px solid #e5e5e5;border-radius:10px;font-size:11px">
 <div style="text-align:center"><div style="font-weight:700;color:#0096f0;font-size:18px">~1,950g</div><div style="color:#999">总重（约2.0kg）</div></div>
 <div style="width:1px;background:#e5e5e5"></div>
@@ -2933,10 +2933,8 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 <div style="text-align:center"><div style="font-weight:700;color:#0096f0;font-size:18px">30s</div><div style="color:#999">穿戴时间</div></div>
 <div style="width:1px;background:#e5e5e5"></div>
 <div style="text-align:center"><div style="font-weight:700;color:#0096f0;font-size:18px">IP54</div><div style="color:#999">防护等级</div></div>
-</div></div>
-<div style="text-align:center;display:flex;justify-content:center;gap:28px;margin-top:16px;font-size:10px;color:#999">
-<div>腰带（电池+主控）→ 双膝电机 → RL个性化力矩</div><div>|</div><div>碳纤维框架 800g + 电机 500g + 绑带 200g</div>
-</div> → 双膝独立执行器。总重~1,950g（约2.0kg）</div>
+</div>
+</div>
 
 
 <p style="font-size:12px;color:var(--text-tertiary)">膝关节外骨骼的物理布局直接影响重量分布、穿戴舒适度和用户接受度。参考DNSYS Z1（膝部集成）和Skip MO/GO（腰带供电）两种已验证方案，Bones采用<strong>腰带供电+膝部执行</strong>的混合架构——取两者的工程优势。</p>
@@ -4260,6 +4258,8 @@ document.querySelector('.back-to-top').addEventListener('click', function(e) {
 
 
 
-<!-- deployed: 2026-07-01 23:07:13 CST -->
+
+
+<!-- deployed: 2026-07-01 23:12:17 CST -->
 </body>
 </html> 
