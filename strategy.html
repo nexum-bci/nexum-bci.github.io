@@ -10,14 +10,14 @@
 <title>骨骼流形 Bones & Manifold · 膝关节智能外骨骼 — 产品战略决策</title>
 <style>
 :root {
- --primary: #2563eb; --primary-dark: #1e40af; --primary-light: #eff6ff;
- --green: #059669; --green-light: #ecfdf5;
- --red: #dc2626; --red-light: #fef2f2;
- --orange: #d97706; --orange-light: #fffbeb;
+ --primary: #0071e3; --primary-dark: #0066cc; --primary-light: #eff6ff;
+ --green: #34c759; --green-light: #f0fdf4;
+ --red: #ff3b30; --red-light: #fff5f5;
+ --orange: #ff9f0a; --orange-light: #fffaf0;
  --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
  --gray-500: #64748b; --gray-700: #334155; --gray-900: #0f172a;
  --text: #0f172a; --text-secondary: #475569; --text-tertiary: #94a3b8;
- --bg: #f8fafc;
+ --bg: #ffffff;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
@@ -37,7 +37,7 @@ p strong { color:var(--text); font-weight:700; }
 strong { color:var(--primary-dark); font-weight:700; }
 
 /* Tables - refined */
-table { width:100%; border-collapse:separate; border-spacing:0; margin:26px 0 32px; font-size:12px; border-radius:10px; overflow:hidden; border:1px solid var(--gray-200); box-shadow:0 1px 3px rgba(0,0,0,.04); }
+table { width:100%; border-collapse:separate; border-spacing:0; margin:26px 0 32px; font-size:12px; border-radius:10px; overflow:hidden; border:1px solid var(--gray-200);  }
 th { background:linear-gradient(180deg, var(--primary-dark), var(--primary)); color:#fff; padding:11px 13px; text-align:left; font-weight:600; font-size:9.5px; letter-spacing:0.8px; text-transform:uppercase; border-bottom:2px solid var(--primary-dark); }
 th:first-child { border-radius:10px 0 0 0; }
 th:last-child { border-radius:0 10px 0 0; }
@@ -56,10 +56,10 @@ table table tr:nth-child(even) td { background:transparent !important; }
 /* Callouts */
 .callout { margin:28px 0; padding:22px 26px; border-radius:10px; font-size:13.5px; line-height:1.75; }
 .callout strong { font-weight:700; }
-.callout-key { background:linear-gradient(135deg,rgba(37,99,235,.03),rgba(37,99,235,.01)); border:1px solid rgba(37,99,235,.10); text-align:center; font-size:14px; color:var(--text); }
-.callout-insight { background:linear-gradient(135deg,#f8faf9,#fafbfa); border-left:5px solid var(--primary); color:var(--text-secondary); }
-.callout-danger { background:linear-gradient(135deg,#fef9f9,#fefbfb); border-left:5px solid var(--red); color:var(--text-secondary); }
-.callout-green { background:linear-gradient(135deg,#f6faf7,#f9fcf9); border-left:5px solid var(--green); color:var(--text-secondary); }
+.callout-key { background:var(--primary-light); border:1px solid rgba(37,99,235,.10); text-align:center; font-size:14px; color:var(--text); }
+.callout-insight { background:var(--gray-50); border-left:5px solid var(--primary); color:var(--text-secondary); }
+.callout-danger { background:var(--red-light); border-left:5px solid var(--red); color:var(--text-secondary); }
+.callout-green { background:var(--green-light); border-left:5px solid var(--green); color:var(--text-secondary); }
 
 /* Badges */
 .badge-red { display:inline-block; padding:2px 10px; border-radius:10px; font-size:10px; font-weight:700; background:var(--red-light); color:var(--red); white-space:nowrap; }
@@ -387,7 +387,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <!-- ============================================================ -->
 <!-- EXECUTIVE SUMMARY -->
 <!-- ============================================================ -->
-<div style="margin:36px 0;padding:36px 40px;background:#fff;border:1px solid var(--gray-200);border-radius:14px;color:var(--text);line-height:1.8;box-shadow:0 2px 16px rgba(0,0,0,.04)">
+<div style="margin:36px 0;padding:36px 40px;background:#fff;border:1px solid var(--gray-200);border-radius:14px;color:var(--text);line-height:1.8;box-shadow:0 1px 3px rgba(0,0,0,.06)">
 <div style="font-size:13px;font-weight:700;color:var(--primary);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px">Executive Summary</div>
 <div style="font-size:20px;font-weight:700;line-height:1.6;margin-bottom:20px">
 全球<strong style="color:var(--green)">5.28亿</strong>骨关节炎患者中，膝关节占60-85%。每年超过<strong style="color:var(--green)">$2000亿</strong>花在拐杖、支具、止痛药和关节置换上——但<strong style="color:var(--red)">没有一个好答案</strong>。从首次疼痛到置换手术的10-15年里，患者每天都在忍受疼痛。
@@ -626,7 +626,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 
 <h2 id="section-0g">7、关键问题与深度论证</h2>
 
-<colgroup><col style="width:33%"><col style="width:33%"><col style="width:33%"></colgroup>
+
 <table>
 <tr><th style="width:2%">#</th><th style="width:22%">问题</th><th style="width:76%">回答</th></tr>
 
@@ -658,26 +658,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <td>三阶段验证：①<strong>内部验证</strong>（Gen 0·10-30人·MyoWarp仿真+步态实验室KAM实测+用户主观反馈·"确实不疼了"）②<strong>真实世界数据</strong>（Gen 1-2·100-1000人·设备数据+NPS+疼痛量表WOMAC+功能测试·6个月随访）③<strong>第三方临床研究</strong>（Gen 2+·与高校/医院合作·RCT或准实验设计·发表同行评审论文）。关键指标：KAM减少%（力学）+ <strong>6MWT（6分钟步行距离）</strong>+ WOMAC疼痛子量表改善%（临床）+ NPS（满意度）+ 12个月持续使用率（粘性）。6MWT是康复医学金标准，Lee et al. (2025)在Samsung Bot Fit研究中证实+22.75m改善即超过临床意义阈值（MCID 14-30m），我们Gen 1-2的临床验证应纳入此指标。不依赖FDA/NMPA路径但临床数据将用于医保谈判和医生推荐</td></tr>
 
 <tr><td><strong>10</strong></td><td><strong>制造怎么办？供应链风险？</strong></td>
-<td><strong>中国是全链条国产化的最大优势——BOM已进入消费级可负担区间。</strong>以下为Gen 1双膝系统完整BOM测算（每台）：<br><br>
-<colgroup><col style="width:16%"><col style="width:16%"><col style="width:16%"><col style="width:16%"><col style="width:16%"><col style="width:16%"></colgroup>
-<table style="margin:8px 0;font-size:11px">
-<tr><th>组件</th><th>方案</th><th>单价（¥）</th><th>用量</th><th>小计（¥）</th><th>可信度</th></tr>
-<tr><td>碳纤维框架</td><td>国产碳纤维管/板（光威/中复神鹰）</td><td>200-400/kg</td><td>~1.5kg</td><td><strong>300-600</strong></td><td>中（标准管材价·未含加工费）</td></tr>
-<tr><td>电机</td><td>CubeMars GL40或宇树同等</td><td>200-400/台</td><td>2台</td><td><strong>400-800</strong></td><td>高（公开零售价）</td></tr>
-<tr><td>行星减速器</td><td>5:1行星减速器·量产后评估绿的谐波定制</td><td>100-200/台</td><td>2台</td><td><strong>200-400</strong></td><td>中（标准件价格）</td></tr>
-<tr><td>电池</td><td>18650 4S1P（14.8V·2000-3000mAh）</td><td>80-150</td><td>1组</td><td><strong>80-150</strong></td><td>高（成熟供应链）</td></tr>
-<tr><td>IMU传感器</td><td>博世BMI270或国产替代</td><td>20-50</td><td>4个</td><td><strong>80-200</strong></td><td>高（博世BMI270约¥30/个）</td></tr>
-<tr><td>力传感器</td><td>国产应变片或压电式</td><td>50-100</td><td>2个</td><td><strong>100-200</strong></td><td>低（需定制·可能更贵）</td></tr>
-<tr><td>控制PCB+MCU</td><td>STM32或同等·含电机驱动·蓝牙</td><td>150-300</td><td>1套</td><td><strong>150-300</strong></td><td>中（设计+打样+元器件）</td></tr>
-<tr><td>电磁离合器</td><td>安全关键件·断电脱开零阻力</td><td>50-100</td><td>2个</td><td><strong>100-200</strong></td><td>中（标准电磁件·需选型）</td></tr>
-<tr><td>绑带+护垫+外壳</td><td>透气织物+EVA/硅胶护垫+塑料外壳</td><td>100-250</td><td>1套</td><td><strong>100-250</strong></td><td>低（工效学关键·需打样测试）</td></tr>
-<tr><td>腰带+线缆+连接器</td><td>弹性腰带+屏蔽电缆+防水连接器</td><td>100-200</td><td>1套</td><td><strong>100-200</strong></td><td>低（连接器选型影响可靠性）</td></tr>
-<tr><td>包装+说明书</td><td>彩盒+快速入门指南</td><td>30-60</td><td>1套</td><td><strong>30-60</strong></td><td>高</td></tr>
-<tr style="background:rgba(0,150,240,0.06)"><td><strong>物料BOM合计</strong></td><td></td><td></td><td></td><td><strong>¥1,640-3,360</strong>（≈$230-470）</td><td></td></tr>
-<tr style="background:rgba(0,150,240,0.06)"><td>组装+测试+包装人工</td><td>初期手工组装·量产后半自动化</td><td>100-200/台</td><td></td><td><strong>¥100-200</strong></td><td>低（取决于批量）</td></tr>
-<tr style="background:rgba(0,150,240,0.1)"><td><strong>制造成本合计</strong></td><td></td><td></td><td></td><td><strong>¥1,740-3,560</strong>（≈$240-500）</td><td></td></tr>
-</table><br>
-<strong>诚实结论：</strong>①Gen 1小批量（<500台）时，制造成本约$350-600，不是$400-800。文档早期引用的$400-800是偏乐观的全口径（含部分摊销）。②毛利率取决于ASP和渠道结构——如果KS直接销售（省去经销商），$1,299-1,799 ASP对应毛利率40-55%。如果走JD/天猫（平台扣点+物流），毛利率降至30-40%。③量产后（Gen 2+），BOM可降至$300-500，主要通过碳纤维开模（单件成本降50%）和减速器自研/国产替代。④定价因市场不同：中国¥3,999-4,999（含13%增值税+渠道费），北美$1,299-1,799（KS+Amazon），欧洲€1,199-1,699（含VAT），日本¥60,000-80,000（含消费税）。同一台设备出厂价相同（~¥6,500-9,000≈$900-1,200），终端价差异来自税收、物流、渠道费用。⑤组装初期依托产业合作资源（含代工厂家·月产能100-500台起步）。不走自建工厂重资产路线。风险：量产一致性是最大挑战——从10台到1000台需要质量体系（ISO 13485虽非强制但强烈建议）。上述BOM中标注"低可信度"的项目需要实际询价后才能确认</td></tr>
+<td><strong>中国是全链条国产化的最大优势——BOM已进入消费级可负担区间。</strong>核心部件策略：①碳纤维框架——初期外购标准管材（国产碳纤维管¥200-400/kg·国产化率>80%），量产后开模定制（模具费¥30-80K·单件成本降至¥80-150）。②电机——CubeMars GL40（¥200-400/台·外骨骼常用）或宇树电机，双膝需2台。③减速器——初期用5:1行星减速器（¥100-200/台），量产后评估绿的谐波定制谐波方案。④电池——18650 4S1P电池包（¥80-150·2-3小时续航）。⑤传感器——IMU（博世BMI270或国产替代·¥20-50）+力传感器（¥50-100）+压阻式柔性应变传感器阵列（¥25-50/套）。Gen 1制造成本约$350-600（小批量<500台），ASP $1,299-1,999，毛利率35-50%。完整13项BOM明细、各组件可信度评级和降本路径见7.2.5节硬件架构表格。整机组装初期依托产业合作资源，不走自建工厂重资产路线。风险：量产一致性是最大挑战——从10台到1000台需要质量体系（ISO 13485虽非强制但强烈建议）</td></tr>
 
 <tr><td><strong>11</strong></td><td><strong>为什么不先做App？那不需要硬件，不是更快吗？</strong></td>
 <td><strong>硬件是"能不能"，App是"好不好"——顺序不能颠倒。</strong>中国健康App市场已被充分验证：付费转化率<3%，12月留存<15%。App独立变现在中国几乎不可能盈利。App在Bones生态中的正确定位：<strong>硬件配套增值服务</strong>——①子女端KAM可视化（远程查看父母膝关节负荷变化·"爸妈今天膝盖压力大吗"是子女每周都想知道的答案）②跌倒检测与告警（老人跌倒后自动通知子女+定位·这是子女付费的最强驱动力）③疼痛日记+步态趋势（为医生提供客观数据）。不独立变现，但能显著提升硬件NPS和复购率。类比：Peloton先有自行车（硬件验证需求）→App订阅贡献利润。Nike先有跑鞋→Nike+强化粘性。膝关节疼痛是<strong>物理问题</strong>——力学的关节负荷无法通过软件减少。先做App是本末倒置</td></tr>
@@ -1848,7 +1829,7 @@ Bones不需要自建工厂。不需要自建海外团队。不需要从零学供
 <tr><td><strong>康复进展</strong></td><td>多源聚合</td><td>2-4周</td><td>力量趋势·6MWT·WOMAC</td><td>"训练有效·继续加油"</td><td style="background:rgba(5,150,105,.06)">Gen 2</td><td><strong>医保谈判证据</strong></td></tr>
 <tr><td><strong>子女端远程</strong></td><td>联邦学习聚合</td><td>实时告警·周报</td><td>摘要·告警·周报</td><td>"爸妈状态正常·放心"</td><td style="background:var(--green-light)">Gen 1</td><td><strong>付费最强驱动力</strong></td></tr>
 </table>
-</div>
+
 
 
 
