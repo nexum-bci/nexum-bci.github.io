@@ -319,6 +319,8 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <a href="#section-7-1" class="sub">7.1 战略演进</a>
 <a href="#section-7a" class="sub" style="font-weight:700;color:var(--green)">★ 7.2 产品定义</a>
 <a href="#sec-7-2-5" class="sub">7.2.5 硬件架构布局</a>
+<a href="#sec-7-2-6" class="sub">7.2.6 四功能健康闭环</a>
+<a href="#sec-7-2-7" class="sub">7.2.7 场景映射</a>
 <a href="#section-7b" class="sub">7.3 生物力学与人机工程</a>
 <a href="#section-7c" class="sub">7.4 执行计划</a>
 <a href="#section-8">8、聚焦膝关节·战略路线图</a>
@@ -407,6 +409,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <tr><td><strong>场景覆盖</strong></td><td><strong style="color:var(--green);font-size:15px">Gen 0覆盖80%疼痛场景</strong>（行走·上下楼·坐-站——最高频+最疼痛的四个场景）。Gen 2覆盖100%（含蹲便器蹲起——中国独有痛点·竞品零覆盖）。竞品场景覆盖率仅约35%</td><td>坐-站（每天20-50次）、长时间站立、蹲起——竞品全部未覆盖。这些恰好是老人最频繁遇到的日常动作，也是疼痛最剧烈的时刻</td></tr>
 <tr><td><strong>底层模型</strong></td><td><strong>416肌肉Hill型模型。</strong>唯一能建模半月板、十字韧带、髌股关节等软组织力学特性的方案。从肌肉激活→关节接触力→最优力矩的完整计算链路</td><td>全行业使用刚体连杆模型（OpenSim简化版）。刚体无法建模半月板的非线性黏弹性、十字韧带的张力-应变关系、肌肉共收缩对关节负荷的影响</td></tr>
 <tr><td><strong>数据飞轮</strong></td><td><strong>联邦学习pFedAC。</strong>第1000个用户的设备比第1个精准一个数量级。跨用户策略共享，越用越好。这是全行业无人拥有的数据网络效应</td><td>所有外骨骼公司是数据孤岛。用户A的数据不会让用户B受益。每一台设备都在从零开始</td></tr>
+<tr><td><strong>产品功能</strong></td><td><strong>四功能健康闭环。</strong>同一台设备、同一套电机、同一AI模型驱动：<strong>①助力模式</strong>（下楼/行走/坐-站时减轻疼痛）<strong>②训练模式</strong>（抗阻坐-站·强化股四头肌——膝OA临床指南A级推荐）<strong>③按摩模式</strong>（运动后低频振动放松·提升依从性）<strong>④监测模式</strong>（压阻式柔性应变传感器阵列+416肌骨模型→实时追踪肌肉状态·子女端可视化）。四功能由软件切换·边际硬件成本仅¥25-50（传感器）</td><td>远也PowerKnee有助力+训练+按摩但无个性化RL·无联邦学习·无肌肉监测闭环。Myoflex Trainer有监测但无电机执行能力。<strong>Bones是唯一同时具备感知（416模型+传感器）和执行（电机）的闭环系统</strong></td></tr>
 <tr><td><strong>制造策略</strong></td><td>Bones做消费硬件品牌。核心部件（定制减速器、碳纤维框架、控制PCB）逐步自研或深度定制。整机组装初期依托产业合作资源。首发中国（全球最大膝OA人群·最熟悉渠道），Gen 1 Kickstarter验证美国需求，Gen 2-3拓展欧洲和日本</td><td>远也自研硬件全链条（投入高、周期长）。极壳自建品牌和渠道（资本密集）。Bones走中间路线：核心自研+合作组装</td></tr>
 </table>
 
@@ -2677,6 +2680,36 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 <strong>Gen 1重量预算：电机500g + 碳纤维框架800g + 绑带200g + 电池220g + 主控80g + 腰带100g + 线缆50g = <span style="color:var(--accent)">~1,950g（约2.0kg）</span>。</strong>加安全冗余和外壳，<strong>2.0-2.5kg是现实的</strong>。对比：DNSYS Z1每腿2.5kg（双膝5kg），远也PowerKnee约3kg/腿。我们轻一半的核心原因：电池放腰带共用而非每条腿各挂一组。<br><br>
 <strong>工程风险（诚实标注）：</strong>①腰带电缆到膝盖的连接器——拔插寿命和防水是容易出问题的点 ②双膝IMU数据同步——无线有延迟风险，有线更可靠但影响穿戴便利 ③线缆管理——老人自己穿的时候线不能缠住。Skip MO/GO通过把线埋在裤子里解决了③——我们需要类似方案。
 </div>
+
+<h3 id="sec-7-2-6">7.2.6 产品功能升级：从单点助力到四功能健康闭环</h3>
+
+<p style="font-size:12px;color:var(--text-tertiary)">同一台设备、同一套电机、同一个AI模型驱动——四个功能由软件切换模式，边际硬件成本仅增加压阻式柔性应变传感器阵列（¥25-50/套）。这不是功能堆砌，是<b>监测→保护→训练→恢复</b>的完整膝关节健康管理闭环。</p>
+
+<table>
+<tr><th>功能</th><th>模式</th><th>电机做什么</th><th>传感器输入</th><th>单次时长</th><th>临床价值</th><th>对标</th></tr>
+<tr><td><strong>1. 助力模式</strong><br>日常使用</td><td>正向力矩</td><td>输出辅助力矩·减轻膝关节负荷·目标KAM减少>20%</td><td>IMU+力传感器→步态相位→RL策略输出力矩</td><td>全天候·需要时自动激活</td><td><strong>核心功能。</strong>打断"痛→不动→萎缩→更痛"的第一个节点。膝OA生物力学干预</td><td>远也PowerKnee助力<br>Skip MO/GO登山助力</td></tr>
+<tr><td><strong>2. 训练模式</strong><br>每天10-15分钟</td><td>反向力矩<br>（可控阻力）</td><td>输出反向力矩·用户对抗阻力完成坐-站或抬腿·训练股四头肌和腘绳肌</td><td>压阻式柔性应变传感器+IMU→实时监测肌肉激活度→RL策略调整阻力大小</td><td>10-15分钟/天·坐-站×20-30次</td><td><strong>临床指南一线推荐。</strong>股四头肌强化训练是膝OA的A级推荐（与减重并列）。增强肌肉=减少关节负荷=延缓退变</td><td>远也PowerKnee"肌肉辅助训练"模式</td></tr>
+<tr><td><strong>3. 按摩模式</strong><br>运动后5-10分钟</td><td>低频振动<br>（20-50Hz）</td><td>电机输出低频小幅振动·模拟人手按摩·缓解肌肉疲劳和僵硬</td><td>无额外传感器需求·电机PWM振动控制</td><td>5-10分钟/次·运动后或久坐后使用</td><td><strong>提升用户体验和依从性。</strong>肌肉疲劳缓解降低次日疼痛感·增加持续使用意愿。康复医学中振动疗法有循证支持（改善本体感觉+放松肌肉）</td><td>远也PowerKnee内置按摩功能</td></tr>
+<tr><td><strong>4. 监测模式</strong><br>后台持续运行</td><td>零力矩<br>（仅感知）</td><td>电机不输出·仅传感器采集·416肌骨模型逆向推断肌肉激活状态</td><td><strong>压阻式柔性应变传感器阵列</strong>（4通道/腿·覆盖股四头肌+腘绳肌）+IMU+力传感器→416肌骨模型→各块肌肉激活度+关节接触力</td><td>全天候·后台自动运行·数据加密上传联邦学习网络</td><td><strong>数据飞轮引擎。</strong>子女端App可视化（"爸妈今天膝盖状态如何"）。为临床研究提供客观量化数据。联邦学习的数据来源</td><td>Myoflex Trainer（仅监测·无执行）</td></tr>
+</table>
+
+<div class="callout callout-key" style="text-align:left;font-size:14px;">
+<strong>闭环逻辑：</strong>监测发现肌肉状态异常 → AI推荐训练/按摩/助力模式 → 电机执行 → 再次监测验证效果 → 联邦学习优化策略。<br>
+<strong>边际硬件成本：</strong>仅压阻式柔性应变传感器阵列（PDMS基底+碳基导电复合材料·4通道·与医用sEMG静态相关性>0.90，动态>0.85）——BOM增量约<b>¥25-50/套</b>。电机、主控、电池全部复用，无增量。<br>
+<strong>开发增量：</strong>①RL策略需训练三套（助力·训练·按摩）②振动模式调参③传感器信号处理+416模型逆向推断。均为软件工作，无硬件改动。<br>
+<strong>产品定位升级：</strong>从"智能护膝"→"膝关节健康管理系统"——监测·保护·训练·恢复的完整闭环。对标远也PowerKnee有助力+训练+按摩但无个性化RL+联邦学习·无肌肉监测闭环。Myoflex Trainer有监测但无执行能力（电机）。<b>Bones是唯一同时具备感知（416模型+传感器）和执行（电机）的闭环系统。</b>
+</div>
+
+<h3 id="sec-7-2-7">7.2.7 功能-模式-用户场景映射</h3>
+
+<table>
+<tr><th>用户场景</th><th>触发方式</th><th>激活功能</th><th>用户感知</th></tr>
+<tr><td><strong>早晨起床·从床上坐起</strong></td><td>自动（IMU检测姿态变化）</td><td>助力（坐-站）</td><td>"膝盖不僵硬了"</td></tr>
+<tr><td><strong>下楼买菜</strong></td><td>自动（步态相位检测）</td><td>助力（下楼梯制动）</td><td>"下楼没那么疼了"</td></tr>
+<tr><td><strong>散步30分钟后回家</strong></td><td>App一键开启/定时</td><td>按摩（低频振动）</td><td>"腿没那么酸"</td></tr>
+<tr><td><strong>每天固定时间·坐-站训练</strong></td><td>App引导（语音提示）</td><td>训练（抗阻坐-站）</td><td>"感觉腿有劲了"</td></tr>
+<tr><td><strong>全天·后台</strong></td><td>自动（传感器持续采集）</td><td>监测（数据记录+上传）</td><td>子女看到："妈今天走了3000步·膝盖状态正常"</td></tr>
+</table>
 
 <h2 id="section-7b">7.3 生物力学与人机工程验证</h2>
 
