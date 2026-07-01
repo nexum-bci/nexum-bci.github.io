@@ -177,19 +177,54 @@ tr.warning-row td {
 .nav-links a { color:var(--green); text-decoration:none; margin-left:14px; font-weight:600; }
 .nav-links a:hover { color:var(--primary-dark); }
 
-/* Print */
+/* ===== SECURITY PROTECTION ===== */
+
+/* Layer 1: Subtle background watermark — always visible, behind content */
+body::before {
+ content: "Bones & Manifold · 骨骼流形";
+ position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+ display: flex; align-items: center; justify-content: center;
+ font-size: 80px; font-weight: 900; color: rgba(0,0,0,.025);
+ pointer-events: none; z-index: 0;
+ letter-spacing: 12px; white-space: nowrap;
+ transform: rotate(-22deg);
+ font-family: -apple-system,BlinkMacSystemFont,'PingFang SC','SF Pro Display',sans-serif;
+}
+
+/* Layer 2: Anti-screenshot repeating pattern — screen only, top layer */
+@media screen {
+ body::after {
+ content: "Bones & Manifold · 骨骼流形  ·  CONFIDENTIAL";
+ position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+ display: flex; align-items: center; justify-content: center;
+ font-size: 60px; font-weight: 900; color: rgba(0,0,0,.02);
+ pointer-events: none; z-index: 9999;
+ letter-spacing: 15px; white-space: nowrap;
+ transform: rotate(-15deg);
+ }
+}
+
+/* Anti-copy: disable selection */
+body {
+ -webkit-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+ user-select: none;
+ -webkit-touch-callout: none;
+}
+
+/* Print protection */
 @page {
  @bottom-center { content: counter(page); font-size: 9pt; color: #000; }
 }
 @media print {
  body, body * { display:none !important; }
  body::after {
- content:"此文档仅供在线浏览，不支持打印与PDF保存。Bones & Manifold · 骨骼流形";
+ content:"此文档仅供在线浏览。Bones & Manifold · 骨骼流形 · 版权所有";
  display:block !important; padding:40px; font-size:16px; color:#000; text-align:center;
  }
+ -webkit-user-select: text; user-select: text;
 }
-
-/* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
  body { margin-left:0 !important; padding:48px 32px 40px; }
  .toc-sidebar { display:none !important; }
@@ -227,51 +262,6 @@ tr.warning-row td {
  th { font-size:7px; padding:5px 6px; letter-spacing:0.3px; }
  .callout { padding:12px 14px; margin:18px 0; font-size:11.5px; border-radius:8px; }
  .back-to-top { width:32px; height:32px; bottom:16px; right:12px; }
-}
-
-/* Watermark */
-body::before {
- content: "Bones & Manifold · 骨骼流形";
- position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-25deg);
- font-size: 120px; font-weight: 900; color: rgba(0,0,0,.025);
- white-space: nowrap; pointer-events: none; z-index: 0;
- letter-spacing: 8px; font-family: -apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;
-}
-@media print {
- body::before {
- content: "Bones & Manifold · 骨骼流形";
- position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-25deg);
- font-size: 100px; color: rgba(0,0,0,.04); print-color-adjust: exact;
- -webkit-print-color-adjust: exact;
- }
-}
-
-
-/* Anti-copy protection */
-body {
- -webkit-user-select: none;
- -moz-user-select: none;
- -ms-user-select: none;
- user-select: none;
- -webkit-touch-callout: none;
-}
-@media print {
- body { -webkit-user-select: text; user-select: text; }
-}
-
-
-/* Anti-screenshot overlay - screen only */
-@media screen {
- body::after {
- content: "CONFIDENTIAL";
- position: fixed; top: 0; left: 0; width: 100%; height: 100%;
- display: flex; align-items: center; justify-content: center;
- font-size: 80px; font-weight: 900; color: rgba(0,0,0,.03);
- pointer-events: none; z-index: 9999;
- letter-spacing: 20px; white-space: nowrap;
- transform: rotate(-25deg);
- }
-}
 }
 
 
@@ -363,7 +353,7 @@ blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; ba
 </div>
 
 <div style="border-bottom:2px solid #0096f0;padding:10px 0;margin-bottom:36px;text-align:center;font-size:12.5px;color:#000;letter-spacing:0.3px">
-核心叙事 + 支撑分析 · 207张表 · 249款竞品 · 30条赛道 · 48个关键问答 ｜ 更新：2026-07-02 01:30:00 北京时间 ｜ <strong>核心章节：</strong>
+核心叙事 + 支撑分析 · 207张表 · 249款竞品 · 30条赛道 · 48个关键问答 ｜ 更新：2026-07-02 02:15:00 北京时间 ｜ <strong>核心章节：</strong>
 <a href="#section-0g" style="color:#0096f0;font-weight:700">★ 关键问题</a> ·
 <a href="#sec-3-5" style="color:#0096f0;font-weight:700">★ 3.5 赛道排序</a> ·
 <a href="#section-6b" style="color:#0096f0;font-weight:700">★ 6.2 银发市场</a> ·
@@ -4368,71 +4358,54 @@ Bones &amp; Manifold · 外骨骼产品战略决策 · 2026年6月<br>
 </div>
 
 <script>
+// ===== IMAGE MODAL =====
 function openModal(src) {
  document.getElementById('modal-img').src = src;
  document.getElementById('modal').classList.add('active');
 }
-// Close modal on Escape
 document.addEventListener('keydown', function(e) {
- if (e.key === 'Escape') {
-  document.getElementById('modal').classList.remove('active');
- }
+ if (e.key === 'Escape') { document.getElementById('modal').classList.remove('active'); }
 });
-// Smooth scroll for TOC links
+
+// ===== SMOOTH SCROLL =====
 document.querySelectorAll('.toc-sidebar a[href^="#"]').forEach(function(a) {
  a.addEventListener('click', function(e) {
   e.preventDefault();
   var target = document.querySelector(this.getAttribute('href'));
-  if (target) {
-   target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
+  if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
  });
 });
-// Back to top smooth scroll
 document.querySelector('.back-to-top').addEventListener('click', function(e) {
  e.preventDefault();
  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-// Toggle TOC collapse
-// toc-toggle handled by inline onclick
+
+// ===== SECURITY: Anti-save / Anti-download / Anti-devtools / Anti-copy =====
+(function(){
+ function blockKeys(e) {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); return false; }
+  if ((e.ctrlKey || e.metaKey) && e.key === 'p') { e.preventDefault(); return false; }
+  if ((e.ctrlKey || e.metaKey) && e.key === 'u') { e.preventDefault(); return false; }
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'S') { e.preventDefault(); return false; }
+  if ((e.ctrlKey || e.metaKey) && e.key === 'a') { e.preventDefault(); return false; }
+  if (e.key === 'F12') { e.preventDefault(); return false; }
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) { e.preventDefault(); return false; }
+ }
+ document.addEventListener('keydown', blockKeys, true);
+ document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; }, true);
+ document.addEventListener('copy', function(e) { e.preventDefault(); return false; }, true);
+ document.addEventListener('cut', function(e) { e.preventDefault(); return false; }, true);
+ document.addEventListener('paste', function(e) { e.preventDefault(); return false; }, true);
+ document.addEventListener('dragstart', function(e) { e.preventDefault(); return false; }, true);
+ document.addEventListener('drop', function(e) { e.preventDefault(); return false; }, true);
+ window.addEventListener('beforeprint', function(e) {
+  document.body.style.display = 'none';
+  setTimeout(function(){ document.body.style.display = ''; }, 100);
+ });
+})();
 </script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-// Anti-save/download protection
-document.addEventListener('keydown', function(e) {
- if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); return false; }
- if ((e.ctrlKey || e.metaKey) && e.key === 'p') { e.preventDefault(); return false; }
- if ((e.ctrlKey || e.metaKey) && e.key === 'u') { e.preventDefault(); return false; }
- if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'S') { e.preventDefault(); return false; }
-});
-document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
-document.addEventListener('keydown', function(e) {
- if (e.key === 'F12') { e.preventDefault(); return false; }
- if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) { e.preventDefault(); return false; }
-});
-</script>
-
-
-<!-- deployed: 2026-07-01 v2.0 pure-black no-navy -->
+<!-- deployed: 2026-07-02 v3.0 security-enhanced -->
 </body>
 </html> 
