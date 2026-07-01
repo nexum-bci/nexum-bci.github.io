@@ -1565,7 +1565,7 @@ Bones不需要自建工厂。不需要自建海外团队。不需要从零学供
 <h3>6.2.5 各场景的产品解决方案映射（按可实现性排序）</h3>
 
 <div class="callout callout-key" style="text-align:left;font-size:14px;">
-<strong>以下将10个膝OA日常场景逐一映射到Bones的技术能力与产品形态，明确哪些场景可通过硬件解决、哪些可通过App解决、哪些当前技术无法解决、以及哪些需要Gen 2/3的迭代才能实现。</strong>
+<strong>以下将膝OA日常场景按四个产品功能分别映射：助力与支撑（10个核心场景）·训练与康复（5个训练场景）·按摩与恢复（5个恢复场景）·监测与管理（6个监测维度）。</strong>每个场景标注功能归属、技术方案、可实现阶段和局限性。完整场景分析见6.2.3。
 </div>
 
 <table>
@@ -1642,11 +1642,49 @@ Bones不需要自建工厂。不需要自建海外团队。不需要从零学供
 <td>"晨僵模式"技术难度低（逻辑判断即可实现）·但需要Gen 0有足够的用户数据来验证此功能的有效性</td></tr>
 </table>
 
-<h3>6.2.6 膝关节场景覆盖率与产品路径的对应关系</h3>
+<h4>6.2.5.2 训练与康复场景映射</h4>
 
 <table>
-<tr><th>产品阶段</th><th>可覆盖场景</th><th>覆盖率</th><th>核心能力</th></tr>
-<tr><td><strong>Gen 0</strong>（原型·0-6月）</td><td>场景1-4（行走·上下楼·坐-站）</td><td><strong>覆盖80%的疼痛场景</strong>（4个最高频+最痛场景）</td><td>RL力矩控制·IMU步态检测·支撑相KAM减少·偏心制动</td></tr>
+<tr><th>#</th><th>训练场景</th><th>目标肌群</th><th>动作要求</th><th>技术方案</th><th>可实现阶段</th><th>效果度量</th></tr>
+<tr><td><strong>1</strong></td><td><strong>坐-站抗阻训练</strong></td><td>股四头肌·腘绳肌·臀大肌</td><td>从椅子坐-站·电机提供5-20Nm反向力矩·20-30次/组</td><td>电机反向力矩输出·压阻式柔性应变传感器监测肌肉激活度·RL根据疲劳程度调整阻力</td><td style="background:rgba(58,125,90,.12)"><strong>Gen 0</strong>（电机反向力矩+传感器基础版）</td><td>股四头肌力量提升·坐-站速度改善</td></tr>
+<tr><td><strong>2</strong></td><td><strong>直腿抬高抗阻</strong></td><td>股四头肌（孤立）</td><td>坐位/仰卧·伸膝对抗3-10Nm阻力·10-15次/组</td><td>电机反向力矩（小扭矩·高精度）</td><td style="background:rgba(58,125,90,.12)"><strong>Gen 0</strong></td><td>股四头肌孤立力量·不增加关节负荷</td></tr>
+<tr><td><strong>3</strong></td><td><strong>腘绳肌弯举</strong></td><td>腘绳肌（膝后侧）</td><td>站立位·屈膝对抗3-8Nm阻力·10-15次/组</td><td>电机反向力矩+IMU检测屈膝角度</td><td style="background:rgba(192,128,64,.10)"><strong>Gen 1</strong></td><td>H/Q ratio改善·膝关节稳定性</td></tr>
+<tr><td><strong>4</strong></td><td><strong>步态抗阻行走</strong></td><td>全下肢肌群</td><td>平地行走·电机提供2-5Nm轻微阻力</td><td>RL控制·助力与抗阻模式动态切换</td><td style="background:rgba(192,128,64,.10)"><strong>Gen 1-2</strong></td><td>肌肉激活度增加30-50%</td></tr>
+<tr><td><strong>5</strong></td><td><strong>平衡训练</strong></td><td>本体感觉·踝策略肌群</td><td>单腿站立·电机提供1-3Nm随机扰动</td><td>IMU检测站立稳定性·RL生成随机扰动策略</td><td style="background:rgba(192,128,64,.12)"><strong>Gen 2</strong></td><td>跌倒风险评分改善</td></tr>
+</table>
+
+<h4>6.2.5.3 按摩与恢复场景映射</h4>
+
+<table>
+<tr><th>#</th><th>按摩场景</th><th>目标部位</th><th>振动参数</th><th>技术方案</th><th>可实现阶段</th><th>用户价值</th></tr>
+<tr><td><strong>1</strong></td><td><strong>运动后肌肉放松</strong></td><td>股四头肌·腘绳肌·小腿</td><td>30-50Hz·低振幅·扫频·5-10分钟</td><td>电机PWM振动控制·零硬件成本·纯软件功能</td><td style="background:rgba(58,125,90,.12)"><strong>Gen 0</strong></td><td>"走了一天路·回家按摩·腿像泡了热水"</td></tr>
+<tr><td><strong>2</strong></td><td><strong>晨僵缓解</strong></td><td>膝关节周围软组织</td><td>20-30Hz·渐进增强·3-5分钟</td><td>IMU检测长时间静止后首次运动→自动建议按摩模式</td><td style="background:rgba(58,125,90,.10)"><strong>Gen 1</strong></td><td>"早上膝盖像生锈·按摩几分钟·活动开了"</td></tr>
+<tr><td><strong>3</strong></td><td><strong>久站后疲劳缓解</strong></td><td>膝关节+大腿肌群</td><td>30-40Hz·交替振动·5-10分钟</td><td>IMU检测持续站立>60分钟→自动建议按摩</td><td style="background:rgba(192,128,64,.10)"><strong>Gen 1</strong></td><td>"站了一上午·中午按摩·下午继续"</td></tr>
+<tr><td><strong>4</strong></td><td><strong>长途旅行恢复</strong></td><td>全下肢</td><td>20-40Hz·长周期扫频·10-15分钟</td><td>App手动触发·坐位检测自动建议</td><td style="background:rgba(192,128,64,.10)"><strong>Gen 1</strong></td><td>"飞了8小时·到酒店开按摩"</td></tr>
+<tr><td><strong>5</strong></td><td><strong>睡前放松</strong></td><td>膝关节+小腿</td><td>15-25Hz·缓和模式·5-8分钟</td><td>App定时触发·结合用户睡眠数据</td><td style="background:rgba(192,128,64,.12)"><strong>Gen 2</strong></td><td>"给膝盖做SPA·睡得更好"</td></tr>
+</table>
+
+<h4>6.2.5.4 监测与管理场景映射</h4>
+
+<table>
+<tr><th>#</th><th>监测维度</th><th>数据来源</th><th>输出指标</th><th>技术方案</th><th>可实现阶段</th><th>战略价值</th></tr>
+<tr><td><strong>1</strong></td><td><strong>日常活动量追踪</strong></td><td>IMU（加速度+陀螺仪）</td><td>步数·行走距离·站立时长·坐-站次数</td><td>IMU数据→MCU处理→App日报/周报</td><td style="background:rgba(58,125,90,.12)"><strong>Gen 0</strong></td><td>基础功能·替代主观回忆·子女端核心内容</td></tr>
+<tr><td><strong>2</strong></td><td><strong>肌肉激活度监测</strong></td><td>压阻式柔性应变传感器（4通道/腿）</td><td>各肌群激活度(%MVC)·发力对称性·疲劳指数</td><td>传感器信号→416模型逆向推断·实时显示在App</td><td style="background:rgba(192,128,64,.10)"><strong>Gen 1</strong>（传感器集成后）</td><td>训练模式个性化阻力调整依据·联邦学习数据源</td></tr>
+<tr><td><strong>3</strong></td><td><strong>膝关节负荷累积</strong></td><td>IMU+力传感器+416模型</td><td>日内KAM累积·关节接触力峰值·负荷趋势</td><td>传感器融合→416模型计算→日报+趋势</td><td style="background:rgba(58,125,90,.10)"><strong>Gen 1</strong></td><td>量化KAM替代实验室步态分析·临床研究终点</td></tr>
+<tr><td><strong>4</strong></td><td><strong>跌倒风险评估</strong></td><td>IMU步态分析</td><td>跌倒风险评分(1-10)·步态异常检测</td><td>步速变异度+步宽+双支撑相占比→风险评分</td><td style="background:rgba(58,125,90,.10)"><strong>Gen 1</strong></td><td>高风险预警→子女告警→降低跌倒率</td></tr>
+<tr><td><strong>5</strong></td><td><strong>康复进展追踪</strong></td><td>IMU+力传感器+训练数据</td><td>股四头肌力量趋势·6MWT变化·WOMAC自评</td><td>多源数据聚合→2-4周趋势报告</td><td style="background:rgba(192,128,64,.12)"><strong>Gen 2</strong></td><td>医保谈判客观证据·临床研究数据</td></tr>
+<tr><td><strong>6</strong></td><td><strong>子女端远程查看</strong></td><td>云端联邦学习聚合</td><td>活动摘要·异常告警·周报推送</td><td>加密梯度上传→云端聚合→App推送</td><td style="background:rgba(58,125,90,.10)"><strong>Gen 1</strong></td><td>子女付费最强驱动力·"买安心"</td></tr>
+</table>
+
+<h3>6.2.6 四功能场景覆盖率与产品路径的对应关系</h3>
+
+<table>
+<tr><th>产品阶段</th><th>助力与支撑</th><th>训练与康复</th><th>按摩与恢复</th><th>监测与管理</th><th>整体覆盖率</th></tr>
+<tr><td><strong>Gen 0</strong>（原型·0-6月）</td><td>场景1-4（行走·上下楼·坐-站）<br><strong>80%疼痛场景</strong></td><td>坐-站抗阻·直腿抬高<br><strong>2/5场景</strong></td><td>运动后放松<br><strong>1/5场景</strong></td><td>日常活动追踪<br><strong>1/6维度</strong></td><td><strong>助力80%+训练40%+按摩20%+监测17%</strong><br>整体功能覆盖率约<b>45%</b></td></tr>
+<tr><td><strong>Gen 1</strong>（KS·6-18月）</td><td>场景1-9<br><strong>95%疼痛场景</strong></td><td>+腘绳肌弯举·步态抗阻<br><strong>4/5场景</strong></td><td>+晨僵·久站·长途<br><strong>4/5场景</strong></td><td>+肌肉监测·KAM累积·跌倒·子女端<br><strong>5/6维度</strong></td><td><strong>助力95%+训练80%+按摩80%+监测83%</strong><br>整体功能覆盖率约<b>85%</b></td></tr>
+<tr><td><strong>Gen 2</strong>（量产·18-30月）</td><td>全部10个场景<br><strong>100%覆盖</strong></td><td>+平衡训练<br><strong>5/5场景</strong></td><td>+睡前放松<br><strong>5/5场景</strong></td><td>+康复进展<br><strong>6/6维度</strong></td><td><strong>四功能全部100%覆盖</strong><br>整体功能覆盖率<b>100%</b></td></tr>
+<tr><td><strong>Gen 3</strong>（规模化·30-48月）</td><td><strong>100%覆盖</strong><br>+柔性执行器·外观接近服装</td><td><strong>100%覆盖</strong><br>+联邦学习个性化训练计划</td><td><strong>100%覆盖</strong><br>+AI推荐最优按摩策略</td><td><strong>100%覆盖</strong><br>+万人联邦学习网络</td><td><strong>四功能全优化</strong><br>整体体验成熟度<b>100%</b></td></tr>
+</table>
 <tr><td><strong>Gen 1</strong>（KS·6-18月）</td><td>+场景5-6,8-10（站立·不平路面·公交·捡东西·夜间）</td><td><strong>覆盖92%</strong></td><td>地形自适应·静止检测·异常台阶检测·晨僵模式</td></tr>
 <tr><td><strong>Gen 2</strong>（量产·18-30月）</td><td>+场景7（蹲便器）</td><td><strong>覆盖100%</strong></td><td>深度屈膝辅助·高扭矩输出·绑带防滑移·肌骨模型内外侧区分</td></tr>
 </table>
