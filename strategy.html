@@ -3378,14 +3378,23 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 
 <h3 id="sec-7-2-7">7.2.7 功能-模式-用户场景映射</h3>
 
-<colgroup><col style="width:25%"><col style="width:25%"><col style="width:25%"><col style="width:25%"></colgroup>
 <table>
-<tr><th>用户场景</th><th>触发方式</th><th>激活功能</th><th>用户感知</th></tr>
-<tr><td><strong>早晨起床·从床上坐起</strong></td><td>自动（IMU检测姿态变化）</td><td>助力（坐-站）</td><td>"膝盖不僵硬了"</td></tr>
-<tr><td><strong>下楼买菜</strong></td><td>自动（步态相位检测）</td><td>助力（下楼梯制动）</td><td>"下楼没那么疼了"</td></tr>
-<tr><td><strong>散步30分钟后回家</strong></td><td>App一键开启/定时</td><td>按摩（低频振动）</td><td>"腿没那么酸"</td></tr>
-<tr><td><strong>每天固定时间·坐-站训练</strong></td><td>App引导（语音提示）</td><td>训练（抗阻坐-站）</td><td>"感觉腿有劲了"</td></tr>
-<tr><td><strong>全天·后台</strong></td><td>自动（传感器持续采集）</td><td>监测（数据记录+上传）</td><td>子女看到："妈今天走了3000步·膝盖状态正常"</td></tr>
+<colgroup><col style="width:15%"><col style="width:10%"><col style="width:12%"><col style="width:18%"><col style="width:15%"><col style="width:15%"><col style="width:15%"></colgroup>
+<tr><th>用户场景</th><th>人群</th><th>触发方式</th><th>激活功能</th><th>用户感知</th><th>技术实现</th><th>实现阶段</th></tr>
+<tr style="background:var(--green-light)"><td><strong>晨起·从床上坐起</strong></td><td>老年膝OA</td><td>IMU检测姿态变化·自动</td><td>助力（坐-站）</td><td>"膝盖不僵硬了"</td><td>IMU→躯干前倾检测→RL输出伸展力矩</td><td>Gen 0</td></tr>
+<tr style="background:var(--green-light)"><td><strong>下楼买菜</strong></td><td>老年膝OA</td><td>步态相位检测·自动</td><td>助力（下楼梯制动）</td><td>"下楼没那么疼了"</td><td>IMU+力传感器→RL偏心制动控制</td><td>Gen 0</td></tr>
+<tr style="background:var(--green-light)"><td><strong>散步30分钟后</strong></td><td>老年膝OA</td><td>App一键/定时</td><td>舒缓（低频振动）</td><td>"腿没那么酸"</td><td>PWM振动控制·30-50Hz扫频</td><td>Gen 0</td></tr>
+<tr style="background:var(--green-light)"><td><strong>每日坐-站训练</strong></td><td>老年膝OA</td><td>App语音引导</td><td>训练（抗阻坐-站）</td><td>"感觉腿有劲了"</td><td>电机反向力矩·RL调整阻力</td><td>Gen 0</td></tr>
+<tr style="background:var(--green-light)"><td><strong>全天后台监测</strong></td><td>老年膝OA</td><td>传感器持续采集·自动</td><td>洞察（数据记录+上传）</td><td>"妈今天走了3000步·状态正常"</td><td>联邦学习加密上传·App推送</td><td>Gen 1</td></tr>
+<tr><td><strong>登山·上坡助力</strong></td><td>户外运动</td><td>步态+坡度检测·自动</td><td>助力（上坡助推）</td><td>"爬坡轻松多了"</td><td>IMU坡度检测→RL加大力矩</td><td>Gen 1·Kine</td></tr>
+<tr><td><strong>登山·下坡制动</strong></td><td>户外运动</td><td>IMU+力传感器·自动</td><td>助力（下坡制动）</td><td>"膝盖不会酸软"</td><td>RL偏心控制·吸收冲击能量</td><td>Gen 1·Kine</td></tr>
+<tr><td><strong>登山后恢复</strong></td><td>户外运动</td><td>App一键</td><td>舒缓（长扫频按摩）</td><td>"第二天腿不酸·还能继续"</td><td>20-40Hz长周期扫频·15分钟</td><td>Gen 1·Kine</td></tr>
+<tr><td><strong>站了一上午·午休</strong></td><td>职业站立</td><td>IMU检测持续站立>60min·自动建议</td><td>舒缓（交替振动）</td><td>"中午按摩·下午还能站"</td><td>30-40Hz交替模式·10分钟</td><td>Gen 2·膝安健康版</td></tr>
+<tr><td><strong>下班后·抗阻训练</strong></td><td>职业站立</td><td>App引导·手动选择</td><td>训练（腘绳肌弯举+直腿抬高）</td><td>"膝盖稳定性在改善"</td><td>电机反向力矩·RL疲劳自适应</td><td>Gen 2·膝安健康版</td></tr>
+<tr><td><strong>深蹲·发力对称性检查</strong></td><td>健身训练</td><td>传感器实时·App可视化</td><td>洞察（肌肉激活度）</td><td>"左腿发力比右腿少20%"</td><td>压阻式柔性应变传感器→416模型</td><td>Gen 3·Kine Pro</td></tr>
+<tr><td><strong>深蹲·抗阻训练</strong></td><td>健身训练</td><td>App选择·语音计数</td><td>训练（深蹲抗阻）</td><td>"训练效果翻倍"</td><td>电机反向力矩·RL个性化阻力</td><td>Gen 3·Kine Pro</td></tr>
+<tr><td><strong>运动后·睡眠前</strong></td><td>全人群</td><td>App定时触发</td><td>舒缓（缓和振动）</td><td>"像给膝盖做了SPA"</td><td>15-25Hz缓和模式·5-8分钟</td><td>Gen 2</td></tr>
+<tr><td><strong>跌倒风险告警</strong></td><td>老年膝OA</td><td>IMU步态分析·自动·每周</td><td>洞察（风险评分+告警）</td><td>"步态不稳·建议加强平衡训练"</td><td>步速变异度+步宽+双支撑相→评分</td><td>Gen 1</td></tr>
 </table>
 
 <h3 id="sec-7-2-8">7.2.8 为什么是全维健康闭环：硬件能力决定功能边界</h3>
