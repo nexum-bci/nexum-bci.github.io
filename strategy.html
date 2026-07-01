@@ -136,9 +136,9 @@ body.toc-collapsed { margin-left:0; }
 /* Back to top */
 .back-to-top {
  position:fixed; bottom:32px; right:32px; width:40px; height:40px;
- background:var(--primary-dark); color:var(--text); border:none; border-radius:50%;
- font-size:16px; cursor:pointer; opacity:0.7; transition:opacity .2s;
- box-shadow:0 2px 8px rgba(0,0,0,.15); z-index:1000;
+ background:var(--primary); color:#fff; border:none; border-radius:50%;
+ font-size:16px; cursor:pointer; opacity:0.6; transition:opacity .2s;
+ box-shadow:0 2px 8px rgba(0,0,0,.1); z-index:1000;
  display:flex; align-items:center; justify-content:center; text-decoration:none;
 }
 .back-to-top:hover { opacity:1; }
@@ -983,7 +983,7 @@ App订阅线：银发防跌倒(2) + 银发膝退化(1) + 脑卒中康复(5) = <s
 <div style="text-align:center;flex:1"><div style="height:50px;background:linear-gradient(180deg,#d1d5db,#9ca3af);border-radius:4px;margin-bottom:8px"></div><div style="font-size:10px;color:#888;font-weight:600">M6 鞋垫</div><div style="font-size:10px;color:var(--green)">60-75%</div><div style="font-size:9px;color:#999">低复杂</div></div>
 <div style="text-align:center;flex:1"><div style="height:70px;background:linear-gradient(180deg,#9ca3af,#6b7280);border-radius:4px;margin-bottom:8px"></div><div style="font-size:10px;color:#888;font-weight:600">M3 无源</div><div style="font-size:10px;color:#f59e0b">60-75%</div><div style="font-size:9px;color:#999">无智能</div></div>
 <div style="text-align:center;flex:1"><div style="height:90px;background:linear-gradient(180deg,#6b7280,#4b5563);border-radius:4px;margin-bottom:8px"></div><div style="font-size:10px;color:#888;font-weight:600">M4 软体</div><div style="font-size:10px;color:#f59e0b">40-55%</div><div style="font-size:9px;color:#999">织物</div></div>
-<div style="text-align:center;flex:1"><div style="height:130px;background:linear-gradient(180deg,#3b82f6,#60a5fa);border-radius:6px;margin-bottom:8px;box-shadow:0 2px 8px rgba(0,150,240,.3)"></div><div style="font-size:10px;color:var(--green);font-weight:700">M1 有源轻量 ★</div><div style="font-size:10px;color:var(--green)">35-55%</div><div style="font-size:9px;color:#555">Bones核心</div></div>
+<div style="text-align:center;flex:1"><div style="height:130px;background:linear-gradient(180deg,var(--primary-dark),var(--primary));border-radius:6px;margin-bottom:8px;box-shadow:0 2px 8px rgba(0,150,240,.3)"></div><div style="font-size:10px;color:var(--green);font-weight:700">M1 有源轻量 ★</div><div style="font-size:10px;color:var(--green)">35-55%</div><div style="font-size:9px;color:#555">Bones核心</div></div>
 <div style="text-align:center;flex:1"><div style="height:160px;background:linear-gradient(180deg,#374151,#1f2937);border-radius:4px;margin-bottom:8px"></div><div style="font-size:10px;color:#888;font-weight:600">M2 刚性</div><div style="font-size:10px;color:#ff3b30">全行业不盈利</div><div style="font-size:9px;color:#999">不做</div></div>
 </div>
 <div style="text-align:center;font-size:9px;color:var(--text-tertiary);margin-top:8px">高度=硬件复杂度 | 颜色=Bones优先级（蓝=核心·灰=观望·深灰=不做）</div>
@@ -1331,9 +1331,9 @@ Bones不需要自建工厂。不需要自建海外团队。不需要从零学供
 <div style="position:absolute;left:-70px;top:50%;transform:translateY(-50%) rotate(-90deg);font-size:10px;color:#888">价格 →</div>
 <div style="position:absolute;bottom:-25px;left:50%;transform:translateX(-50%);font-size:10px;color:#888">人群（老年 ← → 年轻）</div>
 <!-- Low price / Elderly -->
-<div style="position:absolute;left:5%;bottom:8%;font-size:9px;color:#555;text-align:center"><div style="width:10px;height:10px;border-radius:50%;background:#3b82f6;margin:0 auto 2px"></div>DNSYS Z1<br>$899</div>
+<div style="position:absolute;left:5%;bottom:8%;font-size:9px;color:#555;text-align:center"><div style="width:10px;height:10px;border-radius:50%;background:var(--primary-dark);margin:0 auto 2px"></div>DNSYS Z1<br>$899</div>
 <!-- Mid price / Mid age -->
-<div style="position:absolute;left:25%;bottom:30%;font-size:9px;color:#555;text-align:center"><div style="width:10px;height:10px;border-radius:50%;background:#60a5fa;margin:0 auto 2px"></div>Vastnaut<br>$1,299</div>
+<div style="position:absolute;left:25%;bottom:30%;font-size:9px;color:#555;text-align:center"><div style="width:10px;height:10px;border-radius:50%;background:var(--primary);margin:0 auto 2px"></div>Vastnaut<br>$1,299</div>
 <!-- High price / Young -->
 <div style="position:absolute;left:50%;bottom:70%;font-size:9px;color:#555;text-align:center"><div style="width:10px;height:10px;border-radius:50%;background:#6b7280;margin:0 auto 2px"></div>Skip MO/GO<br>$5,000</div>
 <!-- Medical / Elderly -->
@@ -1445,7 +1445,7 @@ Bones不需要自建工厂。不需要自建海外团队。不需要从零学供
 </div>
 <div style="text-align:center;font-size:18px;color:#ccc;margin:2px 0">↓</div>
 <div style="text-align:center;padding:14px;background:rgba(0,150,240,.05);border-radius:10px;margin-bottom:8px;width:80%;margin-left:auto;margin-right:auto">
-<div style="font-weight:700;color:#60a5fa;font-size:14px">SAM 中国 ¥60-200B/年</div>
+<div style="font-weight:700;color:var(--primary);font-size:14px">SAM 中国 ¥60-200B/年</div>
 <div style="font-size:11px;color:#555;margin-top:2px">1.2-1.8亿有症状 × 经济可负担 ≈ 3,000-5,000万</div>
 </div>
 <div style="text-align:center;font-size:18px;color:#ccc;margin:2px 0">↓</div>
@@ -2551,18 +2551,18 @@ Gen 3：看起来不是外骨骼（品类终极形态）<br><br>
 
 <h3 id="sec-6-2-14">6.2.14 多品牌阶梯战略：从老人到全人群的十年路径</h3>
 
-<div style="margin:20px 0;padding:20px;background:var(--primary-light);border:1px solid var(--gray-200);border-radius:14px;color:var(--text)">
+<div style="margin:20px 0;padding:20px;background:linear-gradient(135deg,#f0f4f3,#f8faf9);border:1px solid var(--gray-200);border-radius:14px;color:var(--text)">
 <div style="text-align:center;font-size:15.5px;font-weight:700;margin-bottom:16px;color:var(--green)">多品牌阶梯：从老人到全人群的十年路径</div>
 <div style="display:flex;gap:0;position:relative;padding:10px 0">
 <div style="flex:1;text-align:center;padding:12px;position:relative">
-<div style="width:16px;height:16px;border-radius:50%;background:#3b82f6;margin:0 auto 8px"></div>
+<div style="width:16px;height:16px;border-radius:50%;background:var(--primary-dark);margin:0 auto 8px"></div>
 <div style="font-weight:700;font-size:14px">2026-28</div>
 <div style="font-size:12px;color:var(--green);margin-top:4px">膝安/KneeEase</div>
 <div style="font-size:10px;color:var(--green);margin-top:2px">老年膝OA<br>¥3,999-4,999</div>
 </div>
 <div style="position:absolute;top:28px;left:25%;right:25%;height:2px;background:rgba(255,255,255,.1)"></div>
 <div style="flex:1;text-align:center;padding:12px">
-<div style="width:16px;height:16px;border-radius:50%;background:#60a5fa;margin:0 auto 8px"></div>
+<div style="width:16px;height:16px;border-radius:50%;background:var(--primary);margin:0 auto 8px"></div>
 <div style="font-weight:700;font-size:14px">2028-30</div>
 <div style="font-size:12px;color:var(--green);margin-top:4px">Kine（独立品牌）</div>
 <div style="font-size:10px;color:var(--green);margin-top:2px">户外运动<br>$799-1,299</div>
@@ -3269,7 +3269,7 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 <h3 id="sec-7-2-5">7.2.5 硬件架构：电机、电池、主控的物理布局</h3>
 <div style="display:flex;gap:16px;justify-content:center;align-items:flex-start;margin:24px 0;padding:20px;background:#f8fafc;border-radius:12px;border:1px solid #eef2f6">
 <div style="text-align:center;flex:1">
-<div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#60a5fa);margin:0 auto 8px;display:flex;align-items:center;justify-content:center;color:var(--text);font-weight:800;font-size:14px">腰带</div>
+<div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--primary-dark),var(--primary));margin:0 auto 8px;display:flex;align-items:center;justify-content:center;color:var(--text);font-weight:800;font-size:14px">腰带</div>
 <div style="font-size:11px;color:#555;line-height:1.4">电池 18650 4S1P<br>~220g<br>主控 STM32<br>~80g</div>
 </div>
 <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:20px">
@@ -3316,8 +3316,8 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 </div>
 <div style="font-size:24px;color:#ccc;margin:0 8px">→</div>
 <div style="text-align:center;padding:16px 20px;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.06);min-width:100px">
-<div style="font-size:22px"><span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(0,150,240,.08);color:#60a5fa;font-weight:700;font-size:14px">AI</span></div>
-<div style="font-weight:700;color:#60a5fa;margin-top:4px">AI决策</div>
+<div style="font-size:22px"><span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(0,150,240,.08);color:var(--primary);font-weight:700;font-size:14px">AI</span></div>
+<div style="font-weight:700;color:var(--primary);margin-top:4px">AI决策</div>
 <div style="font-size:10px;color:#888">RL策略推荐<br>最优模式</div>
 </div>
 <div style="font-size:24px;color:#ccc;margin:0 8px">→</div>
@@ -3397,7 +3397,7 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 
 <h4>完整闭环逻辑</h4>
 
-<div style="text-align:center;padding:16px;background:#f8fafc;border-radius:10px;margin:16px 0">
+<div style="text-align:center;padding:16px;background:var(--gray-50);border-radius:10px;margin:16px 0">
 <strong>监测</strong>发现肌肉状态异常 → <strong>AI</strong>推荐最优策略（助力/训练/按摩）→ <strong>电机</strong>执行 → <strong>再次监测</strong>验证效果 → <strong>联邦学习</strong>优化策略<br>
 <span style="font-size:12px;opacity:0.6">全维健康闭环不是并列关系——是闭环中的四个节点。缺一个，环就断了。</span>
 </div>
