@@ -2981,6 +2981,223 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 <div style="text-align:center;font-size:10px;color:#999;margin-top:-14px">全维健康闭环：洞察→决策→执行→验证→优化。四个节点缺一不可。</div>可。</div>
 
 
+
+<div style="margin:24px 0;text-align:center">
+<svg viewBox="0 0 900 340" style="max-width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter>
+  </defs>
+  <!-- Background -->
+  <rect x="0" y="0" width="900" height="340" rx="12" fill="#f8fafc" stroke="#e5e5e5" stroke-width="1"/>
+  <text x="450" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1a1a">外骨骼架构对比：Omega · Pi · 膝关节铰链</text>
+  
+  <!-- Omega Architecture -->
+  <rect x="20" y="44" width="275" height="280" rx="8" fill="#fff" stroke="#e5e5e5" filter="url(#shadow)"/>
+  <rect x="20" y="44" width="275" height="32" rx="8" fill="#e5e5e5"/>
+  <rect x="20" y="60" width="275" height="16" fill="#e5e5e5"/>
+  <text x="157" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#555">Omega 架构（极壳Hypershell）</text>
+  
+  <!-- Omega: hip joint -->
+  <circle cx="157" cy="130" r="22" fill="none" stroke="#999" stroke-width="2"/>
+  <text x="157" y="134" text-anchor="middle" font-size="9" fill="#999">髋关节</text>
+  <line x1="157" y1="152" x2="157" y2="200" stroke="#999" stroke-width="2"/>
+  <!-- Arrow showing swing phase -->
+  <path d="M 180 120 Q 210 110 220 130" fill="none" stroke="#ff3b30" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+  <text x="230" y="125" font-size="9" fill="#ff3b30">摆动相助力</text>
+  <!-- No knee actuator -->
+  <text x="157" y="230" text-anchor="middle" font-size="10" fill="#ff3b30">✗ 无膝关节执行器</text>
+  <text x="157" y="250" text-anchor="middle" font-size="9" fill="#999">腰帯+大腿绑带</text>
+  <text x="157" y="268" text-anchor="middle" font-size="9" fill="#999">单电机·皮带驱动</text>
+  <text x="157" y="300" text-anchor="middle" font-size="10" font-weight="700" fill="#ff3b30">膝OA老人：不适合</text>
+  
+  <!-- Pi Architecture -->
+  <rect x="312" y="44" width="275" height="280" rx="8" fill="#fff" stroke="#e5e5e5" filter="url(#shadow)"/>
+  <rect x="312" y="44" width="275" height="32" rx="8" fill="#e8f4fd"/>
+  <rect x="312" y="60" width="275" height="16" fill="#e8f4fd"/>
+  <text x="449" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#0096f0">Pi 架构（Skip MO/GO）</text>
+  
+  <!-- Pi: pants + knee actuator -->
+  <rect x="380" y="100" width="140" height="160" rx="4" fill="none" stroke="#0096f0" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="450" y="270" text-anchor="middle" font-size="9" fill="#0096f0">裤子承载平台</text>
+  <circle cx="449" cy="180" r="16" fill="none" stroke="#0096f0" stroke-width="2"/>
+  <text x="449" y="183" text-anchor="middle" font-size="8" fill="#0096f0">膝电机</text>
+  <text x="449" y="215" text-anchor="middle" font-size="10" fill="#0096f0">✓ 膝关节执行器</text>
+  <text x="449" y="235" text-anchor="middle" font-size="9" fill="#999">磁力致动器</text>
+  <text x="449" y="253" text-anchor="middle" font-size="9" fill="#999">10个裤子尺码</text>
+  <text x="449" y="300" text-anchor="middle" font-size="10" font-weight="700" fill="#f59e0b">技术可行·$5,000·不做老人</text>
+  
+  <!-- Hinge Architecture (Bones) -->
+  <rect x="605" y="44" width="275" height="280" rx="8" fill="#fff" stroke="#0096f0" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="605" y="44" width="275" height="32" rx="8" fill="#0096f0"/>
+  <rect x="605" y="60" width="275" height="16" fill="#0096f0"/>
+  <text x="742" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">膝关节铰链架构（Bones膝安）★</text>
+  
+  <!-- Bones: belt + dual knee -->
+  <rect x="690" y="95" width="105" height="24" rx="4" fill="#0096f0" opacity="0.9"/>
+  <text x="742" y="111" text-anchor="middle" font-size="9" fill="#fff">腰带·电池·主控</text>
+  <line x1="715" y1="119" x2="715" y2="145" stroke="#0096f0" stroke-width="1.5"/>
+  <line x1="770" y1="119" x2="770" y2="145" stroke="#0096f0" stroke-width="1.5"/>
+  <circle cx="715" cy="165" r="14" fill="#0096f0" opacity="0.8"/>
+  <text x="715" y="168" text-anchor="middle" font-size="7" fill="#fff">左膝</text>
+  <circle cx="770" cy="165" r="14" fill="#0096f0" opacity="0.8"/>
+  <text x="770" y="168" text-anchor="middle" font-size="7" fill="#fff">右膝</text>
+  <!-- Frame -->
+  <line x1="715" y1="179" x2="715" y2="230" stroke="#0096f0" stroke-width="1"/>
+  <line x1="770" y1="179" x2="770" y2="230" stroke="#0096f0" stroke-width="1"/>
+  <text x="742" y="215" text-anchor="middle" font-size="10" fill="#0096f0">✓ 双膝独立电机</text>
+  <text x="742" y="235" text-anchor="middle" font-size="9" fill="#555">碳纤维框架·运动护具外观</text>
+  <text x="742" y="253" text-anchor="middle" font-size="9" fill="#555">30秒穿戴·~2.0kg</text>
+  <text x="742" y="300" text-anchor="middle" font-size="10" font-weight="700" fill="#0096f0">膝OA老人：最优方案</text>
+</svg>
+</div>
+
+<h4>7.2.5.1 外骨骼架构对比：Omega、Pi 与膝关节铰链架构</h4>
+
+<p style="font-size:12px;color:var(--text-tertiary)">外骨骼的"架构"决定了它能服务什么样的人群。极壳的Omega架构验证了髋关节消费市场，但它无法迁移到膝关节OA老人场景——这不是执行问题，是物理定律问题。</p>
+
+<table>
+<tr><th>架构</th><th>代表产品</th><th>驱动方式</th><th>助力关节</th><th>适用场景</th><th>对膝OA老人的致命缺陷</th></tr>
+<tr><td><strong>Omega架构</strong></td><td>极壳Hypershell（$799-1,999）</td><td>单电机经皮带驱动髋关节</td><td>髋关节·矢状面屈伸</td><td>登山·徒步·上坡（大角度髋屈伸）</td><td><strong>助力在摆动相（抬腿），膝OA疼痛在支撑相（承重）——时间窗口完全错位。</strong>无膝关节执行器=零膝部主动力矩。Virginia Tech实测：髋外骨骼使膝吸收功率<b>增加9-13%</b></td></tr>
+<tr><td><strong>Pi架构</strong></td><td>Skip MO/GO（$5,000·Google X）</td><td>膝关节外侧磁力致动器·裤子作为承载平台</td><td>膝关节·双向助力</td><td>登山·徒步·日常</td><td><strong>Pi架构本质是"膝关节铰链+软体承载"——理论上可以服务老人。但Skip选择了$5,000定价和始祖鸟联名，明确不做老人市场。</strong>磁力致动器成本高·裤子尺码复杂（10个SKU）。Bones可以借鉴其"藏在裤子里"的ID，但使用标准电机降本</td></tr>
+<tr><td><strong>膝关节铰链架构</strong></td><td><strong>Bones膝安/KneeEase</strong></td><td>双膝独立电机（CubeMars GL40）·腰带集中供电+主控</td><td>膝关节·双向（助推+制动）</td><td>老年日常·上下楼·坐-站·行走</td><td><strong>专为膝关节OA老人设计。</strong>支撑相助力+制动·摆动相零阻力。碳纤维框架+运动护具外观。腰带供电减少腿重</td></tr>
+<tr><td><strong>下肢全包架构</strong></td><td>Vastnaut One 4×4（$1,299-1,899）</td><td>4电机（2髋+2膝）</td><td>髋+膝联动</td><td>户外运动</td><td><strong>2.7kg对老人偏重。4电机成本高·复杂度高。髋部助力对膝OA无直接价值。尚未发货·无真实用户验证</strong></td></tr>
+<tr><td><strong>准医疗绑带架构</strong></td><td>远也PowerKnee（¥7,999）</td><td>膝关节外侧电机·3条绑带</td><td>膝关节</td><td>老年·康复</td><td><strong>架构本身适合老人——但三条绑带外露=医疗器械外观=社交羞耻。</strong>5分钟穿戴·¥7,999定价·JD月销仅数百。Bones采用同样的膝关节铰链架构但优化了外观（运动护具）和穿戴（30秒）</td></tr>
+</table>
+
+<div class="callout callout-key" style="text-align:left;font-size:14px;">
+<strong>工程结论：膝关节OA老人的外骨骼不需要髋关节助力。</strong>他们需要的是一台<b>仅作用于膝关节、双向（助推+制动）、轻量（<2.5kg）、外观非医疗化、30秒穿戴、价格<¥5,000</b>的设备。膝关节铰链架构是唯一满足所有条件的方案。Omega（髋）、Pi（软体承载）、全包（4电机）——都在某几个维度上失败。
+</div>
+
+
+<div style="margin:24px 0;text-align:center">
+<svg viewBox="0 0 900 500" style="max-width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#0096f0"/></marker>
+    <marker id="arrowGray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#999"/></marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#2d6a4a"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="500" rx="12" fill="#f8fafc" stroke="#e5e5e5" stroke-width="1"/>
+  <text x="450" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1a1a">硬件系统框图：腰带集中供电 · 双膝独立执行 · 四功能全支持</text>
+  
+  <!-- Belt Zone -->
+  <rect x="50" y="50" width="800" height="100" rx="8" fill="#fff" stroke="#0096f0" stroke-width="1.5"/>
+  <text x="450" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="#0096f0">腰带单元（后腰·重量~300g）</text>
+  
+  <!-- Battery -->
+  <rect x="80" y="85" width="180" height="50" rx="6" fill="#e8f4fd" stroke="#0096f0" stroke-width="1"/>
+  <text x="170" y="108" text-anchor="middle" font-size="11" font-weight="700" fill="#0096f0">电池 18650 4S1P</text>
+  <text x="170" y="124" text-anchor="middle" font-size="9" fill="#555">14.8V · 3000mAh · 2-3h续航</text>
+  
+  <!-- Main Controller -->
+  <rect x="290" y="85" width="200" height="50" rx="6" fill="#e8f4fd" stroke="#0096f0" stroke-width="1"/>
+  <text x="390" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#0096f0">主控 STM32</text>
+  <text x="390" y="122" text-anchor="middle" font-size="9" fill="#555">电机驱动·IMU处理·蓝牙·安全监控</text>
+  
+  <!-- Sensors on belt -->
+  <rect x="520" y="85" width="140" height="50" rx="6" fill="#e8f4fd" stroke="#0096f0" stroke-width="1"/>
+  <text x="590" y="108" text-anchor="middle" font-size="10" font-weight="700" fill="#0096f0">腰带IMU</text>
+  <text x="590" y="124" text-anchor="middle" font-size="9" fill="#555">姿态检测·跌倒识别</text>
+  
+  <!-- Belt extras -->
+  <rect x="690" y="85" width="130" height="50" rx="6" fill="#e8f4fd" stroke="#0096f0" stroke-width="1"/>
+  <text x="755" y="108" text-anchor="middle" font-size="10" font-weight="700" fill="#0096f0">压阻式传感器</text>
+  <text x="755" y="124" text-anchor="middle" font-size="9" fill="#555">肌肉激活监测</text>
+  
+  <!-- Connection lines: belt → knees -->
+  <line x1="170" y1="150" x2="170" y2="180" stroke="#999" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <line x1="390" y1="150" x2="390" y2="180" stroke="#999" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="280" y="170" text-anchor="middle" font-size="8" fill="#999">屏蔽线缆 · 防水连接器 · IP54</text>
+  
+  <!-- Left Knee -->
+  <rect x="50" y="190" width="400" height="140" rx="8" fill="#fff" stroke="#0096f0" stroke-width="1"/>
+  <text x="250" y="212" text-anchor="middle" font-size="11" font-weight="700" fill="#0096f0">左膝单元（~450g）</text>
+  
+  <rect x="70" y="225" width="170" height="45" rx="5" fill="#f0fdf4" stroke="#2d6a4a" stroke-width="1"/>
+  <text x="155" y="244" text-anchor="middle" font-size="10" font-weight="700" fill="#2d6a4a">电机 CubeMars GL40</text>
+  <text x="155" y="260" text-anchor="middle" font-size="8" fill="#555">~250g · 助力/训练/舒缓三模式</text>
+  
+  <rect x="260" y="225" width="170" height="45" rx="5" fill="#f0fdf4" stroke="#2d6a4a" stroke-width="1"/>
+  <text x="345" y="244" text-anchor="middle" font-size="10" font-weight="700" fill="#2d6a4a">减速器 5:1行星</text>
+  <text x="345" y="260" text-anchor="middle" font-size="8" fill="#555">~150g · 量产后谐波方案</text>
+  
+  <rect x="70" y="280" width="170" height="35" rx="5" fill="#fafafa" stroke="#e5e5e5" stroke-width="1"/>
+  <text x="155" y="301" text-anchor="middle" font-size="9" fill="#555">电磁离合器 · 断电脱开零阻力</text>
+  <rect x="260" y="280" width="170" height="35" rx="5" fill="#fafafa" stroke="#e5e5e5" stroke-width="1"/>
+  <text x="345" y="301" text-anchor="middle" font-size="9" fill="#555">IMU+力传感器 · 实时步态检测</text>
+  
+  <!-- Right Knee -->
+  <rect x="470" y="190" width="400" height="140" rx="8" fill="#fff" stroke="#0096f0" stroke-width="1"/>
+  <text x="670" y="212" text-anchor="middle" font-size="11" font-weight="700" fill="#0096f0">右膝单元（~450g）· 镜像对称</text>
+  <text x="670" y="260" text-anchor="middle" font-size="9" fill="#555">与左膝相同配置</text>
+  <text x="670" y="300" text-anchor="middle" font-size="9" fill="#555">双膝IMU同步 · 步态对称性监测</text>
+  
+  <!-- Bottom: Four-function mapping -->
+  <rect x="50" y="350" width="800" height="65" rx="8" fill="#f0f4f3" stroke="#e5e5e5" stroke-width="1"/>
+  <text x="450" y="370" text-anchor="middle" font-size="10" font-weight="700" fill="#1a1a1a">四种模式由同一套硬件支持 · 纯软件切换 · 零硬件增量</text>
+  
+  <rect x="70" y="382" width="175" height="24" rx="4" fill="#0096f0" opacity="0.85"/>
+  <text x="157" y="398" text-anchor="middle" font-size="9" fill="#fff" font-weight="600">助力：正向力矩 · KAM减少>20%</text>
+  
+  <rect x="260" y="382" width="175" height="24" rx="4" fill="#2d6a4a" opacity="0.85"/>
+  <text x="347" y="398" text-anchor="middle" font-size="9" fill="#fff" font-weight="600">训练：反向力矩 · 股四头肌强化</text>
+  
+  <rect x="450" y="382" width="175" height="24" rx="4" fill="#b07838" opacity="0.85"/>
+  <text x="537" y="398" text-anchor="middle" font-size="9" fill="#fff" font-weight="600">舒缓：低频振动 · 肌肉放松</text>
+  
+  <rect x="640" y="382" width="175" height="24" rx="4" fill="#6b7280" opacity="0.85"/>
+  <text x="727" y="398" text-anchor="middle" font-size="9" fill="#fff" font-weight="600">洞察：传感器+416模型推断</text>
+  
+  <!-- Weight summary -->
+  <rect x="50" y="430" width="800" height="55" rx="8" fill="#0096f0" opacity="0.08" stroke="#0096f0" stroke-width="1"/>
+  <text x="450" y="452" text-anchor="middle" font-size="11" font-weight="700" fill="#0096f0">Gen 1总重：腰带300g + 左膝450g + 右膝450g + 碳纤维框架800g + 绑带200g = ~2,200g（约2.2kg）</text>
+  <text x="450" y="474" text-anchor="middle" font-size="9" fill="#555">对比：DNSYS Z1 3.2kg（双膝·电池在腿）｜ 远也PowerKnee ~3kg/腿 ｜ Skip MO/GO ~2kg（仅单功能·户外）</text>
+</svg>
+</div>
+
+<h4>7.2.5.2 电机、电路板、电池的物理布局：为什么腰带供电是最优解</h4>
+
+<p style="font-size:12px;color:var(--text-tertiary)">膝关节外骨骼有三个可能的供电位置：大腿绑带、膝关节处、腰带。每个方案有根本性的工程权衡。</p>
+
+<table>
+<tr><th>供电位置</th><th>代表产品</th><th>优点</th><th>致命缺陷（对老人）</th><th>Bones选择</th></tr>
+<tr><td><strong>大腿绑带</strong></td><td>DNSYS Z1</td><td>电池靠近电机·线缆短·能量效率高</td><td><strong>大腿晃动幅度大·电池重量导致绑带下滑。</strong>膝关节支具1年废弃率72%的核心原因之一就是下滑。每条腿独立电池=双倍重量</td><td style="background:#fff5f5">不采用</td></tr>
+<tr><td><strong>膝关节处</strong></td><td>PowerKnee（远也）</td><td>一体化·无外露线缆</td><td><strong>膝关节处空间极小（电机+减速器已占满）。</strong>电池集成在膝部=关节处重量过大=步态改变+能耗增加。膝关节处每增加100g·步态能耗增加约3%</td><td style="background:#fff5f5">不采用</td></tr>
+<tr><td style="background:var(--primary-light)"><strong>腰带集中供电</strong></td><td style="background:var(--primary-light)">Skip MO/GO·<strong>Bones膝安</strong></td><td style="background:var(--primary-light)"><strong>①腰带是人体最稳定承载位置（晃动最小）②电池+主控集中管理=减轻腿重③一条腰带供电双膝=重量减半④腰带已经在老年人日常中使用（腰带/腰包·无额外学习成本）</strong></td><td style="background:var(--primary-light)">需要线缆从腰带到膝部·连接器可靠性是关键。Skip MO/GO通过把线埋在裤子里解决了此问题</td><td style="background:var(--primary-light)"><strong>采用。Bones Gen 1核心架构决策</strong></td></tr>
+</table>
+
+<div class="callout callout-insight">
+<strong>腰带供电的工程逻辑：</strong>人体在行走时，腰部的垂直位移幅度仅约2-3cm，而大腿的垂直位移幅度约8-12cm。电池放在腰部=承受的加速度和位移远小于大腿=绑带下滑风险大幅降低。这是被Skip MO/GO验证过的工程方案。Bones的差异化在于：①使用18650标准电池（非Skip的定制磁力方案）=成本更低②双膝独立电机（非Skip的磁力致动器）=力矩更大③碳纤维框架（非Skip的裤子承载）=更稳定·适合更大体重范围。
+</div>
+
+<h4>7.2.5.3 解决工程力学问题：力传递、对位、绑带设计</h4>
+
+<p style="font-size:12px;color:var(--text-tertiary)">膝关节外骨骼最核心的工程挑战不是电机——是<b>如何将电机的力矩有效传递到膝关节而不引起不适、下滑或皮肤损伤</b>。这是膝关节支具1年废弃率72%的根本原因，也是Bones必须解决的工程问题。</p>
+
+<table>
+<tr><th>工程问题</th><th>为什么难</th><th>现有方案的问题</th><th>Bones的解决方案</th></tr>
+<tr><td><strong>旋转中心对位</strong></td><td>膝关节不是纯铰链——屈伸过程中旋转中心瞬时变化（ICR迁移）。电机轴必须与变化的ICR对齐·否则产生剪切力→不适+能量损失</td><td>多数竞品使用简单铰链=固定旋转中心=屈膝>30°后错位。错位导致绑带受力不均→下滑+皮肤摩擦</td><td><strong>自对准ICR逼近。</strong>电机安装在四连杆机构上（非固定铰链），允许旋转中心在屈膝时微调位置。这借鉴了膝关节支具行业已验证的自对准设计（如Össur Unloader）——但这个设计目前主要用于被动支具·Bones把它应用到主动执行器上</td></tr>
+<tr><td><strong>力矩传递效率</strong></td><td>电机力矩通过框架传到小腿和大腿·力矩传递路径上任何一处滑移都会损失效率。碳纤维框架刚性好但贴合力差·绑带贴合力好但容易滑动</td><td>①单纯绑带（PowerKnee）=力矩损失大②单纯硬框架（早期外骨骼）=舒适度极差</td><td><strong>碳纤维框架+宽绑带混合方案。</strong>框架负责力传递（碳纤维·刚性·轻量）·绑带负责贴合（宽5cm·压力分布<37.5kPa·低于毛细血管闭合压力）。框架接触皮肤的侧面贴EVA泡沫（~3mm厚）作为缓冲层</td></tr>
+<tr><td><strong>不同体重/腿围的适配</strong></td><td>50kg老人和90kg老人的大腿围差可达10-15cm。一套固定尺寸无法适配所有人</td><td>Skip MO/GO做10个尺码=高SKU复杂度。DNSYS Z1做3个尺码=覆盖不全</td><td><strong>碳纤维框架长度可调（伸缩杆·3档）+绑带长度通用（魔术贴·无极调节）。</strong>初期做S/M/L三个框架尺寸+通用绑带=覆盖85%+人群</td></tr>
+<tr><td><strong>蹲起时的力臂变化</strong></td><td>深度屈膝（>90°）时·电机力臂显著变短·需要更大的力矩才能辅助蹲起。这是竞品全部回避的场景</td><td>竞品不覆盖蹲起场景——不是因为"没想到"，是因为"力臂问题没解决"</td><td><strong>四连杆机构在深度屈膝时增加有效力臂。</strong>正常行走时力臂~4cm·蹲起时连杆机构将力臂延长至~6cm。这不是完美的解决方案——只是部分缓解。蹲起辅助是Gen 2的重点优化方向</td></tr>
+</table>
+
+<h4>7.2.5.4 老年用户专项优化：重量、电池、穿戴、安全</h4>
+
+<p style="font-size:12px;color:var(--text-tertiary)">以下四个问题直接决定了老年人是否会持续使用——每个问题都有明确的工程答案。</p>
+
+<table>
+<tr><th>问题</th><th>老人需要什么</th><th>工程实现</th><th>当前状态</th></tr>
+<tr><td><strong>重量到底要多少</strong></td><td>专家建议外骨骼整机<3kg（中国康复医学会2025共识）。每腿<1.5kg。过重→步态改变+增加跌倒风险+用户不愿穿</td><td>腰带供电减腿重：电池+主控放腰带（~300g），每条腿仅电机(250g)+减速器(150g)+碳纤维框架(400g)+绑带(100g)=<strong>~900g/腿</strong>。双膝系统总重<strong>~2.0kg</strong>（含腰带）。对比DNSYS每腿1.6kg（电池在腿）=双膝3.2kg</td><td style="background:var(--green-light)"><strong>Gen 1可达2.0-2.5kg。</strong>极壳Hypershell 2.2kg（仅髋）·DNSYS X1 1.6kg（仅髋·含电池）·Bones 2.0kg（双膝·腰带供电）=行业领先的膝部重量</td></tr>
+<tr><td><strong>电池怎么解决</strong></td><td>①续航覆盖一天（2-3h持续行走）②充电简单（USB-C·老人会插）③安全（不自燃）④没电时不能卡住膝盖</td><td>①18650 4S1P 14.8V 2000-3000mAh·2-3h平地行走续航（老人日均活动量约1-2h行走）②USB-C PD充电·2h充满·可用充电宝③每个电芯独立保护板·放电均衡·过温保护④<b>电磁离合器：没电自动脱开→零阻力</b>——这是"绝不可能卡住膝盖"的硬件保障</td><td style="background:var(--green-light)"><strong>18650供应链成熟·BOM仅¥80-150。</strong>中国是全球最大18650产地。对比Skip定制电池（无法更换·维修贵）、DNSYS电池可拆卸（但每条腿独立）——Bones腰带电池方案综合最优</td></tr>
+<tr><td><strong>穿戴要简单到什么程度</strong></td><td>①<30秒②<3个步骤③不需要弯腰太多④不需要别人帮忙⑤能独立完成</td><td>①腰带：快拆扣（登山包同款·1秒）②绑带：魔术贴（3条·每条5-10秒）=30秒完成③框架：碳纤维管预先弯曲成型·自然贴合腿型·不需要"调节"④所有操作在站立位完成（不需要坐下·不需要弯腰到脚）</td><td style="background:var(--primary-light)"><strong>PowerKnee 3条绑带需5分钟·Skip MO/GO需要穿裤子（老人弯腰困难）。</strong>Bones 30秒穿戴是竞品中最快的</td></tr>
+<tr><td><strong>安全怎么保障</strong></td><td>①任何情况都不会卡住膝盖②摔倒时不会造成二次伤害③不需要复杂操作就能解除</td><td>①<b>电磁离合器</b>：通电吸合→输出力矩·断电脱开→零阻力。任何故障（过流·过温·电压异常·程序崩溃）→自动断电=自动脱开②<b>物理急停按钮</b>：大腿绑带上的大红色按钮（老人能摸到·不需要看）③<b>IMU跌倒检测</b>：加速度突变+姿态角超阈值→自动脱开+App告警④<b>所有力输出设置硬上限</b>：最大力矩不超过用户体重的30%（再大的力矩可能导致关节损伤）</td><td style="background:var(--green-light)"><strong>电磁离合器=Bones安全设计的基石。</strong>这是航空航天fail-safe设计原则：任何单点故障→系统自动回到安全状态（零阻力）。不是"软件保障"——是"物理定律保障"</td></tr>
+</table>
+
+<div class="callout callout-green">
+<strong>工程诚实：</strong>以上所有方案都是基于现有成熟技术（CubeMars电机·18650电池·碳纤维管材·电磁离合器·魔术贴绑带）。Bones不发明任何新硬件——我们做的是<b>系统集成和优化</b>。这是"降维"的真正含义：将人形机器人领域已经验证的工程方法（RL仿真·Sim-to-Real·轻量化设计）迁移到一个新品类（消费级膝关节外骨骼）。<br><br>
+<b>最大的工程风险不是"做不出来"——是"做出来之后老人是否愿意每天穿"。</b>膝关节支具1年废弃率72%的教训：技术可行≠用户接受。因此Bones的产品定义中，<b>舒适度、外观、穿戴便利性、安全性</b>与<b>力学性能（KAM减少）</b>同等重要。详见7.3节（生物力学与人机工程验证）。
+</div>
+
 <h3 id="sec-7-2-6">7.2.6 产品功能升级：从单点助力到全维健康闭环</h3>
 
 <p style="font-size:12px;color:var(--text-tertiary)">同一台设备、同一套电机、同一个AI模型驱动——全维健康闭环由软件切换模式，边际硬件成本仅增加压阻式柔性应变传感器阵列（¥25-50/套）。这不是功能堆砌，是<b>监测→保护→训练→恢复</b>的完整膝关节健康管理闭环。</p>
@@ -4042,6 +4259,7 @@ document.querySelector('.back-to-top').addEventListener('click', function(e) {
 </script>
 
 
-<!-- deployed: 2026-07-01 22:47:52 CST -->
+
+<!-- deployed: 2026-07-01 23:07:13 CST -->
 </body>
 </html> 
