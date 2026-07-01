@@ -324,6 +324,7 @@ tr.row-warning td { background:rgba(192,128,64,.04) !important; }
 <a href="#sec-7-2-5" class="sub">7.2.5 硬件架构布局</a>
 <a href="#sec-7-2-6" class="sub">7.2.6 四功能健康闭环</a>
 <a href="#sec-7-2-7" class="sub">7.2.7 场景映射</a>
+<a href="#sec-7-2-8" class="sub">7.2.8 四功能论证</a>
 <a href="#section-7b" class="sub">7.3 生物力学与人机工程</a>
 <a href="#section-7c" class="sub">7.4 执行计划</a>
 <a href="#section-8">8、聚焦膝关节·战略路线图</a>
@@ -2947,6 +2948,44 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 <tr><td><strong>每天固定时间·坐-站训练</strong></td><td>App引导（语音提示）</td><td>训练（抗阻坐-站）</td><td>"感觉腿有劲了"</td></tr>
 <tr><td><strong>全天·后台</strong></td><td>自动（传感器持续采集）</td><td>监测（数据记录+上传）</td><td>子女看到："妈今天走了3000步·膝盖状态正常"</td></tr>
 </table>
+
+<h3 id="sec-7-2-8">7.2.8 为什么是四个功能：硬件能力决定功能边界</h3>
+
+<div class="callout callout-key" style="text-align:left;font-size:14px;">
+<strong>四功能不是"我们想到了四个"——是硬件决定了恰好只能做这四个，而这四个恰好覆盖了从感知到执行到强化到恢复的完整闭环。</strong>电机只有三种工作模式（正向力矩·反向力矩·振动），传感器只有一套。功能边界由物理能力决定，不由想象力决定。
+</div>
+
+<h4>硬件→功能映射</h4>
+
+<table>
+<tr><th>硬件资源</th><th>工作模式</th><th>对应功能</th><th>用户价值</th><th>不做会怎样</th></tr>
+<tr><td><strong>电机（CubeMars GL40×2）</strong></td><td><strong>正向力矩</strong></td><td style="background:rgba(0,150,240,.08)"><strong>助力与支撑</strong><br>输出辅助力矩·减轻膝关节负荷</td><td>"走路疼"→不疼了<br>这是<b>购买理由</b></td><td>没有购买理由。用户不会为一个"不能减轻疼痛"的设备付费</td></tr>
+<tr><td><strong>电机（CubeMars GL40×2）</strong></td><td><strong>反向力矩</strong></td><td style="background:rgba(16,185,129,.06)"><strong>训练与康复</strong><br>输出可控阻力·强化股四头肌<br>膝OA临床指南A级推荐</td><td>"肌肉萎缩→更疼"<br>打断恶性循环·这是<b>治本</b></td><td>只治标不治本。膝OA的#1可调控风险因素（股四头肌无力）被忽略</td></tr>
+<tr><td><strong>电机（CubeMars GL40×2）</strong></td><td><strong>低频振动（20-50Hz）</strong></td><td style="background:rgba(245,158,11,.06)"><strong>按摩与恢复</strong><br>缓解肌肉疲劳·减轻晨僵·提升依从性</td><td>"用了不舒服"→舒服了<br>这是<b>留存理由</b></td><td>重复膝关节支具的失败——1年废弃率72%的核心原因是"不舒服"</td></tr>
+<tr><td><strong>压阻式柔性应变传感器<br>+IMU+力传感器+416肌骨模型</strong></td><td><strong>持续采集+模型推断</strong></td><td style="background:rgba(0,150,240,.04)"><strong>监测与管理</strong><br>实时追踪肌肉/关节状态·子女端可视化</td><td>"子女不知道有没有用"→安心了<br>这是<b>付费理由</b></td><td>子女付费驱动力消失·联邦学习数据飞轮无法启动</td></tr>
+</table>
+
+<h4>完整闭环逻辑</h4>
+
+<div style="text-align:center;padding:16px;background:#f8fafc;border-radius:10px;margin:16px 0">
+<strong>监测</strong>发现肌肉状态异常 → <strong>AI</strong>推荐最优策略（助力/训练/按摩）→ <strong>电机</strong>执行 → <strong>再次监测</strong>验证效果 → <strong>联邦学习</strong>优化策略<br>
+<span style="font-size:12px;opacity:0.6">四个功能不是并列关系——是闭环中的四个节点。缺一个，环就断了。</span>
+</div>
+
+<h4>被评估但否决的功能</h4>
+
+<table>
+<tr><th>提议</th><th>否决原因</th></tr>
+<tr><td><strong>加热/保暖</strong></td><td>功耗>10W·续航崩。老人低温烫伤风险。夏天无用。¥50电热护膝就能做——无差异化</td></tr>
+<tr><td><strong>社交/社区</strong></td><td>App功能·和硬件无关。老人无社交需求。Kine运动线（Phase 2）才需要——独立品牌独立App</td></tr>
+<tr><td><strong>自适应适配</strong></td><td>不是独立功能——已包含在"RL个性化"中。单独列出造成概念冗余</td></tr>
+<tr><td><strong>紧急制动/防摔倒</strong></td><td>与安全设计原则矛盾——"任何故障→零阻力"≠主动锁死关节。跌倒检测+告警已在监测模式中</td></tr>
+<tr><td><strong>语音助手</strong></td><td>App功能·边际价值低·代际接受度差异大·不作为核心卖点</td></tr>
+</table>
+
+<div class="callout callout-green">
+<strong>结论：四个功能恰好——加一个多余，减一个缺环。</strong>每个功能都由同一套硬件的不同工作模式实现——边际硬件成本几乎为零。这不叫"功能堆砌"——这叫"硬件能力的完整变现"。
+</div>
 
 <h2 id="section-7b">7.3 生物力学与人机工程验证</h2>
 
