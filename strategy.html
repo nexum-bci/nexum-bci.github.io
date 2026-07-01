@@ -12,13 +12,13 @@
 <title>骨骼流形 Bones & Manifold · 膝关节智能外骨骼 — 产品战略决策</title>
 <style>
 :root {
- --primary: #2d4a4a; --primary-dark: #1a3030; --primary-light: #eef3f3;
+ --primary: #000000; --primary-dark: #000000; --primary-light: #f2f2f2;
  --green: #0096f0; --green-light: #e8f4fd;
  --red: #a04038; --red-light: #faf2f0;
  --orange: #b07838; --orange-light: #faf5ef;
  --gray-50: #f7f8f9; --gray-100: #eff1f3; --gray-200: #e2e5e8;
- --gray-500: #6b7280; --gray-700: #364153; --gray-900: #181a1f;
- --text: #181a1f; --text-secondary: #4a5058; --text-tertiary: #9499a0;
+ --gray-500: #6b7280; --gray-700: #000000; --gray-900: #000000;
+ --text: #000000; --text-secondary: #000000; --text-tertiary: #9499a0;
  --bg: #ffffff;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -59,7 +59,7 @@ table table tr:nth-child(even) td { background:transparent !important; }
 /* Callouts */
 .callout { margin:28px 0; padding:22px 26px; border-radius:10px; font-size:13.5px; line-height:1.75; }
 .callout strong { font-weight:700; }
-.callout-key { background:linear-gradient(135deg,rgba(45,74,74,.03),rgba(45,74,74,.01)); border:1px solid rgba(45,74,74,.10); border:1px solid rgba(37,99,235,.10); text-align:center; font-size:14px; color:var(--text); }
+.callout-key { background:linear-gradient(135deg,rgba(0,0,0,.02),rgba(0,0,0,.01)); border:1px solid rgba(0,0,0,.08); text-align:center; font-size:14px; color:var(--text); }
 .callout-insight { background:linear-gradient(135deg,#f8faf9,#fafbfa); border-left:5px solid #0096f0; color:var(--text-secondary); }
 .callout-danger { background:#fff5f5; border-left:5px solid var(--red); color:var(--text-secondary); }
 .callout-green { background:var(--primary-light); border-left:5px solid #0096f0; color:var(--text-secondary); }
@@ -277,7 +277,7 @@ body {
 tr.row-highlight td { background:#f5f5f5 !important; font-weight:600; }
 tr.row-warning td { background:#f5f5f5 !important; }
 
-blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; background:#f8fafc; border-radius:0 6px 6px 0; color:#475569; font-size:14px; }
+blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; background:#f8fafc; border-radius:0 6px 6px 0; color:#000; font-size:14px; }
 </style>
 </head>
 <body>
@@ -372,34 +372,42 @@ blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; ba
 <!-- ============================================================ -->
 <!-- EXECUTIVE SUMMARY -->
 <!-- ============================================================ -->
-<div style="margin:36px 0;padding:36px 40px;background:linear-gradient(135deg,#1a3030,#0f1f1f);border-radius:14px;color:#fff;line-height:1.8">
-<div style="font-size:12px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px">Executive Summary</div>
-<div style="font-size:19px;font-weight:700;line-height:1.65;margin-bottom:20px">
-全球<strong style="color:#4ade80">5.28亿</strong>骨关节炎患者，膝关节占60-85%。现有方案全部妥协——拐杖被嫌弃、支具1年废弃率72%、止痛药损伤胃肠。从首次疼痛到关节置换的<strong style="color:#f87171">10-15年</strong>里，没有一个好答案。
+<div style="margin:36px 0;padding:40px 44px;background:#000000;border-radius:14px;color:#fff;line-height:1.8">
+<div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px">Executive Summary</div>
+
+<div style="font-size:21px;font-weight:800;line-height:1.5;margin-bottom:18px">
+全球<strong style="color:#4ade80">5.28亿</strong>骨关节炎患者。膝关节占60-85%。从首次疼痛到关节置换的<strong style="color:#f87171">10-15年</strong>治疗缺口里——拐杖被嫌弃、支具72%废弃、止痛药伤胃肠——<strong style="color:#fff">没有一个好答案。</strong>这是一个价值<strong style="color:#4ade80">$110-160B</strong>、每年增长8-12%的全球市场。
 </div>
-<div style="font-size:15px;opacity:.85;line-height:1.7;margin-bottom:20px">
-<strong style="color:#60a5fa">骨骼流形 Bones &amp; Manifold</strong> 打造全球首款消费级膝关节智能外骨骼。核心壁垒：<strong style="color:#60a5fa">416肌肉Hill型肌骨模型</strong>（全行业唯一的人体仿真引擎）·<strong style="color:#60a5fa">深度强化学习个性化力矩</strong>（全行业用1980年代PID）·<strong style="color:#60a5fa">联邦学习数据飞轮</strong>（用户越多越精准·不可逆向工程）。创始人来自人形机器人运控与具身智能——将20-40DOF降维到1-2DOF。
+
+<div style="font-size:14.5px;opacity:.88;line-height:1.75;margin-bottom:22px">
+<strong style="color:#60a5fa">骨骼流形 Bones &amp; Manifold</strong> 打造全球首款消费级膝关节智能外骨骼。三大壁垒：<strong style="color:#60a5fa">416肌肉Hill型肌骨模型</strong>——全行业唯一从肌肉激活推算出关节接触力的仿真引擎；<strong style="color:#60a5fa">深度强化学习个性化力矩</strong>——直接优化膝关节内收力矩(KAM)，竞品全部使用1980年代PID控制；<strong style="color:#60a5fa">联邦学习pFedAC</strong>——用户越多模型越精准，竞争对手不可逆向工程。创始团队来自人形机器人运控与具身智能——将全身20-40自由度降维应用到1-2自由度膝关节。
 </div>
-<div style="display:flex;gap:24px;margin-bottom:20px">
-<div style="flex:1;padding:16px;background:rgba(255,255,255,.06);border-radius:8px;text-align:center">
-<div style="font-size:24px;font-weight:900;color:#4ade80">$110-160B</div>
-<div style="font-size:11px;color:rgba(255,255,255,.4)">全球TAM</div>
+
+<div style="display:flex;gap:24px;margin-bottom:22px">
+<div style="flex:1;padding:20px 16px;background:rgba(255,255,255,.06);border-radius:10px;text-align:center">
+<div style="font-size:28px;font-weight:900;color:#4ade80;line-height:1.1">$110-160B</div>
+<div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:6px">全球TAM</div>
+<div style="font-size:10px;color:rgba(255,255,255,.25);margin-top:2px">年增长8-12%</div>
 </div>
-<div style="flex:1;padding:16px;background:rgba(255,255,255,.06);border-radius:8px;text-align:center">
-<div style="font-size:24px;font-weight:900;color:#60a5fa">Phase 1</div>
-<div style="font-size:11px;color:rgba(255,255,255,.4)">膝安·老年膝OA·中国首发</div>
+<div style="flex:1;padding:20px 16px;background:rgba(255,255,255,.06);border-radius:10px;text-align:center">
+<div style="font-size:28px;font-weight:900;color:#60a5fa;line-height:1.1">3.2-4.5亿</div>
+<div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:6px">全球膝OA患者</div>
+<div style="font-size:10px;color:rgba(255,255,255,.25);margin-top:2px">终生患病风险41-46%</div>
 </div>
-<div style="flex:1;padding:16px;background:rgba(255,255,255,.06);border-radius:8px;text-align:center">
-<div style="font-size:24px;font-weight:900;color:#60a5fa">天使轮</div>
-<div style="font-size:11px;color:rgba(255,255,255,.4)">$500K-1.5M</div>
+<div style="flex:1;padding:20px 16px;background:rgba(255,255,255,.06);border-radius:10px;text-align:center">
+<div style="font-size:28px;font-weight:900;color:#60a5fa;line-height:1.1">天使轮</div>
+<div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:6px">$500K-1.5M</div>
+<div style="font-size:10px;color:rgba(255,255,255,.25);margin-top:2px">Gen 0 → Gen 1</div>
 </div>
-<div style="flex:1;padding:16px;background:rgba(255,255,255,.06);border-radius:8px;text-align:center">
-<div style="font-size:24px;font-weight:900;color:#60a5fa">2026</div>
-<div style="font-size:11px;color:rgba(255,255,255,.4)">五个条件同时成熟</div>
+<div style="flex:1;padding:20px 16px;background:rgba(255,255,255,.06);border-radius:10px;text-align:center">
+<div style="font-size:28px;font-weight:900;color:#60a5fa;line-height:1.1">2026</div>
+<div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:6px">五个条件同时成熟</div>
+<div style="font-size:10px;color:rgba(255,255,255,.25);margin-top:2px">天时地利人和</div>
 </div>
 </div>
-<div style="font-size:12px;color:rgba(255,255,255,.3);text-align:center">
-一个技术平台 · 全维健康闭环 · 多品牌分层 · 全球市场 · Phase 1聚焦膝安/KneeEase · 老年膝OA
+
+<div style="font-size:12px;color:rgba(255,255,255,.3);text-align:center;line-height:1.6">
+Phase 1 · 膝安/KneeEase · 老年膝OA · 中国首发 · 四功能闭环（助力·训练·舒缓·洞察）· 一个技术平台 · 全球市场
 </div>
 </div>
 
@@ -737,8 +745,6 @@ blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; ba
 
 <tr style="background:#f8fafc"><td style="text-align:center;color:#0096f0;font-weight:700;font-size:12px">48</td><td><strong>你们的产品到底叫什么名字？怎么一会"外骨骼"一会"智能护膝"的？</strong></td>
 <td><strong>分层命名体系——不同受众听到不同的名字。</strong>①消费者端（中国）：膝安·智能护膝——老人和子女一眼理解·不吓人 ②消费者端（海外）：KneeEase —— "ease your knee"·直观 ③投资人/技术端：膝关节外骨骼——保持行业对标和专业性 ④公司定位：具身智能+神经力学驱动的消费级可穿戴健康平台。这就像Dyson不叫自己"吸尘器公司"而叫"空气科技公司"——但产品页上写的是"吸尘器"。消费者不需要知道什么叫"外骨骼"——他们只需要知道"这个东西能让我下楼不疼"。详见3.2节</td></tr>
-当前两位创始人覆盖：具身智能算法+人形机器人运控（20-40 DOF→外骨骼1-6 DOF的降维）+416肌肉Hill型肌骨模型（全行业唯一）+RL个性化力矩（全行业用PID）+联邦学习pFedAC（全行业数据孤岛）+产品定义与硬件原型。这个技术栈在任何外骨骼公司需要3-5人团队（生物力学PhD+ML工程师+控制工程师+嵌入式工程师+产品经理）——且这几个人很难在同一个团队中高效协作（不同学科的语言和思维差异）。两位创始人已经验证了协作效率。投资人最担心的不是"人数少"——是"关键能力缺失"。Bones的关键能力（算法+模型+RL+联邦学习）全部覆盖。缺失的是硬件工程、临床验证、老年UX——这些用天使轮资金补充（见8.4团队建设路径）。对标：极壳创业初期也是2人（孙宽+CTO）、Skip MO/GO早期只有Kathryn Zealand+2名Google X工程师、Dexcom最初是2人（一个工程师+一个医生）。硬件创业的核心不是团队规模——是解决"从0到1"的技术验证。Phase 0只需$30-50K自有资金——如果这个阶段能交付"RL仿真KAM减少>20%"+"10人测试说确实不疼了"，天使投资人看到的是：两个人用几乎零成本验证了全行业没人做到的事</td></tr>
-
 </table>
 
 <div class="callout callout-key" style="text-align:center;font-size:15.5px;line-height:1.9">
@@ -748,7 +754,7 @@ blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; ba
 </div>
 
 <div style="margin:64px 0 48px;text-align:center">
-<div style="display:inline-block;background:linear-gradient(135deg,rgba(45,74,74,.06),rgba(45,74,74,.02));border:1px solid rgba(45,74,74,.12);border-radius:8px;padding:16px 40px">
+<div style="display:inline-block;background:linear-gradient(135deg,rgba(0,0,0,.04),rgba(0,0,0,.01));border:1px solid rgba(0,0,0,.1);border-radius:8px;padding:16px 40px">
 <div style="font-size:10px;font-weight:700;color:var(--text-tertiary);letter-spacing:3px;text-transform:uppercase;margin-bottom:4px">Part 2</div>
 <div style="font-size:15.5px;font-weight:800;color:var(--primary-dark);letter-spacing:1px">支撑分析</div>
 <div style="font-size:11px;color:var(--text-tertiary);margin-top:4px">17章 · 249款竞品 · 44个需求场景 · 完整数据来源</div>
@@ -3212,19 +3218,19 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
   <rect x="470" y="44" width="210" height="400" rx="8" fill="#fff" stroke="#e5e5e5"/>
   <rect x="470" y="44" width="210" height="30" rx="8" fill="#f0f4f3"/>
   <rect x="470" y="60" width="210" height="14" fill="#f0f4f3"/>
-  <text x="575" y="65" text-anchor="middle" font-size="10" font-weight="700" fill="#2d4a4a">DNSYS Z1</text>
-  <circle cx="575" cy="120" r="18" fill="none" stroke="#2d4a4a" stroke-width="2"/>
-  <text x="575" y="124" text-anchor="middle" font-size="8" fill="#2d4a4a">膝电机</text>
-  <rect x="555" y="148" width="40" height="20" rx="3" fill="#2d4a4a" opacity="0.6"/>
+  <text x="575" y="65" text-anchor="middle" font-size="10" font-weight="700" fill="#000000">DNSYS Z1</text>
+  <circle cx="575" cy="120" r="18" fill="none" stroke="#000000" stroke-width="2"/>
+  <text x="575" y="124" text-anchor="middle" font-size="8" fill="#000000">膝电机</text>
+  <rect x="555" y="148" width="40" height="20" rx="3" fill="#000000" opacity="0.6"/>
   <text x="575" y="162" text-anchor="middle" font-size="7" fill="#fff">电池</text>
-  <line x1="575" y1="138" x2="575" y2="148" stroke="#2d4a4a" stroke-width="1"/>
+  <line x1="575" y1="138" x2="575" y2="148" stroke="#000000" stroke-width="1"/>
   <text x="575" y="195" text-anchor="middle" font-size="9" fill="#555">大腿绑带·每腿独立</text>
   <text x="575" y="215" text-anchor="middle" font-size="8" fill="#999">$899-2,298·~1.6kg/腿</text>
   <text x="575" y="235" text-anchor="middle" font-size="8" fill="#999">App控制·3档助力</text>
   <line x1="490" y1="260" x2="640" y2="260" stroke="#eee" stroke-width="1"/>
-  <text x="575" y="280" text-anchor="middle" font-size="9" font-weight="700" fill="#2d4a4a">单膝模式：可独立购买</text>
+  <text x="575" y="280" text-anchor="middle" font-size="9" font-weight="700" fill="#000000">单膝模式：可独立购买</text>
   <text x="575" y="298" text-anchor="middle" font-size="8" fill="#555">50%用户>50岁</text>
-  <text x="575" y="320" text-anchor="middle" font-size="9" font-weight="700" fill="#2d4a4a">双膝模式：X1+Z1叠加</text>
+  <text x="575" y="320" text-anchor="middle" font-size="9" font-weight="700" fill="#000000">双膝模式：X1+Z1叠加</text>
   <text x="575" y="338" text-anchor="middle" font-size="8" fill="#555">髋膝联动·$2,300-3,300</text>
   <text x="575" y="430" text-anchor="middle" font-size="8" fill="#f59e0b">问题：未为老人优化·无坐-站·无蹲起</text>
   
