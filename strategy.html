@@ -3001,7 +3001,7 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
   <text x="157" y="134" text-anchor="middle" font-size="9" fill="#999">髋关节</text>
   <line x1="157" y1="152" x2="157" y2="200" stroke="#999" stroke-width="2"/>
   <!-- Arrow showing swing phase -->
-  <path d="M 180 120 Q 210 110 220 130" fill="none" stroke="#ff3b30" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+  <p>
   <text x="230" y="125" font-size="9" fill="#ff3b30">摆动相助力</text>
   <!-- No knee actuator -->
   <text x="157" y="230" text-anchor="middle" font-size="10" fill="#ff3b30">✗ 无膝关节执行器</text>
@@ -3052,7 +3052,7 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 
 <h4>7.2.5.1 外骨骼架构对比：Omega、Pi 与膝关节铰链架构</h4>
 
-<p style="font-size:12px;color:var(--text-tertiary)">外骨骼的"架构"决定了它能服务什么样的人群。极壳的Omega架构验证了髋关节消费市场，但它无法迁移到膝关节OA老人场景——这不是执行问题，是物理定律问题。</p>
+<p style="font-size:12px;color:var(--text-tertiary)">外骨骼的"架构"决定了它能服务什么样的人群。<br><br>极壳的Omega架构验证了髋关节消费市场，但它无法迁移到膝关节OA老人场景——这不是执行问题，是物理定律问题。</p>
 
 <table>
 <tr><th>架构</th><th>代表产品</th><th>驱动方式</th><th>助力关节</th><th>适用场景</th><th>对膝OA老人的致命缺陷</th></tr>
@@ -3071,7 +3071,7 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 <div style="margin:24px 0;text-align:center">
 <svg viewBox="0 0 900 500" style="max-width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#0096f0"/></marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><p></marker>
     <marker id="arrowGray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#999"/></marker>
     <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#2d6a4a"/></marker>
   </defs>
@@ -3251,7 +3251,7 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 
 <h4>7.2.5.2 电机、电路板、电池的物理布局：为什么腰带供电是最优解</h4>
 
-<p style="font-size:12px;color:var(--text-tertiary)">膝关节外骨骼有三个可能的供电位置：大腿绑带、膝关节处、腰带。每个方案有根本性的工程权衡。</p>
+<p style="font-size:12px;color:var(--text-tertiary)">膝关节外骨骼有三个可能的供电位置：大腿绑带、膝关节处、腰带。<br><br>每个方案有根本性的工程权衡。</p>
 
 <table>
 <tr><th>供电位置</th><th>代表产品</th><th>优点</th><th>致命缺陷（对老人）</th><th>Bones选择</th></tr>
@@ -4400,6 +4400,7 @@ document.querySelector('.back-to-top').addEventListener('click', function(e) {
 
 
 
-<!-- deployed: 2026-07-01 23:35:19 北京时间 -->
+
+<!-- deployed: 2026-07-01 23:36:45 北京时间 -->
 </body>
 </html> 
