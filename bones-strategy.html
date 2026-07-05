@@ -431,7 +431,7 @@ blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; ba
 <div style="font-size:11px;font-weight:700;color:#fff;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px">Executive Summary</div>
 
 <div style="font-size:21px;font-weight:800;line-height:1.5;margin-bottom:18px">
-全球5.28亿骨关节炎患者。膝关节占60-85%。从首次疼痛到关节置换的10-15年需求缺口里——拐杖被嫌弃、支具72%废弃、止痛药伤胃肠——没有一个好答案。这是一个价值$110-160B、每年增长8-12%的全球市场。
+Bones &amp; Manifold 正在构建全球首个面向膝关节不适人群的RL个性化力矩外骨骼。全球5.28亿骨关节炎患者——膝关节占60-85%。从首次疼痛到关节置换的10-15年需求缺口里，没有一个好答案。这是一个价值$110-160B、每年增长8-12%的全球市场。
 </div>
 
 <div style="font-size:14.5px;line-height:1.75;margin-bottom:22px;color:#fff">
@@ -2764,9 +2764,9 @@ Bones的肌骨模型恰好可以在手机芯片上运行（不需要专用硬件
 <h3>6.6.4 结论：膝关节OA是技术匹配度最高的赛道</h3>
 
 <div class="callout callout-key" style="text-align:left;font-size:15.5px">
-Bones的核心能力是RL控制·不是肌骨模型。
-Gen 0-1（原型→KS）的产品：轻量膝关节外骨骼 + IMU+力矩传感器+RL个性化力矩。肌骨模型不部署在设备上。RL策略在MyoWarp管线中训练·部署到MCU。
-Gen 2+（规模化）的产品：加入肌骨模型——区分内侧vs外侧OA·输出个性化力矩。联邦学习开始起作用。
+Bones的核心能力是RL控制·肌骨模型是长期壁垒。
+Gen 0-1（原型→KS）：RL个性化力矩（自适应安全·非周期场景覆盖）构成短期护城河——竞品无法用PID/FSM实现。肌骨模型在MyoWarp仿真中训练RL策略，但不部署在设备端。
+Gen 2+（规模化）：肌骨模型部署到设备+联邦学习激活——从短期RL护城河过渡到长期数据+模型双护城河。如果RL实机效果未达预期（例如KAM降幅仅比PID好5%），Gen 1可切换到阻抗控制方案——创业公司必须保留技术灵活性。
 App同步做：步态分析+肌肉弱点报告（这是肌骨模型在软件端的体现·用户能理解）。
 为什么这样调整：
 ①Gen 0的首要目标是"不痛"——不是"理解为什么痛"。RL力矩能做到"不痛"。肌骨模型是"理解为什么"——Gen 2再做。
