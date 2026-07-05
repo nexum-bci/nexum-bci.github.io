@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Bones膝安膝关节外骨骼 — 完整制造工程规格书：产品规格、制造路线图、质量控制、认证路径、包装文档">
+<meta property="og:title" content="制造工程规格书 — Nexum 逐念而行">
+<meta property="og:description" content="Bones膝安膝关节外骨骼从原型到量产的完整工程规格和制造路线图">
+<meta property="og:type" content="website">
+<meta property="og:image" content="favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="page-base.css">
+<title>制造工程规格书 — Nexum 逐念而行</title>
+<link rel="icon" href="favicon.svg">
+<script>
+(function(){
+  if (localStorage.getItem('nexum-theme') === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+</script>
+<style>
+.container{max-width:var(--max-w);margin:0 auto;padding:40px 32px}
+h1{font-size:42px;font-weight:700;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+h2{font-size:28px;font-weight:600;line-height:1.3;margin-top:48px;margin-bottom:16px;letter-spacing:-.3px;padding-bottom:12px;border-bottom:1px solid var(--border);color:var(--accent)}
+h3{font-size:20px;font-weight:600;line-height:1.4;margin-top:32px;margin-bottom:12px;letter-spacing:-.2px}
+h4{font-size:17px;font-weight:600;line-height:1.4;margin-top:24px;margin-bottom:8px;color:var(--text-secondary)}
+p{margin-bottom:16px;color:var(--text);line-height:1.8}
+strong{font-weight:600}
+hr{border:none;height:1px;background:var(--border);margin:40px 0}
+ul,ol{padding-left:1.5em;margin-bottom:16px;line-height:1.8}
+li{margin-bottom:6px}
+blockquote{border-left:3px solid var(--accent);background:var(--accent-subtle);padding:16px 20px;margin:20px 0;border-radius:0 var(--radius-sm) var(--radius-sm) 0;color:var(--text-secondary)}
+blockquote p{color:var(--text-secondary);margin-bottom:4px}
+code{font-family:'SF Mono','Fira Code',Consolas,monospace;font-size:.92em;background:var(--accent-subtle);color:var(--accent);padding:2px 6px;border-radius:4px}
+pre{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px 24px;overflow-x:auto;margin:20px 0;font-size:13.5px;line-height:1.6}
+pre code{background:none;padding:0;border-radius:0;color:var(--text);font-size:13.5px}
+.sub{font-size:13px;color:var(--text-secondary);margin-bottom:8px}
+.alert{background:var(--accent-subtle);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 20px;margin:16px 0;color:var(--text-secondary)}
+.table-wrapper{overflow-x:auto;margin:20px 0;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg-card);box-shadow:var(--shadow-sm)}
+table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6}
+thead{background:var(--accent-subtle)}
+th{color:var(--accent);font-weight:600;text-align:left;padding:14px 18px;border-bottom:1px solid var(--border);font-size:13px;letter-spacing:.03em;white-space:nowrap}
+td{padding:12px 18px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;font-size:14px}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:rgba(0,0,0,0.015)}
+[data-theme="dark"] tbody tr:nth-child(even){background:rgba(255,255,255,0.02)}
+tbody tr:hover{background:var(--accent-subtle)}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:32px 0}
+.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center}
+.stat-num{font-size:34px;font-weight:800;color:var(--accent);letter-spacing:-1.5px;line-height:1.1}
+.stat-label{font-size:13px;color:var(--text-tertiary);margin-top:6px}
+.tag{display:inline-block;padding:2px 10px;border-radius:4px;font-size:11px;font-weight:700}
+.tag-green{color:#10b981;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.15)}
+.tag-yellow{color:#f59e0b;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.15)}
+.tag-red{color:#ef4444;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.15)}
+.tag-blue{color:#3b82f6;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.15)}
+@media(max-width:768px){
+  .container{padding:24px 16px}
+  h1{font-size:28px}
+  h2{font-size:22px}
+  h3{font-size:18px}
+  table{font-size:13px}
+  th,td{padding:10px 12px}
+  pre{padding:14px 16px;font-size:12.5px}
+  .stat-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.stat-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<section class="page-header">
+ <div class="container">
+ <div class="section-label">Manufacturing Specification</div>
+ <h1>制造工程规格书</h1>
+ <p class="page-sub">Bones膝安膝关节外骨骼 — 产品规格 · 制造路线图 · 质量控制 · 认证路径 · 包装文档</p>
+ <div class="stat-grid" style="margin-top:40px">
+ <div class="stat-card"><div class="stat-num">1.9</div><div class="stat-label">kg 双膝系统</div></div>
+ <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">制造阶段</div></div>
+ <div class="stat-card"><div class="stat-num">¥4,600</div><div class="stat-label">BOM @100套</div></div>
+ <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">认证路径</div></div>
+ </div>
+ </div>
+</section>
+
+<section class="page-section" style="padding-top:0">
+ <div class="container">
+
+<!-- ============================================================ -->
+<!-- PART 1: 完整产品规格书 -->
+<!-- ============================================================ -->
+<h1>1. 完整产品规格书</h1>
+<p>本文档定义 Bones膝安（Bones Kenan）膝关节外骨骼的完整产品规格。产品定位为 <strong>消费级膝关节康复与日常步行辅助设备</strong>，目标人群为膝关节退行性病变患者、膝关节术后康复者及老年步行辅助需求者。分类为中国 CCC 消费电子/欧盟 CE Class I 医疗器械。</p>
+
+<hr>
+
+<h2>1.1 系统概述</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>参数</th><th>值</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>产品名称</td><td>Bones膝安 膝关节外骨骼</td><td>Bones Kenan Knee Exoskeleton</td></tr>
+<tr><td>系统构型</td><td>双膝独立模块 + 腰部电池仓</td><td>左右对称，各膝关节独立控制</td></tr>
+<tr><td>系统总重</td><td>1.9 kg（双膝 + 电池）</td><td>含所有组件</td></tr>
+<tr><td>每膝重量</td><td>~700g（含电机+框架+传感器）</td><td>不含电池</td></tr>
+<tr><td>电池仓重量</td><td>~500g（含电池+支架）</td><td>腰部佩戴</td></tr>
+<tr><td>适应身高范围</td><td>155–190 cm</td><td>通过连杆长度调节</td></tr>
+<tr><td>适应体重范围</td><td>40–100 kg</td><td></td></tr>
+<tr><td>穿戴时间</td><td>&lt;60 秒（熟练后）</td><td>单人操作</td></tr>
+<tr><td>续航时间</td><td>~1 小时（@80W 持续行走）</td><td>热插拔电池可连续</td></tr>
+<tr><td>目标售价</td><td>¥9,800（含税）</td><td>@1,000套量</td></tr>
+</tbody>
+</table></div>
+
+<h2>1.2 功能规格</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>ID</th><th>功能</th><th>规格</th><th>验证方法</th></tr></thead>
+<tbody>
+<tr><td>F-01</td><td>膝关节辅助力矩</td><td>额定 9 Nm / 峰值 22 Nm</td><td>扭矩传感器台架测试</td></tr>
+<tr><td>F-02</td><td>步态相位检测</td><td>站立/摆动期准确率 ≥95%</td><td>5 名受试者对比 Vicon</td></tr>
+<tr><td>F-03</td><td>运动意图预测</td><td>提前 100ms 检测，灵敏度 ≥90%</td><td>IMU + 编码器 ML 推理验证</td></tr>
+<tr><td>F-04</td><td>辅助模式</td><td>行走/坐站/上楼梯/下楼梯/自由模式</td><td>模式切换台架测试</td></tr>
+<tr><td>F-05</td><td>零力模式（透明模式）</td><td>残余阻抗 &lt;0.5 Nm</td><td>穿戴后徒手感受评估 + 力传感器</td></tr>
+<tr><td>F-06</td><td>被动安全模式</td><td>电磁离合器断开后 &lt;0.3 Nm 阻力</td><td>离合器脱开测试</td></tr>
+<tr><td>F-07</td><td>步态参数自适应</td><td>5 步内自动适配用户步速/步幅</td><td>对比自适应前后辅助曲线</td></tr>
+<tr><td>F-08</td><td>跌倒检测</td><td>IMU 异常检测 + 50ms 内离合器脱开</td><td>受控跌倒测试台</td></tr>
+<tr><td>F-09</td><td>OTA 固件升级</td><td>通过手机 App BLE 升级，&lt;5 分钟</td><td>整机升级测试</td></tr>
+<tr><td>F-10</td><td>数据记录</td><td>本地存储 ≥72h 步态数据，可导出 CSV</td><td>存储写入/读取测试</td></tr>
+</tbody>
+</table></div>
+
+<h2>1.3 性能规格</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>ID</th><th>参数</th><th>目标值</th><th>测量条件</th><th>验证方法</th></tr></thead>
+<tbody>
+<tr><td>P-01</td><td>额定辅助力矩</td><td>9 Nm</td><td>持续，25°C 环境</td><td>扭矩传感器，5 分钟连续</td></tr>
+<tr><td>P-02</td><td>峰值辅助力矩</td><td>22 Nm</td><td>持续 3s，25°C</td><td>扭矩传感器，3 次取均值</td></tr>
+<tr><td>P-03</td><td>力矩控制带宽</td><td>≥15 Hz</td><td>闭环，±1 Nm 正弦扫频</td><td>频率响应分析</td></tr>
+<tr><td>P-04</td><td>力矩精度（稳态）</td><td>±0.3 Nm</td><td>额定负载，稳态 5s</td><td>10 次测量标准差</td></tr>
+<tr><td>P-05</td><td>力矩精度（动态）</td><td>±0.6 Nm</td><td>1 Hz 正弦跟踪</td><td>RMSE 评估</td></tr>
+<tr><td>P-06</td><td>端到端延迟</td><td>&lt;5 ms</td><td>传感器→推理→电机指令</td><td>GPIO 示波器测量</td></tr>
+<tr><td>P-07</td><td>IMU 角度精度（静态）</td><td>&lt;0.5°</td><td>静止 10s</td><td>对比高精度倾角仪</td></tr>
+<tr><td>P-08</td><td>IMU 角度精度（动态）</td><td>&lt;2° RMSE</td><td>0.5–3 Hz 正弦摆动</td><td>对比光学动捕</td></tr>
+<tr><td>P-09</td><td>编码器精度</td><td>±0.1° 电气角</td><td>14-bit AS5048A</td><td>对比光学编码器</td></tr>
+<tr><td>P-10</td><td>力传感器精度</td><td>±1% FS</td><td>AD7124 + 应变片</td><td>砝码标定</td></tr>
+<tr><td>P-11</td><td>电机响应时间（0→额定）</td><td>&lt;2 ms</td><td>电流环阶跃响应</td><td>示波器测量</td></tr>
+<tr><td>P-12</td><td>噪声水平</td><td>≤60 dB @ 65cm</td><td>额定负载，1m 距离</td><td>声级计 A 计权</td></tr>
+</tbody>
+</table></div>
+
+<h2>1.4 物理规格</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>ID</th><th>参数</th><th>目标值</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>PH-01</td><td>系统总重量</td><td>1.9 kg ± 5%</td><td>含双膝 + 电池 + 电池仓</td></tr>
+<tr><td>PH-02</td><td>膝关节模块尺寸</td><td>120×80×55 mm (每膝)</td><td>含电机+框架+传感器</td></tr>
+<tr><td>PH-03</td><td>电池仓尺寸</td><td>90×70×30 mm</td><td>腰部佩戴</td></tr>
+<tr><td>PH-04</td><td>大腿连杆长度</td><td>250–400 mm (可调)</td><td>T700 碳纤维</td></tr>
+<tr><td>PH-05</td><td>小腿连杆长度</td><td>250–400 mm (可调)</td><td>T700 碳纤维</td></tr>
+<tr><td>PH-06</td><td>关节旋转范围</td><td>−5° 过伸 ~ 135° 屈曲</td><td>机械限位 + 软限位</td></tr>
+<tr><td>PH-07</td><td>绑带宽度</td><td>50 mm (大腿) / 40 mm (小腿)</td><td>透气弹力尼龙</td></tr>
+<tr><td>PH-08</td><td>电机尺寸</td><td>Φ62×34 mm</td><td>CubeMars AK80-9 V3.0</td></tr>
+<tr><td>PH-09</td><td>电池规格</td><td>21700 4S1P 14.8V 5.0Ah</td><td>Samsung 50E</td></tr>
+<tr><td>PH-10</td><td>电池重量（单组）</td><td>310 g</td><td>含 BMS 和外壳</td></tr>
+</tbody>
+</table></div>
+
+<h2>1.5 电气规格</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>ID</th><th>参数</th><th>目标值</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>E-01</td><td>额定电压</td><td>14.8 V (4S)</td><td>21700 锂离子</td></tr>
+<tr><td>E-02</td><td>工作电压范围</td><td>12.0–16.8 V</td><td>3.0–4.2 V/电芯</td></tr>
+<tr><td>E-03</td><td>持续放电电流</td><td>5.4 A</td><td>@80W 持续</td></tr>
+<tr><td>E-04</td><td>峰值放电电流</td><td>15 A (3s)</td><td>@22 Nm 峰值</td></tr>
+<tr><td>E-05</td><td>待机功耗</td><td>&lt;0.5 W</td><td>休眠模式</td></tr>
+<tr><td>E-06</td><td>平均功耗（步行）</td><td>~50–80 W</td><td>取决于辅助力度</td></tr>
+<tr><td>E-07</td><td>BMS 保护</td><td>过充/过放/过流/短路/温保</td><td>TPS3850 看门狗</td></tr>
+<tr><td>E-08</td><td>充电接口</td><td>USB-C PD 3.0</td><td>最大 60W 输入</td></tr>
+<tr><td>E-09</td><td>充电时间</td><td>~50 分钟 (0→80%)</td><td>@60W PD 充电器</td></tr>
+<tr><td>E-10</td><td>无线通信</td><td>BLE 5.2</td><td>ESP32-S3</td></tr>
+<tr><td>E-11</td><td>MCU 主频</td><td>240 MHz</td><td>ESP32-S3 Xtensa LX7 双核</td></tr>
+<tr><td>E-12</td><td>AI 推理单元</td><td>ESP32-S3 向量扩展</td><td>PPO int8 量化</td></tr>
+<tr><td>E-13</td><td>电机驱动器</td><td>FOC 矢量控制</td><td>DRV8316 或同级</td></tr>
+<tr><td>E-14</td><td>PWM 频率</td><td>40 kHz（电机）/ 20 kHz（传感器）</td><td></td></tr>
+</tbody>
+</table></div>
+
+<h2>1.6 环境规格</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>ID</th><th>参数</th><th>目标值</th><th>测试标准</th></tr></thead>
+<tbody>
+<tr><td>ENV-01</td><td>工作温度</td><td>0°C ~ 45°C</td><td>GB/T 2423.1 / IEC 60068-2-1</td></tr>
+<tr><td>ENV-02</td><td>存储温度</td><td>−20°C ~ 55°C</td><td>GB/T 2423.2 / IEC 60068-2-2</td></tr>
+<tr><td>ENV-03</td><td>工作湿度</td><td>20%–85% RH 非冷凝</td><td>GB/T 2423.3 / IEC 60068-2-78</td></tr>
+<tr><td>ENV-04</td><td>存储湿度</td><td>10%–90% RH 非冷凝</td><td>同上</td></tr>
+<tr><td>ENV-05</td><td>防护等级</td><td>IP42（电机单元）/ IP22（电池仓）</td><td>GB/T 4208 / IEC 60529</td></tr>
+<tr><td>ENV-06</td><td>耐振动</td><td>10–500 Hz, 2g, 3 轴, 每轴 30 min</td><td>GB/T 2423.10 / IEC 60068-2-6</td></tr>
+<tr><td>ENV-07</td><td>耐冲击</td><td>50g, 11ms 半正弦, 3 轴 6 方向</td><td>GB/T 2423.5 / IEC 60068-2-27</td></tr>
+<tr><td>ENV-08</td><td>耐跌落</td><td>1.0m 跌落至混凝土地面, 6 面</td><td>IEC 60068-2-31</td></tr>
+<tr><td>ENV-09</td><td>盐雾</td><td>48h, 5% NaCl, 35°C</td><td>GB/T 2423.17 / IEC 60068-2-11</td></tr>
+<tr><td>ENV-10</td><td>海拔</td><td>≤3000m</td><td>大气压 70 kPa 以上</td></tr>
+<tr><td>ENV-11</td><td>EMC 辐射</td><td>GB/T 9254 Class B / CISPR 32</td><td>3m 法电波暗室</td></tr>
+<tr><td>ENV-12</td><td>EMC 抗扰</td><td>GB/T 17626 系列 / IEC 61000-4</td><td>ESD/EFT/Surge/PFMF</td></tr>
+</tbody>
+</table></div>
+
+<h2>1.7 安全规格</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>ID</th><th>安全功能</th><th>规格</th><th>验证方法</th></tr></thead>
+<tbody>
+<tr><td>S-01</td><td>电磁离合器脱开时间</td><td>&lt;10 ms（失电弹簧复位）</td><td>示波器测离合器电流+扭矩</td></tr>
+<tr><td>S-02</td><td>离合器保持扭矩（通电）</td><td>≥30 Nm</td><td>扭矩传感器</td></tr>
+<tr><td>S-03</td><td>离合器复位弹簧力</td><td>≥5 Nm 复位扭矩</td><td>弹簧力测试</td></tr>
+<tr><td>S-04</td><td>双 MCU 看门狗</td><td>主 MCU 挂起 → 辅 MCU 500ms 内复位或断开</td><td>故障注入测试</td></tr>
+<tr><td>S-05</td><td>TPS3850 窗口看门狗</td><td>tWD = 1.6s（标称）, 精度 ±15%</td><td>规格书验证</td></tr>
+<tr><td>S-06</td><td>机械限位</td><td>−5° ~ 135°, 铝合金硬限位块</td><td>卡尺测量 + 过载测试</td></tr>
+<tr><td>S-07</td><td>软限位（电气）</td><td>0° ~ 130° 可编程软限位</td><td>固件 + 编码器验证</td></tr>
+<tr><td>S-08</td><td>过温保护</td><td>电机壳温 ≥80°C 降额, ≥100°C 停机</td><td>热电偶 + 负载测试</td></tr>
+<tr><td>S-09</td><td>过流保护</td><td>相电流 ≥12A 持续 1s 触发过流</td><td>电流探头 + 负载</td></tr>
+<tr><td>S-10</td><td>过压/欠压保护</td><td>单节电压 &lt;2.8V 或 &gt;4.25V 触发 BMS 断开</td><td>可调电源模拟</td></tr>
+<tr><td>S-11</td><td>急停按钮</td><td>物理切断主电源继电器</td><td>按压测试</td></tr>
+<tr><td>S-12</td><td>皮肤接触材料</td><td>通过 ISO 10993-5/-10 细胞毒性/致敏</td><td>第三方检测报告</td></tr>
+<tr><td>S-13</td><td>外壳表面温升</td><td>连续运行 30min ≤ 48°C (25°C 环境)</td><td>热成像 + 热电偶</td></tr>
+<tr><td>S-14</td><td>电池防火</td><td>电池仓 V0 级阻燃外壳 + 泄压阀</td><td>UL 94 V-0 测试</td></tr>
+</tbody>
+</table></div>
+
+<h2>1.8 可靠性规格</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>ID</th><th>参数</th><th>目标值</th><th>测试方法</th></tr></thead>
+<tbody>
+<tr><td>R-01</td><td>MTBF（电子系统）</td><td>≥5,000 小时</td><td>Telcordia SR-332 预计 / 加速寿命</td></tr>
+<tr><td>R-02</td><td>电机寿命</td><td>≥500 小时连续运行（轴承更换周期）</td><td>连续负载运行测试</td></tr>
+<tr><td>R-03</td><td>离合器寿命</td><td>≥500,000 次吸合/释放</td><td>加速耐久测试</td></tr>
+<tr><td>R-04</td><td>碳纤维框架寿命</td><td>≥1,000,000 次负载循环无可见裂纹</td><td>疲劳试验机</td></tr>
+<tr><td>R-05</td><td>绑带寿命</td><td>≥10,000 次扣合/释放</td><td>重复扣合测试</td></tr>
+<tr><td>R-06</td><td>电池循环寿命</td><td>≥500 次 (80% 容量保持率)</td><td>充放电循环测试</td></tr>
+<tr><td>R-07</td><td>编码器寿命</td><td>≥50,000 小时</td><td>非接触，无磨损件</td></tr>
+<tr><td>R-08</td><td>整机无故障时间（原型）</td><td>≥50 小时连续运行</td><td>Phase 0 验收标准</td></tr>
+<tr><td>R-09</td><td>整机无故障时间（量产）</td><td>≥500 小时连续运行</td><td>Phase 2 验收标准</td></tr>
+</tbody>
+</table></div>
+
+<hr>
+
+<!-- ============================================================ -->
+<!-- PART 2: 制造路线图 -->
+<!-- ============================================================ -->
+<h1>2. 制造路线图</h1>
+<p>Bones膝安制造分为 4 个阶段，从 10 套原型到 10,000 套量产，逐级提升产能和工艺成熟度。</p>
+
+<h2>2.1 Phase 0: 原型验证 (Prototype — 10 套)</h2>
+<p><span class="tag tag-green">阶段目标</span> 验证功能完整性，采集第一批工程数据和用户体验反馈</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>数量</td><td>10 套双膝系统</td></tr>
+<tr><td>周期</td><td>7 天（首批）</td></tr>
+<tr><td>BOM 成本</td><td>~¥2,100/套</td></tr>
+<tr><td>电机</td><td>CubeMars AK80-9 V3.0 × 20 台（@零售价 ¥3,800/台）</td></tr>
+<tr><td>框架工艺</td><td>PA12 3D 打印（SLS）连杆 + 7075 铝合金 CNC 关节座</td></tr>
+<tr><td>电池仓</td><td>PA12 SLS 3D 打印支架</td></tr>
+<tr><td>绑带/衬垫</td><td>手缝弹力尼龙 + EVA 泡沫衬垫</td></tr>
+<tr><td>PCB</td><td>JLCPCB 4 层板 + 手焊</td></tr>
+<tr><td>组装</td><td>手工组装，实验室环境</td></tr>
+<tr><td>测试</td><td>手动功能测试 + 台架标定</td></tr>
+<tr><td>良率目标</td><td>≥70%（功能通过率）</td></tr>
+<tr><td>供应商</td><td>嘉立创 CNC（关节座）/ 熊友科技 3D 打印（连杆）/ 淘宝（电机）/ LCSC（元器件）</td></tr>
+</tbody>
+</table></div>
+
+<h4>Phase 0 所需资源</h4>
+<div class="table-wrapper"><table>
+<thead><tr><th>项目</th><th>预算 (¥)</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>CubeMars AK80-9 V3.0 × 22 台</td><td>83,600</td><td>20 台装机 + 2 台备品</td></tr>
+<tr><td>PA12 SLS 3D 打印（链接框架 × 20 套）</td><td>4,000</td><td>@¥200/套</td></tr>
+<tr><td>7075 铝合金 CNC 关节座 × 20 套</td><td>6,000</td><td>@¥300/套</td></tr>
+<tr><td>电子元器件（PCB × 20 套）</td><td>3,000</td><td>含 PCB 制板 + 元器件</td></tr>
+<tr><td>Ogura MCNB-3Z 离合器 × 22 套</td><td>[待确认]</td><td>日本进口，需询价</td></tr>
+<tr><td>传感器套件（IMU+编码器+力传感器）</td><td>3,500</td><td>ICM-42688-P × 40 + AS5048A × 20 + AD7124 × 20</td></tr>
+<tr><td>电池组（Samsung 50E 4S1P × 12 组）</td><td>4,800</td><td>@¥400/组</td></tr>
+<tr><td>绑带/衬垫/五金件</td><td>2,000</td><td></td></tr>
+<tr><td>包装 + 说明书</td><td>1,000</td><td>简装</td></tr>
+<tr><td>人工（10 天 × 2 人）</td><td>10,000</td><td>外包组装 + 测试</td></tr>
+<tr><td><strong>Phase 0 总预算</strong></td><td><strong>~¥117,900</strong></td><td></td></tr>
+</tbody>
+</table></div>
+
+<h3>2.2 Phase 1: EVT (Engineering Validation Test — 100 套)</h3>
+<p><span class="tag tag-yellow">阶段目标</span> 验证工程设计的可制造性，锁定 BOM 和主要工艺</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>数量</td><td>100 套双膝系统</td></tr>
+<tr><td>周期</td><td>14 天（首批 30 套）→ 30 天（全部 100 套）</td></tr>
+<tr><td>BOM 成本</td><td>~¥4,600/套</td></tr>
+<tr><td>良率目标</td><td>≥85%（功能通过率）</td></tr>
+<tr><td>电机</td><td>CubeMars AK80-9 V3.0 × 200 台（@¥3,200/台 @100台量）</td></tr>
+<tr><td>连杆框架</td><td>手糊碳纤维（湿法铺层） +  CNC 模具</td></tr>
+<tr><td>关节座</td><td>7075 铝合金 CNC，阳极氧化处理</td></tr>
+<tr><td>电池仓支架</td><td>PA12 SLS 3D 打印（小批量适用）</td></tr>
+<tr><td>离合器</td><td>Ogura MCNB-3Z（需日本进口，交货期 4–6 周）</td></tr>
+<tr><td>PCB</td><td>JLCPCB 批量贴片（4 层板）</td></tr>
+<tr><td>电池组</td><td>专业电池 PACK 厂定制（深圳）</td></tr>
+<tr><td>组装</td><td>外包组装厂 + 自主测试</td></tr>
+<tr><td>测试</td><td>半自动功能测试台 + 人工目检</td></tr>
+<tr><td>关键供应商</td><td>深圳碳纤维加工厂（手糊）/ 嘉立创 CNC（关节座）/ 悦孚斯电池（PACK）/ 启达组装</td></tr>
+</tbody>
+</table></div>
+
+<h4>Phase 1 BOM 分解</h4>
+<div class="table-wrapper"><table>
+<thead><tr><th>物料组</th><th>单套成本 (¥)</th><th>占比</th><th>供应商</th></tr></thead>
+<tbody>
+<tr><td>电机 × 2 (CubeMars AK80-9)</td><td>1,280</td><td>27.8%</td><td>老虎动力（T-motor）</td></tr>
+<tr><td>框架总成（碳纤维连杆+关节座+绑带）</td><td>850</td><td>18.5%</td><td>深圳 CF 加工厂</td></tr>
+<tr><td>离合器 × 2 (Ogura MCNB-3Z)</td><td>[待确认]</td><td>—</td><td>Ogura 日本 / 代理</td></tr>
+<tr><td>电池组 4S1P (Samsung 50E)</td><td>380</td><td>8.3%</td><td>悦孚斯 / 深圳 PACK 厂</td></tr>
+<tr><td>PCB + 元器件（主控板+传感器板）</td><td>350</td><td>7.6%</td><td>LCSC + JLCPCB</td></tr>
+<tr><td>传感器（IMU×4 + 编码器×2 + 力传感器×2）</td><td>280</td><td>6.1%</td><td>LCSC / Mouser</td></tr>
+<tr><td>电池仓支架（PA12 SLS）</td><td>120</td><td>2.6%</td><td>熊友科技</td></tr>
+<tr><td>线缆 + 连接器</td><td>90</td><td>2.0%</td><td>1688 采购</td></tr>
+<tr><td>包装 + 说明书 + 配件</td><td>80</td><td>1.7%</td><td>印刷厂 + 包装厂</td></tr>
+<tr><td>组装 + 测试人工</td><td>500</td><td>10.9%</td><td>组装厂</td></tr>
+<tr><td><strong>合计</strong></td><td><strong>~4,600</strong></td><td><strong>100%</strong></td><td></td></tr>
+</tbody>
+</table></div>
+
+<h3>2.3 Phase 2: DVT (Design Validation Test — 1,000 套)</h3>
+<p><span class="tag tag-blue">阶段目标</span> 验证量产设计、工艺稳定性、导入工装夹具、降低成本</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>数量</td><td>1,000 套双膝系统</td></tr>
+<tr><td>周期</td><td>30 天（首批 200 套）→ 50 天（全部 1,000 套）</td></tr>
+<tr><td>BOM 成本</td><td>~¥3,086/套</td></tr>
+<tr><td>良率目标</td><td>≥92%（功能通过率），≥97%（外观通过率）</td></tr>
+<tr><td>连杆框架</td><td>热压罐碳纤维（T700 预浸料，铝模具）</td></tr>
+<tr><td>关节座</td><td>7075 铝合金 CNC + 阳极氧化，引入第四轴加工缩短工时</td></tr>
+<tr><td>电池仓</td><td>PA12 SLS 3D 打印（1,000 套量仍可行）或过渡到注塑模具</td></tr>
+<tr><td>电机</td><td>CubeMars AK80-9 @¥2,850/台（@1,000 台量）</td></tr>
+<tr><td>PCB</td><td>华秋/嘉立创 SMT 贴片，引入 ICT 测试</td></tr>
+<tr><td>组装</td><td>流水线组装（6 个工位），半自动测试</td></tr>
+<tr><td>关键供应商</td><td>东莞碳纤维热压厂 / 昆山 CNC 加工集群 / 深圳 SMT 厂 / 惠州组装厂</td></tr>
+</tbody>
+</table></div>
+
+<h4>Phase 2 成本降低路径</h4>
+<div class="table-wrapper"><table>
+<thead><tr><th>物料组</th><th>Phase 1 (¥)</th><th>Phase 2 (¥)</th><th>降本措施</th></tr></thead>
+<tbody>
+<tr><td>电机 × 2</td><td>1,280</td><td>1,140</td><td>批量议价 @1,000 台量</td></tr>
+<tr><td>框架总成</td><td>850</td><td>560</td><td>热压碳纤维替代手糊，模具分摊</td></tr>
+<tr><td>电池组</td><td>380</td><td>320</td><td>批量采购电芯 + 自研 BMS PCB</td></tr>
+<tr><td>PCB + 元器件</td><td>350</td><td>220</td><td>优化 PCB 设计（4→2 层板合并），批量 SMT</td></tr>
+<tr><td>传感器</td><td>280</td><td>210</td><td>批量 + 替代料验证</td></tr>
+<tr><td>电池仓</td><td>120</td><td>80</td><td>批量 3D 打印或简易注塑模具</td></tr>
+<tr><td>组装 + 测试</td><td>500</td><td>300</td><td>流水线效率提升</td></tr>
+<tr><td>其他</td><td>170</td><td>136</td><td>统一采购</td></tr>
+<tr><td><strong>合计</strong></td><td><strong>~4,600</strong></td><td><strong>~3,086</strong></td><td><strong>−33%</strong></td></tr>
+</tbody>
+</table></div>
+
+<h3>2.4 Phase 3: PVT (Process Validation Test — 10,000 套)</h3>
+<p><span class="tag tag-green">阶段目标</span> 批量量产验证，全供应链定型，达到成本目标</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>数量</td><td>10,000 套双膝系统</td></tr>
+<tr><td>周期</td><td>60 天（满产后 500 套/天）</td></tr>
+<tr><td>BOM 成本</td><td>~¥2,350/套</td></tr>
+<tr><td>良率目标</td><td>≥96%（功能通过率），≥98%（外观通过率）</td></tr>
+<tr><td>连杆框架</td><td>热压罐碳纤维（多腔模具，6 件/cycle）</td></tr>
+<tr><td>关节座</td><td>7075 铝合金精密铸造 + CNC 精加工</td></tr>
+<tr><td>电池仓</td><td>注塑模具（ABS+PC 或 PA12+GF），8 穴模具</td></tr>
+<tr><td>绑带/衬垫</td><td>批量纺织厂缝制</td></tr>
+<tr><td>电机</td><td>CubeMars AK80-9 定制版 @¥2,200/台（@10,000 台量）</td></tr>
+<tr><td>PCB</td><td>全自动 SMT + AOI + ICT + 功能测试</td></tr>
+<tr><td>组装</td><td>全流水线（12 个工位）+ 在线老化测试</td></tr>
+<tr><td>认证</td><td>CCC / CE / FCC 已获证，批量一致性抽检</td></tr>
+</tbody>
+</table></div>
+
+<h4>Phase 3 成本降低路径</h4>
+<div class="table-wrapper"><table>
+<thead><tr><th>物料组</th><th>Phase 2 (¥)</th><th>Phase 3 (¥)</th><th>降本措施</th></tr></thead>
+<tbody>
+<tr><td>电机 × 2</td><td>1,140</td><td>880</td><td>定制优化版，去除非必要特性</td></tr>
+<tr><td>框架总成</td><td>560</td><td>420</td><td>多腔热压模具，自动化切边</td></tr>
+<tr><td>电池组</td><td>320</td><td>260</td><td>电芯直采 + 自动化 PACK 线</td></tr>
+<tr><td>PCB + 元器件</td><td>220</td><td>160</td><td>进一步整合，国产替代料</td></tr>
+<tr><td>传感器</td><td>210</td><td>160</td><td>大批量议价 + 国产 IMU 替代验证</td></tr>
+<tr><td>电池仓</td><td>80</td><td>35</td><td>注塑模具分摊（8 穴，周期 25s）</td></tr>
+<tr><td>组装 + 测试</td><td>300</td><td>180</td><td>自动化测试 + 流水线优化</td></tr>
+<tr><td>其他</td><td>136</td><td>105</td><td>供应链整合</td></tr>
+<tr><td><strong>合计</strong></td><td><strong>~3,086</strong></td><td><strong>~2,350</strong></td><td><strong>−24%</strong></td></tr>
+</tbody>
+</table></div>
+
+<h2>2.5 各阶段对比总览</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>阶段</th><th>数量</th><th>周期</th><th>单套成本</th><th>良率</th><th>连杆工艺</th><th>关节座工艺</th><th>电池仓工艺</th><th>模具投入</th></tr></thead>
+<tbody>
+<tr><td>Phase 0 原型</td><td>10 套</td><td>7 天</td><td>¥2,100</td><td>≥70%</td><td>PA12 SLS 3D 打印</td><td>7075 CNC</td><td>PA12 SLS</td><td>¥0</td></tr>
+<tr><td>Phase 1 EVT</td><td>100 套</td><td>30 天</td><td>¥4,600</td><td>≥85%</td><td>手糊碳纤维</td><td>7075 CNC</td><td>PA12 SLS</td><td>¥30,000（手糊模具）</td></tr>
+<tr><td>Phase 2 DVT</td><td>1,000 套</td><td>50 天</td><td>¥3,086</td><td>≥92%</td><td>热压碳纤维</td><td>7075 CNC</td><td>PA12 SLS / 简易注塑</td><td>¥80,000（热压模具）</td></tr>
+<tr><td>Phase 3 PVT</td><td>10,000 套</td><td>60 天</td><td>¥2,350</td><td>≥96%</td><td>热压碳纤维多腔</td><td>铸造+CNC</td><td>注塑模具 8 穴</td><td>¥300,000（全套模具）</td></tr>
+</tbody>
+</table></div>
+
+<h2>2.6 关键供应链地图</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>物料/工艺</th><th>推荐供应商</th><th>地址</th><th>适合阶段</th><th>备选</th></tr></thead>
+<tbody>
+<tr><td>CubeMars AK80-9 电机</td><td>深圳老虎动力 (T-motor)</td><td>深圳</td><td>全部</td><td>东莞雷赛智能</td></tr>
+<tr><td>PA12 SLS 3D 打印</td><td>熊友科技 / 未来工场</td><td>深圳 / 上海</td><td>Phase 0–1</td><td>Bambu Lab P1S (自用)</td></tr>
+<tr><td>碳纤维手糊</td><td>深圳碳纤维科技 / 东莞博碳</td><td>深圳 / 东莞</td><td>Phase 1</td><td>苏州挪恩复材</td></tr>
+<tr><td>碳纤维热压罐</td><td>东莞博碳 / 广州卡本</td><td>东莞 / 广州</td><td>Phase 2–3</td><td>江苏恒神（大厂）</td></tr>
+<tr><td>7075 铝合金 CNC</td><td>嘉立创 CNC / 昆山铭加工</td><td>深圳 / 昆山</td><td>Phase 0–2</td><td>本地 CNC 作坊</td></tr>
+<tr><td>铝合金精密铸造</td><td>宁波隆源 / 东莞鸿图</td><td>宁波 / 东莞</td><td>Phase 3</td><td>苏州春兴精工</td></tr>
+<tr><td>注塑模具</td><td>东莞汇美模具 / 昆山致贯</td><td>东莞 / 昆山</td><td>Phase 3</td><td>深圳银宝山新</td></tr>
+<tr><td>PCB 制板+SMT</td><td>嘉立创 (JLCPCB) / 华秋</td><td>深圳</td><td>全部</td><td>PCBWay</td></tr>
+<tr><td>电池 PACK</td><td>深圳悦孚斯 / 东莞新能源</td><td>深圳 / 东莞</td><td>Phase 1–3</td><td>惠州亿纬锂能</td></tr>
+<tr><td>Ogura MCNB-3Z 离合器</td><td>Ogura 日本 / 上海 Ogura 代理</td><td>日本 / 上海</td><td>全部</td><td>[待确认国产替代]</td></tr>
+<tr><td>整机组装</td><td>惠州启达智造 / 深圳富强电子</td><td>惠州 / 深圳</td><td>Phase 1–3</td><td>东莞长城开发</td></tr>
+<tr><td>整机老化测试</td><td>同组装厂</td><td>—</td><td>Phase 2–3</td><td></td></tr>
+</tbody>
+</table></div>
+
+<hr>
+
+<!-- ============================================================ -->
+<!-- PART 3: 质量控制计划 -->
+<!-- ============================================================ -->
+<h1>3. 质量控制计划</h1>
+
+<h2>3.1 来料检验 (IQC) 标准</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>物料</th><th>检验项目</th><th>检验标准</th><th>抽样方案</th><th>检验设备</th></tr></thead>
+<tbody>
+<tr><td>CubeMars AK80-9 电机</td><td>外观/尺寸/电阻/反电动势/Kt/绝缘</td><td>相电阻 ±5%, Kt ±3%, 绝缘 &gt;100MΩ@500V</td><td>GB/T 2828.1 AQL=0.65</td><td>LCR 表/万用表/绝缘表/测功机</td></tr>
+<tr><td>碳纤维连杆</td><td>外观/尺寸/纤维方向/孔隙率</td><td>无气泡/分层/干斑, 尺寸 ±0.2mm</td><td>全检 (Phase 0–1), AQL=1.0 (Phase 2–3)</td><td>卡尺/工业 CT/目视</td></tr>
+<tr><td>7075 关节座</td><td>材质/尺寸/螺纹/表面处理</td><td>7075-T6 硬度 HB≥150, 关键孔位 ±0.05mm</td><td>AQL=0.65</td><td>硬度计/三坐标/螺纹规</td></tr>
+<tr><td>IMU ICM-42688-P</td><td>功能/精度/偏置</td><td>加速度 ±50mg @25°C, 陀螺 ±5°/s</td><td>AQL=0.4</td><td>六面体夹具 + 数据采集</td></tr>
+<tr><td>磁编码器 AS5048A</td><td>功能/精度/线性度</td><td>角度误差 &lt;±0.5°, 线性度 &lt;±0.1%</td><td>AQL=0.4</td><td>分度头 + 读数</td></tr>
+<tr><td>离合器 Ogura MCNB-3Z</td><td>吸合电压/释放电压/扭矩/响应时间</td><td>吸合 &lt;24V, 保持扭矩≥30Nm, 脱开 &lt;10ms</td><td>全检</td><td>可调电源/扭矩传感器/示波器</td></tr>
+<tr><td>电池组 (4S1P)</td><td>容量/内阻/电压/短路保护/BMS 功能</td><td>容量≥4.8Ah, 内阻 &lt;30mΩ, 压差 &lt;30mV</td><td>全检</td><td>电池测试仪/电子负载</td></tr>
+<tr><td>Samsung 50E 电芯</td><td>外观/尺寸/电压/内阻</td><td>电压 3.5–3.8V (存储), 内阻 &lt;25mΩ</td><td>AQL=0.4</td><td>电芯分选机</td></tr>
+<tr><td>PCB (SMT 来料)</td><td>焊点/AOI/尺寸/连通性</td><td>IPC-A-610 Class 2, 无桥连/立碑/少锡</td><td>全检 AOI + 抽检 X-ray</td><td>AOI/X-ray/ICT</td></tr>
+</tbody>
+</table></div>
+
+<h2>3.2 过程检验 (IPQC) 标准</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>工序</th><th>检验项目</th><th>检验标准</th><th>频次</th><th>记录</th></tr></thead>
+<tbody>
+<tr><td>连杆铺层（碳纤维）</td><td>铺层方向/树脂含量/气泡</td><td>纤维方向 ±2°, 树脂含量 35±3%</td><td>每批次首件 + 每 30 分钟抽检</td><td>铺层记录表</td></tr>
+<tr><td>热压罐固化</td><td>温度曲线/压力/真空度</td><td>固化温度 130±5°C, 压力 0.6±0.05 MPa</td><td>每批次</td><td>温度曲线图</td></tr>
+<tr><td>CNC 加工（关节座）</td><td>孔径/位置度/粗糙度/螺纹</td><td>关键孔径 H7 公差, 位置度 ±0.05mm, Ra≤1.6</td><td>首件全尺寸 + 每 20 件抽检</td><td>CMM 报告</td></tr>
+<tr><td>PCB 焊接（SMT）</td><td>锡膏厚度/贴装精度/回流曲线</td><td>锡膏厚度 120–180μm, 偏移 &lt;25% 焊盘宽</td><td>首件 + 每 4 小时</td><td>SPI/AOI 报告</td></tr>
+<tr><td>电机 FOC 标定</td><td>相序/电流环带宽/力矩常数</td><td>电流环带宽 ≥2kHz, Kt 误差 ±3%</td><td>100%</td><td>标定数据文件</td></tr>
+<tr><td>离合器安装</td><td>同轴度/间隙/紧固扭矩</td><td>同轴度 &lt;0.1mm, 轴向间隙 0.1–0.3mm</td><td>100%</td><td>装配记录表</td></tr>
+<tr><td>总装</td><td>螺丝扭矩/线缆走线/绑带扣合</td><td>关键螺丝按扭力表（见组装指南）</td><td>100%</td><td>扭力扳手 + 检查表</td></tr>
+</tbody>
+</table></div>
+
+<h2>3.3 出货检验 (OQC) 标准</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>检验项目</th><th>检验内容</th><th>接收标准</th><th>抽样</th></tr></thead>
+<tbody>
+<tr><td>外观检查</td><td>表面划痕/色差/毛刺/标签/包装完整</td><td>无影响功能的外观缺陷</td><td>GB/T 2828.1 AQL=1.0</td></tr>
+<tr><td>功能全检</td><td>所有功能规格 (F-01 至 F-10)</td><td>100% 通过</td><td>100%</td></tr>
+<tr><td>性能抽检</td><td>力矩精度/延迟/噪声/续航 (P-01 至 P-12)</td><td>所有参数在规格范围内</td><td>AQL=0.4</td></tr>
+<tr><td>安全测试</td><td>离合器/看门狗/过温/过流/急停 (S-01 至 S-14)</td><td>所有安全功能 100% 通过</td><td>100%</td></tr>
+<tr><td>老化测试</td><td>连续运行 2h, 录力矩/温度/电流</td><td>无异常波动, 无故障</td><td>100%</td></tr>
+<tr><td>配件检查</td><td>充电器/电池/绑带/说明书/包装盒</td><td>完整无缺</td><td>100%</td></tr>
+<tr><td>包装跌落</td><td>运输包装跌落 800mm, 1 角 3 边 6 面</td><td>内部产品无损伤</td><td>每批次 1 套</td></tr>
+</tbody>
+</table></div>
+
+<h2>3.4 关键尺寸公差分析</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>尺寸特征</th><th>标称值</th><th>公差</th><th>影响</th><th>测量工具</th></tr></thead>
+<tbody>
+<tr><td>电机轴-关节座配合孔</td><td>Φ10 mm</td><td>H7/g6 (间隙配合)</td><td>旋转精度/噪声</td><td>内径规/外径千分尺</td></tr>
+<tr><td>关节座轴承安装孔</td><td>Φ15 mm</td><td>H7</td><td>轴承寿命/晃动</td><td>气动量仪</td></tr>
+<tr><td>碳纤维连杆销孔</td><td>Φ6 mm</td><td>±0.05 mm</td><td>装配一致性</td><td>通止规</td></tr>
+<tr><td>大腿连杆长度 (孔心距)</td><td>300 mm (可调)</td><td>±0.2 mm</td><td>左右对称性</td><td>三坐标测量机</td></tr>
+<tr><td>离合器安装面平面度</td><td>—</td><td>0.05 mm</td><td>离合器对中/磨损</td><td>塞尺/平台</td></tr>
+<tr><td>电机座同轴度</td><td>—</td><td>Φ0.1 mm</td><td>电机噪声/效率</td><td>百分表</td></tr>
+<tr><td>绑带宽度</td><td>50 mm</td><td>±1 mm</td><td>佩戴舒适性</td><td>卡尺</td></tr>
+</tbody>
+</table></div>
+
+<h2>3.5 可靠性测试计划</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>测试项目</th><th>测试标准</th><th>样本量</th><th>测试条件</th><th>接收标准</th><th>周期</th></tr></thead>
+<tbody>
+<tr><td>振动耐久</td><td>GB/T 2423.10 / IEC 60068-2-6</td><td>3 套</td><td>10–500 Hz, 2g 扫频, 每轴 30min, 3 轴</td><td>功能无异常, 无机械损坏</td><td>2 天</td></tr>
+<tr><td>机械冲击</td><td>GB/T 2423.5 / IEC 60068-2-27</td><td>3 套</td><td>50g, 11ms 半正弦, 6 方向, 每方向 3 次</td><td>功能无异常, 无结构损坏</td><td>1 天</td></tr>
+<tr><td>自由跌落</td><td>IEC 60068-2-31</td><td>3 套</td><td>1.0m (带包装) / 0.5m (裸机), 6 面</td><td>外壳允许轻微损伤, 功能正常</td><td>1 天</td></tr>
+<tr><td>高低温运行</td><td>GB/T 2423.1 / GB/T 2423.2</td><td>3 套</td><td>−10°C / +55°C 各 4h, 通电运行最后 30min</td><td>所有功能正常</td><td>2 天</td></tr>
+<tr><td>湿热存储</td><td>GB/T 2423.3 / IEC 60068-2-78</td><td>3 套</td><td>40°C, 93% RH, 48h 不凝露</td><td>取出后 恢复 2h 功能正常</td><td>3 天</td></tr>
+<tr><td>温度循环</td><td>GB/T 2423.22 / IEC 60068-2-14</td><td>3 套</td><td>−20°C ↔ +55°C, 转换 &lt;3min, 5 循环</td><td>功能正常, 无凝露损坏</td><td>3 天</td></tr>
+<tr><td>盐雾测试</td><td>GB/T 2423.17 / IEC 60068-2-11</td><td>3 套</td><td>5% NaCl, 35°C, 48h 连续喷雾</td><td>金属件无红锈, 功能正常</td><td>3 天</td></tr>
+<tr><td>电机寿命</td><td>内部标准 (参考 ISO 1940)</td><td>2 台</td><td>9Nm 额定负载, 500h 连续运行</td><td>力矩衰减 &lt;10%, 轴承无异常噪声</td><td>21 天</td></tr>
+<tr><td>离合器寿命</td><td>内部标准</td><td>2 台</td><td>每 2s 吸合/释放一次, 50 万次</td><td>扭矩衰减 &lt;15%, 响应时间 &lt;15ms</td><td>14 天</td></tr>
+<tr><td>碳纤维疲劳</td><td>内部标准</td><td>3 套</td><td>±9Nm 正弦, 3Hz, 100 万次</td><td>无可见裂纹/分层, 刚度衰减 &lt;5%</td><td>10 天</td></tr>
+<tr><td>整机耐久</td><td>内部标准</td><td>3 套</td><td>模拟步态, 9Nm, 连续 72h</td><td>无故障停机, 力矩精度维持 ±0.5Nm</td><td>3 天</td></tr>
+<tr><td>EMC</td><td>GB/T 9254 / CISPR 32</td><td>1 套</td><td>3m 法电波暗室, 30MHz–6GHz</td><td>Class B 限值</td><td>2 天</td></tr>
+</tbody>
+</table></div>
+
+<h2>3.6 质量控制里程碑</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>阶段</th><th>质量目标</th><th>关键质量活动</th><th>放行标准</th></tr></thead>
+<tbody>
+<tr><td>Phase 0</td><td>功能验证</td><td>手动功能全检 + 5 人用户体验</td><td>F-01 至 F-10 全部通过</td></tr>
+<tr><td>Phase 1</td><td>工艺稳定</td><td>IQC 建立 + IPQC 首件检验 + OQC 全检</td><td>功能通过率 ≥85%, 安全问题 0</td></tr>
+<tr><td>Phase 2</td><td>一致性控制</td><td>SPC 引入 + 可靠性测试 + CPK ≥1.33</td><td>功能通过率 ≥92%, CPK ≥1.33</td></tr>
+<tr><td>Phase 3</td><td>批量一致性</td><td>全自动化测试 + 在线 SPC + 6σ 工具</td><td>功能通过率 ≥96%, CPK ≥1.67</td></tr>
+</tbody>
+</table></div>
+
+<hr>
+
+<!-- ============================================================ -->
+<!-- PART 4: 认证路径 -->
+<!-- ============================================================ -->
+<h1>4. 认证路径细化</h1>
+<p>Bones膝安产品认证策略覆盖中国、欧盟、美国三大市场。根据产品技术特征（电机驱动可穿戴设备，消费电子/Class I 医疗器械），各市场认证路径如下。</p>
+
+<h2>4.1 中国 CCC（消费电子路径）</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>产品分类</td><td>信息技术设备 / 音视频设备（需分类界定）[待确认]</td></tr>
+<tr><td>适用标准</td><td>GB 4943.1-2022（安全）、GB/T 9254.1-2021（EMC）、GB 17625.1-2022（谐波）</td></tr>
+<tr><td>测试项目</td><td>1. 电气安全（接地/绝缘/漏电流/耐压）<br>2. EMC 辐射/传导/ESD/EFT/Surge<br>3. 谐波电流/电压闪烁<br>4. 温升测试<br>5. 机械安全（锐边/稳定性）</td></tr>
+<tr><td>认证费用</td><td>~¥60,000–80,000（测试费 + 证书费）</td></tr>
+<tr><td>认证周期</td><td>6–8 周（测试 3–4 周 + 审厂 2 周 + 发证 1 周）</td></tr>
+<tr><td>审厂要求</td><td>首次工厂检查（ISO 9001 或 CCC 指定质量体系）</td></tr>
+<tr><td>年审</td><td>每年一次监督检查</td></tr>
+<tr><td>推荐机构</td><td>CQC（中国质量认证中心）/ TUV 莱茵上海 / SGS 中国</td></tr>
+</tbody>
+</table></div>
+
+<h3>4.2 中国医疗器械注册（备用路径）</h3>
+<p>如果产品被监管机构界定为医疗器械（非消费电子），则走 NMPA 注册路径。</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>预期分类</td><td>Class II（有源康复设备）</td></tr>
+<tr><td>适用标准</td><td>GB 9706.1-2020（医用电气设备安全）、YY 9706.102-2021（EMC）、YY/T 相关专标</td></tr>
+<tr><td>注册路径</td><td>产品技术要求制定 → 型式检验（医疗器械检测所）→ 临床评价（CER）/ 临床试验 → 注册申报 → 审评（CMDE）→ 获证</td></tr>
+<tr><td>型式检验</td><td>省级医疗器械检测所（如北京/上海/广东所），~¥150,000–200,000</td></tr>
+<tr><td>临床评价</td><td>CER（同品种对比）预计 ~¥300,000–500,000；如需要临床试验 ~¥1,500,000–3,000,000</td></tr>
+<tr><td>总费用</td><td>~¥500,000–1,000,000（CER 路径）</td></tr>
+<tr><td>总周期</td><td>12–18 个月（不含临床试验）</td></tr>
+<tr><td>推荐机构</td><td>CMDE（审评）/ 北京医疗器械检测所 / 上海医疗器械检测所</td></tr>
+</tbody>
+</table></div>
+
+<h2>4.3 欧盟 CE（EMC + LVD + 机械指令）</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>产品分类</td><td>Class I 医疗器械（非侵入式、非测量、非有源治疗） / 或消费电子产品</td></tr>
+<tr><td>适用指令/法规</td><td>EMC 指令 2014/30/EU、LVD 低电压指令 2014/35/EU、机械指令 2006/42/EC、RED 2014/53/EU（含 BLE）</td></tr>
+<tr><td>EMC 标准</td><td>EN 55032 (辐射/传导)、EN 55035 (抗扰度)、EN 61000 系列</td></tr>
+<tr><td>LVD 标准</td><td>EN 62368-1 (音视频/信息技术设备安全) 或 EN 60601-1 (医疗器械)</td></tr>
+<tr><td>RED 要求</td><td>EN 300 328 (BLE 2.4GHz)、EN 301 489-1/-17 (EMC for radio)</td></tr>
+<tr><td>机械指令</td><td>EN ISO 12100 (风险评估)、EN 60204-1 (电气安全 for 机械)</td></tr>
+<tr><td>测试费用</td><td>~€15,000–25,000 (EMC + LVD + RED + 机械，全套)</td></tr>
+<tr><td>周期</td><td>6–10 周（测试 4–6 周 + 技术文档编制 2–4 周）</td></tr>
+<tr><td>NB 机构</td><td>非必需（Class I 可自我声明），但推荐通过 NB 发证以增强公信力</td></tr>
+<tr><td>推荐 NB</td><td>TUV 莱茵 / TUV SUD / SGS / Intertek / BSI</td></tr>
+<tr><td>技术文件要求</td><td>1. 产品描述 + 图纸<br>2. 风险评估报告 (ISO 12100)<br>3. 测试报告<br>4. 使用说明书<br>5. 符合性声明<br>6. 体系证书 (ISO 13485 or ISO 9001)</td></tr>
+</tbody>
+</table></div>
+
+<h2>4.4 美国 FCC + UL</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>项目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>FCC 分类</td><td>FCC Part 15B (无意辐射体) + Part 15C (有意辐射体, BLE) → FCC ID</td></tr>
+<tr><td>FCC 测试标准</td><td>ANSI C63.4 (辐射/传导)、ANSI C63.10 (有意辐射)</td></tr>
+<tr><td>FCC 测试项目</td><td>1. 辐射发射 (30MHz–6GHz)<br>2. 传导发射 (150kHz–30MHz)<br>3. 占用带宽/功率/杂散 (BLE)</td></tr>
+<tr><td>FCC 费用</td><td>~$12,000–18,000（测试 + FCC ID 申请 + TCB 审核）</td></tr>
+<tr><td>FCC 周期</td><td>4–6 周</td></tr>
+<tr><td>FCC 授权方式</td><td>SDoC (Part 15B) + FCC ID (Part 15C, 需 TCB 发证)</td></tr>
+<tr><td>UL 认证</td><td>UL 62368-1 (安全) 或 UL 60601-1 (医疗)</td></tr>
+<tr><td>UL 费用</td><td>~$20,000–30,000（测试 + 首次工厂检查）</td></tr>
+<tr><td>UL 周期</td><td>8–12 周</td></tr>
+<tr><td>推荐机构</td><td>UL LLC / Intertek / TUV 莱茵北美</td></tr>
+<tr><td>特别注意事项</td><td>FCC ID 需要美国当地代理商或公司实体作为申请主体</td></tr>
+</tbody>
+</table></div>
+
+<h2>4.5 认证总路线图</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>阶段</th><th>认证活动</th><th>预算 (¥)</th><th>周期</th><th>前置条件</th></tr></thead>
+<tbody>
+<tr><td>Phase 0</td><td>分类界定申请（中国）<br>预合规评估（CE/FCC）</td><td>15,000</td><td>4 周</td><td>产品定义冻结</td></tr>
+<tr><td>Phase 1</td><td>EMC 预扫 + 安全预测试<br>编制 CE 技术文档<br>启动 FCC ID 申请</td><td>150,000</td><td>8 周</td><td>EVT 样机 3 台</td></tr>
+<tr><td>Phase 2</td><td>CCC 正式测试<br>CE 全套测试 + 发证<br>FCC 正式测试 + 发证<br>UL 安全测试</td><td>500,000</td><td>12 周</td><td>DVT 样机 5 台，设计冻结</td></tr>
+<tr><td>Phase 3</td><td>CCC 年审准备<br>各证书维护<br>新增国家认证（日本/韩国/澳洲）</td><td>80,000/年</td><td>持续</td><td>量产稳定</td></tr>
+<tr><td><strong>认证总预算</strong></td><td></td><td><strong>~¥745,000</strong></td><td><strong>~24 周（从 Phase 1 启动）</strong></td><td></td></tr>
+</tbody>
+</table></div>
+
+<h2>4.6 电池运输认证</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>认证</th><th>适用区域</th><th>费用</th><th>周期</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>UN 38.3</td><td>全球（锂电池运输）</td><td>~¥15,000</td><td>2–3 周</td><td>电池组必须通过 T1–T8 测试</td></tr>
+<tr><td>MSDS</td><td>全球</td><td>~¥2,000</td><td>1 周</td><td>化学品安全技术说明书</td></tr>
+<tr><td>CB 认证</td><td>IEC 成员国互认</td><td>~¥30,000</td><td>4–6 周</td><td>可减少 UL/CE 重复测试</td></tr>
+</tbody>
+</table></div>
+
+<hr>
+
+<!-- ============================================================ -->
+<!-- PART 5: 包装与用户文档 -->
+<!-- ============================================================ -->
+<h1>5. 包装与用户文档</h1>
+
+<h2>5.1 包装设计（Apple 风格开箱体验）</h2>
+
+<h3>5.1.1 外包装箱</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>项目</th><th>规格</th></tr></thead>
+<tbody>
+<tr><td>材料</td><td>FSC 认证再生纸板（≥80% 再生料）</td></tr>
+<tr><td>尺寸</td><td>420 × 320 × 120 mm</td></tr>
+<tr><td>印刷</td><td>单色（黑色） + 烫银 logo, 环保大豆油墨</td></tr>
+<tr><td>结构</td><td>翻盖式（类似 iPhone 包装）, 磁吸闭合</td></tr>
+<tr><td>内部</td><td>纸浆模塑内衬（可降解）, 分 3 层放置</td></tr>
+<tr><td>色彩方案</td><td>白色底 + 银色 BONES 标志, 产品 1:1 轮廓线烫印</td></tr>
+</tbody>
+</table></div>
+
+<h3>5.1.2 开箱内容</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>层级</th><th>内容</th><th>数量</th></tr></thead>
+<tbody>
+<tr><td>第 1 层（最上层）</td><td>快速入门指南（折页卡）<br>品牌贴纸<br>"致用户"欢迎卡</td><td>1<br>1 张<br>1 张</td></tr>
+<tr><td>第 2 层（中层）</td><td>左膝模块 × 1<br>右膝模块 × 1<br>电池仓（含电池 × 1）<br>备用电池 × 1<br>大腿绑带 × 2 + 小腿绑带 × 2<br>充电器 (USB-C PD 65W) × 1<br>USB-C 充电线 (1m) × 1</td><td></td></tr>
+<tr><td>第 3 层（底层）</td><td>安全警告卡<br>维护保养手册<br>注册卡（延保注册）<br>适配工具（六角扳手 2mm/3mm × 各 1）</td><td>1<br>1<br>1<br>1 套</td></tr>
+</tbody>
+</table></div>
+
+<h3>5.2 快速入门指南（折页卡内容）</h3>
+<blockquote>
+<strong>Bones膝安 — 快速入门</strong><br><br>
+<strong>第 1 步：充电</strong><br>
+使用附带的 USB-C PD 65W 充电器为电池充电。充电时指示灯呼吸橙光，充满后常绿。充电时间约 50 分钟。<br><br>
+<strong>第 2 步：穿戴</strong><br>
+① 将电池仓系在腰部（松紧可调）<br>
+② 将左膝模块对准膝盖，大腿绑带在上，小腿绑带在下<br>
+③ 先扣紧大腿绑带（通过内侧定位标记确认高度），再扣紧小腿绑带<br>
+④ 重复步骤 ②③ 安装右膝模块<br>
+⑤ 将电源线连接至电池仓（听到"咔嗒"声）<br><br>
+<strong>第 3 步：开机</strong><br>
+短按电池仓电源键 2 秒。所有指示灯依次点亮后，模块将自动校准（膝盖需保持伸直静止 3 秒）。手机搜索"Bones Kenan"蓝牙设备并连接。<br><br>
+<strong>第 4 步：开始行走</strong><br>
+设备默认为"行走辅助模式"。站起来，正常迈步即可。Bones 将自动检测您的步态并提供同步辅助。<br><br>
+<strong>第 5 步：关机与收纳</strong><br>
+长按电源键 3 秒关机。解开绑带，从下方取下膝关节模块。用干布擦拭后装入包装盒。
+</blockquote>
+
+<h2>5.3 安全警告</h2>
+<div class="alert">
+<strong>⚠ 使用前请仔细阅读以下安全警告：</strong>
+</div>
+
+<h4>5.3.1 禁忌症</h4>
+<ul>
+<li><strong>禁止使用人群：</strong>孕妇、体内有植入式电子设备（如心脏起搏器、除颤器）、严重骨质疏松患者、膝关节不稳定骨折未愈合者、下肢严重感觉障碍患者</li>
+<li><strong>慎用人群：</strong>癫痫患者、严重高血压患者、皮肤病患者（接触部位）</li>
+<li><strong>年龄限制：</strong>仅限 18 岁以上成人使用</li>
+</ul>
+
+<h4>5.3.2 使用警告</h4>
+<ul>
+<li><strong>首次使用：</strong>请在平坦无障碍环境中由监护人员陪同使用，建议首次使用时间不超过 15 分钟</li>
+<li><strong>皮肤接触：</strong>如出现皮肤红肿、瘙痒或疼痛，立即停止使用并咨询医生</li>
+<li><strong>电池安全：</strong>仅使用附带的充电器。请勿在充电时佩戴设备。如电池出现鼓包、漏液、变形，立即停止使用并按照当地法规处置</li>
+<li><strong>防水：</strong>设备不防水。请勿在雨中或潮湿环境中使用。勿浸入水中</li>
+<li><strong>温度：</strong>设备在运行中电机区域可能温热（<48°C），属正常现象。如温度过高（触摸烫手），请停止使用并联系客服</li>
+<li><strong>跌落风险：</strong>设备辅助不能完全替代下肢力量。佩戴时仍需注意平衡，避免跌倒</li>
+<li><strong>驾驶：</strong>佩戴设备时请勿驾驶任何机动车辆</li>
+</ul>
+
+<h4>5.3.3 电池安全须知</h4>
+<ul>
+<li>本设备使用可充电锂离子电池（Samsung 50E 21700, 4S1P, 14.8V, 5.0Ah）</li>
+<li>请勿拆解、穿刺、挤压、加热（>100°C）或焚烧电池</li>
+<li>充电时远离易燃物</li>
+<li>长时间不使用时，将电池充电至 40–60% 存放</li>
+<li>电池寿命约 500 次充放电循环。当续航明显下降时请联系购买替换件</li>
+<li>废旧电池请投入指定回收点，不可混入生活垃圾</li>
+</ul>
+
+<h2>5.4 维护保养说明</h2>
+
+<h3>5.4.1 日常维护（每次使用后）</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>项目</th><th>操作</th><th>频率</th></tr></thead>
+<tbody>
+<tr><td>清洁</td><td>用干软布擦拭碳纤维框架和关节座。绑带可用中性清洁剂手洗，自然晾干</td><td>每次使用后</td></tr>
+<tr><td>紧固件检查</td><td>检查所有可见螺丝是否松动，使用附带的六角扳手紧固</td><td>每周</td></tr>
+<tr><td>目视检查</td><td>检查碳纤维连杆有无裂纹/分层，线缆有无磨损，外壳有无损坏</td><td>每次使用前</td></tr>
+<tr><td>功能自检</td><td>开机后执行自检程序（自动），确认所有指示灯正常</td><td>每次使用前</td></tr>
+</tbody>
+</table></div>
+
+<h3>5.4.2 定期维护</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>项目</th><th>操作</th><th>频率</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>电池校准</td><td>完全放电至关机 → 充满一次</td><td>每月</td><td>保持 BMS 电量计精度</td></tr>
+<tr><td>绑带更换</td><td>检查弹力衰减和勾面磨损，必要时更换</td><td>每 6 个月</td><td>配件可购买</td></tr>
+<tr><td>碳纤维框架</td><td>用 IPA 异丙醇擦拭检查微裂纹</td><td>每 3 个月</td><td>如有裂纹需返厂更换</td></tr>
+<tr><td>离合器测试</td><td>通过 App 执行离合器功能测试</td><td>每月</td><td>App 引导操作</td></tr>
+<tr><td>固件更新</td><td>连接 App 检查并安装最新固件</td><td>当有更新推送时</td><td>OTA 更新约 3–5 分钟</td></tr>
+<tr><td>电机轴承</td><td>如有异响或阻力增大，返厂更换轴承</td><td>按需</td><td>建议每 500 小时更换</td></tr>
+<tr><td>全面保养</td><td>返厂进行全面检测和保养</td><td>每 12 个月或 1,000 小时</td><td>保修期内免费</td></tr>
+</tbody>
+</table></div>
+
+<h3>5.4.3 故障排除指南</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>现象</th><th>可能原因</th><th>解决方法</th></tr></thead>
+<tbody>
+<tr><td>设备无法开机</td><td>电池电量耗尽 / 电池未连接</td><td>充电或检查电池连接</td></tr>
+<tr><td>开机后指示灯快闪红灯</td><td>系统自检未通过</td><td>重新开机。如继续，联系客服</td></tr>
+<tr><td>设备不辅助</td><td>未正确校准 / 模式错误</td><td>App 中重新校准 / 检查当前模式</td></tr>
+<tr><td>辅助力矩异常</td><td>编码器需重新标定</td><td>App 中执行编码器标定</td></tr>
+<tr><td>蓝牙无法连接</td><td>设备在其他手机配对中 / 距离过远</td><td>关闭其他手机蓝牙 / 靠近设备 (≤5m)</td></tr>
+<tr><td>电池充电慢</td><td>使用了非标配充电器 / 充电口接触不良</td><td>使用标配 65W PD 充电器</td></tr>
+<tr><td>运行中有异响</td><td>螺丝松动 / 轴承磨损 / 绑定摩擦</td><td>检查螺丝 / 联系售后</td></tr>
+<tr><td>设备过热</td><td>环境温度过高 / 连续高负载</td><td>停止使用，冷却 15min 后再用</td></tr>
+</tbody>
+</table></div>
+
+<h3>5.4.4 存储与运输</h3>
+<ul>
+<li><strong>存储条件：</strong>−10°C ~ 40°C, 干燥通风环境</li>
+<li><strong>长期存储：</strong>超过 1 个月不使用，请将电池充电至 40–60% 并取出单独存放</li>
+<li><strong>运输：</strong>电池必须安装在产品中或单独包装（遵守 UN 38.3 运输规定）</li>
+<li><strong>保修期：</strong>自购买日起 12 个月（电池 6 个月）</li>
+<li><strong>客服：</strong>support@nexum.ai | 400-xxx-xxxx（工作日 9:00–18:00）</li>
+</ul>
+
+<hr>
+
+<!-- ============================================================ -->
+<!-- APPENDIX -->
+<!-- ============================================================ -->
+<h1>附录 A: 文档版本记录</h1>
+<div class="table-wrapper"><table>
+<thead><tr><th>版本</th><th>日期</th><th>作者</th><th>变更说明</th></tr></thead>
+<tbody>
+<tr><td>v1.0</td><td>2026-07-02</td><td>制造工程组</td><td>初始版本，基于 8-agent 验证参数</td></tr>
+</tbody>
+</table></div>
+
+<h1>附录 B: 待确认项清单</h1>
+<div class="table-wrapper"><table>
+<thead><tr><th>#</th><th>待确认项</th><th>影响</th><th>责任方</th><th>截止日期</th></tr></thead>
+<tbody>
+<tr><td>TBD-01</td><td>Ogura MCNB-3Z 离合器单价和交货期</td><td>Phase 0 预算 / EVT 时间线</td><td>采购</td><td>Phase 0 启动前</td></tr>
+<tr><td>TBD-02</td><td>国产离合器替代方案（成本/性能对比）</td><td>Phase 2 降本路径</td><td>机械工程</td><td>Phase 1 结束前</td></tr>
+<tr><td>TBD-03</td><td>CCC 分类界定（消费电子 vs 医疗器械）</td><td>认证路径和成本</td><td>法规</td><td>Phase 0 结束前</td></tr>
+<tr><td>TBD-04</td><td>ESP32-S3 PPO int8 推理延迟和精度实测</td><td>RL 控制可行性</td><td>算法</td><td>Phase 0 结束前</td></tr>
+<tr><td>TBD-05</td><td>碳纤维热压模具供应商报价（多腔）</td><td>Phase 2 模具预算</td><td>采购</td><td>Phase 1 结束前</td></tr>
+<tr><td>TBD-06</td><td>7075 铸造供应商询价和最小起定量</td><td>Phase 3 工艺选择</td><td>采购</td><td>Phase 2 结束前</td></tr>
+<tr><td>TBD-07</td><td>EMC 预扫结果（决定是否需要额外屏蔽）</td><td>外壳设计</td><td>硬件</td><td>Phase 1 结束前</td></tr>
+<tr><td>TBD-08</td><td>IP42 防护等级对电机散热的影响验证</td><td>热设计</td><td>机械工程</td><td>Phase 1 结束前</td></tr>
+</tbody>
+</table></div>
+
+ </div>
+</section>
+
+<script src="shared.js"></script>
+</body>
+</html>
