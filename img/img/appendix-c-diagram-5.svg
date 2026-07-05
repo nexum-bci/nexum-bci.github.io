@@ -1,0 +1,99 @@
+<svg viewBox="0 0 1200 800" style="width:100%;max-width:1200px;height:auto" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1200" height="800" rx="12" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="600" y="32" text-anchor="middle" font-size="16" font-weight="800" fill="#d97706">TRL 5-7 · 临床/原型验证中 — 4种在研膝关节外骨骼架构</text>
+
+  <!-- 5. ELECTRO-HYDRAULIC -->
+  <rect x="25" y="55" width="560" height="350" rx="8" fill="#fff" stroke="#d97706" stroke-width="2"/>
+  <rect x="25" y="55" width="560" height="28" rx="8" fill="#d97706"/><rect x="25" y="71" width="560" height="12" fill="#d97706"/>
+  <text x="305" y="75" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">5. 电动液压式 (TRL 5-7)</text>
+
+  <!-- Hydraulic diagram -->
+  <rect x="200" y="100" width="160" height="35" rx="6" fill="#d97706" opacity="0.7"/>
+  <text x="280" y="123" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">腰带：电机泵+油箱</text>
+  <line x1="240" y1="135" x2="180" y2="200" stroke="#d97706" stroke-width="2.5"/>
+  <line x1="320" y1="135" x2="380" y2="200" stroke="#d97706" stroke-width="2.5"/>
+  <text x="150" y="175" font-size="6" fill="#c45a5a">高压软管</text>
+  <rect x="155" y="210" width="50" height="30" rx="4" fill="#d97706" opacity="0.4"/>
+  <text x="180" y="230" text-anchor="middle" font-size="6" fill="#fff">液压缸L</text>
+  <rect x="355" y="210" width="50" height="30" rx="4" fill="#d97706" opacity="0.4"/>
+  <text x="380" y="230" text-anchor="middle" font-size="6" fill="#fff">液压缸R</text>
+  <text x="180" y="260" text-anchor="middle" font-size="6" fill="#000">线性力→旋转力矩</text>
+
+  <rect x="60" y="280" width="500" height="60" rx="6" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="310" y="300" text-anchor="middle" font-size="8" font-weight="700" fill="#000">REEV DREEVEN (加拿大·$9.2M·2026上市)</text>
+  <text x="310" y="318" text-anchor="middle" font-size="7" fill="#000">33Nm峰值·~5kg总重·5h续航·Maxon EC-i电机·ENX16编码器·132kg用户上限</text>
+  <text x="310" y="338" text-anchor="middle" font-size="7" fill="#d97706">✓ 高功率密度·柔性布线·天然缓冲</text>
+  <text x="310" y="356" font-size="7" fill="#c45a5a">✗ 漏液风险·效率<40%·复杂·噪音(泵)</text>
+
+  <!-- 6. PAM -->
+  <rect x="610" y="55" width="565" height="350" rx="8" fill="#fff" stroke="#d97706" stroke-width="1.5"/>
+  <rect x="610" y="55" width="565" height="28" rx="8" fill="#d97706"/><rect x="610" y="71" width="565" height="12" fill="#d97706"/>
+  <text x="892" y="75" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">6. 气动人工肌肉 PAM (TRL 4-7)</text>
+
+  <!-- McKibben muscle -->
+  <rect x="700" y="110" width="12" height="100" rx="6" fill="#d97706" opacity="0.3"/>
+  <rect x="700" y="110" width="12" height="30" rx="6" fill="#d97706" opacity="0.7"/>
+  <text x="706" y="160" font-size="6" fill="#d97706">充气→收缩</text>
+  <text x="706" y="195" font-size="6" fill="#666">编织网套</text>
+  <text x="706" y="210" font-size="6" fill="#666">+弹性气囊</text>
+
+  <text x="706" y="240" font-size="7" fill="#c45a5a">带宽<5Hz</text>
+
+  <rect x="620" y="100" width="70" height="150" rx="4" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="655" y="120" text-anchor="middle" font-size="7" font-weight="700" fill="#000">拮抗配置</text>
+  <text x="655" y="140" text-anchor="middle" font-size="6" fill="#000">一对肌肉</text>
+  <text x="655" y="158" text-anchor="middle" font-size="6" fill="#000">屈肌+伸肌</text>
+  <text x="655" y="176" text-anchor="middle" font-size="6" fill="#000">反向对抗</text>
+
+  <rect x="760" y="100" width="390" height="170" rx="6" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="955" y="120" text-anchor="middle" font-size="9" font-weight="700" fill="#000">代表产品</text>
+  <text x="770" y="142" font-size="7" fill="#000">EsoMark 1(英国): £6,000·1.4kg·ESA合作</text>
+  <text x="770" y="160" font-size="7" fill="#000">XoBrace(香港): ~$150·消费级·2024出货</text>
+  <text x="770" y="178" font-size="7" fill="#000">TUM(德国): 刚性气动膝+Tendon髋外衣</text>
+  <text x="770" y="200" font-size="7" fill="#d97706">✓ 天然柔顺·极低成本·高力重比</text>
+  <text x="770" y="220" font-size="7" fill="#c45a5a">✗ 需气源·非线性严重·无精密力控</text>
+
+  <!-- 2. MULTI-AXIS -->
+  <rect x="25" y="420" width="560" height="360" rx="8" fill="#fff" stroke="#c45a5a" stroke-width="1.5"/>
+  <rect x="25" y="420" width="560" height="28" rx="8" fill="#c45a5a"/><rect x="25" y="436" width="560" height="12" fill="#c45a5a"/>
+  <text x="305" y="440" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">2. 铰链多轴/多杆式 (TRL 3-5)</text>
+
+  <!-- Four-bar linkage -->
+  <rect x="100" y="470" width="120" height="80" rx="6" fill="none" stroke="#c45a5a" stroke-width="1.5"/>
+  <circle cx="130" cy="490" r="4" fill="#c45a5a"/><circle cx="190" cy="510" r="4" fill="#c45a5a"/>
+  <circle cx="190" cy="490" r="4" fill="#c45a5a"/><circle cx="130" cy="530" r="4" fill="#c45a5a"/>
+  <line x1="130" y1="490" x2="190" y2="490"/><line x1="190" y1="490" x2="190" y2="510"/>
+  <line x1="190" y1="510" x2="130" y2="530"/><line x1="130" y1="530" x2="130" y2="490"/>
+  <text x="160" y="570" text-anchor="middle" font-size="7" fill="#c45a5a">四杆机构</text>
+  <text x="160" y="586" text-anchor="middle" font-size="6" fill="#666">模拟ICR轨迹</text>
+
+  <rect x="250" y="470" width="310" height="170" rx="6" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="405" y="490" text-anchor="middle" font-size="9" font-weight="700" fill="#000">研究现状</text>
+  <text x="260" y="512" font-size="7" fill="#000">五杆优化(2021): ICR误差<0.43mm</text>
+  <text x="260" y="530" font-size="7" fill="#000">自对准PSC(2022):设备滑移显著↓</text>
+  <text x="260" y="548" font-size="7" fill="#000">空间四杆(2023):可复现内旋/外展</text>
+  <text x="260" y="566" font-size="7" fill="#000">Hyundai多杆专利:四杆/五杆方案</text>
+  <text x="260" y="588" font-size="7" fill="#c45a5a" font-weight="700">✓ 生物仿生度高·舒适度潜力</text>
+  <text x="260" y="606" font-size="7" fill="#c45a5a">✗ 机械复杂·无商业化产品</text>
+  <text x="260" y="626" font-size="7" fill="#666">→ 长期学术跟踪·Phase 1不适用</text>
+
+  <!-- 7. SEA -->
+  <rect x="610" y="420" width="565" height="360" rx="8" fill="#fff" stroke="#c45a5a" stroke-width="1.5"/>
+  <rect x="610" y="420" width="565" height="28" rx="8" fill="#c45a5a"/><rect x="610" y="436" width="565" height="12" fill="#c45a5a"/>
+  <text x="892" y="440" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">7. 串联弹性执行器 SEA (TRL 4-6)</text>
+
+  <!-- SEA mechanism -->
+  <rect x="660" y="470" width="80" height="30" rx="4" fill="#c45a5a" opacity="0.6"/><text x="700" y="490" text-anchor="middle" font-size="7" fill="#fff">电机</text>
+  <rect x="750" y="470" width="40" height="30" rx="4" fill="#f8fafc" stroke="#c45a5a" stroke-width="1"/>
+  <text x="770" y="490" text-anchor="middle" font-size="6" fill="#c45a5a">弹簧</text>
+  <rect x="800" y="470" width="60" height="30" rx="4" fill="#c45a5a" opacity="0.3"/><text x="830" y="490" text-anchor="middle" font-size="6" fill="#000">关节</text>
+  <text x="700" y="520" text-anchor="middle" font-size="6" fill="#666">力=刚度×变形量</text>
+
+  <rect x="660" y="540" width="490" height="150" rx="6" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="905" y="560" text-anchor="middle" font-size="9" font-weight="700" fill="#000">MIT RFSEA (2021) — 已发表最轻仿生腿</text>
+  <text x="670" y="582" font-size="7" fill="#000">85Nm额定·175Nm峰值·1.6kg·6Hz力控带宽·>500W·0.053J/kg·m运输成本</text>
+  <text x="670" y="602" font-size="7" fill="#c45a5a" font-weight="700">✓ 精确力控(±3-5%)·冲击吸收·能量回收</text>
+  <text x="670" y="622" font-size="7" fill="#c45a5a">✗ 额外重量(弹簧+支架)·谐振限制带宽·定制弹簧成本高</text>
+  <text x="670" y="642" font-size="7" fill="#666">商业化仅在假肢端(Össur Power Knee)·外骨骼端无产品。力控精度最高但重量/成本/复杂度不适合消费级Phase 1。</text>
+  <text x="670" y="662" font-size="7" fill="#666">→ 学术参考价值极高(力控方法论)·Bones可在AK80-9输出端加装弹性元件实现简化SEA</text>
+</svg>

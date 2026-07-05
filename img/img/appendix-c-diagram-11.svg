@@ -1,0 +1,94 @@
+<svg viewBox="0 0 1200 520" style="max-width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1200" height="520" rx="12" fill="#f8fafc" stroke="#0096f0" stroke-width="2"/>
+  <text x="600" y="28" text-anchor="middle" font-size="14" font-weight="800" fill="#0096f0">算法-硬件完整数据流：传感器→步态检测→KAM→RL→FOC→安全（端到端<2ms）</text>
+
+  <!-- Step 1 -->
+  <rect x="20" y="45" width="155" height="90" rx="8" fill="#fff" stroke="#0096f0" stroke-width="1.5"/>
+  <text x="97" y="65" text-anchor="middle" font-size="8" font-weight="700" fill="#0096f0">① 传感器采集</text>
+  <text x="97" y="82" text-anchor="middle" font-size="7" fill="#666">ICM-42688-P IMU×4</text>
+  <text x="97" y="96" text-anchor="middle" font-size="7" fill="#666">AS5048A编码器×2</text>
+  <text x="97" y="110" text-anchor="middle" font-size="7" fill="#666">AD7124力传感器×2</text>
+  <text x="97" y="128" text-anchor="middle" font-size="6" fill="#0096f0">SPI·10MHz·<8μs</text>
+
+  <text x="190" y="90" font-size="14" fill="#0096f0">→</text>
+
+  <!-- Step 2 -->
+  <rect x="210" y="45" width="140" height="90" rx="8" fill="#fff" stroke="#0096f0" stroke-width="1.5"/>
+  <text x="280" y="65" text-anchor="middle" font-size="8" font-weight="700" fill="#0096f0">② 姿态解算</text>
+  <text x="280" y="82" text-anchor="middle" font-size="7" fill="#666">Madgwick AHRS</text>
+  <text x="280" y="96" text-anchor="middle" font-size="7" fill="#666">四元数→欧拉角</text>
+  <text x="280" y="110" text-anchor="middle" font-size="7" fill="#666">互补滤波·<40μs</text>
+  <text x="280" y="128" text-anchor="middle" font-size="6" fill="#0096f0">STM32G4 FPU</text>
+
+  <text x="365" y="90" font-size="14" fill="#0096f0">→</text>
+
+  <!-- Step 3 -->
+  <rect x="385" y="45" width="140" height="90" rx="8" fill="#fff" stroke="#0096f0" stroke-width="1.5"/>
+  <text x="455" y="65" text-anchor="middle" font-size="8" font-weight="700" fill="#0096f0">③ 步态检测+KAM</text>
+  <text x="455" y="82" text-anchor="middle" font-size="7" fill="#666">6状态FSM</text>
+  <text x="455" y="96" text-anchor="middle" font-size="7" fill="#666">KAM=f(θ,ω,FGRF)</text>
+  <text x="455" y="110" text-anchor="middle" font-size="7" fill="#666">GRF推算·<1ms</text>
+  <text x="455" y="128" text-anchor="middle" font-size="6" fill="#0096f0">实时·误差<15%</text>
+
+  <text x="540" y="90" font-size="14" fill="#0096f0">→</text>
+
+  <!-- Step 4 -->
+  <rect x="560" y="45" width="155" height="90" rx="8" fill="#fff" stroke="#0096f0" stroke-width="2"/>
+  <rect x="560" y="45" width="155" height="22" rx="8" fill="#0096f0"/><rect x="560" y="57" width="155" height="10" fill="#0096f0"/>
+  <text x="637" y="60" text-anchor="middle" font-size="8" font-weight="700" fill="#fff">④ RL策略推理</text>
+  <text x="637" y="80" text-anchor="middle" font-size="7" fill="#666">PPO int8·TFLite Micro</text>
+  <text x="637" y="94" text-anchor="middle" font-size="7" fill="#666">16→64→32→32→2 Tanh</text>
+  <text x="637" y="108" text-anchor="middle" font-size="7" fill="#666">ESP32-S3 NPU·<1ms</text>
+  <text x="637" y="128" text-anchor="middle" font-size="6" fill="#0096f0">输出目标力矩τ_target</text>
+
+  <text x="730" y="90" font-size="14" fill="#0096f0">→</text>
+
+  <!-- Step 5 -->
+  <rect x="750" y="45" width="140" height="90" rx="8" fill="#fff" stroke="#0096f0" stroke-width="1.5"/>
+  <text x="820" y="65" text-anchor="middle" font-size="8" font-weight="700" fill="#0096f0">⑤ FOC力矩控制</text>
+  <text x="820" y="82" text-anchor="middle" font-size="7" fill="#666">Clarke→Park→PI</text>
+  <text x="820" y="96" text-anchor="middle" font-size="7" fill="#666">SVPWM·10kHz</text>
+  <text x="820" y="110" text-anchor="middle" font-size="7" fill="#666">电流环·~50μs</text>
+  <text x="820" y="128" text-anchor="middle" font-size="6" fill="#0096f0">DRV8316</text>
+
+  <text x="905" y="90" font-size="14" fill="#0096f0">→</text>
+
+  <!-- Step 6 -->
+  <rect x="925" y="45" width="130" height="90" rx="8" fill="#fff" stroke="#0096f0" stroke-width="2"/>
+  <text x="990" y="65" text-anchor="middle" font-size="8" font-weight="700" fill="#0096f0">⑥ 电机输出</text>
+  <text x="990" y="82" text-anchor="middle" font-size="7" fill="#666">AK80-9 V3.0</text>
+  <text x="990" y="96" text-anchor="middle" font-size="7" fill="#666">22Nm峰值·9:1</text>
+  <text x="990" y="110" text-anchor="middle" font-size="7" fill="#666">15-25Nm膝力矩</text>
+  <text x="990" y="128" text-anchor="middle" font-size="6" fill="#0096f0">端到端<2ms</text>
+
+  <!-- Safety Layer -->
+  <rect x="20" y="150" width="1160" height="50" rx="6" fill="#fdf2f8" stroke="#c45a5a" stroke-width="1.5"/>
+  <text x="600" y="172" text-anchor="middle" font-size="10" font-weight="700" fill="#c45a5a">⑦ 独立安全监控层（硬件看门狗TPS3850 + 安全MCU STM32G030 · 独立于主控 · 独立供电 · 独立传感器）</text>
+  <text x="600" y="192" text-anchor="middle" font-size="8" fill="#666">力矩超限→急停 | 角度超限→限力矩 | 电流/温度超限→降功率 | 跌倒检测→离合器断电 | 延迟<1ms</text>
+
+  <!-- Federated Learning -->
+  <rect x="20" y="215" width="1160" height="85" rx="8" fill="#e8f4fd" stroke="#0096f0" stroke-width="1.5"/>
+  <text x="600" y="238" text-anchor="middle" font-size="10" font-weight="700" fill="#0096f0">联邦学习管线（离线·夜间WiFi·隐私保护）</text>
+  <text x="600" y="258" text-anchor="middle" font-size="8" fill="#000">本地SPI Flash 16MB存储全天传感器数据→夜间WiFi上传加密梯度(差分隐私ε=4,δ=10⁻⁵)→云端pFedAC安全聚合→次日下载更新全局模型</text>
+  <text x="600" y="278" text-anchor="middle" font-size="8" fill="#666">Day 1: 10,000虚拟被试预训练通用模型 → Day 7: 个体化初见效果 → Day 30: 显著优于通用 → Day 100: 每位用户拥有独一无二的策略</text>
+  <text x="600" y="296" text-anchor="middle" font-size="7" fill="#999">隐私保证：上传的是模型梯度(4KB)，非原始传感器数据(>100MB/天)。用户步态数据永不离开设备。安全聚合确保云端无法反推个体数据。</text>
+
+  <!-- Training Pipeline -->
+  <rect x="20" y="315" width="560" height="95" rx="8" fill="#fff" stroke="#e5e5e5"/>
+  <text x="300" y="338" text-anchor="middle" font-size="9" font-weight="700" fill="#000">RL训练管线（离线）</text>
+  <text x="300" y="358" text-anchor="middle" font-size="7" fill="#000">MyoSuite/MyoLeg(MuJoCo+RK4肌骨仿真) → Stable-Baselines3 PPO → ONNX→TF→TFLite int8 → xxd→C array</text>
+  <text x="300" y="378" text-anchor="middle" font-size="7" fill="#000">10,000虚拟被试·涵盖轻度/中度/重度OA·内侧/外侧/混合·50/60/70/80/90kg·1.5/1.8/2.1m</text>
+  <text x="300" y="398" text-anchor="middle" font-size="7" fill="#666">工具链：MyoSuite(Apache 2.0)·Stable-Baselines3(MIT)·TFLite Micro(Apache 2.0)·ESP-NN(开源)</text>
+
+  <rect x="595" y="315" width="585" height="95" rx="8" fill="#fff" stroke="#e5e5e5"/>
+  <text x="887" y="338" text-anchor="middle" font-size="9" font-weight="700" fill="#000">Phase 0 验证时间表（6个月·10人·验证RL > PID 20%+）</text>
+  <text x="887" y="358" text-anchor="middle" font-size="7" fill="#000">月1-2: MyoWarp仿真环境搭建·416肌骨模型集成·PID基线→月3-4: PPO RL训练·10,000虚拟被试·仿真KAM↓>20% vs PID</text>
+  <text x="887" y="378" text-anchor="middle" font-size="7" fill="#000">月5: HIL测试(AK80-9真实电机·力矩误差<10%·延迟<2ms)→月6: 10人用户测试·KAM实测↓>15%·≥6/10人"确实不疼了"</text>
+  <text x="887" y="398" text-anchor="middle" font-size="7" fill="#666">验收标准：仿真KAM↓>20% vs PID + 10人测试≥6人主观改善。通过→进入Gen 1工程阶段。未通过→快速转向。</text>
+
+  <!-- Bottom -->
+  <rect x="20" y="420" width="1160" height="90" rx="8" fill="#0096f0" opacity="0.06"/>
+  <text x="600" y="445" text-anchor="middle" font-size="10" font-weight="700" fill="#0096f0">核心逻辑</text>
+  <text x="600" y="465" text-anchor="middle" font-size="8" fill="#000">先用仿真证明RL比PID好20%+（月1-4·零硬件成本）→再用真实电机验证（月5·¥5,000硬件）→最后10人测试（月6·¥10,000用户招募）</text>
+  <text x="600" y="485" text-anchor="middle" font-size="8" fill="#000">Phase 0总预算~¥50K。验证通过前不花一分钱在硬件优化、外观设计、供应链谈判上。<tspan font-weight="700">先证明核心技术假设，再谈工程方案。</tspan></text>
+</svg>

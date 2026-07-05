@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans SC','Segoe UI','Microsoft YaHei',sans-serif">
+  <defs>
+    <!-- Hip/pelvis schematic -->
+    <g id="hip">
+      <!-- Torso -->
+      <rect x="128" y="22" width="16" height="28" rx="3" fill="none" stroke="#1a1a2e" stroke-width="2.5"/>
+      <!-- Pelvis -->
+      <polygon points="118,50 154,50 158,64 114,64" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linejoin="round"/>
+      <!-- Hip joints -->
+      <circle cx="118" cy="57" r="3.5" fill="#888" stroke="none"/>
+      <circle cx="154" cy="57" r="3.5" fill="#888" stroke="none"/>
+      <!-- Legs -->
+      <line x1="118" y1="64" x2="115" y2="108" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
+      <line x1="154" y1="64" x2="157" y2="108" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="2.5" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#ffffff"/>
+
+  <!-- ============ HEADER ============ -->
+  <text x="600" y="30" font-size="20" font-weight="800" fill="#1a1a2e" text-anchor="middle" letter-spacing="1.5">髋关节外骨骼 — 6种穿戴承载方式</text>
+  <text x="600" y="48" font-size="12" fill="#666" text-anchor="middle">按穿戴承载方式分类 · 同一关节(髋)的不同佩戴形态 · 3种评级</text>
+
+  <!-- ============ ROW 1 LABEL ============ -->
+  <rect x="24" y="63" width="10" height="10" rx="2" fill="#0096f0"/>
+  <text x="40" y="72" font-size="12" font-weight="700" fill="#0096f0">腰带贴身系 — 腰带/背包直接承载</text>
+  <line x1="195" y1="68" x2="1176" y2="68" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- ======================================================================================= -->
+  <!-- ROW 1 — 腰带贴身系 -->
+  <!-- ======================================================================================= -->
+
+  <!-- CARD 1: Omega腰带+刚性连杆 — #d97706 部分借鉴 -->
+  <g transform="translate(24, 78)">
+    <rect x="0" y="0" width="370" height="180" rx="8" fill="#fffaf2" stroke="#d97706" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="12" y="19" font-size="14" font-weight="700" fill="#1a1a2e">1. Omega腰带+刚性连杆</text>
+    <text x="12" y="33" font-size="10" fill="#666">Omega Belt + Rigid Link</text>
+    <line x1="12" y1="37" x2="358" y2="37" stroke="#ffe0b2" stroke-width="1.2"/>
+    <!-- Diagram -->
+    <use href="#hip"/>
+    <!-- Belt around pelvis -->
+    <path d="M106,56 L166,56" stroke="#d97706" stroke-width="4" stroke-linecap="round"/>
+    <rect x="131" y="51" width="10" height="10" rx="2" fill="#d97706"/>
+    <!-- Rigid links down legs -->
+    <line x1="118" y1="64" x2="113" y2="108" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+    <line x1="154" y1="64" x2="159" y2="108" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+    <!-- Joint indicators -->
+    <circle cx="118" cy="64" r="2.5" fill="#d97706" stroke="none"/>
+    <circle cx="154" cy="64" r="2.5" fill="#d97706" stroke="none"/>
+    <text x="136" y="110" font-size="10" fill="#555" text-anchor="middle">刚性连杆 · 腰带固定承载</text>
+    <line x1="12" y1="114" x2="358" y2="114" stroke="#ffe0b2" stroke-width="1.2"/>
+    <!-- Product info -->
+    <text x="12" y="125" font-size="10" fill="#444">极壳Hypershell X $799-1999 · 78+国 · 1.8-2.4kg</text>
+    <text x="12" y="136" font-size="10" fill="#444">18-22Nm · 海尔W3 1.75kg · Honda Walking Assist</text>
+    <!-- Rating badge -->
+    <rect x="12" y="143" width="98" height="16" rx="3" fill="#fff3e0"/>
+    <text x="61" y="155" font-size="10" font-weight="600" fill="#d97706" text-anchor="middle">部分借鉴 · 参考设计</text>
+    <!-- Bottom bar -->
+    <rect x="10" y="163" width="350" height="15" rx="4" fill="#d97706"/>
+    <text x="185" y="174" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">部分借鉴 · Omega腰带承载方案</text>
+  </g>
+
+  <!-- CARD 2: 腰带皮带/缆绳式 — #0096f0 推荐借鉴 -->
+  <g transform="translate(415, 78)">
+    <rect x="0" y="0" width="370" height="180" rx="8" fill="#f5faff" stroke="#0096f0" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="12" y="19" font-size="14" font-weight="700" fill="#1a1a2e">2. 腰带皮带/缆绳式</text>
+    <text x="12" y="33" font-size="10" fill="#666">Belt with Cable/Tendon Drive</text>
+    <line x1="12" y1="37" x2="358" y2="37" stroke="#bbdefb" stroke-width="1.2"/>
+    <!-- Diagram -->
+    <use href="#hip"/>
+    <!-- Belt -->
+    <path d="M106,56 L166,56" stroke="#0096f0" stroke-width="3" stroke-linecap="round"/>
+    <rect x="131" y="51" width="10" height="10" rx="2" fill="#0096f0"/>
+    <!-- Cable/tendon paths -->
+    <path d="M118,56 Q103,76 110,108" fill="none" stroke="#0096f0" stroke-width="2" stroke-dasharray="3,2"/>
+    <path d="M154,56 Q169,76 162,108" fill="none" stroke="#0096f0" stroke-width="2" stroke-dasharray="3,2"/>
+    <!-- Pulley indicators -->
+    <circle cx="118" cy="56" r="2.5" fill="#0096f0" stroke="none"/>
+    <circle cx="154" cy="56" r="2.5" fill="#0096f0" stroke="none"/>
+    <text x="136" y="110" font-size="10" fill="#555" text-anchor="middle">鲍登线缆 · 远程柔性传动</text>
+    <line x1="12" y1="114" x2="358" y2="114" stroke="#bbdefb" stroke-width="1.2"/>
+    <!-- Product info -->
+    <text x="12" y="125" font-size="10" fill="#444">肯綮Ant-H1 Pro 2.4kg · IP56 · 23+国</text>
+    <text x="12" y="136" font-size="10" fill="#444">π系列 1.8kg · 待发布 · ≤¥3999</text>
+    <!-- Rating badge -->
+    <rect x="12" y="143" width="110" height="16" rx="3" fill="#e3f2fd"/>
+    <text x="67" y="155" font-size="10" font-weight="600" fill="#0096f0" text-anchor="middle">推荐借鉴 · 已验证</text>
+    <!-- Bottom bar -->
+    <rect x="10" y="163" width="350" height="15" rx="4" fill="#0096f0"/>
+    <text x="185" y="174" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">推荐借鉴 · 腰带皮带/缆绳传动</text>
+  </g>
+
+  <!-- CARD 3: 背包式 — #d97706 部分借鉴 -->
+  <g transform="translate(806, 78)">
+    <rect x="0" y="0" width="370" height="180" rx="8" fill="#fffaf2" stroke="#d97706" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="12" y="19" font-size="14" font-weight="700" fill="#1a1a2e">3. 背包式</text>
+    <text x="12" y="33" font-size="10" fill="#666">Backpack-Mounted Exoskeleton</text>
+    <line x1="12" y1="37" x2="358" y2="37" stroke="#ffe0b2" stroke-width="1.2"/>
+    <!-- Diagram -->
+    <use href="#hip"/>
+    <!-- Backpack frame on back -->
+    <rect x="102" y="18" width="22" height="32" rx="4" fill="none" stroke="#d97706" stroke-width="2.5"/>
+    <rect x="104" y="20" width="18" height="12" rx="2" fill="#d97706" opacity="0.25"/>
+    <line x1="110" y1="34" x2="110" y2="48" stroke="#d97706" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <!-- Connection to pelvis -->
+    <line x1="124" y1="48" x2="136" y2="56" stroke="#d97706" stroke-width="2"/>
+    <line x1="124" y1="48" x2="148" y2="56" stroke="#d97706" stroke-width="2"/>
+    <text x="136" y="110" font-size="10" fill="#555" text-anchor="middle">背包框架 · 重心上背</text>
+    <line x1="12" y1="114" x2="358" y2="114" stroke="#ffe0b2" stroke-width="1.2"/>
+    <!-- Product info -->
+    <text x="12" y="125" font-size="10" fill="#444">傲鲨VIATRIX 3kg · ¥6799 · 46Nm</text>
+    <text x="12" y="136" font-size="10" fill="#444">FLOAT360浮动髋 · 埃斯顿</text>
+    <!-- Rating badge -->
+    <rect x="12" y="143" width="98" height="16" rx="3" fill="#fff3e0"/>
+    <text x="61" y="155" font-size="10" font-weight="600" fill="#d97706" text-anchor="middle">部分借鉴 · 参考设计</text>
+    <!-- Bottom bar -->
+    <rect x="10" y="163" width="350" height="15" rx="4" fill="#d97706"/>
+    <text x="185" y="174" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">部分借鉴 · 背包式框架方案</text>
+  </g>
+
+  <!-- ============ ROW 2 LABEL ============ -->
+  <rect x="24" y="283" width="10" height="10" rx="2" fill="#d97706"/>
+  <text x="40" y="292" font-size="12" font-weight="700" fill="#d97706">非腰带外置系 — 弹簧/气动/框架外置</text>
+  <line x1="195" y1="288" x2="1176" y2="288" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- ======================================================================================= -->
+  <!-- ROW 2 — 非腰带外置系 -->
+  <!-- ======================================================================================= -->
+
+  <!-- CARD 4: 工业被动弹簧 — #d97706 部分借鉴 -->
+  <g transform="translate(24, 298)">
+    <rect x="0" y="0" width="370" height="180" rx="8" fill="#fffaf2" stroke="#d97706" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="12" y="19" font-size="14" font-weight="700" fill="#1a1a2e">4. 工业被动弹簧</text>
+    <text x="12" y="33" font-size="10" fill="#666">Industrial Passive Spring</text>
+    <line x1="12" y1="37" x2="358" y2="37" stroke="#ffe0b2" stroke-width="1.2"/>
+    <!-- Diagram -->
+    <use href="#hip"/>
+    <!-- Spring elements at hip -->
+    <polyline points="98,72 104,64 110,72 116,64 122,72" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/>
+    <polyline points="162,72 168,64 174,72 180,64 186,72" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Support structure -->
+    <line x1="110" y1="72" x2="108" y2="56" stroke="#d97706" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <line x1="174" y1="72" x2="176" y2="56" stroke="#d97706" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <text x="136" y="110" font-size="10" fill="#555" text-anchor="middle">弹簧储能 · 零功耗助力</text>
+    <line x1="12" y1="114" x2="358" y2="114" stroke="#ffe0b2" stroke-width="1.2"/>
+    <!-- Product info -->
+    <text x="12" y="125" font-size="10" fill="#444">SuitX backX $4000 · 2.0kg · 零功耗</text>
+    <text x="12" y="136" font-size="10" fill="#444">Laevo FLEX ~$2700 · 气弹簧</text>
+    <!-- Rating badge -->
+    <rect x="12" y="143" width="98" height="16" rx="3" fill="#fff3e0"/>
+    <text x="61" y="155" font-size="10" font-weight="600" fill="#d97706" text-anchor="middle">部分借鉴 · 参考设计</text>
+    <!-- Bottom bar -->
+    <rect x="10" y="163" width="350" height="15" rx="4" fill="#d97706"/>
+    <text x="185" y="174" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">部分借鉴 · 被动弹簧/零功耗</text>
+  </g>
+
+  <!-- CARD 5: 气动人工肌肉 — #9E9E9E 不推荐 -->
+  <g transform="translate(415, 298)">
+    <rect x="0" y="0" width="370" height="180" rx="8" fill="#fafafa" stroke="#9e9e9e" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="12" y="19" font-size="14" font-weight="700" fill="#1a1a2e">5. 气动人工肌肉</text>
+    <text x="12" y="33" font-size="10" fill="#666">Pneumatic Artificial Muscle</text>
+    <line x1="12" y1="37" x2="358" y2="37" stroke="#e0e0e0" stroke-width="1"/>
+    <!-- Diagram -->
+    <use href="#hip"/>
+    <!-- Pneumatic muscles on both sides -->
+    <path d="M96,56 Q114,82 96,106" fill="none" stroke="#9e9e9e" stroke-width="3" stroke-linecap="round"/>
+    <path d="M96,106 Q114,82 96,56" fill="none" stroke="#9e9e9e" stroke-width="3" stroke-linecap="round"/>
+    <path d="M188,56 Q170,82 188,106" fill="none" stroke="#9e9e9e" stroke-width="3" stroke-linecap="round"/>
+    <path d="M188,106 Q170,82 188,56" fill="none" stroke="#9e9e9e" stroke-width="3" stroke-linecap="round"/>
+    <!-- Air pressure lines -->
+    <line x1="108" y1="66" x2="112" y2="64" stroke="#9e9e9e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="110" y1="73" x2="114" y2="72" stroke="#9e9e9e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="174" y1="66" x2="170" y2="64" stroke="#9e9e9e" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="172" y1="73" x2="168" y2="72" stroke="#9e9e9e" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="136" y="110" font-size="10" fill="#555" text-anchor="middle">气动肌肉 · 非线性控制难</text>
+    <line x1="12" y1="114" x2="358" y2="114" stroke="#e0e0e0" stroke-width="1"/>
+    <!-- Product info -->
+    <text x="12" y="125" font-size="10" fill="#444">Innophys Muscle Suit 35000+台</text>
+    <text x="12" y="136" font-size="10" fill="#444">3.8kg/430g · ~$400-1000 · 无电池</text>
+    <!-- Rating badge -->
+    <rect x="12" y="143" width="98" height="16" rx="3" fill="#f5f5f5"/>
+    <text x="61" y="155" font-size="10" font-weight="600" fill="#9e9e9e" text-anchor="middle">不推荐 · 仅跟踪</text>
+    <!-- Bottom bar -->
+    <rect x="10" y="163" width="350" height="15" rx="4" fill="#9e9e9e"/>
+    <text x="185" y="174" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">不推荐 · 气动肌肉/控制复杂</text>
+  </g>
+
+  <!-- CARD 6: 主动外骨骼框架 — #d97706 部分借鉴 -->
+  <g transform="translate(806, 298)">
+    <rect x="0" y="0" width="370" height="180" rx="8" fill="#fffaf2" stroke="#d97706" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="12" y="19" font-size="14" font-weight="700" fill="#1a1a2e">6. 主动外骨骼框架</text>
+    <text x="12" y="33" font-size="10" fill="#666">Active Exoskeleton Frame</text>
+    <line x1="12" y1="37" x2="358" y2="37" stroke="#ffe0b2" stroke-width="1.2"/>
+    <!-- Diagram -->
+    <use href="#hip"/>
+    <!-- Full rigid frame -->
+    <rect x="106" y="18" width="14" height="92" rx="2" fill="none" stroke="#d97706" stroke-width="2.5"/>
+    <rect x="152" y="18" width="14" height="92" rx="2" fill="none" stroke="#d97706" stroke-width="2.5"/>
+    <!-- Cross braces -->
+    <line x1="113" y1="38" x2="159" y2="38" stroke="#d97706" stroke-width="1.5"/>
+    <line x1="113" y1="62" x2="159" y2="62" stroke="#d97706" stroke-width="1.5"/>
+    <line x1="113" y1="86" x2="159" y2="86" stroke="#d97706" stroke-width="1.5"/>
+    <!-- Control unit -->
+    <rect x="128" y="26" width="16" height="10" rx="2" fill="#d97706" opacity="0.35"/>
+    <text x="136" y="110" font-size="10" fill="#555" text-anchor="middle">刚性框架 · 全身承载</text>
+    <line x1="12" y1="114" x2="358" y2="114" stroke="#ffe0b2" stroke-width="1.2"/>
+    <!-- Product info -->
+    <text x="12" y="125" font-size="10" fill="#444">CYBERDYNE HAL 14kg · FDA/CE · 月租$1500</text>
+    <text x="12" y="136" font-size="10" fill="#444">German Bionic Apogee 7kg · $9900 · 36kg</text>
+    <!-- Rating badge -->
+    <rect x="12" y="143" width="98" height="16" rx="3" fill="#fff3e0"/>
+    <text x="61" y="155" font-size="10" font-weight="600" fill="#d97706" text-anchor="middle">部分借鉴 · 参考设计</text>
+    <!-- Bottom bar -->
+    <rect x="10" y="163" width="350" height="15" rx="4" fill="#d97706"/>
+    <text x="185" y="174" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">部分借鉴 · 主动框架/跟踪</text>
+  </g>
+
+  <!-- ============ LEGEND ============ -->
+  <line x1="24" y1="500" x2="1176" y2="500" stroke="#e0e0e0" stroke-width="1"/>
+  <g transform="translate(0, 508)">
+    <rect x="24" y="0" width="12" height="12" rx="2" fill="#0096f0"/>
+    <text x="42" y="10" font-size="10" fill="#555">推荐借鉴</text>
+
+    <rect x="150" y="0" width="12" height="12" rx="2" fill="#d97706"/>
+    <text x="168" y="10" font-size="10" fill="#555">部分借鉴</text>
+
+    <rect x="276" y="0" width="12" height="12" rx="2" fill="#9e9e9e"/>
+    <text x="294" y="10" font-size="10" fill="#555">不推荐/仅跟踪</text>
+
+    <text x="430" y="10" font-size="10" fill="#999">—— 按穿戴承载方式排列 · 腰带贴身系(行1) / 非腰带外置系(行2)</text>
+  </g>
+</svg>

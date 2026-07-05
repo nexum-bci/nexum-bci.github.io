@@ -1,0 +1,666 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1100" width="100%" height="100%">
+<defs>
+  <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#e8ddc0"/>
+    <stop offset="40%" stop-color="#e0d4b6"/>
+    <stop offset="70%" stop-color="#d8cbae"/>
+    <stop offset="100%" stop-color="#d4c9a8"/>
+  </linearGradient>
+  <linearGradient id="boneDeep" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#d4c9a8"/>
+    <stop offset="100%" stop-color="#c4b898"/>
+  </linearGradient>
+  <linearGradient id="muscleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="rgba(220,50,50,0.30)"/>
+    <stop offset="50%" stop-color="rgba(210,45,45,0.35)"/>
+    <stop offset="100%" stop-color="rgba(200,40,40,0.40)"/>
+  </linearGradient>
+  <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#e8e8e8"/>
+    <stop offset="20%" stop-color="#d0d0d0"/>
+    <stop offset="45%" stop-color="#c0c0c0"/>
+    <stop offset="55%" stop-color="#b8b8b8"/>
+    <stop offset="80%" stop-color="#a8a8a8"/>
+    <stop offset="100%" stop-color="#909090"/>
+  </linearGradient>
+  <linearGradient id="metalDark" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#888"/>
+    <stop offset="50%" stop-color="#666"/>
+    <stop offset="100%" stop-color="#555"/>
+  </linearGradient>
+  <linearGradient id="copperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#d4a050"/>
+    <stop offset="30%" stop-color="#c89040"/>
+    <stop offset="70%" stop-color="#b88030"/>
+    <stop offset="100%" stop-color="#a07028"/>
+  </linearGradient>
+  <linearGradient id="cartilageGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="rgba(80,180,255,0.35)"/>
+    <stop offset="100%" stop-color="rgba(60,160,240,0.25)"/>
+  </linearGradient>
+  <pattern id="cfWeave" width="10" height="10" patternUnits="userSpaceOnUse">
+    <rect width="10" height="10" fill="#2a2a2a"/>
+    <path d="M0 5L10 5M5 0L5 10" stroke="#3a3a3a" stroke-width="0.6"/>
+    <path d="M0 0L10 10M10 0L0 10" stroke="rgba(255,255,255,0.04)" stroke-width="0.3"/>
+    <rect x="4" y="4" width="2" height="2" fill="rgba(80,80,80,0.15)" rx="0.5"/>
+  </pattern>
+  <pattern id="fabricWeave" width="4" height="4" patternUnits="userSpaceOnUse">
+    <rect width="4" height="4" fill="#4a4a4a"/>
+    <rect x="0" y="0" width="2" height="2" fill="rgba(80,80,80,0.3)"/>
+    <rect x="2" y="2" width="2" height="2" fill="rgba(80,80,80,0.3)"/>
+  </pattern>
+  <pattern id="trabecular" width="14" height="14" patternUnits="userSpaceOnUse">
+    <rect width="14" height="14" fill="none"/>
+    <path d="M2 2L12 12M7 0L0 7M14 7L7 14M0 0L3 3M11 11L14 14M4 0L0 4M14 11L11 14" stroke="rgba(180,165,130,0.35)" stroke-width="0.5"/>
+    <path d="M5 1L1 5M9 13L13 9" stroke="rgba(180,165,130,0.20)" stroke-width="0.3"/>
+  </pattern>
+  <linearGradient id="battGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#4a4a4a"/>
+    <stop offset="50%" stop-color="#383838"/>
+    <stop offset="100%" stop-color="#2a2a2a"/>
+  </linearGradient>
+  <linearGradient id="pcbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#2d8a4e"/>
+    <stop offset="50%" stop-color="#1a6b3c"/>
+    <stop offset="100%" stop-color="#155630"/>
+  </linearGradient>
+  <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#f5dcc8"/>
+    <stop offset="50%" stop-color="#e8cfb8"/>
+    <stop offset="100%" stop-color="#dcc0a8"/>
+  </linearGradient>
+  <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+    <feDropShadow dx="1" dy="1.5" stdDeviation="2" flood-color="rgba(0,0,0,0.15)"/>
+  </filter>
+  <filter id="shadowLight" x="-10%" y="-10%" width="130%" height="130%">
+    <feDropShadow dx="0.5" dy="0.8" stdDeviation="1.2" flood-color="rgba(0,0,0,0.10)"/>
+  </filter>
+  <filter id="glowBlue" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="2" result="blur"/>
+    <feFlood flood-color="#0096f0" flood-opacity="0.3"/>
+    <feComposite in2="blur" operator="in"/>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="glowRed" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="2" result="blur"/>
+    <feFlood flood-color="#e02020" flood-opacity="0.3"/>
+    <feComposite in2="blur" operator="in"/>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#e02020"/>
+  </marker>
+  <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#0096f0"/>
+  </marker>
+  <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#2ea043"/>
+  </marker>
+  <marker id="arrowAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#d97706"/>
+  </marker>
+</defs>
+<rect width="1200" height="1100" fill="#ffffff"/>
+<g stroke="#e0e0e0" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.6">
+  <line x1="740" y1="20" x2="740" y2="730"/>
+  <line x1="800" y1="20" x2="800" y2="730"/>
+  <line x1="20" y1="410" x2="740" y2="410"/>
+  <line x1="20" y1="1030" x2="1180" y2="1030"/>
+</g>
+<g id="anatomy-section">
+  <path d="M392,32 C435,35 460,65 465,100 C468,130 465,158 458,172
+           L448,178 L438,170 C440,150 442,125 440,100
+           C438,70 420,45 395,35Z"
+        fill="url(#muscleGrad)" opacity="0.55"/>
+  <path d="M458,172 L448,178 L453,186 L465,180Z"
+        fill="rgba(220,50,50,0.25)"/>
+  <path d="M362,32 C318,35 290,65 285,100 C282,130 286,158 296,172
+           L306,178 L316,170 C312,150 310,125 312,100
+           C314,70 335,45 358,35Z"
+        fill="url(#muscleGrad)" opacity="0.45"/>
+  <path d="M315,180 C302,195 295,220 298,260 C302,290 312,312 325,330
+           L335,325 C325,308 318,285 315,260
+           C312,235 316,210 325,195Z"
+        fill="rgba(200,40,40,0.20)"/>
+  <g filter="url(#shadowLight)">
+    <path d="M390,28 C408,30 425,42 432,62
+             C438,82 440,112 440,142
+             C440,162 442,175 448,180
+             C452,184 456,188 454,192
+             C450,196 432,198 415,198
+             C390,198 365,196 345,194
+             C332,192 322,188 320,182
+             C318,176 322,168 332,160
+             C326,145 322,120 320,100
+             C318,70 322,45 335,35
+             C348,28 370,26 390,28Z"
+          fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+    <path d="M335,65 L330,65 M337,75 L332,75 M339,85 L334,85
+             M341,95 L336,95 M343,105 L338,105 M345,115 L340,115
+             M435,65 L440,65 M437,75 L442,75 M439,85 L444,85"
+          stroke="rgba(180,165,130,0.35)" stroke-width="0.5" stroke-linecap="round"/>
+    <path d="M332,192 C322,188 320,182 320,176
+             C325,180 335,185 350,188
+             C365,191 380,192 400,192
+             C420,192 435,190 445,186
+             C450,184 454,192 450,196
+             C432,198 415,198 390,198
+             C365,196 345,194 332,192Z"
+          fill="url(#trabecular)"/>
+    <path d="M454,192 C450,196 432,198 415,198
+             C390,198 365,196 345,194
+             C332,192 322,188 320,182
+             C325,186 335,190 350,192
+             C370,194 390,195 410,194
+             C430,193 445,190 452,186Z"
+          fill="url(#cartilageGrad)"/>
+  </g>
+  <g filter="url(#shadowLight)">
+    <path d="M458,158 C468,162 472,172 468,180
+             C464,188 454,186 450,178
+             C446,170 448,160 455,156
+             C457,155 457,157 458,158Z"
+          fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+    <path d="M450,178 C446,170 448,160 455,156
+             C453,162 450,168 452,176Z"
+          fill="url(#cartilageGrad)" opacity="0.5"/>
+  </g>
+  <g filter="url(#shadowLight)">
+    <path d="M452,190 C460,192 466,196 468,202
+             C470,210 468,220 464,230
+             C460,242 456,260 454,290
+             C452,320 450,350 448,380
+             L442,386 L436,380
+             C434,350 432,320 430,290
+             C428,260 426,242 424,232
+             C422,222 418,212 414,206
+             C408,200 400,196 392,195
+             C378,194 362,195 350,198
+             C340,202 334,208 330,216
+             C328,225 326,245 324,280
+             C322,320 320,355 318,380
+             L312,386 L306,380
+             C308,350 310,315 312,280
+             C314,245 316,225 320,214
+             C324,204 332,196 342,192
+             C352,188 365,186 380,186
+             C395,186 410,188 425,190
+             C440,192 448,190 452,190Z"
+          fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+    <path d="M468,202 C466,196 460,192 452,190
+             C440,192 425,190 410,188
+             C395,186 380,186 365,186
+             C350,186 340,188 332,192
+             C325,196 320,202 318,208
+             C322,202 330,196 340,192
+             C352,188 365,186 380,186
+             C395,186 410,188 425,190
+             C440,192 450,194 458,198
+             C464,200 467,200 468,202Z"
+          fill="url(#cartilageGrad)"/>
+  </g>
+  <path d="M380,186 C395,186 410,188 425,190
+           C418,186 400,184 380,184
+           C360,184 345,186 338,190
+           L340,193 C346,189 360,186 380,186Z"
+        fill="rgba(100,180,255,0.30)" stroke="rgba(80,160,240,0.25)" stroke-width="0.5"/>
+  <g filter="url(#shadowLight)">
+    <path d="M340,204 C344,206 348,212 350,220
+             C352,235 352,260 350,300
+             C348,330 345,355 340,370
+             L334,374 L330,368
+             C334,348 337,320 339,290
+             C340,260 340,235 338,220
+             C336,210 333,206 330,204Z"
+          fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M298,32 C284,42 272,68 266,100
+             C262,125 260,150 262,175
+             L266,185 L280,182
+             C278,160 280,135 284,110
+             C288,85 300,60 312,40Z"
+          fill="url(#cfWeave)" stroke="#333" stroke-width="1.5"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M298,192 C286,208 276,235 270,270
+             C266,300 264,330 266,360
+             L270,370 L284,366
+             C282,340 284,310 288,278
+             C292,248 302,222 314,204Z"
+          fill="url(#cfWeave)" stroke="#333" stroke-width="1.5"/>
+  </g>
+  <rect x="258" y="175" width="10" height="24" rx="2" fill="url(#metalGrad)" stroke="#999" stroke-width="0.6"/>
+  <g transform="translate(380,178)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="52" fill="url(#metalGrad)" stroke="#aaa" stroke-width="1"/>
+    <path d="M-30,-38 A48,48 0 0,1 30,-38" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+    <circle cx="0" cy="0" r="44" fill="#555" stroke="#444" stroke-width="0.5"/>
+    <g fill="#b87333" opacity="0.85">
+      <path d="M44,0 A44,44 0 0,1 22,38.1 L25,41 A48,48 0 0,0 48,0Z"/>
+      <path d="M22,-38.1 A44,44 0 0,1 -22,-38.1 L-25,-41 A48,48 0 0,0 25,-41Z"/>
+      <path d="M-44,0 A44,44 0 0,1 -22,38.1 L-25,41 A48,48 0 0,0 -48,0Z"/>
+      <path d="M-22,-38.1 A44,44 0 0,1 22,-38.1 L25,-41 A48,48 0 0,0 -25,-41Z"/>
+      <path d="M38.1,22 A44,44 0 0,1 38.1,-22 L41,-25 A48,48 0 0,0 41,25Z"/>
+      <path d="M-38.1,22 A44,44 0 0,1 -38.1,-22 L-41,-25 A48,48 0 0,0 -41,25Z"/>
+    </g>
+    <g fill="#d4956b">
+      <rect x="-3" y="-42" width="6" height="6" rx="1"/>
+      <rect x="-3" y="36" width="6" height="6" rx="1"/>
+      <rect x="36" y="-3" width="6" height="6" rx="1"/>
+      <rect x="-42" y="-3" width="6" height="6" rx="1"/>
+      <rect x="24" y="24" width="6" height="6" rx="1" transform="rotate(45,27,27)"/>
+      <rect x="-30" y="24" width="6" height="6" rx="1" transform="rotate(-45,-27,27)"/>
+      <rect x="24" y="-30" width="6" height="6" rx="1" transform="rotate(-45,27,-27)"/>
+      <rect x="-30" y="-30" width="6" height="6" rx="1" transform="rotate(45,-27,-27)"/>
+    </g>
+    <circle cx="0" cy="0" r="22" fill="none" stroke="#ddd" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="21" fill="url(#metalDark)" stroke="#555" stroke-width="0.5"/>
+    <g opacity="0.8">
+      <path d="M0,-21 A21,21 0 0,1 14.8,-14.8 L12,-12 A16,16 0 0,0 0,-16Z" fill="#e83030"/>
+      <path d="M14.8,-14.8 A21,21 0 0,1 21,0 L16,0 A16,16 0 0,0 12,-12Z" fill="#3060e8"/>
+      <path d="M21,0 A21,21 0 0,1 14.8,14.8 L12,12 A16,16 0 0,0 16,0Z" fill="#e83030"/>
+      <path d="M14.8,14.8 A21,21 0 0,1 0,21 L0,16 A16,16 0 0,0 12,12Z" fill="#3060e8"/>
+      <path d="M0,21 A21,21 0 0,1 -14.8,14.8 L-12,12 A16,16 0 0,0 0,16Z" fill="#e83030"/>
+      <path d="M-14.8,14.8 A21,21 0 0,1 -21,0 L-16,0 A16,16 0 0,0 -12,12Z" fill="#3060e8"/>
+      <path d="M-21,0 A21,21 0 0,1 -14.8,-14.8 L-12,-12 A16,16 0 0,0 -16,0Z" fill="#e83030"/>
+      <path d="M-14.8,-14.8 A21,21 0 0,1 0,-21 L0,-16 A16,16 0 0,0 -12,-12Z" fill="#3060e8"/>
+    </g>
+    <circle cx="0" cy="0" r="13" fill="#444" stroke="#333" stroke-width="0.5"/>
+    <circle cx="0" cy="0" r="6" fill="#888" stroke="#666" stroke-width="0.6"/>
+    <circle cx="0" cy="0" r="3" fill="#999" stroke="#777" stroke-width="0.3"/>
+    <g fill="url(#metalGrad)" stroke="#888" stroke-width="0.4">
+      <circle cx="0" cy="-10.5" r="3.5"/>
+      <circle cx="9" cy="5.2" r="3.5"/>
+      <circle cx="-9" cy="5.2" r="3.5"/>
+    </g>
+    <circle cx="0" cy="0" r="16" fill="none" stroke="#777" stroke-width="1" stroke-dasharray="1.2,0.8"/>
+    <circle cx="0" cy="0" r="3.5" fill="#bbb" stroke="#999" stroke-width="0.5"/>
+    <line x1="-2.5" y1="0" x2="2.5" y2="0" stroke="#888" stroke-width="0.4"/>
+    <line x1="0" y1="-2.5" x2="0" y2="2.5" stroke="#888" stroke-width="0.4"/>
+    <text x="0" y="62" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#666" font-weight="bold">AK80-9 V3.0</text>
+  </g>
+  <g transform="translate(260,186)" filter="url(#shadowLight)">
+    <rect x="-18" y="-14" width="36" height="28" rx="4" fill="url(#copperGrad)" stroke="#a07030" stroke-width="0.8"/>
+    <path d="M-8,-8 C-6,-2 -10,2 -8,8" fill="none" stroke="#d4a050" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M0,-8 C2,-2 -2,2 0,8" fill="none" stroke="#d4a050" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M8,-8 C10,-2 6,2 8,8" fill="none" stroke="#d4a050" stroke-width="1.8" stroke-linecap="round"/>
+    <rect x="-13" y="-4" width="26" height="8" rx="2" fill="#b87333" opacity="0.6"/>
+    <path d="M-10,-1 L-10,3 M-6,-1 L-6,3 M-2,-1 L-2,3 M2,-1 L2,3 M6,-1 L6,3 M10,-1 L10,3"
+          stroke="#d4956b" stroke-width="0.6"/>
+    <rect x="-6" y="-2" width="12" height="4" rx="1" fill="#999" stroke="#777" stroke-width="0.4"/>
+    <text x="0" y="22" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#888">Ogura MCNB-3Z</text>
+  </g>
+  <g filter="url(#glowRed)">
+    <path d="M408,165 A38,38 0 0,1 365,205" fill="none" stroke="#e02020" stroke-width="2.8" marker-end="url(#arrowRed)"/>
+    <text x="398" y="162" font-family="sans-serif" font-size="10" fill="#e02020" font-weight="bold">τ=22Nm</text>
+  </g>
+  <g>
+    <line x1="295" y1="80" x2="268" y2="62" stroke="#0096f0" stroke-width="2" marker-end="url(#arrowBlue)"/>
+    <text x="252" y="58" font-family="sans-serif" font-size="8" fill="#0096f0">F大腿</text>
+  </g>
+  <g>
+    <line x1="285" y1="290" x2="260" y2="275" stroke="#0096f0" stroke-width="2" marker-end="url(#arrowBlue)"/>
+    <text x="242" y="270" font-family="sans-serif" font-size="8" fill="#0096f0">F小腿</text>
+  </g>
+  <g opacity="0.85">
+    <line x1="380" y1="395" x2="380" y2="430" stroke="#2ea043" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrowGreen)"/>
+    <text x="388" y="420" font-family="sans-serif" font-size="8" fill="#2ea043">GRF</text>
+  </g>
+  <g>
+    <line x1="380" y1="178" x2="380" y2="148" stroke="#0096f0" stroke-width="2" marker-end="url(#arrowBlue)"/>
+    <text x="388" y="146" font-family="sans-serif" font-size="8" fill="#0096f0">F关节</text>
+  </g>
+  <circle cx="478" cy="100" r="11" fill="#0096f0" stroke="#fff" stroke-width="2.5"/>
+  <text x="478" y="104" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#fff" font-weight="bold">1</text>
+  <line x1="478" y1="111" x2="478" y2="135" stroke="#0096f0" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="488" y="145" font-family="sans-serif" font-size="8" fill="#0096f0">股四头肌</text>
+  <circle cx="258" cy="100" r="11" fill="#0096f0" stroke="#fff" stroke-width="2.5"/>
+  <text x="258" y="104" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#fff" font-weight="bold">2</text>
+  <line x1="258" y1="111" x2="258" y2="135" stroke="#0096f0" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="230" y="148" font-family="sans-serif" font-size="8" fill="#0096f0">腘绳肌</text>
+  <circle cx="338" cy="178" r="11" fill="#0096f0" stroke="#fff" stroke-width="2.5"/>
+  <text x="338" y="182" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#fff" font-weight="bold">3</text>
+  <text x="322" y="168" font-family="sans-serif" font-size="8" fill="#0096f0" text-anchor="end">AK80-9剖面</text>
+  <circle cx="240" cy="192" r="11" fill="#0096f0" stroke="#fff" stroke-width="2.5"/>
+  <text x="240" y="196" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#fff" font-weight="bold">4</text>
+  <text x="212" y="212" font-family="sans-serif" font-size="8" fill="#0096f0" text-anchor="end">电磁离合器</text>
+  <circle cx="252" cy="65" r="11" fill="#0096f0" stroke="#fff" stroke-width="2.5"/>
+  <text x="252" y="69" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#fff" font-weight="bold">5</text>
+  <text x="240" y="55" font-family="sans-serif" font-size="8" fill="#0096f0" text-anchor="end">碳纤维框架</text>
+  <circle cx="500" cy="200" r="11" fill="#0096f0" stroke="#fff" stroke-width="2.5"/>
+  <text x="500" y="204" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#fff" font-weight="bold">6</text>
+  <line x1="489" y1="200" x2="470" y2="198" stroke="#0096f0" stroke-width="1"/>
+  <text x="512" y="216" font-family="sans-serif" font-size="8" fill="#0096f0">关节软骨+半月板</text>
+  <g transform="translate(605,340)">
+    <rect x="-5" y="-5" width="125" height="75" rx="5" fill="#f8f8f8" stroke="#ddd" stroke-width="0.8"/>
+    <text x="57" y="5" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#555" font-weight="bold">膝关节 ICR 对比</text>
+    <line x1="10" y1="58" x2="110" y2="58" stroke="#aaa" stroke-width="0.6"/>
+    <line x1="10" y1="58" x2="10" y2="12" stroke="#aaa" stroke-width="0.6"/>
+    <text x="60" y="67" text-anchor="middle" font-family="sans-serif" font-size="5" fill="#aaa">屈曲角</text>
+    <path d="M14,52 C18,48 22,44 28,38 C34,32 38,28 42,25
+             C50,20 62,17 72,16 C82,15 92,17 102,20
+             C106,22 110,24 112,26"
+          fill="none" stroke="#e02020" stroke-width="1.8" stroke-linejoin="round"/>
+    <circle cx="28" cy="38" r="1.8" fill="#e02020"/>
+    <circle cx="50" cy="20" r="1.8" fill="#e02020"/>
+    <circle cx="72" cy="16" r="1.8" fill="#e02020"/>
+    <circle cx="100" cy="22" r="1.8" fill="#e02020"/>
+    <circle cx="55" cy="36" r="4" fill="#0096f0" stroke="#fff" stroke-width="1.2"/>
+    <line x1="72" y1="16" x2="72" y2="36" stroke="#999" stroke-width="0.6" stroke-dasharray="2,2"/>
+    <path d="M69,26 L75,26" stroke="#999" stroke-width="0.4"/>
+    <text x="75" y="24" font-family="sans-serif" font-size="5.5" fill="#999">2-5mm</text>
+    <line x1="12" y1="42" x2="22" y2="42" stroke="#e02020" stroke-width="1.5"/>
+    <text x="24" y="45" font-family="sans-serif" font-size="5" fill="#e02020">人体ICR</text>
+    <line x1="50" y1="42" x2="60" y2="42" stroke="#0096f0" stroke-width="1.5"/>
+    <text x="62" y="45" font-family="sans-serif" font-size="5" fill="#0096f0">单轴心</text>
+  </g>
+</g>
+<g id="product-section">
+  <g fill="#b0b0b0">
+    <ellipse cx="380" cy="466" rx="32" ry="24"/>
+    <ellipse cx="360" cy="460" rx="16" ry="14"/>
+    <ellipse cx="400" cy="460" rx="16" ry="14"/>
+    <ellipse cx="380" cy="456" rx="24" ry="12"/>
+  </g>
+  <ellipse cx="380" cy="490" rx="28" ry="34" fill="url(#skinGrad)" stroke="#d4bca8" stroke-width="0.6"/>
+  <ellipse cx="350" cy="488" rx="5" ry="8" fill="url(#skinGrad)" stroke="#d4bca8" stroke-width="0.4"/>
+  <ellipse cx="410" cy="488" rx="5" ry="8" fill="url(#skinGrad)" stroke="#d4bca8" stroke-width="0.4"/>
+  <ellipse cx="370" cy="486" rx="3" ry="2" fill="#444"/>
+  <ellipse cx="390" cy="486" rx="3" ry="2" fill="#444"/>
+  <path d="M364 478 Q370 476 376 478" fill="none" stroke="#888" stroke-width="0.6"/>
+  <path d="M384 478 Q390 476 396 478" fill="none" stroke="#888" stroke-width="0.6"/>
+  <path d="M380 490 Q382 494 380 497 Q378 495 378 493" fill="none" stroke="#c4a88c" stroke-width="0.8"/>
+  <path d="M374 502 Q380 505 386 502" fill="none" stroke="#a88468" stroke-width="0.8"/>
+  <path d="M368 494 Q366 500 364 506" fill="none" stroke="rgba(180,140,120,0.25)" stroke-width="0.4"/>
+  <path d="M392 494 Q394 500 396 506" fill="none" stroke="rgba(180,140,120,0.25)" stroke-width="0.4"/>
+  <ellipse cx="370" cy="487" rx="12" ry="8" fill="none" stroke="#666" stroke-width="0.6"/>
+  <ellipse cx="390" cy="487" rx="12" ry="8" fill="none" stroke="#666" stroke-width="0.6"/>
+  <path d="M382 487 L378 487" stroke="#666" stroke-width="0.6"/>
+  <path d="M358 484 L348 482" stroke="#888" stroke-width="0.8"/>
+  <path d="M402 484 L412 482" stroke="#888" stroke-width="0.8"/>
+  <rect x="368" y="520" width="24" height="12" rx="3" fill="url(#skinGrad)" stroke="#d4bca8" stroke-width="0.5"/>
+  <path d="M340,532 C338,540 335,555 333,570 C330,585 332,600 336,612
+           L340,614 L420,614 L424,612
+           C428,600 430,585 428,570 C426,555 422,540 420,532Z"
+        fill="#e0e8f0" stroke="#c0c8d0" stroke-width="0.8"/>
+  <path d="M368,532 L374,542 L380,532 L386,542 L392,532" fill="none" stroke="#c0c8d0" stroke-width="0.8"/>
+  <path d="M338,535 C322,545 312,560 308,580 C306,595 308,608 310,614"
+        fill="none" stroke="url(#skinGrad)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M422,535 C438,545 448,560 452,580 C454,595 452,608 450,614"
+        fill="none" stroke="url(#skinGrad)" stroke-width="12" stroke-linecap="round"/>
+  <!-- 长裤 - 小腿轮廓: 腓肠肌膨出 → 踝部收窄 -->
+  <path d="M340,614 C336,635 332,655 330,668 C328,678 332,688 338,694 L338,722 L362,722 L362,694 C362,688 362,678 362,668 C362,658 362,638 362,614Z"
+        fill="#2c3e50" stroke="#1a2a3a" stroke-width="0.6"/>
+  <path d="M400,614 C400,638 400,654 400,668 C400,678 402,688 400,694 L400,722 L428,722 L428,694 C432,688 438,678 438,668 C438,656 436,638 430,614Z"
+        fill="#2c3e50" stroke="#1a2a3a" stroke-width="0.6"/>
+  <!-- 鞋子 - 足部解剖形状: 脚跟 → 足弓 → 脚趾 -->
+  <path d="M336,720 C333,724 327,728 324,734 C322,740 326,744 332,744 L362,744 C370,744 376,740 378,734 C380,728 374,724 370,720Z"
+        fill="#555" stroke="#444" stroke-width="0.6"/>
+  <rect x="322" y="744" width="58" height="4" rx="2" fill="#333"/>
+  <path d="M428,720 C431,724 437,728 440,734 C442,740 438,744 432,744 L402,744 C394,744 388,740 386,734 C384,728 388,724 394,720Z"
+        fill="#555" stroke="#444" stroke-width="0.6"/>
+  <rect x="384" y="744" width="58" height="4" rx="2" fill="#333"/>
+  <line x1="310" y1="580" x2="308" y2="744" stroke="#8b6914" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M310,580 C310,574 307,570 305,568" fill="none" stroke="#8b6914" stroke-width="3.5" stroke-linecap="round"/>
+  <rect x="302" y="740" width="14" height="5" rx="2.5" fill="#666"/>
+  <rect x="308" y="600" width="144" height="18" rx="5" fill="url(#fabricWeave)" stroke="#3a3a3a" stroke-width="1.2" filter="url(#shadowLight)"/>
+  <rect x="312" y="604" width="136" height="10" rx="3" fill="none" stroke="rgba(80,80,80,0.3)" stroke-width="0.4" stroke-dasharray="2,2"/>
+  <rect x="372" y="598" width="16" height="22" rx="3" fill="#555" stroke="#444" stroke-width="0.6"/>
+  <g transform="translate(345,572)">
+    <rect x="-28" y="-5" width="56" height="26" rx="4" fill="url(#battGrad)" stroke="#222" stroke-width="1" filter="url(#shadow)"/>
+    <rect x="-24" y="-1" width="48" height="18" rx="3" fill="#333"/>
+    <text x="0" y="7" text-anchor="middle" font-family="sans-serif" font-size="6" font-weight="bold" fill="#0a0">Li-ion</text>
+    <text x="0" y="14" text-anchor="middle" font-family="sans-serif" font-size="5" fill="#888">72Wh · 310g</text>
+    <text x="0" y="32" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#aaa">Samsung 50E 4S1P</text>
+  </g>
+  <g transform="translate(452,604)">
+    <rect x="-8" y="-8" width="22" height="16" rx="2" fill="url(#pcbGrad)" stroke="#0d4a28" stroke-width="0.6" filter="url(#shadow)"/>
+    <circle cx="-2" cy="0" r="1.5" fill="#00ff00" opacity="0.8"/>
+    <circle cx="4" cy="0" r="1.5" fill="#00ff00" opacity="0.5"/>
+    <circle cx="10" cy="0" r="1.5" fill="#ff0000" opacity="0.5"/>
+    <text x="3" y="16" text-anchor="middle" font-family="sans-serif" font-size="5" fill="#888">主控</text>
+  </g>
+  <rect x="456" y="622" width="6" height="3" rx="0.5" fill="#888"/>
+  <text x="464" y="624" font-family="sans-serif" font-size="5" fill="#888">USB-C</text>
+  <path d="M315,610 C310,628 305,648 308,665 C310,678 315,682 318,686"
+        fill="none" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+  <path d="M315,610 C310,628 305,648 308,665 C310,678 315,682 318,686"
+        fill="none" stroke="#444" stroke-width="1.2" stroke-dasharray="3,5" stroke-linecap="round"/>
+  <path d="M445,610 C450,628 455,648 452,665 C450,678 445,682 442,686"
+        fill="none" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+  <path d="M445,610 C450,628 455,648 452,665 C450,678 445,682 442,686"
+        fill="none" stroke="#444" stroke-width="1.2" stroke-dasharray="3,5" stroke-linecap="round"/>
+  <g transform="translate(318,686)">
+    <rect x="-10" y="-40" width="10" height="42" rx="2" fill="url(#cfWeave)" stroke="#333" stroke-width="0.8" filter="url(#shadow)"/>
+    <rect x="-10" y="4" width="10" height="30" rx="2" fill="url(#cfWeave)" stroke="#333" stroke-width="0.8" filter="url(#shadow)"/>
+    <circle cx="-5" cy="0" r="6" fill="url(#metalGrad)" stroke="#999" stroke-width="0.8"/>
+    <circle cx="-5" cy="0" r="15" fill="url(#metalGrad)" stroke="#aaa" stroke-width="1.2" filter="url(#shadow)"/>
+    <circle cx="-5" cy="0" r="11" fill="none" stroke="#ccc" stroke-width="0.4"/>
+    <circle cx="-5" cy="0" r="4" fill="#888" stroke="#666" stroke-width="0.6"/>
+    <g stroke="#aaa" stroke-width="0.4">
+      <line x1="-19" y1="-10" x2="9" y2="-10"/>
+      <line x1="-19" y1="-6" x2="9" y2="-6"/>
+      <line x1="-19" y1="-2" x2="9" y2="-2"/>
+      <line x1="-19" y1="2" x2="9" y2="2"/>
+      <line x1="-19" y1="6" x2="9" y2="6"/>
+      <line x1="-19" y1="10" x2="9" y2="10"/>
+    </g>
+    <text x="-5" y="22" text-anchor="middle" font-family="sans-serif" font-size="5" fill="#777">AK80-9</text>
+    <text x="-5" y="28" text-anchor="middle" font-family="sans-serif" font-size="4.5" fill="#888">480g·22Nm</text>
+    <rect x="-28" y="-6" width="13" height="12" rx="2" fill="url(#copperGrad)" stroke="#a07030" stroke-width="0.6" filter="url(#shadow)"/>
+    <rect x="0" y="-32" width="22" height="6" rx="2" fill="#0096f0" opacity="0.85" stroke="#0070c0" stroke-width="0.4"/>
+    <circle cx="12" cy="-29" r="3" fill="#555" stroke="#777" stroke-width="0.4"/>
+    <rect x="0" y="28" width="22" height="6" rx="2" fill="#0096f0" opacity="0.85" stroke="#0070c0" stroke-width="0.4"/>
+    <circle cx="12" cy="31" r="3" fill="#555" stroke="#777" stroke-width="0.4"/>
+    <line x1="28" y1="-32" x2="28" y2="-26" stroke="#d97706" stroke-width="0.4"/>
+    <line x1="26" y1="-29" x2="32" y2="-29" stroke="#d97706" stroke-width="0.4"/>
+    <text x="34" y="-27" font-family="sans-serif" font-size="4.5" fill="#d97706">60mm</text>
+    <line x1="28" y1="28" x2="28" y2="34" stroke="#d97706" stroke-width="0.4"/>
+    <line x1="26" y1="31" x2="32" y2="31" stroke="#d97706" stroke-width="0.4"/>
+    <text x="34" y="33" font-family="sans-serif" font-size="4.5" fill="#d97706">50mm</text>
+  </g>
+  <g transform="translate(442,686)">
+    <rect x="0" y="-40" width="10" height="42" rx="2" fill="url(#cfWeave)" stroke="#333" stroke-width="0.8" filter="url(#shadow)"/>
+    <rect x="0" y="4" width="10" height="30" rx="2" fill="url(#cfWeave)" stroke="#333" stroke-width="0.8" filter="url(#shadow)"/>
+    <circle cx="5" cy="0" r="6" fill="url(#metalGrad)" stroke="#999" stroke-width="0.8"/>
+    <circle cx="5" cy="0" r="15" fill="url(#metalGrad)" stroke="#aaa" stroke-width="1.2" filter="url(#shadow)"/>
+    <circle cx="5" cy="0" r="11" fill="none" stroke="#ccc" stroke-width="0.4"/>
+    <circle cx="5" cy="0" r="4" fill="#888" stroke="#666" stroke-width="0.6"/>
+    <g stroke="#aaa" stroke-width="0.4">
+      <line x1="-9" y1="-10" x2="19" y2="-10"/>
+      <line x1="-9" y1="-6" x2="19" y2="-6"/>
+      <line x1="-9" y1="-2" x2="19" y2="-2"/>
+      <line x1="-9" y1="2" x2="19" y2="2"/>
+      <line x1="-9" y1="6" x2="19" y2="6"/>
+      <line x1="-9" y1="10" x2="19" y2="10"/>
+    </g>
+    <text x="5" y="22" text-anchor="middle" font-family="sans-serif" font-size="5" fill="#777">AK80-9</text>
+    <rect x="15" y="-6" width="13" height="12" rx="2" fill="url(#copperGrad)" stroke="#a07030" stroke-width="0.6"/>
+    <rect x="-22" y="-32" width="22" height="6" rx="2" fill="#0096f0" opacity="0.85" stroke="#0070c0" stroke-width="0.4"/>
+    <circle cx="-12" cy="-29" r="3" fill="#555" stroke="#777" stroke-width="0.4"/>
+    <rect x="-22" y="28" width="22" height="6" rx="2" fill="#0096f0" opacity="0.85" stroke="#0070c0" stroke-width="0.4"/>
+    <circle cx="-12" cy="31" r="3" fill="#555" stroke="#777" stroke-width="0.4"/>
+  </g>
+  <rect x="340" y="622" width="80" height="14" rx="3" fill="rgba(255,255,255,0.9)" stroke="#ccc" stroke-width="0.4"/>
+  <text x="380" y="632" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#333">腰带 (640g)</text>
+  <g transform="translate(306,630) rotate(-90)">
+    <rect x="-20" y="-1" width="40" height="12" rx="2" fill="rgba(255,255,255,0.9)" stroke="#ccc" stroke-width="0.3"/>
+    <text x="0" y="7" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#555">碳纤维 T700</text>
+  </g>
+  <rect x="340" y="650" width="28" height="12" rx="2" fill="rgba(255,255,255,0.9)" stroke="#ccc" stroke-width="0.3"/>
+  <text x="354" y="659" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#0096f0">60mm</text>
+  <rect x="340" y="712" width="28" height="12" rx="2" fill="rgba(255,255,255,0.9)" stroke="#ccc" stroke-width="0.3"/>
+  <text x="354" y="721" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#0096f0">50mm</text>
+  <g stroke="#d97706" fill="#d97706" font-family="sans-serif">
+    <line x1="306" y1="648" x2="280" y2="648" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <line x1="318" y1="686" x2="280" y2="686" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <line x1="274" y1="648" x2="274" y2="686" stroke-width="0.8" marker-start="url(#arrowAmber)" marker-end="url(#arrowAmber)"/>
+    <text x="272" y="670" text-anchor="end" font-family="sans-serif" font-size="6" transform="rotate(-90 272 670)">~380mm</text>
+    <line x1="460" y1="600" x2="475" y2="600" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <line x1="460" y1="618" x2="475" y2="618" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <line x1="480" y1="600" x2="480" y2="618" stroke-width="0.8" marker-start="url(#arrowAmber)" marker-end="url(#arrowAmber)"/>
+    <text x="484" y="612" font-family="sans-serif" font-size="6">80mm</text>
+  </g>
+</g>
+<g id="right-panel" font-family="sans-serif">
+  <g transform="translate(800,20)">
+    <rect x="0" y="0" width="380" height="160" rx="10" fill="#f8fafb" stroke="#e0e6ea" stroke-width="1" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="34" rx="10" fill="#0096f0" opacity="0.10"/>
+    <rect x="0" y="24" width="380" height="10" fill="#f8fafb"/>
+    <rect x="0" y="0" width="5" height="34" rx="2.5" fill="#0096f0"/>
+    <text x="20" y="22" font-family="sans-serif" font-size="13" fill="#1a2a3a" font-weight="bold">产品规格</text>
+    <g font-size="11" fill="#3a4a5a">
+      <line x1="15" y1="44" x2="365" y2="44" stroke="#e8eaed" stroke-width="0.5"/>
+      <rect x="12" y="48" width="356" height="22" rx="3" fill="#f8f9fa"/>
+      <text x="20" y="63" font-weight="bold">系统总重</text>
+      <text x="140" y="63" fill="#666">~2.4kg</text>
+      <text x="210" y="63" font-size="9" fill="#999">（双膝完整系统）</text>
+      <rect x="12" y="72" width="356" height="22" rx="3" fill="#fff"/>
+      <text x="20" y="87" font-weight="bold">腰带</text>
+      <text x="140" y="87" fill="#666">640g</text>
+      <text x="210" y="87" font-size="9" fill="#999">（含电池+主控+线缆）</text>
+      <rect x="12" y="96" width="356" height="22" rx="3" fill="#f8f9fa"/>
+      <text x="20" y="111" font-weight="bold">单膝</text>
+      <text x="140" y="111" fill="#666">680g × 2</text>
+      <text x="210" y="111" font-size="9" fill="#999">（含电机+减速器+框架）</text>
+      <rect x="12" y="120" width="356" height="22" rx="3" fill="#fff"/>
+      <text x="20" y="135" font-weight="bold">框架+绑带</text>
+      <text x="140" y="135" fill="#666">400g</text>
+      <text x="210" y="135" font-size="9" fill="#999">（T700碳纤维+Fidlock）</text>
+    </g>
+  </g>
+  <g transform="translate(800,192)">
+    <rect x="0" y="0" width="380" height="160" rx="10" fill="#f8fafb" stroke="#e0e6ea" stroke-width="1" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="34" rx="10" fill="#0096f0" opacity="0.10"/>
+    <rect x="0" y="24" width="380" height="10" fill="#f8fafb"/>
+    <rect x="0" y="0" width="5" height="34" rx="2.5" fill="#0096f0"/>
+    <text x="20" y="22" font-family="sans-serif" font-size="13" fill="#1a2a3a" font-weight="bold">核心组件</text>
+    <g font-size="10">
+      <line x1="15" y1="44" x2="365" y2="44" stroke="#e8eaed" stroke-width="0.5"/>
+      <rect x="12" y="48" width="174" height="48" rx="4" fill="#f0fafa" stroke="#d0e6e0" stroke-width="0.5"/>
+      <circle cx="22" cy="60" r="3" fill="#0096f0" opacity="0.6"/>
+      <text x="30" y="63" font-family="sans-serif" font-size="10" fill="#333" font-weight="bold">电池</text>
+      <text x="22" y="80" font-family="sans-serif" font-size="8" fill="#666">Samsung 50E · 4S1P · 72Wh</text>
+      <text x="22" y="91" font-family="sans-serif" font-size="8" fill="#888">腰带后置 · 可热插拔</text>
+      <rect x="194" y="48" width="174" height="48" rx="4" fill="#f0fafa" stroke="#d0e6e0" stroke-width="0.5"/>
+      <circle cx="204" cy="60" r="3" fill="#0096f0" opacity="0.6"/>
+      <text x="212" y="63" font-family="sans-serif" font-size="10" fill="#333" font-weight="bold">主控</text>
+      <text x="204" y="80" font-family="sans-serif" font-size="8" fill="#666">STM32G474 + ESP32-S3</text>
+      <text x="204" y="91" font-family="sans-serif" font-size="8" fill="#888">BLE + CAN · 腰带侧置</text>
+      <rect x="12" y="100" width="174" height="52" rx="4" fill="#faf5f0" stroke="#e6d8c8" stroke-width="0.5"/>
+      <circle cx="22" cy="112" r="3" fill="#d97706" opacity="0.6"/>
+      <text x="30" y="115" font-family="sans-serif" font-size="10" fill="#333" font-weight="bold">电机</text>
+      <text x="22" y="132" font-family="sans-serif" font-size="8" fill="#666">AK80-9 V3.0 · 480g</text>
+      <text x="22" y="143" font-family="sans-serif" font-size="8" fill="#888">22Nm 峰值 · 9:1 行星减速</text>
+      <rect x="194" y="100" width="174" height="52" rx="4" fill="#faf5f0" stroke="#e6d8c8" stroke-width="0.5"/>
+      <circle cx="204" cy="112" r="3" fill="#d97706" opacity="0.6"/>
+      <text x="212" y="115" font-family="sans-serif" font-size="10" fill="#333" font-weight="bold">离合器 &amp; 框架</text>
+      <text x="204" y="132" font-family="sans-serif" font-size="8" fill="#666">Ogura MCNB-3Z 电磁离合器</text>
+      <text x="204" y="143" font-family="sans-serif" font-size="8" fill="#888">T700碳纤维 3K编织</text>
+    </g>
+  </g>
+  <g transform="translate(800,364)">
+    <rect x="0" y="0" width="380" height="155" rx="10" fill="#f0faf5" stroke="#d0e6d8" stroke-width="1" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="34" rx="10" fill="#2ea043" opacity="0.08"/>
+    <rect x="0" y="24" width="380" height="10" fill="#f0faf5"/>
+    <rect x="0" y="0" width="5" height="34" rx="2.5" fill="#2ea043"/>
+    <text x="20" y="22" font-family="sans-serif" font-size="13" fill="#1a2a3a" font-weight="bold">核心优势</text>
+    <g font-family="sans-serif">
+      <line x1="15" y1="44" x2="365" y2="44" stroke="#c0e0d0" stroke-width="0.5"/>
+      <rect x="12" y="48" width="356" height="32" rx="4" fill="#fff" opacity="0.7"/>
+      <circle cx="24" cy="56" r="8" fill="#2ea043" opacity="0.15"/>
+      <text x="24" y="59" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#2ea043" font-weight="bold">1</text>
+      <text x="40" y="59" font-family="sans-serif" font-size="10" fill="#1a2a3a" font-weight="bold">腰带供电，腿部轻量化</text>
+      <text x="40" y="73" font-family="sans-serif" font-size="9" fill="#666">电池、主控集中于腰带，单膝仅680g</text>
+      <rect x="12" y="84" width="356" height="32" rx="4" fill="#fff" opacity="0.7"/>
+      <circle cx="24" cy="92" r="8" fill="#2ea043" opacity="0.15"/>
+      <text x="24" y="95" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#2ea043" font-weight="bold">2</text>
+      <text x="40" y="95" font-family="sans-serif" font-size="10" fill="#1a2a3a" font-weight="bold">2条绑带，30秒穿戴</text>
+      <text x="40" y="109" font-family="sans-serif" font-size="9" fill="#666">Fidlock磁吸扣，快拆快穿，无需工具</text>
+      <rect x="12" y="120" width="356" height="28" rx="4" fill="#fff" opacity="0.7"/>
+      <circle cx="24" cy="128" r="8" fill="#2ea043" opacity="0.15"/>
+      <text x="24" y="131" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#2ea043" font-weight="bold">3</text>
+      <text x="40" y="131" font-family="sans-serif" font-size="10" fill="#1a2a3a" font-weight="bold">左右独立KAM优化</text>
+      <text x="40" y="145" font-family="sans-serif" font-size="9" fill="#666">个性化发力曲线，适配左右差异</text>
+    </g>
+  </g>
+  <g transform="translate(800,532)">
+    <rect x="0" y="0" width="380" height="198" rx="10" fill="#faf5f0" stroke="#e6d8c8" stroke-width="1" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="34" rx="10" fill="#d97706" opacity="0.10"/>
+    <rect x="0" y="24" width="380" height="10" fill="#faf5f0"/>
+    <rect x="0" y="0" width="5" height="34" rx="2.5" fill="#d97706"/>
+    <text x="20" y="22" font-family="sans-serif" font-size="13" fill="#1a2a3a" font-weight="bold">竞品对比</text>
+    <g font-family="sans-serif">
+      <line x1="15" y1="44" x2="365" y2="44" stroke="#e0d0c0" stroke-width="0.5"/>
+      <g font-size="9" fill="#888">
+        <text x="35" y="63" font-weight="bold"></text>
+        <text x="85" y="63" font-weight="bold">系统总重</text>
+        <text x="168" y="63" font-weight="bold">穿戴时间</text>
+        <text x="258" y="63" font-weight="bold">绑带数</text>
+        <text x="335" y="63" font-weight="bold">腿重</text>
+      </g>
+      <line x1="20" y1="68" x2="360" y2="68" stroke="#ddd" stroke-width="0.5"/>
+      <rect x="14" y="72" width="352" height="28" rx="4" fill="#fff" stroke="#eee" stroke-width="0.5"/>
+      <circle cx="24" cy="86" r="4" fill="#d97706" opacity="0.5"/>
+      <text x="35" y="90" font-family="sans-serif" font-size="10" fill="#666" font-weight="bold">远也 PowerKnee</text>
+      <text x="168" y="90" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">~3kg/腿</text>
+      <text x="258" y="90" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">~5分钟</text>
+      <text x="305" y="90" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">3条</text>
+      <text x="350" y="90" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">~3kg</text>
+      <rect x="14" y="104" width="352" height="28" rx="4" fill="#fff" stroke="#eee" stroke-width="0.5"/>
+      <circle cx="24" cy="118" r="4" fill="#d97706" opacity="0.5"/>
+      <text x="35" y="122" font-family="sans-serif" font-size="10" fill="#666" font-weight="bold">DNSYS Z1</text>
+      <text x="168" y="122" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">1.36kg/腿</text>
+      <text x="258" y="122" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">~2分钟</text>
+      <text x="305" y="122" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">2条</text>
+      <text x="350" y="122" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">1.36kg</text>
+      <rect x="14" y="136" width="352" height="32" rx="4" fill="#e8f4ff" stroke="#0096f0" stroke-width="1.2"/>
+      <rect x="14" y="136" width="5" height="32" rx="2.5" fill="#0096f0"/>
+      <circle cx="24" cy="152" r="5" fill="#0096f0" opacity="0.7"/>
+      <text x="35" y="156" font-family="sans-serif" font-size="10" fill="#0096f0" font-weight="bold">Bones 逐念而行</text>
+      <text x="168" y="156" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#0096f0" font-weight="bold">2.4kg双膝</text>
+      <text x="258" y="156" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#0096f0" font-weight="bold">~30秒</text>
+      <text x="305" y="156" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#0096f0" font-weight="bold">2条</text>
+      <text x="350" y="156" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#0096f0" font-weight="bold">680g</text>
+      <g stroke="#e0d0c0" stroke-width="0.4">
+        <line x1="75" y1="72" x2="75" y2="168"/>
+        <line x1="155" y1="72" x2="155" y2="168"/>
+        <line x1="248" y1="72" x2="248" y2="168"/>
+        <line x1="290" y1="72" x2="290" y2="168"/>
+        <line x1="325" y1="72" x2="325" y2="168"/>
+      </g>
+      <rect x="14" y="172" width="352" height="18" rx="3" fill="#fef0f0" stroke="#e0c0c0" stroke-width="0.5"/>
+      <text x="22" y="184" font-family="sans-serif" font-size="8" fill="#c45a5a">◆ 电磁离合器断电脱开 · 腰带防过充 · IP54防护</text>
+    </g>
+  </g>
+</g>
+<g id="legend">
+  <rect x="20" y="1040" width="1160" height="36" rx="8" fill="#f8f8f8" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="40" y="1063" font-family="sans-serif" font-size="11" fill="#555" font-weight="bold">图例</text>
+  <rect x="90" y="1052" width="14" height="14" rx="3" fill="#0096f0"/>
+  <text x="110" y="1063" font-family="sans-serif" font-size="10" fill="#333">Bones方案</text>
+  <line x1="190" y1="1048" x2="190" y2="1070" stroke="#ddd" stroke-width="0.8"/>
+  <rect x="205" y="1052" width="14" height="14" rx="3" fill="#d97706"/>
+  <text x="225" y="1063" font-family="sans-serif" font-size="10" fill="#333">竞品参考</text>
+  <line x1="310" y1="1048" x2="310" y2="1070" stroke="#ddd" stroke-width="0.8"/>
+  <rect x="325" y="1053" width="12" height="12" rx="2" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.5"/>
+  <text x="343" y="1063" font-family="sans-serif" font-size="9" fill="#555">骨骼</text>
+  <rect x="395" y="1053" width="12" height="12" rx="2" fill="rgba(220,50,50,0.4)" stroke="rgba(200,40,40,0.5)" stroke-width="0.5"/>
+  <text x="413" y="1063" font-family="sans-serif" font-size="9" fill="#555">肌肉</text>
+  <rect x="465" y="1053" width="12" height="12" rx="2" fill="url(#cfWeave)" stroke="#444" stroke-width="0.5"/>
+  <text x="483" y="1063" font-family="sans-serif" font-size="9" fill="#555">碳纤维</text>
+  <rect x="545" y="1053" width="12" height="12" rx="2" fill="url(#metalGrad)" stroke="#aaa" stroke-width="0.5"/>
+  <text x="563" y="1063" font-family="sans-serif" font-size="9" fill="#555">电机/金属</text>
+  <rect x="635" y="1053" width="12" height="12" rx="2" fill="url(#copperGrad)" stroke="#a07030" stroke-width="0.5"/>
+  <text x="653" y="1063" font-family="sans-serif" font-size="9" fill="#555">电磁离合器</text>
+  <line x1="740" y1="1059" x2="758" y2="1059" stroke="#e02020" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+  <text x="765" y="1063" font-family="sans-serif" font-size="9" fill="#555">力矢量</text>
+  <path d="M828,1055 C832,1053 836,1053 838,1057" fill="none" stroke="#e02020" stroke-width="1.5"/>
+  <circle cx="838" cy="1059" r="2.5" fill="#0096f0" stroke="#fff" stroke-width="0.8"/>
+  <text x="846" y="1063" font-family="sans-serif" font-size="9" fill="#555">ICR对比</text>
+  <rect x="910" y="1053" width="12" height="12" rx="2" fill="#f0faf5" stroke="#d0e6d8" stroke-width="0.5"/>
+  <text x="928" y="1063" font-family="sans-serif" font-size="9" fill="#555">信息面板</text>
+  <text x="1100" y="1063" font-family="sans-serif" font-size="9" fill="#aaa" text-anchor="end">铰链单轴外骨骼 · 解剖与机构科学图</text>
+</g>
+<text x="30" y="14" font-family="sans-serif" font-size="9" fill="#aaa" font-weight="bold">trl79-card1-hinge · 铰链单轴膝关节外骨骼 · 解剖 &amp; 机构 &amp; 产品总览</text>
+</svg>

@@ -1,0 +1,453 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000">
+  <defs>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#0096f0"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d13438"/>
+    </marker>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fafcff"/>
+      <stop offset="100%" stop-color="#f0f5ff"/>
+    </linearGradient>
+    <linearGradient id="omegaHeader" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0096f0"/>
+      <stop offset="100%" stop-color="#0078d4"/>
+    </linearGradient>
+    <linearGradient id="piHeader" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e67e22"/>
+      <stop offset="100%" stop-color="#d35400"/>
+    </linearGradient>
+    <linearGradient id="hingeHeader" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#27ae60"/>
+      <stop offset="100%" stop-color="#1e8449"/>
+    </linearGradient>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+    <filter id="shadowLight" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="url(#bgGrad)" rx="4"/>
+  <rect x="15" y="15" width="1370" height="970" rx="8" fill="none" stroke="#0096f0" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- Title -->
+  <text x="700" y="42" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22" font-weight="bold" fill="#1a1a1a">外骨骼膝关节架构对比：Omega vs Pi vs Hinge</text>
+  <text x="700" y="64" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666">产品目标：辅助膝骨关节炎（KOA）患者日常行走 · 三款方案技术路线图</text>
+  <line x1="200" y1="78" x2="1200" y2="78" stroke="#0096f0" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- ==================== COLUMN 1: Omega ==================== -->
+  <g transform="translate(25, 95)">
+    <!-- Card background -->
+    <rect x="0" y="0" width="438" height="870" rx="10" fill="#fff" stroke="#b3ddfb" stroke-width="1.5" filter="url(#shadow)"/>
+    <!-- Header -->
+    <rect x="0" y="0" width="438" height="42" rx="10" fill="url(#omegaHeader)"/>
+    <rect x="0" y="20" width="438" height="22" fill="url(#omegaHeader)"/>
+    <text x="219" y="28" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="17" font-weight="bold" fill="#fff">Omega（Ω）架构</text>
+
+    <!-- Subtitle -->
+    <text x="219" y="65" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#555">代表产品：Hypershell Pro · 髋关节辅助</text>
+
+    <!-- Mechanism drawing -->
+    <g transform="translate(29, 85)">
+      <rect x="0" y="0" width="380" height="260" rx="6" fill="#fafbfc" stroke="#e0e0e0" stroke-width="1"/>
+      <text x="190" y="24" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#555">机构原理图 · 弧形导轨+钢丝绳传动</text>
+
+      <!-- Human silhouette outline -->
+      <path d="M 160 35 L 160 55 L 175 55 L 175 35 Z" fill="#d0d0d0" stroke="#999" stroke-width="0.8"/>
+      <rect x="155" y="50" width="70" height="55" rx="6" fill="#d0d0d0" stroke="#999" stroke-width="0.8"/>
+      <text x="190" y="85" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">躯干</text>
+
+      <!-- Hip joint -->
+      <circle cx="190" cy="135" r="26" fill="none" stroke="#0096f0" stroke-width="2"/>
+      <circle cx="190" cy="135" r="7" fill="#0096f0"/>
+      <circle cx="190" cy="135" r="15" fill="none" stroke="#0096f0" stroke-width="0.8" opacity="0.3"/>
+      <text x="190" y="112" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#0096f0" font-weight="bold">髋关节</text>
+
+      <!-- Thigh -->
+      <rect x="170" y="160" width="40" height="70" rx="5" fill="#d0d0d0" stroke="#999" stroke-width="0.8"/>
+      <text x="190" y="200" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">大腿</text>
+
+      <!-- Curved guide rail -->
+      <path d="M 135 140 Q 95 180 110 245" fill="none" stroke="#0096f0" stroke-width="2.5" stroke-dasharray="6,3"/>
+      <path d="M 245 140 Q 285 180 270 245" fill="none" stroke="#0096f0" stroke-width="2.5" stroke-dasharray="6,3"/>
+
+      <!-- Cable -->
+      <path d="M 135 135 Q 100 160 120 200" fill="none" stroke="#d13438" stroke-width="1" opacity="0.6"/>
+      <path d="M 245 135 Q 280 160 260 200" fill="none" stroke="#d13438" stroke-width="1" opacity="0.6"/>
+
+      <!-- Torque arrow -->
+      <path d="M 165 120 A 35 35 0 0 1 215 120" fill="none" stroke="#d13438" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+      <text x="190" y="142" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#d13438">τ</text>
+
+      <!-- Motor -->
+      <rect x="160" y="168" width="60" height="22" rx="4" fill="#e8f4fd" stroke="#0096f0" stroke-width="1.2"/>
+      <text x="190" y="183" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#0096f0">电机</text>
+
+      <!-- Annotations -->
+      <line x1="108" y1="240" x2="75" y2="256" stroke="#999" stroke-width="0.8"/>
+      <circle cx="108" cy="240" r="2" fill="#999"/>
+      <text x="50" y="258" font-family="sans-serif" font-size="9" fill="#666">弧形导轨</text>
+
+      <line x1="272" y1="240" x2="310" y2="256" stroke="#999" stroke-width="0.8"/>
+      <circle cx="272" cy="240" r="2" fill="#999"/>
+      <text x="290" y="258" font-family="sans-serif" font-size="9" fill="#666">钢丝绳传动</text>
+    </g>
+
+    <!-- Specs table -->
+    <g transform="translate(29, 365)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="bold" fill="#333">产品规格</text>
+      <line x1="0" y1="6" x2="380" y2="6" stroke="#0096f0" stroke-width="1" opacity="0.3"/>
+      <rect x="0" y="16" width="380" height="130" rx="4" fill="#fafbfc" stroke="#e0e0e0" stroke-width="0.8"/>
+
+      <g transform="translate(10, 30)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">重量</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#0096f0"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">~2.8 kg（单侧）</text>
+      </g>
+      <g transform="translate(10, 55)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">峰值扭矩</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#0096f0"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">35 Nm</text>
+      </g>
+      <g transform="translate(10, 80)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">自由度</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#0096f0"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">1 DOF + 被动内收</text>
+      </g>
+      <g transform="translate(10, 105)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">电池续航</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#0096f0"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">3-6 h / 1.2 kg 电池组</text>
+      </g>
+      <g transform="translate(10, 130)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">传感器</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#0096f0"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" fill="#333">IMU + 编码器 + 足底压力</text>
+      </g>
+    </g>
+
+    <!-- Pros/Cons -->
+    <g transform="translate(29, 520)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="bold" fill="#333">膝OA适配评估</text>
+      <line x1="0" y1="6" x2="380" y2="6" stroke="#0096f0" stroke-width="1" opacity="0.3"/>
+
+      <!-- Pros -->
+      <rect x="0" y="18" width="185" height="155" rx="5" fill="#f0fdf4" stroke="#27ae60" stroke-width="1.2"/>
+      <text x="92" y="38" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#27ae60">优势</text>
+      <line x1="10" y1="46" x2="175" y2="46" stroke="#27ae60" stroke-width="0.5" opacity="0.4"/>
+      <text x="14" y="64" font-family="sans-serif" font-size="10" fill="#333">髋关节辅助间接减轻膝负荷</text>
+      <text x="14" y="84" font-family="sans-serif" font-size="10" fill="#333">弧形导轨贴合髋关节运动学</text>
+      <text x="14" y="104" font-family="sans-serif" font-size="10" fill="#333">多传感器融合检测</text>
+      <text x="14" y="124" font-family="sans-serif" font-size="10" fill="#333">低延迟钢丝绳传动</text>
+      <text x="14" y="144" font-family="sans-serif" font-size="10" fill="#333">商业成熟度较高</text>
+
+      <!-- Cons -->
+      <rect x="195" y="18" width="185" height="155" rx="5" fill="#fef2f2" stroke="#d13438" stroke-width="1.2"/>
+      <text x="287" y="38" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#d13438">劣势</text>
+      <line x1="205" y1="46" x2="370" y2="46" stroke="#d13438" stroke-width="0.5" opacity="0.4"/>
+      <text x="205" y="64" font-family="sans-serif" font-size="10" fill="#333">髋驱动无法直接支撑膝关节</text>
+      <text x="205" y="84" font-family="sans-serif" font-size="10" fill="#333">内侧间室OA效果有限</text>
+      <text x="205" y="104" font-family="sans-serif" font-size="10" fill="#333">穿戴复杂（绑带多）</text>
+      <text x="205" y="124" font-family="sans-serif" font-size="10" fill="#333">缺乏膝关节内收力矩控制</text>
+      <text x="205" y="144" font-family="sans-serif" font-size="10" fill="#333">仅适合轻度至中度OA</text>
+    </g>
+
+    <!-- Architecture summary -->
+    <rect x="29" y="705" width="380" height="36" rx="5" fill="#f0f5ff" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="3,2"/>
+    <text x="219" y="728" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#0096f0">配置：电机远离关节 · 向心布局 · 适合户外运动场景</text>
+
+    <!-- Rating -->
+    <g transform="translate(29, 758)">
+      <text x="0" y="0" font-family="sans-serif" font-size="12" fill="#888">膝OA适配评分：</text>
+      <rect x="100" y="-12" width="140" height="24" rx="12" fill="#f39c12"/>
+      <circle cx="112" cy="0" r="6" fill="#fff" opacity="0.4"/>
+      <text x="170" y="5" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fff">6 / 10</text>
+    </g>
+
+    <line x1="29" y1="800" x2="409" y2="800" stroke="#e0e0e0" stroke-width="0.8"/>
+
+    <!-- Target users -->
+    <g transform="translate(29, 812)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" font-weight="bold" fill="#555">适用人群</text>
+      <text x="72" y="0" font-family="sans-serif" font-size="11" fill="#666">K-L 1-2级 · 活动量大早期OA患者</text>
+    </g>
+    <g transform="translate(29, 835)">
+      <text x="0" y="0" font-family="sans-serif" font-size="10" fill="#999">Reference: Hypershell Pro 产品规格书 (2025)</text>
+    </g>
+  </g>
+
+  <!-- ==================== COLUMN 2: Pi ==================== -->
+  <g transform="translate(481, 95)">
+    <rect x="0" y="0" width="438" height="870" rx="10" fill="#fff" stroke="#f5cba7" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="438" height="42" rx="10" fill="url(#piHeader)"/>
+    <rect x="0" y="20" width="438" height="22" fill="url(#piHeader)"/>
+    <text x="219" y="28" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="17" font-weight="bold" fill="#fff">Pi（π）架构</text>
+
+    <text x="219" y="65" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#555">代表产品：Skip MO/GO · 膝关节辅助</text>
+
+    <!-- Mechanism: Pi (parallel 4-bar) -->
+    <g transform="translate(29, 85)">
+      <rect x="0" y="0" width="380" height="260" rx="6" fill="#fafbfc" stroke="#e0e0e0" stroke-width="1"/>
+      <text x="190" y="24" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#555">机构原理图 · 平行四连杆+线性推杆</text>
+
+      <!-- Thigh -->
+      <rect x="168" y="50" width="44" height="68" rx="6" fill="#d0d0d0" stroke="#999" stroke-width="0.8"/>
+      <text x="190" y="90" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">大腿</text>
+
+      <!-- Knee joint -->
+      <circle cx="190" cy="135" r="24" fill="none" stroke="#e67e22" stroke-width="2"/>
+      <circle cx="190" cy="135" r="6" fill="#e67e22"/>
+      <text x="190" y="113" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#e67e22" font-weight="bold">膝关节</text>
+
+      <!-- Shank -->
+      <rect x="174" y="158" width="32" height="75" rx="5" fill="#d0d0d0" stroke="#999" stroke-width="0.8"/>
+      <text x="190" y="205" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">小腿</text>
+
+      <!-- 4-bar linkage -->
+      <line x1="152" y1="90" x2="152" y2="185" stroke="#e67e22" stroke-width="2.5"/>
+      <line x1="228" y1="90" x2="228" y2="185" stroke="#e67e22" stroke-width="2.5"/>
+      <!-- Cross bars -->
+      <line x1="152" y1="90" x2="228" y2="90" stroke="#e67e22" stroke-width="1.5" opacity="0.5"/>
+      <line x1="152" y1="185" x2="228" y2="185" stroke="#e67e22" stroke-width="1.5" opacity="0.5"/>
+
+      <!-- Linear actuator -->
+      <rect x="122" y="140" width="34" height="55" rx="4" fill="#fff" stroke="#e67e22" stroke-width="1.8"/>
+      <rect x="122" y="140" width="34" height="18" rx="4" fill="#e67e22" opacity="0.25"/>
+      <text x="139" y="174" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#e67e22">推杆</text>
+
+      <!-- Force vector -->
+      <line x1="156" y1="158" x2="166" y2="158" stroke="#d13438" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+      <text x="156" y="140" text-anchor="end" font-family="sans-serif" font-size="10" fill="#d13438" font-weight="bold">F</text>
+
+      <!-- Annotations -->
+      <line x1="230" y1="90" x2="265" y2="80" stroke="#999" stroke-width="0.8"/>
+      <circle cx="230" cy="90" r="2" fill="#999"/>
+      <text x="267" y="78" font-family="sans-serif" font-size="9" fill="#666">平行四连杆</text>
+
+      <line x1="230" y1="185" x2="265" y2="195" stroke="#999" stroke-width="0.8"/>
+      <circle cx="230" cy="185" r="2" fill="#999"/>
+      <text x="267" y="198" font-family="sans-serif" font-size="9" fill="#666">瞬时转动中心</text>
+
+      <!-- Magnet annotation -->
+      <line x1="122" y1="200" x2="90" y2="220" stroke="#999" stroke-width="0.8"/>
+      <circle cx="122" cy="200" r="2" fill="#999"/>
+      <text x="50" y="233" font-family="sans-serif" font-size="9" fill="#666">磁力致动器</text>
+    </g>
+
+    <!-- Specs -->
+    <g transform="translate(29, 365)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="bold" fill="#333">产品规格</text>
+      <line x1="0" y1="6" x2="380" y2="6" stroke="#e67e22" stroke-width="1" opacity="0.3"/>
+      <rect x="0" y="16" width="380" height="130" rx="4" fill="#fafbfc" stroke="#e0e0e0" stroke-width="0.8"/>
+
+      <g transform="translate(10, 30)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">重量</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#e67e22"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">~1.5 kg（单侧）</text>
+      </g>
+      <g transform="translate(10, 55)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">峰值扭矩</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#e67e22"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">25 Nm</text>
+      </g>
+      <g transform="translate(10, 80)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">自由度</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#e67e22"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">1 DOF（屈伸）</text>
+      </g>
+      <g transform="translate(10, 105)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">电池续航</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#e67e22"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">4-8 h / 腰部电池</text>
+      </g>
+      <g transform="translate(10, 130)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">传感器</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#e67e22"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" fill="#333">IMU + 角度编码器 + 力传感器</text>
+      </g>
+    </g>
+
+    <!-- Pros/Cons -->
+    <g transform="translate(29, 520)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="bold" fill="#333">膝OA适配评估</text>
+      <line x1="0" y1="6" x2="380" y2="6" stroke="#e67e22" stroke-width="1" opacity="0.3"/>
+
+      <rect x="0" y="18" width="185" height="175" rx="5" fill="#f0fdf4" stroke="#27ae60" stroke-width="1.2"/>
+      <text x="92" y="38" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#27ae60">优势</text>
+      <line x1="10" y1="46" x2="175" y2="46" stroke="#27ae60" stroke-width="0.5" opacity="0.4"/>
+      <text x="14" y="64" font-family="sans-serif" font-size="10" fill="#333">直接辅助膝关节，疗效明确</text>
+      <text x="14" y="84" font-family="sans-serif" font-size="10" fill="#333">四连杆机构符合膝关节运动学</text>
+      <text x="14" y="104" font-family="sans-serif" font-size="10" fill="#333">轻量化设计（1.5 kg）</text>
+      <text x="14" y="124" font-family="sans-serif" font-size="10" fill="#333">摆动相零阻力模式</text>
+      <text x="14" y="144" font-family="sans-serif" font-size="10" fill="#333">腰部电池减少下肢负担</text>
+      <text x="14" y="164" font-family="sans-serif" font-size="10" fill="#333">多项临床试验进行中</text>
+
+      <rect x="195" y="18" width="185" height="175" rx="5" fill="#fef2f2" stroke="#d13438" stroke-width="1.2"/>
+      <text x="287" y="38" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#d13438">劣势</text>
+      <line x1="205" y1="46" x2="370" y2="46" stroke="#d13438" stroke-width="0.5" opacity="0.4"/>
+      <text x="205" y="64" font-family="sans-serif" font-size="10" fill="#333">峰值扭矩仅25 Nm</text>
+      <text x="205" y="84" font-family="sans-serif" font-size="10" fill="#333">KAM控制能力有限</text>
+      <text x="205" y="104" font-family="sans-serif" font-size="10" fill="#333">无内收/外展自由度</text>
+      <text x="205" y="124" font-family="sans-serif" font-size="10" fill="#333">严重OA患者助力不足</text>
+      <text x="205" y="144" font-family="sans-serif" font-size="10" fill="#333">$5,000定价偏高</text>
+      <text x="205" y="164" font-family="sans-serif" font-size="10" fill="#333">10 SKU尺码复杂</text>
+    </g>
+
+    <rect x="29" y="723" width="380" height="36" rx="5" fill="#fef5ef" stroke="#e67e22" stroke-width="0.8" stroke-dasharray="3,2"/>
+    <text x="219" y="746" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#e67e22">配置：平行布局 · 电机靠近关节 · 四连杆仿生膝关节运动学</text>
+
+    <g transform="translate(29, 776)">
+      <text x="0" y="0" font-family="sans-serif" font-size="12" fill="#888">膝OA适配评分：</text>
+      <rect x="100" y="-12" width="140" height="24" rx="12" fill="#27ae60"/>
+      <circle cx="112" cy="0" r="6" fill="#fff" opacity="0.4"/>
+      <text x="170" y="5" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fff">8 / 10</text>
+    </g>
+
+    <line x1="29" y1="818" x2="409" y2="818" stroke="#e0e0e0" stroke-width="0.8"/>
+
+    <g transform="translate(29, 830)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" font-weight="bold" fill="#555">适用人群</text>
+      <text x="72" y="0" font-family="sans-serif" font-size="11" fill="#666">K-L 1-3级 · 日常行走辅助</text>
+    </g>
+    <g transform="translate(29, 850)">
+      <text x="0" y="0" font-family="sans-serif" font-size="10" fill="#999">Reference: Skip MO/GO 产品技术白皮书 (2025)</text>
+    </g>
+  </g>
+
+  <!-- ==================== COLUMN 3: Hinge ==================== -->
+  <g transform="translate(937, 95)">
+    <rect x="0" y="0" width="438" height="870" rx="10" fill="#fff" stroke="#a9dfbf" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="438" height="42" rx="10" fill="url(#hingeHeader)"/>
+    <rect x="0" y="20" width="438" height="22" fill="url(#hingeHeader)"/>
+    <rect x="390" y="6" width="42" height="30" rx="4" fill="#fff" opacity="0.2"/>
+    <text x="411" y="26" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fff">BEST</text>
+    <text x="219" y="28" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="17" font-weight="bold" fill="#fff">Hinge（铰链）架构</text>
+
+    <text x="219" y="65" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#555">代表产品：Bones · 膝关节直接驱动</text>
+
+    <!-- Mechanism: Hinge (direct drive) -->
+    <g transform="translate(29, 85)">
+      <rect x="0" y="0" width="380" height="260" rx="6" fill="#fafbfc" stroke="#e0e0e0" stroke-width="1"/>
+      <text x="190" y="24" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#555">机构原理图 · 同心直驱电机+离合器</text>
+
+      <!-- Thigh -->
+      <rect x="168" y="50" width="44" height="68" rx="6" fill="#d0d0d0" stroke="#999" stroke-width="0.8"/>
+      <text x="190" y="90" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">大腿</text>
+
+      <!-- Knee joint with concentric motor -->
+      <circle cx="190" cy="135" r="30" fill="none" stroke="#27ae60" stroke-width="2.5"/>
+      <circle cx="190" cy="135" r="10" fill="#27ae60"/>
+      <circle cx="190" cy="135" r="20" fill="none" stroke="#27ae60" stroke-width="1" opacity="0.4"/>
+      <circle cx="190" cy="135" r="40" fill="none" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="190" y="110" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#27ae60" font-weight="bold">膝关节</text>
+      <text x="190" y="138" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#27ae60">直驱电机</text>
+
+      <!-- Rotary arrow -->
+      <path d="M 212 120 A 25 25 0 0 1 218 148" fill="none" stroke="#d13438" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+      <text x="222" y="130" font-family="sans-serif" font-size="9" fill="#d13438">τ</text>
+
+      <!-- Shank -->
+      <rect x="174" y="165" width="32" height="78" rx="5" fill="#d0d0d0" stroke="#999" stroke-width="0.8"/>
+      <text x="190" y="215" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">小腿</text>
+
+      <!-- Clutch indicator -->
+      <rect x="230" y="90" width="80" height="24" rx="4" fill="#f0fdf4" stroke="#27ae60" stroke-width="1"/>
+      <text x="270" y="106" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#27ae60">离合器</text>
+
+      <!-- KAM label -->
+      <line x1="160" y1="170" x2="120" y2="190" stroke="#999" stroke-width="0.8"/>
+      <circle cx="160" cy="170" r="2" fill="#999"/>
+      <text x="95" y="203" font-family="sans-serif" font-size="9" fill="#666">KAM控制力矩</text>
+
+      <!-- Structural frame -->
+      <path d="M 145 55 L 145 240" fill="none" stroke="#999" stroke-width="0.8" stroke-dasharray="2,2"/>
+      <path d="M 235 55 L 235 240" fill="none" stroke="#999" stroke-width="0.8" stroke-dasharray="2,2"/>
+    </g>
+
+    <!-- Specs -->
+    <g transform="translate(29, 365)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="bold" fill="#333">产品规格</text>
+      <line x1="0" y1="6" x2="380" y2="6" stroke="#27ae60" stroke-width="1" opacity="0.3"/>
+      <rect x="0" y="16" width="380" height="130" rx="4" fill="#fafbfc" stroke="#e0e0e0" stroke-width="0.8"/>
+
+      <g transform="translate(10, 30)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">重量</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#27ae60"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">~1.8 kg（单侧，目标）</text>
+      </g>
+      <g transform="translate(10, 55)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">峰值扭矩</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#27ae60"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">30 Nm（目标）</text>
+      </g>
+      <g transform="translate(10, 80)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">自由度</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#27ae60"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">1 DOF + KAM控制</text>
+      </g>
+      <g transform="translate(10, 105)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">电池续航</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#27ae60"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">5-8 h / 4800 mAh</text>
+      </g>
+      <g transform="translate(10, 130)">
+        <text x="0" y="0" font-family="sans-serif" font-size="11" fill="#888">传感器</text>
+        <rect x="80" y="-12" width="4" height="4" rx="2" fill="#27ae60"/>
+        <text x="92" y="0" font-family="sans-serif" font-size="11" fill="#333">IMU + 编码器 + 足压 + EMG</text>
+      </g>
+    </g>
+
+    <!-- Pros/Cons -->
+    <g transform="translate(29, 520)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="bold" fill="#333">膝OA适配评估</text>
+      <line x1="0" y1="6" x2="380" y2="6" stroke="#27ae60" stroke-width="1" opacity="0.3"/>
+
+      <rect x="0" y="18" width="185" height="175" rx="5" fill="#f0fdf4" stroke="#27ae60" stroke-width="1.2"/>
+      <text x="92" y="38" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#27ae60">优势</text>
+      <line x1="10" y1="46" x2="175" y2="46" stroke="#27ae60" stroke-width="0.5" opacity="0.4"/>
+      <text x="14" y="64" font-family="sans-serif" font-size="10" fill="#333">直驱架构，响应速度快</text>
+      <text x="14" y="84" font-family="sans-serif" font-size="10" fill="#333">KAM主动控制（行业独家）</text>
+      <text x="14" y="104" font-family="sans-serif" font-size="10" fill="#333">结构简洁可靠</text>
+      <text x="14" y="124" font-family="sans-serif" font-size="10" fill="#333">RL个性化助力算法</text>
+      <text x="14" y="144" font-family="sans-serif" font-size="10" fill="#333">模块化设计易于迭代</text>
+      <text x="14" y="164" font-family="sans-serif" font-size="10" fill="#333">碳纤维框架重量轻</text>
+
+      <rect x="195" y="18" width="185" height="175" rx="5" fill="#fef2f2" stroke="#d13438" stroke-width="1.2"/>
+      <text x="287" y="38" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#d13438">劣势</text>
+      <line x1="205" y1="46" x2="370" y2="46" stroke="#d13438" stroke-width="0.5" opacity="0.4"/>
+      <text x="205" y="64" font-family="sans-serif" font-size="10" fill="#333">产品尚未量产验证</text>
+      <text x="205" y="84" font-family="sans-serif" font-size="10" fill="#333">KAM效果需临床试验验证</text>
+      <text x="205" y="104" font-family="sans-serif" font-size="10" fill="#333">直驱电机扭矩密度挑战</text>
+      <text x="205" y="124" font-family="sans-serif" font-size="10" fill="#333">成本较高（定制电机）</text>
+      <text x="205" y="144" font-family="sans-serif" font-size="10" fill="#333">RL实时推理算力需求高</text>
+      <text x="205" y="164" font-family="sans-serif" font-size="10" fill="#333">需建立临床验证体系</text>
+    </g>
+
+    <rect x="29" y="723" width="380" height="36" rx="5" fill="#f0fdf4" stroke="#27ae60" stroke-width="0.8" stroke-dasharray="3,2"/>
+    <text x="219" y="746" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#27ae60">配置：同心布局 · 电机与关节共轴 · 直驱力矩控制</text>
+
+    <g transform="translate(29, 776)">
+      <text x="0" y="0" font-family="sans-serif" font-size="12" fill="#888">膝OA适配评分：</text>
+      <rect x="100" y="-12" width="140" height="24" rx="12" fill="#27ae60"/>
+      <circle cx="112" cy="0" r="6" fill="#fff" opacity="0.4"/>
+      <text x="170" y="5" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fff">9 / 10</text>
+    </g>
+
+    <line x1="29" y1="818" x2="409" y2="818" stroke="#e0e0e0" stroke-width="0.8"/>
+
+    <g transform="translate(29, 830)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" font-weight="bold" fill="#555">适用人群</text>
+      <text x="72" y="0" font-family="sans-serif" font-size="11" fill="#666">K-L 2-4级 · 内侧间室OA · KAM异常</text>
+    </g>
+    <g transform="translate(29, 850)">
+      <text x="0" y="0" font-family="sans-serif" font-size="10" fill="#999">Reference: Bones 膝安 产品设计规格 (2026)</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="990" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ccc">Bones &amp; Manifold · Confidential · Appendix C — Diagram 1: Architecture Comparison</text>
+</svg>

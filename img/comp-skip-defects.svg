@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede3cc"/>
+      <stop offset="40%" stop-color="#e8ddc0"/>
+      <stop offset="100%" stop-color="#d4c9a8"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A0AAB5"/>
+      <stop offset="40%" stop-color="#8B93A0"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0d1137"/>
+      <stop offset="100%" stop-color="#1a237e"/>
+    </linearGradient>
+    <linearGradient id="batteryGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.10"/>
+    </filter>
+    <filter id="shadowLight" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.06"/>
+    </filter>
+    <marker id="arrowRed" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#0096f0"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#8B93A0"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1000" fill="#ffffff"/>
+
+  <!-- Title Bar -->
+  <rect x="0" y="0" width="1200" height="68" fill="url(#titleGrad)"/>
+  <text x="600" y="30" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Skip MO/GO 三大工程缺陷与 Bones 超越方案</text>
+  <text x="600" y="54" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" fill="#9fa8da">Three Critical Engineering Flaws of Skip MO/GO and Bones Superior Solutions</text>
+
+  <!-- VS Divider vertical line -->
+  <line x1="600" y1="85" x2="600" y2="830" stroke="#dee2e6" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- Column headers -->
+  <rect x="25" y="80" width="570" height="40" rx="6" fill="#dc3545" opacity="0.9"/>
+  <text x="310" y="105" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="15" font-weight="bold" fill="#ffffff">Skip MO/GO 工程缺陷</text>
+
+  <rect x="605" y="80" width="570" height="40" rx="6" fill="#1a73e8" opacity="0.9"/>
+  <text x="890" y="105" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="15" font-weight="bold" fill="#ffffff">Bones 超越方案</text>
+
+  <!-- ===== BAND 1: 定价 ===== -->
+  <rect x="25" y="135" width="570" height="220" rx="6" fill="#fff5f5" stroke="#f5c6cb" stroke-width="1.2" filter="url(#shadowLight)"/>
+  <rect x="25" y="135" width="570" height="32" rx="6" fill="#dc3545" opacity="0.10"/>
+  <text x="45" y="156" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="bold" fill="#c82333">缺陷1: $5,000 定价 (约¥36,500)</text>
+
+  <!-- Defect 1 content -->
+  <circle cx="55" cy="185" r="4" fill="#dc3545" opacity="0.6"/>
+  <text x="65" y="189" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">定制烧结NdFeB磁性致动器 ($200-300/个 × 2)</text>
+
+  <circle cx="55" cy="210" r="4" fill="#dc3545" opacity="0.6"/>
+  <text x="65" y="214" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">始祖鸟Gamma软壳裤捆绑 ($250-300)</text>
+
+  <circle cx="55" cy="235" r="4" fill="#dc3545" opacity="0.6"/>
+  <text x="65" y="239" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">独家供应链 + Arc'teryx品牌溢价</text>
+
+  <circle cx="55" cy="260" r="4" fill="#dc3545" opacity="0.6"/>
+  <text x="65" y="264" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">BOM-to-retail 4-6x → 定价策略不可持续</text>
+
+  <rect x="45" y="285" width="530" height="55" rx="5" fill="#fff0f0" stroke="#ffcdd2" stroke-width="0.8"/>
+  <text x="55" y="302" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#c62828">根因分析 / Root Cause</text>
+  <text x="55" y="320" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#ad1457">定制磁阻执行器 + 品牌服装捆绑 = BOM ~$800-1,200 → 需要4-6x覆盖研发+Agency+渠道</text>
+
+  <!-- Right side: Bones Solution 1 -->
+  <rect x="605" y="135" width="570" height="220" rx="6" fill="#f0f8ff" stroke="#b3ddfb" stroke-width="1.2" filter="url(#shadowLight)"/>
+  <rect x="605" y="135" width="570" height="32" rx="6" fill="#1a73e8" opacity="0.08"/>
+  <text x="625" y="156" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="bold" fill="#1565c0">方案1: 成本重构 · BOM降10x</text>
+
+  <circle cx="635" cy="185" r="4" fill="#1a73e8" opacity="0.6"/>
+  <text x="645" y="189" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">标准BLDC + 行星减速器 (¥150-300/台)</text>
+
+  <circle cx="635" cy="210" r="4" fill="#1a73e8" opacity="0.6"/>
+  <text x="645" y="214" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">独立绑带系统 — 不绑定任何服装品牌</text>
+
+  <circle cx="635" cy="235" r="4" fill="#1a73e8" opacity="0.6"/>
+  <text x="645" y="239" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">2个尺码 (S/M + L/XL) vs Skip 10尺码</text>
+
+  <circle cx="635" cy="260" r="4" fill="#1a73e8" opacity="0.6"/>
+  <text x="645" y="264" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">BOM-to-retail 2-3x → 健康毛利 + 可降价空间</text>
+
+  <rect x="620" y="285" width="540" height="55" rx="5" fill="#e3f2fd" stroke="#bbdefb" stroke-width="0.8"/>
+  <text x="630" y="302" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#1565c0">核心优势 / Key Advantage</text>
+  <text x="630" y="320" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#37474f">目标零售 ¥3,999-4,999 (≈$550-680) — 仅为Skip 1/7, 可触及老年市场</text>
+
+  <!-- VS marker Band 1 -->
+  <circle cx="600" cy="245" r="22" fill="#fff" stroke="#dee2e6" stroke-width="2" filter="url(#shadowLight)"/>
+  <text x="600" y="250" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="bold" fill="#6c757d">VS</text>
+
+  <!-- ===== BAND 2: 尺码 ===== -->
+  <rect x="25" y="370" width="570" height="220" rx="6" fill="#fff5f5" stroke="#f5c6cb" stroke-width="1.2" filter="url(#shadowLight)"/>
+  <rect x="25" y="370" width="570" height="32" rx="6" fill="#dc3545" opacity="0.10"/>
+  <text x="45" y="391" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="bold" fill="#c82333">缺陷2: 10个裤子尺码 · 服装库存诅咒</text>
+
+  <circle cx="55" cy="420" r="4" fill="#dc3545" opacity="0.6"/>
+  <text x="65" y="424" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">外骨骼与服装绑定 = 尺码复杂度 ×10</text>
+
+  <circle cx="55" cy="445" r="4" fill="#dc3545" opacity="0.6"/>
+  <text x="65" y="449" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">每尺码需备货 → 资金占用 ×10</text>
+
+  <circle cx="55" cy="470" r="4" fill="#dc3545" opacity="0.6"/>
+  <text x="65" y="474" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">退货率 20-30% (服装行业标准) → 逆向物流成本</text>
+
+  <circle cx="55" cy="495" r="4" fill="#dc3545" opacity="0.6"/>
+  <text x="65" y="499" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">用户体型变化 (增重/减重) → 需重新购买裤子</text>
+
+  <rect x="45" y="520" width="530" height="55" rx="5" fill="#fff0f0" stroke="#ffcdd2" stroke-width="0.8"/>
+  <text x="55" y="537" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#c62828">根因分析 / Root Cause</text>
+  <text x="55" y="555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#ad1457">Skip绑定Arc'teryx Gamma裤 → 继承了服装行业所有供应链痛点 → 规模扩张时库存风险指数级增长</text>
+
+  <!-- Right side: Bones Solution 2 -->
+  <rect x="605" y="370" width="570" height="220" rx="6" fill="#f0f8ff" stroke="#b3ddfb" stroke-width="1.2" filter="url(#shadowLight)"/>
+  <rect x="605" y="370" width="570" height="32" rx="6" fill="#1a73e8" opacity="0.08"/>
+  <text x="625" y="391" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="bold" fill="#1565c0">方案2: 极简SKU · 绑在用户裤子外面</text>
+
+  <circle cx="635" cy="420" r="4" fill="#1a73e8" opacity="0.6"/>
+  <text x="645" y="424" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">2个SKU (S/M + L/XL) 覆盖40cm+调节范围</text>
+
+  <circle cx="635" cy="445" r="4" fill="#1a73e8" opacity="0.6"/>
+  <text x="645" y="449" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">魔术贴 + 棘轮扣无极调节 → "绑在您的裤子外面"</text>
+
+  <circle cx="635" cy="470" r="4" fill="#1a73e8" opacity="0.6"/>
+  <text x="645" y="474" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">非服装产品 → 退货率 &lt;8% (消费电子标准)</text>
+
+  <circle cx="635" cy="495" r="4" fill="#1a73e8" opacity="0.6"/>
+  <text x="645" y="499" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">体型变化 → 调节绑带即可 → 无需换购任何部件</text>
+
+  <rect x="620" y="520" width="540" height="55" rx="5" fill="#e3f2fd" stroke="#bbdefb" stroke-width="0.8"/>
+  <text x="630" y="537" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#1565c0">核心优势 / Key Advantage</text>
+  <text x="630" y="555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#37474f">用户穿自己的任何裤子 + 无极调节 = 零服装库存风险 + 用户选择自由</text>
+
+  <!-- VS marker Band 2 -->
+  <circle cx="600" cy="480" r="22" fill="#fff" stroke="#dee2e6" stroke-width="2" filter="url(#shadowLight)"/>
+  <text x="600" y="485" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="bold" fill="#6c757d">VS</text>
+
+  <!-- ===== BAND 3: 续航 ===== -->
+  <rect x="25" y="605" width="570" height="220" rx="6" fill="#fff5f5" stroke="#f5c6cb" stroke-width="1.2" filter="url(#shadowLight)"/>
+  <rect x="25" y="605" width="570" height="32" rx="6" fill="#dc3545" opacity="0.10"/>
+  <text x="45" y="626" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="bold" fill="#c82333">缺陷3: 3h续航 (上坡最大助力)</text>
+
+  <circle cx="55" cy="655" r="4" fill="#dc3545" opacity="0.6"/>
+  <text x="65" y="659" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">准直驱8:1低减速比 = 铜损大 → 效率低</text>
+
+  <circle cx="55" cy="680" r="4" fill="#dc3545" opacity="0.6"/>
+  <text x="65" y="684" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">腰带集成电池 ~150Wh → 不可热插拔</text>
+
+  <circle cx="55" cy="705" r="4" fill="#dc3545" opacity="0.6"/>
+  <text x="65" y="709" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">陡坡200-400W总功率 → 实际全力续航 ~45-90min</text>
+
+  <circle cx="55" cy="730" r="4" fill="#dc3545" opacity="0.6"/>
+  <text x="65" y="734" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">150Wh &gt; 100Wh航空限制 → 无法携带登机</text>
+
+  <rect x="45" y="755" width="530" height="55" rx="5" fill="#fff0f0" stroke="#ffcdd2" stroke-width="0.8"/>
+  <text x="55" y="772" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#c62828">根因分析 / Root Cause</text>
+  <text x="55" y="790" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#ad1457">QDD准直驱设计哲学 → 低减速比 + 低阻抗电机 = 大电流铜损 → 热效率 &lt; 60% → 电池能量大部分变热</text>
+
+  <!-- Right side: Bones Solution 3 -->
+  <rect x="605" y="605" width="570" height="220" rx="6" fill="#f0f8ff" stroke="#b3ddfb" stroke-width="1.2" filter="url(#shadowLight)"/>
+  <rect x="605" y="605" width="570" height="32" rx="6" fill="#1a73e8" opacity="0.08"/>
+  <text x="625" y="626" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="bold" fill="#1565c0">方案3: 续航革命 · 热插拔</text>
+
+  <circle cx="635" cy="655" r="4" fill="#1a73e8" opacity="0.6"/>
+  <text x="645" y="659" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">9:1减速比 → 电机工作于高效区 → 铜损显著降低</text>
+
+  <circle cx="635" cy="680" r="4" fill="#1a73e8" opacity="0.6"/>
+  <text x="645" y="684" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">腰带热插拔电池 (三星50E 4S1P, 72Wh × 2)</text>
+
+  <circle cx="635" cy="705" r="4" fill="#1a73e8" opacity="0.6"/>
+  <text x="645" y="709" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">4-6h实际使用 (vs Skip 45-90min)</text>
+
+  <circle cx="635" cy="730" r="4" fill="#1a73e8" opacity="0.6"/>
+  <text x="645" y="734" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#6c757d">72Wh × 2 &lt; 100Wh → 符合航空规定 → 可登机</text>
+
+  <rect x="620" y="755" width="540" height="55" rx="5" fill="#e3f2fd" stroke="#bbdefb" stroke-width="0.8"/>
+  <text x="630" y="772" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#1565c0">核心优势 / Key Advantage</text>
+  <text x="630" y="790" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#37474f">热插拔设计 → 无限续航 (多备电池组) · 9:1减速比提升系统效率 &gt; 20% · 航空合规</text>
+
+  <!-- VS marker Band 3 -->
+  <circle cx="600" cy="715" r="22" fill="#fff" stroke="#dee2e6" stroke-width="2" filter="url(#shadowLight)"/>
+  <text x="600" y="720" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="bold" fill="#6c757d">VS</text>
+
+  <!-- ===== BOTTOM SUMMARY ===== -->
+  <rect x="25" y="845" width="1150" height="60" rx="8" fill="#fff8e1" stroke="#ffc107" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="600" y="868" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="bold" fill="#e65100">总结 / Summary</text>
+  <text x="600" y="890" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#8d6e00">Skip验证了软体外骨骼的社会接受度 — 但$5,000定价放弃老人市场。Bones: 同等或更好性能, 1/7价格, 无服装绑定, 无限续航</text>
+
+  <!-- Data source -->
+  <text x="600" y="930" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#999">数据来源: Skip官网产品规格 · The Verge "Skip MO/GO hands-on" · Wired "Testing the MO/GO exoskeleton" · Arc'teryx合作新闻稿 · IEEE Spectrum分析</text>
+
+  <!-- Legend -->
+  <g transform="translate(25, 945)">
+    <rect x="0" y="0" width="1150" height="35" rx="5" fill="#f8f9fa" stroke="#dee2e6" stroke-width="0.8"/>
+    <text x="15" y="22" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#333">图例:</text>
+    <rect x="55" y="12" width="14" height="12" rx="2" fill="#dc3545" opacity="0.15" stroke="#dc3545" stroke-width="0.6"/>
+    <text x="73" y="22" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#555">缺陷分析 (红)</text>
+    <rect x="155" y="12" width="14" height="12" rx="2" fill="#1a73e8" opacity="0.1" stroke="#1a73e8" stroke-width="0.6"/>
+    <text x="173" y="22" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#555">解决方案 (蓝)</text>
+    <circle cx="260" cy="18" r="6" fill="#fff" stroke="#dee2e6" stroke-width="1"/>
+    <text x="270" y="22" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#555">VS对比</text>
+    <rect x="330" y="12" width="14" height="12" rx="2" fill="#fff0f0" stroke="#ffcdd2" stroke-width="0.6"/>
+    <text x="348" y="22" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#555">根因分析</text>
+  </g>
+</svg>

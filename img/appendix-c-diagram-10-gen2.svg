@@ -1,0 +1,338 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000">
+  <defs>
+    <linearGradient id="boneBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f0eb"/>
+      <stop offset="50%" style="stop-color:#efe8e0"/>
+      <stop offset="100%" style="stop-color:#e8dfd5"/>
+    </linearGradient>
+    <linearGradient id="amberTheme" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d97706"/>
+      <stop offset="100%" style="stop-color:#b45309"/>
+    </linearGradient>
+    <linearGradient id="amberLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fffbeb"/>
+      <stop offset="100%" style="stop-color:#fde68a"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fce4d6"/>
+      <stop offset="100%" style="stop-color:#f5d0b8"/>
+    </linearGradient>
+    <linearGradient id="winchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B7355"/>
+      <stop offset="100%" style="stop-color:#6B5340"/>
+    </linearGradient>
+    <linearGradient id="cableGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4a373"/>
+      <stop offset="100%" style="stop-color:#b8860b"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#00000040"/>
+    </filter>
+    <filter id="shadowLight" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-color="#00000030"/>
+    </filter>
+    <marker id="arrowAmber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d97706"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e63946"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1200" height="1000" fill="url(#boneBg)" rx="8"/>
+
+  <!-- 60px isolation border -->
+  <rect x="5" y="5" width="1190" height="990" fill="none" stroke="#d97706" stroke-width="1.5" rx="4" stroke-dasharray="8,4" opacity="0.3"/>
+
+  <!-- Title bar -->
+  <rect x="40" y="20" width="1120" height="60" rx="8" fill="url(#amberTheme)" filter="url(#shadow)"/>
+  <text x="600" y="46" text-anchor="middle" fill="white" font-size="22" font-weight="bold" font-family="system-ui, sans-serif">架构演进 Gen 2+ — 电缆远程 + TSA 传动</text>
+  <text x="600" y="66" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="13" font-family="system-ui, sans-serif">Gen 2+: Cable-Remote Actuation with TSA (Tendon-Sheath Actuation) Transmission</text>
+
+  <!-- ===== LEFT PANEL: Human Torso + Leg + TSA System ===== 720x700区域 -->
+  <g transform="translate(20, 95)">
+    <!-- Left panel label (unscaled) -->
+    <rect x="0" y="0" width="720" height="30" rx="4" fill="#d97706" opacity="0.15"/>
+    <text x="360" y="20" text-anchor="middle" fill="#d97706" font-size="15" font-weight="bold" font-family="system-ui, sans-serif">TSA 远程传动系统 — 人体与外骨骼放大图</text>
+
+    <!-- 整体放大1.3x -->
+    <g transform="translate(0, 35) scale(1.3)">
+
+      <!-- === Human Torso + Leg Figure === -->
+      <g transform="translate(100, 40)">
+        <!-- Head -->
+        <circle cx="45" cy="12" r="18" fill="url(#skinGrad)" stroke="#d4a373" stroke-width="0.8"/>
+        <!-- Torso -->
+        <path d="M15,30 L12,90 Q12,110 20,130 L70,130 Q78,110 78,90 L75,30 Z" fill="url(#skinGrad)" stroke="#d4a373" stroke-width="0.8"/>
+        <!-- Upper leg -->
+        <rect x="18" y="130" width="24" height="100" rx="10" fill="url(#skinGrad)" stroke="#d4a373" stroke-width="0.8"/>
+        <!-- Knee -->
+        <circle cx="30" cy="232" r="14" fill="#fce4d6" stroke="#d4a373" stroke-width="0.8"/>
+        <!-- Lower leg -->
+        <rect x="20" y="245" width="20" height="110" rx="8" fill="url(#skinGrad)" stroke="#d4a373" stroke-width="0.8"/>
+        <!-- Ankle/Foot -->
+        <ellipse cx="30" cy="358" rx="18" ry="10" fill="#fce4d6" stroke="#d4a373" stroke-width="0.8"/>
+        <!-- Waist band -->
+        <rect x="5" y="95" width="80" height="18" rx="5" fill="#444" stroke="#333" stroke-width="0.8"/>
+      </g>
+
+      <!-- === TSA Winch at Belt === -->
+      <g transform="translate(50, 115)">
+        <rect x="0" y="0" width="70" height="50" rx="6" fill="url(#winchGrad)" stroke="#5c4030" stroke-width="1" filter="url(#shadowLight)"/>
+        <text x="35" y="15" text-anchor="middle" fill="#f5f0eb" font-size="8" font-weight="bold" font-family="system-ui, sans-serif">TSA 绞盘</text>
+        <circle cx="35" cy="35" r="10" fill="#8B7355" stroke="#5c4030" stroke-width="0.8"/>
+        <circle cx="35" cy="35" r="4" fill="#5c4030"/>
+        <circle cx="35" cy="35" r="7" fill="none" stroke="#d4a373" stroke-width="1.5" stroke-dasharray="3,2"/>
+      </g>
+
+      <!-- === Cable Path Down Leg === -->
+      <g>
+        <path d="M120,140 Q130,145 130,160 Q130,200 128,230 Q126,245 124,260 Q122,300 120,340" stroke="#8B7355" stroke-width="4" fill="none" opacity="0.6"/>
+        <path d="M120,140 Q130,145 130,160 Q130,200 128,230 Q126,245 124,260 Q122,300 120,340" stroke="#d4a373" stroke-width="1.5" fill="none" stroke-dasharray="2,2"/>
+        <circle cx="128" cy="180" r="3" fill="#d97706"/>
+        <circle cx="126" cy="230" r="3" fill="#d97706"/>
+        <circle cx="122" cy="300" r="3" fill="#d97706"/>
+      </g>
+
+      <!-- === Knee Pulley Terminal === -->
+      <g transform="translate(100, 225)">
+        <circle cx="20" cy="15" r="12" fill="none" stroke="#8B7355" stroke-width="2.5"/>
+        <circle cx="20" cy="15" r="4" fill="#5c4030"/>
+        <path d="M8,15 A12,12 0 0,0 32,15" fill="none" stroke="#d4a373" stroke-width="2"/>
+        <line x1="8" y1="15" x2="-5" y2="0" stroke="#d4a373" stroke-width="2" marker-end="url(#arrowAmber)"/>
+        <line x1="32" y1="15" x2="45" y2="0" stroke="#d4a373" stroke-width="2" marker-end="url(#arrowAmber)"/>
+        <text x="20" y="38" text-anchor="middle" fill="#d97706" font-size="8" font-weight="bold" font-family="system-ui, sans-serif">膝部滑轮终端</text>
+      </g>
+
+      <!-- === TSA Principle Detail === -->
+      <g transform="translate(270, 50)">
+        <rect x="0" y="0" width="260" height="180" rx="8" fill="white" stroke="#d97706" stroke-width="1.2" filter="url(#shadowLight)"/>
+        <text x="130" y="20" text-anchor="middle" fill="#d97706" font-size="12" font-weight="bold" font-family="system-ui, sans-serif">TSA 原理详图</text>
+        <rect x="20" y="40" width="220" height="16" rx="8" fill="#8B7355" stroke="#5c4030" stroke-width="0.8"/>
+        <rect x="28" y="42" width="204" height="12" rx="6" fill="#a09070" stroke="#7a6b50" stroke-width="0.5"/>
+        <g stroke="#d4a373" stroke-width="1.5">
+          <line x1="35" y1="48" x2="240" y2="48"/>
+          <line x1="35" y1="50" x2="240" y2="50"/>
+          <line x1="35" y1="52" x2="240" y2="52"/>
+        </g>
+        <g transform="translate(20, 70)">
+          <text x="110" y="12" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">多股纤维绳结构</text>
+          <path d="M30,25 Q60,20 90,25 Q120,30 150,25 Q180,20 210,25" fill="none" stroke="#d4a373" stroke-width="2.5"/>
+          <path d="M30,29 Q60,24 90,29 Q120,34 150,29 Q180,24 210,29" fill="none" stroke="#c4953a" stroke-width="2.5"/>
+          <path d="M30,33 Q60,28 90,33 Q120,38 150,33 Q180,28 210,33" fill="none" stroke="#b8860b" stroke-width="2.5"/>
+          <line x1="20" y1="29" x2="8" y2="29" stroke="#e63946" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+          <line x1="220" y1="29" x2="232" y2="29" stroke="#e63946" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+        </g>
+        <g transform="translate(20, 110)">
+          <text x="110" y="12" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">张力传递机制</text>
+          <line x1="30" y1="25" x2="30" y2="40" stroke="#059669" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+          <line x1="190" y1="25" x2="190" y2="40" stroke="#059669" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+          <text x="30" y="52" text-anchor="middle" fill="#059669" font-size="7" font-family="system-ui, sans-serif">鞘管受压</text>
+          <line x1="60" y1="55" x2="60" y2="40" stroke="#e63946" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+          <line x1="160" y1="55" x2="160" y2="40" stroke="#e63946" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+          <text x="110" y="67" text-anchor="middle" fill="#e63946" font-size="7" font-family="system-ui, sans-serif">纤芯受拉</text>
+        </g>
+      </g>
+
+      <!-- === Bowden vs TSA Efficiency Comparison === -->
+      <g transform="translate(270, 250)">
+        <rect x="0" y="0" width="260" height="200" rx="8" fill="white" stroke="#d97706" stroke-width="1.2" filter="url(#shadowLight)"/>
+        <text x="130" y="20" text-anchor="middle" fill="#d97706" font-size="12" font-weight="bold" font-family="system-ui, sans-serif">传动效率对比</text>
+        <text x="15" y="48" fill="#666" font-size="11" font-family="system-ui, sans-serif">Bowden 套管</text>
+        <rect x="15" y="55" width="140" height="24" rx="4" fill="#e0e0e0" stroke="#bbb" stroke-width="0.8"/>
+        <rect x="15" y="55" width="112" height="24" rx="4" fill="#94a3b8" stroke="#bbb" stroke-width="0.8"/>
+        <text x="200" y="72" text-anchor="middle" fill="#333" font-size="12" font-weight="bold" font-family="system-ui, sans-serif">≈80%</text>
+        <text x="15" y="98" fill="#666" font-size="11" font-family="system-ui, sans-serif">TSA 远程传动</text>
+        <rect x="15" y="105" width="140" height="24" rx="4" fill="#e0e0e0" stroke="#bbb" stroke-width="0.8"/>
+        <rect x="15" y="105" width="126" height="24" rx="4" fill="url(#amberTheme)" stroke="#bbb" stroke-width="0.8"/>
+        <text x="200" y="122" text-anchor="middle" fill="#333" font-size="12" font-weight="bold" font-family="system-ui, sans-serif">≥85%</text>
+        <rect x="15" y="145" width="12" height="12" rx="2" fill="#94a3b8"/>
+        <text x="32" y="155" fill="#666" font-size="9" font-family="system-ui, sans-serif">Bowden 能效</text>
+        <rect x="110" y="145" width="12" height="12" rx="2" fill="#d97706"/>
+        <text x="127" y="155" fill="#666" font-size="9" font-family="system-ui, sans-serif">TSA 能效</text>
+        <text x="130" y="182" text-anchor="middle" fill="#d97706" font-size="9" font-weight="bold" font-family="system-ui, sans-serif">Bowden效率衰减在弯曲路径下更严重</text>
+      </g>
+
+      <!-- Force arrows on leg -->
+      <g transform="translate(100, 40)">
+        <path d="M140,150 Q145,200 140,250" stroke="#d97706" stroke-width="2.5" fill="none" marker-end="url(#arrowAmber)" stroke-dasharray="6,3"/>
+        <text x="148" y="210" font-size="8" fill="#d97706" font-family="system-ui, sans-serif">拉力</text>
+        <path d="M55,232 Q65,225 70,215" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#arrowAmber)"/>
+        <text x="72" y="218" font-size="8" fill="#d97706" font-family="system-ui, sans-serif">关节扭矩</text>
+      </g>
+
+      <!-- Motor relocated label -->
+      <g transform="translate(50, 70)">
+        <rect x="0" y="0" width="140" height="24" rx="4" fill="white" stroke="#d97706" stroke-width="0.8" opacity="0.9"/>
+        <text x="70" y="16" text-anchor="middle" fill="#d97706" font-size="9" font-weight="bold" font-family="system-ui, sans-serif">电机移至腰带</text>
+      </g>
+
+      <!-- Force Sensing Detail -->
+      <g transform="translate(270, 470)">
+        <rect x="0" y="0" width="260" height="65" rx="6" fill="white" stroke="#d97706" stroke-width="0.8" filter="url(#shadowLight)"/>
+        <text x="130" y="16" text-anchor="middle" fill="#d97706" font-size="10" font-weight="bold" font-family="system-ui, sans-serif">力矩传感集成</text>
+        <rect x="15" y="24" width="230" height="30" rx="4" fill="#fffbeb" stroke="#d97706" stroke-width="0.5"/>
+        <text x="130" y="38" text-anchor="middle" fill="#333" font-size="9" font-family="system-ui, sans-serif">绞盘底座应变片桥路</text>
+        <text x="130" y="51" text-anchor="middle" fill="#666" font-size="8" font-family="system-ui, sans-serif">力控精度 &lt; 0.5 Nm | 带宽 200 Hz</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Divider / 隔离带 -->
+  <line x1="740" y1="95" x2="740" y2="950" stroke="#d97706" stroke-width="0.8" opacity="0.15"/>
+
+  <!-- ===== RIGHT PANEL: Parameter Table (压缩到380px宽) ===== -->
+  <g transform="translate(800, 95)">
+    <rect x="0" y="0" width="380" height="30" rx="4" fill="#d97706" opacity="0.15"/>
+    <text x="190" y="20" text-anchor="middle" fill="#d97706" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">完整参数表</text>
+
+    <g transform="translate(8, 50)">
+      <!-- Header -->
+      <rect x="0" y="0" width="105" height="28" rx="4" fill="#d97706" opacity="0.15"/>
+      <rect x="105" y="0" width="245" height="28" rx="4" fill="#d97706" opacity="0.15"/>
+      <text x="52" y="19" text-anchor="middle" fill="#d97706" font-size="12" font-weight="bold" font-family="system-ui, sans-serif">参数</text>
+      <text x="227" y="19" text-anchor="middle" fill="#d97706" font-size="12" font-weight="bold" font-family="system-ui, sans-serif">Gen 2+ 规格</text>
+
+      <!-- Row 1: Knee End Mass -->
+      <rect x="0" y="30" width="105" height="34" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="30" width="245" height="34" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="47" r="4" fill="#d97706"/>
+      <text x="22" y="51" fill="#333" font-size="11" font-family="system-ui, sans-serif">膝端质量</text>
+      <text x="227" y="47" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">&lt; 500 g</text>
+      <text x="227" y="61" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">电机移至腰带后降低</text>
+
+      <!-- Row 2: Transmission Efficiency -->
+      <rect x="0" y="66" width="105" height="34" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="66" width="245" height="34" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="83" r="4" fill="#d97706"/>
+      <text x="22" y="87" fill="#333" font-size="11" font-family="system-ui, sans-serif">传动效率</text>
+      <text x="227" y="83" text-anchor="middle" fill="#059669" font-size="12" font-weight="bold" font-family="system-ui, sans-serif">&gt; 85%</text>
+      <text x="227" y="97" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">TSA低摩擦纤维绳</text>
+
+      <!-- Row 3: Battery -->
+      <rect x="0" y="102" width="105" height="34" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="102" width="245" height="34" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="119" r="4" fill="#d97706"/>
+      <text x="22" y="123" fill="#333" font-size="11" font-family="system-ui, sans-serif">电池组</text>
+      <text x="227" y="119" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">4S2P 锂聚合物</text>
+      <text x="227" y="133" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">144 Wh | 腰带双侧分布</text>
+
+      <!-- Row 4: System Mass -->
+      <rect x="0" y="138" width="105" height="34" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="138" width="245" height="34" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="155" r="4" fill="#d97706"/>
+      <text x="22" y="159" fill="#333" font-size="11" font-family="system-ui, sans-serif">系统总质量</text>
+      <text x="227" y="155" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">&lt; 2.0 kg</text>
+      <text x="227" y="169" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">比 Gen 1 减重 17%</text>
+
+      <!-- Row 5: Peak Torque -->
+      <rect x="0" y="174" width="105" height="28" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="174" width="245" height="28" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="188" r="4" fill="#d97706"/>
+      <text x="22" y="192" fill="#333" font-size="11" font-family="system-ui, sans-serif">峰值扭矩</text>
+      <text x="227" y="192" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">25 Nm (放大比2:1)</text>
+
+      <!-- Row 6: Motor -->
+      <rect x="0" y="204" width="105" height="34" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="204" width="245" height="34" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="221" r="4" fill="#d97706"/>
+      <text x="22" y="225" fill="#333" font-size="11" font-family="system-ui, sans-serif">驱动电机</text>
+      <text x="227" y="221" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">定制 BLDC × 2</text>
+      <text x="227" y="235" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">腰带安装，TSA远程传动</text>
+
+      <!-- Row 7: Cable -->
+      <rect x="0" y="240" width="105" height="34" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="240" width="245" height="34" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="257" r="4" fill="#d97706"/>
+      <text x="22" y="261" fill="#333" font-size="11" font-family="system-ui, sans-serif">传动缆绳</text>
+      <text x="227" y="257" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">Dyneema多股纤维</text>
+      <text x="227" y="271" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">Ø1.5mm, 抗拉 >500N</text>
+
+      <!-- Row 8: Learning -->
+      <rect x="0" y="276" width="105" height="34" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="276" width="245" height="34" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="293" r="4" fill="#d97706"/>
+      <text x="22" y="297" fill="#333" font-size="11" font-family="system-ui, sans-serif">学习范式</text>
+      <text x="227" y="293" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">联邦学习</text>
+      <text x="227" y="307" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">跨用户模型共训</text>
+
+      <!-- Row 9: Certification -->
+      <rect x="0" y="312" width="105" height="34" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="312" width="245" height="34" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="329" r="4" fill="#d97706"/>
+      <text x="22" y="333" fill="#333" font-size="11" font-family="system-ui, sans-serif">认证</text>
+      <text x="227" y="329" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">CE + FCC</text>
+      <text x="227" y="343" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">Class I 医疗设备</text>
+
+      <!-- Row 10: Joint Type -->
+      <rect x="0" y="348" width="105" height="28" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="348" width="245" height="28" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="362" r="4" fill="#d97706"/>
+      <text x="22" y="366" fill="#333" font-size="11" font-family="system-ui, sans-serif">关节类型</text>
+      <text x="227" y="366" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">铰链+滑轮复合</text>
+
+      <!-- Row 11: Wear Time -->
+      <rect x="0" y="378" width="105" height="28" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="378" width="245" height="28" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="392" r="4" fill="#d97706"/>
+      <text x="22" y="396" fill="#333" font-size="11" font-family="system-ui, sans-serif">穿戴时间</text>
+      <text x="227" y="396" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">25 秒</text>
+
+      <!-- Row 12: Noise -->
+      <rect x="0" y="408" width="105" height="28" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="408" width="245" height="28" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="422" r="4" fill="#d97706"/>
+      <text x="22" y="426" fill="#333" font-size="11" font-family="system-ui, sans-serif">工作噪声</text>
+      <text x="227" y="426" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">≤45 dB (1m)</text>
+    </g>
+
+    <!-- Bottom summary -->
+    <g transform="translate(8, 480)">
+      <rect x="0" y="0" width="354" height="120" rx="8" fill="white" stroke="#d97706" stroke-width="1.2" filter="url(#shadowLight)"/>
+      <text x="177" y="22" text-anchor="middle" fill="#d97706" font-size="12" font-weight="bold" font-family="system-ui, sans-serif">Gen 2+ 设计特征总结</text>
+      <line x1="12" y1="32" x2="342" y2="32" stroke="#d97706" stroke-width="0.5" opacity="0.3"/>
+      <circle cx="16" cy="46" r="3" fill="#d97706"/>
+      <text x="26" y="50" fill="#444" font-size="11" font-family="system-ui, sans-serif">电机从关节移至腰带，TSA远程传动降低末端惯量</text>
+      <circle cx="16" cy="64" r="3" fill="#d97706"/>
+      <text x="26" y="68" fill="#444" font-size="11" font-family="system-ui, sans-serif">Dyneema多股纤维绳，弯折路径效率保持 &gt;85%</text>
+      <circle cx="16" cy="82" r="3" fill="#d97706"/>
+      <text x="26" y="86" fill="#444" font-size="11" font-family="system-ui, sans-serif">联邦学习跨用户共训，无需集中原始数据</text>
+      <circle cx="16" cy="100" r="3" fill="#d97706"/>
+      <text x="26" y="104" fill="#444" font-size="11" font-family="system-ui, sans-serif">CE+FCC认证，面向Class I医疗设备市场</text>
+      <circle cx="16" cy="118" r="3" fill="#d97706"/>
+      <text x="26" y="122" fill="#444" font-size="11" font-family="system-ui, sans-serif">TSA绞盘集成力矩传感器，力控 &lt; 0.5 Nm</text>
+    </g>
+
+    <!-- Key metrics -->
+    <g transform="translate(8, 615)">
+      <rect x="0" y="0" width="354" height="44" rx="6" fill="#d97706" opacity="0.06"/>
+      <text x="177" y="16" text-anchor="middle" fill="#d97706" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">关键指标雷达</text>
+      <rect x="15" y="24" width="48" height="14" rx="3" fill="#d97706" opacity="0.15"/>
+      <text x="39" y="35" text-anchor="middle" fill="#333" font-size="9" font-family="system-ui, sans-serif">扭矩密度12.5</text>
+      <rect x="145" y="24" width="48" height="14" rx="3" fill="#d97706" opacity="0.15"/>
+      <text x="169" y="35" text-anchor="middle" fill="#333" font-size="9" font-family="system-ui, sans-serif">能效81%</text>
+      <rect x="280" y="24" width="48" height="14" rx="3" fill="#d97706" opacity="0.15"/>
+      <text x="304" y="35" text-anchor="middle" fill="#333" font-size="9" font-family="system-ui, sans-serif">TRL 6</text>
+    </g>
+
+    <!-- Timeline -->
+    <g transform="translate(8, 670)">
+      <text x="177" y="12" text-anchor="middle" fill="#666" font-size="10" font-family="system-ui, sans-serif">演进路线</text>
+      <rect x="20" y="22" width="314" height="28" rx="14" fill="#f0f0f0"/>
+      <text x="72" y="41" text-anchor="middle" fill="#999" font-size="11" font-family="system-ui, sans-serif">Gen 0-1</text>
+      <rect x="148" y="22" width="105" height="28" rx="14" fill="url(#amberTheme)"/>
+      <text x="200" y="41" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">Gen 2+</text>
+      <line x1="253" y1="36" x2="275" y2="36" stroke="#ccc" stroke-width="2"/>
+      <text x="295" y="41" text-anchor="middle" fill="#999" font-size="11" font-family="system-ui, sans-serif">Gen 3</text>
+    </g>
+  </g>
+
+  <!-- Footer / 全中文图例 -->
+  <rect x="40" y="955" width="1120" height="36" rx="4" fill="#d97706" opacity="0.08"/>
+  <text x="600" y="968" text-anchor="middle" fill="#555" font-size="11" font-family="system-ui, sans-serif">骨骼流形 | 架构演进 Gen 2+ — 电缆远程 + TSA 传动 | 附图 C-10b</text>
+  <text x="600" y="984" text-anchor="middle" fill="#777" font-size="10" font-family="system-ui, sans-serif">图例：琥珀色标注为TSA传动路径 | 红色箭头为拉力方向 | 绿色箭头为鞘管受压方向 | 虚线为电缆护套</text>
+</svg>

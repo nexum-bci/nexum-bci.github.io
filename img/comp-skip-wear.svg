@@ -1,0 +1,412 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede3cc"/>
+      <stop offset="40%" stop-color="#e8ddc0"/>
+      <stop offset="100%" stop-color="#d4c9a8"/>
+    </linearGradient>
+    <linearGradient id="boneShadow" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#f5edd8"/>
+      <stop offset="100%" stop-color="#c4b898"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A0AAB5"/>
+      <stop offset="40%" stop-color="#8B93A0"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+    <linearGradient id="metalLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B8C0CA"/>
+      <stop offset="50%" stop-color="#8B93A0"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0d1137"/>
+      <stop offset="100%" stop-color="#1a237e"/>
+    </linearGradient>
+    <linearGradient id="batteryGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5e6d3"/>
+      <stop offset="100%" stop-color="#e8d5b8"/>
+    </linearGradient>
+    <linearGradient id="fabricGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8e0d0"/>
+      <stop offset="100%" stop-color="#d4cbb8"/>
+    </linearGradient>
+    <linearGradient id="fabricDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7b6d5a"/>
+      <stop offset="100%" stop-color="#6b5d4a"/>
+    </linearGradient>
+    <linearGradient id="actuatorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d3748"/>
+      <stop offset="50%" stop-color="#4a5568"/>
+      <stop offset="100%" stop-color="#1a202c"/>
+    </linearGradient>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.10"/>
+    </filter>
+    <filter id="shadowLight" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.06"/>
+    </filter>
+    <marker id="arrowRed" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowRedSmall" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#0096f0"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#d97706"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#8B93A0"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1000" fill="#ffffff"/>
+
+  <!-- Title Bar -->
+  <rect x="0" y="0" width="1200" height="68" fill="url(#titleGrad)"/>
+  <text x="600" y="30" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Skip MO/GO 穿戴结构与力流路径分析</text>
+  <text x="600" y="54" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" fill="#9fa8da">Skip MO/GO Wear Structure and Force Flow Path Analysis</text>
+
+  <!-- ===== CENTER: Active senior figure wearing Skip MO/GO ===== -->
+  <rect x="25" y="85" width="720" height="780" rx="8" fill="#fafcff" stroke="#e0e5ef" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="385" y="110" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="bold" fill="#0d1137">穿戴示意图 — 户外爱好者使用场景</text>
+  <line x1="55" y1="118" x2="715" y2="118" stroke="#0096f0" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- Human Figure (front view, active senior/outdoor person) -->
+  <g transform="translate(175, 135)">
+    <!-- Head -->
+    <ellipse cx="210" cy="35" rx="28" ry="30" fill="url(#skinGrad)" stroke="#c4a882" stroke-width="0.8"/>
+    <!-- Hair (active gray, short style) -->
+    <path d="M 182,25 C 182,8 238,8 238,25 C 242,30 242,35 238,38 C 232,30 222,26 210,26 C 198,26 188,30 182,38 C 178,35 178,30 182,25 Z" fill="#8a8a8a"/>
+    <!-- Sunglasses -->
+    <rect x="188" y="28" width="18" height="10" rx="3" fill="#333"/>
+    <rect x="214" y="28" width="18" height="10" rx="3" fill="#333"/>
+    <line x1="206" y1="33" x2="214" y2="33" stroke="#333" stroke-width="1.5"/>
+    <!-- Mouth -->
+    <path d="M 205,48 C 208,52 212,52 215,48" fill="none" stroke="#c4a882" stroke-width="0.8"/>
+    <!-- Neck -->
+    <rect x="202" y="62" width="16" height="15" rx="3" fill="url(#skinGrad)" stroke="#c4a882" stroke-width="0.6"/>
+
+    <!-- Torso (outdoor jacket) -->
+    <path d="M 170,75 
+             C 165,90 160,110 160,130
+             L 160,175
+             C 160,180 163,183 170,183
+             L 250,183
+             C 257,183 260,180 260,175
+             L 260,130
+             C 260,110 255,90 250,75 Z"
+          fill="#2e7d32" stroke="#1b5e20" stroke-width="0.8"/>
+    <!-- Jacket zipper -->
+    <line x1="210" y1="75" x2="210" y2="183" stroke="#1b5e20" stroke-width="0.8" stroke-dasharray="3,2"/>
+    <!-- Jacket collar -->
+    <path d="M 190,75 L 210,85 L 230,75" fill="none" stroke="#1b5e20" stroke-width="1.2"/>
+
+    <!-- Left Arm -->
+    <path d="M 165,85 C 145,100 130,120 125,145 C 122,160 125,170 128,178" fill="none" stroke="#2e7d32" stroke-width="16" stroke-linecap="round"/>
+    <!-- Left hand -->
+    <circle cx="128" cy="180" r="7" fill="url(#skinGrad)" stroke="#c4a882" stroke-width="0.6"/>
+
+    <!-- Right Arm -->
+    <path d="M 255,85 C 275,100 290,120 295,145 C 298,160 295,170 292,178" fill="none" stroke="#2e7d32" stroke-width="16" stroke-linecap="round"/>
+    <!-- Right hand -->
+    <circle cx="292" cy="180" r="7" fill="url(#skinGrad)" stroke="#c4a882" stroke-width="0.6"/>
+
+    <!-- Trekking pole in right hand -->
+    <line x1="295" y1="178" x2="340" y2="390" stroke="#8B93A0" stroke-width="3"/>
+    <circle cx="295" cy="178" r="4" fill="#6B7280"/>
+    <path d="M 340,385 L 345,395 L 335,395 Z" fill="#8B93A0"/>
+
+    <!-- ===== Skip MO/GO: Arc'teryx Gamma Pants as exoskeleton base ===== -->
+    <!-- Pants outline (Gamma softshell) -->
+    <path d="M 175,180 
+             C 172,185 170,195 170,205
+             L 168,300
+             L 165,420
+             C 163,430 160,435 158,440
+             L 155,510
+             L 152,700
+             C 150,710 148,712 145,710
+             L 140,510
+             L 138,440
+             C 135,435 132,430 132,420
+             L 130,300
+             L 128,205
+             C 128,195 130,185 135,180
+             L 175,180 Z"
+          fill="url(#fabricGrad)" stroke="#a09078" stroke-width="1.5" opacity="0.7"/>
+
+    <!-- Right pants leg -->
+    <path d="M 245,180 
+             C 250,185 252,195 252,205
+             L 255,300
+             L 258,420
+             C 260,430 263,435 265,440
+             L 268,510
+             L 272,700
+             C 274,710 276,712 278,710
+             L 282,510
+             L 285,440
+             C 288,435 290,430 290,420
+             L 292,300
+             L 295,205
+             C 295,195 292,185 288,180
+             L 245,180 Z"
+          fill="url(#fabricGrad)" stroke="#a09078" stroke-width="1.5" opacity="0.7"/>
+
+    <!-- Pants center seam -->
+    <line x1="210" y1="180" x2="208" y2="400" stroke="#a09078" stroke-width="0.5" opacity="0.3"/>
+
+    <!-- ===== LEFT LEG MAGNETIC ACTUATORS ===== -->
+    <!-- Left hip actuator -->
+    <g transform="translate(0,0)">
+      <rect x="118" y="235" width="34" height="40" rx="6" fill="url(#actuatorGrad)" stroke="#555" stroke-width="1" filter="url(#shadowLight)"/>
+      <rect x="121" y="238" width="28" height="8" rx="1" fill="#4a5568" opacity="0.4"/>
+      <rect x="121" y="249" width="28" height="8" rx="1" fill="#4a5568" opacity="0.4"/>
+      <rect x="121" y="260" width="28" height="8" rx="1" fill="#4a5568" opacity="0.4"/>
+      <!-- Mounting to fabric -->
+      <rect x="152" y="248" width="5" height="14" rx="1" fill="url(#metalLight)"/>
+    </g>
+
+    <!-- Left knee actuator -->
+    <g transform="translate(0,0)">
+      <rect x="115" y="370" width="34" height="40" rx="6" fill="url(#actuatorGrad)" stroke="#555" stroke-width="1" filter="url(#shadowLight)"/>
+      <rect x="118" y="373" width="28" height="8" rx="1" fill="#4a5568" opacity="0.4"/>
+      <rect x="118" y="384" width="28" height="8" rx="1" fill="#4a5568" opacity="0.4"/>
+      <rect x="118" y="395" width="28" height="8" rx="1" fill="#4a5568" opacity="0.4"/>
+      <rect x="149" y="383" width="5" height="14" rx="1" fill="url(#metalLight)"/>
+    </g>
+
+    <!-- ===== RIGHT LEG MAGNETIC ACTUATORS ===== -->
+    <!-- Right hip actuator -->
+    <g transform="translate(0,0)">
+      <rect x="268" y="235" width="34" height="40" rx="6" fill="url(#actuatorGrad)" stroke="#555" stroke-width="1" filter="url(#shadowLight)"/>
+      <rect x="271" y="238" width="28" height="8" rx="1" fill="#4a5568" opacity="0.4"/>
+      <rect x="271" y="249" width="28" height="8" rx="1" fill="#4a5568" opacity="0.4"/>
+      <rect x="271" y="260" width="28" height="8" rx="1" fill="#4a5568" opacity="0.4"/>
+      <rect x="263" y="248" width="5" height="14" rx="1" fill="url(#metalLight)"/>
+    </g>
+
+    <!-- Right knee actuator -->
+    <g transform="translate(0,0)">
+      <rect x="271" y="370" width="34" height="40" rx="6" fill="url(#actuatorGrad)" stroke="#555" stroke-width="1" filter="url(#shadowLight)"/>
+      <rect x="274" y="373" width="28" height="8" rx="1" fill="#4a5568" opacity="0.4"/>
+      <rect x="274" y="384" width="28" height="8" rx="1" fill="#4a5568" opacity="0.4"/>
+      <rect x="274" y="395" width="28" height="8" rx="1" fill="#4a5568" opacity="0.4"/>
+      <rect x="266" y="383" width="5" height="14" rx="1" fill="url(#metalLight)"/>
+    </g>
+
+    <!-- ===== WAIST BELT ===== -->
+    <rect x="155" y="172" width="110" height="16" rx="4" fill="#5a626e" stroke="#444" stroke-width="1" filter="url(#shadowLight)"/>
+    <!-- Belt buckle/clasp -->
+    <rect x="200" y="170" width="20" height="20" rx="2" fill="#8B93A0" stroke="#6B7280" stroke-width="0.8"/>
+
+    <!-- Battery pack on belt (left side) -->
+    <rect x="160" y="170" width="30" height="20" rx="3" fill="url(#batteryGrad)" stroke="#92400e" stroke-width="0.8" filter="url(#shadowLight)"/>
+    <text x="175" y="183" text-anchor="middle" font-family="sans-serif" font-size="5" fill="#fff">150Wh</text>
+
+    <!-- Controller unit on belt (right side) -->
+    <rect x="230" y="171" width="25" height="18" rx="3" fill="url(#metalGrad)" stroke="#555" stroke-width="0.8"/>
+    <text x="242" y="183" text-anchor="middle" font-family="sans-serif" font-size="4" fill="#fff">IMU</text>
+
+    <!-- ===== CABLE ROUTING (embedded in fabric) ===== -->
+    <!-- Left leg cables -->
+    <line x1="175" y1="188" x2="145" y2="240" stroke="#5a626e" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+    <line x1="145" y1="275" x2="140" y2="375" stroke="#5a626e" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+
+    <!-- Right leg cables -->
+    <line x1="245" y1="188" x2="280" y2="240" stroke="#5a626e" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+    <line x1="280" y1="275" x2="285" y2="375" stroke="#5a626e" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+
+    <!-- ===== FABRIC TENSION LINES (force distribution) ===== -->
+    <!-- Left leg tension -->
+    <path d="M 140,245 Q 120,260 115,290" fill="none" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="2,3" opacity="0.4" marker-end="url(#arrowRedSmall)"/>
+    <path d="M 140,250 Q 125,270 120,300" fill="none" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="2,3" opacity="0.4" marker-end="url(#arrowRedSmall)"/>
+    <path d="M 135,390 Q 120,410 115,440" fill="none" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="2,3" opacity="0.4" marker-end="url(#arrowRedSmall)"/>
+    <path d="M 135,395 Q 125,420 122,450" fill="none" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="2,3" opacity="0.4" marker-end="url(#arrowRedSmall)"/>
+
+    <!-- Right leg tension -->
+    <path d="M 285,245 Q 305,260 310,290" fill="none" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="2,3" opacity="0.4" marker-end="url(#arrowRedSmall)"/>
+    <path d="M 285,250 Q 300,270 305,300" fill="none" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="2,3" opacity="0.4" marker-end="url(#arrowRedSmall)"/>
+    <path d="M 288,390 Q 305,410 310,440" fill="none" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="2,3" opacity="0.4" marker-end="url(#arrowRedSmall)"/>
+    <path d="M 288,395 Q 300,420 305,450" fill="none" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="2,3" opacity="0.4" marker-end="url(#arrowRedSmall)"/>
+
+    <!-- Assist force arrows (upward) -->
+    <line x1="150" y1="450" x2="150" y2="400" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)" opacity="0.7"/>
+    <line x1="280" y1="450" x2="280" y2="400" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)" opacity="0.7"/>
+
+    <!-- Support force to waist -->
+    <line x1="175" y1="170" x2="175" y2="140" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)" opacity="0.6"/>
+    <line x1="255" y1="170" x2="255" y2="140" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)" opacity="0.6"/>
+
+    <!-- ===== ANNOTATIONS ===== -->
+    <!-- Left hip actuator label -->
+    <line x1="130" y1="255" x2="70" y2="225" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="30" y="223" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#0096f0">左髋磁性致动器</text>
+
+    <!-- Left knee actuator label -->
+    <line x1="130" y1="390" x2="70" y2="390" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="28" y="388" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#0096f0">左膝磁性致动器</text>
+
+    <!-- Waist belt label -->
+    <line x1="210" y1="175" x2="350" y2="155" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="352" y="153" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#0096f0">腰带电池+控制单元 (150Wh + IMU)</text>
+
+    <!-- Pants label -->
+    <line x1="210" y1="300" x2="350" y2="290" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="352" y="288" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#0096f0">始祖鸟Gamma软壳裤 = 外骨骼本体</text>
+
+    <!-- Cable channel label -->
+    <line x1="283" y1="310" x2="350" y2="325" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="352" y="323" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#0096f0">织物内嵌电缆 (电源+信号)</text>
+  </g>
+
+  <!-- ===== RIGHT PANEL: Force Flow Path ===== -->
+  <rect x="760" y="85" width="415" height="780" rx="8" fill="#fefefa" stroke="#e0e0d8" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="967" y="110" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="bold" fill="#0d1137">力流路径分析</text>
+  <line x1="780" y1="118" x2="1155" y2="118" stroke="#dc2626" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- Force Flow Diagram -->
+  <g transform="translate(800, 135)">
+    <!-- Waist Battery -->
+    <rect x="40" y="0" width="120" height="40" rx="6" fill="url(#batteryGrad)" stroke="#92400e" stroke-width="1" filter="url(#shadowLight)"/>
+    <text x="100" y="18" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#fff">腰带电池 150Wh</text>
+    <text x="100" y="32" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#fef3c7">电源供给</text>
+
+    <!-- Arrow: power to controller -->
+    <line x1="100" y1="40" x2="100" y2="60" stroke="#d97706" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+    <!-- Controller / IMU -->
+    <rect x="40" y="60" width="120" height="35" rx="6" fill="url(#metalGrad)" stroke="#555" stroke-width="1" filter="url(#shadowLight)"/>
+    <text x="100" y="78" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#fff">控制单元 + IMU</text>
+    <text x="100" y="90" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="7" fill="#ddd">姿态感知 · 力矩调度</text>
+
+    <!-- Arrow: control to hip actuators -->
+    <path d="M 40,78 L 15,78 L 15,120" fill="none" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+    <path d="M 160,78 L 185,78 L 185,120" fill="none" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+
+    <!-- Hip Actuators -->
+    <rect x="0" y="120" width="95" height="40" rx="6" fill="url(#actuatorGrad)" stroke="#555" stroke-width="1" filter="url(#shadowLight)"/>
+    <text x="47" y="140" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#fff">左髋致动器</text>
+    <text x="47" y="153" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#aaa">准直驱</text>
+
+    <rect x="105" y="120" width="95" height="40" rx="6" fill="url(#actuatorGrad)" stroke="#555" stroke-width="1" filter="url(#shadowLight)"/>
+    <text x="152" y="140" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#fff">右髋致动器</text>
+    <text x="152" y="153" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#aaa">准直驱</text>
+
+    <!-- Arrows down to knee actuators -->
+    <line x1="47" y1="160" x2="47" y2="185" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrowRedSmall)"/>
+    <line x1="152" y1="160" x2="152" y2="185" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrowRedSmall)"/>
+
+    <!-- Knee Actuators -->
+    <rect x="0" y="185" width="95" height="40" rx="6" fill="url(#actuatorGrad)" stroke="#555" stroke-width="1" filter="url(#shadowLight)"/>
+    <text x="47" y="205" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#fff">左膝致动器</text>
+    <text x="47" y="218" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#aaa">准直驱</text>
+
+    <rect x="105" y="185" width="95" height="40" rx="6" fill="url(#actuatorGrad)" stroke="#555" stroke-width="1" filter="url(#shadowLight)"/>
+    <text x="152" y="205" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#fff">右膝致动器</text>
+    <text x="152" y="218" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#aaa">准直驱</text>
+
+    <!-- Arrows: actuators to fabric (force output) -->
+    <path d="M 47,225 L 47,250" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <path d="M 152,225 L 152,250" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+    <!-- Fabric Tension Distribution -->
+    <rect x="0" y="250" width="200" height="50" rx="6" fill="url(#fabricGrad)" stroke="#a09078" stroke-width="1.2"/>
+    <text x="100" y="270" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" font-weight="bold" fill="#6b5d4a">织物张力分布</text>
+    <text x="100" y="288" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#7b6d5a">始祖鸟Gamma裤 · 软壳面料承载</text>
+
+    <!-- Fabric arrows spreading to body segments -->
+    <path d="M 0,275 L -20,290 L -20,310" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrowRedSmall)"/>
+    <path d="M 200,275 L 220,290 L 220,310" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrowRedSmall)"/>
+    <path d="M 100,300 L 100,315" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrowRedSmall)"/>
+
+    <!-- Body targets -->
+    <rect x="-20" y="315" width="80" height="35" rx="5" fill="#f0f0f0" stroke="#ccc" stroke-width="0.8"/>
+    <text x="20" y="335" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#666">大腿/骨盆</text>
+
+    <rect x="140" y="315" width="80" height="35" rx="5" fill="#f0f0f0" stroke="#ccc" stroke-width="0.8"/>
+    <text x="180" y="335" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#666">大腿/骨盆</text>
+
+    <rect x="60" y="380" width="100" height="35" rx="5" fill="#f0f0f0" stroke="#ccc" stroke-width="0.8"/>
+    <text x="110" y="400" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#666">小腿 (力传递终端)</text>
+
+    <!-- Arrow to lower leg -->
+    <line x1="100" y1="315" x2="100" y2="380" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowRed)"/>
+
+    <!-- Legend inside panel -->
+    <rect x="0" y="430" width="200" height="80" rx="5" fill="#f8f9fa" stroke="#ddd" stroke-width="0.8"/>
+    <text x="10" y="448" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" font-weight="bold" fill="#333">力流图例:</text>
+    <line x1="10" y1="463" x2="30" y2="463" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRedSmall)"/>
+    <text x="35" y="467" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#555">机械力 (红)</text>
+    <line x1="10" y1="483" x2="30" y2="483" stroke="#d97706" stroke-width="2" marker-end="url(#arrowOrange)"/>
+    <text x="35" y="487" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#555">电能 (橙)</text>
+    <line x1="110" y1="463" x2="130" y2="463" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+    <text x="135" y="467" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#555">控制信号 (蓝)</text>
+    <rect x="110" y="478" width="14" height="10" rx="2" fill="url(#fabricGrad)" stroke="#a09078" stroke-width="0.6"/>
+    <text x="128" y="487" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#555">织物</text>
+  </g>
+
+  <!-- Key callout box -->
+  <rect x="760" y="530" width="415" height="65" rx="6" fill="#fff7ed" stroke="#fcd34d" stroke-width="1.5" filter="url(#shadowLight)"/>
+  <text x="967" y="552" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" font-weight="bold" fill="#b45309">软体承载 · 始祖鸟裤子即外骨骼</text>
+  <text x="967" y="572" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#92400e">社会接受度最高 · 但商业模型不适用大众市场</text>
+
+  <!-- Parameters -->
+  <rect x="760" y="610" width="415" height="100" rx="6" fill="#f0f4ff" stroke="#b3ddfb" stroke-width="1" filter="url(#shadowLight)"/>
+  <text x="967" y="632" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" font-weight="bold" fill="#0d1137">关键参数</text>
+  <line x1="780" y1="640" x2="1155" y2="640" stroke="#0096f0" stroke-width="0.5" opacity="0.3"/>
+  <text x="780" y="658" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#37474f">系统重量: 3.2kg (含电池)</text>
+  <text x="780" y="676" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#37474f">辅助扭矩: 髋 15Nm / 膝 20Nm</text>
+  <text x="780" y="694" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#37474f">传感器: 关节角度 + IMU + 足底压力 (预期)</text>
+  <text x="780" y="712" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#37474f">用户群体: 35-55岁户外运动爱好者 · 非老年</text>
+
+  <!-- ===== BOTTOM COMPARISON ===== -->
+  <rect x="25" y="880" width="1150" height="100" rx="8" fill="#f8f9fa" stroke="#ddd" stroke-width="1" filter="url(#shadow)"/>
+  <text x="600" y="905" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="bold" fill="#0d1137">架构对比: Skip织物承载 vs Bones绑带独立架构</text>
+  <line x1="100" y1="915" x2="1100" y2="915" stroke="#ccc" stroke-width="0.5"/>
+
+  <!-- Skip: Fabric-based -->
+  <g transform="translate(80, 925)">
+    <rect x="0" y="0" width="220" height="45" rx="6" fill="#fff5f5" stroke="#ffcdd2" stroke-width="1"/>
+    <text x="110" y="16" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" font-weight="bold" fill="#c62828">Skip: 织物承载架构</text>
+    <rect x="15" y="22" width="20" height="16" rx="2" fill="url(#actuatorGrad)" stroke="#555" stroke-width="0.5"/>
+    <rect x="75" y="22" width="40" height="8" rx="2" fill="url(#fabricGrad)" stroke="#a09078" stroke-width="0.5"/>
+    <rect x="145" y="22" width="20" height="16" rx="2" fill="url(#actuatorGrad)" stroke="#555" stroke-width="0.5"/>
+    <text x="110" y="38" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#555">致动器嵌入裤子织物</text>
+  </g>
+
+  <!-- VS text -->
+  <text x="350" y="950" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="18" font-weight="bold" fill="#555">VS</text>
+
+  <!-- Bones: Strap-based -->
+  <g transform="translate(380, 925)">
+    <rect x="0" y="0" width="220" height="45" rx="6" fill="#e8f5e9" stroke="#c8e6c9" stroke-width="1"/>
+    <text x="110" y="16" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" font-weight="bold" fill="#2e7d32">Bones: 绑带独立架构</text>
+    <rect x="15" y="22" width="20" height="16" rx="2" fill="url(#metalGrad)" stroke="#555" stroke-width="0.5"/>
+    <rect x="40" y="24" width="30" height="4" rx="1" fill="#5a626e"/>
+    <rect x="110" y="22" width="20" height="16" rx="2" fill="url(#metalGrad)" stroke="#555" stroke-width="0.5"/>
+    <rect x="135" y="24" width="30" height="4" rx="1" fill="#5a626e"/>
+    <text x="110" y="38" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#555">绑带独立 · 任何裤子皆可</text>
+  </g>
+
+  <!-- Advantage -->
+  <g transform="translate(620, 925)">
+    <rect x="0" y="0" width="555" height="45" rx="6" fill="#f0f4ff" stroke="#b3ddfb" stroke-width="1"/>
+    <text x="277" y="16" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#0d1137">Bones方案核心优势</text>
+    <text x="10" y="32" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#37474f">不绑定服装品牌 → 零库存风险 · 用户任何裤子可用</text>
+    <text x="10" y="44" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#37474f">2尺码无极调节 · 体型变化无需重新购买 · 成本1/7 · 老年市场可达</text>
+  </g>
+
+  <!-- Data source -->
+  <text x="600" y="995" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#999">数据来源: Skip官网 · The Verge/Wired独立评测 · Arc'teryx合作公告 · IEEE Spectrum文献</text>
+</svg>

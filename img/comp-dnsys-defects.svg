@@ -1,0 +1,300 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0d1137"/>
+      <stop offset="100%" stop-color="#1a237e"/>
+    </linearGradient>
+    <linearGradient id="defectGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c62828"/>
+      <stop offset="100%" stop-color="#b71c1c"/>
+    </linearGradient>
+    <linearGradient id="solutionGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2e7d32"/>
+      <stop offset="100%" stop-color="#1b5e20"/>
+    </linearGradient>
+    <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede3cc"/>
+      <stop offset="40%" stop-color="#e8ddc0"/>
+      <stop offset="70%" stop-color="#dfd2b2"/>
+      <stop offset="100%" stop-color="#d4c9a8"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A0AAB5"/>
+      <stop offset="40%" stop-color="#8B93A0"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000000" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrowRight" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#37474f"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1100" fill="#ffffff"/>
+
+  <!-- ===== TITLE BAR ===== -->
+  <rect x="0" y="0" width="1200" height="68" fill="url(#titleGrad)"/>
+  <text x="600" y="30" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="20" font-weight="bold" fill="#ffffff">DNSYS Z1 六大工程缺陷与Bones超越方案</text>
+  <text x="600" y="54" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" fill="#9fa8da">DNSYS Z1 — Six Engineering Defects vs. Bones &amp; Manifold Solutions</text>
+
+  <!-- Band height: ~145px each, gap: 10px -->
+  <!-- Band 1: y: 85-230 (145px) -->
+  <!-- Band 2: y: 240-385 -->
+  <!-- Band 3: y: 395-540 -->
+  <!-- Band 4: y: 550-695 -->
+  <!-- Band 5: y: 705-850 -->
+  <!-- Band 6: y: 860-1005 -->
+
+  <!-- ======== BAND 1: Battery on Leg ======== -->
+  <g transform="translate(0,0)">
+    <!-- Background containers -->
+    <rect x="25" y="85" width="555" height="145" rx="8" fill="#faf2f0" stroke="#ffcdd2" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M 25,93 A 8 8 0 0 1 33,85 L 552,85 A 8 8 0 0 1 560,93 L 560,115 L 25,115 Z" fill="url(#defectGrad)"/>
+    <text x="40" y="105" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="bold" fill="#ffffff">缺陷1: 电池置于腿部 · 1.6kg/腿</text>
+
+    <rect x="620" y="85" width="555" height="145" rx="8" fill="#e8f4fd" stroke="#b3e0f2" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M 620,93 A 8 8 0 0 1 628,85 L 1147,85 A 8 8 0 0 1 1155,93 L 1155,115 L 620,115 Z" fill="url(#solutionGrad)"/>
+    <text x="635" y="105" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="bold" fill="#ffffff">Bones方案: 腰带集中供电 · 膝部~860g</text>
+
+    <!-- Defect visualization: knee unit with battery = heavy -->
+    <g transform="translate(45, 125)">
+      <!-- Knee icon with battery -->
+      <rect x="0" y="0" width="55" height="65" rx="5" fill="url(#metalGrad)" stroke="#555" stroke-width="0.8"/>
+      <rect x="10" y="10" width="35" height="45" rx="3" fill="url(#boneGrad)" stroke="#b45309" stroke-width="1"/>
+      <text x="27" y="38" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#b45309">电池</text>
+      <!-- Moment arm arrow -->
+      <path d="M 55,32 L 85,15" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+      <text x="70" y="10" font-family="sans-serif" font-size="7" fill="#dc2626">力矩臂</text>
+    </g>
+
+    <text x="115" y="150" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#1a1a2e">电池置于膝关节处，每腿1.6kg. 力臂效应放大等效惯量3-5×.</text>
+    <text x="115" y="168" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#546e7a">额外髋屈曲力矩→步态代偿→非对称负载→关节退变风险</text>
+    <text x="115" y="190" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#b71c1c">Impact: ↑62% 髋关节摆动期负荷</text>
+
+    <!-- Solution visualization: waist battery -->
+    <g transform="translate(640, 125)">
+      <!-- Waist icon -->
+      <path d="M 0,20 C 20,0 60,0 80,20" fill="none" stroke="#2e7d32" stroke-width="2"/>
+      <rect x="25" y="8" width="30" height="18" rx="4" fill="#d97706" stroke="#b45309" stroke-width="0.8"/>
+      <text x="40" y="21" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#fff">电池</text>
+      <!-- Wire going down -->
+      <line x1="75" y1="20" x2="95" y2="40" stroke="#2e7d32" stroke-width="1.2" stroke-dasharray="2,2"/>
+      <!-- Knee unit -->
+      <rect x="85" y="35" width="40" height="50" rx="4" fill="url(#metalGrad)" stroke="#555" stroke-width="0.8"/>
+      <text x="105" y="62" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#fff">膝部~680g</text>
+    </g>
+
+    <text x="730" y="150" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#1a1a2e">三星50E 4S1P电池组(310g)置于腰部. 膝关节仅保留电机+减速器(~680g).</text>
+    <text x="730" y="168" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#546e7a">腿部惯量↓50% · 重心上移改善平衡 · 电池热插拔全天续航</text>
+    <text x="730" y="190" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#1b5e20">Result: 恢复自然摆动动力学, 零步态代偿</text>
+
+    <!-- Connecting arrow -->
+    <line x1="580" y1="155" x2="615" y2="155" stroke="#37474f" stroke-width="1.5" marker-end="url(#arrowRight)"/>
+  </g>
+
+  <!-- ======== BAND 2: Noise 70dB ======== -->
+  <g transform="translate(0,0)">
+    <rect x="25" y="240" width="555" height="145" rx="8" fill="#faf2f0" stroke="#ffcdd2" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M 25,248 A 8 8 0 0 1 33,240 L 552,240 A 8 8 0 0 1 560,248 L 560,270 L 25,270 Z" fill="url(#defectGrad)"/>
+    <text x="40" y="260" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="bold" fill="#ffffff">缺陷2: 噪音70dB · 机械战警声</text>
+
+    <rect x="620" y="240" width="555" height="145" rx="8" fill="#e8f4fd" stroke="#b3e0f2" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M 620,248 A 8 8 0 0 1 628,240 L 1147,240 A 8 8 0 0 1 1155,248 L 1155,270 L 620,270 Z" fill="url(#solutionGrad)"/>
+    <text x="635" y="260" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="bold" fill="#ffffff">Bones方案: 静音驱动 · AK80-9低频运行</text>
+
+    <!-- Gear mesh visualization -->
+    <g transform="translate(45, 285)">
+      <circle cx="20" cy="20" r="15" fill="none" stroke="#555" stroke-width="1.2"/>
+      <circle cx="20" cy="20" r="3" fill="#555"/>
+      <circle cx="55" cy="20" r="8" fill="none" stroke="#555" stroke-width="1.2"/>
+      <circle cx="55" cy="20" r="2" fill="#555"/>
+      <!-- Sound waves -->
+      <path d="M 65,10 C 75,5 80,15 75,20 C 80,25 75,35 65,30" fill="none" stroke="#dc2626" stroke-width="1" opacity="0.6"/>
+      <path d="M 72,5 C 82,0 88,15 82,20 C 88,25 82,40 72,35" fill="none" stroke="#dc2626" stroke-width="0.8" opacity="0.4"/>
+    </g>
+
+    <text x="115" y="305" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#1a1a2e">Wareable评测"机械战警声" — 高KV无刷+BGMotor高速行星减速器</text>
+    <text x="115" y="323" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#546e7a">齿轮啮合频率2-5kHz · 壳体共振放大 · 步行时路人侧目</text>
+    <text x="115" y="345" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#b71c1c">Impact: 70dB(A) @1m — 超出办公室/图书馆可接受水平(~50dB)</text>
+
+    <g transform="translate(640, 285)">
+      <!-- Silent gear icon -->
+      <circle cx="20" cy="20" r="12" fill="none" stroke="#2e7d32" stroke-width="1.2"/>
+      <circle cx="20" cy="20" r="3" fill="#2e7d32"/>
+      <text x="45" y="24" font-family="sans-serif" font-size="8" fill="#2e7d32">9:1减速</text>
+      <!-- Line through sound waves = quiet -->
+      <path d="M 60,15 L 70,10 M 62,20 L 72,15" stroke="#2e7d32" stroke-width="1" opacity="0.5"/>
+    </g>
+
+    <text x="730" y="305" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#1a1a2e">AK80-9 V3.0 9:1行星(输入450RPM非20,000RPM). 频谱远离人耳敏感区(2-5kHz).</text>
+    <text x="730" y="323" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#546e7a">硅胶隔离支架+约束层阻尼(CLD)贴片. 整机噪音↓20dB至~50dB.</text>
+    <text x="730" y="345" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#1b5e20">Result: 50dB(A) @1m — 对话级音量, 社交可接受</text>
+
+    <line x1="580" y1="310" x2="615" y2="310" stroke="#37474f" stroke-width="1.5" marker-end="url(#arrowRight)"/>
+  </g>
+
+  <!-- ======== BAND 3: Avatar Effect ======== -->
+  <g transform="translate(0,0)">
+    <rect x="25" y="395" width="555" height="145" rx="8" fill="#faf2f0" stroke="#ffcdd2" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M 25,403 A 8 8 0 0 1 33,395 L 552,395 A 8 8 0 0 1 560,403 L 560,425 L 25,425 Z" fill="url(#defectGrad)"/>
+    <text x="40" y="415" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="bold" fill="#ffffff">缺陷3: 阿凡达效应 · 摆动阻力~7Nm</text>
+
+    <rect x="620" y="395" width="555" height="145" rx="8" fill="#e8f4fd" stroke="#b3e0f2" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M 620,403 A 8 8 0 0 1 628,395 L 1147,395 A 8 8 0 0 1 1155,403 L 1155,425 L 620,425 Z" fill="url(#solutionGrad)"/>
+    <text x="635" y="415" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="bold" fill="#ffffff">Bones方案: 自然摆动 · 反向驱动0.51Nm</text>
+
+    <!-- Swing phase resistance -->
+    <g transform="translate(45, 440)">
+      <!-- Pendulum indicating swing resistance -->
+      <line x1="25" y1="0" x2="25" y2="40" stroke="#555" stroke-width="1.5"/>
+      <circle cx="25" cy="40" r="6" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+      <path d="M 25,40 C 35,35 40,30 35,25" fill="none" stroke="#dc2626" stroke-width="1.2" marker-end="url(#arrowRed)"/>
+      <text x="40" y="22" font-family="sans-serif" font-size="7" fill="#dc2626">~7Nm阻力</text>
+    </g>
+
+    <text x="115" y="460" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#1a1a2e">使用后腿部沉重感, 次日肌肉酸痛. 原因: 无零力矩摆动模式.</text>
+    <text x="115" y="478" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#546e7a">反向驱动力矩约7Nm(电机+减速器摩擦). 健康腿过度代偿.</text>
+    <text x="115" y="500" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#b71c1c">Impact: 长期→非对称肌群发展, 对侧关节损伤风险</text>
+
+    <g transform="translate(640, 440)">
+      <!-- Free swing -->
+      <line x1="25" y1="0" x2="25" y2="40" stroke="#2e7d32" stroke-width="1.5"/>
+      <circle cx="25" cy="40" r="6" fill="#2e7d32" opacity="0.5" stroke="#2e7d32" stroke-width="1"/>
+      <text x="38" y="15" font-family="sans-serif" font-size="7" fill="#2e7d32">离合器断电</text>
+      <text x="38" y="28" font-family="sans-serif" font-size="7" fill="#2e7d32">= 自由摆动</text>
+    </g>
+
+    <text x="730" y="460" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#1a1a2e">AK80-9 MIT模式零力矩电流环. 反向驱动0.51Nm(&lt;&lt;人体阈值2.3Nm).</text>
+    <text x="730" y="478" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#546e7a">Ogura MCNB-3Z电磁离合器(断电常开=自由摆动). 步行自然无感.</text>
+    <text x="730" y="500" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#1b5e20">Result: 反向驱动比DNSYS低14× · 完全自然摆动</text>
+
+    <line x1="580" y1="465" x2="615" y2="465" stroke="#37474f" stroke-width="1.5" marker-end="url(#arrowRight)"/>
+  </g>
+
+  <!-- ======== BAND 4: Bluetooth Dropout ======== -->
+  <g transform="translate(0,0)">
+    <rect x="25" y="550" width="555" height="145" rx="8" fill="#faf2f0" stroke="#ffcdd2" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M 25,558 A 8 8 0 0 1 33,550 L 552,550 A 8 8 0 0 1 560,558 L 560,580 L 25,580 Z" fill="url(#defectGrad)"/>
+    <text x="40" y="570" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="bold" fill="#ffffff">缺陷4: 蓝牙断连 · EMI干扰</text>
+
+    <rect x="620" y="550" width="555" height="145" rx="8" fill="#e8f4fd" stroke="#b3e0f2" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M 620,558 A 8 8 0 0 1 628,550 L 1147,550 A 8 8 0 0 1 1155,558 L 1155,580 L 620,580 Z" fill="url(#solutionGrad)"/>
+    <text x="635" y="570" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="bold" fill="#ffffff">Bones方案: 抗干扰链路 · PCB分区+磁环</text>
+
+    <!-- EMI interference -->
+    <g transform="translate(45, 595)">
+      <!-- Antenna -->
+      <line x1="15" y1="30" x2="15" y2="5" stroke="#555" stroke-width="1.2"/>
+      <circle cx="15" cy="3" r="3" fill="#555"/>
+      <!-- EMI waves -->
+      <path d="M 25,10 C 30,5 35,15 30,10" fill="none" stroke="#dc2626" stroke-width="1" opacity="0.5"/>
+      <path d="M 30,12 C 35,7 40,17 35,12" fill="none" stroke="#dc2626" stroke-width="0.8" opacity="0.3"/>
+      <text x="35" y="12" font-family="sans-serif" font-size="7" fill="#dc2626">EMI</text>
+    </g>
+
+    <text x="115" y="615" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#1a1a2e">无刷电机PWM换相产生宽频EMI(10-500MHz), 与蓝牙天线直接耦合.</text>
+    <text x="115" y="633" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#546e7a">PCB无隔离分区 · 电源纹波&gt;200mVpp · 步行中断连1-3次/小时</text>
+    <text x="115" y="655" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#b71c1c">Impact: 断连2-8秒 → 力矩不连续 → 跌倒风险</text>
+
+    <g transform="translate(640, 595)">
+      <!-- Shielded cable -->
+      <line x1="10" y1="15" x2="50" y2="15" stroke="#2e7d32" stroke-width="2"/>
+      <line x1="10" y1="15" x2="50" y2="15" stroke="#fff" stroke-width="0.8" stroke-dasharray="2,3"/>
+      <text x="30" y="10" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#2e7d32">屏蔽双绞线</text>
+      <!-- Ferrite core symbol -->
+      <rect x="25" y="10" width="8" height="10" rx="1" fill="#8B93A0" stroke="#555" stroke-width="0.5"/>
+    </g>
+
+    <text x="730" y="615" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#1a1a2e">PCB严格分区: 数字/模拟/功率间距&gt;10mm, 独立地平面.</text>
+    <text x="730" y="633" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#546e7a">磁环铁氧体+屏蔽双绞线(电机线) · 共模扼流圈50μH · 实测零断连</text>
+    <text x="730" y="655" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#1b5e20">Result: EMI裕量&gt;20dB低于FCC Class B · 链路可靠性99.999%</text>
+
+    <line x1="580" y1="620" x2="615" y2="620" stroke="#37474f" stroke-width="1.5" marker-end="url(#arrowRight)"/>
+  </g>
+
+  <!-- ======== BAND 5: No Personalization ======== -->
+  <g transform="translate(0,0)">
+    <rect x="25" y="705" width="555" height="145" rx="8" fill="#faf2f0" stroke="#ffcdd2" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M 25,713 A 8 8 0 0 1 33,705 L 552,705 A 8 8 0 0 1 560,713 L 560,735 L 25,735 Z" fill="url(#defectGrad)"/>
+    <text x="40" y="725" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="bold" fill="#ffffff">缺陷5: 无个性化适配 · 固定力矩曲线</text>
+
+    <rect x="620" y="705" width="555" height="145" rx="8" fill="#e8f4fd" stroke="#b3e0f2" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M 620,713 A 8 8 0 0 1 628,705 L 1147,705 A 8 8 0 0 1 1155,713 L 1155,735 L 620,735 Z" fill="url(#solutionGrad)"/>
+    <text x="635" y="725" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="bold" fill="#ffffff">Bones方案: PPO强化学习 · int8推理&lt;1ms</text>
+
+    <!-- FSM curve vs personalized -->
+    <g transform="translate(45, 750)">
+      <!-- Simple curve -->
+      <path d="M 0,20 L 10,15 L 20,25 L 30,12 L 40,20" fill="none" stroke="#dc2626" stroke-width="1.2" opacity="0.6"/>
+      <text x="20" y="35" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#dc2626">FSM预设曲线</text>
+    </g>
+
+    <text x="115" y="770" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#1a1a2e">有限状态机步态检测(4-6阶段)+预设力矩曲线. 无个性化适配.</text>
+    <text x="115" y="788" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#546e7a">无强化学习 · 无KAM(膝内收力矩)优化 · 无法适应地形变化</text>
+    <text x="115" y="810" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#b71c1c">Impact: 固定曲线对~70%真实步态变异次优</text>
+
+    <g transform="translate(640, 750)">
+      <!-- Network icon -->
+      <circle cx="15" cy="5" r="3" fill="#2e7d32"/>
+      <circle cx="5" cy="15" r="3" fill="#2e7d32"/>
+      <circle cx="25" cy="15" r="3" fill="#2e7d32"/>
+      <line x1="15" y1="5" x2="5" y2="15" stroke="#2e7d32" stroke-width="0.6"/>
+      <line x1="15" y1="5" x2="25" y2="15" stroke="#2e7d32" stroke-width="0.6"/>
+      <text x="35" y="13" font-family="sans-serif" font-size="7" fill="#2e7d32">PPO: 16→64→32→2</text>
+    </g>
+
+    <text x="730" y="770" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#1a1a2e">PPO强化学习: 16→64→32→2 Tanh. int8量化部署于ESP32-S3, &lt;1ms推理.</text>
+    <text x="730" y="788" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#546e7a">在线贝叶斯参数自适应 · KAM力矩优化 · ±5%力矩精度 · 地形自适应</text>
+    <text x="730" y="810" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#1b5e20">Result: 比FSM快20×适应 · 50步内完成个性化</text>
+
+    <line x1="580" y1="775" x2="615" y2="775" stroke="#37474f" stroke-width="1.5" marker-end="url(#arrowRight)"/>
+  </g>
+
+  <!-- ======== BAND 6: Battery 70min ======== -->
+  <g transform="translate(0,0)">
+    <rect x="25" y="860" width="555" height="145" rx="8" fill="#faf2f0" stroke="#ffcdd2" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M 25,868 A 8 8 0 0 1 33,860 L 552,860 A 8 8 0 0 1 560,868 L 560,890 L 25,890 Z" fill="url(#defectGrad)"/>
+    <text x="40" y="880" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="bold" fill="#ffffff">缺陷6: 续航70分钟 · 热降频严重</text>
+
+    <rect x="620" y="860" width="555" height="145" rx="8" fill="#e8f4fd" stroke="#b3e0f2" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M 620,868 A 8 8 0 0 1 628,860 L 1147,860 A 8 8 0 0 1 1155,868 L 1155,890 L 620,890 Z" fill="url(#solutionGrad)"/>
+    <text x="635" y="880" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="bold" fill="#ffffff">Bones方案: 长效续航 · 72Wh热插拔×2</text>
+
+    <!-- Battery gauge -->
+    <g transform="translate(45, 905)">
+      <rect x="0" y="0" width="30" height="15" rx="2" fill="none" stroke="#dc2626" stroke-width="1"/>
+      <rect x="0" y="0" width="10" height="15" rx="2" fill="#dc2626" opacity="0.6"/>
+      <text x="15" y="28" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#dc2626">70min</text>
+      <!-- Heat indicator -->
+      <path d="M 35,5 C 40,0 42,10 38,10 C 42,12 40,18 35,15" fill="none" stroke="#dc2626" stroke-width="0.8" opacity="0.5"/>
+    </g>
+
+    <text x="115" y="925" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#1a1a2e">运动模式450W持续输出. IP54密封无散热 → 热量积聚, 电池热耗散&gt;15W.</text>
+    <text x="115" y="943" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#546e7a">热降频→实际可用容量仅60% · 重度用户需2-3小时充电</text>
+    <text x="115" y="965" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#b71c1c">Impact: 70min vs 竞品2-4小时(如Hypershell Pro X)</text>
+
+    <g transform="translate(640, 905)">
+      <rect x="0" y="0" width="30" height="15" rx="2" fill="none" stroke="#2e7d32" stroke-width="1"/>
+      <rect x="0" y="0" width="22" height="15" rx="2" fill="#2e7d32" opacity="0.6"/>
+      <text x="15" y="28" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#2e7d32">2-3h×2</text>
+      <!-- + icon for hotswap -->
+      <text x="40" y="12" font-family="sans-serif" font-size="10" fill="#2e7d32" font-weight="bold">热插拔</text>
+    </g>
+
+    <text x="730" y="925" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#1a1a2e">AK80-9 9Nm额定扭矩(高效区). 腰部4S1P 72Wh. 非峰值功率暴拉.</text>
+    <text x="730" y="943" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#546e7a">PCM相变散热片温控 · 单电池2-3小时 · 热插拔更换&lt;5秒 → 无限续行</text>
+    <text x="730" y="965" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#1b5e20">Result: 3.1×续航提升(同等电池重量)</text>
+
+    <line x1="580" y1="930" x2="615" y2="930" stroke="#37474f" stroke-width="1.5" marker-end="url(#arrowRight)"/>
+  </g>
+
+  <!-- ===== FOOTER ===== -->
+  <rect x="25" y="1030" width="1150" height="50" rx="6" fill="#f0f4ff" stroke="#b3ddfb" stroke-width="0.8" opacity="0.7"/>
+  <text x="600" y="1052" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#546e7a">数据来源: DNSYS Kickstarter页面 · Wareable独立评测 · Trustpilot用户反馈 · CES 2026创新奖</text>
+  <text x="600" y="1068" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#999">注: 所有数值基于公开评测与工程反推, 非DNSYS官方规格书</text>
+</svg>

@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000">
+  <defs>
+    <marker id="aR" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto"><path d="M0,0 L12,4 L0,8" fill="#d32f2f"/></marker>
+    <marker id="aB" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#0096f0"/></marker>
+    <marker id="aA" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#d97706"/></marker>
+    <marker id="aG" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#2e7d32"/></marker>
+    <marker id="aGy" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#888"/></marker>
+    <linearGradient id="gBone" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e8ddc0"/><stop offset="35%" stop-color="#eee4cc"/><stop offset="65%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#c8b898"/></linearGradient>
+    <linearGradient id="gBoneVert" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8ddc0"/><stop offset="40%" stop-color="#eee4cc"/><stop offset="70%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#c8b898"/></linearGradient>
+    <linearGradient id="gBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fcfcfc"/><stop offset="100%" stop-color="#f8f8f8"/></linearGradient>
+    <linearGradient id="gMetal" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d0d0d0"/><stop offset="50%" stop-color="#b0b0b0"/><stop offset="100%" stop-color="#909090"/></linearGradient>
+    <linearGradient id="gCartilage" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8d4e8"/><stop offset="100%" stop-color="#90b8d8"/></linearGradient>
+    <radialGradient id="gMuscle" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="rgba(200,50,50,0.18)"/><stop offset="100%" stop-color="rgba(180,40,40,0.08)"/></radialGradient>
+    <clipPath id="leftClip"><rect x="20" y="72" width="720" height="862"/></clipPath>
+    <clipPath id="rightClip"><rect x="800" y="72" width="380" height="862"/></clipPath>
+  </defs>
+  <rect width="1200" height="1000" fill="#ffffff"/>
+  <rect x="0" y="0" width="1200" height="1000" fill="url(#gBg)"/>
+  <!-- Header -->
+  <rect x="20" y="16" width="1160" height="48" rx="6" fill="#d97706"/>
+  <text x="600" y="39" text-anchor="middle" font-size="18" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">多轴铰链式</text>
+  <text x="600" y="56" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">四杆机构+J形ICR轨迹 | TRL 5-7 | Hyundai·IEEE标准</text>
+  <!-- Left panel -->
+  <rect x="20" y="72" width="720" height="862" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+  <g id="leftPanelGraphics" transform="translate(45,0)" clip-path="url(#leftClip)">
+    <!-- ANATOMY: MUSCLES -->
+    <path d="M85,95 Q105,95 130,100 Q145,115 150,200 Q152,280 155,350 Q155,400 150,430 Q140,445 125,445 L95,445 Q80,445 75,430 Q70,400 70,350 Q68,280 70,200 Q72,115 85,95 Z" fill="rgba(200,50,50,0.12)" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <path d="M155,100 Q165,110 170,200 Q172,280 170,350 Q168,400 160,435 Q153,448 140,448 L130,448 Q120,448 115,435 Q110,400 108,350 Q105,280 110,200 Q113,115 125,100 Q135,95 145,95 Z" fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.20)" stroke-width="0.5"/>
+    <path d="M120,450 Q130,450 140,455 Q150,470 155,520 Q158,580 155,650 Q150,700 140,730 Q130,740 120,740 L95,740 Q85,740 80,730 Q73,700 70,650 Q68,580 72,520 Q75,470 85,455 Q92,450 102,450 Z" fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.18)" stroke-width="0.5"/>
+    <!-- ANATOMY: BONES (FEMUR) -->
+    <path d="M110,100 Q113,100 117,105 Q123,115 127,180 Q130,250 130,300 Q131,350 129,400 Q127,425 123,435 Q117,440 113,440 Q108,440 103,435 Q99,425 97,400 Q95,350 96,300 Q97,250 100,180 Q103,115 107,105 Q108,100 110,100 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="1"/>
+    <ellipse cx="113" cy="108" rx="14" ry="16" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="105" cy="438" rx="10" ry="12" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="120" cy="438" rx="10" ry="12" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <path d="M97,442 Q105,452 113,442" fill="none" stroke="#90b8d8" stroke-width="2" opacity="0.5"/>
+    <path d="M112,442 Q120,452 128,442" fill="none" stroke="#90b8d8" stroke-width="2" opacity="0.5"/>
+    <!-- ANATOMY: BONES (TIBIA) -->
+    <path d="M110,450 Q113,450 117,455 Q123,470 127,540 Q130,600 130,660 Q131,720 128,760 Q125,775 120,780 Q115,782 110,780 Q105,782 100,780 Q95,775 92,760 Q89,720 90,660 Q91,600 93,540 Q97,470 103,455 Q107,450 110,450 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="1"/>
+    <rect x="97" y="448" width="28" height="8" rx="3" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.6"/>
+    <ellipse cx="125" cy="480" rx="6" ry="10" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.5" opacity="0.7"/>
+    <path d="M140,465 Q142,470 143,520 Q144,600 143,680 Q142,720 140,740 Q138,745 135,745 Q132,745 130,740 Q128,720 127,680 Q126,600 127,520 Q128,470 132,465 Q135,463 138,465 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="137" cy="468" rx="6" ry="8" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.5"/>
+    <ellipse cx="133" cy="420" rx="16" ry="20" fill="url(#gBone)" stroke="#c8b898" stroke-width="1"/>
+    <path d="M123,410 Q133,405 143,410" fill="none" stroke="#d4c9a8" stroke-width="0.5" opacity="0.5"/>
+    <path d="M121,425 Q133,420 145,425" fill="none" stroke="#d4c9a8" stroke-width="0.5" opacity="0.5"/>
+    <path d="M133,440 Q133,450 133,460" stroke="#c8b898" stroke-width="1.5" opacity="0.5"/>
+    <path d="M95,430 Q110,415 125,430 Q120,450 110,455 Q100,450 95,430 Z" fill="none" stroke="#90b8d8" stroke-width="0.8" stroke-dasharray="2,2" opacity="0.4"/>
+    <path d="M98,448 Q110,443 122,448" fill="none" stroke="#b8d4e8" stroke-width="2.5" opacity="0.4"/>
+    <!-- MECHANISM: FOUR-BAR LINKAGE + ICR TRAJECTORY -->
+    <line x1="230" y1="130" x2="280" y2="280" stroke="#d97706" stroke-width="4" stroke-linecap="round"/>
+    <line x1="280" y1="280" x2="330" y2="420" stroke="#0096f0" stroke-width="4" stroke-linecap="round"/>
+    <line x1="330" y1="420" x2="200" y2="380" stroke="#d97706" stroke-width="4" stroke-linecap="round"/>
+    <line x1="200" y1="380" x2="230" y2="130" stroke="#808080" stroke-width="3" stroke-linecap="round" stroke-dasharray="5,3" opacity="0.6"/>
+    <circle cx="230" cy="130" r="12" fill="#fff" stroke="#d97706" stroke-width="2.5"/>
+    <circle cx="230" cy="130" r="5" fill="#d97706"/>
+    <circle cx="280" cy="280" r="12" fill="#fff" stroke="#0096f0" stroke-width="2.5"/>
+    <circle cx="280" cy="280" r="5" fill="#0096f0"/>
+    <circle cx="330" cy="420" r="12" fill="#fff" stroke="#d97706" stroke-width="2.5"/>
+    <circle cx="330" cy="420" r="5" fill="#d97706"/>
+    <circle cx="200" cy="380" r="12" fill="#fff" stroke="#808080" stroke-width="2.5"/>
+    <circle cx="200" cy="380" r="5" fill="#808080"/>
+    <rect x="200" y="100" width="60" height="40" rx="4" fill="url(#gMetal)" stroke="#808080" stroke-width="1"/>
+    <line x1="230" y1="100" x2="230" y2="120" stroke="#808080" stroke-width="1.5"/>
+    <rect x="175" y="395" width="60" height="35" rx="4" fill="url(#gMetal)" stroke="#808080" stroke-width="1"/>
+    <line x1="200" y1="390" x2="200" y2="395" stroke="#808080" stroke-width="1.5"/>
+    <!-- ICR J-curve trajectory -->
+    <path d="M250,290 Q265,310 275,340 Q282,365 280,390 Q276,410 265,420 Q255,425 245,428" fill="none" stroke="#0096f0" stroke-width="3" stroke-dasharray="8,4"/>
+    <circle cx="250" cy="290" r="8" fill="#fff" stroke="#0096f0" stroke-width="2.5"/>
+    <circle cx="250" cy="290" r="4" fill="#0096f0"/>
+    <path d="M250,283 L250,297 M243,290 L257,290" stroke="#0096f0" stroke-width="0.6" opacity="0.4"/>
+    <circle cx="268" cy="325" r="8" fill="#fff" stroke="#0096f0" stroke-width="2.5"/>
+    <circle cx="268" cy="325" r="4" fill="#0096f0"/>
+    <circle cx="278" cy="365" r="8" fill="#fff" stroke="#0096f0" stroke-width="2.5"/>
+    <circle cx="278" cy="365" r="4" fill="#0096f0"/>
+    <circle cx="270" cy="405" r="8" fill="#fff" stroke="#0096f0" stroke-width="2.5"/>
+    <circle cx="270" cy="405" r="4" fill="#0096f0"/>
+    <path d="M248,288 Q255,295 252,305" fill="none" stroke="#0096f0" stroke-width="0.8" marker-end="url(#aB)"/>
+    <circle cx="230" cy="350" r="8" fill="none" stroke="#c45a5a" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <circle cx="230" cy="350" r="3" fill="#c45a5a" opacity="0.5"/>
+    <line x1="230" y1="350" x2="270" y2="365" stroke="#c45a5a" stroke-width="0.6" stroke-dasharray="2,2"/>
+    <path d="M230,350 Q255,380 265,400" fill="none" stroke="#c45a5a" stroke-width="0.8" stroke-dasharray="3,2"/>
+    <!-- Anatomical labels with leader lines -->
+    <line x1="60" y1="180" x2="110" y2="180" stroke="#888" stroke-width="0.5"/><circle cx="110" cy="180" r="1.5" fill="#888"/>
+    <text x="55" y="184" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">股骨</text>
+    <line x1="60" y1="580" x2="110" y2="580" stroke="#888" stroke-width="0.5"/><circle cx="110" cy="580" r="1.5" fill="#888"/>
+    <text x="55" y="584" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">胫骨</text>
+    <line x1="60" y1="440" x2="133" y2="440" stroke="#888" stroke-width="0.5"/><circle cx="133" cy="440" r="1.5" fill="#888"/>
+    <text x="55" y="444" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">髌骨</text>
+    <line x1="60" y1="448" x2="98" y2="448" stroke="#90b8d8" stroke-width="0.6"/>
+    <text x="55" y="452" text-anchor="end" font-size="10" fill="#777" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关节软骨</text>
+    <!-- Mechanism labels -->
+    <line x1="230" y1="110" x2="400" y2="95" stroke="#d97706" stroke-width="0.5"/>
+    <text x="405" y="99" font-size="10" fill="#d97706" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">上连杆（近端连杆）</text>
+    <line x1="330" y1="420" x2="410" y2="440" stroke="#0096f0" stroke-width="0.5"/>
+    <text x="415" y="444" font-size="10" fill="#0096f0" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">下连杆（远端连杆）</text>
+    <line x1="230" y1="350" x2="410" y2="340" stroke="#c45a5a" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <text x="415" y="344" font-size="10" fill="#c45a5a" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">ICR瞬时旋转中心轨迹</text>
+    <line x1="280" y1="280" x2="410" y2="310" stroke="#0096f0" stroke-width="0.5"/>
+    <text x="415" y="314" font-size="10" fill="#0096f0" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">J形ICR迁移路径</text>
+    <!-- Dimension annotations -->
+    <line x1="200" y1="100" x2="160" y2="100" stroke="#d97706" stroke-width="0.5"/>
+    <line x1="200" y1="100" x2="200" y2="115" stroke="#d97706" stroke-width="0.5"/>
+    <line x1="160" y1="100" x2="160" y2="115" stroke="#d97706" stroke-width="0.5"/>
+    <text x="180" y="128" text-anchor="middle" font-size="10" fill="#d97706">上连杆长度L₁</text>
+    <line x1="330" y1="420" x2="330" y2="455" stroke="#0096f0" stroke-width="0.5"/>
+    <line x1="360" y1="455" x2="360" y2="420" stroke="#0096f0" stroke-width="0.5"/>
+    <text x="345" y="468" text-anchor="middle" font-size="10" fill="#0096f0">下连杆长度L₂</text>
+    <!-- Range of motion arc -->
+    <path d="M 120,240 A 40,40 0 0,1 145,200" fill="none" stroke="#888" stroke-width="0.6" stroke-dasharray="3,2"/>
+    <text x="145" y="215" font-size="10" fill="#888">屈曲 0-155°</text>
+    <!-- Force distribution annotation -->
+    <path d="M 140,465 Q 160,470 175,475" fill="none" stroke="#d32f2f" stroke-width="0.6" marker-end="url(#aR)" opacity="0.5"/>
+    <text x="180" y="479" font-size="10" fill="#d32f2f" opacity="0.6">地面反作用力GRF</text>
+    <!-- Material callout -->
+    <line x1="280" y1="280" x2="440" y2="280" stroke="#888" stroke-width="0.4" stroke-dasharray="2,2"/>
+    <text x="445" y="284" font-size="10" fill="#888">ICR迁移范围约15-25mm</text>
+    <!-- Bearing clearance annotation -->
+    <circle cx="280" cy="280" r="15" fill="none" stroke="#d97706" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.4"/>
+    <text x="280" y="305" text-anchor="middle" font-size="10" fill="#d97706" opacity="0.5">精密轴承间隙&lt;0.05mm</text>
+    <!-- Additional muscle fiber detail -->
+    <path d="M90,140 Q105,135 120,140" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M85,170 Q100,165 115,170" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M82,210 Q98,205 112,210" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M80,250 Q95,245 110,250" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M78,290 Q93,285 108,290" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M78,330 Q93,325 108,330" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M80,370 Q95,365 110,370" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M82,410 Q97,405 112,410" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M90,470 Q105,465 120,470" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M85,510 Q100,505 115,510" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M82,550 Q97,545 112,550" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M80,590 Q95,585 110,590" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M80,630 Q95,625 110,630" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M82,670 Q97,665 112,670" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <!-- Performance annotation block -->
+    <g transform="translate(400,500)">
+      <rect x="0" y="0" width="280" height="95" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="0.5" opacity="0.85"/>
+      <text x="10" y="16" font-size="10" font-weight="bold" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关键性能指标</text>
+      <line x1="10" y1="22" x2="270" y2="22" stroke="#ddd" stroke-width="0.5"/>
+      <circle cx="18" cy="38" r="3" fill="#0096f0"/>
+      <text x="26" y="42" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">ICR迁移范围: 15-25mm（随屈曲角度连续变化）</text>
+      <circle cx="18" cy="56" r="3" fill="#2e7d32"/>
+      <text x="26" y="60" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">皮肤相对滑移: &lt;0.43mm（IEEE评估标准）</text>
+      <circle cx="18" cy="74" r="3" fill="#d97706"/>
+      <text x="26" y="78" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">最大屈曲角度: 0-155° (典型范围)</text>
+      <circle cx="145" cy="38" r="3" fill="#808080"/>
+      <text x="153" y="42" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">连杆材料: 7075-T6铝合金/钛合金</text>
+      <circle cx="145" cy="56" r="3" fill="#c45a5a"/>
+      <text x="153" y="60" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关节寿命: >500万次（精密轴承设计关键技术）</text>
+      <circle cx="145" cy="74" r="3" fill="#0096f0"/>
+      <text x="153" y="78" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">ICR轨迹形状: J形曲线（股骨滚动-滑移耦合运动）</text>
+    </g>
+    <!-- SUPPLEMENTARY CHINESE LABELS -->
+    <line x1="35" y1="620" x2="137" y2="620" stroke="#888" stroke-width="0.5"/><circle cx="137" cy="620" r="1.5" fill="#888"/>
+    <text x="30" y="624" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腓骨</text>
+    <path d="M104,452 Q115,458 126,452" fill="none" stroke="#90b8d8" stroke-width="1.5" opacity="0.5"/>
+    <line x1="35" y1="462" x2="115" y2="462" stroke="#90b8d8" stroke-width="0.5"/>
+    <text x="30" y="466" text-anchor="end" font-size="10" fill="#777" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">半月板</text>
+    <line x1="35" y1="240" x2="95" y2="240" stroke="rgba(200,50,50,0.3)" stroke-width="0.5"/>
+    <circle cx="95" cy="240" r="1.5" fill="rgba(200,50,50,0.3)"/>
+    <text x="30" y="244" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">股四头肌</text>
+    <line x1="35" y1="300" x2="155" y2="300" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <circle cx="155" cy="300" r="1.5" fill="rgba(200,50,50,0.25)"/>
+    <text x="30" y="304" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腘绳肌</text>
+    <line x1="35" y1="550" x2="95" y2="550" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <circle cx="95" cy="550" r="1.5" fill="rgba(200,50,50,0.25)"/>
+    <text x="30" y="554" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腓肠肌</text>
+  </g>
+  <!-- Divider -->
+  <rect x="740" y="72" width="60" height="862" fill="#ffffff"/>
+  <rect x="800" y="72" width="380" height="862" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+  <!-- Right panel -->
+  <g clip-path="url(#rightClip)">
+    <rect x="816" y="86" width="348" height="130" rx="5" fill="#fff8f0" stroke="#d97706" stroke-width="1"/>
+    <rect x="816" y="86" width="348" height="28" rx="5 5 0 0" fill="#d97706"/>
+    <text x="990" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">技术概述</text>
+    <text x="828" y="130" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">多轴铰链采用四杆机构产生J形瞬时旋转中心(ICR)</text>
+    <text x="828" y="148" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">轨迹，模拟人体膝关节的复杂滚动-滑移耦合运动。</text>
+    <text x="828" y="166" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">相比单轴铰链，减小皮肤滑移50-70%。</text>
+    <text x="828" y="186" font-size="10" fill="#888" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">ICR迁移范围约15-25mm | 皮肤滑移 &lt;0.43mm (IEEE)</text>
+    <rect x="816" y="240" width="348" height="125" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="0.6"/>
+    <rect x="816" y="240" width="348" height="28" rx="5 5 0 0" fill="#d97706" fill-opacity="0.85"/>
+    <text x="990" y="259" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">技术参数</text>
+    <text x="828" y="286" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">ICR迁移范围      15-25 mm (随屈曲角度变化)</text>
+    <text x="828" y="306" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">皮肤滑移          &lt;0.43 mm (IEEE标准评估)</text>
+    <text x="828" y="326" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">屈曲角度          0-155度 (典型)</text>
+    <text x="828" y="346" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">连杆材料          7075-T6铝 / 钛合金 / 碳纤维</text>
+    <text x="828" y="366" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关节寿命          &gt; 500万次 (轴承设计关键)</text>
+    <rect x="816" y="389" width="348" height="110" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="0.6"/>
+    <rect x="816" y="389" width="348" height="28" rx="5 5 0 0" fill="#d97706" fill-opacity="0.85"/>
+    <text x="990" y="408" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">代表产品 / 研究</text>
+    <text x="828" y="435" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">IEEE标准四杆膝关节 — 循证医学支持</text>
+    <text x="828" y="455" font-size="11" fill="#666" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">多项临床研究证明皮肤滑移降低效果</text>
+    <text x="828" y="478" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">Hyundai 多轴膝关节专利</text>
+    <text x="828" y="498" font-size="11" fill="#666" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">工业级下肢外骨骼关节方案</text>
+    <rect x="816" y="523" width="348" height="115" rx="5" fill="#f0fdf4" stroke="#2e7d32" stroke-width="0.6"/>
+    <rect x="816" y="523" width="348" height="28" rx="5 5 0 0" fill="#2e7d32" fill-opacity="0.85"/>
+    <text x="990" y="542" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">优势</text>
+    <text x="828" y="569" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">解剖匹配度高 — J形ICR轨迹模拟自然膝关节</text>
+    <text x="828" y="589" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">皮肤滑移极小 — 降低摩擦和不适 (&lt;0.43mm)</text>
+    <text x="828" y="609" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">技术成熟 — 康复工程领域数十年验证</text>
+    <text x="828" y="629" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">结构简洁 — 纯机械结构，无需外部驱动</text>
+    <rect x="816" y="662" width="348" height="115" rx="5" fill="#fef2f2" stroke="#c45a5a" stroke-width="0.6"/>
+    <rect x="816" y="662" width="348" height="28" rx="5 5 0 0" fill="#c45a5a" fill-opacity="0.85"/>
+    <text x="990" y="681" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">缺陷 / 设计挑战</text>
+    <text x="828" y="708" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">连杆优化复杂 — 需针对患者群体调整尺寸</text>
+    <text x="828" y="728" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">重量略增 — 相比单轴增加连杆和轴承</text>
+    <text x="828" y="748" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">对人机对齐敏感 — 安装误差影响ICR轨迹</text>
+    <text x="828" y="768" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">制造公差要求高 — 关节间隙影响性能</text>
+    <text x="828" y="788" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">人体适配性有限 — 不同身高的ICR轨迹差异大</text>
+    <rect x="816" y="815" width="348" height="110" rx="5" fill="#fff8f0" stroke="#d97706" stroke-width="1.2"/>
+    <rect x="816" y="815" width="348" height="28" rx="5 5 0 0" fill="#d97706"/>
+    <text x="990" y="834" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">Bones 评估 Assessment</text>
+    <text x="828" y="860" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">Phase 1-2: 推荐采用多轴铰链方案</text>
+    <text x="828" y="880" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">这是Bones外骨骼膝关节的首选机械方案</text>
+    <text x="828" y="903" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">参考IEEE标准四杆比例进行参数化设计</text>
+    <text x="828" y="923" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">7075-T6铝合金CNC加工，配合驱动单元集成</text>
+  </g>
+  <!-- Bottom legend -->
+  <rect x="20" y="940" width="1160" height="50" rx="4" fill="#f8f8f8" stroke="#d5d5d5" stroke-width="0.6"/>
+  <rect x="40" y="953" width="18" height="18" rx="2" fill="#0096f0"/>
+  <text x="64" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">推荐采用 Recommended</text>
+  <rect x="260" y="953" width="18" height="18" rx="2" fill="#d97706"/>
+  <text x="284" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">部分借鉴 Partial Reference</text>
+  <rect x="500" y="953" width="18" height="18" rx="2" fill="#c45a5a"/>
+  <text x="524" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">缺陷 Not Recommended</text>
+  <rect x="740" y="953" width="18" height="18" rx="2" fill="#2e7d32"/>
+  <text x="764" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">ICR轨迹 / 连杆方向</text>
+  <rect x="980" y="953" width="18" height="18" rx="2" fill="#d32f2f"/>
+  <text x="1004" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">力矢量 / 运动方向</text>
+</svg>

@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000">
+  <defs>
+    <marker id="aR" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto"><path d="M0,0 L12,4 L0,8" fill="#d32f2f"/></marker>
+    <marker id="aB" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#0096f0"/></marker>
+    <marker id="aA" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#d97706"/></marker>
+    <marker id="aG" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#2e7d32"/></marker>
+    <marker id="aGy" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#888"/></marker>
+    <linearGradient id="gBone" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e8ddc0"/><stop offset="35%" stop-color="#eee4cc"/><stop offset="65%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#c8b898"/></linearGradient>
+    <linearGradient id="gBoneVert" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8ddc0"/><stop offset="40%" stop-color="#eee4cc"/><stop offset="70%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#c8b898"/></linearGradient>
+    <linearGradient id="gBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fcfcfc"/><stop offset="100%" stop-color="#f8f8f8"/></linearGradient>
+    <linearGradient id="gMetal" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d0d0d0"/><stop offset="50%" stop-color="#b0b0b0"/><stop offset="100%" stop-color="#909090"/></linearGradient>
+    <linearGradient id="gNiTi" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c45a5a"/><stop offset="50%" stop-color="#d07070"/><stop offset="100%" stop-color="#c45a5a"/></linearGradient>
+    <radialGradient id="gMuscle" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="rgba(200,50,50,0.18)"/><stop offset="100%" stop-color="rgba(180,40,40,0.08)"/></radialGradient>
+    <clipPath id="leftClip"><rect x="20" y="72" width="720" height="862"/></clipPath>
+    <clipPath id="rightClip"><rect x="800" y="72" width="380" height="862"/></clipPath>
+  </defs>
+  <rect width="1200" height="1000" fill="#ffffff"/>
+  <rect x="0" y="0" width="1200" height="1000" fill="url(#gBg)"/>
+  <!-- Header -->
+  <rect x="20" y="16" width="1160" height="48" rx="6" fill="#c45a5a"/>
+  <text x="600" y="39" text-anchor="middle" font-size="18" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">形状记忆合金（SMA）</text>
+  <text x="600" y="56" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">热致相变驱动 | TRL 2-5 基础研究·远未成熟</text>
+  <!-- Left panel -->
+  <rect x="20" y="72" width="720" height="862" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+  <g id="leftPanelGraphics" transform="translate(45,0)" clip-path="url(#leftClip)">
+    <g >
+    <!-- ANATOMY: MUSCLES -->
+    <path d="M85,95 Q105,95 130,100 Q145,115 150,200 Q152,280 155,350 Q155,400 150,430 Q140,445 125,445 L95,445 Q80,445 75,430 Q70,400 70,350 Q68,280 70,200 Q72,115 85,95 Z" fill="rgba(200,50,50,0.12)" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <path d="M155,100 Q165,110 170,200 Q172,280 170,350 Q168,400 160,435 Q153,448 140,448 L130,448 Q120,448 115,435 Q110,400 108,350 Q105,280 110,200 Q113,115 125,100 Q135,95 145,95 Z" fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.20)" stroke-width="0.5"/>
+    <path d="M120,450 Q130,450 140,455 Q150,470 155,520 Q158,580 155,650 Q150,700 140,730 Q130,740 120,740 L95,740 Q85,740 80,730 Q73,700 70,650 Q68,580 72,520 Q75,470 85,455 Q92,450 102,450 Z" fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.18)" stroke-width="0.5"/>
+    <!-- BONES -->
+    <path d="M110,100 Q113,100 117,105 Q123,115 127,180 Q130,250 130,300 Q131,350 129,400 Q127,425 123,435 Q117,440 113,440 Q108,440 103,435 Q99,425 97,400 Q95,350 96,300 Q97,250 100,180 Q103,115 107,105 Q108,100 110,100 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="1"/>
+    <ellipse cx="113" cy="108" rx="14" ry="16" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="105" cy="438" rx="10" ry="12" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="120" cy="438" rx="10" ry="12" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <path d="M110,450 Q113,450 117,455 Q123,470 127,540 Q130,600 130,660 Q131,720 128,760 Q125,775 120,780 Q115,782 110,780 Q105,782 100,780 Q95,775 92,760 Q89,720 90,660 Q91,600 93,540 Q97,470 103,455 Q107,450 110,450 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="1"/>
+    <rect x="97" y="448" width="28" height="8" rx="3" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.6"/>
+    <ellipse cx="133" cy="420" rx="16" ry="20" fill="url(#gBone)" stroke="#c8b898" stroke-width="1"/>
+    </g>
+    <!-- NiTi SMA WIRE - MARTENSITE (low temp) -->
+    <rect x="220" y="85" width="240" height="60" rx="6" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <rect x="230" y="100" width="200" height="8" rx="3" fill="url(#gNiTi)" stroke="#c45a5a" stroke-width="0.5"/>
+    <line x1="245" y1="100" x2="245" y2="108" stroke="#c45a5a" stroke-width="0.4" opacity="0.5"/>
+    <line x1="260" y1="100" x2="260" y2="108" stroke="#c45a5a" stroke-width="0.4" opacity="0.5"/>
+    <line x1="275" y1="100" x2="275" y2="108" stroke="#c45a5a" stroke-width="0.4" opacity="0.5"/>
+    <line x1="290" y1="100" x2="290" y2="108" stroke="#c45a5a" stroke-width="0.4" opacity="0.5"/>
+    <line x1="305" y1="100" x2="305" y2="108" stroke="#c45a5a" stroke-width="0.4" opacity="0.5"/>
+    <line x1="320" y1="100" x2="320" y2="108" stroke="#c45a5a" stroke-width="0.4" opacity="0.5"/>
+    <line x1="335" y1="100" x2="335" y2="108" stroke="#c45a5a" stroke-width="0.4" opacity="0.5"/>
+    <line x1="350" y1="100" x2="350" y2="108" stroke="#c45a5a" stroke-width="0.4" opacity="0.5"/>
+    <line x1="365" y1="100" x2="365" y2="108" stroke="#c45a5a" stroke-width="0.4" opacity="0.5"/>
+    <line x1="380" y1="100" x2="380" y2="108" stroke="#c45a5a" stroke-width="0.4" opacity="0.5"/>
+    <line x1="395" y1="100" x2="395" y2="108" stroke="#c45a5a" stroke-width="0.4" opacity="0.5"/>
+    <line x1="410" y1="100" x2="410" y2="108" stroke="#c45a5a" stroke-width="0.4" opacity="0.5"/>
+    <path d="M228,112 L236,112 L236,120 L228,120 Z" fill="none" stroke="#c45a5a" stroke-width="0.4" opacity="0.3"/>
+    <path d="M228,114 L232,112" stroke="#c45a5a" stroke-width="0.3" opacity="0.3"/>
+    <path d="M400,112 L408,112 L408,120 L400,120 Z" fill="none" stroke="#c45a5a" stroke-width="0.4" opacity="0.3"/>
+    <path d="M400,114 L404,112" stroke="#c45a5a" stroke-width="0.3" opacity="0.3"/>
+    <!-- HEATING CONTRACTION MECHANISM (austenite) -->
+    <rect x="220" y="155" width="240" height="60" rx="6" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <rect x="270" y="170" width="120" height="8" rx="3" fill="#c45a5a" stroke="#d97706" stroke-width="0.6"/>
+    <rect x="278" y="180" width="8" height="8" fill="none" stroke="#d97706" stroke-width="0.3" opacity="0.4"/>
+    <rect x="290" y="180" width="8" height="8" fill="none" stroke="#d97706" stroke-width="0.3" opacity="0.4"/>
+    <rect x="302" y="180" width="8" height="8" fill="none" stroke="#d97706" stroke-width="0.3" opacity="0.4"/>
+    <rect x="314" y="180" width="8" height="8" fill="none" stroke="#d97706" stroke-width="0.3" opacity="0.4"/>
+    <rect x="326" y="180" width="8" height="8" fill="none" stroke="#d97706" stroke-width="0.3" opacity="0.4"/>
+    <rect x="338" y="180" width="8" height="8" fill="none" stroke="#d97706" stroke-width="0.3" opacity="0.4"/>
+    <rect x="350" y="180" width="8" height="8" fill="none" stroke="#d97706" stroke-width="0.3" opacity="0.4"/>
+    <rect x="362" y="180" width="8" height="8" fill="none" stroke="#d97706" stroke-width="0.3" opacity="0.4"/>
+    <rect x="374" y="180" width="8" height="8" fill="none" stroke="#d97706" stroke-width="0.3" opacity="0.4"/>
+    <line x1="240" y1="174" x2="268" y2="174" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#aG)"/>
+    <line x1="392" y1="174" x2="420" y2="174" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#aG)"/>
+    <path d="M280,158 Q285,153 290,158" fill="none" stroke="#d32f2f" stroke-width="0.8"/>
+    <path d="M320,158 Q325,153 330,158" fill="none" stroke="#d32f2f" stroke-width="0.8"/>
+    <path d="M360,158 Q365,153 370,158" fill="none" stroke="#d32f2f" stroke-width="0.8"/>
+    <g >
+    <!-- Anatomical labels -->
+    <line x1="60" y1="180" x2="110" y2="180" stroke="#888" stroke-width="0.5"/><circle cx="110" cy="180" r="1.5" fill="#888"/>
+    <text x="55" y="184" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">股骨</text>
+    <line x1="60" y1="580" x2="110" y2="580" stroke="#888" stroke-width="0.5"/><circle cx="110" cy="580" r="1.5" fill="#888"/>
+    <text x="55" y="584" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">胫骨</text>
+    <line x1="60" y1="440" x2="133" y2="440" stroke="#888" stroke-width="0.5"/><circle cx="133" cy="440" r="1.5" fill="#888"/>
+    <text x="55" y="444" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">髌骨</text>
+    <!-- Supplementary labels -->
+    <line x1="60" y1="620" x2="137" y2="620" stroke="#888" stroke-width="0.5"/><circle cx="137" cy="620" r="1.5" fill="#888"/>
+    <text x="55" y="624" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腓骨</text>
+    <line x1="60" y1="448" x2="98" y2="448" stroke="#90b8d8" stroke-width="0.6"/>
+    <text x="55" y="452" text-anchor="end" font-size="10" fill="#777" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关节软骨</text>
+    <path d="M104,452 Q115,458 126,452" fill="none" stroke="#90b8d8" stroke-width="1.5" opacity="0.5"/>
+    <line x1="60" y1="462" x2="115" y2="462" stroke="#90b8d8" stroke-width="0.5"/>
+    <text x="55" y="466" text-anchor="end" font-size="10" fill="#777" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">半月板</text>
+    <line x1="60" y1="240" x2="95" y2="240" stroke="rgba(200,50,50,0.3)" stroke-width="0.5"/>
+    <circle cx="95" cy="240" r="1.5" fill="rgba(200,50,50,0.3)"/>
+    <text x="55" y="244" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">股四头肌</text>
+    <line x1="60" y1="300" x2="155" y2="300" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <circle cx="155" cy="300" r="1.5" fill="rgba(200,50,50,0.25)"/>
+    <text x="55" y="304" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腘绳肌</text>
+    <line x1="60" y1="550" x2="95" y2="550" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <circle cx="95" cy="550" r="1.5" fill="rgba(200,50,50,0.25)"/>
+    <text x="55" y="554" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腓肠肌</text>
+    </g>
+    <!-- Mechanism labels -->
+    <line x1="340" y1="105" x2="470" y2="95" stroke="#c45a5a" stroke-width="0.5"/>
+    <text x="475" y="99" font-size="10" fill="#c45a5a" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">SMA丝（马氏体态·低温松弛）</text>
+    <line x1="340" y1="175" x2="475" y2="165" stroke="#d97706" stroke-width="0.5"/>
+    <text x="480" y="169" font-size="10" fill="#d97706" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">SMA丝（奥氏体态·加热收缩）</text>
+    <line x1="270" y1="170" x2="475" y2="185" stroke="#d32f2f" stroke-width="0.5"/>
+    <text x="480" y="189" font-size="10" fill="#d32f2f" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">加热收缩产生驱动力</text>
+    <!-- Dimension annotations -->
+    <line x1="340" y1="215" x2="340" y2="250" stroke="#d32f2f" stroke-width="0.6"/>
+    <line x1="290" y1="250" x2="390" y2="250" stroke="#d32f2f" stroke-width="0.5" stroke-dasharray="3,2"/>
+    <text x="340" y="268" text-anchor="middle" font-size="10" fill="#d32f2f">SMA丝可恢复应变4-8%</text>
+    <!-- Phase transformation annotation -->
+    <path d="M 465,105 Q 490,110 510,120" fill="none" stroke="#c45a5a" stroke-width="0.6"/>
+    <text x="515" y="124" font-size="10" fill="#c45a5a">马氏体→奥氏体相变</text>
+    <!-- Temperature annotation -->
+    <path d="M 220,100 Q 200,105 185,115" fill="none" stroke="#d32f2f" stroke-width="0.6"/>
+    <text x="160" y="120" text-anchor="end" font-size="10" fill="#d32f2f">加热至奥氏体完成温度Af>60-90°C</text>
+    <!-- Cooling annotation -->
+    <path d="M 460,175 Q 485,180 505,190" fill="none" stroke="#0096f0" stroke-width="0.5"/>
+    <text x="510" y="194" font-size="10" fill="#0096f0">冷却后恢复马氏体</text>
+    <!-- Activation cycle annotation -->
+    <path d="M 280,120 Q 260,130 245,145" fill="none" stroke="#888" stroke-width="0.5"/>
+    <text x="220" y="155" text-anchor="end" font-size="10" fill="#888">响应频率0.5-5Hz（热传导限制）</text>
+    <!-- Fatigue life annotation -->
+    <path d="M 465,130 Q 490,140 505,148" fill="none" stroke="#c45a5a" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <text x="510" y="152" font-size="10" fill="#c45a5a">循环寿命 10^3-10^5 次</text>
+    <g >
+    <!-- Additional muscle fiber detail -->
+    <path d="M90,140 Q105,135 120,140" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M85,170 Q100,165 115,170" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M82,210 Q98,205 112,210" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M80,250 Q95,245 110,250" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M78,290 Q93,285 108,290" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M78,330 Q93,325 108,330" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M80,370 Q95,365 110,370" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M82,410 Q97,405 112,410" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M90,470 Q105,465 120,470" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M85,510 Q100,505 115,510" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M82,550 Q97,545 112,550" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M80,590 Q95,585 110,590" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M80,630 Q95,625 110,630" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M82,670 Q97,665 112,670" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    </g>
+    <!-- Performance annotation block -->
+    <g transform="translate(400,300)">
+      <rect x="0" y="0" width="280" height="95" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="0.5" opacity="0.85"/>
+      <text x="10" y="16" font-size="10" font-weight="bold" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关键性能指标</text>
+      <line x1="10" y1="22" x2="270" y2="22" stroke="#ddd" stroke-width="0.5"/>
+      <circle cx="18" cy="38" r="3" fill="#0096f0"/>
+      <text x="26" y="42" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">工作应变: 4-8% (可恢复应变)</text>
+      <circle cx="18" cy="56" r="3" fill="#2e7d32"/>
+      <text x="26" y="60" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">应力: 200-700MPa（NiTi镍钛合金）</text>
+      <circle cx="18" cy="74" r="3" fill="#d97706"/>
+      <text x="26" y="78" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">响应频率: 0.5-5Hz（热传导速度限制·核心瓶颈）</text>
+      <circle cx="145" cy="38" r="3" fill="#808080"/>
+      <text x="153" y="42" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">循环寿命: 10^3-10^5 (热机械疲劳)</text>
+      <circle cx="145" cy="56" r="3" fill="#c45a5a"/>
+      <text x="153" y="60" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">能量密度: 约1000J/kg（远高于电磁电机）</text>
+      <circle cx="145" cy="74" r="3" fill="#0096f0"/>
+      <text x="153" y="78" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">材料: NiTi镍钛合金（Nitinol·最常用SMA）</text>
+    </g>
+    <!-- Efficiency annotation -->
+    <path d="M 340,158 Q 370,175 395,185" fill="none" stroke="#d32f2f" stroke-width="0.6"/>
+    <text x="400" y="189" font-size="10" fill="#d32f2f" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">热机效率&lt;10%，大部分输入能量耗散为热量</text>
+    <!-- Antagonistic pair reference -->
+    <circle cx="340" cy="158" r="10" fill="none" stroke="#c45a5a" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <text x="340" y="178" text-anchor="middle" font-size="10" fill="#c45a5a" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">对抗式SMA对</text>
+    <!-- SUPPLEMENTARY: Key Formulas & Energy Flow -->
+    <rect x="220" y="195" width="480" height="55" rx="3" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <text x="230" y="212" font-size="10" font-weight="bold" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关键公式</text>
+    <text x="230" y="228" font-size="9" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">ε_recoverable = 4-8%  |  σ = 200-700 MPa  |  能量密度 ~1000 J/kg (远超电机)</text>
+    <text x="230" y="243" font-size="9" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">Af &gt; 60-90°C (奥氏体转变)  |  热机效率 η &lt; 10%  |  寿命 10³-10⁵次</text>
+    <!-- Phase transformation flow -->
+    <rect x="220" y="257" width="480" height="32" rx="3" fill="#fcfcfc" stroke="#ddd" stroke-width="0.4"/>
+    <line x1="230" y1="273" x2="280" y2="273" stroke="#d32f2f" stroke-width="1.2" marker-end="url(#aR)"/>
+    <line x1="290" y1="273" x2="340" y2="273" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#aG)"/>
+    <line x1="350" y1="273" x2="400" y2="273" stroke="#0096f0" stroke-width="1.2" marker-end="url(#aB)"/>
+    <text x="230" y="267" font-size="8" fill="#d32f2f" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">加热 &gt; Af</text>
+    <text x="290" y="267" font-size="8" fill="#2e7d32" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">马氏体→奥氏体</text>
+    <text x="350" y="267" font-size="8" fill="#0096f0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">形状恢复 (收缩)</text>
+    <text x="430" y="273" font-size="8" fill="#888" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">→ 驱动力</text>
+  </g>
+  <!-- Divider -->
+  <rect x="740" y="72" width="60" height="862" fill="#ffffff"/>
+  <rect x="800" y="72" width="380" height="862" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+  <!-- Right panel -->
+  <g clip-path="url(#rightClip)">
+    <rect x="816" y="86" width="348" height="130" rx="5" fill="#fef2f2" stroke="#c45a5a" stroke-width="1"/>
+    <rect x="816" y="86" width="348" height="28" rx="5 5 0 0" fill="#c45a5a"/>
+    <text x="990" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">技术概述</text>
+    <text x="828" y="130" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">形状记忆合金(SMA)利用温度诱导的马氏体与奥</text>
+    <text x="828" y="148" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">氏体相变产生形状恢复力。加热至Af温度以上时</text>
+    <text x="828" y="166" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">，预变形的SMA丝/弹簧恢复原始形状输出力。</text>
+    <text x="828" y="186" font-size="10" fill="#888" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">工作温度 60-90度 | 应变 4-8% | 响应 0.5-5 Hz (热限制)</text>
+    <rect x="816" y="240" width="348" height="135" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="0.6"/>
+    <rect x="816" y="240" width="348" height="28" rx="5 5 0 0" fill="#c45a5a" fill-opacity="0.85"/>
+    <text x="990" y="259" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">技术参数</text>
+    <text x="828" y="286" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">工作应变          4-8% (可恢复)</text>
+    <text x="828" y="306" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">应力              200-700 MPa</text>
+    <text x="828" y="326" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">响应频率          0.5-5 Hz (受热传导限制)</text>
+    <text x="828" y="346" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">循环寿命          10^3-10^5 (热机械疲劳)</text>
+    <text x="828" y="366" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">能量密度          ~1000 J/kg (远高于电机)</text>
+    <rect x="816" y="399" width="348" height="100" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="0.6"/>
+    <rect x="816" y="399" width="348" height="28" rx="5 5 0 0" fill="#c45a5a" fill-opacity="0.85"/>
+    <text x="990" y="418" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">代表研究</text>
+    <text x="828" y="445" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">SMA人工肌肉 (加州理工/哈佛)</text>
+    <text x="828" y="465" font-size="11" fill="#666" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">外骨骼应用仅限手指等小型关节</text>
+    <text x="828" y="488" font-size="11" fill="#666" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">NiTi (Nitinol) 是最常用SMA材料</text>
+    <rect x="816" y="523" width="348" height="115" rx="5" fill="#f0fdf4" stroke="#2e7d32" stroke-width="0.6"/>
+    <rect x="816" y="523" width="348" height="28" rx="5 5 0 0" fill="#2e7d32" fill-opacity="0.85"/>
+    <text x="990" y="542" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">优势</text>
+    <text x="828" y="569" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">极高的能量密度 (~1000 J/kg, 远超电机)</text>
+    <text x="828" y="589" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">结构极简 — 一根丝即可驱动，无减速器</text>
+    <text x="828" y="609" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">静音运行 — 无机械摩擦噪音</text>
+    <text x="828" y="629" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">生物相容 — NiTi对人体无毒</text>
+    <rect x="816" y="662" width="348" height="145" rx="5" fill="#fef2f2" stroke="#c45a5a" stroke-width="0.6"/>
+    <rect x="816" y="662" width="348" height="28" rx="5 5 0 0" fill="#c45a5a" fill-opacity="0.85"/>
+    <text x="990" y="681" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">缺陷 Disadvantages</text>
+    <text x="828" y="708" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">带宽极低 — 热传导限制响应&lt;5Hz</text>
+    <text x="828" y="728" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">效率极低 — 热机效率 &lt;10%, 大部分能量变热</text>
+    <text x="828" y="748" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">疲劳寿命短 — 热机械循环导致功能退化</text>
+    <text x="828" y="768" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">控制困难 — 高度非线性, 迟滞大</text>
+    <text x="828" y="788" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">散热问题 — 冷却比加热更难控制</text>
+    <text x="828" y="808" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">位置控制困难 — 无精确的位置反馈能力</text>
+    <rect x="816" y="835" width="348" height="95" rx="5" fill="#fef2f2" stroke="#c45a5a" stroke-width="1.2"/>
+    <rect x="816" y="835" width="348" height="28" rx="5 5 0 0" fill="#c45a5a"/>
+    <text x="990" y="854" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">Bones 评估 Assessment</text>
+    <text x="828" y="880" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">当前阶段: 完全不推荐用于下肢外骨骼</text>
+    <text x="828" y="900" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">带宽和效率限制无法满足膝关节驱动需求</text>
+    <text x="828" y="920" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">潜在应用: 5-10年后手部康复外骨骼</text>
+  </g>
+  <!-- Bottom legend -->
+  <rect x="20" y="940" width="1160" height="50" rx="4" fill="#f8f8f8" stroke="#d5d5d5" stroke-width="0.6"/>
+  <rect x="40" y="953" width="18" height="18" rx="2" fill="#0096f0"/>
+  <text x="64" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">推荐采用</text>
+  <rect x="240" y="953" width="18" height="18" rx="2" fill="#d97706"/>
+  <text x="264" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">部分借鉴</text>
+  <rect x="460" y="953" width="18" height="18" rx="2" fill="#c45a5a"/>
+  <text x="484" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">不推荐</text>
+  <rect x="680" y="953" width="18" height="18" rx="2" fill="#2e7d32"/>
+  <text x="704" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">收缩/驱动方向</text>
+  <rect x="900" y="953" width="18" height="18" rx="2" fill="#c45a5a" fill-opacity="0.5"/>
+  <text x="924" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">SMA线/热效应</text>
+</svg>

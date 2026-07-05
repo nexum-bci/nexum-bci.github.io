@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.06"/>
+    </filter>
+    <style>
+      .bg { fill: #f5f7fa; }
+      .title { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Hiragino Sans GB', 'Inter', sans-serif; font-weight: 700; fill: #1a1a2e; }
+      .subtitle { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #666666; }
+      .stitle { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Hiragino Sans GB', 'Inter', sans-serif; font-weight: 700; fill: #1a1a2e; }
+      .sstitle { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #888888; }
+      .htext { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Hiragino Sans GB', sans-serif; font-weight: 700; fill: #ffffff; }
+      .cen { font-family: 'Inter', 'PingFang SC', sans-serif; fill: #555555; }
+      .cprod { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Hiragino Sans GB', 'Inter', sans-serif; font-weight: 600; fill: #222222; }
+      .cspec { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Hiragino Sans GB', 'Inter', sans-serif; fill: #777777; }
+      .btext { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Hiragino Sans GB', sans-serif; font-weight: 600; fill: #ffffff; }
+      .bref { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Hiragino Sans GB', 'Inter', sans-serif; fill: #555555; }
+      .ltext { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Hiragino Sans GB', 'Inter', sans-serif; fill: #555555; }
+      .wm { font-family: 'Inter', sans-serif; fill: #cccccc; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="1200" height="1400"/>
+
+  <!-- Title -->
+  <text class="title" font-size="22" x="600" y="38" text-anchor="middle">髋关节与髋膝一体外骨骼架构分类</text>
+  <text class="subtitle" font-size="13" x="600" y="62" text-anchor="middle">Hip &amp; Hip-Knee Integrated Exoskeleton Architecture Classification</text>
+  <line x1="150" y1="82" x2="1050" y2="82" stroke="#dddddd" stroke-width="1"/>
+
+  <!-- ============================================================ -->
+  <!-- Section 1: Hip Architectures -->
+  <!-- ============================================================ -->
+  <rect x="45" y="100" width="4" height="22" rx="2" fill="#0096f0"/>
+  <text class="stitle" font-size="16" x="60" y="118">髋关节架构</text>
+  <text class="sstitle" font-size="11" x="200" y="118">Hip Joint Exoskeleton Architectures · 6 types</text>
+
+  <!-- ===== ROW 1 ===== -->
+
+  <!-- Card 1: Omega Waist-Link (Green - 推荐借鉴) -->
+  <g transform="translate(45, 140)">
+    <rect width="350" height="180" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M0 8 Q0 0 8 0 L342 0 Q350 0 350 8 L350 28 L0 28 Z" fill="#0096f0"/>
+    <text class="htext" font-size="13" x="14" y="19">欧米伽腰部连杆</text>
+    <text class="cen" font-size="11" x="14" y="43">Omega Waist-Link Architecture</text>
+    <text class="cprod" font-size="12" x="14" y="62">极壳Hypershell X · 海尔W3 · Honda</text>
+    <text class="cspec" font-size="10" x="14" y="80">腰部连杆式扭矩放大，结构简洁可靠</text>
+    <rect x="14" y="100" width="64" height="20" rx="4" fill="#27ae60"/>
+    <text class="btext" font-size="11" x="46" y="114" text-anchor="middle">推荐借鉴</text>
+    <text class="bref" font-size="10" x="14" y="140">→ Bones Omega 结构同源参考</text>
+  </g>
+
+  <!-- Card 2: Belt-Cable (Amber - 部分借鉴) -->
+  <g transform="translate(425, 140)">
+    <rect width="350" height="180" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M0 8 Q0 0 8 0 L342 0 Q350 0 350 8 L350 28 L0 28 Z" fill="#0096f0"/>
+    <text class="htext" font-size="13" x="14" y="19">绳索钢缆传动</text>
+    <text class="cen" font-size="11" x="14" y="43">Belt-Cable Drive Architecture</text>
+    <text class="cprod" font-size="12" x="14" y="62">肯綮Ant-H1 Pro · π系列</text>
+    <text class="cspec" font-size="10" x="14" y="80">柔性绳索/钢缆传递髋关节扭矩</text>
+    <rect x="14" y="100" width="64" height="20" rx="4" fill="#f39c12"/>
+    <text class="btext" font-size="11" x="46" y="114" text-anchor="middle">部分借鉴</text>
+  </g>
+
+  <!-- Card 3: Backpack (Amber - 部分借鉴) -->
+  <g transform="translate(805, 140)">
+    <rect width="350" height="180" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M0 8 Q0 0 8 0 L342 0 Q350 0 350 8 L350 28 L0 28 Z" fill="#0096f0"/>
+    <text class="htext" font-size="13" x="14" y="19">背包式驱动</text>
+    <text class="cen" font-size="11" x="14" y="43">Backpack-Mounted Drive Architecture</text>
+    <text class="cprod" font-size="12" x="14" y="62">傲鲨VIATRIX · 埃斯顿</text>
+    <text class="cspec" font-size="10" x="14" y="80">背包集成电机/电池/控制单元</text>
+    <rect x="14" y="100" width="64" height="20" rx="4" fill="#f39c12"/>
+    <text class="btext" font-size="11" x="46" y="114" text-anchor="middle">部分借鉴</text>
+  </g>
+
+  <!-- ===== ROW 2 ===== -->
+
+  <!-- Card 4: Industrial Passive Spring (Gray - 不推荐) -->
+  <g transform="translate(45, 360)">
+    <rect width="350" height="180" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M0 8 Q0 0 8 0 L342 0 Q350 0 350 8 L350 28 L0 28 Z" fill="#0096f0"/>
+    <text class="htext" font-size="13" x="14" y="19">工业无源弹簧</text>
+    <text class="cen" font-size="11" x="14" y="43">Industrial Passive Spring</text>
+    <text class="cprod" font-size="12" x="14" y="62">SuitX backX · Laevo FLEX</text>
+    <text class="cspec" font-size="10" x="14" y="80">纯机械弹簧储能，零功耗辅助</text>
+    <rect x="14" y="100" width="52" height="20" rx="4" fill="#95a5a6"/>
+    <text class="btext" font-size="11" x="40" y="114" text-anchor="middle">不推荐</text>
+  </g>
+
+  <!-- Card 5: Pneumatic Hip (Amber - 部分借鉴) -->
+  <g transform="translate(425, 360)">
+    <rect width="350" height="180" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M0 8 Q0 0 8 0 L342 0 Q350 0 350 8 L350 28 L0 28 Z" fill="#0096f0"/>
+    <text class="htext" font-size="13" x="14" y="19">气动助力</text>
+    <text class="cen" font-size="11" x="14" y="43">Pneumatic Hip Assist</text>
+    <text class="cprod" font-size="12" x="14" y="62">Innophys Muscle Suit</text>
+    <text class="cspec" font-size="10" x="14" y="80">气动人造肌肉，年销量35,000台</text>
+    <rect x="14" y="100" width="64" height="20" rx="4" fill="#f39c12"/>
+    <text class="btext" font-size="11" x="46" y="114" text-anchor="middle">部分借鉴</text>
+  </g>
+
+  <!-- Card 6: Active Rigid Frame (Gray - 不推荐) -->
+  <g transform="translate(805, 360)">
+    <rect width="350" height="180" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M0 8 Q0 0 8 0 L342 0 Q350 0 350 8 L350 28 L0 28 Z" fill="#0096f0"/>
+    <text class="htext" font-size="13" x="14" y="19">主动刚性框架</text>
+    <text class="cen" font-size="11" x="14" y="43">Active Rigid Frame</text>
+    <text class="cprod" font-size="12" x="14" y="62">CYBERDYNE HAL · German Bionic</text>
+    <text class="cspec" font-size="10" x="14" y="80">刚性外骨骼 + 主动电机驱动</text>
+    <rect x="14" y="100" width="52" height="20" rx="4" fill="#95a5a6"/>
+    <text class="btext" font-size="11" x="40" y="114" text-anchor="middle">不推荐</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- Section 2: Hip-Knee Integrated -->
+  <!-- ============================================================ -->
+  <rect x="45" y="578" width="4" height="22" rx="2" fill="#0096f0"/>
+  <text class="stitle" font-size="16" x="60" y="596">髋膝一体架构</text>
+  <text class="sstitle" font-size="11" x="200" y="596">Hip-Knee Integrated Exoskeleton Architectures · 4 types</text>
+
+  <!-- ===== ROW 3 ===== -->
+
+  <!-- Card 7: 4-Motor Waist (Green - 推荐借鉴) -->
+  <g transform="translate(45, 630)">
+    <rect width="350" height="180" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M0 8 Q0 0 8 0 L342 0 Q350 0 350 8 L350 28 L0 28 Z" fill="#0096f0"/>
+    <text class="htext" font-size="13" x="14" y="19">四电机腰部驱动</text>
+    <text class="cen" font-size="11" x="14" y="43">4-Motor Waist Drive</text>
+    <text class="cprod" font-size="12" x="14" y="62">Vastnaut One 4x4</text>
+    <text class="cspec" font-size="10" x="14" y="80">四独立电机驱动髋屈伸+外展</text>
+    <rect x="14" y="100" width="64" height="20" rx="4" fill="#27ae60"/>
+    <text class="btext" font-size="11" x="46" y="114" text-anchor="middle">推荐借鉴</text>
+    <text class="bref" font-size="10" x="14" y="140">→ 同源技术参考</text>
+  </g>
+
+  <!-- Card 8: Modular Clip-On (Green - 推荐借鉴) -->
+  <g transform="translate(425, 630)">
+    <rect width="350" height="180" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M0 8 Q0 0 8 0 L342 0 Q350 0 350 8 L350 28 L0 28 Z" fill="#0096f0"/>
+    <text class="htext" font-size="13" x="14" y="19">模块化快拆</text>
+    <text class="cen" font-size="11" x="14" y="43">Modular Clip-On System</text>
+    <text class="cprod" font-size="12" x="14" y="62">DNSYS X1+Z1 · Ascentiz K1</text>
+    <text class="cspec" font-size="10" x="14" y="80">模块化髋+膝关节组件，快速拆装</text>
+    <rect x="14" y="100" width="64" height="20" rx="4" fill="#27ae60"/>
+    <text class="btext" font-size="11" x="46" y="114" text-anchor="middle">推荐借鉴</text>
+  </g>
+
+  <!-- Card 9: Full Rigid Frame Medical (Gray - 不推荐) -->
+  <g transform="translate(805, 630)">
+    <rect width="350" height="180" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M0 8 Q0 0 8 0 L342 0 Q350 0 350 8 L350 28 L0 28 Z" fill="#0096f0"/>
+    <text class="htext" font-size="13" x="14" y="19">全刚性框架医疗</text>
+    <text class="cen" font-size="11" x="14" y="43">Full Rigid Frame Medical</text>
+    <text class="cprod" font-size="12" x="14" y="62">ReWalk · EksoNR · 傅利叶</text>
+    <text class="cspec" font-size="10" x="14" y="80">医疗康复全刚性支撑结构</text>
+    <rect x="14" y="100" width="52" height="20" rx="4" fill="#95a5a6"/>
+    <text class="btext" font-size="11" x="40" y="114" text-anchor="middle">不推荐</text>
+  </g>
+
+  <!-- ===== ROW 4: Wide Card ===== -->
+
+  <!-- Card 10: Self-Balancing (Gray - 不推荐, wide) -->
+  <g transform="translate(45, 850)">
+    <rect width="1110" height="180" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+    <path d="M0 8 Q0 0 8 0 L1102 0 Q1110 0 1110 8 L1110 28 L0 28 Z" fill="#0096f0"/>
+    <text class="htext" font-size="13" x="555" y="19" text-anchor="middle">自平衡动态系统</text>
+    <text class="cen" font-size="11" x="555" y="43" text-anchor="middle">Self-Balancing Dynamic System</text>
+    <text class="cprod" font-size="12" x="555" y="62" text-anchor="middle">Wandercraft Atalante X</text>
+    <text class="cspec" font-size="10" x="555" y="80" text-anchor="middle">自平衡动态行走，无需拐杖辅助</text>
+    <rect x="529" y="100" width="52" height="20" rx="4" fill="#95a5a6"/>
+    <text class="btext" font-size="11" x="555" y="114" text-anchor="middle">不推荐</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- Legend -->
+  <!-- ============================================================ -->
+  <g transform="translate(45, 1080)">
+    <text class="stitle" font-size="14" x="0" y="0">图例 / Legend</text>
+
+    <rect x="0" y="18" width="64" height="20" rx="4" fill="#27ae60"/>
+    <text class="btext" font-size="11" x="32" y="32" text-anchor="middle">推荐借鉴</text>
+    <text class="ltext" font-size="11" x="76" y="32">与Bones设计理念高度契合，直接参考</text>
+
+    <rect x="0" y="48" width="64" height="20" rx="4" fill="#f39c12"/>
+    <text class="btext" font-size="11" x="32" y="62" text-anchor="middle">部分借鉴</text>
+    <text class="ltext" font-size="11" x="76" y="62">局部设计可参考，整体架构方向不同</text>
+
+    <rect x="0" y="78" width="52" height="20" rx="4" fill="#95a5a6"/>
+    <text class="btext" font-size="11" x="26" y="92" text-anchor="middle">不推荐</text>
+    <text class="ltext" font-size="11" x="66" y="92">与Bones设计方向不一致，不建议沿用</text>
+  </g>
+
+  <!-- Footer -->
+  <text class="wm" font-size="10" x="600" y="1370" text-anchor="middle">Bones &amp; Manifold · Nexum Project · 2026-07-03</text>
+
+</svg>

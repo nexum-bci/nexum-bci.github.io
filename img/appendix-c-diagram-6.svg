@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 1100" width="100%" height="100%">
+  <defs>
+    <filter id="card-shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000012"/>
+    </filter>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fafbfc"/>
+      <stop offset="100%" stop-color="#f0f2f5"/>
+    </linearGradient>
+    <linearGradient id="strip-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1300" height="1100" fill="url(#bg-grad)"/>
+
+  <text x="650" y="78" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="24" font-weight="bold" fill="#0f172a" text-anchor="middle">C.2.2 十大日常场景 → 工程参数精确映射</text>
+  <text x="650" y="104" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">——基于2.1亿中国膝关节OA患者的真实生活场景数据</text>
+
+  <g transform="translate(1000, 54)">
+    <rect x="0" y="0" width="240" height="58" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="120" y="18" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" font-weight="bold" fill="#475569" text-anchor="middle">参数类型图例</text>
+    <circle cx="14" cy="30" r="5" fill="#059669"/>
+    <text x="24" y="34" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#374151">力矩/力学参数</text>
+    <circle cx="124" cy="30" r="5" fill="#0096f0"/>
+    <text x="134" y="34" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#374151">噪音约束</text>
+    <circle cx="14" cy="48" r="5" fill="#d97706"/>
+    <text x="24" y="52" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#374151">频次/续航</text>
+    <circle cx="124" cy="48" r="5" fill="#dc2626"/>
+    <text x="134" y="52" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#374151">关键约束</text>
+  </g>
+
+  <g transform="translate(60, 135)">
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff"/>
+    <line x1="4" y1="12" x2="4" y2="178" stroke="#0096f0" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="18" cy="18" r="10" fill="#0096f0"/>
+    <text x="18" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">①</text>
+    <text x="35" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1e293b">平地行走</text>
+    <rect x="10" y="48" width="200" height="22" rx="4" fill="#fff7ed" stroke="#fed7aa" stroke-width="0.5"/>
+    <text x="110" y="63" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#d97706" text-anchor="middle">3000-6000步/天</text>
+    <rect x="10" y="76" width="200" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.5"/>
+    <text x="110" y="91" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#059669" text-anchor="middle">KAM 0.26-0.59 Nm/kg</text>
+    <rect x="10" y="104" width="200" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.5"/>
+    <text x="110" y="119" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#059669" text-anchor="middle">助力8-15Nm</text>
+    <rect x="10" y="132" width="200" height="22" rx="4" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.5"/>
+    <text x="110" y="147" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#0096f0" text-anchor="middle">&lt;30dB</text>
+  </g>
+
+  <g transform="translate(300, 135)">
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff"/>
+    <line x1="4" y1="12" x2="4" y2="178" stroke="#0096f0" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="18" cy="18" r="10" fill="#0096f0"/>
+    <text x="18" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">②</text>
+    <text x="35" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1e293b">上下楼梯</text>
+    <rect x="10" y="48" width="200" height="22" rx="4" fill="#fff7ed" stroke="#fed7aa" stroke-width="0.5"/>
+    <text x="110" y="63" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#d97706" text-anchor="middle">日均20-40次</text>
+    <rect x="10" y="76" width="200" height="22" rx="4" fill="#fef2f2" stroke="#fecaca" stroke-width="0.5"/>
+    <text x="110" y="91" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#dc2626" text-anchor="middle">KAM峰值最高</text>
+    <rect x="10" y="104" width="200" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.5"/>
+    <text x="110" y="119" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#059669" text-anchor="middle">助力15-25Nm</text>
+    <rect x="10" y="132" width="200" height="22" rx="4" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.5"/>
+    <text x="110" y="147" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#0096f0" text-anchor="middle">&lt;35dB</text>
+  </g>
+
+  <g transform="translate(540, 135)">
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff"/>
+    <line x1="4" y1="12" x2="4" y2="178" stroke="#0096f0" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="18" cy="18" r="10" fill="#0096f0"/>
+    <text x="18" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">③</text>
+    <text x="35" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1e293b">坐-站转换</text>
+    <rect x="10" y="48" width="200" height="22" rx="4" fill="#fff7ed" stroke="#fed7aa" stroke-width="0.5"/>
+    <text x="110" y="63" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#d97706" text-anchor="middle">日均30-50次</text>
+    <rect x="10" y="76" width="200" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.5"/>
+    <text x="110" y="91" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#059669" text-anchor="middle">峰值力矩2.02 Nm/kg</text>
+    <rect x="10" y="104" width="200" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.5"/>
+    <text x="110" y="119" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#059669" text-anchor="middle">助力20-26Nm</text>
+    <rect x="10" y="132" width="200" height="22" rx="4" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.5"/>
+    <text x="110" y="147" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#0096f0" text-anchor="middle">&lt;30dB</text>
+  </g>
+
+  <g transform="translate(780, 135)">
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff"/>
+    <line x1="4" y1="12" x2="4" y2="178" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="18" cy="18" r="10" fill="#d97706"/>
+    <text x="18" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">④</text>
+    <text x="35" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1e293b">蹲便器</text>
+    <rect x="10" y="48" width="200" height="22" rx="4" fill="#fef2f2" stroke="#fecaca" stroke-width="0.5"/>
+    <text x="110" y="63" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#dc2626" text-anchor="middle">中国独有场景</text>
+    <rect x="10" y="76" width="200" height="22" rx="4" fill="#fef2f2" stroke="#fecaca" stroke-width="0.5"/>
+    <text x="110" y="91" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#dc2626" text-anchor="middle">深度屈曲130°+</text>
+    <rect x="10" y="104" width="200" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.5"/>
+    <text x="110" y="119" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#059669" text-anchor="middle">助力20-30Nm</text>
+    <rect x="10" y="132" width="200" height="22" rx="4" fill="#fff7ed" stroke="#fed7aa" stroke-width="0.5"/>
+    <text x="110" y="147" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#d97706" text-anchor="middle">防水IP54</text>
+  </g>
+
+  <g transform="translate(1020, 135)">
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff"/>
+    <line x1="4" y1="12" x2="4" y2="178" stroke="#0096f0" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="18" cy="18" r="10" fill="#0096f0"/>
+    <text x="18" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">⑤</text>
+    <text x="35" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1e293b">上下坡</text>
+    <rect x="10" y="48" width="200" height="22" rx="4" fill="#fff7ed" stroke="#fed7aa" stroke-width="0.5"/>
+    <text x="110" y="63" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#d97706" text-anchor="middle">户外高频</text>
+    <rect x="10" y="76" width="200" height="22" rx="4" fill="#fef2f2" stroke="#fecaca" stroke-width="0.5"/>
+    <text x="110" y="91" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#dc2626" text-anchor="middle">偏心制动需求</text>
+    <rect x="10" y="104" width="200" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.5"/>
+    <text x="110" y="119" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#059669" text-anchor="middle">阻尼5-15Nm</text>
+    <rect x="10" y="132" width="200" height="22" rx="4" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.5"/>
+    <text x="110" y="147" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#0096f0" text-anchor="middle">&lt;35dB</text>
+  </g>
+
+  <g transform="translate(60, 355)">
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff"/>
+    <line x1="4" y1="12" x2="4" y2="178" stroke="#059669" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="18" cy="18" r="10" fill="#059669"/>
+    <text x="18" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">⑥</text>
+    <text x="35" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1e293b">长时间站立</text>
+    <rect x="10" y="48" width="200" height="22" rx="4" fill="#fff7ed" stroke="#fed7aa" stroke-width="0.5"/>
+    <text x="110" y="63" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#d97706" text-anchor="middle">买菜排队30-45min</text>
+    <rect x="10" y="76" width="200" height="22" rx="4" fill="#fff7ed" stroke="#fed7aa" stroke-width="0.5"/>
+    <text x="110" y="91" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#d97706" text-anchor="middle">累计2-3h/天</text>
+    <rect x="10" y="104" width="200" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.5"/>
+    <text x="110" y="119" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#059669" text-anchor="middle">持续低助力5-10Nm</text>
+    <rect x="10" y="132" width="200" height="22" rx="4" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.5"/>
+    <text x="110" y="147" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#0096f0" text-anchor="middle">&lt;25dB</text>
+  </g>
+
+  <g transform="translate(300, 355)">
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff"/>
+    <line x1="4" y1="12" x2="4" y2="178" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="18" cy="18" r="10" fill="#d97706"/>
+    <text x="18" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">⑦</text>
+    <text x="35" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1e293b">广场舞/晨练</text>
+    <rect x="10" y="48" width="200" height="22" rx="4" fill="#fff7ed" stroke="#fed7aa" stroke-width="0.5"/>
+    <text x="110" y="63" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#d97706" text-anchor="middle">1.2亿参与者</text>
+    <rect x="10" y="76" width="200" height="22" rx="4" fill="#fef2f2" stroke="#fecaca" stroke-width="0.5"/>
+    <text x="110" y="91" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#dc2626" text-anchor="middle">多方向动态</text>
+    <rect x="10" y="104" width="200" height="22" rx="4" fill="#fef2f2" stroke="#fecaca" stroke-width="0.5"/>
+    <text x="110" y="119" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#dc2626" text-anchor="middle">多运动模式识别</text>
+    <rect x="10" y="132" width="200" height="22" rx="4" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.5"/>
+    <text x="110" y="147" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#0096f0" text-anchor="middle">&lt;20dB</text>
+  </g>
+
+  <g transform="translate(540, 355)">
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff"/>
+    <line x1="4" y1="12" x2="4" y2="178" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="18" cy="18" r="10" fill="#d97706"/>
+    <text x="18" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">⑧</text>
+    <text x="35" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1e293b">下雨天</text>
+    <rect x="10" y="48" width="200" height="22" rx="4" fill="#fef2f2" stroke="#fecaca" stroke-width="0.5"/>
+    <text x="110" y="63" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#dc2626" text-anchor="middle">气压变化加重疼痛</text>
+    <rect x="10" y="76" width="200" height="22" rx="4" fill="#fef2f2" stroke="#fecaca" stroke-width="0.5"/>
+    <text x="110" y="91" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#dc2626" text-anchor="middle">湿滑路面</text>
+    <rect x="10" y="104" width="200" height="22" rx="4" fill="#fff7ed" stroke="#fed7aa" stroke-width="0.5"/>
+    <text x="110" y="119" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#d97706" text-anchor="middle">雨天稳定模式</text>
+    <rect x="10" y="132" width="200" height="22" rx="4" fill="#fff7ed" stroke="#fed7aa" stroke-width="0.5"/>
+    <text x="110" y="147" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#d97706" text-anchor="middle">IP54</text>
+  </g>
+
+  <g transform="translate(780, 355)">
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff"/>
+    <line x1="4" y1="12" x2="4" y2="178" stroke="#059669" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="18" cy="18" r="10" fill="#059669"/>
+    <text x="18" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">⑨</text>
+    <text x="35" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1e293b">夜间起床</text>
+    <rect x="10" y="42" width="200" height="22" rx="4" fill="#fff7ed" stroke="#fed7aa" stroke-width="0.5"/>
+    <text x="110" y="57" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#d97706" text-anchor="middle">夜尿1-3次/晚</text>
+    <rect x="10" y="65" width="200" height="22" rx="4" fill="#fff7ed" stroke="#fed7aa" stroke-width="0.5"/>
+    <text x="110" y="80" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#d97706" text-anchor="middle">晨僵~10min</text>
+    <rect x="10" y="88" width="200" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.5"/>
+    <text x="110" y="103" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#059669" text-anchor="middle">快速辅助</text>
+    <rect x="10" y="111" width="200" height="22" rx="4" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.5"/>
+    <text x="110" y="126" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#0096f0" text-anchor="middle">&lt;20dB</text>
+    <rect x="10" y="134" width="200" height="22" rx="4" fill="#fef2f2" stroke="#fecaca" stroke-width="0.5"/>
+    <text x="110" y="149" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">黑暗中可操作</text>
+  </g>
+
+  <g transform="translate(1020, 355)">
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="220" height="190" rx="10" fill="#ffffff"/>
+    <line x1="4" y1="12" x2="4" y2="178" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="18" cy="18" r="10" fill="#d97706"/>
+    <text x="18" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">⑩</text>
+    <text x="35" y="22" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1e293b">抱孙子/买菜负重</text>
+    <rect x="10" y="48" width="200" height="22" rx="4" fill="#fff7ed" stroke="#fed7aa" stroke-width="0.5"/>
+    <text x="110" y="63" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#d97706" text-anchor="middle">50%+老人照护孙辈</text>
+    <rect x="10" y="76" width="200" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.5"/>
+    <text x="110" y="91" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#059669" text-anchor="middle">额外20-30%膝负荷</text>
+    <rect x="10" y="104" width="200" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="0.5"/>
+    <text x="110" y="119" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#059669" text-anchor="middle">自动负载补偿</text>
+    <rect x="10" y="132" width="200" height="22" rx="4" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.5"/>
+    <text x="110" y="147" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="11" fill="#0096f0" text-anchor="middle">&lt;30dB</text>
+  </g>
+
+
+  <rect x="60" y="580" width="1180" height="350" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+  <text x="650" y="610" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="18" font-weight="bold" fill="#0f172a" text-anchor="middle">参数综合映射分析</text>
+  <text x="650" y="632" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">十大日常场景 → 四大参数类别 → 八项核心设计输入</text>
+  <g transform="translate(100, 655)">
+    <rect x="0" y="0" width="1100" height="38" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="0" y="0" width="110" height="38" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+    <text x="55" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#059669" text-anchor="middle">力矩/力学参数</text>
+    <line x1="110" y1="6" x2="110" y2="32" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="132" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">助力范围 5-30Nm</text>
+    <text x="340" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">峰值力矩 2.02 Nm/kg (坐站)</text>
+    <text x="590" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">KAM 0.26-0.59 Nm/kg</text>
+    <text x="830" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">阻尼 5-15Nm (下坡)</text>
+  </g>
+  <g transform="translate(100, 701)">
+    <rect x="0" y="0" width="1100" height="38" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="0" y="0" width="110" height="38" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+    <text x="55" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#0096f0" text-anchor="middle">噪音约束</text>
+    <line x1="110" y1="6" x2="110" y2="32" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="132" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">日常步行 &lt;30dB</text>
+    <text x="370" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">楼梯/坡道 &lt;35dB</text>
+    <text x="630" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">广场舞/晨练 &lt;20dB</text>
+    <text x="880" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">夜间起床 &lt;20dB</text>
+  </g>
+  <g transform="translate(100, 747)">
+    <rect x="0" y="0" width="1100" height="38" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="0" y="0" width="110" height="38" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1"/>
+    <text x="55" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#d97706" text-anchor="middle">频次与续航</text>
+    <line x1="110" y1="6" x2="110" y2="32" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="132" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">日均步数 3000-6000</text>
+    <text x="370" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">坐站转换 30-50次/天</text>
+    <text x="630" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">累计站立 2-3h/天</text>
+    <text x="880" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">夜尿 1-3次/晚</text>
+  </g>
+  <g transform="translate(100, 793)">
+    <rect x="0" y="0" width="1100" height="38" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="0" y="0" width="110" height="38" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
+    <text x="55" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#dc2626" text-anchor="middle">关键约束</text>
+    <line x1="110" y1="6" x2="110" y2="32" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="132" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">深度屈曲 130°+ (蹲便器)</text>
+    <text x="395" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">IP54 防水防尘</text>
+    <text x="610" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">黑暗中可操作</text>
+    <text x="835" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="12" fill="#334155">湿滑路面稳定 + 多方向动态</text>
+  </g>
+  <g transform="translate(650, 855)">
+    <line x1="0" y1="0" x2="0" y2="40" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+    <polygon points="-8,36 0,48 8,36" fill="#94a3b8"/>
+    <text x="0" y="63" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="13" font-weight="bold" fill="#64748b" text-anchor="middle">场景参数汇聚 → 八项核心设计输入</text>
+  </g>
+
+  <rect x="60" y="960" width="1180" height="100" rx="12" fill="url(#strip-bg)"/>
+  <rect x="60" y="960" width="1180" height="4" rx="2" fill="#3b82f6"/>
+  <text x="650" y="984" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="15" font-weight="bold" fill="#f1f5f9" text-anchor="middle">8项核心设计输入（工程需求总结）</text>
+
+  <g transform="translate(95, 1000)">
+    <rect x="0" y="0" width="130" height="32" rx="8" fill="#334155" stroke="#475569" stroke-width="0.8"/>
+    <circle cx="14" cy="16" r="5" fill="#60a5fa"/>
+    <text x="24" y="20" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#e2e8f0">weight &lt;1.0kg/侧</text>
+    <rect x="140" y="0" width="130" height="32" rx="8" fill="#334155" stroke="#475569" stroke-width="0.8"/>
+    <circle cx="154" cy="16" r="5" fill="#a78bfa"/>
+    <text x="164" y="20" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#e2e8f0">wear &lt;60s</text>
+    <rect x="280" y="0" width="130" height="32" rx="8" fill="#334155" stroke="#475569" stroke-width="0.8"/>
+    <circle cx="294" cy="16" r="5" fill="#2dd4bf"/>
+    <text x="304" y="20" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#e2e8f0">noise &lt;25dB</text>
+    <rect x="420" y="0" width="130" height="32" rx="8" fill="#334155" stroke="#475569" stroke-width="0.8"/>
+    <circle cx="434" cy="16" r="5" fill="#34d399"/>
+    <text x="444" y="20" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#e2e8f0">torque 25-30Nm</text>
+    <rect x="560" y="0" width="130" height="32" rx="8" fill="#334155" stroke="#475569" stroke-width="0.8"/>
+    <circle cx="574" cy="16" r="5" fill="#fbbf24"/>
+    <text x="584" y="20" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#e2e8f0">battery &gt;6h 热插拔</text>
+    <rect x="700" y="0" width="130" height="32" rx="8" fill="#334155" stroke="#475569" stroke-width="0.8"/>
+    <circle cx="714" cy="16" r="5" fill="#f87171"/>
+    <text x="724" y="20" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#e2e8f0">IP54 防护</text>
+    <rect x="840" y="0" width="130" height="32" rx="8" fill="#334155" stroke="#475569" stroke-width="0.8"/>
+    <circle cx="854" cy="16" r="5" fill="#fb923c"/>
+    <text x="864" y="20" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#e2e8f0">运动护具外观</text>
+    <rect x="980" y="0" width="130" height="32" rx="8" fill="#334155" stroke="#475569" stroke-width="0.8"/>
+    <circle cx="994" cy="16" r="5" fill="#818cf8"/>
+    <text x="1004" y="20" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, system-ui, sans-serif" font-size="10" fill="#e2e8f0">2种尺寸</text>
+  </g>
+
+</svg>

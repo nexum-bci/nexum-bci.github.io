@@ -1,0 +1,386 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 860" width="1200" height="860">
+  <defs>
+    <filter id="s" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.08"/></filter>
+    <marker id="a1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#c45a5a"/></marker>
+    <marker id="a2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6b7280"/></marker>
+    <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#e5e7eb" stroke-width="0.5"/></pattern>
+    <pattern id="dot" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.5" fill="#d1d5db"/></pattern>
+  </defs>
+  <rect width="1200" height="860" fill="#ffffff"/>
+  <rect x="0" y="0" width="1200" height="78" fill="#faf5f5"/>
+  <text x="600" y="36" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="bold" fill="#1f2937">TRL 2-5 外骨骼驱动架构概览</text>
+  <text x="600" y="58" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#6b7280">准直驱 · 磁流变液 · 半主动离合器 · 形状记忆合金</text>
+  <line x1="60" y1="78" x2="1140" y2="78" stroke="#c45a5a" stroke-width="2"/>
+
+  <!-- PANEL 1: QDD -->
+  <g transform="translate(20, 92)">
+    <rect x="0" y="0" width="570" height="370" rx="4" fill="#ffffff" stroke="#d1d5db" stroke-width="1" filter="url(#s)"/>
+    <rect x="0" y="0" width="570" height="32" rx="4" fill="#c45a5a" opacity="0.10"/>
+    <rect x="0" y="20" width="570" height="12" fill="#c45a5a" opacity="0.10"/>
+    <text x="16" y="21" font-family="sans-serif" font-size="14" font-weight="bold" fill="#b91c1c">Panel A 准直驱驱动器 (QDD)</text>
+    <text x="554" y="21" text-anchor="end" font-family="sans-serif" font-size="11" fill="#6b7280">代表：MIT Cheetah, Unitree</text>
+    <g transform="translate(60, 60)">
+      <circle cx="65" cy="65" r="55" fill="none" stroke="#c45a5a" stroke-width="2"/>
+      <circle cx="65" cy="65" r="55" fill="url(#hatch)" opacity="0.3"/>
+      <g stroke="#c45a5a" stroke-width="0.8" opacity="0.6">
+        <rect x="60" y="12" width="10" height="12" rx="1" fill="#c45a5a" opacity="0.2"/>
+        <rect x="60" y="106" width="10" height="12" rx="1" fill="#c45a5a" opacity="0.2"/>
+        <rect x="12" y="60" width="12" height="10" rx="1" fill="#c45a5a" opacity="0.2"/>
+        <rect x="106" y="60" width="12" height="10" rx="1" fill="#c45a5a" opacity="0.2"/>
+        <rect x="21" y="23" width="10" height="12" rx="1" transform="rotate(-45, 26, 29)" fill="#c45a5a" opacity="0.2"/>
+        <rect x="99" y="23" width="10" height="12" rx="1" transform="rotate(45, 104, 29)" fill="#c45a5a" opacity="0.2"/>
+        <rect x="21" y="95" width="10" height="12" rx="1" transform="rotate(45, 26, 101)" fill="#c45a5a" opacity="0.2"/>
+        <rect x="99" y="95" width="10" height="12" rx="1" transform="rotate(-45, 104, 101)" fill="#c45a5a" opacity="0.2"/>
+      </g>
+      <circle cx="65" cy="65" r="30" fill="none" stroke="#c45a5a" stroke-width="1.5"/>
+      <circle cx="65" cy="65" r="30" fill="url(#dot)" opacity="0.4"/>
+      <path d="M 65,35 A 30,30 0 0,1 91,48" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.5"/>
+      <path d="M 65,35 A 30,30 0 0,0 39,48" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
+      <circle cx="65" cy="65" r="8" fill="#d1d5db" stroke="#6b7280" stroke-width="1"/>
+      <circle cx="65" cy="65" r="32" fill="none" stroke="#ef4444" stroke-width="0.5" stroke-dasharray="2,3"/>
+      <text x="97" y="52" font-family="sans-serif" font-size="7" fill="#ef4444">气隙</text>
+      <text x="65" y="130" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4b5563">定子 (绕组)</text>
+      <text x="65" y="140" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4b5563">转子 (永磁体)</text>
+      <text x="65" y="150" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6b7280">外转子内定子结构</text>
+    </g>
+    <g transform="translate(230, 60)">
+      <rect x="0" y="0" width="110" height="80" rx="3" fill="#f9fafb" stroke="#e5e7eb" stroke-width="0.8"/>
+      <text x="55" y="16" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#4b5563">低减速比</text>
+      <circle cx="35" cy="48" r="16" fill="none" stroke="#c45a5a" stroke-width="1.2"/>
+      <circle cx="35" cy="48" r="4" fill="#c45a5a" opacity="0.4"/>
+      <circle cx="80" cy="48" r="10" fill="none" stroke="#c45a5a" stroke-width="1.2"/>
+      <circle cx="80" cy="48" r="3" fill="#c45a5a" opacity="0.4"/>
+      <line x1="35" y1="48" x2="80" y2="48" stroke="#d1d5db" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <text x="55" y="65" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6b7280">减速比 6:1  9:1</text>
+    </g>
+    <g transform="translate(230, 150)">
+      <rect x="0" y="0" width="110" height="90" rx="3" fill="#f9fafb" stroke="#e5e7eb" stroke-width="0.8"/>
+      <text x="55" y="14" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#4b5563">力矩-速度曲线</text>
+      <path d="M 15,68 L 15,55 Q 35,55 55,40 Q 75,25 95,20 L 95,68 Z" fill="#c45a5a" opacity="0.1" stroke="#c45a5a" stroke-width="1.2"/>
+      <line x1="15" y1="68" x2="95" y2="68" stroke="#d1d5db" stroke-width="0.5"/>
+      <line x1="15" y1="68" x2="15" y2="20" stroke="#d1d5db" stroke-width="0.5"/>
+      <text x="12" y="75" font-family="sans-serif" font-size="7" fill="#6b7280">0</text>
+      <text x="90" y="75" font-family="sans-serif" font-size="7" fill="#6b7280"></text>
+      <text x="8" y="42" transform="rotate(-90, 8, 42)" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6b7280"></text>
+      <text x="55" y="85" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6b7280">恒转矩恒功率</text>
+    </g>
+    <g transform="translate(60, 190)">
+      <rect x="0" y="0" width="160" height="65" rx="3" fill="#f9fafb" stroke="#e5e7eb" stroke-width="0.8"/>
+      <text x="80" y="16" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#4b5563">高反向驱动性</text>
+      <line x1="30" y1="40" x2="70" y2="40" stroke="#c45a5a" stroke-width="1.5" marker-end="url(#a1)"/>
+      <line x1="70" y1="40" x2="30" y2="40" stroke="#c45a5a" stroke-width="1.5" marker-end="url(#a1)"/>
+      <text x="80" y="52" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6b7280">电机  负载 双向力传导</text>
+      <polygon points="70,34 65,40 75,40" fill="#c45a5a"/>
+      <polygon points="30,34 25,40 35,40" fill="#c45a5a"/>
+    </g>
+    <g transform="translate(370, 60)">
+      <rect x="0" y="0" width="190" height="170" rx="3" fill="#fef2f2" stroke="#c45a5a" stroke-width="0.8"/>
+      <text x="95" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b91c1c">关键规格</text>
+      <line x1="12" y1="24" x2="178" y2="24" stroke="#c45a5a" stroke-width="0.5"/>
+      <text x="14" y="40" font-family="sans-serif" font-size="10" fill="#4b5563">减速比</text>
+      <text x="176" y="40" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">6:1  9:1</text>
+      <text x="14" y="56" font-family="sans-serif" font-size="10" fill="#4b5563">转矩密度</text>
+      <text x="176" y="56" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">12 Nm/kg</text>
+      <text x="14" y="72" font-family="sans-serif" font-size="10" fill="#4b5563">控制带宽</text>
+      <text x="176" y="72" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">~40 Hz</text>
+      <text x="14" y="88" font-family="sans-serif" font-size="10" fill="#4b5563">反向驱动力矩</text>
+      <text x="176" y="88" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">&lt; 0.5 Nm</text>
+      <text x="14" y="104" font-family="sans-serif" font-size="10" fill="#4b5563">峰值效率</text>
+      <text x="176" y="104" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">&gt; 90%</text>
+      <text x="14" y="120" font-family="sans-serif" font-size="10" fill="#4b5563">传感器</text>
+      <text x="176" y="120" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">编码器+电流</text>
+      <rect x="14" y="130" width="162" height="8" rx="4" fill="#d1d5db"/>
+      <rect x="14" y="130" width="65" height="8" rx="4" fill="#c45a5a" opacity="0.7"/>
+      <text x="95" y="137" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#fff" font-weight="bold">TRL 5</text>
+      <text x="14" y="155" font-family="sans-serif" font-size="8" fill="#9ca3af">代表：MIT Cheetah, TUDelft</text>
+      <text x="14" y="167" font-family="sans-serif" font-size="8" fill="#9ca3af">人形机器人关节主流方案</text>
+    </g>
+    <g transform="translate(370, 245)">
+      <text x="0" y="12" font-family="sans-serif" font-size="10" font-weight="bold" fill="#4b5563">原理简介</text>
+      <line x1="0" y1="22" x2="180" y2="22" stroke="#e5e7eb" stroke-width="0.8"/>
+      <text x="0" y="38" font-family="sans-serif" font-size="9" fill="#4b5563">QDD = 大直径定转子 + 单级行星减速 + 编码器</text>
+      <text x="0" y="53" font-family="sans-serif" font-size="9" fill="#4b5563">无弹性元件  力控靠电流环  高带宽但冲击敏感</text>
+      <text x="0" y="68" font-family="sans-serif" font-size="9" fill="#4b5563">优势：结构简单、高效率、反向驱动性好</text>
+      <text x="0" y="83" font-family="sans-serif" font-size="9" fill="#6b7280">代表研究：SU Lab 6:1行星 20Nm连续 / UTD 7:1 91.9%效率</text>
+      <text x="0" y="98" font-family="sans-serif" font-size="9" fill="#6b7280">T-BLUE开源 Wolfrom 15:1 &lt;$200/执行器</text>
+    </g>
+  </g>
+
+  <!-- PANEL 2: MR -->
+  <g transform="translate(610, 92)">
+    <rect x="0" y="0" width="570" height="370" rx="4" fill="#ffffff" stroke="#d1d5db" stroke-width="1" filter="url(#s)"/>
+    <rect x="0" y="0" width="570" height="32" rx="4" fill="#c45a5a" opacity="0.10"/>
+    <rect x="0" y="20" width="570" height="12" fill="#c45a5a" opacity="0.10"/>
+    <text x="16" y="21" font-family="sans-serif" font-size="14" font-weight="bold" fill="#b91c1c">Panel B 磁流变液驱动器 (MR)</text>
+    <text x="554" y="21" text-anchor="end" font-family="sans-serif" font-size="11" fill="#6b7280">代表：Lord Corp, Moog</text>
+    <g transform="translate(50, 55)">
+      <rect x="0" y="15" width="180" height="60" rx="4" fill="#fff" stroke="#c45a5a" stroke-width="1.5"/>
+      <rect x="0" y="15" width="180" height="60" rx="4" fill="url(#hatch)" opacity="0.2"/>
+      <rect x="30" y="15" width="30" height="60" fill="#fca5a5" opacity="0.15"/>
+      <rect x="120" y="15" width="30" height="60" fill="#fca5a5" opacity="0.15"/>
+      <rect x="85" y="0" width="10" height="90" rx="2" fill="#6b7280" stroke="#4b5563" stroke-width="0.8"/>
+      <rect x="60" y="25" width="60" height="40" rx="3" fill="#d1d5db" stroke="#6b7280" stroke-width="1"/>
+      <g fill="#c45a5a" opacity="0.5">
+        <circle cx="38" cy="20" r="1.5"/>
+        <circle cx="48" cy="25" r="1.5"/>
+        <circle cx="35" cy="35" r="1.5"/>
+        <circle cx="42" cy="45" r="1.5"/>
+        <circle cx="38" cy="55" r="1.5"/>
+        <circle cx="48" cy="65" r="1.5"/>
+        <circle cx="145" cy="22" r="1.5"/>
+        <circle cx="138" cy="30" r="1.5"/>
+        <circle cx="148" cy="40" r="1.5"/>
+        <circle cx="142" cy="50" r="1.5"/>
+        <circle cx="138" cy="62" r="1.5"/>
+        <circle cx="148" cy="70" r="1.5"/>
+      </g>
+      <g stroke="#c45a5a" stroke-width="0.5" opacity="0.4">
+        <line x1="38" y1="20" x2="42" y2="45"/>
+        <line x1="48" y1="25" x2="48" y2="65"/>
+        <line x1="35" y1="35" x2="35" y2="55"/>
+        <line x1="142" y1="22" x2="142" y2="50"/>
+        <line x1="138" y1="30" x2="138" y2="62"/>
+      </g>
+      <g stroke="#3b82f6" stroke-width="1.2" fill="none">
+        <path d="M 60,28 Q 70,20 80,28 Q 90,36 100,28 Q 110,20 120,28"/>
+        <path d="M 60,35 Q 70,27 80,35 Q 90,43 100,35 Q 110,27 120,35"/>
+        <path d="M 60,42 Q 70,34 80,42 Q 90,50 100,42 Q 110,34 120,42"/>
+        <path d="M 60,49 Q 70,41 80,49 Q 90,57 100,49 Q 110,41 120,49"/>
+        <path d="M 60,56 Q 70,48 80,56 Q 90,64 100,56 Q 110,48 120,56"/>
+      </g>
+      <text x="45" y="10" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4b5563">MR流体区</text>
+      <text x="135" y="10" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4b5563">MR流体区</text>
+      <text x="90" y="12" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#3b82f6">励磁线圈</text>
+      <text x="90" y="90" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4b5563">MR阻尼器截面</text>
+    </g>
+    <g transform="translate(50, 185)">
+      <rect x="0" y="0" width="240" height="80" rx="3" fill="#f9fafb" stroke="#e5e7eb" stroke-width="0.8"/>
+      <text x="120" y="16" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#4b5563">MR效应原理</text>
+      <text x="40" y="34" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6b7280">无磁场 (低阻尼)</text>
+      <g fill="#c45a5a" opacity="0.3">
+        <circle cx="20" cy="55" r="3"/>
+        <circle cx="35" cy="50" r="3"/>
+        <circle cx="28" cy="62" r="3"/>
+        <circle cx="45" cy="58" r="3"/>
+        <circle cx="55" cy="52" r="3"/>
+      </g>
+      <text x="180" y="34" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6b7280">有磁场 (高阻尼)</text>
+      <line x1="155" y1="44" x2="155" y2="65" stroke="#c45a5a" stroke-width="1.2" opacity="0.6"/>
+      <line x1="168" y1="45" x2="170" y2="65" stroke="#c45a5a" stroke-width="1.2" opacity="0.6"/>
+      <line x1="182" y1="44" x2="185" y2="65" stroke="#c45a5a" stroke-width="1.2" opacity="0.6"/>
+      <line x1="198" y1="46" x2="196" y2="65" stroke="#c45a5a" stroke-width="1.2" opacity="0.6"/>
+      <g fill="#c45a5a" opacity="0.6">
+        <circle cx="155" cy="44" r="3"/>
+        <circle cx="155" cy="55" r="3"/>
+        <circle cx="155" cy="65" r="3"/>
+        <circle cx="168" cy="45" r="3"/>
+        <circle cx="170" cy="55" r="3"/>
+        <circle cx="170" cy="65" r="3"/>
+        <circle cx="182" cy="44" r="3"/>
+        <circle cx="185" cy="55" r="3"/>
+        <circle cx="185" cy="65" r="3"/>
+        <circle cx="198" cy="46" r="3"/>
+        <circle cx="196" cy="55" r="3"/>
+        <circle cx="196" cy="65" r="3"/>
+      </g>
+    </g>
+    <g transform="translate(310, 185)">
+      <rect x="0" y="0" width="110" height="60" rx="3" fill="#f9fafb" stroke="#e5e7eb" stroke-width="0.8"/>
+      <text x="55" y="16" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#4b5563">响应时间</text>
+      <text x="55" y="38" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#c45a5a">&lt; 8 ms</text>
+      <text x="55" y="52" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6b7280">磁极化时间</text>
+    </g>
+    <g transform="translate(370, 55)">
+      <rect x="0" y="0" width="190" height="170" rx="3" fill="#fef2f2" stroke="#c45a5a" stroke-width="0.8"/>
+      <text x="95" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b91c1c">关键规格</text>
+      <line x1="12" y1="24" x2="178" y2="24" stroke="#c45a5a" stroke-width="0.5"/>
+      <text x="14" y="40" font-family="sans-serif" font-size="10" fill="#4b5563">力矩范围</text>
+      <text x="176" y="40" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">0  60 Nm</text>
+      <text x="14" y="56" font-family="sans-serif" font-size="10" fill="#4b5563">响应时间</text>
+      <text x="176" y="56" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">&lt; 8 ms</text>
+      <text x="14" y="72" font-family="sans-serif" font-size="10" fill="#4b5563">功耗</text>
+      <text x="176" y="72" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">10-50 W</text>
+      <text x="14" y="88" font-family="sans-serif" font-size="10" fill="#4b5563">动态范围</text>
+      <text x="176" y="88" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">&gt; 100:1</text>
+      <text x="14" y="104" font-family="sans-serif" font-size="10" fill="#4b5563">失效模式</text>
+      <text x="176" y="104" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">被动安全</text>
+      <text x="14" y="120" font-family="sans-serif" font-size="10" fill="#4b5563">应用部位</text>
+      <text x="176" y="120" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">膝/踝阻尼</text>
+      <rect x="14" y="130" width="162" height="8" rx="4" fill="#d1d5db"/>
+      <rect x="14" y="130" width="81" height="8" rx="4" fill="#c45a5a" opacity="0.7"/>
+      <text x="95" y="137" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#fff" font-weight="bold">TRL 5</text>
+      <text x="14" y="155" font-family="sans-serif" font-size="8" fill="#9ca3af">代表：Lord RD-8041, Moog</text>
+      <text x="14" y="167" font-family="sans-serif" font-size="8" fill="#9ca3af">特征：快速响应，高动态范围</text>
+    </g>
+    <g transform="translate(50, 280)">
+      <text x="0" y="12" font-family="sans-serif" font-size="9" fill="#4b5563">关键特性：仅提供阻力（不能主动助力）、需持续供电维持阻尼</text>
+      <text x="0" y="26" font-family="sans-serif" font-size="9" fill="#4b5563">研究现状：海普曼(振江603507)研发中  2025发布 BaDMr迟滞6.42%</text>
+      <text x="0" y="40" font-family="sans-serif" font-size="9" fill="#4b5563">安全特性：断电  MR流体恢复低粘度  关节自由（失效安全）</text>
+    </g>
+  </g>
+
+  <!-- PANEL 3: Semi-Active Clutch -->
+  <g transform="translate(20, 482)">
+    <rect x="0" y="0" width="570" height="365" rx="4" fill="#ffffff" stroke="#d1d5db" stroke-width="1" filter="url(#s)"/>
+    <rect x="0" y="0" width="570" height="32" rx="4" fill="#c45a5a" opacity="0.10"/>
+    <rect x="0" y="20" width="570" height="12" fill="#c45a5a" opacity="0.10"/>
+    <text x="16" y="21" font-family="sans-serif" font-size="14" font-weight="bold" fill="#b91c1c">Panel C 半主动离合器 (Semi-Active Clutch)</text>
+    <text x="554" y="21" text-anchor="end" font-family="sans-serif" font-size="11" fill="#6b7280">代表：MOOG, 学术研究</text>
+    <g transform="translate(60, 55)">
+      <line x1="-10" y1="55" x2="20" y2="55" stroke="#6b7280" stroke-width="2.5"/>
+      <polygon points="-10,55 -5,49 -5,61" fill="#6b7280"/>
+      <text x="0" y="78" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4b5563">输入轴</text>
+      <rect x="20" y="30" width="30" height="50" rx="2" fill="#d1d5db" stroke="#6b7280" stroke-width="1.2"/>
+      <rect x="20" y="30" width="30" height="50" rx="2" fill="url(#hatch)" opacity="0.3"/>
+      <rect x="50" y="30" width="8" height="50" rx="1" fill="#b91c1c" opacity="0.4" stroke="#c45a5a" stroke-width="0.5"/>
+      <rect x="80" y="30" width="30" height="50" rx="2" fill="#d1d5db" stroke="#6b7280" stroke-width="1.2"/>
+      <rect x="80" y="30" width="30" height="50" rx="2" fill="url(#hatch)" opacity="0.3"/>
+      <rect x="68" y="30" width="8" height="50" rx="1" fill="#b91c1c" opacity="0.4" stroke="#c45a5a" stroke-width="0.5"/>
+      <line x1="110" y1="55" x2="140" y2="55" stroke="#6b7280" stroke-width="2.5"/>
+      <polygon points="140,55 135,49 135,61" fill="#6b7280"/>
+      <text x="130" y="78" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4b5563">输出轴</text>
+      <path d="M 30,10 L 35,0 L 45,15 L 55,0 L 65,15 L 75,0 L 85,15 L 95,0 L 100,10" fill="none" stroke="#c45a5a" stroke-width="1.2"/>
+      <line x1="30" y1="10" x2="30" y2="5" stroke="#c45a5a" stroke-width="0.8"/>
+      <line x1="100" y1="10" x2="100" y2="5" stroke="#c45a5a" stroke-width="0.8"/>
+      <text x="65" y="24" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#c45a5a">压紧弹簧</text>
+      <g transform="translate(50, 90)">
+        <rect x="0" y="0" width="30" height="16" rx="2" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="0.8"/>
+        <text x="15" y="11" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3b82f6">电磁铁</text>
+        <line x1="15" y1="16" x2="15" y2="28" stroke="#d1d5db" stroke-width="0.5" stroke-dasharray="2,2"/>
+      </g>
+    </g>
+    <g transform="translate(60, 140)">
+      <rect x="0" y="0" width="230" height="80" rx="3" fill="#f9fafb" stroke="#e5e7eb" stroke-width="0.8"/>
+      <text x="115" y="16" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#4b5563">工作模式</text>
+      <rect x="8" y="25" width="100" height="20" rx="3" fill="#fff" stroke="#d1d5db" stroke-width="0.8"/>
+      <text x="58" y="38" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6b7280">脱开 (自由运动)</text>
+      <line x1="30" y1="48" x2="86" y2="48" stroke="#6b7280" stroke-width="0.5"/>
+      <polygon points="30,48 34,45 34,51" fill="#6b7280"/>
+      <polygon points="86,48 82,45 82,51" fill="#6b7280"/>
+      <rect x="120" y="25" width="100" height="20" rx="3" fill="#fef2f2" stroke="#c45a5a" stroke-width="0.8"/>
+      <text x="170" y="38" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#b91c1c">结合 (锁定/阻尼)</text>
+      <line x1="140" y1="48" x2="200" y2="48" stroke="#c45a5a" stroke-width="0.5"/>
+      <rect x="140" y="42" width="8" height="12" fill="#c45a5a" opacity="0.3"/>
+      <rect x="192" y="42" width="8" height="12" fill="#c45a5a" opacity="0.3"/>
+      <text x="115" y="68" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6b7280">电磁铁通电  压紧  摩擦结合</text>
+    </g>
+    <g transform="translate(310, 140)">
+      <rect x="0" y="0" width="140" height="80" rx="3" fill="#f9fafb" stroke="#e5e7eb" stroke-width="0.8"/>
+      <text x="70" y="16" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#4b5563">离合器分类</text>
+      <text x="10" y="35" font-family="sans-serif" font-size="9" fill="#4b5563">干式摩擦离合器</text>
+      <text x="10" y="50" font-family="sans-serif" font-size="9" fill="#4b5563">湿式多片离合器</text>
+      <text x="10" y="65" font-family="sans-serif" font-size="9" fill="#4b5563">磁粉离合器</text>
+    </g>
+    <g transform="translate(370, 55)">
+      <rect x="0" y="0" width="190" height="170" rx="3" fill="#fef2f2" stroke="#c45a5a" stroke-width="0.8"/>
+      <text x="95" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b91c1c">关键规格</text>
+      <line x1="12" y1="24" x2="178" y2="24" stroke="#c45a5a" stroke-width="0.5"/>
+      <text x="14" y="40" font-family="sans-serif" font-size="10" fill="#4b5563">结合时间</text>
+      <text x="176" y="40" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">&lt; 5 ms</text>
+      <text x="14" y="56" font-family="sans-serif" font-size="10" fill="#4b5563">保持扭矩</text>
+      <text x="176" y="56" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">100 Nm</text>
+      <text x="14" y="72" font-family="sans-serif" font-size="10" fill="#4b5563">控制功耗</text>
+      <text x="176" y="72" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">&lt; 5 W</text>
+      <text x="14" y="88" font-family="sans-serif" font-size="10" fill="#4b5563">能效</text>
+      <text x="176" y="88" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">接近 100%</text>
+      <text x="14" y="104" font-family="sans-serif" font-size="10" fill="#4b5563">失效模式</text>
+      <text x="176" y="104" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">常开</text>
+      <text x="14" y="120" font-family="sans-serif" font-size="10" fill="#4b5563">应用</text>
+      <text x="176" y="120" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">储能/释放</text>
+      <rect x="14" y="130" width="162" height="8" rx="4" fill="#d1d5db"/>
+      <rect x="14" y="130" width="49" height="8" rx="4" fill="#c45a5a" opacity="0.7"/>
+      <text x="95" y="137" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#fff" font-weight="bold">TRL 3-4</text>
+      <text x="14" y="155" font-family="sans-serif" font-size="8" fill="#9ca3af">优势：极低功耗, 被动安全</text>
+      <text x="14" y="167" font-family="sans-serif" font-size="8" fill="#9ca3af">特点：结构简单, 可靠性高</text>
+    </g>
+    <g transform="translate(60, 280)">
+      <text x="0" y="12" font-family="sans-serif" font-size="9" fill="#4b5563">原理：弹簧储能+电控释放  能效比 1:160 负功阶段储能  正功阶段释放</text>
+      <text x="0" y="26" font-family="sans-serif" font-size="9" fill="#4b5563">研究：BGU(以色列2024) 28Nm设计/17Nm实测  中科大CPEMA  MIT CSEA 70%节能</text>
+      <text x="0" y="40" font-family="sans-serif" font-size="9" fill="#4b5563">局限：仅储能释放（无外部能量注入）、离合器开合冲击、时机精度要求高</text>
+    </g>
+  </g>
+
+  <!-- PANEL 4: SMA -->
+  <g transform="translate(610, 482)">
+    <rect x="0" y="0" width="570" height="365" rx="4" fill="#ffffff" stroke="#d1d5db" stroke-width="1" filter="url(#s)"/>
+    <rect x="0" y="0" width="570" height="32" rx="4" fill="#c45a5a" opacity="0.10"/>
+    <rect x="0" y="20" width="570" height="12" fill="#c45a5a" opacity="0.10"/>
+    <text x="16" y="21" font-family="sans-serif" font-size="14" font-weight="bold" fill="#b91c1c">Panel D 形状记忆合金驱动器 (SMA)</text>
+    <text x="554" y="21" text-anchor="end" font-family="sans-serif" font-size="11" fill="#6b7280">代表：NiTi, 学术前沿</text>
+    <g transform="translate(50, 55)">
+      <line x1="20" y1="40" x2="180" y2="40" stroke="#c45a5a" stroke-width="3" stroke-linecap="round"/>
+      <line x1="20" y1="55" x2="100" y2="55" stroke="#c45a5a" stroke-width="2" opacity="0.4" stroke-dasharray="4,2"/>
+      <text x="60" y="68" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6b7280">马氏体 (低温软)</text>
+      <line x1="110" y1="55" x2="180" y2="55" stroke="#c45a5a" stroke-width="3" opacity="0.8"/>
+      <text x="145" y="68" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6b7280">奥氏体 (高温硬)</text>
+      <text x="100" y="28" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b91c1c">SMA 丝</text>
+      <path d="M 180,25 Q 195,40 180,55" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+      <text x="200" y="42" font-family="sans-serif" font-size="9" fill="#4b5563">偏置弹簧</text>
+      <rect x="10" y="32" width="10" height="16" rx="1" fill="#d1d5db" stroke="#6b7280" stroke-width="0.8"/>
+      <rect x="180" y="32" width="10" height="16" rx="1" fill="#d1d5db" stroke="#6b7280" stroke-width="0.8"/>
+      <g transform="translate(40, 85)">
+        <rect x="0" y="0" width="40" height="16" rx="2" fill="#ef4444" opacity="0.12" stroke="#ef4444" stroke-width="0.6"/>
+        <text x="20" y="11" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#dc2626">加热 I</text>
+      </g>
+      <g transform="translate(120, 85)">
+        <rect x="0" y="0" width="40" height="16" rx="2" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="0.6"/>
+        <text x="20" y="11" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2563eb">自然冷却</text>
+      </g>
+    </g>
+    <g transform="translate(50, 145)">
+      <rect x="0" y="0" width="250" height="100" rx="3" fill="#f9fafb" stroke="#e5e7eb" stroke-width="0.8"/>
+      <text x="125" y="16" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#4b5563">SMA 相变滞回曲线</text>
+      <path d="M 20,75 Q 40,75 60,55 Q 80,30 100,25 Q 120,22 140,25" fill="none" stroke="#3b82f6" stroke-width="1.2"/>
+      <path d="M 140,25 Q 160,28 180,45 Q 200,65 220,75" fill="none" stroke="#ef4444" stroke-width="1.2"/>
+      <line x1="20" y1="75" x2="230" y2="75" stroke="#d1d5db" stroke-width="0.5"/>
+      <line x1="20" y1="25" x2="20" y2="75" stroke="#d1d5db" stroke-width="0.5"/>
+      <text x="125" y="90" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6b7280">温度 T</text>
+      <text x="10" y="50" transform="rotate(-90, 10, 50)" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6b7280">应变 </text>
+      <text x="50" y="48" font-family="sans-serif" font-size="8" fill="#3b82f6">加热</text>
+      <text x="170" y="48" font-family="sans-serif" font-size="8" fill="#ef4444">冷却</text>
+      <text x="80" y="30" font-family="sans-serif" font-size="7" fill="#6b7280">A_f</text>
+      <text x="160" y="30" font-family="sans-serif" font-size="7" fill="#6b7280">M_f</text>
+      <line x1="105" y1="20" x2="145" y2="20" stroke="#6b7280" stroke-width="0.5"/>
+      <text x="125" y="13" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6b7280">T_hyst</text>
+    </g>
+    <g transform="translate(320, 145)">
+      <rect x="0" y="0" width="130" height="100" rx="3" fill="#f9fafb" stroke="#e5e7eb" stroke-width="0.8"/>
+      <text x="65" y="16" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#4b5563">拮抗对配置</text>
+      <line x1="15" y1="40" x2="115" y2="40" stroke="#c45a5a" stroke-width="2.5"/>
+      <line x1="15" y1="60" x2="115" y2="60" stroke="#c45a5a" stroke-width="2.5"/>
+      <text x="65" y="35" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6b7280">SMA1 (屈)</text>
+      <text x="65" y="72" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6b7280">SMA2 (伸)</text>
+      <circle cx="130" cy="50" r="10" fill="none" stroke="#6b7280" stroke-width="1"/>
+      <text x="130" y="85" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6b7280">滑轮/关节</text>
+    </g>
+    <g transform="translate(370, 55)">
+      <rect x="0" y="0" width="190" height="170" rx="3" fill="#fef2f2" stroke="#c45a5a" stroke-width="0.8"/>
+      <text x="95" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b91c1c">关键规格</text>
+      <line x1="12" y1="24" x2="178" y2="24" stroke="#c45a5a" stroke-width="0.5"/>
+      <text x="14" y="40" font-family="sans-serif" font-size="10" fill="#4b5563">可恢复应变</text>
+      <text x="176" y="40" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">~4%</text>
+      <text x="14" y="56" font-family="sans-serif" font-size="10" fill="#4b5563">最大应力</text>
+      <text x="176" y="56" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">200 MPa</text>
+      <text x="14" y="72" font-family="sans-serif" font-size="10" fill="#4b5563">疲劳寿命</text>
+      <text x="176" y="72" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">10次</text>
+      <text x="14" y="88" font-family="sans-serif" font-size="10" fill="#4b5563">控制带宽</text>
+      <text x="176" y="88" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">&lt; 2 Hz</text>
+      <text x="14" y="104" font-family="sans-serif" font-size="10" fill="#4b5563">能效</text>
+      <text x="176" y="104" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">&lt; 5%</text>
+      <text x="14" y="120" font-family="sans-serif" font-size="10" fill="#4b5563">材料</text>
+      <text x="176" y="120" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">NiTi (Nitinol)</text>
+      <rect x="14" y="130" width="162" height="8" rx="4" fill="#d1d5db"/>
+      <rect x="14" y="130" width="49" height="8" rx="4" fill="#c45a5a" opacity="0.7"/>
+      <text x="95" y="137" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#fff" font-weight="bold">TRL 2-3</text>
+      <text x="14" y="155" font-family="sans-serif" font-size="8" fill="#9ca3af">优势：轻量、安静、高能量密度</text>
+      <text x="14" y="167" font-family="sans-serif" font-size="8" fill="#9ca3af">瓶颈：疲劳、带宽、效率</text>
+    </g>
+    <g transform="translate(60, 280)">
+      <text x="0" y="12" font-family="sans-serif" font-size="9" fill="#4b5563">NiTi丝加热  相变收缩4%  极致静音高力重比</text>
+      <text x="0" y="26" font-family="sans-serif" font-size="9" fill="#4b5563">研究：UC3 Madrid(2024)儿童SMA膝外骨骼 0.51mm丝径 90C激活</text>
+      <text x="0" y="40" font-family="sans-serif" font-size="9" fill="#4b5563">大连理工可变刚度0.32s切换 KIT SMA力传感 韩国仿生膝补丁</text>
+      <text x="0" y="54" font-family="sans-serif" font-size="9" fill="#6b7280">局限：响应慢(冷却&gt;0.5s无法跑步) 电热效率&lt;10% 寿命&lt;1万次 滞回严重</text>
+    </g>
+  </g>
+  <text x="600" y="857" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#9ca3af">附录 C 图 7 TRL 2-5 外骨骼驱动架构技术概览 | 参考：MIT, Lord Corp, MOOG, SMA前沿</text>
+</svg>

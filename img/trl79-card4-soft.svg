@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1100" width="1200" height="1100">
+<defs>
+  <!-- Bone gradient -->
+  <linearGradient id="boneGrad" x1="0" y1="0" x2="0.5" y2="1">
+    <stop offset="0%" stop-color="#f2ebd4"/>
+    <stop offset="20%" stop-color="#e8ddc0"/>
+    <stop offset="50%" stop-color="#e0d2b0"/>
+    <stop offset="80%" stop-color="#d8c8a0"/>
+    <stop offset="100%" stop-color="#ceba88"/>
+  </linearGradient>
+  <!-- Trabecular pattern -->
+  <pattern id="trabecular" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(25)">
+    <path d="M0,5 Q2.5,2 5,5 Q7.5,8 10,5" stroke="#d4c49a" stroke-width="0.35" fill="none" opacity="0.35"/>
+    <path d="M0,0 Q2.5,3 5,0 Q7.5,-3 10,0" stroke="#d4c49a" stroke-width="0.25" fill="none" opacity="0.25"/>
+    <path d="M0,10 Q2.5,7 5,10 Q7.5,13 10,10" stroke="#d4c49a" stroke-width="0.25" fill="none" opacity="0.25"/>
+  </pattern>
+  <!-- Muscle gradient -->
+  <linearGradient id="muscleGrad" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0%" stop-color="rgba(200,50,50,0.28)"/>
+    <stop offset="30%" stop-color="rgba(190,45,45,0.38)"/>
+    <stop offset="60%" stop-color="rgba(175,40,40,0.34)"/>
+    <stop offset="100%" stop-color="rgba(160,35,35,0.25)"/>
+  </linearGradient>
+  <!-- Fabric/weave pattern -->
+  <pattern id="weaveCross" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="4" x2="8" y2="4" stroke="#0096f0" stroke-width="0.5" opacity="0.30"/>
+    <line x1="4" y1="0" x2="4" y2="8" stroke="#0096f0" stroke-width="0.5" opacity="0.30"/>
+  </pattern>
+  <pattern id="weaveFine" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+    <line x1="0" y1="0" x2="5" y2="5" stroke="#0096f0" stroke-width="0.3" opacity="0.20"/>
+    <line x1="5" y1="0" x2="0" y2="5" stroke="#0096f0" stroke-width="0.3" opacity="0.20"/>
+  </pattern>
+  <!-- Fabric solid gradient -->
+  <linearGradient id="fabricGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="rgba(0,150,240,0.06)"/>
+    <stop offset="30%" stop-color="rgba(0,150,240,0.10)"/>
+    <stop offset="60%" stop-color="rgba(0,120,200,0.08)"/>
+    <stop offset="100%" stop-color="rgba(0,100,180,0.04)"/>
+  </linearGradient>
+  <!-- Motor housing gradient -->
+  <linearGradient id="motorGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#3a3a4a"/>
+    <stop offset="30%" stop-color="#4a4a5a"/>
+    <stop offset="60%" stop-color="#3e3e4e"/>
+    <stop offset="100%" stop-color="#2e2e3e"/>
+  </linearGradient>
+  <!-- Metal gradients -->
+  <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#a0a0a0"/>
+    <stop offset="20%" stop-color="#c8c8c8"/>
+    <stop offset="40%" stop-color="#e8e8e8"/>
+    <stop offset="50%" stop-color="#f5f5f5"/>
+    <stop offset="60%" stop-color="#e0e0e0"/>
+    <stop offset="80%" stop-color="#c0c0c0"/>
+    <stop offset="100%" stop-color="#a0a0a0"/>
+  </linearGradient>
+  <!-- Drop shadow -->
+  <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+    <feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-opacity="0.10"/>
+  </filter>
+  <filter id="shadowDeep" x="-8%" y="-8%" width="120%" height="120%">
+    <feDropShadow dx="2" dy="3" stdDeviation="4" flood-opacity="0.15"/>
+  </filter>
+  <!-- Arrow markers -->
+  <marker id="arrRed" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L12,4 L0,8 L3,4 Z" fill="#cc0000"/>
+  </marker>
+  <marker id="arrBlue" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L12,4 L0,8 L3,4 Z" fill="#0096f0"/>
+  </marker>
+  <marker id="arrGreen" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L12,4 L0,8 L3,4 Z" fill="#008844"/>
+  </marker>
+  <marker id="arrAmber" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L12,4 L0,8 L3,4 Z" fill="#d97706"/>
+  </marker>
+  <marker id="arrGray" markerWidth="10" height="7" refX="10" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L10,3.5 L0,7 Z" fill="#777777"/>
+  </marker>
+  <marker id="arrSmall" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L8,3 L0,6 Z" fill="#555555"/>
+  </marker>
+  <style>
+    .bf { fill: url(#boneGrad); stroke: #c8b888; stroke-width: 0.7; }
+    .mf { fill: url(#muscleGrad); stroke: rgba(160,30,30,0.30); stroke-width: 0.4; }
+    .meta { fill: url(#metalGrad); stroke: #888888; stroke-width: 0.7; }
+    .motor { fill: url(#motorGrad); stroke: #2a2a38; stroke-width: 0.8; }
+    .fabd { fill: none; stroke: #0096f0; stroke-width: 2; stroke-dasharray: 6,4; }
+    .ann { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 10px; fill: #333333; }
+    .annt { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 11px; fill: #222222; font-weight: bold; }
+    .anns { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 8px; fill: #666666; }
+    .annx { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 8px; fill: #888888; }
+    .form { font-family: "Times New Roman","STIX",serif; font-size: 13px; fill: #222222; }
+    .flbl { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 10px; fill: #cc0000; font-weight: bold; }
+    .pttl { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 13px; font-weight: bold; }
+    .ptxt { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 9px; fill: #444444; }
+    .pbld { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 9px; fill: #333333; font-weight: bold; }
+    .lgt { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 11px; fill: #333333; }
+  </style>
+</defs>
+
+<!-- ===== BACKGROUND ===== -->
+<rect width="1200" height="1100" fill="#ffffff"/>
+<rect x="20" y="20" width="720" height="1040" fill="none" stroke="#e0e5ec" stroke-width="0.5"/>
+<rect x="740" y="20" width="60" height="1040" fill="#fafaf8" stroke="#e0e5ec" stroke-width="0.5"/>
+<rect x="800" y="20" width="380" height="1040" fill="none" stroke="#e0e5ec" stroke-width="0.5"/>
+
+<!-- ===== LEFT COLUMN UPPER ZONE (y=20 to y=592): LEGS FRONT VIEW + FABRIC EXOSUIT ===== -->
+<text x="380" y="36" text-anchor="middle" class="annt" fill="#666666" font-size="11">双腿正面解剖与软体外骨骼 · 织物驱动系统</text>
+<text x="380" y="50" text-anchor="middle" class="anns" fill="#999999">Bipedal frontal anatomy with soft exosuit fabric-based actuation</text>
+
+<!-- ===== LEFT LEG (darker, partly behind) ===== -->
+<g opacity="0.35">
+  <!-- Left leg skin -->
+  <path d="M315,95 C310,160 308,240 308,320 C308,400 310,470 312,530 C314,580 316,620 318,650 C320,670 320,685 318,695 L312,698 L306,694 C302,685 300,670 302,648 C304,620 306,580 308,530 C310,480 312,410 314,340 C316,270 318,200 318,140 C318,110 316,95 315,95 Z" fill="none" stroke="#d0d5dc" stroke-width="0.8"/>
+  <!-- Left femur hint -->
+  <path d="M320,100 C322,160 324,230 324,300 C324,350 322,385 318,405" class="bf" opacity="0.3"/>
+  <!-- Left tibia hint -->
+  <path d="M318,415 C316,460 315,520 315,580 C315,630 316,665 318,685" class="bf" opacity="0.3"/>
+</g>
+
+<!-- ===== RIGHT LEG (main, front view) ===== -->
+<g>
+  <!-- Right leg skin outline -->
+  <path d="M340,90 C342,155 344,235 344,315 C344,395 342,465 340,530 C338,580 336,620 335,650 C334,670 335,685 338,695 L345,698 L352,694 C356,685 358,670 356,648 C354,620 352,580 350,530 C348,480 346,410 345,340 C344,270 344,200 344,140 C344,110 342,95 340,90 Z" fill="#f8f4ec" stroke="#e0d8c8" stroke-width="0.6" opacity="0.20"/>
+
+  <!-- Pelvis/hip -->
+  <path d="M320,80 C330,75 345,72 360,74 C375,76 385,82 390,90 C395,98 392,105 385,108 C378,110 368,108 358,105 C348,102 338,98 330,94 C324,92 320,88 320,84 Z" class="bf" opacity="0.30"/>
+
+  <!-- Right femur (front view, slight) -->
+  <path d="M350,96 C352,150 354,220 354,290 C354,340 352,375 350,400 C348,410 345,415 342,416 C338,416 335,412 334,405 C332,395 330,375 330,345 C328,300 330,240 334,180 C338,130 342,105 346,95 C348,92 350,96 350,96 Z" class="bf" opacity="0.30"/>
+
+  <!-- Right tibia (front view) -->
+  <path d="M342,420 C340,460 338,510 338,570 C338,620 340,655 342,680 C344,692 347,696 350,696 C354,696 356,690 356,678 C356,655 354,610 352,560 C350,510 348,455 346,425 C344,415 342,420 342,420 Z" class="bf" opacity="0.25"/>
+
+  <!-- Patella hint -->
+  <ellipse cx="348" cy="410" rx="8" ry="10" class="bf" opacity="0.25"/>
+
+  <!-- Knee joint silhouette -->
+  <ellipse cx="346" cy="415" rx="16" ry="5" fill="rgba(200,200,200,0.15)"/>
+</g>
+
+<!-- ===== FABRIC EXOSUIT PANTS (right leg main) ===== -->
+<g filter="url(#shadowDeep)">
+  <!-- Right thigh fabric panel -->
+  <path d="M325,100 C322,160 320,230 320,300 C320,350 322,390 326,420 C330,440 336,448 344,448 C352,448 358,440 362,420 C366,395 368,350 368,295 C368,230 366,170 362,115 C358,100 348,94 340,94 C332,94 328,96 325,100 Z" class="fabd"/>
+  <path d="M325,100 C322,160 320,230 320,300 C320,350 322,390 326,420 C330,440 336,448 344,448 C352,448 358,440 362,420 C366,395 368,350 368,295 C368,230 366,170 362,115 C358,100 348,94 340,94 C332,94 328,96 325,100 Z" fill="url(#fabricGrad)"/>
+  <path d="M325,100 C322,160 320,230 320,300 C320,350 322,390 326,420 C330,440 336,448 344,448 C352,448 358,440 362,420 C366,395 368,350 368,295 C368,230 366,170 362,115 C358,100 348,94 340,94 C332,94 328,96 325,100 Z" fill="url(#weaveCross)"/>
+
+  <!-- Right shank fabric panel -->
+  <path d="M326,450 C324,490 322,540 322,590 C322,640 324,670 328,690 C332,702 340,705 348,702 C356,698 360,688 362,672 C364,650 364,610 362,565 C360,520 356,475 352,445 C348,438 340,436 334,438 C328,440 326,445 326,450 Z" class="fabd"/>
+  <path d="M326,450 C324,490 322,540 322,590 C322,640 324,670 328,690 C332,702 340,705 348,702 C356,698 360,688 362,672 C364,650 364,610 362,565 C360,520 356,475 352,445 C348,438 340,436 334,438 C328,440 326,445 326,450 Z" fill="url(#fabricGrad)"/>
+  <path d="M326,450 C324,490 322,540 322,590 C322,640 324,670 328,690 C332,702 340,705 348,702 C356,698 360,688 362,672 C364,650 364,610 362,565 C360,520 356,475 352,445 C348,438 340,436 334,438 C328,440 326,445 326,450 Z" fill="url(#weaveFine)"/>
+
+  <!-- Left leg fabric (lighter, behind) -->
+  <path d="M305,105 C302,165 300,235 300,305 C300,355 302,395 306,425 C310,442 316,448 322,446 C328,444 332,436 334,418 C336,395 338,350 338,295 C338,235 336,175 332,120 C330,105 322,98 315,98 C308,98 306,102 305,105 Z" fill="none" stroke="#0096f0" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.25"/>
+  <path d="M306,455 C304,495 302,545 302,595 C302,642 304,672 308,690 C312,700 318,702 324,698 C330,694 333,686 334,670 C336,650 336,610 334,565 C332,522 328,480 324,450 C320,442 314,440 310,442 C306,444 306,450 306,455 Z" fill="none" stroke="#0096f0" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.20"/>
+</g>
+
+<!-- ===== WAIST BELT WITH BATTERY + CONTROLLER ===== -->
+<g filter="url(#shadowDeep)">
+  <!-- Belt -->
+  <rect x="290" y="82" width="120" height="20" rx="4" fill="#0096f0" opacity="0.75"/>
+  <rect x="290" y="82" width="120" height="20" rx="4" fill="none" stroke="#0077cc" stroke-width="0.5"/>
+  <text x="350" y="95" text-anchor="middle" class="annx" fill="#ffffff" font-size="8" font-weight="bold">智能腰带</text>
+  <!-- Belt strap extensions -->
+  <line x1="290" y1="92" x2="270" y2="92" stroke="#555555" stroke-width="2" stroke-dasharray="3,2"/>
+  <line x1="410" y1="92" x2="430" y2="92" stroke="#555555" stroke-width="2" stroke-dasharray="3,2"/>
+
+  <!-- Battery pack (left side of belt) -->
+  <rect x="298" y="104" width="42" height="20" rx="3" class="motor"/>
+  <rect x="300" y="106" width="38" height="16" rx="2" fill="none" stroke="#505060" stroke-width="0.3"/>
+  <!-- Battery level indicator -->
+  <rect x="304" y="110" width="6" height="8" rx="1" fill="#00ff88" opacity="0.6"/>
+  <rect x="312" y="110" width="6" height="8" rx="1" fill="#00ff88" opacity="0.6"/>
+  <rect x="320" y="110" width="6" height="8" rx="1" fill="#00ff88" opacity="0.4"/>
+  <rect x="328" y="110" width="6" height="8" rx="1" fill="#666666" opacity="0.4"/>
+  <text x="319" y="133" text-anchor="middle" class="annx" fill="#888888" font-size="8">电池组 48V</text>
+
+  <!-- Controller (right side of belt) -->
+  <rect x="350" y="104" width="48" height="20" rx="3" class="motor"/>
+  <rect x="352" y="106" width="44" height="16" rx="2" fill="none" stroke="#505060" stroke-width="0.3"/>
+  <!-- LED indicators -->
+  <circle cx="358" cy="112" r="1.5" fill="#ff6600" opacity="0.8"/>
+  <circle cx="365" cy="112" r="1.5" fill="#00ff88" opacity="0.8"/>
+  <circle cx="372" cy="112" r="1.5" fill="#0096f0" opacity="0.8"/>
+  <!-- Heat sink fins -->
+  <rect x="380" y="106" width="2" height="16" fill="#505060"/>
+  <rect x="384" y="106" width="2" height="16" fill="#505060"/>
+  <rect x="388" y="106" width="2" height="16" fill="#505060"/>
+  <text x="374" y="133" text-anchor="middle" class="annx" fill="#888888" font-size="8">控制器</text>
+
+  <!-- Connector lines from belt down to fabric -->
+  <line x1="320" y1="124" x2="335" y2="140" stroke="#666677" stroke-width="1.5"/>
+  <line x1="370" y1="124" x2="355" y2="140" stroke="#666677" stroke-width="1.5"/>
+
+  <!-- Annotation callout for belt components -->
+  <line x1="360" y1="106" x2="460" y2="130" stroke="#0096f0" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <rect x="460" y="118" width="145" height="30" rx="4" fill="#f0f8ff" stroke="#0096f0" stroke-width="0.5"/>
+  <text x="468" y="134" class="anns" fill="#0096f0" font-size="8">腰带集成：48V电池+控制器+IMU</text>
+  <text x="468" y="145" class="annx" fill="#888888" font-size="8">能量供应与运动意图识别</text>
+</g>
+
+<!-- ===== KNEE EMBEDDED BLDC MOTOR + REDUCER (right knee) ===== -->
+<g filter="url(#shadowDeep)">
+  <g transform="translate(360, 408)">
+    <!-- Motor housing -->
+    <rect x="-12" y="-10" width="24" height="28" rx="5" class="motor"/>
+    <rect x="-10" y="-8" width="20" height="24" rx="4" fill="none" stroke="#505060" stroke-width="0.3"/>
+    <!-- Motor shaft -->
+    <circle cx="0" cy="18" r="2.5" fill="#aaaaaa" stroke="#888888" stroke-width="0.4"/>
+    <!-- Cooling vents -->
+    <rect x="-8" y="-4" width="4" height="2" fill="#505060" opacity="0.5"/>
+    <rect x="-8" y="2" width="4" height="2" fill="#505060" opacity="0.5"/>
+    <rect x="-8" y="8" width="4" height="2" fill="#505060" opacity="0.5"/>
+    <rect x="4" y="-4" width="4" height="2" fill="#505060" opacity="0.5"/>
+    <rect x="4" y="2" width="4" height="2" fill="#505060" opacity="0.5"/>
+    <rect x="4" y="8" width="4" height="2" fill="#505060" opacity="0.5"/>
+    <!-- BLDC label -->
+    <text x="0" y="-16" text-anchor="middle" class="annx" fill="#0096f0" font-size="8">BLDC</text>
+  </g>
+
+  <!-- Reducer/gearbox -->
+  <g transform="translate(360, 440)">
+    <circle cx="0" cy="0" r="10" fill="#e0e0e0" stroke="#aaaaaa" stroke-width="1"/>
+    <circle cx="0" cy="0" r="6" fill="none" stroke="#cccccc" stroke-width="0.6"/>
+    <circle cx="0" cy="0" r="2" fill="#aaaaaa"/>
+    <!-- Internal gear teeth indication -->
+    <path d="M -8,0 L -6,0 M 6,0 L 8,0 M 0,-8 L 0,-6 M 0,6 L 0,8" stroke="#cccccc" stroke-width="0.5"/>
+    <text x="0" y="16" text-anchor="middle" class="annx" fill="#888888" font-size="8">减速器</text>
+  </g>
+
+  <!-- Motor to fabric connection -->
+  <rect x="355" y="450" width="10" height="8" rx="2" class="meta"/>
+
+  <!-- Motor callout -->
+  <line x1="370" y1="420" x2="490" y2="370" stroke="#0096f0" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <rect x="490" y="358" width="130" height="32" rx="4" fill="#f0f8ff" stroke="#0096f0" stroke-width="0.5"/>
+  <text x="498" y="374" class="anns" fill="#0096f0" font-size="8">膝部嵌入BLDC电机+减速器</text>
+  <text x="498" y="386" class="annx" fill="#888888" font-size="8">织物张力驱动 · 响应延迟 &lt;50ms</text>
+</g>
+
+<!-- ===== FABRIC TENSION FORCE ARROWS (red) ===== -->
+<!-- Thigh tension -->
+<g stroke="#cc0000" stroke-width="2.2" marker-end="url(#arrRed)" opacity="0.6">
+  <line x1="345" y1="180" x2="345" y2="220"/>
+  <line x1="360" y1="200" x2="360" y2="240"/>
+  <line x1="340" y1="250" x2="340" y2="290"/>
+  <line x1="360" y1="270" x2="360" y2="310"/>
+  <line x1="345" y1="320" x2="345" y2="360"/>
+  <line x1="355" y1="350" x2="355" y2="390"/>
+</g>
+<!-- Shin tension -->
+<g stroke="#cc0000" stroke-width="2.2" marker-end="url(#arrRed)" opacity="0.6">
+  <line x1="345" y1="480" x2="345" y2="520"/>
+  <line x1="355" y1="510" x2="355" y2="550"/>
+  <line x1="340" y1="550" x2="340" y2="590"/>
+  <line x1="355" y1="570" x2="355" y2="610"/>
+</g>
+
+<!-- Tension annotation -->
+<text x="378" y="280" class="anns" fill="#cc0000" font-size="8">织物张力方向</text>
+<text x="378" y="295" class="annx" fill="#888888" font-size="8">沿织物纤维传力路径</text>
+
+<!-- ===== POWER FLOW DIAGRAM ===== -->
+<g transform="translate(400, 460)">
+  <rect x="0" y="0" width="300" height="120" rx="5" fill="#f0f8ff" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="150" y="20" text-anchor="middle" class="anns" font-weight="bold" fill="#0096f0" font-size="9">能量流分析 · Power Flow</text>
+
+  <!-- Power flow blocks -->
+  <!-- Battery -->
+  <rect x="8" y="30" width="50" height="24" rx="3" fill="#e0f0ff" stroke="#0096f0" stroke-width="0.6"/>
+  <text x="33" y="46" text-anchor="middle" class="annx" fill="#0096f0" font-weight="bold" font-size="8">电池</text>
+  <line x1="58" y1="42" x2="68" y2="42" stroke="#0096f0" stroke-width="1.2" marker-end="url(#arrSmall)"/>
+  <!-- Controller -->
+  <rect x="70" y="30" width="50" height="24" rx="3" fill="#e0f0ff" stroke="#0096f0" stroke-width="0.6"/>
+  <text x="95" y="46" text-anchor="middle" class="annx" fill="#0096f0" font-weight="bold" font-size="8">控制器</text>
+  <line x1="120" y1="42" x2="130" y2="42" stroke="#0096f0" stroke-width="1.2" marker-end="url(#arrSmall)"/>
+  <!-- BLDC -->
+  <rect x="132" y="30" width="48" height="24" rx="3" fill="#e0f0ff" stroke="#0096f0" stroke-width="0.6"/>
+  <text x="156" y="46" text-anchor="middle" class="annx" fill="#0096f0" font-weight="bold" font-size="8">BLDC</text>
+  <line x1="180" y1="42" x2="190" y2="42" stroke="#0096f0" stroke-width="1.2" marker-end="url(#arrSmall)"/>
+  <!-- Fabric -->
+  <rect x="192" y="30" width="48" height="24" rx="3" fill="#e0f0ff" stroke="#0096f0" stroke-width="0.6"/>
+  <text x="216" y="46" text-anchor="middle" class="annx" fill="#0096f0" font-weight="bold" font-size="8">织物</text>
+  <line x1="240" y1="42" x2="250" y2="42" stroke="#0096f0" stroke-width="1.2" marker-end="url(#arrSmall)"/>
+  <!-- Joint -->
+  <rect x="252" y="30" width="42" height="24" rx="3" fill="#e0f0ff" stroke="#0096f0" stroke-width="0.6"/>
+  <text x="273" y="46" text-anchor="middle" class="annx" fill="#0096f0" font-weight="bold" font-size="8">关节</text>
+
+  <!-- Efficiency losses below each block -->
+  <text x="33" y="70" text-anchor="middle" class="annx" fill="#666666" font-size="8">~98%</text>
+  <text x="95" y="70" text-anchor="middle" class="annx" fill="#666666" font-size="8">~95%</text>
+  <text x="156" y="70" text-anchor="middle" class="annx" fill="#666666" font-size="8">~85%</text>
+  <text x="216" y="70" text-anchor="middle" class="annx" fill="#c45a5a" font-size="8">~70%</text>
+  <text x="273" y="70" text-anchor="middle" class="annx" fill="#c45a5a" font-size="8">~95%</text>
+
+  <!-- Overall efficiency -->
+  <rect x="60" y="82" width="180" height="24" rx="4" fill="#e0f8e8" stroke="#008844" stroke-width="0.6"/>
+  <text x="150" y="98" text-anchor="middle" class="anns" font-weight="bold" fill="#008844" font-size="9">系统总效率 ~50-55%</text>
+</g>
+
+<!-- ===== LEFT COLUMN LOWER ZONE (y=612 to y=1060) ===== -->
+<line x1="30" y1="598" x2="730" y2="598" stroke="#cccccc" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+<text x="380" y="630" text-anchor="middle" class="annt" fill="#666666" font-size="11">软体外骨骼产品参照</text>
+
+<!-- ===== Skip MO/GO PRODUCT ===== -->
+<g transform="translate(130, 642)">
+  <rect x="0" y="0" width="240" height="210" rx="5" fill="#f0f6ff" stroke="#0096f0" stroke-width="0.6"/>
+  <text x="120" y="20" text-anchor="middle" class="annt" fill="#005599" font-size="10">Skip MO/GO 产品参照</text>
+
+  <g filter="url(#shadow)">
+    <!-- Simplified exosuit figure -->
+    <!-- Waist belt -->
+    <rect x="75" y="30" width="90" height="14" rx="3" fill="#0096f0" opacity="0.6"/>
+    <text x="120" y="40" text-anchor="middle" class="annx" fill="#ffffff" font-size="8" font-weight="bold">腰带</text>
+
+    <!-- Fabric pants outline -->
+    <path d="M 80,44 C 78,55 76,75 76,95 C 76,115 78,130 82,140 C 86,148 92,152 100,152 C 108,152 114,148 118,140 C 122,130 124,115 124,95 C 124,75 122,55 118,46 C 115,42 108,40 100,40 C 92,40 84,42 80,44 Z" fill="url(#fabricGrad)" stroke="#0096f0" stroke-width="1.2" stroke-dasharray="4,3"/>
+    <path d="M 80,44 C 78,55 76,75 76,95 C 76,115 78,130 82,140 C 86,148 92,152 100,152 C 108,152 114,148 118,140 C 122,130 124,115 124,95 C 124,75 122,55 118,46 C 115,42 108,40 100,40 C 92,40 84,42 80,44 Z" fill="url(#weaveFine)"/>
+
+    <!-- Leg fabric panels -->
+    <path d="M 82,152 C 80,165 78,185 78,205 C 78,220 80,230 84,236 C 88,242 94,244 100,242 C 106,240 110,236 114,230 C 118,222 120,210 120,195 C 120,178 118,160 115,150 C 112,146 106,144 100,144 C 94,144 88,146 84,150 Z" fill="url(#fabricGrad)" stroke="#0096f0" stroke-width="1.2" stroke-dasharray="4,3"/>
+    <path d="M 82,152 C 80,165 78,185 78,205 C 78,220 80,230 84,236 C 88,242 94,244 100,242 C 106,240 110,236 114,230 C 118,222 120,210 120,195 C 120,178 118,160 115,150 C 112,146 106,144 100,144 C 94,144 88,146 84,150 Z" fill="url(#weaveFine)"/>
+
+    <!-- Knee actuator -->
+    <circle cx="100" cy="150" r="7" fill="url(#motorGrad)" stroke="#505060" stroke-width="0.5"/>
+    <text x="100" y="152" text-anchor="middle" class="annx" fill="#ffffff" font-size="8">M</text>
+
+    <!-- Tension indication arrows -->
+    <path d="M 128,80 L 128,100" stroke="#cc0000" stroke-width="1.2" marker-end="url(#arrSmall)" opacity="0.5"/>
+    <path d="M 128,180 L 128,200" stroke="#cc0000" stroke-width="1.2" marker-end="url(#arrSmall)" opacity="0.5"/>
+  </g>
+
+  <!-- Product info -->
+  <rect x="10" y="142" width="220" height="60" rx="4" fill="#eef4fa" stroke="#0096f0" stroke-width="0.4"/>
+  <text x="120" y="160" text-anchor="middle" class="anns" font-weight="bold" fill="#0096f0" font-size="9">Skip MO/GO · 美国</text>
+  <text x="120" y="176" text-anchor="middle" class="annx" fill="#666666" font-size="8">软性膝关节外骨骼</text>
+  <text x="120" y="192" text-anchor="middle" class="annx" fill="#888888" font-size="8">爬楼/登山/行走辅助</text>
+</g>
+
+<!-- ===== FABRIC KEYNOTE ===== -->
+<g transform="translate(30, 865)">
+  <rect x="0" y="0" width="690" height="80" rx="5" fill="#f0f8ff" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,3"/>
+  <text x="345" y="20" text-anchor="middle" class="annt" fill="#005599" font-size="10">软体外骨骼关键技术特征</text>
+  <text x="20" y="40" class="anns" fill="#444444"> | 织物基底，质量分散在腰部/腿部，无刚性连杆</text>
+  <text x="20" y="56" class="anns" fill="#444444"> | 嵌入BLDC电机通过织物张力传递力矩，柔性界面无关节剪切</text>
+  <text x="20" y="72" class="anns" fill="#444444"> | 力矩密度受限 (&lt;15Nm/kg)，织物疲劳(&lt;500h)为关键瓶颈</text>
+</g>
+
+<!-- ===== RIGHT COLUMN PANELS ===== -->
+<g transform="translate(808, 28)">
+  <!-- Panel 1: Title Card -->
+  <rect x="0" y="0" width="364" height="48" rx="5" fill="#0096f0"/>
+  <text x="182" y="22" text-anchor="middle" class="pttl" fill="#ffffff" font-size="14">软体外骨骼 · 织物驱动型</text>
+  <text x="182" y="40" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="8" fill="rgba(255,255,255,0.80)">Soft Exosuit · Fabric-Based Actuation · TRL 6-7</text>
+
+  <!-- Panel 2: Specifications -->
+  <g transform="translate(0, 68)">
+    <rect x="0" y="0" width="364" height="165" rx="4" fill="#f8fafc" stroke="#e0e8f0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#e0ecf8"/>
+    <rect x="0" y="22" width="364" height="6" fill="#e0ecf8"/>
+    <text x="18" y="18" class="pttl" fill="#335577" font-size="12">技术规格</text>
+    <rect x="16" y="34" width="148" height="24" rx="2" fill="#eef4fa"/>
+    <rect x="168" y="34" width="180" height="24" rx="2" fill="#eef4fa"/>
+    <text x="24" y="50" class="pbld" fill="#555555">系统重量</text>
+    <text x="258" y="50" text-anchor="middle" class="pbld" fill="#0096f0">~800 g (单侧)</text>
+    <rect x="16" y="60" width="148" height="24" rx="2" fill="#ffffff"/>
+    <rect x="168" y="60" width="180" height="24" rx="2" fill="#ffffff"/>
+    <text x="24" y="76" class="pbld" fill="#555555">功耗</text>
+    <text x="258" y="76" text-anchor="middle" class="pbld" fill="#0096f0">50-100 W</text>
+    <rect x="16" y="86" width="148" height="24" rx="2" fill="#eef4fa"/>
+    <rect x="168" y="86" width="180" height="24" rx="2" fill="#eef4fa"/>
+    <text x="24" y="102" class="pbld" fill="#555555">TRL</text>
+    <text x="258" y="102" text-anchor="middle" class="pbld" fill="#0096f0">6-7 (原型-试用级)</text>
+    <rect x="16" y="112" width="148" height="24" rx="2" fill="#ffffff"/>
+    <rect x="168" y="112" width="180" height="24" rx="2" fill="#ffffff"/>
+    <text x="24" y="128" class="pbld" fill="#555555">峰值力矩</text>
+    <text x="258" y="128" text-anchor="middle" class="pbld" fill="#0096f0">&lt; 15 Nm</text>
+    <rect x="16" y="138" width="148" height="24" rx="2" fill="#eef4fa"/>
+    <rect x="168" y="138" width="180" height="24" rx="2" fill="#eef4fa"/>
+    <text x="24" y="154" class="pbld" fill="#555555">系统效率</text>
+    <text x="258" y="154" text-anchor="middle" class="pbld" fill="#0096f0">~50% (织物损耗)</text>
+  </g>
+
+  <!-- Panel 3: Products -->
+  <g transform="translate(0, 257)">
+    <rect x="0" y="0" width="364" height="145" rx="4" fill="#f8fafc" stroke="#e0e8f0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#ede4f0"/>
+    <rect x="0" y="22" width="364" height="6" fill="#ede4f0"/>
+    <text x="18" y="18" class="pttl" fill="#554466" font-size="12">代表产品</text>
+    <rect x="16" y="34" width="332" height="32" rx="3" fill="#ffffff" stroke="#e0e8f0" stroke-width="0.4"/>
+    <circle cx="28" cy="46" r="3.5" fill="#0096f0"/>
+    <text x="38" y="44" class="pbld" fill="#333333">Skip MO/GO</text>
+    <text x="210" y="44" class="ptxt" fill="#888888">美国 · 爬楼登山</text>
+    <text x="38" y="60" class="ptxt" fill="#888888">软性膝关节外骨骼 · 通用尺码</text>
+    <rect x="16" y="70" width="332" height="32" rx="3" fill="#ffffff" stroke="#e0e8f0" stroke-width="0.4"/>
+    <circle cx="28" cy="84" r="3.5" fill="#0096f0"/>
+    <text x="38" y="82" class="pbld" fill="#333333">Skip Roam</text>
+    <text x="210" y="82" class="ptxt" fill="#888888">美国 · 行走辅助</text>
+    <text x="38" y="98" class="ptxt" fill="#888888">髋-膝软性外骨骼 · 多地形</text>
+    <rect x="16" y="106" width="332" height="32" rx="3" fill="#ffffff" stroke="#e0e8f0" stroke-width="0.4"/>
+    <circle cx="28" cy="120" r="3.5" fill="#0096f0"/>
+    <text x="38" y="118" class="pbld" fill="#333333">XoBrace</text>
+    <text x="210" y="118" class="ptxt" fill="#888888">医疗康复</text>
+    <text x="38" y="134" class="ptxt" fill="#888888">织物型康复外骨骼 · 低力矩</text>
+  </g>
+
+  <!-- Panel 4: Pros/Cons -->
+  <g transform="translate(0, 426)">
+    <rect x="0" y="0" width="364" height="165" rx="4" fill="#f8fafc" stroke="#e0e8f0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#e0f0e0"/>
+    <rect x="0" y="22" width="364" height="6" fill="#e0f0e0"/>
+    <text x="18" y="18" class="pttl" fill="#446644" font-size="12">优势与劣势</text>
+    <rect x="16" y="34" width="160" height="90" rx="4" fill="#e8f4fd" stroke="#0096f0" stroke-width="0.5"/>
+    <text x="96" y="50" text-anchor="middle" class="pbld" fill="#0096f0" font-size="10">优势 +</text>
+    <text x="24" y="66" class="ptxt" fill="#333333">+ 极轻量织物，穿着舒适</text>
+    <text x="24" y="82" class="ptxt" fill="#333333">+ 柔性界面，无剪切应力</text>
+    <text x="24" y="98" class="ptxt" fill="#333333">+ 可穿在衣物内，隐蔽</text>
+    <text x="24" y="114" class="ptxt" fill="#333333">+ 电池/电机分散分布</text>
+    <rect x="188" y="34" width="160" height="90" rx="4" fill="#fdf2f8" stroke="#c45a5a" stroke-width="0.5"/>
+    <text x="268" y="50" text-anchor="middle" class="pbld" fill="#cc4444" font-size="10">劣势 -</text>
+    <text x="196" y="66" class="ptxt" fill="#333333">- 力矩上限低 (&lt;15Nm)</text>
+    <text x="196" y="82" class="ptxt" fill="#333333">- 效率低 (~50%)</text>
+    <text x="196" y="98" class="ptxt" fill="#333333">- 织物疲劳 (&lt;500h)</text>
+    <text x="196" y="114" class="ptxt" fill="#333333">- 湿热环境体验差</text>
+  </g>
+
+  <!-- Panel 5: Bones Strategy -->
+  <g transform="translate(0, 615)">
+    <rect x="0" y="0" width="364" height="150" rx="4" fill="#f8fafc" stroke="#e0e8f0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#e0ecf8"/>
+    <rect x="0" y="22" width="364" height="6" fill="#e0ecf8"/>
+    <text x="18" y="18" class="pttl" fill="#335577" font-size="12">Bones &amp; Manifold 评估与策略</text>
+    <rect x="16" y="34" width="332" height="108" rx="5" fill="#f0f8ff" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="24" y="52" class="pbld" fill="#0096f0" font-size="10">评估: 推荐采用 | Gen 3 产品线</text>
+    <line x1="24" y1="58" x2="340" y2="58" stroke="#b8d0e8" stroke-width="0.4" opacity="0.5"/>
+    <text x="24" y="76" class="ptxt" fill="#005999">织物基础 + 碳纤维薄片0.3mm增强</text>
+    <text x="24" y="94" class="ptxt" fill="#005999">弹性织物 + 碳纤维复合，仅需2个尺码</text>
+    <text x="24" y="112" class="ptxt" fill="#005999">需解决：织物疲劳寿命 &gt;1000h</text>
+    <text x="24" y="130" class="ptxt" fill="#005999">需提升：力矩密度 &gt;15 Nm/kg</text>
+  </g>
+
+  <!-- Panel 6: Efficiency Breakdown Table -->
+  <g transform="translate(0, 789)">
+    <rect x="0" y="0" width="364" height="150" rx="4" fill="#f8fafc" stroke="#e0e8f0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#e8f0e8"/>
+    <rect x="0" y="22" width="364" height="6" fill="#e8f0e8"/>
+    <text x="18" y="18" class="pttl" fill="#446644" font-size="12">效率分解 Efficiency Breakdown</text>
+
+    <!-- Table header -->
+    <rect x="16" y="34" width="332" height="18" rx="2" fill="#d0e8d0"/>
+    <text x="28" y="47" class="pbld" fill="#335533" font-size="9">环节</text>
+    <text x="128" y="47" class="pbld" fill="#335533" font-size="9">效率</text>
+    <text x="198" y="47" class="pbld" fill="#335533" font-size="9">累计损耗</text>
+    <text x="298" y="47" class="pbld" fill="#335533" font-size="9">至关节</text>
+
+    <!-- Row 1: Motor -->
+    <rect x="16" y="52" width="332" height="20" rx="2" fill="#ffffff"/>
+    <text x="28" y="66" class="ptxt" fill="#333333" font-size="9">BLDC 电机</text>
+    <text x="128" y="66" class="pbld" fill="#008844" font-size="9">~85%</text>
+    <text x="198" y="66" class="ptxt" fill="#888888" font-size="9">-15%</text>
+    <text x="298" y="66" class="ptxt" fill="#888888" font-size="9">85%</text>
+
+    <!-- Row 2: Elastic loss -->
+    <rect x="16" y="73" width="332" height="20" rx="2" fill="#f8f8f8"/>
+    <text x="28" y="87" class="ptxt" fill="#333333" font-size="9">织物弹性损耗</text>
+    <text x="128" y="87" class="pbld" fill="#c45a5a" font-size="9">-30%</text>
+    <text x="198" y="87" class="ptxt" fill="#888888" font-size="9">-26pp</text>
+    <text x="298" y="87" class="ptxt" fill="#888888" font-size="9">~60%</text>
+
+    <!-- Row 3: Weave loss -->
+    <rect x="16" y="94" width="332" height="20" rx="2" fill="#ffffff"/>
+    <text x="28" y="108" class="ptxt" fill="#333333" font-size="9">编织耦合损耗</text>
+    <text x="128" y="108" class="pbld" fill="#c45a5a" font-size="9">-15%</text>
+    <text x="198" y="108" class="ptxt" fill="#888888" font-size="9">-9pp</text>
+    <text x="298" y="108" class="ptxt" fill="#888888" font-size="9">~51%</text>
+
+    <!-- Row 4: Tissue loss -->
+    <rect x="16" y="115" width="332" height="20" rx="2" fill="#f8f8f8"/>
+    <text x="28" y="129" class="ptxt" fill="#333333" font-size="9">软组织耦合损耗</text>
+    <text x="128" y="129" class="pbld" fill="#c45a5a" font-size="9">-5%</text>
+    <text x="198" y="129" class="ptxt" fill="#888888" font-size="9">-3pp</text>
+    <text x="298" y="129" class="ptxt" fill="#888888" font-size="9">~48%</text>
+
+    <!-- Final row -->
+    <rect x="16" y="136" width="332" height="20" rx="3" fill="#e0f0e0" stroke="#008844" stroke-width="0.5"/>
+    <text x="28" y="150" class="pbld" fill="#008844" font-size="9">系统有效效率</text>
+    <text x="298" y="150" class="pbld" fill="#008844" font-size="10">~50%</text>
+  </g>
+</g>
+
+<!-- ===== BOTTOM LEGEND ===== -->
+<g transform="translate(20, 1070)">
+  <line x1="0" y1="0" x2="1160" y2="0" stroke="#dddddd" stroke-width="0.8"/>
+  <rect x="0" y="4" width="1160" height="24" rx="3" fill="#fafafa" stroke="#e8e8e8" stroke-width="0.4"/>
+  <text x="14" y="20" class="lgt" font-weight="bold" font-size="12">图例 |</text>
+  <rect x="68" y="8" width="14" height="14" rx="2" fill="#0096f0"/>
+  <text x="86" y="20" class="lgt">推荐采用</text>
+  <rect x="195" y="8" width="14" height="14" rx="2" fill="#d97706"/>
+  <text x="213" y="20" class="lgt">部分借鉴</text>
+  <rect x="322" y="8" width="14" height="14" rx="2" fill="#c45a5a"/>
+  <text x="340" y="20" class="lgt">缺陷/不推荐</text>
+  <text x="490" y="20" class="lgt" fill="#0096f0">本卡片: 软体Exosuit — 推荐采用 (Gen 3)</text>
+  <text x="840" y="20" class="lgt" fill="#999999" font-size="9">TRL 6-7 | B&amp;M Gen 3 织物+碳纤复合</text>
+</g>
+
+</svg>

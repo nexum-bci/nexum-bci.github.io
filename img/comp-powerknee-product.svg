@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="100%" height="100%" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, sans-serif">
+<defs>
+<linearGradient id="boneGrad" x1="0" y1="0" x2="0.4" y2="1">
+<stop offset="0%" stop-color="#ede3cc"/>
+<stop offset="50%" stop-color="#e8ddc0"/>
+<stop offset="100%" stop-color="#d4c9a8"/>
+</linearGradient>
+<linearGradient id="boneDark" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#d4c9a8"/>
+<stop offset="100%" stop-color="#c4b898"/>
+</linearGradient>
+<linearGradient id="metalGrad" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#A0AAB5"/>
+<stop offset="40%" stop-color="#8B93A0"/>
+<stop offset="100%" stop-color="#6B7280"/>
+</linearGradient>
+<linearGradient id="metalLight" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#B8C0CC"/>
+<stop offset="100%" stop-color="#8B93A0"/>
+</linearGradient>
+<linearGradient id="muscleGrad" x1="0" y1="0" x2="0.5" y2="1">
+<stop offset="0%" stop-color="rgba(200,50,50,0.18)"/>
+<stop offset="100%" stop-color="rgba(200,50,50,0.10)"/>
+</linearGradient>
+<linearGradient id="muscleGrad2" x1="0" y1="0" x2="0.3" y2="1">
+<stop offset="0%" stop-color="rgba(200,50,50,0.15)"/>
+<stop offset="100%" stop-color="rgba(200,50,50,0.08)"/>
+</linearGradient>
+<linearGradient id="cartilageGrad" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#b8d4e8"/>
+<stop offset="100%" stop-color="#a4c8dc"/>
+</linearGradient>
+<linearGradient id="skinGrad" x1="0" y1="0" x2="0.5" y2="1">
+<stop offset="0%" stop-color="rgba(255,220,190,0.15)"/>
+<stop offset="100%" stop-color="rgba(255,210,180,0.08)"/>
+</linearGradient>
+<linearGradient id="defectRed" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" stop-color="rgba(220,38,38,0.07)"/>
+<stop offset="100%" stop-color="rgba(220,38,38,0.01)"/>
+</linearGradient>
+<linearGradient id="solutionBlue" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" stop-color="rgba(0,150,240,0.07)"/>
+<stop offset="100%" stop-color="rgba(0,150,240,0.01)"/>
+</linearGradient>
+<marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+<path d="M0,0 L10,5 L0,10 Z" fill="#dc2626"/>
+</marker>
+<marker id="arrowRedBig" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+<path d="M0,0 L10,5 L0,10 Z" fill="#dc2626"/>
+</marker>
+<marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+<path d="M0,0 L10,5 L0,10 Z" fill="#0096f0"/>
+</marker>
+<marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+<path d="M0,0 L10,5 L0,10 Z" fill="#6b7280"/>
+</marker>
+<filter id="shadow" x="-5%" y="-5%" width="120%" height="120%">
+<feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+</filter>
+<filter id="softShadow" x="-5%" y="-5%" width="120%" height="120%">
+<feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.06"/>
+</filter>
+</defs>
+
+<rect width="1200" height="1000" fill="#f7f7f4"/>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+<path d="M40 0L0 0 0 40" fill="none" stroke="#e8e8e4" stroke-width="0.5"/>
+</pattern>
+<rect width="1200" height="1000" fill="url(#grid)"/>
+
+<rect x="0" y="0" width="1200" height="62" fill="#1f2937"/>
+<text x="600" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">远也PowerKnee 产品工程分析图</text>
+<text x="600" y="48" text-anchor="middle" font-size="11" fill="#9ca3af">PowerKnee Product Engineering Analysis 骨骼流形 竞争情报</text>
+
+<rect x="25" y="75" width="710" height="900" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" rx="6" filter="url(#softShadow)"/>
+<rect x="25" y="75" width="710" height="30" fill="#f3f4f6" rx="6"/>
+<rect x="25" y="93" width="710" height="12" fill="#f3f4f6"/>
+<text x="380" y="95" text-anchor="middle" font-size="13" font-weight="bold" fill="#4b5563">膝关节解剖结构 (右侧位 / Lateral View)</text>
+
+<path d="M420,110 Q425,120 428,150 Q430,180 428,250 Q425,320 420,400 Q418,430 430,440 Q440,445 440,455 Q440,460 435,465 Q428,468 418,470 Q410,475 408,490 Q408,510 412,530 Q415,560 414,650 Q412,720 410,780 Q408,830 406,860 Q404,880 398,885 L382,885 Q378,880 376,860 Q374,830 372,780 Q370,720 368,650 Q366,560 368,530 Q370,510 370,490 Q368,475 362,470 Q352,468 345,465 Q340,460 340,455 Q340,445 350,440 Q360,430 358,400 Q355,320 352,250 Q350,180 352,150 Q355,120 365,110 Z" fill="url(#skinGrad)" stroke="rgba(200,180,160,0.4)" stroke-width="1.5"/>
+
+<path d="M418,140 Q425,180 428,250 Q430,310 425,370 Q420,410 418,430 Q410,435 400,430 Q395,410 392,370 Q390,310 393,250 Q395,180 398,140 Z" fill="url(#muscleGrad)" stroke="rgba(200,50,50,0.25)" stroke-width="1"/>
+<text x="438" y="280" font-size="10" fill="#b91c1c" font-weight="bold" transform="rotate(-90,438,280)">股四头肌</text>
+<text x="438" y="295" font-size="9" fill="#b91c1c" transform="rotate(-90,438,295)">Quadriceps</text>
+
+<path d="M350,140 Q345,180 343,250 Q341,310 345,370 Q348,410 350,430 Q358,435 365,430 Q368,410 370,370 Q372,310 370,250 Q368,180 365,140 Z" fill="url(#muscleGrad2)" stroke="rgba(200,50,50,0.25)" stroke-width="1"/>
+<text x="330" y="280" font-size="10" fill="#b91c1c" font-weight="bold" transform="rotate(-90,330,280)">腘绳肌</text>
+<text x="330" y="295" font-size="9" fill="#b91c1c" transform="rotate(-90,330,295)">Hamstring</text>
+
+<path d="M368,540 Q362,580 358,630 Q355,680 360,730 Q363,760 368,780 Q374,785 380,780 Q382,760 384,730 Q386,680 384,630 Q382,580 378,540 Z" fill="url(#muscleGrad)" stroke="rgba(200,50,50,0.25)" stroke-width="1"/>
+<text x="345" y="660" font-size="10" fill="#b91c1c" font-weight="bold" transform="rotate(-90,345,660)">腓肠肌</text>
+<text x="345" y="675" font-size="9" fill="#b91c1c" transform="rotate(-90,345,675)">Gastrocnemius</text>
+
+<path d="M370,120 Q365,125 363,160 Q360,220 360,300 Q360,360 362,400 Q360,415 355,430 Q348,445 345,455 Q342,465 345,475 Q350,485 358,488 Q365,490 372,488 Q380,485 385,475 Q388,465 385,455 Q382,445 375,430 Q370,415 368,400 Q370,360 370,300 Q370,220 368,160 Q367,125 370,120 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="1" filter="url(#shadow)"/>
+<ellipse cx="367" cy="135" rx="8" ry="12" fill="#f0e6d0" opacity="0.5"/>
+<path d="M348,460 Q350,475 358,482" fill="none" stroke="#c4b898" stroke-width="0.8" opacity="0.5"/>
+<path d="M382,460 Q380,475 372,482" fill="none" stroke="#c4b898" stroke-width="0.8" opacity="0.5"/>
+
+<line x1="395" y1="300" x2="445" y2="300" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="3,2"/>
+<line x1="445" y1="300" x2="455" y2="260" stroke="#0096f0" stroke-width="0.8"/>
+<text x="457" y="256" font-size="10" fill="#0096f0">股骨</text>
+<text x="457" y="268" font-size="9" fill="#0096f0">Femur</text>
+
+<path d="M415,440 Q420,450 418,465 Q415,478 408,482 Q402,478 398,465 Q396,450 400,440 Q408,435 415,440 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="1" filter="url(#shadow)"/>
+<line x1="422" y1="460" x2="455" y2="460" stroke="#0096f0" stroke-width="0.8"/>
+<text x="457" y="456" font-size="10" fill="#0096f0">髌骨</text>
+<text x="457" y="468" font-size="9" fill="#0096f0">Patella</text>
+
+<path d="M370,490 Q368,505 365,520 Q362,560 362,620 Q362,680 364,740 Q365,790 367,830 Q365,845 362,855 Q358,865 358,872 Q360,878 368,880 Q375,878 378,872 Q378,865 375,855 Q370,845 368,830 Q370,790 372,740 Q374,680 374,620 Q374,560 372,520 Q370,505 370,490 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="1" filter="url(#shadow)"/>
+<path d="M363,490 Q360,495 360,505 Q362,515 370,518 Q378,515 380,505 Q380,495 378,490 Z" fill="url(#boneDark)" stroke="#c4b898" stroke-width="0.8"/>
+<line x1="385" y1="700" x2="445" y2="700" stroke="#0096f0" stroke-width="0.8"/>
+<text x="447" y="696" font-size="10" fill="#0096f0">胫骨</text>
+<text x="447" y="708" font-size="9" fill="#0096f0">Tibia</text>
+
+<path d="M358,520 Q354,560 350,620 Q348,680 350,740 Q352,790 356,830 Q358,840 360,845 Q362,840 362,830 Q362,790 360,740 Q358,680 358,620 Q358,560 358,520 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8" filter="url(#shadow)"/>
+<ellipse cx="358" cy="525" rx="5" ry="10" fill="#e8ddc0" stroke="#c4b898" stroke-width="0.5"/>
+<line x1="347" y1="680" x2="300" y2="680" stroke="#0096f0" stroke-width="0.8"/>
+<text x="270" y="676" font-size="10" fill="#0096f0" text-anchor="end">腓骨</text>
+<text x="270" y="688" font-size="9" fill="#0096f0" text-anchor="end">Fibula</text>
+
+<path d="M362,488 Q362,495 365,498 Q370,500 375,498 Q378,495 378,488 Q375,486 370,486 Q365,486 362,488 Z" fill="url(#cartilageGrad)" stroke="#8cb4c8" stroke-width="0.5"/>
+<path d="M362,505 Q362,510 365,513 Q370,515 375,513 Q378,510 378,505 Q375,503 370,503 Q365,503 362,505 Z" fill="url(#cartilageGrad)" stroke="#8cb4c8" stroke-width="0.5"/>
+<line x1="390" y1="500" x2="455" y2="500" stroke="#0096f0" stroke-width="0.8"/>
+<text x="457" y="496" font-size="10" fill="#0096f0">关节软骨</text>
+<text x="457" y="508" font-size="9" fill="#0096f0">Joint Cartilage</text>
+
+<line x1="345" y1="493" x2="385" y2="493" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+<line x1="345" y1="498" x2="385" y2="498" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+<text x="420" y="522" font-size="9" fill="#6b7280">关节间隙</text>
+
+<path d="M410,430 Q415,435 418,442 Q412,444 408,440 Z" fill="rgba(220,200,180,0.4)" stroke="rgba(200,180,160,0.3)" stroke-width="0.5"/>
+<path d="M410,478 Q412,484 415,490 Q410,492 406,488 Q404,484 404,480 Z" fill="rgba(220,200,180,0.4)" stroke="rgba(200,180,160,0.3)" stroke-width="0.5"/>
+
+<path d="M400,200 Q410,250 415,300" fill="none" stroke="rgba(200,50,50,0.12)" stroke-width="0.5"/>
+<path d="M398,220 Q408,270 413,320" fill="none" stroke="rgba(200,50,50,0.12)" stroke-width="0.5"/>
+<path d="M396,240 Q406,290 411,340" fill="none" stroke="rgba(200,50,50,0.12)" stroke-width="0.5"/>
+<path d="M368,200 Q358,250 353,300" fill="none" stroke="rgba(200,50,50,0.12)" stroke-width="0.5"/>
+<path d="M370,220 Q360,270 355,320" fill="none" stroke="rgba(200,50,50,0.12)" stroke-width="0.5"/>
+<path d="M372,240 Q362,290 357,340" fill="none" stroke="rgba(200,50,50,0.12)" stroke-width="0.5"/>
+
+<line x1="340" y1="490" x2="430" y2="490" stroke="#9ca3af" stroke-width="0.5" stroke-dasharray="2,4"/>
+<text x="432" y="493" font-size="8" fill="#9ca3af">关节线</text>
+
+<line x1="370" y1="110" x2="370" y2="885" stroke="#dc2626" stroke-width="1" stroke-dasharray="6,4" opacity="0.3"/>
+<text x="360" y="108" font-size="9" fill="#dc2626" text-anchor="end">承重轴</text>
+
+<rect x="755" y="75" width="420" height="900" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" rx="6" filter="url(#softShadow)"/>
+<rect x="755" y="75" width="420" height="30" fill="#f3f4f6" rx="6"/>
+<rect x="755" y="93" width="420" height="12" fill="#f3f4f6"/>
+<text x="965" y="95" text-anchor="middle" font-size="13" font-weight="bold" fill="#4b5563">PowerKnee 穿戴示意图</text>
+
+<path d="M1005,110 Q1010,120 1013,150 Q1015,180 1013,250 Q1010,320 1005,400 Q1003,430 1015,440 Q1025,445 1025,455 Q1025,460 1020,465 Q1013,468 1003,470 Q995,475 993,490 Q993,510 997,530 Q1000,560 999,650 Q997,720 995,780 Q993,830 991,860 Q989,880 983,885 L967,885 Q963,880 961,860 Q959,830 957,780 Q955,720 953,650 Q951,560 953,530 Q955,510 955,490 Q953,475 947,470 Q937,468 930,465 Q925,460 925,455 Q925,445 935,440 Q945,430 943,400 Q940,320 937,250 Q935,180 937,150 Q940,120 950,110 Z" fill="url(#skinGrad)" stroke="rgba(200,180,160,0.4)" stroke-width="1.5"/>
+
+<rect x="920" y="380" width="55" height="110" rx="8" fill="url(#metalGrad)" stroke="#4b5563" stroke-width="1.5" filter="url(#shadow)"/>
+<rect x="922" y="382" width="51" height="106" rx="6" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+<line x1="930" y1="395" x2="965" y2="395" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+<line x1="930" y1="405" x2="965" y2="405" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+<line x1="930" y1="415" x2="965" y2="415" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+<line x1="920" y1="390" x2="865" y2="350" stroke="#0096f0" stroke-width="0.8"/>
+<rect x="810" y="305" width="100" height="38" rx="4" fill="rgba(0,150,240,0.06)" stroke="#0096f0" stroke-width="0.8"/>
+<text x="860" y="318" text-anchor="middle" font-size="9" font-weight="bold" fill="#0096f0">高速BLDC电机</text>
+<text x="860" y="332" text-anchor="middle" font-size="9" fill="#0096f0">1520W (Ultra版)</text>
+
+<path d="M915,380 L915,490 Q915,495 920,498 L975,498 Q980,495 980,490 L980,380 Q980,375 975,372 L920,372 Q915,375 915,380 Z" fill="none" stroke="#8B93A0" stroke-width="2" stroke-dasharray="4,2"/>
+<text x="948" y="368" text-anchor="middle" font-size="9" fill="#6b7280">镁合金壳体</text>
+<text x="948" y="380" text-anchor="middle" font-size="8" fill="#6b7280">白色外观</text>
+
+<circle cx="948" cy="490" r="8" fill="url(#metalLight)" stroke="#4b5563" stroke-width="1.5"/>
+<circle cx="948" cy="490" r="3" fill="#4b5563"/>
+<path d="M940,490 L956,490" stroke="#6B7280" stroke-width="1"/>
+<line x1="956" y1="490" x2="1000" y2="490" stroke="#0096f0" stroke-width="0.8"/>
+<text x="1002" y="487" font-size="10" fill="#0096f0">单轴铰链</text>
+<text x="1002" y="499" font-size="8" fill="#6b7280">Rigid Hinge</text>
+
+<rect x="930" y="395" width="35" height="60" rx="2" fill="#1a3a5c" stroke="#0f2840" stroke-width="0.8" opacity="0.7"/>
+<circle cx="945" cy="405" r="2" fill="#10b981"/>
+<circle cx="950" cy="405" r="2" fill="#10b981"/>
+<circle cx="945" cy="415" r="2" fill="#f59e0b"/>
+<circle cx="950" cy="415" r="2" fill="#10b981"/>
+<line x1="965" y1="410" x2="1020" y2="380" stroke="#0096f0" stroke-width="0.8"/>
+<text x="1022" y="377" font-size="10" fill="#0096f0">1000Hz控制器</text>
+<text x="1022" y="389" font-size="8" fill="#6b7280">Ultra版</text>
+
+<path d="M900,280 Q948,265 996,280" fill="none" stroke="#6B7280" stroke-width="6" opacity="0.7"/>
+<path d="M900,280 Q948,265 996,280" fill="none" stroke="#4b5563" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="948" y="258" text-anchor="middle" font-size="8" fill="#6b7280">上大腿绑带</text>
+<line x1="900" y1="280" x2="840" y2="240" stroke="#0096f0" stroke-width="0.6"/>
+<text x="810" y="234" font-size="8" fill="#0096f0">第一条绑带</text>
+
+<path d="M905,340 Q948,328 990,340" fill="none" stroke="#6B7280" stroke-width="6" opacity="0.7"/>
+<path d="M905,340 Q948,328 990,340" fill="none" stroke="#4b5563" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="948" y="320" text-anchor="middle" font-size="8" fill="#6b7280">下大腿绑带</text>
+<line x1="905" y1="340" x2="840" y2="340" stroke="#0096f0" stroke-width="0.6"/>
+<text x="810" y="337" font-size="8" fill="#0096f0">第二条绑带</text>
+
+<path d="M910,580 Q948,570 986,580" fill="none" stroke="#6B7280" stroke-width="6" opacity="0.7"/>
+<path d="M910,580 Q948,570 986,580" fill="none" stroke="#4b5563" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="948" y="562" text-anchor="middle" font-size="8" fill="#6b7280">小腿绑带</text>
+<line x1="910" y1="580" x2="840" y2="580" stroke="#0096f0" stroke-width="0.6"/>
+<text x="810" y="577" font-size="8" fill="#0096f0">第三条绑带</text>
+
+<rect x="880" y="598" width="140" height="18" rx="3" fill="rgba(220,38,38,0.08)" stroke="#dc2626" stroke-width="0.8"/>
+<text x="950" y="611" text-anchor="middle" font-size="9" fill="#dc2626">3条绑带 穿戴约5分钟</text>
+
+<path d="M948,490 Q955,475 960,460" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRedBig)"/>
+<text x="963" y="465" font-size="9" fill="#dc2626" font-weight="bold">电机扭矩</text>
+<text x="963" y="477" font-size="8" fill="#dc2626">Motor Torque</text>
+
+<path d="M970,130 Q975,250 975,380 Q975,480 970,580 Q965,680 960,780" fill="none" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRedBig)" stroke-dasharray="1,0"/>
+<text x="978" y="400" font-size="9" fill="#dc2626" font-weight="bold">承重力传导路径</text>
+
+<path d="M896,280 L896,310" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+<path d="M998,280 L998,310" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+<text x="1000" y="300" font-size="8" fill="#dc2626">剪切力</text>
+
+<rect x="25" y="910" width="1150" height="55" rx="6" fill="#1f2937" filter="url(#shadow)"/>
+<text x="600" y="930" text-anchor="middle" font-size="11" font-weight="bold" fill="#fbbf24">全球唯一商业化膝关节外骨骼 京东+Kickstarter双渠道 7年累计融资$11M</text>
+
+<rect x="120" y="940" width="110" height="20" rx="10" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="0.5"/>
+<text x="175" y="954" text-anchor="middle" font-size="9" fill="#ef4444">限重65-75kg</text>
+<rect x="260" y="940" width="100" height="20" rx="10" fill="rgba(245,158,11,0.2)" stroke="#f59e0b" stroke-width="0.5"/>
+<text x="310" y="954" text-anchor="middle" font-size="9" fill="#f59e0b">定价¥7,999</text>
+<rect x="390" y="940" width="100" height="20" rx="10" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="0.5"/>
+<text x="440" y="954" text-anchor="middle" font-size="9" fill="#10b981">月销数百台</text>
+<rect x="520" y="940" width="120" height="20" rx="10" fill="rgba(0,150,240,0.2)" stroke="#0096f0" stroke-width="0.5"/>
+<text x="580" y="954" text-anchor="middle" font-size="9" fill="#0096f0">品牌: 肌肉外甲</text>
+<rect x="670" y="940" width="130" height="20" rx="10" fill="rgba(139,92,246,0.2)" stroke="#8b5cf6" stroke-width="0.5"/>
+<text x="735" y="954" text-anchor="middle" font-size="9" fill="#8b5cf6">数据来源: 京东+Kickstarter</text>
+
+<text x="1120" y="955" text-anchor="end" font-size="8" fill="#6b7280">骨骼流形分析 2026.07</text>
+</svg>

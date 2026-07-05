@@ -1,0 +1,632 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <defs>
+    <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede3cc"/>
+      <stop offset="40%" stop-color="#e8ddc0"/>
+      <stop offset="70%" stop-color="#dfd2b2"/>
+      <stop offset="100%" stop-color="#d4c9a8"/>
+    </linearGradient>
+    <linearGradient id="boneShadow" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#f5edd8"/>
+      <stop offset="100%" stop-color="#c4b898"/>
+    </linearGradient>
+    <linearGradient id="boneDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4c9a8"/>
+      <stop offset="100%" stop-color="#b8ad90"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A0AAB5"/>
+      <stop offset="40%" stop-color="#8B93A0"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+    <linearGradient id="metalDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6B7280"/>
+      <stop offset="100%" stop-color="#4B5563"/>
+    </linearGradient>
+    <linearGradient id="metalLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#B8BFC8"/>
+      <stop offset="100%" stop-color="#9CA3AF"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5f0eb"/>
+      <stop offset="50%" stop-color="#faf5ef"/>
+      <stop offset="100%" stop-color="#f5f0eb"/>
+    </linearGradient>
+    <linearGradient id="muscleGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(220,38,38,0.05)"/>
+      <stop offset="50%" stop-color="rgba(220,38,38,0.10)"/>
+      <stop offset="100%" stop-color="rgba(220,38,38,0.06)"/>
+    </linearGradient>
+    <linearGradient id="beltGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2c3e50" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#34495e" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#2c3e50" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="bowdenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6B7280" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#9CA3AF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#6B7280" stop-opacity="0.7"/>
+    </linearGradient>
+    <marker id="arrowRed" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowRedSmall" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#0096f0"/>
+    </marker>
+    <marker id="arrowBlueSmall" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#0096f0"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#9CA3AF"/>
+    </marker>
+    <filter id="shadow" x="-8%" y="-8%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="rgba(0,0,0,0.15)"/>
+    </filter>
+    <filter id="softShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="1" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.08)"/>
+    </filter>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="leftPane">
+      <rect x="0" y="0" width="740" height="1080"/>
+    </clipPath>
+    <style>
+      .label-sm { font-size: 9px; fill: #64748b; font-family: sans-serif; }
+      .label-md { font-size: 11px; fill: #334155; font-family: sans-serif; }
+      .label-lg { font-size: 13px; fill: #1e293b; font-family: sans-serif; font-weight: bold; }
+      .label-em { font-size: 10px; fill: #0096f0; font-family: sans-serif; font-weight: bold; }
+      .label-force { font-size: 11px; fill: #dc2626; font-family: sans-serif; font-weight: bold; }
+      .title-blue { font-size: 18px; fill: #0096f0; font-family: sans-serif; font-weight: bold; }
+      .title-gray { font-size: 13px; fill: #475569; font-family: sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1200" fill="#ffffff"/>
+
+  <!-- ISOLATION ZONE -->
+  <rect x="740" y="0" width="60" height="1200" fill="#fafbfc" opacity="0.4"/>
+  <line x1="740" y1="0" x2="740" y2="1200" stroke="#e5e7eb" stroke-width="0.8"/>
+  <line x1="800" y1="0" x2="800" y2="1200" stroke="#e5e7eb" stroke-width="0.8"/>
+
+  <!-- ================================================================
+       LEFT PANEL — SCIENTIFIC DIAGRAM (clipped)
+       ================================================================ -->
+  <g clip-path="url(#leftPane)">
+    <rect x="20" y="0" width="720" height="1080" fill="#ffffff"/>
+
+    <g>
+      <text x="30" y="24" class="label-em" font-size="12">Fig. B 腰带线缆推拉式 | 侧面观 Lateral View</text>
+      <line x1="30" y1="28" x2="300" y2="28" stroke="#e5e7eb" stroke-width="0.5"/>
+    </g>
+
+    <!-- ==================== HUMAN BODY ==================== -->
+    <g filter="url(#softShadow)">
+      <path d="M 240,70 C 230,110 225,160 230,210 C 235,260 260,300 285,330 L 475,330 C 500,300 525,260 530,210 C 535,160 530,110 520,70 C 510,60 480,55 380,55 C 280,55 250,60 240,70 Z" fill="url(#skinGrad)" stroke="#e8ddd0" stroke-width="0.8"/>
+      <rect x="350" y="30" width="60" height="40" rx="10" fill="#f5f0eb" stroke="#e8ddd0" stroke-width="0.6"/>
+      <ellipse cx="380" cy="10" rx="32" ry="26" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.8"/>
+      <line x1="380" y1="0" x2="380" y2="8" stroke="#dccfc0" stroke-width="0.5"/>
+      <line x1="370" y1="14" x2="390" y2="14" stroke="#dccfc0" stroke-width="0.5"/>
+    </g>
+    <line x1="380" y1="60" x2="380" y2="260" stroke="#d4c9a8" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.5"/>
+    <g stroke="#dccfc0" stroke-width="0.6" fill="none" opacity="0.35">
+      <path d="M 280,110 Q 320,105 340,115"/><path d="M 420,115 Q 440,105 480,110"/>
+      <path d="M 270,140 Q 320,130 340,145"/><path d="M 420,145 Q 440,130 490,140"/>
+      <path d="M 265,170 Q 315,155 340,175"/><path d="M 420,175 Q 445,155 495,170"/>
+      <path d="M 268,200 Q 318,185 340,205"/><path d="M 420,205 Q 442,185 492,200"/>
+    </g>
+
+    <!-- Pelvis -->
+    <g filter="url(#shadow)">
+      <path d="M 380,255 C 340,252 295,260 270,285 C 250,310 245,340 260,360 C 275,380 295,395 320,405 C 340,412 360,415 380,416 C 400,415 420,412 440,405 C 465,395 485,380 500,360 C 515,340 510,310 490,285 C 465,260 420,252 380,255 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 265,290 C 260,305 258,325 265,345" fill="none" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 495,290 C 500,305 502,325 495,345" fill="none" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="380" cy="400" rx="12" ry="6" fill="url(#boneShadow)" stroke="#b8ad90" stroke-width="0.4"/>
+      <ellipse cx="380" cy="290" rx="18" ry="12" fill="url(#boneDark)" opacity="0.3"/>
+      <circle cx="290" cy="355" r="18" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.8"/>
+      <circle cx="290" cy="355" r="13" fill="#dfd2b2" stroke="#c4b898" stroke-width="0.4"/>
+      <circle cx="470" cy="355" r="18" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.8"/>
+      <circle cx="470" cy="355" r="13" fill="#dfd2b2" stroke="#c4b898" stroke-width="0.4"/>
+    </g>
+
+    <!-- Gluteal muscles -->
+    <path d="M 260,290 C 240,310 235,340 250,365 C 265,390 285,400 310,405 C 300,385 295,360 300,335 C 305,310 290,295 260,290 Z" fill="url(#muscleGlow)" stroke="rgba(200,50,50,0.12)" stroke-width="0.5"/>
+    <path d="M 500,290 C 520,310 525,340 510,365 C 495,390 475,400 450,405 C 460,385 465,360 460,335 C 455,310 470,295 500,290 Z" fill="url(#muscleGlow)" stroke="rgba(200,50,50,0.12)" stroke-width="0.5"/>
+
+    <!-- Femurs -->
+    <g filter="url(#shadow)">
+      <circle cx="290" cy="355" r="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 285,355 Q 278,380 282,400 L 290,398 Q 288,378 292,355 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 282,400 C 280,450 278,500 278,550 C 278,600 280,650 285,700 L 298,700 C 293,650 290,600 290,550 C 290,500 292,450 296,400 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <path d="M 296,400 Q 310,415 308,430 L 300,428 Q 300,415 296,400 Z" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.5"/>
+      <ellipse cx="285" cy="698" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="300" cy="698" rx="8" ry="12" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <circle cx="470" cy="355" r="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 475,355 Q 482,380 478,400 L 470,398 Q 472,378 468,355 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 478,400 C 480,450 482,500 482,550 C 482,600 480,650 475,700 L 462,700 C 467,650 470,600 470,550 C 470,500 468,450 464,400 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <path d="M 464,400 Q 450,415 452,430 L 460,428 Q 460,415 464,400 Z" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.5"/>
+      <ellipse cx="475" cy="698" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="460" cy="698" rx="8" ry="12" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+    </g>
+
+    <!-- Quads -->
+    <g opacity="0.12">
+      <path d="M 285,410 C 282,470 280,530 283,590 C 286,630 290,660 295,690 L 285,690 C 282,660 278,630 276,590 C 274,530 277,470 282,410 Z" fill="#dc2626"/>
+      <path d="M 283,450 C 278,500 275,550 278,620 C 280,660 283,690 285,695 L 278,695 C 276,660 273,620 272,550 C 271,500 276,450 283,450 Z" fill="#dc2626"/>
+      <path d="M 296,450 C 300,500 302,560 300,630 C 298,670 296,695 295,698 L 302,698 C 304,670 306,630 305,560 C 303,500 298,450 296,450 Z" fill="#dc2626"/>
+      <path d="M 475,410 C 478,470 480,530 477,590 C 474,630 470,660 465,690 L 475,690 C 478,660 482,630 484,590 C 486,530 483,470 478,410 Z" fill="#dc2626"/>
+      <path d="M 477,450 C 482,500 485,550 482,620 C 480,660 477,690 475,695 L 482,695 C 484,660 487,620 488,550 C 489,500 484,450 477,450 Z" fill="#dc2626"/>
+      <path d="M 464,450 C 460,500 458,560 460,630 C 462,670 464,695 465,698 L 458,698 C 456,670 454,630 455,560 C 457,500 462,450 464,450 Z" fill="#dc2626"/>
+    </g>
+
+    <!-- Patella -->
+    <g filter="url(#softShadow)">
+      <ellipse cx="290" cy="705" rx="12" ry="9" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="290" cy="705" rx="7" ry="5" fill="url(#boneShadow)"/>
+      <ellipse cx="470" cy="705" rx="12" ry="9" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="470" cy="705" rx="7" ry="5" fill="url(#boneShadow)"/>
+    </g>
+
+    <!-- Tibias -->
+    <g filter="url(#shadow)">
+      <ellipse cx="290" cy="700" rx="8" ry="10" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="285" cy="700" rx="7" ry="10" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.5"/>
+      <path d="M 283,710 C 280,760 278,810 277,860 C 276,910 278,950 282,980 L 294,980 C 290,950 288,910 287,860 C 286,810 288,760 290,710 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <ellipse cx="470" cy="700" rx="8" ry="10" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="475" cy="700" rx="7" ry="10" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.5"/>
+      <path d="M 477,710 C 480,760 482,810 483,860 C 484,910 482,950 478,980 L 466,980 C 470,950 472,910 473,860 C 474,810 472,760 470,710 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+    </g>
+
+    <!-- Calves -->
+    <g opacity="0.10">
+      <path d="M 278,740 C 273,780 271,830 273,870 C 275,900 280,930 288,960 L 280,960 C 274,930 269,900 267,870 C 265,830 268,780 275,740 Z" fill="#dc2626"/>
+      <path d="M 482,740 C 487,780 489,830 487,870 C 485,900 480,930 472,960 L 480,960 C 486,930 491,900 493,870 C 495,830 492,780 485,740 Z" fill="#dc2626"/>
+    </g>
+
+    <!-- Feet -->
+    <g filter="url(#softShadow)">
+      <path d="M 280,980 L 278,1010 C 278,1020 282,1025 290,1025 L 296,1020 C 298,1015 296,1005 294,980 Z" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.6"/>
+      <path d="M 480,980 L 482,1010 C 482,1020 478,1025 470,1025 L 464,1020 C 462,1015 464,1005 466,980 Z" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.6"/>
+    </g>
+
+    <!-- ==================== BELT-CABLE PUSH-PULL EXOSKELETON ==================== -->
+
+    <!-- Pelvic belt (wide rigid belt) -->
+    <g filter="url(#shadow)">
+      <path d="M 220,250 C 210,270 205,300 215,325 C 220,340 240,350 260,355 L 500,355 C 520,350 540,340 545,325 C 555,300 550,270 540,250 C 530,238 500,235 380,235 C 260,235 230,238 220,250 Z" fill="url(#beltGrad)" stroke="#1a252f" stroke-width="1.5"/>
+      <!-- Belt buckle -->
+      <rect x="355" y="355" width="50" height="20" rx="5" fill="#6B7280" stroke="#4B5563" stroke-width="1"/>
+      <rect x="362" y="360" width="14" height="10" rx="2" fill="#4B5563"/>
+      <rect x="384" y="360" width="14" height="10" rx="2" fill="#4B5563"/>
+      <text x="380" y="368" font-size="7" fill="#9CA3AF" font-family="sans-serif" text-anchor="middle">锁扣</text>
+    </g>
+
+    <!-- Bowden cable conduits (left) -->
+    <g>
+      <path d="M 255,320 C 260,350 265,380 275,410" fill="none" stroke="url(#bowdenGrad)" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 255,320 C 260,350 265,380 275,410" fill="none" stroke="#6B7280" stroke-width="1.5" stroke-dasharray="2,3" opacity="0.4"/>
+    </g>
+
+    <!-- Bowden cable conduits (right) -->
+    <g>
+      <path d="M 505,320 C 500,350 495,380 485,410" fill="none" stroke="url(#bowdenGrad)" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 505,320 C 500,350 495,380 485,410" fill="none" stroke="#6B7280" stroke-width="1.5" stroke-dasharray="2,3" opacity="0.4"/>
+    </g>
+
+    <!-- Push-pull actuators (hip level) -->
+    <g filter="url(#shadow)">
+      <!-- Left actuator -->
+      <rect x="248" y="320" width="20" height="28" rx="4" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="1"/>
+      <rect x="251" y="323" width="14" height="8" rx="2" fill="#0096f0" opacity="0.5"/>
+      <circle cx="258" cy="348" r="3" fill="#4B5563"/>
+      <!-- Right actuator -->
+      <rect x="492" y="320" width="20" height="28" rx="4" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="1"/>
+      <rect x="495" y="323" width="14" height="8" rx="2" fill="#0096f0" opacity="0.5"/>
+      <circle cx="502" cy="348" r="3" fill="#4B5563"/>
+    </g>
+
+    <!-- Tension sensor modules -->
+    <g filter="url(#shadow)">
+      <rect x="270" y="400" width="14" height="18" rx="3" fill="#6B7280" stroke="#4B5563" stroke-width="0.6"/>
+      <rect x="273" y="403" width="8" height="4" rx="1" fill="#0096f0" opacity="0.3"/>
+      <rect x="273" y="410" width="8" height="4" rx="1" fill="#0096f0" opacity="0.3"/>
+      <rect x="476" y="400" width="14" height="18" rx="3" fill="#6B7280" stroke="#4B5563" stroke-width="0.6"/>
+      <rect x="479" y="403" width="8" height="4" rx="1" fill="#0096f0" opacity="0.3"/>
+      <rect x="479" y="410" width="8" height="4" rx="1" fill="#0096f0" opacity="0.3"/>
+    </g>
+
+    <!-- Thigh braces -->
+    <g filter="url(#shadow)">
+      <path d="M 278,420 C 276,470 275,530 276,580 C 277,630 280,670 283,710 L 296,710 C 293,670 291,630 290,580 C 289,530 291,470 294,420 Z" fill="none" stroke="url(#metalLight)" stroke-width="5" stroke-linecap="round"/>
+      <path d="M 482,420 C 484,470 485,530 484,580 C 483,630 480,670 477,710 L 464,710 C 467,670 469,630 470,580 C 471,530 469,470 466,420 Z" fill="none" stroke="url(#metalLight)" stroke-width="5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Shin braces -->
+    <g filter="url(#shadow)">
+      <path d="M 285,710 C 283,770 282,830 282,890 C 282,930 284,960 288,990 L 294,990 C 292,960 291,930 291,890 C 291,830 292,770 294,710 Z" fill="none" stroke="url(#metalLight)" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 475,710 C 477,770 478,830 478,890 C 478,930 476,960 472,990 L 466,990 C 468,960 469,930 469,890 C 469,830 468,770 466,710 Z" fill="none" stroke="url(#metalLight)" stroke-width="4" stroke-linecap="round"/>
+    </g>
+
+    <!-- ==================== NUMBERED ANNOTATIONS ==================== -->
+    <!-- [1] Pelvic belt -->
+    <line x1="240" y1="270" x2="170" y2="260" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="165" cy="258" r="9" fill="#0096f0"/>
+    <text x="165" y="262" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">1</text>
+    <text x="148" y="252" class="label-sm" font-size="8" fill="#0096f0" text-anchor="end">骨盆固定腰带</text>
+
+    <!-- [2] Push-pull actuator -->
+    <line x1="268" y1="330" x2="310" y2="320" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="316" cy="318" r="9" fill="#0096f0"/>
+    <text x="316" y="322" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">2</text>
+    <text x="330" y="316" class="label-sm" font-size="8" fill="#0096f0">推拉执行器</text>
+
+    <!-- [3] Bowden cable -->
+    <line x1="268" y1="380" x2="310" y2="375" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="316" cy="373" r="9" fill="#0096f0"/>
+    <text x="316" y="377" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">3</text>
+    <text x="330" y="372" class="label-sm" font-size="8" fill="#0096f0">Bowden 线缆</text>
+
+    <!-- [4] Tension sensor -->
+    <line x1="276" y1="410" x2="310" y2="420" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="316" cy="422" r="9" fill="#0096f0"/>
+    <text x="316" y="426" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">4</text>
+    <text x="330" y="418" class="label-sm" font-size="8" fill="#0096f0">张力传感器</text>
+
+    <!-- [5] Belt buckle -->
+    <line x1="380" y1="375" x2="380" y2="400" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="380" cy="406" r="9" fill="#0096f0"/>
+    <text x="380" y="410" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">5</text>
+    <text x="394" y="404" class="label-sm" font-size="8" fill="#0096f0">腰带锁扣</text>
+
+    <!-- [6] Thigh brace -->
+    <line x1="294" y1="550" x2="320" y2="540" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="326" cy="538" r="9" fill="#0096f0"/>
+    <text x="326" y="542" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">6</text>
+    <text x="340" y="536" class="label-sm" font-size="8" fill="#0096f0">大腿支撑杆</text>
+
+    <!-- [7] Cable conduit (right) -->
+    <line x1="505" y1="330" x2="530" y2="320" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="536" cy="318" r="9" fill="#0096f0"/>
+    <text x="536" y="322" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">7</text>
+    <text x="550" y="316" class="label-sm" font-size="8" fill="#0096f0">线缆护套</text>
+
+    <!-- [8] Hip joint axis -->
+    <line x1="302" y1="355" x2="320" y2="355" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="326" cy="355" r="9" fill="#0096f0"/>
+    <text x="326" y="359" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">8</text>
+    <text x="340" y="352" class="label-sm" font-size="8" fill="#0096f0">髋关节轴线</text>
+
+    <!-- [9] Shin brace -->
+    <line x1="284" y1="800" x2="260" y2="795" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="254" cy="793" r="9" fill="#0096f0"/>
+    <text x="254" y="797" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">9</text>
+    <text x="240" y="788" class="label-sm" font-size="8" fill="#0096f0" text-anchor="end">小腿支撑杆</text>
+
+    <!-- [10] Wireless EMG module -->
+    <line x1="355" y1="245" x2="330" y2="240" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="324" cy="238" r="9" fill="#0096f0"/>
+    <text x="324" y="242" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">10</text>
+    <text x="310" y="234" class="label-sm" font-size="8" fill="#0096f0" text-anchor="end">EMG 无线模块</text>
+
+    <!-- ==================== FORCE VECTORS ==================== -->
+    <line x1="380" y1="10" x2="380" y2="-30" stroke="#dc2626" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <text x="388" y="-18" class="label-force">W (体重)</text>
+
+    <!-- Push-pull force -->
+    <path d="M 265,415 L 250,440" stroke="#0096f0" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowBlue)"/>
+    <text x="238" y="448" class="label-em" font-size="9">F_push</text>
+    <path d="M 495,415 L 510,440" stroke="#0096f0" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowBlue)"/>
+    <text x="512" y="448" class="label-em" font-size="9">F_pull</text>
+
+    <!-- Hip joint reaction -->
+    <path d="M 260,355 L 240,355" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+    <text x="222" y="353" class="label-force" font-size="10">F_joint</text>
+    <path d="M 500,355 L 520,355" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+    <text x="528" y="353" class="label-force" font-size="10">F_joint</text>
+
+    <!-- Cable pull direction -->
+    <path d="M 268,300 L 268,285" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrowBlueSmall)"/>
+    <text x="274" y="288" class="label-em" font-size="8">推拉</text>
+    <path d="M 492,300 L 492,285" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrowBlueSmall)"/>
+    <text x="498" y="288" class="label-em" font-size="8">推拉</text>
+
+    <!-- GRF -->
+    <line x1="285" y1="1030" x2="285" y2="1055" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="270" y="1068" class="label-force" font-size="9">GRF</text>
+    <line x1="475" y1="1030" x2="475" y2="1055" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="478" y="1068" class="label-force" font-size="9">GRF</text>
+
+    <!-- ==================== PRODUCT CALLOUTS ==================== -->
+    <!-- Callout: Samsung GEMS Hip -->
+    <g transform="translate(540, 55)">
+      <rect x="0" y="0" width="180" height="140" rx="5" fill="#fff" stroke="#0096f0" stroke-width="1.2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="180" height="22" rx="5" fill="#0096f0" opacity="0.9"/>
+      <text x="90" y="15" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Samsung GEMS Hip</text>
+      <text x="8" y="34" class="label-sm" font-size="8">重量：2 kg</text>
+      <text x="8" y="48" class="label-sm" font-size="8">驱动：推拉线缆 + 电机</text>
+      <text x="8" y="62" class="label-sm" font-size="8">助力峰值：3.5 Nm/kg</text>
+      <text x="8" y="76" class="label-sm" font-size="8">电池：3 小时续航</text>
+      <text x="8" y="90" class="label-sm" font-size="8">应用：老年轻度助行</text>
+      <line x1="8" y1="96" x2="172" y2="96" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="8" y="110" class="label-em" font-size="8">腰带线缆推拉式代表作</text>
+      <text x="8" y="126" class="label-sm" font-size="8" fill="#94a3b8">Pelvis-belt cable exosuit</text>
+    </g>
+
+    <!-- Callout: C-Rex -->
+    <g transform="translate(540, 210)">
+      <rect x="0" y="0" width="180" height="130" rx="5" fill="#fff" stroke="#0096f0" stroke-width="1.2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="180" height="22" rx="5" fill="#0096f0" opacity="0.9"/>
+      <text x="90" y="15" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">C-Rex (韩国)</text>
+      <text x="8" y="34" class="label-sm" font-size="8">重量：2.5 kg</text>
+      <text x="8" y="48" class="label-sm" font-size="8">驱动：腰带电机 + 线缆</text>
+      <text x="8" y="62" class="label-sm" font-size="8">传感器：6 轴 IMU</text>
+      <text x="8" y="76" class="label-sm" font-size="8">模式：行走 / 上楼梯</text>
+      <text x="8" y="90" class="label-sm" font-size="8">应用：日常助行</text>
+      <line x1="8" y1="96" x2="172" y2="96" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="8" y="110" class="label-em" font-size="8">轻量腰带配置</text>
+    </g>
+
+    <!-- Anatomy labels -->
+    <line x1="350" y1="280" x2="330" y2="270" stroke="#64748b" stroke-width="0.6"/>
+    <line x1="330" y1="270" x2="220" y2="270" stroke="#64748b" stroke-width="0.6" stroke-dasharray="3,2"/>
+    <text x="218" y="275" class="label-md" font-size="10" text-anchor="end">骨盆 Pelvis</text>
+    <line x1="285" y1="450" x2="220" y2="440" stroke="#64748b" stroke-width="0.6"/>
+    <text x="218" y="445" class="label-md" font-size="10" text-anchor="end">股骨 Femur</text>
+    <line x1="283" y1="800" x2="220" y2="790" stroke="#64748b" stroke-width="0.6"/>
+    <text x="218" y="795" class="label-md" font-size="10" text-anchor="end">胫骨 Tibia</text>
+
+    <!-- Anatomy legend -->
+    <g transform="translate(30, 1020)">
+      <rect x="0" y="0" width="700" height="48" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="10" y="10" width="14" height="14" rx="2" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <text x="28" y="22" class="label-sm" font-size="9">骨骼 Bone</text>
+      <rect x="100" y="10" width="14" height="14" rx="2" fill="rgba(220,38,38,0.15)" stroke="rgba(220,38,38,0.3)" stroke-width="0.6"/>
+      <text x="118" y="22" class="label-sm" font-size="9">肌肉 Muscle</text>
+      <rect x="190" y="10" width="14" height="14" rx="2" fill="url(#metalGrad)" stroke="#6B7280" stroke-width="0.6"/>
+      <text x="208" y="22" class="label-sm" font-size="9">框架 Frame</text>
+      <rect x="280" y="10" width="14" height="14" rx="2" fill="#2c3e50"/>
+      <text x="298" y="22" class="label-sm" font-size="9">腰带 Belt</text>
+      <rect x="380" y="10" width="14" height="14" rx="2" fill="#0096f0"/>
+      <text x="398" y="22" class="label-sm" font-size="9">执行器</text>
+      <line x1="480" y1="16" x2="495" y2="16" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+      <text x="502" y="22" class="label-sm" font-size="9">力矢量</text>
+      <text x="10" y="42" class="label-sm" font-size="8" fill="#94a3b8">腰带线缆推拉式外骨骼 · Samsung GEMS Hip / C-Rex 技术路线</text>
+    </g>
+  </g>
+
+  <!-- ================================================================
+       RIGHT PANEL — TEXT
+       ================================================================ -->
+  <g transform="translate(808, 16)">
+    <!-- Section 1: Title -->
+    <rect x="-8" y="0" width="380" height="60" rx="4" fill="#f0f7ff" stroke="#bfdbfe" stroke-width="0.5"/>
+    <rect x="-8" y="0" width="4" height="60" rx="2" fill="#0096f0"/>
+    <text x="12" y="26" class="title-blue">腰带线缆推拉式</text>
+    <text x="12" y="46" class="label-sm" font-size="10" fill="#9ca3af">BELT-CABLE PUSH-PULL HIP EXOSKELETON</text>
+    <rect x="262" y="10" width="100" height="24" rx="12" fill="#0096f0" opacity="0.15"/>
+    <text x="312" y="27" font-size="12" fill="#0096f0" font-family="sans-serif" text-anchor="middle" font-weight="bold">推荐采用</text>
+
+    <!-- Section 2: Architecture Features -->
+    <g transform="translate(0, 80)">
+      <rect x="-8" y="0" width="380" height="130" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="130" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="14">架构特征</text>
+      <text x="140" y="22" class="label-sm" fill="#94a3b8">ARCHITECTURE</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <circle cx="16" cy="48" r="3.5" fill="#0096f0"/>
+        <text x="28" y="53">骨盆硬质固定腰带 (无背部框架)</text>
+        <circle cx="16" cy="68" r="3.5" fill="#0096f0"/>
+        <text x="28" y="73">双侧推拉线缆执行器</text>
+        <circle cx="16" cy="88" r="3.5" fill="#0096f0"/>
+        <text x="28" y="93">Bowden 线缆推拉式驱动</text>
+        <circle cx="16" cy="108" r="3.5" fill="#0096f0"/>
+        <text x="28" y="113">线缆张力传感器 + IMU 反馈</text>
+        <circle cx="16" cy="128" r="3.5" fill="#0096f0"/>
+        <text x="28" y="133">大腿/小腿支撑杆直连</text>
+      </g>
+    </g>
+
+    <!-- Section 3: Technical Parameters -->
+    <g transform="translate(0, 228)">
+      <rect x="-8" y="0" width="380" height="145" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="145" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="14">技术参数</text>
+      <text x="120" y="22" class="label-sm" fill="#94a3b8">PARAMETERS</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="50">系统重量</text>
+        <text x="160" y="50" fill="#1f2937" font-weight="bold">2.0 – 2.5 kg</text>
+        <text x="16" y="70">髋关节助力</text>
+        <text x="160" y="70" fill="#1f2937" font-weight="bold">3.5 Nm/kg (峰值)</text>
+        <text x="16" y="90">驱动方式</text>
+        <text x="160" y="90" fill="#1f2937" font-weight="bold">电机 + Bowden 线缆推拉</text>
+        <text x="16" y="110">代表产品</text>
+        <text x="160" y="110" fill="#1f2937" font-weight="bold">GEMS Hip / C-Rex</text>
+        <text x="16" y="130">核心优势</text>
+        <text x="160" y="130" fill="#1f2937" font-weight="bold">2 kg 极致轻量，腰带便携</text>
+      </g>
+    </g>
+
+    <!-- Section 4: Product Comparison -->
+    <g transform="translate(0, 392)">
+      <rect x="-8" y="0" width="380" height="185" rx="4" fill="#f0f7ff" stroke="#bfdbfe" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="185" rx="1.5" fill="#0096f0"/>
+      <text x="12" y="22" class="title-gray" font-size="14">产品对比</text>
+      <text x="110" y="22" class="label-sm" fill="#94a3b8">PRODUCT COMPARISON</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#bfdbfe" stroke-width="0.5"/>
+      <rect x="12" y="36" width="354" height="62" rx="3" fill="#fff" stroke="#0096f0" stroke-width="0.6"/>
+      <rect x="12" y="36" width="354" height="18" rx="3" fill="#0096f0"/>
+      <text x="189" y="49" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Samsung GEMS Hip (韩国)</text>
+      <text x="16" y="70" class="label-sm" font-size="10">2 kg | 3.5 Nm/kg | 3 小时续航</text>
+      <text x="16" y="86" class="label-sm" font-size="10">IMU + 推拉线缆 | 腰佩戴</text>
+      <text x="16" y="98" class="label-sm" font-size="10" fill="#0096f0">优势：2 kg 业界最轻 | 劣势：助力偏低</text>
+      <rect x="12" y="104" width="354" height="62" rx="3" fill="#fff" stroke="#0096f0" stroke-width="0.6"/>
+      <rect x="12" y="104" width="354" height="18" rx="3" fill="#0096f0"/>
+      <text x="189" y="117" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">C-Rex (韩国)</text>
+      <text x="16" y="138" class="label-sm" font-size="10">2.5 kg | 腰带线缆 | 6 轴 IMU</text>
+      <text x="16" y="154" class="label-sm" font-size="10">行走 / 上楼梯多模式</text>
+      <text x="16" y="166" class="label-sm" font-size="10" fill="#0096f0">优势：多场景适配 | 劣势：市场验证不足</text>
+    </g>
+
+    <!-- Section 5: Force Flow -->
+    <g transform="translate(0, 596)">
+      <rect x="-8" y="0" width="380" height="140" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="140" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="14">力流分析</text>
+      <text x="100" y="22" class="label-sm" fill="#94a3b8">FORCE FLOW</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">推拉线缆力传导：</text>
+        <text x="16" y="68">腰带电机 → Bowden 线缆护套 →</text>
+        <text x="16" y="84">髋关节推拉执行器 →</text>
+        <text x="16" y="100">大腿支撑杆 → 膝/小腿杆</text>
+        <line x1="16" y1="108" x2="364" y2="108" stroke="#e2e8f0" stroke-width="0.3"/>
+        <text x="16" y="126" fill="#0096f0" font-weight="bold">优势：</text>
+        <text x="76" y="126" fill="#475569">腰带即可完成力传导，无需背部框架</text>
+      </g>
+    </g>
+
+    <!-- Section 6: Bones Assessment -->
+    <g transform="translate(0, 754)">
+      <rect x="-8" y="0" width="380" height="115" rx="4" fill="#f0f7ff" stroke="#93c5fd" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="380" height="26" rx="4" fill="#0096f0" opacity="0.1"/>
+      <text x="12" y="18" font-size="12" fill="#0096f0" font-family="sans-serif" font-weight="bold">Bones 评估：推荐采用</text>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">腰带线缆推拉式是最适合消费级的架构</text>
+        <text x="16" y="66">2 kg 极低重量，无需背部框架，穿戴便捷</text>
+        <line x1="16" y1="74" x2="364" y2="74" stroke="#93c5fd" stroke-width="0.3"/>
+        <text x="16" y="92" fill="#0096f0" font-weight="bold">采用理由：</text>
+        <text x="86" y="92" fill="#475569">重量和复杂度达到消费级产品可行性</text>
+        <text x="86" y="110" fill="#475569">Samsung GEMS 已量产，市场验证通过</text>
+      </g>
+    </g>
+
+    <!-- Section 7: Market Competition -->
+    <g transform="translate(0, 886)">
+      <rect x="-8" y="0" width="380" height="110" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="110" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="13">市场竞争分析</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.3"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">Samsung GEMS Hip 2019 年推出，已迭代多代</text>
+        <text x="16" y="66">日本 Honda 也在研发腰带式助行设备</text>
+        <text x="16" y="84">中国厂家 (傅利叶、程天科技) 跟进该路线</text>
+        <text x="16" y="102">推拉线缆 + 腰带：消费级外骨骼最优解</text>
+      </g>
+    </g>
+
+    <!-- Section 8: Key Learnings -->
+    <g transform="translate(0, 1012)">
+      <rect x="-8" y="0" width="380" height="70" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="70" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="13">关键学习点</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.3"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="46">腰带式架构是最轻量、最可行的消费级髋外骨骼方案</text>
+        <text x="16" y="64">线缆推拉效率和控制精度是差异化竞争关键</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ================================================================
+       BOTTOM: FULL-WIDTH CHINESE LEGEND
+       ================================================================ -->
+  <g transform="translate(0, 1100)">
+    <rect x="20" y="0" width="1160" height="50" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+    <rect x="40" y="10" width="18" height="18" rx="3" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+    <text x="62" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">骨骼</text>
+    <rect x="110" y="10" width="18" height="18" rx="3" fill="rgba(220,38,38,0.2)" stroke="rgba(220,38,38,0.4)" stroke-width="0.8"/>
+    <text x="132" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">肌肉</text>
+    <rect x="180" y="10" width="18" height="18" rx="3" fill="url(#metalGrad)" stroke="#6B7280" stroke-width="0.8"/>
+    <text x="202" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">金属框架</text>
+    <rect x="280" y="10" width="18" height="18" rx="3" fill="#2c3e50" stroke="#1a252f" stroke-width="0.8"/>
+    <text x="302" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">固定腰带</text>
+    <rect x="380" y="10" width="18" height="18" rx="3" fill="#0096f0" stroke="#0a6bc0" stroke-width="0.8"/>
+    <text x="402" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">线缆执行器</text>
+    <line x1="490" y1="19" x2="510" y2="19" stroke="#dc2626" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <text x="518" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">力矢量</text>
+    <line x1="610" y1="19" x2="630" y2="19" stroke="#0096f0" stroke-width="2.5" stroke-dasharray="4,2" marker-end="url(#arrowBlue)"/>
+    <text x="638" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">推拉力矢量</text>
+    <line x1="740" y1="10" x2="760" y2="10" stroke="#e5e7eb" stroke-width="0.8"/>
+    <text x="765" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">评估分类：</text>
+    <rect x="840" y="10" width="18" height="18" rx="3" fill="#0096f0"/>
+    <text x="862" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">推荐采用</text>
+    <rect x="938" y="10" width="18" height="18" rx="3" fill="#d97706"/>
+    <text x="960" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">部分借鉴</text>
+    <rect x="1036" y="10" width="18" height="18" rx="3" fill="#9E9E9E"/>
+    <text x="1058" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">仅跟踪</text>
+    <line x1="40" y1="34" x2="1140" y2="34" stroke="#e2e8f0" stroke-width="0.3"/>
+    <text x="580" y="44" font-size="9" fill="#a0aec0" font-family="sans-serif" text-anchor="middle">附录 C · 髋关节外骨骼架构分析 | Bones &amp; Manifold · Nexum Project 2026</text>
+  </g>
+
+  <!-- OVERLAY: Belt-Cable Detailed Section -->
+  <g transform="translate(50, 850)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="310" height="190" rx="5" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.8" filter="url(#softShadow)"/>
+    <text x="12" y="20" class="title-blue" font-size="11">推拉线缆执行器详图</text>
+    <text x="12" y="34" class="label-sm" font-size="8">PUSH-PULL ACTUATOR — CROSS SECTION</text>
+    <line x1="12" y1="38" x2="298" y2="38" stroke="#e5e7eb" stroke-width="0.5"/>
+
+    <g transform="translate(20, 50)">
+      <!-- Actuator housing -->
+      <rect x="0" y="0" width="50" height="60" rx="4" fill="#6B7280" stroke="#4B5563" stroke-width="1"/>
+      <rect x="8" y="8" width="34" height="44" rx="3" fill="#4B5563"/>
+      <!-- Spindle -->
+      <circle cx="25" cy="30" r="10" fill="#9CA3AF" stroke="#6B7280" stroke-width="0.8"/>
+      <circle cx="25" cy="30" r="4" fill="#4B5563"/>
+      <!-- Cable outlet -->
+      <rect x="0" y="38" width="6" height="8" rx="2" fill="#374151"/>
+      <!-- Label lines -->
+      <line x1="50" y1="10" x2="70" y2="10" stroke="#0096f0" stroke-width="0.6"/>
+      <text x="73" y="13" class="label-sm" font-size="7" fill="#0096f0">电机壳体</text>
+      <line x1="50" y1="30" x2="70" y2="30" stroke="#0096f0" stroke-width="0.6"/>
+      <text x="73" y="33" class="label-sm" font-size="7" fill="#0096f0">丝杆螺母</text>
+      <line x1="6" y1="42" x2="15" y2="55" stroke="#0096f0" stroke-width="0.6"/>
+      <text x="18" y="58" class="label-sm" font-size="7" fill="#0096f0">线缆出口</text>
+    </g>
+
+    <g transform="translate(130, 50)">
+      <text x="0" y="0" class="label-sm" font-size="9" fill="#475569">推拉执行器参数</text>
+      <text x="0" y="16" class="label-sm" font-size="8" fill="#64748b">电机：空心杯 DC 伺服</text>
+      <text x="0" y="28" class="label-sm" font-size="8" fill="#64748b">减速：行星齿轮 4:1</text>
+      <text x="0" y="40" class="label-sm" font-size="8" fill="#64748b">推力：&gt; 200 N (持续)</text>
+      <text x="0" y="52" class="label-sm" font-size="8" fill="#64748b">行程：±15 mm</text>
+      <text x="0" y="64" class="label-sm" font-size="8" fill="#64748b">速度：&gt; 50 mm/s</text>
+      <line x1="0" y1="72" x2="170" y2="72" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="0" y="86" class="label-sm" font-size="8" fill="#0096f0" font-weight="bold">传感器：</text>
+      <text x="0" y="98" class="label-sm" font-size="8" fill="#64748b">位置：磁性编码器</text>
+      <text x="0" y="110" class="label-sm" font-size="8" fill="#64748b">力：应变片桥式</text>
+      <text x="0" y="122" class="label-sm" font-size="8" fill="#64748b">温度：NTC 热敏电阻</text>
+    </g>
+  </g>
+
+  <!-- OVERLAY: System Layout -->
+  <g transform="translate(400, 850)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="300" height="190" rx="5" fill="#f0f7ff" stroke="#bfdbfe" stroke-width="0.8" filter="url(#softShadow)"/>
+    <text x="12" y="20" class="title-blue" font-size="11">Belt 系统布局方案</text>
+    <text x="12" y="34" class="label-sm" font-size="8">SYSTEM LAYOUT — BELT-CABLE</text>
+    <line x1="12" y1="38" x2="288" y2="38" stroke="#bfdbfe" stroke-width="0.5"/>
+    <g transform="translate(12, 48)">
+      <text x="0" y="0" class="label-sm" font-size="8" fill="#475569">腰带布局的独特优势：</text>
+      <text x="0" y="16" class="label-sm" font-size="8" fill="#64748b">1. 整系统重心在腰部 — 最接近人体重心</text>
+      <text x="0" y="28" class="label-sm" font-size="8" fill="#64748b">2. 无需背部框架 — 穿戴更舒适</text>
+      <text x="0" y="40" class="label-sm" font-size="8" fill="#64748b">3. 左右完全对称 — 平衡性更好</text>
+      <text x="0" y="52" class="label-sm" font-size="8" fill="#64748b">4. 模块化扩展 — 可加装背部电池</text>
+      <text x="0" y="64" class="label-sm" font-size="8" fill="#64748b">5. 散热优于背包方案</text>
+      <line x1="0" y1="72" x2="278" y2="72" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="0" y="86" class="label-sm" font-size="8" fill="#0096f0" font-weight="bold">Bones 推荐度：高</text>
+      <text x="0" y="100" class="label-sm" font-size="8" fill="#64748b">腰带推拉式是消费级外骨骼的最优解</text>
+      <text x="0" y="112" class="label-sm" font-size="8" fill="#64748b">初期原型建议 1 个月完成</text>
+    </g>
+  </g>
+  <g transform="translate(50, 750)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="660" height="55" rx="4" fill="#f0f7ff" stroke="#bfdbfe" stroke-width="0.5"/>
+    <text x="12" y="16" class="label-sm" font-size="8" fill="#475569">注：腰带线缆推拉式的最大优势是无背部框架 (整系统重心在腰部)。Samsung GEMS Hip (2 kg, 2019) 已量产，</text>
+    <text x="12" y="30" class="label-sm" font-size="8" fill="#475569">C-Rex (2.5 kg, 韩国) 验证了消费级可行性。推拉执行器 + Bowden 线缆是当前最优解。</text>
+    <text x="12" y="44" class="label-sm" font-size="8" fill="#64748b">Bones 推荐：腰带推拉式架构作为初代产品基础，整系统目标重量 &lt; 2.5 kg</text>
+  </g>
+</svg>

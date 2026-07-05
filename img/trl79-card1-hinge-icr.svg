@@ -1,0 +1,637 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+<defs>
+  <clipPath id="leftClip"><rect x="20" y="72" width="720" height="978"/></clipPath>
+  <clipPath id="rightClip"><rect x="800" y="72" width="380" height="978"/></clipPath>
+  <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#ece2cc"/><stop offset="30%" stop-color="#e8ddc0"/><stop offset="60%" stop-color="#e0d4b6"/><stop offset="100%" stop-color="#d4c9a8"/>
+  </linearGradient>
+  <linearGradient id="boneDeep" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#b8ac8c"/>
+  </linearGradient>
+  <linearGradient id="muscleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="rgba(220,50,50,0.25)"/><stop offset="100%" stop-color="rgba(200,40,40,0.35)"/>
+  </linearGradient>
+  <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#f0f0f0"/><stop offset="30%" stop-color="#d8d8d8"/><stop offset="60%" stop-color="#c0c0c0"/><stop offset="100%" stop-color="#a0a0a0"/>
+  </linearGradient>
+  <linearGradient id="cartilageGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="rgba(80,180,255,0.35)"/><stop offset="100%" stop-color="rgba(60,160,240,0.25)"/>
+  </linearGradient>
+  <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#f5dcc8"/><stop offset="100%" stop-color="#dcbca8"/>
+  </linearGradient>
+  <pattern id="cfWeave" width="10" height="10" patternUnits="userSpaceOnUse">
+    <rect width="10" height="10" fill="#2a2a2a"/>
+    <path d="M0 5L10 5M5 0L5 10" stroke="#3a3a3a" stroke-width="0.6"/>
+    <path d="M0 0L10 10M10 0L0 10" stroke="rgba(255,255,255,0.04)" stroke-width="0.3"/>
+    <rect x="4" y="4" width="2" height="2" fill="rgba(80,80,80,0.15)" rx="0.5"/>
+  </pattern>
+  <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
+    <feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="rgba(0,0,0,0.18)"/>
+  </filter>
+  <filter id="shadowLight" x="-10%" y="-10%" width="130%" height="130%">
+    <feDropShadow dx="0.8" dy="1" stdDeviation="1.5" flood-color="rgba(0,0,0,0.10)"/>
+  </filter>
+  <filter id="glowRed" x="-25%" y="-25%" width="150%" height="150%">
+    <feGaussianBlur stdDeviation="2.5" result="blur"/>
+    <feFlood flood-color="#e02020" flood-opacity="0.30"/>
+    <feComposite in2="blur" operator="in"/>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="glowBlue" x="-25%" y="-25%" width="150%" height="150%">
+    <feGaussianBlur stdDeviation="2" result="blur"/>
+    <feFlood flood-color="#0096f0" flood-opacity="0.25"/>
+    <feComposite in2="blur" operator="in"/>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#e02020"/>
+  </marker>
+  <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#0096f0"/>
+  </marker>
+  <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#2ea043"/>
+  </marker>
+  <marker id="arrowAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#d97706"/>
+  </marker>
+  <marker id="arrowDim" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#888"/>
+  </marker>
+</defs>
+
+<!-- BACKGROUND -->
+<rect width="1200" height="1200" fill="#fcfcfc"/>
+
+<!-- ================================================================ -->
+<!-- TOP TITLE BAR -->
+<!-- ================================================================ -->
+<rect x="20" y="16" width="1160" height="48" rx="6" fill="#0096f0" opacity="0.85"/>
+<text x="600" y="40" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="bold" fill="#fff">单铰链 ICR 生物力学分析</text>
+<text x="600" y="56" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">瞬时旋转中心 · 受力传递 · 力矩分析 · 剪切力补偿方案</text>
+
+<!-- ================================================================ -->
+<!-- LEFT PANEL — 纯科学可视化区 (x=20-740, 720px) -->
+<!-- ================================================================ -->
+<rect x="20" y="72" width="720" height="978" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+<g clip-path="url(#leftClip)">
+
+  <!-- ============ SECTION 1: ICR 轨迹详图 (y=82-296, h=214) ============ -->
+  <rect x="30" y="82" width="700" height="214" rx="8" fill="#f8f9fb" stroke="#e0e6ea" stroke-width="0.8"/>
+
+  <!-- 图标题 -->
+  <text x="380" y="100" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a2a3a">ICR 轨迹详图 — 人体膝关节瞬时旋转中心 (J形曲线)</text>
+
+  <!-- 图表区域网格 -->
+  <!-- 图表坐标: x=75-685(w=610), y=115-270(h=155) -->
+  <g stroke="#e8eaed" stroke-width="0.4">
+    <!-- 6条水平网格线 -->
+    <line x1="75" y1="141" x2="685" y2="141"/>
+    <line x1="75" y1="167" x2="685" y2="167"/>
+    <line x1="75" y1="193" x2="685" y2="193"/>
+    <line x1="75" y1="219" x2="685" y2="219"/>
+    <line x1="75" y1="245" x2="685" y2="245"/>
+    <!-- 7条垂直网格线 -->
+    <line x1="151" y1="115" x2="151" y2="270"/>
+    <line x1="227" y1="115" x2="227" y2="270"/>
+    <line x1="304" y1="115" x2="304" y2="270"/>
+    <line x1="380" y1="115" x2="380" y2="270"/>
+    <line x1="456" y1="115" x2="456" y2="270"/>
+    <line x1="532" y1="115" x2="532" y2="270"/>
+    <line x1="608" y1="115" x2="608" y2="270"/>
+  </g>
+
+  <!-- 坐标轴 -->
+  <line x1="75" y1="270" x2="685" y2="270" stroke="#bbb" stroke-width="0.8"/>
+  <line x1="75" y1="115" x2="75" y2="270" stroke="#bbb" stroke-width="0.8"/>
+
+  <!-- X轴刻度标注 -->
+  <g font-family="sans-serif" font-size="9" fill="#888" text-anchor="middle">
+    <text x="151" y="282">15°</text>
+    <text x="227" y="282">30°</text>
+    <text x="304" y="282">45°</text>
+    <text x="380" y="282">60°</text>
+    <text x="456" y="282">75°</text>
+    <text x="608" y="282">90°</text>
+  </g>
+
+  <!-- Y轴刻度标注 -->
+  <g font-family="sans-serif" font-size="9" fill="#888" text-anchor="end">
+    <text x="68" y="144">12</text>
+    <text x="68" y="196">8</text>
+    <text x="68" y="248">4</text>
+  </g>
+
+  <!-- Y轴标签 -->
+  <text x="42" y="192" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666" transform="rotate(-90,42,192)">ICR 前后位移 (mm)</text>
+
+  <!-- X轴标签 -->
+  <text x="380" y="293" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">屈曲角度 (°)</text>
+
+  <!-- ICR J形轨迹曲线 (红色) -->
+  <!-- 映射自原文: M300,350 C308,340 318,325 330,308 C342,290 356,272 370,256 C385,240 400,226 416,215 C432,205 448,198 462,194 C476,191 490,191 502,194 -->
+  <path d="M327,222 C336,218 346,211 359,204 C372,195 386,187 401,180 C417,173 433,167 449,162 C466,158 483,154 498,153 C512,151 527,151 540,153" fill="none" stroke="#e02020" stroke-width="3" stroke-linejoin="round" filter="url(#glowRed)"/>
+
+  <!-- J形曲线标注 -->
+  <text x="555" y="168" font-family="sans-serif" font-size="11" fill="#e02020" font-weight="bold">人体膝关节 ICR 轨迹 (J形)</text>
+  <line x1="550" y1="163" x2="540" y2="154" stroke="#e02020" stroke-width="0.8"/>
+
+  <!-- ICR 点位标注: 0°/30°/60°/90° -->
+  <!-- 0°屈曲 -->
+  <circle cx="327" cy="222" r="6" fill="#e02020" stroke="#fff" stroke-width="2"/>
+  <line x1="327" y1="222" x2="327" y2="270" stroke="#e02020" stroke-width="0.6" stroke-dasharray="3,2"/>
+  <line x1="327" y1="222" x2="75" y2="222" stroke="#e02020" stroke-width="0.6" stroke-dasharray="3,2"/>
+  <text x="315" y="220" text-anchor="end" font-family="sans-serif" font-size="10" fill="#e02020" font-weight="bold">0° 屈曲</text>
+
+  <!-- 30°屈曲 -->
+  <circle cx="359" cy="204" r="6" fill="#e02020" stroke="#fff" stroke-width="2"/>
+  <line x1="359" y1="204" x2="359" y2="270" stroke="#e02020" stroke-width="0.6" stroke-dasharray="3,2"/>
+  <line x1="359" y1="204" x2="75" y2="204" stroke="#e02020" stroke-width="0.6" stroke-dasharray="3,2"/>
+  <text x="347" y="202" text-anchor="end" font-family="sans-serif" font-size="10" fill="#e02020" font-weight="bold">30° 屈曲</text>
+
+  <!-- 60°屈曲 -->
+  <circle cx="401" cy="180" r="6" fill="#e02020" stroke="#fff" stroke-width="2"/>
+  <line x1="401" y1="180" x2="401" y2="270" stroke="#e02020" stroke-width="0.6" stroke-dasharray="3,2"/>
+  <line x1="401" y1="180" x2="75" y2="180" stroke="#e02020" stroke-width="0.6" stroke-dasharray="3,2"/>
+  <text x="389" y="178" text-anchor="end" font-family="sans-serif" font-size="10" fill="#e02020" font-weight="bold">60° 屈曲</text>
+
+  <!-- 90°屈曲 -->
+  <circle cx="498" cy="153" r="6" fill="#e02020" stroke="#fff" stroke-width="2"/>
+  <line x1="498" y1="153" x2="498" y2="270" stroke="#e02020" stroke-width="0.6" stroke-dasharray="3,2"/>
+  <line x1="498" y1="153" x2="75" y2="153" stroke="#e02020" stroke-width="0.6" stroke-dasharray="3,2"/>
+  <text x="510" y="155" font-family="sans-serif" font-size="10" fill="#e02020" font-weight="bold">90° 屈曲</text>
+
+  <!-- 外骨骼单轴旋转中心 (蓝色) -->
+  <circle cx="401" cy="204" r="8" fill="#0096f0" stroke="#fff" stroke-width="2" filter="url(#glowBlue)"/>
+  <circle cx="401" cy="204" r="3" fill="#0096f0"/>
+  <text x="415" y="200" font-family="sans-serif" font-size="11" fill="#0096f0" font-weight="bold">外骨骼单轴旋转中心</text>
+  <line x1="413" y1="203" x2="409" y2="204" stroke="#0096f0" stroke-width="0.8"/>
+
+  <!-- ICR 偏移连线 (灰色虚线, 外骨骼中心到各ICR点位) -->
+  <line x1="401" y1="204" x2="327" y2="222" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="401" y1="204" x2="359" y2="204" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="401" y1="204" x2="401" y2="180" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="401" y1="204" x2="498" y2="153" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- 偏移量尺寸标注 -->
+  <path d="M425,220 L420,215 L408,208" fill="none" stroke="#d97706" stroke-width="1"/>
+  <text x="428" y="223" font-family="sans-serif" font-size="10" fill="#d97706" font-weight="bold">ICR 偏移量 2-5mm</text>
+
+  <!-- 偏移方向指示 (琥珀色箭头) -->
+  <path d="M370,218 Q380,214 393,208" fill="none" stroke="#d97706" stroke-width="1.2" marker-end="url(#arrowAmber)"/>
+  <text x="362" y="216" font-family="sans-serif" font-size="8" fill="#d97706">偏移方向</text>
+
+  <!-- ============ SECTION 2: 膝关节受力传递图 (y=316-546, h=230) ============ -->
+  <rect x="30" y="316" width="700" height="230" rx="8" fill="#f8f9fb" stroke="#e0e6ea" stroke-width="0.8"/>
+
+  <!-- 区块标题 -->
+  <text x="380" y="334" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a2a3a">膝关节受力传递图 (GRF - 胫骨 - KAM - 肌肉力矢量)</text>
+
+  <!-- ===== 下肢骨骼示意图 (左侧) ===== -->
+  <!-- 地面 -->
+  <line x1="160" y1="530" x2="320" y2="530" stroke="#888" stroke-width="1.2"/>
+  <g stroke="#888" stroke-width="0.5">
+    <line x1="175" y1="534" x2="178" y2="526"/>
+    <line x1="200" y1="534" x2="203" y2="526"/>
+    <line x1="225" y1="534" x2="228" y2="526"/>
+    <line x1="250" y1="534" x2="253" y2="526"/>
+    <line x1="275" y1="534" x2="278" y2="526"/>
+  </g>
+
+  <!-- 足部 -->
+  <path d="M235,530 L228,520 L222,512 L216,506 L212,502 L240,530 L258,528 L272,526 L280,524 L283,525" fill="none" stroke="#e8cfb8" stroke-width="6" stroke-linecap="round"/>
+  <text x="270" y="518" font-family="sans-serif" font-size="8" fill="#888">足部</text>
+
+  <!-- 胫骨 -->
+  <line x1="252" y1="460" x2="255" y2="522" stroke="url(#boneGrad)" stroke-width="12" stroke-linecap="round"/>
+  <line x1="252" y1="460" x2="255" y2="522" stroke="#c4b898" stroke-width="0.6"/>
+  <text x="268" y="500" font-family="sans-serif" font-size="10" fill="#888" font-weight="bold">胫骨</text>
+
+  <!-- 股骨 -->
+  <line x1="242" y1="370" x2="238" y2="460" stroke="url(#boneGrad)" stroke-width="14" stroke-linecap="round"/>
+  <line x1="242" y1="370" x2="238" y2="460" stroke="#c4b898" stroke-width="0.6"/>
+  <text x="225" y="388" text-anchor="end" font-family="sans-serif" font-size="10" fill="#888" font-weight="bold">股骨</text>
+
+  <!-- 髌骨 -->
+  <ellipse cx="268" cy="440" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+  <text x="282" y="445" font-family="sans-serif" font-size="9" fill="#888" font-weight="bold">髌骨</text>
+
+  <!-- 膝关节中心 -->
+  <circle cx="248" cy="460" r="9" fill="none" stroke="#ccc" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <circle cx="248" cy="460" r="3" fill="#0096f0" opacity="0.6"/>
+
+  <!-- 肌肉软组织覆盖 (前侧) -->
+  <path d="M185,375 Q195,368 210,375 Q220,382 225,395 L225,460 Q220,472 210,476 Q198,480 188,472 Q180,464 176,450 L176,395 Q178,382 185,375 Z" fill="url(#muscleGrad)" stroke="rgba(200,50,50,0.15)" stroke-width="0.5"/>
+  <!-- 肌肉软组织覆盖 (后侧) -->
+  <path d="M275,375 Q285,368 300,375 Q310,382 315,395 L315,460 Q310,472 300,476 Q288,480 278,472 Q272,464 268,450 L268,395 Q270,382 275,375 Z" fill="url(#muscleGrad)" stroke="rgba(200,50,50,0.15)" stroke-width="0.5"/>
+
+  <text x="178" y="430" text-anchor="end" font-family="sans-serif" font-size="8" fill="#c45a5a">肌肉/软组织</text>
+  <text x="325" y="430" font-family="sans-serif" font-size="8" fill="#c45a5a">肌肉/软组织</text>
+
+  <!-- ===== 力学箭头标注 ===== -->
+  <!-- GRF 地面反作用力 (绿色) -->
+  <line x1="255" y1="522" x2="253" y2="480" stroke="#2ea043" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  <text x="260" y="510" font-family="sans-serif" font-size="10" fill="#2ea043" font-weight="bold">GRF 地面反作用力</text>
+
+  <!-- 股四头肌拉力 (红色虚线) -->
+  <line x1="240" y1="380" x2="270" y2="445" stroke="#e02020" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowRed)"/>
+  <text x="275" y="425" font-family="sans-serif" font-size="10" fill="#e02020" font-weight="bold">股四头肌拉力</text>
+
+  <!-- 腘绳肌拉力 (红色虚线) -->
+  <line x1="240" y1="462" x2="225" y2="495" stroke="#e02020" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowRed)"/>
+  <text x="212" y="495" text-anchor="end" font-family="sans-serif" font-size="10" fill="#e02020" font-weight="bold">腘绳肌拉力</text>
+
+  <!-- 关节反力 (琥珀色) -->
+  <line x1="248" y1="460" x2="248" y2="440" stroke="#d97706" stroke-width="2" marker-end="url(#arrowAmber)"/>
+  <text x="255" y="450" font-family="sans-serif" font-size="8" fill="#d97706">关节反力</text>
+
+  <!-- 髌腱拉力 -->
+  <line x1="270" y1="448" x2="255" y2="465" stroke="#e02020" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowRed)"/>
+  <text x="277" y="462" font-family="sans-serif" font-size="8" fill="#e02020">髌腱拉力</text>
+
+  <!-- KAM 膝内收力矩 (琥珀色弧线) -->
+  <path d="M290,458 A42,42 0 0,1 298,478" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrowAmber)"/>
+  <text x="293" y="476" font-family="sans-serif" font-size="10" fill="#d97706" font-weight="bold">KAM 膝内收力矩</text>
+
+  <!-- ===== 受力传递信息框 (右侧) ===== -->
+  <!-- GRF 地面反作用力框 -->
+  <rect x="330" y="348" width="385" height="32" rx="4" fill="#f0fdf4" stroke="#d0edd0" stroke-width="0.6"/>
+  <rect x="330" y="348" width="4" height="32" rx="2" fill="#2ea043"/>
+  <line x1="348" y1="358" x2="358" y2="358" stroke="#2ea043" stroke-width="1.5"/>
+  <line x1="348" y1="365" x2="358" y2="365" stroke="#2ea043" stroke-width="1.5"/>
+  <line x1="348" y1="372" x2="358" y2="372" stroke="#2ea043" stroke-width="1.5"/>
+  <text x="366" y="360" font-family="sans-serif" font-size="11" fill="#1a2a3a" font-weight="bold">GRF 地面反作用力</text>
+  <text x="366" y="372" font-family="sans-serif" font-size="8" fill="#666">Ground Reaction Force — 行走时约 1.2 倍体重</text>
+
+  <!-- 股四头肌拉力框 -->
+  <rect x="330" y="386" width="385" height="32" rx="4" fill="#fef2f2" stroke="#edd0d0" stroke-width="0.6"/>
+  <rect x="330" y="386" width="4" height="32" rx="2" fill="#e02020"/>
+  <line x1="348" y1="398" x2="358" y2="398" stroke="#e02020" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <line x1="348" y1="405" x2="358" y2="405" stroke="#e02020" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="366" y="400" font-family="sans-serif" font-size="11" fill="#1a2a3a" font-weight="bold">股四头肌拉力 + 髌腱拉力</text>
+  <text x="366" y="412" font-family="sans-serif" font-size="8" fill="#666">Quadriceps · 通过髌腱传递至胫骨粗隆</text>
+
+  <!-- KAM 膝内收力矩框 -->
+  <rect x="330" y="424" width="385" height="32" rx="4" fill="#fefce8" stroke="#edd8b8" stroke-width="0.6"/>
+  <rect x="330" y="424" width="4" height="32" rx="2" fill="#d97706"/>
+  <path d="M348,438 Q355,435 362,438" fill="none" stroke="#d97706" stroke-width="1.5"/>
+  <text x="366" y="440" font-family="sans-serif" font-size="11" fill="#1a2a3a" font-weight="bold">KAM 膝内收力矩</text>
+  <text x="366" y="452" font-family="sans-serif" font-size="8" fill="#666">Knee Adduction Moment · 内侧间室载荷增大的主因</text>
+
+  <!-- 肌肉共收缩分析框 -->
+  <rect x="330" y="462" width="385" height="32" rx="4" fill="#f5f0f8" stroke="#e0d0ea" stroke-width="0.6"/>
+  <rect x="330" y="462" width="4" height="32" rx="2" fill="#8b5cf6"/>
+  <path d="M348,476 Q352,472 356,476" fill="none" stroke="#8b5cf6" stroke-width="1"/>
+  <path d="M356,476 Q360,472 364,476" fill="none" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="366" y="478" font-family="sans-serif" font-size="11" fill="#1a2a3a" font-weight="bold">肌肉共收缩分析</text>
+  <text x="366" y="490" font-family="sans-serif" font-size="8" fill="#666">拮抗肌共收缩增加关节刚度 · 影响 ICR 轨迹稳定性</text>
+
+  <!-- ===== 受力传递链 ===== -->
+  <rect x="38" y="530" width="680" height="24" rx="4" fill="#f0f4f8" stroke="#dde4ec" stroke-width="0.6"/>
+  <text x="378" y="546" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#334" font-weight="bold">受力传递链：GRF 地面反作用力 → 胫骨 → 膝关节 → KAM 膝内收力矩</text>
+
+  <!-- ============ SECTION 3: 力矩效率+ICR剪切力 (y=566-780, h=214) ============ -->
+  <rect x="30" y="566" width="700" height="214" rx="8" fill="#f8f9fb" stroke="#e0e6ea" stroke-width="0.8"/>
+
+  <text x="380" y="584" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a2a3a">力矩传递效率对比 + ICR 偏移皮肤剪切力示意</text>
+
+  <!-- ===== 左半区: 力矩效率对比图 ===== -->
+  <text x="190" y="606" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a2a3a" font-weight="bold">力矩传递效率对比</text>
+
+  <!-- 图例 -->
+  <rect x="60" y="615" width="14" height="10" rx="2" fill="#2ea043" opacity="0.7"/>
+  <text x="79" y="624" font-family="sans-serif" font-size="9" fill="#555">人体肌力矩</text>
+  <rect x="175" y="615" width="14" height="10" rx="2" fill="#0096f0" opacity="0.7"/>
+  <text x="194" y="624" font-family="sans-serif" font-size="9" fill="#555">外骨骼力矩</text>
+
+  <!-- 行走 (0-30°) -->
+  <text x="60" y="648" font-family="sans-serif" font-size="9" fill="#666">0-30° 行走</text>
+  <rect x="130" y="638" width="100" height="12" rx="3" fill="#f0f0f0" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="130" y="638" width="48" height="12" rx="3" fill="#2ea043" opacity="0.6"/>
+  <text x="180" y="648" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#555">48%</text>
+  <rect x="235" y="638" width="100" height="12" rx="3" fill="#f0f0f0" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="235" y="638" width="95" height="12" rx="3" fill="#0096f0" opacity="0.6"/>
+  <text x="285" y="648" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#fff" font-weight="bold">95%</text>
+
+  <!-- 爬楼 (30-60°) -->
+  <text x="60" y="668" font-family="sans-serif" font-size="9" fill="#666">30-60° 爬楼</text>
+  <rect x="130" y="658" width="100" height="12" rx="3" fill="#f0f0f0" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="130" y="658" width="65" height="12" rx="3" fill="#2ea043" opacity="0.6"/>
+  <text x="180" y="668" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#555">65%</text>
+  <rect x="235" y="658" width="100" height="12" rx="3" fill="#f0f0f0" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="235" y="658" width="95" height="12" rx="3" fill="#0096f0" opacity="0.6"/>
+  <text x="285" y="668" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#fff" font-weight="bold">95%</text>
+
+  <!-- 坐起 (60-90°) -->
+  <text x="60" y="688" font-family="sans-serif" font-size="9" fill="#666">60-90° 坐起</text>
+  <rect x="130" y="678" width="100" height="12" rx="3" fill="#f0f0f0" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="130" y="678" width="82" height="12" rx="3" fill="#2ea043" opacity="0.6"/>
+  <text x="180" y="688" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#555">82%</text>
+  <rect x="235" y="678" width="100" height="12" rx="3" fill="#f0f0f0" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="235" y="678" width="95" height="12" rx="3" fill="#0096f0" opacity="0.6"/>
+  <text x="285" y="688" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#fff" font-weight="bold">95%</text>
+
+  <!-- 总结标注 -->
+  <rect x="60" y="700" width="280" height="22" rx="4" fill="#f0f8ff" stroke="#d0e6f0" stroke-width="0.6"/>
+  <text x="200" y="715" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#0096f0" font-weight="bold">外骨骼力矩传递效率 &gt; 90%</text>
+
+  <text x="200" y="740" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#888">单轴设计优势：减少能量损耗 · 扭矩直驱 · 结构刚度高</text>
+
+  <!-- ===== 右半区: ICR偏移皮肤剪切力示意 ===== -->
+  <text x="525" y="606" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a2a3a" font-weight="bold">ICR 偏移导致皮肤剪切力</text>
+
+  <!-- 皮肤剪切力截面示意 -->
+  <!-- 碳纤维壳体 -->
+  <rect x="420" y="618" width="180" height="14" rx="2" fill="url(#cfWeave)" stroke="#444" stroke-width="0.6"/>
+  <text x="510" y="615" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#ccc" font-weight="bold">碳纤维外骨骼壳体</text>
+
+  <!-- EVA缓冲层 -->
+  <rect x="423" y="634" width="174" height="8" rx="1" fill="rgba(160,190,220,0.5)" stroke="#aabbcc" stroke-width="0.4"/>
+  <text x="510" y="631" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#668">EVA 缓冲垫 (3mm)</text>
+
+  <!-- 皮肤 -->
+  <rect x="425" y="644" width="170" height="7" rx="1" fill="url(#skinGrad)" stroke="#d4b8a0" stroke-width="0.4"/>
+  <text x="580" y="650" font-family="sans-serif" font-size="8" fill="#a08060">皮肤</text>
+
+  <!-- 软组织 -->
+  <rect x="427" y="653" width="166" height="10" rx="1" fill="url(#muscleGrad)" stroke="rgba(200,50,50,0.15)" stroke-width="0.4"/>
+  <text x="580" y="661" font-family="sans-serif" font-size="8" fill="#c45a5a">皮下软组织</text>
+
+  <!-- 骨骼 -->
+  <rect x="430" y="665" width="160" height="12" rx="2" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+  <text x="580" y="674" font-family="sans-serif" font-size="8" fill="#888">骨骼</text>
+
+  <!-- 剪切力方向指示 -->
+  <!-- 上层(框架→外骨骼)向右 -->
+  <path d="M440,626 L480,626" stroke="#e02020" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <!-- 下层(皮肤)向左 -->
+  <path d="M560,648 L520,648" stroke="#e02020" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="590" y="630" font-family="sans-serif" font-size="9" fill="#e02020">剪切力方向</text>
+
+  <!-- 偏移标注 -->
+  <line x1="430" y1="624" x2="415" y2="624" stroke="#d97706" stroke-width="0.8" stroke-dasharray="2,2"/>
+  <line x1="415" y1="624" x2="415" y2="650" stroke="#d97706" stroke-width="0.8" stroke-dasharray="2,2"/>
+  <line x1="415" y1="650" x2="430" y2="650" stroke="#d97706" stroke-width="0.8" stroke-dasharray="2,2"/>
+  <text x="408" y="640" text-anchor="end" font-family="sans-serif" font-size="8" fill="#d97706">ΔICR 偏移</text>
+
+  <!-- 剪切力模型公式 -->
+  <rect x="380" y="688" width="280" height="44" rx="5" fill="#fef2f2" stroke="#edd0d0" stroke-width="0.6"/>
+  <text x="520" y="706" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#c45a5a" font-weight="bold">Fs = G · A · (ΔICR / h)</text>
+  <text x="520" y="722" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#888">Fs=剪切力  G=软组织剪切模量  A=界面面积</text>
+
+  <!-- 影响提示 -->
+  <rect x="380" y="740" width="280" height="28" rx="4" fill="#fcf8f0" stroke="#ece0d0" stroke-width="0.5"/>
+  <text x="520" y="758" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#c45a2a">ICR偏移 → 皮肤剪切力增大 → 舒适性下降 → 长时间可能致压疮</text>
+
+  <!-- ============ SECTION 4: 补偿方案3项 (y=800-960, h=160) ============ -->
+  <rect x="30" y="800" width="700" height="160" rx="8" fill="#f8f9fb" stroke="#e0e6ea" stroke-width="0.8"/>
+
+  <text x="380" y="818" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a2a3a">对齐误差补偿方案 3 项</text>
+
+  <!-- 方案 1: 柔性绑带弹性形变补偿 -->
+  <rect x="45" y="832" width="210" height="118" rx="6" fill="#f0f8ff" stroke="#d0e6f0" stroke-width="0.6" filter="url(#shadowLight)"/>
+  <rect x="45" y="832" width="4" height="118" rx="2" fill="#0096f0"/>
+  <circle cx="63" cy="850" r="10" fill="#0096f0" opacity="0.15"/>
+  <text x="63" y="854" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0096f0" font-weight="bold">1</text>
+  <text x="80" y="854" font-family="sans-serif" font-size="10" fill="#1a2a3a" font-weight="bold">柔性绑带弹性形变</text>
+
+  <text x="55" y="874" font-family="sans-serif" font-size="8" fill="#555">宽幅绑带 (60/50mm)</text>
+  <text x="55" y="886" font-family="sans-serif" font-size="8" fill="#555">通过弹性形变吸收 ICR 偏移</text>
+  <text x="55" y="898" font-family="sans-serif" font-size="8" fill="#555">产生的剪切位移</text>
+  <text x="55" y="914" font-family="sans-serif" font-size="8" fill="#888">优势：结构简单 · 零额外重量</text>
+  <text x="55" y="926" font-family="sans-serif" font-size="8" fill="#888">设计：Fidlock 磁吸扣合</text>
+
+  <!-- 绑带示意图 -->
+  <rect x="160" y="848" width="26" height="8" rx="1" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.3"/>
+  <rect x="155" y="848" width="36" height="8" rx="1" fill="rgba(220,200,180,0.2)"/>
+  <rect x="152" y="845" width="42" height="4" rx="1" fill="#0096f0" opacity="0.5"/>
+  <path d="M152,843 L152,839" stroke="#d97706" stroke-width="0.6" marker-end="url(#arrowAmber)"/>
+  <path d="M196,843 L196,839" stroke="#d97706" stroke-width="0.6" marker-end="url(#arrowAmber)"/>
+
+  <!-- 方案 2: 自适应框架 ±2° 微调 -->
+  <rect x="265" y="832" width="210" height="118" rx="6" fill="#f0f8ff" stroke="#d0e6f0" stroke-width="0.6" filter="url(#shadowLight)"/>
+  <rect x="265" y="832" width="4" height="118" rx="2" fill="#0096f0"/>
+  <circle cx="283" cy="850" r="10" fill="#0096f0" opacity="0.15"/>
+  <text x="283" y="854" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0096f0" font-weight="bold">2</text>
+  <text x="300" y="854" font-family="sans-serif" font-size="10" fill="#1a2a3a" font-weight="bold">自适应框架 ±2° 微调</text>
+
+  <text x="275" y="874" font-family="sans-serif" font-size="8" fill="#555">碳纤维框架保留弹性挠度</text>
+  <text x="275" y="886" font-family="sans-serif" font-size="8" fill="#555">允许外骨骼轴线小范围</text>
+  <text x="275" y="898" font-family="sans-serif" font-size="8" fill="#555">跟随 ICR 移动 (±2°)</text>
+  <text x="275" y="914" font-family="sans-serif" font-size="8" fill="#888">方案：T700 叠层方向优化</text>
+  <text x="275" y="926" font-family="sans-serif" font-size="8" fill="#888">非对称铺层 · 自适应微调</text>
+
+  <!-- 框架示意图 -->
+  <line x1="310" y1="848" x2="340" y2="848" stroke="#555" stroke-width="0.8"/>
+  <line x1="340" y1="848" x2="348" y2="842" stroke="#555" stroke-width="0.8"/>
+  <line x1="348" y1="842" x2="356" y2="848" stroke="#555" stroke-width="0.8"/>
+  <circle cx="340" cy="848" r="2.5" fill="#888"/>
+
+  <!-- 方案 3: 多层软界面 EVA + 硅胶 -->
+  <rect x="485" y="832" width="210" height="118" rx="6" fill="#f0f8ff" stroke="#d0e6f0" stroke-width="0.6" filter="url(#shadowLight)"/>
+  <rect x="485" y="832" width="4" height="118" rx="2" fill="#0096f0"/>
+  <circle cx="503" cy="850" r="10" fill="#0096f0" opacity="0.15"/>
+  <text x="503" y="854" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0096f0" font-weight="bold">3</text>
+  <text x="520" y="854" font-family="sans-serif" font-size="10" fill="#1a2a3a" font-weight="bold">多层软界面 EVA+硅胶</text>
+
+  <text x="495" y="874" font-family="sans-serif" font-size="8" fill="#555">多层软界面实现柔性耦合</text>
+  <text x="495" y="886" font-family="sans-serif" font-size="8" fill="#555">材料剪切模量差异吸收</text>
+  <text x="495" y="898" font-family="sans-serif" font-size="8" fill="#555">皮肤层间相对位移</text>
+  <text x="495" y="914" font-family="sans-serif" font-size="8" fill="#888">材料：3mm EVA + 防滑硅胶内衬</text>
+  <text x="495" y="926" font-family="sans-serif" font-size="8" fill="#888">目标：皮肤剪切力 &lt; 2 N/cm²</text>
+
+  <!-- 界面层叠示意 -->
+  <rect x="510" y="842" width="50" height="5" rx="1" fill="url(#cfWeave)" stroke="#333" stroke-width="0.3"/>
+  <rect x="512" y="847" width="46" height="4" rx="1" fill="rgba(100,100,100,0.3)"/>
+  <rect x="514" y="851" width="42" height="3" rx="1" fill="rgba(180,200,220,0.4)"/>
+  <rect x="516" y="854" width="38" height="3" rx="1" fill="rgba(220,200,180,0.3)"/>
+
+</g>
+<!-- END LEFT CLIP -->
+
+<!-- ================================================================ -->
+<!-- ISOLATION ZONE (x=740-800, 空白隔离带) -->
+<!-- ================================================================ -->
+<rect x="740" y="72" width="60" height="978" fill="#fcfcfc"/>
+
+<!-- ================================================================ -->
+<!-- RIGHT PANEL — 文字面板 (x=800-1180, 380px) -->
+<!-- ================================================================ -->
+<rect x="800" y="72" width="380" height="978" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+<g clip-path="url(#rightClip)" font-family="sans-serif">
+
+  <!-- ===== PANEL 1: ICR 偏移量化数据表 (y=86-492, h=406) ===== -->
+  <rect x="816" y="86" width="348" height="406" rx="6" fill="#f8fafb" stroke="#e0e6ea" stroke-width="0.8" filter="url(#shadow)"/>
+  <rect x="816" y="86" width="348" height="32" rx="6 6 0 0" fill="#e02020" opacity="0.08"/>
+  <rect x="816" y="86" width="5" height="32" rx="2.5" fill="#e02020"/>
+  <text x="832" y="108" font-size="13" fill="#1a2a3a" font-weight="bold">ICR 偏移量化数据表</text>
+  <line x1="816" y1="124" x2="1164" y2="124" stroke="#e0e6ea" stroke-width="0.8"/>
+
+  <!-- 偏移数据表格 -->
+  <rect x="830" y="132" width="320" height="96" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="0.5"/>
+  <!-- 表头 -->
+  <rect x="830" y="132" width="320" height="22" rx="4 4 0 0" fill="#f0f0f0"/>
+  <line x1="945" y1="132" x2="945" y2="154" stroke="#ddd" stroke-width="0.5"/>
+  <line x1="1050" y1="132" x2="1050" y2="154" stroke="#ddd" stroke-width="0.5"/>
+  <line x1="1130" y1="132" x2="1130" y2="154" stroke="#ddd" stroke-width="0.5"/>
+  <text x="887" y="146" text-anchor="middle" font-size="9" fill="#555" font-weight="bold">屈曲角度</text>
+  <text x="997" y="146" text-anchor="middle" font-size="9" fill="#555" font-weight="bold">ICR 偏移量</text>
+  <text x="1090" y="146" text-anchor="middle" font-size="9" fill="#555" font-weight="bold">剪切力</text>
+  <!-- 数据行 -->
+  <line x1="830" y1="156" x2="1150" y2="156" stroke="#eee" stroke-width="0.4"/>
+  <text x="887" y="170" text-anchor="middle" font-size="9" fill="#333">0° (伸展)</text>
+  <text x="997" y="170" text-anchor="middle" font-size="9" fill="#333">&lt; 1 mm</text>
+  <text x="1090" y="170" text-anchor="middle" font-size="9" fill="#2ea043">可忽略</text>
+  <line x1="830" y1="176" x2="1150" y2="176" stroke="#eee" stroke-width="0.3"/>
+  <text x="887" y="190" text-anchor="middle" font-size="9" fill="#333">30° (行走)</text>
+  <text x="997" y="190" text-anchor="middle" font-size="9" fill="#333">2-3 mm</text>
+  <text x="1090" y="190" text-anchor="middle" font-size="9" fill="#d97706">轻微</text>
+  <line x1="830" y1="196" x2="1150" y2="196" stroke="#eee" stroke-width="0.3"/>
+  <text x="887" y="210" text-anchor="middle" font-size="9" fill="#333">60° (爬楼)</text>
+  <text x="997" y="210" text-anchor="middle" font-size="9" fill="#333">3-5 mm</text>
+  <text x="1090" y="210" text-anchor="middle" font-size="9" fill="#e02020">中等</text>
+  <line x1="830" y1="216" x2="1150" y2="216" stroke="#eee" stroke-width="0.3"/>
+  <text x="887" y="230" text-anchor="middle" font-size="9" fill="#333">90° (坐起)</text>
+  <text x="997" y="230" text-anchor="middle" font-size="9" fill="#333">&gt; 5 mm</text>
+  <text x="1090" y="230" text-anchor="middle" font-size="9" fill="#e02020" font-weight="bold">显著</text>
+
+  <!-- 皮肤剪切力示意图 -->
+  <rect x="830" y="236" width="320" height="122" rx="5" fill="#fff" stroke="#eee" stroke-width="0.5"/>
+  <text x="990" y="250" text-anchor="middle" font-size="9" fill="#555" font-weight="bold">人机界面剪切力分布 (横截面)</text>
+  <circle cx="990" cy="285" r="42" fill="none" stroke="#ddd" stroke-width="1" stroke-dasharray="5,3"/>
+  <circle cx="985" cy="280" r="20" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+  <circle cx="985" cy="280" r="29" fill="none" stroke="rgba(220,200,180,0.3)" stroke-width="7"/>
+  <circle cx="985" cy="280" r="37" fill="none" stroke="url(#skinGrad)" stroke-width="3"/>
+  <circle cx="990" cy="285" r="47" fill="none" stroke="url(#cfWeave)" stroke-width="5"/>
+  <rect x="930" y="279" width="120" height="5" rx="2" fill="#0096f0" opacity="0.6"/>
+  <!-- 人体 ICR -->
+  <circle cx="973" cy="271" r="4" fill="#e02020" stroke="#fff" stroke-width="1.5"/>
+  <text x="960" y="268" text-anchor="end" font-size="8" fill="#e02020">人体 ICR</text>
+  <!-- 外骨骼轴线 -->
+  <circle cx="998" cy="293" r="4" fill="#0096f0" stroke="#fff" stroke-width="1.5"/>
+  <text x="1005" y="298" font-size="8" fill="#0096f0">外骨骼轴线</text>
+  <!-- 偏移 -->
+  <line x1="973" y1="271" x2="998" y2="293" stroke="#d97706" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="1008" y="283" font-size="8" fill="#d97706">偏移</text>
+  <!-- 剪切力箭头 -->
+  <path d="M1005,252 Q1010,247 1012,242" fill="none" stroke="#e02020" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <path d="M965,252 Q960,247 958,242" fill="none" stroke="#e02020" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="1018" y="250" font-size="8" fill="#e02020">剪切力</text>
+  <text x="952" y="250" font-size="8" fill="#e02020">剪切力</text>
+
+  <!-- 剪切力模型 -->
+  <text x="828" y="372" font-size="10" fill="#555" font-weight="bold">剪切力定量模型：</text>
+  <rect x="828" y="378" width="320" height="46" rx="4" fill="#f8f0f0" stroke="#e0cdcd" stroke-width="0.5"/>
+  <text x="836" y="394" font-size="10" fill="#c45a5a" font-weight="bold">Fs = G · A · (ΔICR / h)</text>
+  <text x="836" y="408" font-size="8" fill="#888">Fs=剪切力  G=软组织剪切模量  A=界面面积</text>
+  <text x="836" y="420" font-size="8" fill="#888">ΔICR=轴向偏移量  h=软组织厚度</text>
+
+  <!-- 影响评估 -->
+  <text x="828" y="438" font-size="10" fill="#555" font-weight="bold">影响评估：</text>
+  <text x="828" y="454" font-size="9" fill="#666">• 0-30° (正常行走)：偏移 &lt; 3mm 剪切力可忽略</text>
+  <text x="828" y="470" font-size="9" fill="#666">• 30-60° (上下楼梯)：偏移 3-5mm 需柔性补偿</text>
+  <text x="828" y="486" font-size="9" fill="#666">• 60-90° (坐姿站立)：偏移 &gt; 5mm 建议对齐调整</text>
+
+  <!-- ===== PANEL 2: 对齐误差补偿方案详解 (y=512-1008, h=496) ===== -->
+  <rect x="816" y="512" width="348" height="496" rx="6" fill="#f8fafb" stroke="#e0e6ea" stroke-width="0.8" filter="url(#shadow)"/>
+  <rect x="816" y="512" width="348" height="32" rx="6 6 0 0" fill="#0096f0" opacity="0.08"/>
+  <rect x="816" y="512" width="5" height="32" rx="2.5" fill="#0096f0"/>
+  <text x="832" y="534" font-size="13" fill="#1a2a3a" font-weight="bold">对齐误差补偿方案详解</text>
+  <line x1="816" y1="548" x2="1164" y2="548" stroke="#e0e6ea" stroke-width="0.8"/>
+
+  <!-- 方案 1: 柔性绑带补偿 -->
+  <rect x="820" y="556" width="340" height="118" rx="5" fill="#f0f8ff" stroke="#d0e6f0" stroke-width="0.6"/>
+  <rect x="820" y="556" width="4" height="118" rx="2" fill="#0096f0"/>
+  <circle cx="838" cy="574" r="10" fill="#0096f0" opacity="0.15"/>
+  <text x="838" y="578" text-anchor="middle" font-size="12" fill="#0096f0" font-weight="bold">1</text>
+  <text x="856" y="578" font-size="11" fill="#1a2a3a" font-weight="bold">柔性绑带弹性形变补偿</text>
+
+  <!-- 绑带示意图 -->
+  <rect x="830" y="594" width="40" height="10" rx="2" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.4"/>
+  <rect x="822" y="594" width="56" height="10" rx="2" fill="rgba(220,200,180,0.2)"/>
+  <rect x="818" y="591" width="64" height="5" rx="2" fill="#0096f0" opacity="0.6"/>
+  <rect x="814" y="589" width="6" height="16" rx="1" fill="url(#cfWeave)" stroke="#333" stroke-width="0.3"/>
+  <path d="M814,587 L814,581" stroke="#d97706" stroke-width="0.8" marker-end="url(#arrowAmber)"/>
+  <path d="M880,587 L880,581" stroke="#d97706" stroke-width="0.8" marker-end="url(#arrowAmber)"/>
+
+  <text x="828" y="624" font-size="9" fill="#555">原理：宽幅绑带 (60/50mm) 通过弹性形变吸收</text>
+  <text x="828" y="638" font-size="9" fill="#555">ICR 偏移产生的剪切位移 · 无需额外机构</text>
+  <text x="828" y="656" font-size="8" fill="#888">优势：结构简单 · 零额外重量 · 经临床验证有效</text>
+  <text x="828" y="670" font-size="8" fill="#888">设计：Fidlock 磁吸扣合 · 60mm 大腿 / 50mm 小腿</text>
+
+  <!-- 方案 2: 自适应框架 -->
+  <rect x="820" y="684" width="340" height="116" rx="5" fill="#f0f8ff" stroke="#d0e6f0" stroke-width="0.6"/>
+  <rect x="820" y="684" width="4" height="116" rx="2" fill="#0096f0"/>
+  <circle cx="838" cy="702" r="10" fill="#0096f0" opacity="0.15"/>
+  <text x="838" y="706" text-anchor="middle" font-size="12" fill="#0096f0" font-weight="bold">2</text>
+  <text x="856" y="706" font-size="11" fill="#1a2a3a" font-weight="bold">自适应框架 ±2° 微调</text>
+
+  <!-- 框架示意图 -->
+  <line x1="830" y1="722" x2="855" y2="722" stroke="#555" stroke-width="1.2"/>
+  <line x1="855" y1="722" x2="865" y2="714" stroke="#555" stroke-width="1.2"/>
+  <line x1="865" y1="714" x2="875" y2="722" stroke="#555" stroke-width="1.2"/>
+  <circle cx="855" cy="722" r="3" fill="#888"/>
+  <rect x="842" y="716" width="12" height="20" rx="3" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.4" opacity="0.5"/>
+  <path d="M840,722 L834,722" stroke="#d97706" stroke-width="0.8" marker-end="url(#arrowAmber)"/>
+  <path d="M875,722 L881,722" stroke="#d97706" stroke-width="0.8" marker-end="url(#arrowAmber)"/>
+
+  <text x="828" y="750" font-size="9" fill="#555">原理：碳纤维框架保留微量弹性挠度，允许</text>
+  <text x="828" y="764" font-size="9" fill="#555">外骨骼轴线在小范围内跟随 ICR 移动</text>
+  <text x="828" y="782" font-size="8" fill="#888">方案：T700 叠层方向优化 · 非对称铺层 · ±2° 自适应</text>
+
+  <!-- 方案 3: 多层软界面 -->
+  <rect x="820" y="810" width="340" height="118" rx="5" fill="#f0f8ff" stroke="#d0e6f0" stroke-width="0.6"/>
+  <rect x="820" y="810" width="4" height="118" rx="2" fill="#0096f0"/>
+  <circle cx="838" cy="828" r="10" fill="#0096f0" opacity="0.15"/>
+  <text x="838" y="832" text-anchor="middle" font-size="12" fill="#0096f0" font-weight="bold">3</text>
+  <text x="856" y="832" font-size="11" fill="#1a2a3a" font-weight="bold">多层软界面 EVA + 硅胶</text>
+
+  <!-- 界面层叠 -->
+  <rect x="830" y="846" width="80" height="7" rx="1" fill="url(#cfWeave)" stroke="#333" stroke-width="0.3"/>
+  <rect x="833" y="853" width="74" height="5" rx="1" fill="rgba(100,100,100,0.3)"/>
+  <rect x="836" y="858" width="68" height="5" rx="1" fill="rgba(180,200,220,0.4)"/>
+  <rect x="838" y="863" width="64" height="5" rx="1" fill="rgba(220,200,180,0.3)"/>
+
+  <text x="828" y="886" font-size="9" fill="#555">原理：多层软界面实现人机柔性耦合 · 通过</text>
+  <text x="828" y="900" font-size="9" fill="#555">材料剪切模量差异吸收皮肤层间相对位移</text>
+  <text x="828" y="918" font-size="8" fill="#888">材料：3mm EVA 缓冲层 + 防滑硅胶内衬</text>
+  <text x="828" y="932" font-size="8" fill="#888">目标：皮肤剪切力 &lt; 2 N/cm² (舒适阈值内)</text>
+
+  <!-- 方案对比 -->
+  <rect x="828" y="948" width="320" height="28" rx="4" fill="#f5f5f5" stroke="#ddd" stroke-width="0.5"/>
+  <text x="988" y="966" text-anchor="middle" font-size="10" fill="#888" font-weight="bold">方案优先级：柔性绑带 &gt; 自适应框架 &gt; 软界面层</text>
+
+  <!-- 底部说明 -->
+  <rect x="828" y="984" width="320" height="20" rx="3" fill="#fcfcfc" stroke="#eee" stroke-width="0.4"/>
+  <text x="988" y="998" text-anchor="middle" font-size="8" fill="#aaa">三种方案联合使用可达最佳舒适性效果</text>
+
+</g>
+<!-- END RIGHT CLIP -->
+
+<!-- ================================================================ -->
+<!-- BOTTOM LEGEND BAR — 全中文图例 -->
+<!-- ================================================================ -->
+<rect x="20" y="1060" width="1160" height="48" rx="4" fill="#f8f8f8" stroke="#d5d5d5" stroke-width="0.6"/>
+<rect x="40" y="1073" width="18" height="18" rx="2" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.5"/>
+<text x="64" y="1087" font-size="12" fill="#333" font-weight="600" font-family="sans-serif">骨骼</text>
+
+<rect x="150" y="1073" width="18" height="18" rx="2" fill="rgba(200,50,50,0.22)"/>
+<text x="174" y="1087" font-size="12" fill="#333" font-weight="600" font-family="sans-serif">肌肉 / 软组织</text>
+
+<line x1="310" y1="1082" x2="330" y2="1082" stroke="#2ea043" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+<text x="336" y="1087" font-size="12" fill="#333" font-weight="600" font-family="sans-serif">GRF 地面反作用力</text>
+
+<line x1="490" y1="1082" x2="510" y2="1082" stroke="#e02020" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+<text x="516" y="1087" font-size="12" fill="#333" font-weight="600" font-family="sans-serif">肌肉力 / 扭矩</text>
+
+<line x1="660" y1="1082" x2="680" y2="1082" stroke="#0096f0" stroke-width="2.5"/>
+<text x="686" y="1087" font-size="12" fill="#333" font-weight="600" font-family="sans-serif">外骨骼轴线</text>
+
+<line x1="840" y1="1082" x2="860" y2="1082" stroke="#d97706" stroke-width="2.5"/>
+<text x="866" y="1087" font-size="12" fill="#333" font-weight="600" font-family="sans-serif">ICR 偏移量</text>
+
+<rect x="1020" y="1073" width="18" height="18" rx="2" fill="rgba(200,50,50,0.22)"/>
+<text x="1044" y="1087" font-size="12" fill="#333" font-weight="600" font-family="sans-serif">皮肤剪切力方向</text>
+
+</svg>

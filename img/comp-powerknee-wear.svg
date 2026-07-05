@@ -1,0 +1,295 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="100%" height="100%" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, sans-serif">
+<defs>
+<linearGradient id="boneGrad" x1="0" y1="0" x2="0.4" y2="1">
+<stop offset="0%" stop-color="#ede3cc"/>
+<stop offset="50%" stop-color="#e8ddc0"/>
+<stop offset="100%" stop-color="#d4c9a8"/>
+</linearGradient>
+<linearGradient id="metalGrad" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#A0AAB5"/>
+<stop offset="40%" stop-color="#8B93A0"/>
+<stop offset="100%" stop-color="#6B7280"/>
+</linearGradient>
+<linearGradient id="metalLight" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#B8C0CC"/>
+<stop offset="100%" stop-color="#8B93A0"/>
+</linearGradient>
+<linearGradient id="skinGrad" x1="0" y1="0" x2="0.5" y2="1">
+<stop offset="0%" stop-color="rgba(255,220,190,0.15)"/>
+<stop offset="100%" stop-color="rgba(255,210,180,0.08)"/>
+</linearGradient>
+<linearGradient id="flowGrad" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#dc2626"/>
+<stop offset="100%" stop-color="#ef4444"/>
+</linearGradient>
+<linearGradient id="kneeDistGrad" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" stop-color="rgba(220,38,38,0.06)"/>
+<stop offset="100%" stop-color="rgba(220,38,38,0.01)"/>
+</linearGradient>
+<linearGradient id="waistCentGrad" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" stop-color="rgba(0,150,240,0.06)"/>
+<stop offset="100%" stop-color="rgba(0,150,240,0.01)"/>
+</linearGradient>
+<marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+<path d="M0,0 L10,5 L0,10 Z" fill="#dc2626"/>
+</marker>
+<marker id="arrowRedBig" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+<path d="M0,0 L10,5 L0,10 Z" fill="#dc2626"/>
+</marker>
+<marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+<path d="M0,0 L10,5 L0,10 Z" fill="#0096f0"/>
+</marker>
+<marker id="arrowOrange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+<path d="M0,0 L10,5 L0,10 Z" fill="#ea580c"/>
+</marker>
+<filter id="shadow" x="-5%" y="-5%" width="120%" height="120%">
+<feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+</filter>
+<filter id="softShadow" x="-5%" y="-5%" width="120%" height="120%">
+<feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.06"/>
+</filter>
+<filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+<feGaussianBlur stdDeviation="2" result="blur"/>
+<feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+</defs>
+
+<rect width="1200" height="1000" fill="#f7f7f4"/>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+<path d="M40 0L0 0 0 40" fill="none" stroke="#e8e8e4" stroke-width="0.5"/>
+</pattern>
+<rect width="1200" height="1000" fill="url(#grid)"/>
+
+<rect x="0" y="0" width="1200" height="62" fill="#1f2937"/>
+<text x="600" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">远也PowerKnee 穿戴结构与力流路径分析</text>
+<text x="600" y="48" text-anchor="middle" font-size="11" fill="#9ca3af">Wear Structure and Force Flow Analysis 骨骼流形 竞争情报</text>
+
+<rect x="25" y="75" width="1150" height="640" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" filter="url(#softShadow)"/>
+<rect x="25" y="75" width="1150" height="30" fill="#f3f4f6" rx="6"/>
+<rect x="25" y="93" width="1150" height="12" fill="#f3f4f6"/>
+<text x="600" y="95" text-anchor="middle" font-size="13" font-weight="bold" fill="#4b5563">PowerKnee 穿戴正视图：膝部集中供电架构</text>
+
+<!-- Elderly Person Front View -->
+<!-- Head -->
+<ellipse cx="600" cy="130" rx="30" ry="38" fill="rgba(255,220,190,0.5)" stroke="rgba(200,180,160,0.6)" stroke-width="1.5"/>
+<path d="M595,115 Q600,108 605,115" fill="none" stroke="rgba(180,160,140,0.5)" stroke-width="1"/>
+<circle cx="590" cy="125" r="3" fill="#4b5563"/>
+<circle cx="610" cy="125" r="3" fill="#4b5563"/>
+<path d="M590,140 Q600,148 610,140" fill="none" stroke="#b91c1c" stroke-width="1.5"/>
+<ellipse cx="600" cy="135" rx="8" ry="4" fill="rgba(200,180,160,0.3)" stroke="rgba(200,180,160,0.5)" stroke-width="0.5"/>
+
+<!-- Hair (gray/white for elderly) -->
+<path d="M565,115 Q570,85 600,80 Q630,85 635,115 L635,125 Q630,118 625,120 Q620,115 615,118 Q610,112 600,110 Q590,112 585,118 Q580,115 575,120 Q570,118 565,125 Z" fill="rgba(200,200,200,0.5)" stroke="rgba(180,180,180,0.4)" stroke-width="0.5"/>
+
+<!-- Neck -->
+<rect x="590" y="165" width="20" height="25" rx="3" fill="rgba(255,220,190,0.3)" stroke="rgba(200,180,160,0.4)" stroke-width="1"/>
+
+<!-- Torso -->
+<path d="M560,188 Q555,200 550,230 Q545,270 545,310 Q545,330 550,340 L650,340 Q655,330 655,310 Q655,270 650,230 Q645,200 640,188 Z" fill="rgba(255,220,190,0.15)" stroke="rgba(200,180,160,0.5)" stroke-width="1.5"/>
+
+<!-- Shoulders -->
+<path d="M540,195 Q500,200 470,215 Q460,220 455,230 Q450,240 455,245 L470,245 Q480,230 500,220 Q520,210 540,205 Z" fill="rgba(255,220,190,0.15)" stroke="rgba(200,180,160,0.4)" stroke-width="1"/>
+<path d="M660,195 Q700,200 730,215 Q740,220 745,230 Q750,240 745,245 L730,245 Q720,230 700,220 Q680,210 660,205 Z" fill="rgba(255,220,190,0.15)" stroke="rgba(200,180,160,0.4)" stroke-width="1"/>
+
+<!-- Arms -->
+<path d="M455,245 Q445,280 440,330 Q438,360 440,380 Q442,390 448,395 Q452,395 455,390 Q458,380 458,360 Q460,330 462,290 Q465,260 470,245 Z" fill="rgba(255,220,190,0.12)" stroke="rgba(200,180,160,0.4)" stroke-width="1.2"/>
+<path d="M745,245 Q755,280 760,330 Q762,360 760,380 Q758,390 752,395 Q748,395 745,390 Q742,380 742,360 Q740,330 738,290 Q735,260 730,245 Z" fill="rgba(255,220,190,0.12)" stroke="rgba(200,180,160,0.4)" stroke-width="1.2"/>
+
+<!-- Hands -->
+<circle cx="450" cy="398" r="10" fill="rgba(255,220,190,0.2)" stroke="rgba(200,180,160,0.4)" stroke-width="1"/>
+<circle cx="750" cy="398" r="10" fill="rgba(255,220,190,0.2)" stroke="rgba(200,180,160,0.4)" stroke-width="1"/>
+
+<!-- LEFT LEG -->
+<path d="M575,338 Q570,370 568,400 Q565,430 565,460 Q565,490 568,520 Q570,550 573,580 Q575,610 576,640 Q576,660 575,680 Q573,700 572,710 Q568,720 565,725 Q560,730 558,728 Q555,725 555,720 Q555,710 558,700 Q560,680 560,660 Q560,640 558,620 Q555,600 555,580 Q555,550 557,520 Q560,490 560,460 Q560,430 558,400 Q555,370 552,340 Z" fill="rgba(255,220,190,0.12)" stroke="rgba(200,180,160,0.5)" stroke-width="1.5"/>
+
+<!-- RIGHT LEG -->
+<path d="M625,338 Q630,370 632,400 Q635,430 635,460 Q635,490 632,520 Q630,550 627,580 Q625,610 624,640 Q624,660 625,680 Q627,700 628,710 Q632,720 635,725 Q640,730 642,728 Q645,725 645,720 Q645,710 642,700 Q640,680 640,660 Q640,640 642,620 Q645,600 645,580 Q645,550 643,520 Q640,490 640,460 Q640,430 642,400 Q645,370 648,340 Z" fill="rgba(255,220,190,0.12)" stroke="rgba(200,180,160,0.5)" stroke-width="1.5"/>
+
+<!-- LEFT POWERKNEE DEVICE -->
+<rect x="550" y="420" width="35" height="80" rx="6" fill="url(#metalGrad)" stroke="#4b5563" stroke-width="1.5" filter="url(#shadow)"/>
+<rect x="552" y="422" width="31" height="76" rx="4" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+
+<!-- LEFT device - motor -->
+<text x="567" y="445" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.6)">BLDC</text>
+<text x="567" y="455" text-anchor="middle" font-size="6" fill="rgba(255,255,255,0.4)">MOTOR</text>
+
+<!-- LEFT device - hinge -->
+<circle cx="567" cy="508" r="6" fill="url(#metalLight)" stroke="#4b5563" stroke-width="1"/>
+<circle cx="567" cy="508" r="2.5" fill="#4b5563"/>
+
+<!-- LEFT straps -->
+<path d="M542,445 Q567,438 592,445" fill="none" stroke="#6B7280" stroke-width="4" opacity="0.7"/>
+<path d="M542,445 Q567,438 592,445" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="4,3"/>
+<path d="M546,475 Q567,470 588,475" fill="none" stroke="#6B7280" stroke-width="4" opacity="0.7"/>
+<path d="M546,475 Q567,470 588,475" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="4,3"/>
+<path d="M550,565 Q567,560 584,565" fill="none" stroke="#6B7280" stroke-width="4" opacity="0.7"/>
+<path d="M550,565 Q567,560 584,565" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+<!-- RIGHT POWERKNEE DEVICE -->
+<rect x="615" y="420" width="35" height="80" rx="6" fill="url(#metalGrad)" stroke="#4b5563" stroke-width="1.5" filter="url(#shadow)"/>
+<rect x="617" y="422" width="31" height="76" rx="4" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+
+<text x="632" y="445" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.6)">BLDC</text>
+<text x="632" y="455" text-anchor="middle" font-size="6" fill="rgba(255,255,255,0.4)">MOTOR</text>
+
+<circle cx="632" cy="508" r="6" fill="url(#metalLight)" stroke="#4b5563" stroke-width="1"/>
+<circle cx="632" cy="508" r="2.5" fill="#4b5563"/>
+
+<!-- RIGHT straps -->
+<path d="M608,445 Q632,438 658,445" fill="none" stroke="#6B7280" stroke-width="4" opacity="0.7"/>
+<path d="M608,445 Q632,438 658,445" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="4,3"/>
+<path d="M612,475 Q632,470 654,475" fill="none" stroke="#6B7280" stroke-width="4" opacity="0.7"/>
+<path d="M612,475 Q632,470 654,475" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="4,3"/>
+<path d="M616,565 Q632,560 650,565" fill="none" stroke="#6B7280" stroke-width="4" opacity="0.7"/>
+<path d="M616,565 Q632,560 650,565" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+<!-- Feet -->
+<path d="M548,725 Q545,735 540,740 Q535,742 538,745 Q545,748 555,748 Q565,748 572,745 Q575,742 570,740 Q565,735 562,725 Z" fill="rgba(255,220,190,0.2)" stroke="rgba(200,180,160,0.5)" stroke-width="1"/>
+<path d="M638,725 Q635,735 630,740 Q625,742 628,745 Q635,748 645,748 Q655,748 662,745 Q665,742 660,740 Q655,735 652,725 Z" fill="rgba(255,220,190,0.2)" stroke="rgba(200,180,160,0.5)" stroke-width="1"/>
+
+<!-- ============ CALLOUTS AND ANNOTATIONS ============ -->
+
+<!-- Callout 1: No waist battery -->
+<line x1="600" y1="300" x2="600" y2="260" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="3,2"/>
+<line x1="600" y1="260" x2="800" y2="240" stroke="#0096f0" stroke-width="0.8"/>
+<rect x="710" y="218" width="170" height="22" rx="4" fill="rgba(220,38,38,0.08)" stroke="#dc2626" stroke-width="0.8"/>
+<text x="795" y="233" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="bold">无腰部电池仓</text>
+
+<!-- Callout 2: Knee-mounted -->
+<line x1="567" y1="420" x2="480" y2="390" stroke="#0096f0" stroke-width="0.8"/>
+<rect x="390" y="370" width="110" height="30" rx="4" fill="rgba(0,150,240,0.06)" stroke="#0096f0" stroke-width="0.8"/>
+<text x="445" y="385" text-anchor="middle" font-size="9" fill="#0096f0" font-weight="bold">膝部集中供电</text>
+<text x="445" y="397" text-anchor="middle" font-size="8" fill="#6b7280">电池+电机+控制板</text>
+
+<!-- Callout 3: White magnesium -->
+<line x1="635" y1="430" x2="720" y2="410" stroke="#0096f0" stroke-width="0.8"/>
+<rect x="700" y="398" width="130" height="24" rx="4" fill="rgba(0,150,240,0.06)" stroke="#0096f0" stroke-width="0.8"/>
+<text x="765" y="413" text-anchor="middle" font-size="9" fill="#0096f0" font-weight="bold">白色镁合金壳体</text>
+
+<!-- Callout 4: 3 straps -->
+<line x1="592" y1="445" x2="700" y2="460" stroke="#0096f0" stroke-width="0.8"/>
+<rect x="700" y="448" width="110" height="24" rx="4" fill="rgba(0,150,240,0.06)" stroke="#0096f0" stroke-width="0.8"/>
+<text x="755" y="463" text-anchor="middle" font-size="9" fill="#0096f0" font-weight="bold">3条绑带/侧</text>
+
+<!-- Callout 5: Single hinge -->
+<line x1="632" y1="508" x2="720" y2="530" stroke="#0096f0" stroke-width="0.8"/>
+<rect x="700" y="518" width="120" height="24" rx="4" fill="rgba(0,150,240,0.06)" stroke="#0096f0" stroke-width="0.8"/>
+<text x="760" y="533" text-anchor="middle" font-size="9" fill="#0096f0" font-weight="bold">单轴铰链</text>
+
+<!-- ============ FORCE FLOW PATHS ============ -->
+
+<!-- Left leg force flow -->
+<path d="M570,180 Q568,250 567,350 Q567,400 567,460 Q567,520 567,580 Q567,650 565,720" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="8,5" marker-end="url(#arrowRedBig)" opacity="0.7"/>
+<path d="M567,460 Q567,500 567,508 Q567,516 567,560" fill="none" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowOrange)" opacity="0.8"/>
+
+<!-- Right leg force flow -->
+<path d="M630,180 Q632,250 633,350 Q633,400 633,460 Q633,520 633,580 Q633,650 635,720" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="8,5" marker-end="url(#arrowRedBig)" opacity="0.7"/>
+<path d="M633,460 Q633,500 633,508 Q633,516 633,560" fill="none" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowOrange)" opacity="0.8"/>
+
+<!-- Force flow legend -->
+<rect x="780" y="570" width="200" height="65" rx="4" fill="#f9fafb" stroke="#e5e7eb" stroke-width="0.8"/>
+<text x="790" y="588" font-size="9" font-weight="bold" fill="#4b5563">力流路径图例</text>
+<line x1="790" y1="600" x2="830" y2="600" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="8,5"/>
+<text x="835" y="603" font-size="8" fill="#6b7280">重力传导路径</text>
+<line x1="790" y1="618" x2="830" y2="618" stroke="#ea580c" stroke-width="3"/>
+<text x="835" y="621" font-size="8" fill="#6b7280">电机助力力矩</text>
+
+<!-- Force annotation -->
+<text x="545" y="490" font-size="8" fill="#dc2626" text-anchor="end">承重力</text>
+<text x="545" y="500" font-size="8" fill="#dc2626" text-anchor="end">体重→地面</text>
+
+<text x="655" y="490" font-size="8" fill="#ea580c">电机助力</text>
+<text x="655" y="500" font-size="8" fill="#ea580c">扭矩→腿段</text>
+
+<!-- Motor→Reducer→Hinge→Straps→Leg flow -->
+<text x="580" y="100" font-size="9" fill="#0096f0" font-weight="bold">能量流: 电池→电机→减速器→铰链→绑带→腿段</text>
+<text x="580" y="112" font-size="8" fill="#6b7280">Energy: Battery → Motor → Reducer → Hinge → Straps → Leg Segments</text>
+
+<!-- ============ KEY CALLOUT BOX ============ -->
+<rect x="830" y="100" width="330" height="95" rx="6" fill="rgba(220,38,38,0.04)" stroke="#fca5a5" stroke-width="1" stroke-dasharray="4,2"/>
+<text x="845" y="118" font-size="10" font-weight="bold" fill="#dc2626">膝部集中供电架构特征</text>
+<circle cx="845" cy="132" r="2" fill="#dc2626"/>
+<text x="852" y="135" font-size="9" fill="#6b7280">电池集成在膝关节模块内</text>
+<circle cx="845" cy="148" r="2" fill="#dc2626"/>
+<text x="852" y="151" font-size="9" fill="#6b7280">无腰部/背包电源分配</text>
+<circle cx="845" cy="164" r="2" fill="#dc2626"/>
+<text x="852" y="167" font-size="9" fill="#6b7280">单侧重量集中：约0.8-1.2kg/侧</text>
+<circle cx="845" cy="180" r="2" fill="#dc2626"/>
+<text x="852" y="183" font-size="9" fill="#6b7280">续航受限：电池容量约50-80Wh</text>
+
+<!-- ============ BOTTOM COMPARISON ============ -->
+<rect x="25" y="730" width="1150" height="170" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" filter="url(#softShadow)"/>
+<rect x="25" y="730" width="1150" height="28" fill="#f3f4f6" rx="6"/>
+<rect x="25" y="746" width="1150" height="12" fill="#f3f4f6"/>
+<text x="600" y="748" text-anchor="middle" font-size="12" font-weight="bold" fill="#4b5563">架构对比：PowerKnee 膝部分布式 vs Bones 腰部集中式</text>
+
+<!-- Left: PowerKnee knee-distributed -->
+<rect x="35" y="765" width="555" height="125" rx="4" fill="url(#kneeDistGrad)" stroke="#fca5a5" stroke-width="1"/>
+<rect x="35" y="765" width="555" height="22" rx="4" fill="rgba(220,38,38,0.08)"/>
+<rect x="35" y="781" width="555" height="6" fill="rgba(220,38,38,0.08)"/>
+<text x="312" y="782" text-anchor="middle" font-size="10" font-weight="bold" fill="#dc2626">PowerKnee: 膝部分布式架构</text>
+
+<!-- Mini leg diagrams for PowerKnee -->
+<rect x="50" y="795" width="18" height="55" rx="3" fill="#6B7280" opacity="0.3"/>
+<circle cx="59" cy="810" r="6" fill="#dc2626" opacity="0.6"/>
+<circle cx="59" cy="810" r="3" fill="#ef4444"/>
+<circle cx="59" cy="835" r="4" fill="#fca5a5" opacity="0.6"/>
+<text x="59" y="860" text-anchor="middle" font-size="7" fill="#dc2626">膝盖</text>
+
+<rect x="80" y="795" width="18" height="55" rx="3" fill="#6B7280" opacity="0.3"/>
+<circle cx="89" cy="810" r="6" fill="#dc2626" opacity="0.6"/>
+<circle cx="89" cy="810" r="3" fill="#ef4444"/>
+<circle cx="89" cy="835" r="4" fill="#fca5a5" opacity="0.6"/>
+
+<text x="120" y="808" font-size="9" fill="#6b7280">电池+电机+控制板</text>
+<text x="120" y="822" font-size="9" fill="#6b7280">全部集成在膝关节</text>
+<text x="120" y="840" font-size="9" fill="#6b7280">单侧独立运行</text>
+<text x="120" y="858" font-size="9" fill="#6b7280">无法协调双侧助力</text>
+
+<text x="120" y="875" font-size="9" font-weight="bold" fill="#dc2626">缺点：重心低但单侧重 · 续航短 · 双侧解耦</text>
+
+<!-- Right: Bones waist-centralized -->
+<rect x="610" y="765" width="555" height="125" rx="4" fill="url(#waistCentGrad)" stroke="#93c5fd" stroke-width="1"/>
+<rect x="610" y="765" width="555" height="22" rx="4" fill="rgba(0,150,240,0.08)"/>
+<rect x="610" y="781" width="555" height="6" fill="rgba(0,150,240,0.08)"/>
+<text x="887" y="782" text-anchor="middle" font-size="10" font-weight="bold" fill="#0096f0">Bones: 腰部集中式架构 (规划中)</text>
+
+<!-- Waist pack -->
+<rect x="825" y="795" width="40" height="20" rx="4" fill="#0096f0" opacity="0.5"/>
+<text x="845" y="810" text-anchor="middle" font-size="7" fill="#ffffff" font-weight="bold">电池</text>
+<text x="845" y="818" text-anchor="middle" font-size="6" fill="#ffffff">控制板</text>
+
+<line x1="835" y1="818" x2="760" y2="840" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+<line x1="855" y1="818" x2="920" y2="840" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+
+<rect x="735" y="840" width="20" height="18" rx="3" fill="#374151" opacity="0.6"/>
+<circle cx="745" cy="849" r="4" fill="#0096f0" opacity="0.6"/>
+<circle cx="745" cy="849" r="2" fill="#3b82f6"/>
+<text x="745" y="865" text-anchor="middle" font-size="6" fill="#0096f0">电机</text>
+
+<rect x="915" y="840" width="20" height="18" rx="3" fill="#374151" opacity="0.6"/>
+<circle cx="925" cy="849" r="4" fill="#0096f0" opacity="0.6"/>
+<circle cx="925" cy="849" r="2" fill="#3b82f6"/>
+<text x="925" y="865" text-anchor="middle" font-size="6" fill="#0096f0">电机</text>
+
+<text x="960" y="808" font-size="9" fill="#6b7280">电池/控制板在腰部</text>
+<text x="960" y="822" font-size="9" fill="#6b7280">电机在膝关节</text>
+<text x="960" y="840" font-size="9" fill="#6b7280">有线缆连接传递能量</text>
+<text x="960" y="858" font-size="9" fill="#6b7280">中央控制器协调双侧</text>
+
+<text x="960" y="875" font-size="9" font-weight="bold" fill="#0096f0">优点：载荷分布均匀 · 续航长 · 双侧协调</text>
+
+<!-- Center arrow -->
+<path d="M590,820 L605,820" fill="none" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowGray)"/>
+
+<!-- Main callout above comparison -->
+<rect x="25" y="648" width="1150" height="65" rx="4" fill="rgba(220,38,38,0.03)" stroke="#dc2626" stroke-width="0.8" stroke-dasharray="3,2"/>
+<text x="600" y="668" text-anchor="middle" font-size="11" font-weight="bold" fill="#dc2626">关键发现：PowerKnee 的膝部集中供电架构是设计决策的核心约束</text>
+<text x="600" y="685" text-anchor="middle" font-size="9" fill="#6b7280">电池+电机+控制板全部堆叠在膝关节两侧，导致单侧重约0.8-1.2kg、续航受限(50-80Wh)、且无法实现双侧协调控制</text>
+<text x="600" y="700" text-anchor="middle" font-size="9" fill="#6b7280">Bones 的腰部集中式架构将电池上移至重心，电机轻量化后下放至膝关节，实现更好的质量分布和续航</text>
+
+<!-- Bottom footer -->
+<rect x="25" y="915" width="1150" height="45" rx="6" fill="#1f2937"/>
+<text x="600" y="935" text-anchor="middle" font-size="10" font-weight="bold" fill="#fbbf24">架构决策决定产品边界：膝部集中 vs 腰部集中 是外骨骼设计的根本性选择</text>
+<text x="600" y="952" text-anchor="middle" font-size="8" fill="#9ca3af">数据来源: 京东商品页 Kickstarter页面 企业公开资料 | 骨骼流形分析 2026.07</text>
+</svg>

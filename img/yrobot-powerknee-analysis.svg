@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1100" width="1200" height="1100">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap');
+      text { font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif; }
+    </style>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <linearGradient id="flawGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff5f5"/>
+      <stop offset="100%" stop-color="#fff0f0"/>
+    </linearGradient>
+    <linearGradient id="solutionGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0fff4"/>
+      <stop offset="100%" stop-color="#ebf9ef"/>
+    </linearGradient>
+    <linearGradient id="learnGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8f9fa"/>
+      <stop offset="100%" stop-color="#f1f3f5"/>
+    </linearGradient>
+    <filter id="shadow1" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+    <filter id="shadow2" x="-2%" y="-2%" width="104%" height="106%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+    <filter id="numberCircle">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  \&lt;!-- Background -->
+  <rect width="1200" height="1100" fill="#ffffff"/>
+
+  \&lt;!-- ============ HEADER ============ -->
+  <rect x="0" y="0" width="1200" height="120" fill="url(#headerGrad)"/>
+  <text x="60" y="52" font-size="24" font-weight="700" fill="#ffffff" letter-spacing="1">远也 PowerKnee — 全球唯一商业化膝外骨骼的工程解剖</text>
+  <text x="60" y="82" font-size="13" font-weight="400" fill="#a0a0b8" letter-spacing="0.3">Yrobot PowerKnee — Engineering Autopsy of the World's Only Commercialized Knee Exoskeleton</text>
+  \&lt;!-- Decorative line -->
+  <line x1="60" y1="96" x2="300" y2="96" stroke="#e94560" stroke-width="2.5" stroke-linecap="round"/>
+
+  \&lt;!-- ============ PRODUCT OVERVIEW BAR ============ -->
+  <rect x="20" y="135" width="1160" height="60" rx="8" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1" filter="url(#shadow1)"/>
+  \&lt;!-- Company label -->
+  <rect x="36" y="145" width="130" height="40" rx="4" fill="#1a1a2e"/>
+  <text x="101" y="171" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">远也科技 Yrobot</text>
+  \&lt;!-- Spec chips -->
+  <rect x="178" y="145" width="120" height="40" rx="20" fill="#e9ecef"/>
+  <text x="238" y="169" font-size="11" font-weight="600" fill="#495057" text-anchor="middle">Wuxi, China</text>
+  <rect x="308" y="145" width="130" height="40" rx="20" fill="#e9ecef"/>
+  <text x="373" y="169" font-size="11" font-weight="600" fill="#495057" text-anchor="middle">$849 KS / ¥7,999</text>
+  <rect x="448" y="145" width="80" height="40" rx="20" fill="#e9ecef"/>
+  <text x="488" y="169" font-size="11" font-weight="600" fill="#495057" text-anchor="middle">2.5 kg</text>
+  <rect x="538" y="145" width="105" height="40" rx="20" fill="#e9ecef"/>
+  <text x="590" y="169" font-size="11" font-weight="600" fill="#495057" text-anchor="middle">SNAC 1000 Hz</text>
+  <rect x="653" y="145" width="105" height="40" rx="20" fill="#e9ecef"/>
+  <text x="705" y="169" font-size="11" font-weight="600" fill="#495057" text-anchor="middle">镁合金壳体</text>
+  <rect x="768" y="145" width="95" height="40" rx="20" fill="#e9ecef"/>
+  <text x="815" y="169" font-size="11" font-weight="600" fill="#495057" text-anchor="middle">Flex OEM</text>
+  <rect x="873" y="145" width="100" height="40" rx="20" fill="#e9ecef"/>
+  <text x="923" y="169" font-size="11" font-weight="600" fill="#495057" text-anchor="middle">$11M / 7yrs</text>
+  <rect x="983" y="145" width="100" height="40" rx="20" fill="#e9ecef"/>
+  <text x="1033" y="169" font-size="11" font-weight="600" fill="#495057" text-anchor="middle">100+ patents</text>
+  \&lt;!-- Quick stat -->
+  <text x="1098" y="169" font-size="22" font-weight="300" fill="#adb5bd">|</text>
+
+  \&lt;!-- ============ LEFT HALF: 5 FATAL FLAWS ============ -->
+  <rect x="20" y="210" width="570" height="710" rx="10" fill="url(#flawGrad)" stroke="#ffc9c9" stroke-width="1" filter="url(#shadow2)"/>
+  <rect x="20" y="210" width="570" height="44" rx="10" fill="#e03131"/>
+  <rect x="20" y="240" width="570" height="14" fill="#e03131"/>
+  <text x="305" y="239" font-size="18" font-weight="800" fill="#ffffff" text-anchor="middle">5 FATAL FLAWS — 五个致命缺陷</text>
+
+  \&lt;!-- FLAW 1 -->
+  <rect x="36" y="264" width="538" height="80" rx="6" fill="#fff" stroke="#ffc9c9" stroke-width="0.5"/>
+  <circle cx="56" cy="285" r="11" fill="#e03131" filter="url(#numberCircle)"/>
+  <text x="56" y="289" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="76" y="286" font-size="13" font-weight="700" fill="#c92a2a">Weight Limit ≤65/75 kg — Motor Torque Insufficient</text>
+  <text x="76" y="306" font-size="10" font-weight="400" fill="#868e96">承重上限 Ultra≤65kg / Pro≤75kg</text>
+  <text x="76" y="322" font-size="10.5" font-weight="500" fill="#495057">Est. 12-18 Nm from weight limit back-calculation. Excludes 70%+ potential users. A device</text>
+  <text x="76" y="337" font-size="10.5" font-weight="500" fill="#495057">that can't support average-weight adults is fundamentally limited in market reach.</text>
+
+  \&lt;!-- FLAW 2 -->
+  <rect x="36" y="350" width="538" height="80" rx="6" fill="#fff" stroke="#ffc9c9" stroke-width="0.5"/>
+  <circle cx="56" cy="371" r="11" fill="#e03131" filter="url(#numberCircle)"/>
+  <text x="56" y="375" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <text x="76" y="372" font-size="13" font-weight="700" fill="#c92a2a">3 Straps + 5-min Wear — Mechanical Compromise</text>
+  <text x="76" y="392" font-size="10" font-weight="400" fill="#868e96">三绑带 + 5分钟穿戴上限</text>
+  <text x="76" y="408" font-size="10.5" font-weight="500" fill="#495057">Single-axis hinge requires 3 anchors for shear force distribution, creating parasitic</text>
+  <text x="76" y="423" font-size="10.5" font-weight="500" fill="#495057">compliance. 5 minutes is user patience ceiling, not a feature.</text>
+
+  \&lt;!-- FLAW 3 -->
+  <rect x="36" y="436" width="538" height="80" rx="6" fill="#fff" stroke="#ffc9c9" stroke-width="0.5"/>
+  <circle cx="56" cy="457" r="11" fill="#e03131" filter="url(#numberCircle)"/>
+  <text x="56" y="461" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+  <text x="76" y="458" font-size="13" font-weight="700" fill="#c92a2a">Medical-Device Appearance — Branding Trap</text>
+  <text x="76" y="478" font-size="10" font-weight="400" fill="#868e96">医疗器械外观 — 品牌定位陷阱</text>
+  <text x="76" y="494" font-size="10.5" font-weight="500" fill="#495057">Exposed magnesium alloy, 3 external straps, white color. "肌肉外甲" branding reinforces</text>
+  <text x="76" y="509" font-size="10.5" font-weight="500" fill="#495057">medical assistive device, not consumer wearable. Stigma barrier in social contexts.</text>
+
+  \&lt;!-- FLAW 4 -->
+  <rect x="36" y="522" width="538" height="80" rx="6" fill="#fff" stroke="#ffc9c9" stroke-width="0.5"/>
+  <circle cx="56" cy="543" r="11" fill="#e03131" filter="url(#numberCircle)"/>
+  <text x="56" y="547" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+  <text x="76" y="544" font-size="13" font-weight="700" fill="#c92a2a">¥7,999 Pricing — Mass-Market Impossible</text>
+  <text x="76" y="564" font-size="10" font-weight="400" fill="#868e96">¥7,999定价 — 无法触及大众市场</text>
+  <text x="76" y="580" font-size="10.5" font-weight="500" fill="#495057">BOM est. $460-760 + Flex contract markup. Not economically scalable for mass adoption.</text>
+  <text x="76" y="595" font-size="10.5" font-weight="500" fill="#495057">JD monthly sales only "hundreds" — niche medical channel, not consumer.</text>
+
+  \&lt;!-- FLAW 5 -->
+  <rect x="36" y="608" width="538" height="80" rx="6" fill="#fff" stroke="#ffc9c9" stroke-width="0.5"/>
+  <circle cx="56" cy="629" r="11" fill="#e03131" filter="url(#numberCircle)"/>
+  <text x="56" y="633" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+  <text x="76" y="630" font-size="13" font-weight="700" fill="#c92a2a">AI Prediction NOT RL — No Personalization</text>
+  <text x="76" y="650" font-size="10" font-weight="400" fill="#868e96">AI预测非强化学习 — 无个性化适配</text>
+  <text x="76" y="666" font-size="10.5" font-weight="500" fill="#495057">Feedforward admittance control only. Does NOT optimize KAM. All users get same generic</text>
+  <text x="76" y="681" font-size="10.5" font-weight="500" fill="#495057">assist profile regardless of gait biomechanics or pathology differences.</text>
+
+  \&lt;!-- Summary verdict -->
+  <rect x="36" y="698" width="538" height="22" rx="4" fill="#fff5f5"/>
+  <text x="305" y="714" font-size="11" font-weight="700" fill="#c92a2a" text-anchor="middle">Verdict: First-mover advantage does not equal sustainable moat</text>
+  <text x="305" y="700" font-size="10" font-weight="400" fill="#868e96" text-anchor="middle">先发优势不等于可持续护城河</text>
+
+  \&lt;!-- ============ RIGHT HALF: 5 BONES COUNTER-SOLUTIONS ============ -->
+  <rect x="610" y="210" width="570" height="710" rx="10" fill="url(#solutionGrad)" stroke="#b2f2bb" stroke-width="1" filter="url(#shadow2)"/>
+  <rect x="610" y="210" width="570" height="44" rx="10" fill="#2f9e44"/>
+  <rect x="610" y="240" width="570" height="14" fill="#2f9e44"/>
+  <text x="895" y="239" font-size="18" font-weight="800" fill="#ffffff" text-anchor="middle">BONES COUNTER-SOLUTIONS — 骨骼流形对抗方案</text>
+
+  \&lt;!-- SOLUTION 1 -->
+  <rect x="626" y="264" width="538" height="80" rx="6" fill="#fff" stroke="#b2f2bb" stroke-width="0.5"/>
+  <circle cx="646" cy="285" r="11" fill="#2f9e44" filter="url(#numberCircle)"/>
+  <text x="646" y="289" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="666" y="286" font-size="13" font-weight="700" fill="#2b8a3e">AK80-9 V3.0: 22 Nm Peak vs 12-18 Nm</text>
+  <text x="666" y="306" font-size="10" font-weight="400" fill="#868e96">AK80-9 V3.0 峰值22Nm vs 竞品估算12-18Nm</text>
+  <text x="666" y="322" font-size="10.5" font-weight="500" fill="#343a40">Covers ≤90 kg users vs competitor ≤65/75 kg. +30% user coverage expansion.</text>
+  <text x="666" y="337" font-size="10.5" font-weight="500" fill="#343a40">Direct torque advantage from better motor selection and thermal management.</text>
+
+  \&lt;!-- SOLUTION 2 -->
+  <rect x="626" y="350" width="538" height="80" rx="6" fill="#fff" stroke="#b2f2bb" stroke-width="0.5"/>
+  <circle cx="646" cy="371" r="11" fill="#2f9e44" filter="url(#numberCircle)"/>
+  <text x="646" y="375" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <text x="666" y="372" font-size="13" font-weight="700" fill="#2b8a3e">2-Strap + Carbon Frame: \&lt;60 sec Wear</text>
+  <text x="666" y="392" font-size="10" font-weight="400" fill="#868e96">双绑带 + 碳纤维框架：60秒内完成穿戴</text>
+  <text x="666" y="408" font-size="10.5" font-weight="500" fill="#343a40">Thigh 60 mm + calf 50 mm wide straps. Carbon fiber pre-formed frame eliminates</text>
+  <text x="666" y="423" font-size="10.5" font-weight="500" fill="#343a40">parasitic compliance. Fidlock magnetic quick-release for instant don/doff.</text>
+
+  \&lt;!-- SOLUTION 3 -->
+  <rect x="626" y="436" width="538" height="80" rx="6" fill="#fff" stroke="#b2f2bb" stroke-width="0.5"/>
+  <circle cx="646" cy="457" r="11" fill="#2f9e44" filter="url(#numberCircle)"/>
+  <text x="646" y="461" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+  <text x="666" y="458" font-size="13" font-weight="700" fill="#2b8a3e">Consumer Design Language — "智能护膝"</text>
+  <text x="666" y="478" font-size="10" font-weight="400" fill="#868e96">消费级设计语言 — 定位"智能护膝"而非"外骨骼"</text>
+  <text x="666" y="494" font-size="10.5" font-weight="500" fill="#343a40">Carbon fiber matte finish. Motor fabric-wrapped. Black/dark-gray colorway.</text>
+  <text x="666" y="509" font-size="10.5" font-weight="500" fill="#343a40">Zero exposed cables. Sport-brace visual language eliminates stigma.</text>
+
+  \&lt;!-- SOLUTION 4 -->
+  <rect x="626" y="522" width="538" height="80" rx="6" fill="#fff" stroke="#b2f2bb" stroke-width="0.5"/>
+  <circle cx="646" cy="543" r="11" fill="#2f9e44" filter="url(#numberCircle)"/>
+  <text x="646" y="547" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+  <text x="666" y="544" font-size="13" font-weight="700" fill="#2b8a3e">Tiered Supply Chain: ¥5,000-8,000 Target</text>
+  <text x="666" y="564" font-size="10" font-weight="400" fill="#868e96">阶梯式供应链：目标零售价¥5,000-8,000</text>
+  <text x="666" y="580" font-size="10.5" font-weight="500" fill="#343a40">100 units: Shenzhen SMT prototype run. 1,000 units: BYD Electronics volume.</text>
+  <text x="666" y="595" font-size="10.5" font-weight="500" fill="#343a40">BOM optimization through motor selection + carbon fiber structural integration.</text>
+
+  \&lt;!-- SOLUTION 5 -->
+  <rect x="626" y="608" width="538" height="80" rx="6" fill="#fff" stroke="#b2f2bb" stroke-width="0.5"/>
+  <circle cx="646" cy="629" r="11" fill="#2f9e44" filter="url(#numberCircle)"/>
+  <text x="646" y="633" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+  <text x="666" y="630" font-size="13" font-weight="700" fill="#2b8a3e">PPO RL Optimizing KAM — True Personalization</text>
+  <text x="666" y="650" font-size="10" font-weight="400" fill="#868e96">PPO强化学习直接优化膝内收力矩 — 真正个性化</text>
+  <text x="666" y="666" font-size="10.5" font-weight="500" fill="#343a40">IMU + strain gauge torque feedback. Per-person unique torque curve via RL.</text>
+  <text x="666" y="681" font-size="10.5" font-weight="500" fill="#343a40">Target KAM reduction 15-20% — clinically meaningful and measurable.</text>
+
+  \&lt;!-- Summary advantage -->
+  <rect x="626" y="698" width="538" height="22" rx="4" fill="#ebfbee"/>
+  <text x="895" y="714" font-size="11" font-weight="700" fill="#2b8a3e" text-anchor="middle">Advantage: Engineering + Design + AI create layered defensibility</text>
+  <text x="895" y="700" font-size="10" font-weight="400" fill="#868e96" text-anchor="middle">工程 + 设计 + AI 构建分层防御体系</text>
+
+  \&lt;!-- ============ BOTTOM: 3 THINGS TO LEARN ============ -->
+  <rect x="20" y="935" width="1160" height="150" rx="10" fill="url(#learnGrad)" stroke="#dee2e6" stroke-width="1" filter="url(#shadow2)"/>
+  <rect x="20" y="935" width="1160" height="36" rx="10" fill="#495057"/>
+  <rect x="20" y="958" width="1160" height="13" fill="#495057"/>
+  <text x="600" y="959" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">3 THINGS TO LEARN FROM YROBOT — 从远也科技学到的三件事</text>
+
+  \&lt;!-- Item 1 -->
+  <rect x="40" y="982" width="360" height="88" rx="6" fill="#fff" stroke="#dee2e6" stroke-width="0.5"/>
+  <rect x="40" y="982" width="4" height="88" rx="2" fill="#e94560"/>
+  <text x="58" y="1002" font-size="12" font-weight="700" fill="#343a40">Torque Sensor Design</text>
+  <text x="58" y="1017" font-size="9.5" font-weight="400" fill="#868e96">扭矩传感器设计</text>
+  <text x="58" y="1035" font-size="10.5" font-weight="400" fill="#495057">Strain gauge on output shaft + AD8226</text>
+  <text x="58" y="1050" font-size="10.5" font-weight="400" fill="#495057">instrumentation amplifier + 24-bit ADC.</text>
+  <text x="58" y="1065" font-size="10.5" font-weight="400" fill="#495057">Proven architecture, worth licensing or</text>
+  <text x="58" y="1080" font-size="10.5" font-weight="400" fill="#495057">reverse-engineering for Bones' torque feedback.</text>
+
+  \&lt;!-- Item 2 -->
+  <rect x="420" y="982" width="360" height="88" rx="6" fill="#fff" stroke="#dee2e6" stroke-width="0.5"/>
+  <rect x="420" y="982" width="4" height="88" rx="2" fill="#e94560"/>
+  <text x="438" y="1002" font-size="12" font-weight="700" fill="#343a40">Magnesium Alloy Housing</text>
+  <text x="438" y="1017" font-size="9.5" font-weight="400" fill="#868e96">镁合金壳体制造</text>
+  <text x="438" y="1035" font-size="10.5" font-weight="400" fill="#495057">AZ91D magnesium alloy, density 1.74 g/cm³.</text>
+  <text x="438" y="1050" font-size="10.5" font-weight="400" fill="#495057">Thin-wall die casting achieves 2.5 kg total</text>
+  <text x="438" y="1065" font-size="10.5" font-weight="400" fill="#495057">weight. Critical manufacturing partner for</text>
+  <text x="438" y="1080" font-size="10.5" font-weight="400" fill="#495057">lightweight exoskeleton structural design.</text>
+
+  \&lt;!-- Item 3 -->
+  <rect x="800" y="982" width="360" height="88" rx="6" fill="#fff" stroke="#dee2e6" stroke-width="0.5"/>
+  <rect x="800" y="982" width="4" height="88" rx="2" fill="#e94560"/>
+  <text x="818" y="1002" font-size="12" font-weight="700" fill="#343a40">Flex Contract Manufacturing</text>
+  <text x="818" y="1017" font-size="9.5" font-weight="400" fill="#868e96">Flex代工模式</text>
+  <text x="818" y="1035" font-size="10.5" font-weight="400" fill="#495057">ISO 13485 medical-grade manufacturing</text>
+  <text x="818" y="1050" font-size="10.5" font-weight="400" fill="#495057">without owning a factory. Validates BONES'</text>
+  <text x="818" y="1065" font-size="10.5" font-weight="400" fill="#495057">asset-light strategy. Shenzhen SMT + BYD</text>
+  <text x="818" y="1080" font-size="10.5" font-weight="400" fill="#495057">Electronics for volume scaling.</text>
+
+  \&lt;!-- Footer -->
+  <text x="600" y="1095" font-size="9" font-weight="400" fill="#adb5bd" text-anchor="middle">Bones &amp; Manifold — Competitor Deep-Dive C3.2 | 2026-07-02 | Source: Yrobot PowerKnee official, JD.com, KS campaign, patent filings</text>
+</svg>

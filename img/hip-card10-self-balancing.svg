@@ -1,0 +1,511 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <defs>
+    <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede3cc"/>
+      <stop offset="40%" stop-color="#e8ddc0"/>
+      <stop offset="70%" stop-color="#dfd2b2"/>
+      <stop offset="100%" stop-color="#d4c9a8"/>
+    </linearGradient>
+    <linearGradient id="boneShadow" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#f5edd8"/>
+      <stop offset="100%" stop-color="#c4b898"/>
+    </linearGradient>
+    <linearGradient id="boneDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4c9a8"/>
+      <stop offset="100%" stop-color="#b8ad90"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A0AAB5"/>
+      <stop offset="40%" stop-color="#8B93A0"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+    <linearGradient id="metalDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6B7280"/>
+      <stop offset="100%" stop-color="#4B5563"/>
+    </linearGradient>
+    <linearGradient id="metalLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#B8BFC8"/>
+      <stop offset="100%" stop-color="#9CA3AF"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5f0eb"/>
+      <stop offset="50%" stop-color="#faf5ef"/>
+      <stop offset="100%" stop-color="#f5f0eb"/>
+    </linearGradient>
+    <linearGradient id="muscleGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(200,50,50,0.05)"/>
+      <stop offset="50%" stop-color="rgba(200,50,50,0.10)"/>
+      <stop offset="100%" stop-color="rgba(200,50,50,0.06)"/>
+    </linearGradient>
+    <linearGradient id="gyroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9E9E9E" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#BDBDBD" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#9E9E9E" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="cmgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6B7280"/>
+      <stop offset="50%" stop-color="#9CA3AF"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+    <marker id="arrowRed" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#9E9E9E"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#3b82f6"/>
+    </marker>
+    <filter id="shadow" x="-8%" y="-8%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="rgba(0,0,0,0.15)"/>
+    </filter>
+    <filter id="softShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="1" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.08)"/>
+    </filter>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="leftPane">
+      <rect x="0" y="0" width="740" height="1080"/>
+    </clipPath>
+    <style>
+      .label-sm { font-size: 9px; fill: #64748b; font-family: sans-serif; }
+      .label-md { font-size: 11px; fill: #334155; font-family: sans-serif; }
+      .label-lg { font-size: 13px; fill: #1e293b; font-family: sans-serif; font-weight: bold; }
+      .label-em { font-size: 10px; fill: #9E9E9E; font-family: sans-serif; font-weight: bold; }
+      .label-force { font-size: 11px; fill: #dc2626; font-family: sans-serif; font-weight: bold; }
+      .title-gray { font-size: 18px; fill: #616161; font-family: sans-serif; font-weight: bold; }
+      .title-light { font-size: 13px; fill: #475569; font-family: sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1200" fill="#ffffff"/>
+
+  <!-- ISOLATION ZONE -->
+  <rect x="740" y="0" width="60" height="1200" fill="#fafbfc" opacity="0.4"/>
+  <line x1="740" y1="0" x2="740" y2="1200" stroke="#e5e7eb" stroke-width="0.8"/>
+  <line x1="800" y1="0" x2="800" y2="1200" stroke="#e5e7eb" stroke-width="0.8"/>
+
+  <!-- LEFT PANEL -->
+  <g clip-path="url(#leftPane)">
+    <rect x="20" y="0" width="720" height="1080" fill="#ffffff"/>
+    <g>
+      <text x="30" y="24" class="label-em" font-size="12">Fig. J 自平衡式髋外骨骼 | 侧面观 Lateral View</text>
+      <line x1="30" y1="28" x2="300" y2="28" stroke="#e5e7eb" stroke-width="0.5"/>
+    </g>
+
+    <!-- HUMAN BODY -->
+    <g filter="url(#softShadow)">
+      <path d="M 240,70 C 230,110 225,160 230,210 C 235,260 260,300 285,330 L 475,330 C 500,300 525,260 530,210 C 535,160 530,110 520,70 C 510,60 480,55 380,55 C 280,55 250,60 240,70 Z" fill="url(#skinGrad)" stroke="#e8ddd0" stroke-width="0.8"/>
+      <rect x="350" y="30" width="60" height="40" rx="10" fill="#f5f0eb" stroke="#e8ddd0" stroke-width="0.6"/>
+      <ellipse cx="380" cy="10" rx="32" ry="26" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.8"/>
+      <line x1="380" y1="0" x2="380" y2="8" stroke="#dccfc0" stroke-width="0.5"/>
+      <line x1="370" y1="14" x2="390" y2="14" stroke="#dccfc0" stroke-width="0.5"/>
+    </g>
+    <line x1="380" y1="60" x2="380" y2="260" stroke="#d4c9a8" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.5"/>
+    <g stroke="#dccfc0" stroke-width="0.6" fill="none" opacity="0.35">
+      <path d="M 280,110 Q 320,105 340,115"/><path d="M 420,115 Q 440,105 480,110"/>
+      <path d="M 270,140 Q 320,130 340,145"/><path d="M 420,145 Q 440,130 490,140"/>
+      <path d="M 265,170 Q 315,155 340,175"/><path d="M 420,175 Q 445,155 495,170"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 380,255 C 340,252 295,260 270,285 C 250,310 245,340 260,360 C 275,380 295,395 320,405 C 340,412 360,415 380,416 C 400,415 420,412 440,405 C 465,395 485,380 500,360 C 515,340 510,310 490,285 C 465,260 420,252 380,255 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <circle cx="290" cy="355" r="18" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.8"/><circle cx="290" cy="355" r="13" fill="#dfd2b2" stroke="#c4b898" stroke-width="0.4"/>
+      <circle cx="470" cy="355" r="18" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.8"/><circle cx="470" cy="355" r="13" fill="#dfd2b2" stroke="#c4b898" stroke-width="0.4"/>
+    </g>
+    <g filter="url(#shadow)">
+      <circle cx="290" cy="355" r="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 285,355 Q 278,380 282,400 L 290,398 Q 288,378 292,355 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 282,400 C 280,450 278,500 278,550 C 278,600 280,650 285,700 L 298,700 C 293,650 290,600 290,550 C 290,500 292,450 296,400 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <ellipse cx="285" cy="698" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/><ellipse cx="300" cy="698" rx="8" ry="12" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <circle cx="470" cy="355" r="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 475,355 Q 482,380 478,400 L 470,398 Q 472,378 468,355 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 478,400 C 480,450 482,500 482,550 C 482,600 480,650 475,700 L 462,700 C 467,650 470,600 470,550 C 470,500 468,450 464,400 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <ellipse cx="475" cy="698" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/><ellipse cx="460" cy="698" rx="8" ry="12" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+    </g>
+    <g opacity="0.12">
+      <path d="M 285,410 C 282,470 280,530 283,590 C 286,630 290,660 295,690 L 285,690 C 282,660 278,630 276,590 C 274,530 277,470 282,410 Z" fill="#dc2626"/>
+      <path d="M 475,410 C 478,470 480,530 477,590 C 474,630 470,660 465,690 L 475,690 C 478,660 482,630 484,590 C 486,530 483,470 478,410 Z" fill="#dc2626"/>
+    </g>
+    <g filter="url(#softShadow)">
+      <ellipse cx="290" cy="705" rx="12" ry="9" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/><ellipse cx="470" cy="705" rx="12" ry="9" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 283,710 C 280,760 278,810 277,860 C 276,910 278,950 282,980 L 294,980 C 290,950 288,910 287,860 C 286,810 288,760 290,710 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <path d="M 477,710 C 480,760 482,810 483,860 C 484,910 482,950 478,980 L 466,980 C 470,950 472,910 473,860 C 474,810 472,760 470,710 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+    </g>
+    <g filter="url(#softShadow)">
+      <path d="M 280,980 L 278,1010 C 278,1020 282,1025 290,1025 L 296,1020 C 298,1015 296,1005 294,980 Z" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.6"/>
+      <path d="M 480,980 L 482,1010 C 482,1020 478,1025 470,1025 L 464,1020 C 462,1015 464,1005 466,980 Z" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.6"/>
+    </g>
+
+    <!-- ==================== SELF-BALANCING EXOSKELETON ==================== -->
+
+    <!-- CMG Control Moment Gyroscope module (backpack) -->
+    <g filter="url(#shadow)">
+      <rect x="310" y="75" width="140" height="130" rx="12" fill="url(#cmgGrad)" stroke="#4B5563" stroke-width="1.5"/>
+      <!-- Gyro housing -->
+      <circle cx="380" cy="110" r="35" fill="url(#gyroGrad)" stroke="#6B7280" stroke-width="1.5"/>
+      <!-- Gimbal ring 1 -->
+      <circle cx="380" cy="110" r="30" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+      <!-- Gimbal ring 2 -->
+      <circle cx="380" cy="110" r="22" fill="none" stroke="#BDBDBD" stroke-width="1"/>
+      <!-- Spinning mass -->
+      <circle cx="380" cy="110" r="14" fill="#6B7280" stroke="#4B5563" stroke-width="1"/>
+      <circle cx="380" cy="110" r="8" fill="#9CA3AF"/>
+      <circle cx="380" cy="110" r="3" fill="#4B5563"/>
+      <!-- Rotation indicator -->
+      <path d="M 380,96 A 14 14 0 0 1 394,110" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrowRedSmall)"/>
+      <text x="380" y="155" font-size="8" fill="#9CA3AF" font-family="sans-serif" text-anchor="middle">控制力矩陀螺 (CMG)</text>
+    </g>
+
+    <!-- IMU sensor array -->
+    <g filter="url(#softShadow)">
+      <rect x="340" y="220" width="80" height="30" rx="4" fill="#6B7280" stroke="#4B5563" stroke-width="0.8"/>
+      <text x="380" y="235" font-size="7" fill="#e0e0e0" font-family="sans-serif" text-anchor="middle">IMU 阵列</text>
+      <text x="380" y="245" font-size="6" fill="#9CA3AF" font-family="sans-serif" text-anchor="middle">6 轴 + 气压计</text>
+    </g>
+
+    <!-- Balance compensation moment indicator -->
+    <g filter="url(#glow)">
+      <path d="M 380,110 C 440,110 490,130 510,180" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="8,4" opacity="0.6"/>
+      <path d="M 380,110 C 320,110 270,130 250,180" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="8,4" opacity="0.6"/>
+    </g>
+
+    <!-- Pelvic belt (structural) -->
+    <g filter="url(#shadow)">
+      <path d="M 225,260 C 215,285 210,310 220,330 C 228,345 245,352 265,355 L 495,355 C 515,352 532,345 540,330 C 550,310 545,285 535,260 C 525,248 495,245 380,245 C 265,245 235,248 225,260 Z" fill="none" stroke="url(#metalDark)" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+    </g>
+
+    <!-- Hip joints (passive, balance-sensing) -->
+    <g filter="url(#shadow)">
+      <circle cx="290" cy="355" r="18" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="1.5"/>
+      <circle cx="290" cy="355" r="12" fill="#8B93A0"/>
+      <circle cx="290" cy="355" r="5" fill="#9CA3AF"/>
+      <circle cx="290" cy="355" r="2" fill="#4B5563"/>
+      <!-- Torque sensor indicator -->
+      <rect x="282" y="338" width="16" height="6" rx="2" fill="#3b82f6" opacity="0.5"/>
+    </g>
+
+    <g filter="url(#shadow)">
+      <circle cx="470" cy="355" r="18" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="1.5"/>
+      <circle cx="470" cy="355" r="12" fill="#8B93A0"/>
+      <circle cx="470" cy="355" r="5" fill="#9CA3AF"/>
+      <circle cx="470" cy="355" r="2" fill="#4B5563"/>
+      <rect x="462" y="338" width="16" height="6" rx="2" fill="#3b82f6" opacity="0.5"/>
+    </g>
+
+    <!-- Thigh braces -->
+    <g filter="url(#shadow)">
+      <path d="M 282,380 C 280,440 278,500 279,560 C 280,620 283,660 286,710 L 296,710 C 293,660 291,620 290,560 C 289,500 291,440 294,380 Z" fill="none" stroke="url(#metalLight)" stroke-width="5" stroke-linecap="round"/>
+      <path d="M 478,380 C 480,440 482,500 481,560 C 480,620 477,660 474,710 L 464,710 C 467,660 469,620 470,560 C 471,500 469,440 464,380 Z" fill="none" stroke="url(#metalLight)" stroke-width="5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Balance recovery actuator -->
+    <g filter="url(#shadow)">
+      <rect x="268" y="400" width="12" height="16" rx="3" fill="#3b82f6" opacity="0.4" stroke="#3b82f6" stroke-width="0.6"/>
+      <rect x="480" y="400" width="12" height="16" rx="3" fill="#3b82f6" opacity="0.4" stroke="#3b82f6" stroke-width="0.6"/>
+    </g>
+
+    <!-- ==================== NUMBERED ANNOTATIONS ==================== -->
+    <line x1="380" y1="110" x2="440" y2="110" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="446" cy="110" r="9" fill="#9E9E9E"/>
+    <text x="446" y="114" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">1</text>
+    <text x="460" y="108" class="label-sm" font-size="8" fill="#9E9E9E">控制力矩陀螺 CMG</text>
+
+    <line x1="380" y1="235" x2="440" y2="240" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="446" cy="242" r="9" fill="#9E9E9E"/>
+    <text x="446" y="246" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">2</text>
+    <text x="460" y="238" class="label-sm" font-size="8" fill="#9E9E9E">IMU 传感器阵列</text>
+
+    <line x1="510" y1="180" x2="530" y2="190" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="536" cy="192" r="9" fill="#9E9E9E"/>
+    <text x="536" y="196" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">3</text>
+    <text x="550" y="188" class="label-sm" font-size="8" fill="#9E9E9E">补偿力矩</text>
+
+    <line x1="290" y1="345" x2="260" y2="340" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="254" cy="338" r="9" fill="#9E9E9E"/>
+    <text x="254" y="342" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">4</text>
+    <text x="240" y="332" class="label-sm" font-size="8" fill="#9E9E9E" text-anchor="end">扭矩传感器</text>
+
+    <line x1="240" y1="275" x2="170" y2="265" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="164" cy="263" r="9" fill="#9E9E9E"/>
+    <text x="164" y="267" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">5</text>
+    <text x="148" y="258" class="label-sm" font-size="8" fill="#9E9E9E" text-anchor="end">骨盆固定架</text>
+
+    <line x1="296" y1="550" x2="320" y2="540" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="326" cy="538" r="9" fill="#9E9E9E"/>
+    <text x="326" y="542" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">6</text>
+    <text x="340" y="536" class="label-sm" font-size="8" fill="#9E9E9E">大腿连杆</text>
+
+    <line x1="274" y1="410" x2="260" y2="420" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="254" cy="422" r="9" fill="#9E9E9E"/>
+    <text x="254" y="426" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">7</text>
+    <text x="240" y="416" class="label-sm" font-size="8" fill="#9E9E9E" text-anchor="end">平衡微调执行器</text>
+
+    <line x1="286" y1="710" x2="320" y2="710" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="326" cy="710" r="9" fill="#9E9E9E"/>
+    <text x="326" y="714" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">8</text>
+    <text x="340" y="708" class="label-sm" font-size="8" fill="#9E9E9E">膝关节铰链</text>
+
+    <line x1="380" y1="110" x2="320" y2="110" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="314" cy="110" r="9" fill="#9E9E9E"/>
+    <text x="314" y="114" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">9</text>
+    <text x="300" y="104" class="label-sm" font-size="8" fill="#9E9E9E" text-anchor="end">高速转子</text>
+
+    <line x1="250" y1="180" x2="230" y2="190" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="224" cy="192" r="9" fill="#9E9E9E"/>
+    <text x="224" y="196" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">10</text>
+    <text x="210" y="186" class="label-sm" font-size="8" fill="#9E9E9E" text-anchor="end">左侧补偿力矩</text>
+
+    <!-- FORCE VECTORS -->
+    <line x1="380" y1="10" x2="380" y2="-30" stroke="#dc2626" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <text x="388" y="-18" class="label-force">W (体重+CMG)</text>
+    <!-- Compensation moment -->
+    <path d="M 430,110 Q 460,150 430,200" fill="none" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+    <text x="438" y="160" class="label-sm" font-size="8" fill="#3b82f6">M_comp (补偿力矩)</text>
+    <path d="M 260,355 L 240,355" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+    <text x="222" y="353" class="label-force" font-size="10">F_joint</text>
+    <path d="M 500,355 L 520,355" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+    <text x="528" y="353" class="label-force" font-size="10">F_joint</text>
+    <line x1="285" y1="1030" x2="285" y2="1055" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="270" y="1068" class="label-force" font-size="9">GRF</text>
+    <line x1="475" y1="1030" x2="475" y2="1055" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="478" y="1068" class="label-force" font-size="9">GRF</text>
+
+    <!-- PRODUCT CALLOUTS -->
+    <g transform="translate(540, 55)">
+      <rect x="0" y="0" width="180" height="140" rx="5" fill="#fff" stroke="#9E9E9E" stroke-width="1.2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="180" height="22" rx="5" fill="#616161"/>
+      <text x="90" y="15" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Gyrobalancer (概念)</text>
+      <text x="8" y="34" class="label-sm" font-size="8">重量：2.5 kg</text>
+      <text x="8" y="48" class="label-sm" font-size="8">核心：CMG 控制力矩陀螺</text>
+      <text x="8" y="62" class="label-sm" font-size="8">电源：48 Wh 锂电池</text>
+      <text x="8" y="76" class="label-sm" font-size="8">传感器：6 轴 IMU</text>
+      <text x="8" y="90" class="label-sm" font-size="8">应用：老年人防跌倒</text>
+      <line x1="8" y1="96" x2="172" y2="96" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="8" y="110" class="label-sm" font-size="8" fill="#9E9E9E" font-weight="bold">主动平衡补偿 | 防跌倒</text>
+      <text x="8" y="126" class="label-sm" font-size="8" fill="#94a3b8">CMG 力矩平衡，无关节驱动</text>
+    </g>
+
+    <g transform="translate(540, 210)">
+      <rect x="0" y="0" width="180" height="130" rx="5" fill="#fff" stroke="#9E9E9E" stroke-width="1.2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="180" height="22" rx="5" fill="#616161"/>
+      <text x="90" y="15" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Honda U3-X (概念)</text>
+      <text x="8" y="34" class="label-sm" font-size="8">重量：~5 kg</text>
+      <text x="8" y="48" class="label-sm" font-size="8">技术：全方位驱动轮</text>
+      <text x="8" y="62" class="label-sm" font-size="8">平衡：自平衡算法</text>
+      <text x="8" y="76" class="label-sm" font-size="8">应用：个人代步</text>
+      <text x="8" y="90" class="label-sm" font-size="8">状态：概念原型</text>
+      <line x1="8" y1="96" x2="172" y2="96" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="8" y="110" class="label-sm" font-size="8" fill="#9E9E9E" font-weight="bold">平衡控制先驱</text>
+    </g>
+
+    <g transform="translate(30, 1020)">
+      <rect x="0" y="0" width="700" height="48" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="10" y="10" width="14" height="14" rx="2" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <text x="28" y="22" class="label-sm" font-size="9">骨骼</text>
+      <rect x="100" y="10" width="14" height="14" rx="2" fill="rgba(200,50,50,0.15)" stroke="rgba(200,50,50,0.3)" stroke-width="0.6"/>
+      <text x="118" y="22" class="label-sm" font-size="9">肌肉</text>
+      <rect x="190" y="10" width="14" height="14" rx="2" fill="url(#metalGrad)" stroke="#6B7280" stroke-width="0.6"/>
+      <text x="208" y="22" class="label-sm" font-size="9">框架</text>
+      <rect x="280" y="10" width="14" height="14" rx="2" fill="#9CA3AF"/>
+      <text x="298" y="22" class="label-sm" font-size="9">CMG 陀螺</text>
+      <rect x="370" y="10" width="14" height="14" rx="2" fill="#3b82f6"/>
+      <text x="388" y="22" class="label-sm" font-size="9">补偿力矩</text>
+      <line x1="480" y1="16" x2="495" y2="16" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+      <text x="502" y="22" class="label-sm" font-size="9">力矢量</text>
+      <text x="10" y="42" class="label-sm" font-size="8" fill="#94a3b8">自平衡式髋外骨骼 · CMG 力矩补偿 · Gyrobalancer 概念方案</text>
+    </g>
+  </g>
+
+  <!-- RIGHT PANEL -->
+  <g transform="translate(808, 16)">
+    <rect x="-8" y="0" width="380" height="60" rx="4" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5"/>
+    <rect x="-8" y="0" width="4" height="60" rx="2" fill="#9E9E9E"/>
+    <text x="12" y="26" class="title-gray">自平衡式髋外骨骼</text>
+    <text x="12" y="46" class="label-sm" font-size="10" fill="#9ca3af">SELF-BALANCING HIP EXOSKELETON</text>
+    <rect x="262" y="10" width="100" height="24" rx="12" fill="#9E9E9E" opacity="0.15"/>
+    <text x="312" y="27" font-size="12" fill="#9E9E9E" font-family="sans-serif" text-anchor="middle" font-weight="bold">仅跟踪</text>
+
+    <g transform="translate(0, 80)">
+      <rect x="-8" y="0" width="380" height="130" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="130" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-light" font-size="14">架构特征</text>
+      <text x="140" y="22" class="label-sm" fill="#94a3b8">ARCHITECTURE</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <circle cx="16" cy="48" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="53">背部 CMG 控制力矩陀螺</text>
+        <circle cx="16" cy="68" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="73">6 轴 IMU 实时姿态检测</text>
+        <circle cx="16" cy="88" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="93">陀螺进动力矩主动补偿重心偏移</text>
+        <circle cx="16" cy="108" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="113">无需髋关节电机，被动结构</text>
+        <circle cx="16" cy="128" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="133">防跌倒 / 平衡辅助</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 228)">
+      <rect x="-8" y="0" width="380" height="145" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="145" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-light" font-size="14">技术参数</text>
+      <text x="120" y="22" class="label-sm" fill="#94a3b8">PARAMETERS</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="50">系统重量</text>
+        <text x="160" y="50" fill="#1f2937" font-weight="bold">~2.5 kg</text>
+        <text x="16" y="70">补偿力矩</text>
+        <text x="160" y="70" fill="#1f2937" font-weight="bold">~5 Nm (可调)</text>
+        <text x="16" y="90">响应时间</text>
+        <text x="160" y="90" fill="#1f2937" font-weight="bold">&lt; 50 ms</text>
+        <text x="16" y="110">传感器</text>
+        <text x="160" y="110" fill="#1f2937" font-weight="bold">6 轴 IMU + 扭矩</text>
+        <text x="16" y="130">核心优势</text>
+        <text x="160" y="130" fill="#1f2937" font-weight="bold">防跌倒 / 无关节驱动</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 392)">
+      <rect x="-8" y="0" width="380" height="135" rx="4" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="135" rx="1.5" fill="#9E9E9E"/>
+      <text x="12" y="22" class="title-light" font-size="14">工作原理</text>
+      <text x="110" y="22" class="label-sm" fill="#94a3b8">PRINCIPLE</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e0e0e0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">CMG 平衡补偿原理：</text>
+        <text x="16" y="68">1. IMU 检测人体倾斜角度/角速度</text>
+        <text x="16" y="86">2. 控制器计算所需补偿力矩</text>
+        <text x="16" y="104">3. CMG 陀螺进动产生反作用力矩</text>
+        <text x="16" y="122">4. 力矩通过骨盆传递至全身</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 546)">
+      <rect x="-8" y="0" width="380" height="115" rx="4" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="380" height="26" rx="4" fill="#9E9E9E" opacity="0.1"/>
+      <text x="12" y="18" font-size="12" fill="#616161" font-family="sans-serif" font-weight="bold">Bones 评估：仅跟踪</text>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">CMG 平衡概念新颖，防跌倒价值极大</text>
+        <text x="16" y="66">但技术成熟度低，无商业化产品验证</text>
+        <line x1="16" y1="74" x2="364" y2="74" stroke="#e0e0e0" stroke-width="0.3"/>
+        <text x="16" y="92" fill="#9E9E9E" font-weight="bold">不采用：</text>
+        <text x="86" y="92" fill="#475569">CMG 功耗高、噪音大、体积仍需缩</text>
+        <text x="86" y="110" fill="#475569">陀螺寿命和安全性未充分验证</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 680)">
+      <rect x="-8" y="0" width="380" height="135" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="135" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-light" font-size="13">竞争与趋势</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.3"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">CMG 在卫星/船舶姿态控制广泛应用</text>
+        <text x="16" y="66">可穿戴 CMG 研究在 MIT 等高校进行</text>
+        <text x="16" y="84">Honda U3-X 展示了平衡控制概念</text>
+        <text x="16" y="102">MEMS 陀螺技术进步可能催生微型化</text>
+        <text x="16" y="120">防跌倒需求明确 (每年 30% 老人跌倒)</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 832)">
+      <rect x="-8" y="0" width="380" height="90" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="90" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-light" font-size="13">关键学习点</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.3"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="46">CMG 原理值得跟踪 — 长期可能替代关节电机式平衡控制</text>
+        <text x="16" y="64">防跌倒功能的市场价值可能大于步态辅助</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- BOTTOM LEGEND -->
+  <g transform="translate(0, 1100)">
+    <rect x="20" y="0" width="1160" height="50" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+    <rect x="40" y="10" width="18" height="18" rx="3" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/><text x="62" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">骨骼</text>
+    <rect x="110" y="10" width="18" height="18" rx="3" fill="rgba(200,50,50,0.2)" stroke="rgba(200,50,50,0.4)" stroke-width="0.8"/><text x="132" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">肌肉</text>
+    <rect x="180" y="10" width="18" height="18" rx="3" fill="url(#metalGrad)" stroke="#6B7280" stroke-width="0.8"/><text x="202" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">框架</text>
+    <rect x="270" y="10" width="18" height="18" rx="3" fill="#9CA3AF" stroke="#757575" stroke-width="0.8"/><text x="292" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">CMG 陀螺</text>
+    <rect x="370" y="10" width="18" height="18" rx="3" fill="#3b82f6" stroke="#2563eb" stroke-width="0.8"/><text x="392" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">平衡力矩</text>
+    <line x1="480" y1="19" x2="500" y2="19" stroke="#dc2626" stroke-width="3" marker-end="url(#arrowRed)"/><text x="508" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">力矢量</text>
+    <line x1="600" y1="10" x2="620" y2="10" stroke="#e5e7eb" stroke-width="0.8"/><text x="625" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">评估：</text>
+    <rect x="696" y="10" width="18" height="18" rx="3" fill="#0096f0"/><text x="718" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">推荐采用</text>
+    <rect x="794" y="10" width="18" height="18" rx="3" fill="#d97706"/><text x="816" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">部分借鉴</text>
+    <rect x="892" y="10" width="18" height="18" rx="3" fill="#9E9E9E"/><text x="914" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">仅跟踪</text>
+    <line x1="40" y1="34" x2="1140" y2="34" stroke="#e2e8f0" stroke-width="0.3"/>
+    <text x="580" y="44" font-size="9" fill="#a0aec0" font-family="sans-serif" text-anchor="middle">附录 C · 髋关节外骨骼架构分析 | Bones &amp; Manifold · Nexum Project 2026</text>
+  </g>
+
+  <!-- OVERLAY: CMG Principle Detail -->
+  <g transform="translate(50, 850)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="310" height="190" rx="5" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.8" filter="url(#softShadow)"/>
+    <text x="12" y="20" class="title-gray" font-size="11">控制力矩陀螺 (CMG) 原理</text>
+    <text x="12" y="34" class="label-sm" font-size="8">CMG PRINCIPLE — GYROSCOPIC TORQUE</text>
+    <line x1="12" y1="38" x2="298" y2="38" stroke="#e5e7eb" stroke-width="0.5"/>
+
+    <g transform="translate(15, 48)">
+      <!-- Gyro diagram -->
+      <rect x="0" y="0" width="130" height="80" rx="4" fill="#fff" stroke="#e5e7eb" stroke-width="0.8"/>
+      <!-- Spin wheel -->
+      <circle cx="45" cy="40" r="25" fill="none" stroke="#9CA3AF" stroke-width="2"/>
+      <circle cx="45" cy="40" r="12" fill="rgba(66,165,245,0.15)" stroke="#3b82f6" stroke-width="1"/>
+      <circle cx="45" cy="40" r="4" fill="#4B5563"/>
+      <!-- Spin direction -->
+      <path d="M 45,15 A 25 25 0 0 1 70,40" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrowRedSmall)"/>
+      <text x="72" y="25" font-size="6" fill="#dc2626">高速自转</text>
+      <!-- Gimbal tilt -->
+      <path d="M 70,40 L 90,30" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="82" y="22" font-size="6" fill="#3b82f6">进动</text>
+      <!-- Output torque -->
+      <path d="M 30,65 L 15,80" stroke="#9E9E9E" stroke-width="2" marker-end="url(#arrowGray)"/>
+      <text x="2" y="78" font-size="6" fill="#9E9E9E">输出力矩</text>
+    </g>
+
+    <g transform="translate(160, 48)">
+      <text x="0" y="0" class="label-sm" font-size="9" fill="#475569">CMG 参数</text>
+      <line x1="0" y1="8" x2="140" y2="8" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="0" y="22" class="label-sm" font-size="8" fill="#64748b">转子惯量：0.01 kg·m</text>
+      <text x="0" y="34" class="label-sm" font-size="8" fill="#64748b">自转速度：10,000 RPM</text>
+      <text x="0" y="46" class="label-sm" font-size="8" fill="#64748b">输出力矩：~5 Nm</text>
+      <text x="0" y="58" class="label-sm" font-size="8" fill="#64748b">功耗：~20 W</text>
+      <line x1="0" y1="66" x2="140" y2="66" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="0" y="80" class="label-sm" font-size="8" fill="#9E9E9E" font-weight="bold">优缺点：</text>
+      <text x="0" y="92" class="label-sm" font-size="8" fill="#64748b">+ 无需关节驱动机</text>
+      <text x="0" y="104" class="label-sm" font-size="8" fill="#64748b">+ 响应 &lt; 50 ms</text>
+      <text x="0" y="116" class="label-sm" font-size="8" fill="#64748b">- 功耗高、体积大</text>
+      <text x="0" y="128" class="label-sm" font-size="8" fill="#64748b">- 噪音 60-70 dB</text>
+    </g>
+  </g>
+
+  <!-- OVERLAY: Fall Prevention Analysis -->
+  <g transform="translate(400, 830)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="300" height="210" rx="5" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.8" filter="url(#softShadow)"/>
+    <text x="12" y="20" class="title-gray" font-size="11">跌倒预防机制对比</text>
+    <text x="12" y="34" class="label-sm" font-size="8">FALL PREVENTION — COMPARISON</text>
+    <line x1="12" y1="38" x2="288" y2="38" stroke="#e0e0e0" stroke-width="0.5"/>
+    <g transform="translate(12, 48)">
+      <rect x="0" y="0" width="270" height="80" rx="3" fill="#fff" stroke="#e5e7eb" stroke-width="0.5"/>
+      <text x="6" y="14" class="label-sm" font-size="8" fill="#475569" font-weight="bold">CMG 平衡 vs 传统方案</text>
+      <line x1="6" y1="18" x2="264" y2="18" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="6" y="32" class="label-sm" font-size="7" fill="#64748b">CMG 平衡：力矩补偿，无延迟，主动防跌倒</text>
+      <text x="6" y="44" class="label-sm" font-size="7" fill="#64748b">关节电机辅助：力矩需通过骨骼传递，有延迟</text>
+      <text x="6" y="56" class="label-sm" font-size="7" fill="#64748b">拐杖/助行器：稳定但限制上肢活动</text>
+      <text x="6" y="68" class="label-sm" font-size="7" fill="#64748b">髋保护气垫：被动缓冲，无法预防跌倒</text>
+      <text x="6" y="88" class="label-sm" font-size="8" fill="#9E9E9E" font-weight="bold">CMG 技术成熟度 (TRL)：3-4 (实验室验证)</text>
+      <text x="6" y="102" class="label-sm" font-size="8" fill="#64748b">预计 3-5 年可达消费级</text>
+      <text x="6" y="116" class="label-sm" font-size="8" fill="#64748b">MEMS 陀螺微型化是关键 path</text>
+      <text x="6" y="130" class="label-sm" font-size="8" fill="#64748b">Bones 保持跟踪，不投入研发</text>
+    </g>
+  </g>
+  <g transform="translate(50, 750)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="660" height="70" rx="4" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5"/>
+    <text x="12" y="16" class="label-sm" font-size="8" fill="#475569">注：CMG 控制力矩陀螺方案处于概念/实验室阶段 (TRL 3-4)。MIT (2018) 和 NASA 有相关研究，但尚无商业化产品。</text>
+    <text x="12" y="30" class="label-sm" font-size="8" fill="#475569">防跌倒功能市场价值巨大 (每年 30% 65岁以上老人跌倒)，但 CMG 功耗高 (~20W)、体积大、噪音 60-70 dB。</text>
+    <text x="12" y="44" class="label-sm" font-size="8" fill="#64748b">跟踪：MEMS 陀螺微型化 / 磁悬浮 CMG / 电永磁体。预计消费级 CMG 外骨骼 2028-2030 年可行</text>
+  </g>
+</svg>

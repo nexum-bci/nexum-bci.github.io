@@ -1,0 +1,423 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000">
+  <defs>
+    <!-- Arrow Markers -->
+    <marker id="aR" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto"><path d="M0,0 L12,4 L0,8" fill="#d32f2f"/></marker>
+    <marker id="aB" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#0096f0"/></marker>
+    <marker id="aA" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#d97706"/></marker>
+    <marker id="aG" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#2e7d32"/></marker>
+    <marker id="aGy" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#888"/></marker>
+    <!-- Bone Gradient -->
+    <linearGradient id="gBone" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e8ddc0"/><stop offset="35%" stop-color="#eee4cc"/><stop offset="65%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#c8b898"/></linearGradient>
+    <linearGradient id="gBoneVert" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8ddc0"/><stop offset="40%" stop-color="#eee4cc"/><stop offset="70%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#c8b898"/></linearGradient>
+    <linearGradient id="gBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fcfcfc"/><stop offset="100%" stop-color="#f8f8f8"/></linearGradient>
+    <linearGradient id="gMetal" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d0d0d0"/><stop offset="50%" stop-color="#b0b0b0"/><stop offset="100%" stop-color="#909090"/></linearGradient>
+    <linearGradient id="gMetalHoriz" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#d0d0d0"/><stop offset="50%" stop-color="#b0b0b0"/><stop offset="100%" stop-color="#909090"/></linearGradient>
+    <linearGradient id="gCylinder" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e8e0d8"/><stop offset="30%" stop-color="#f0e8e0"/><stop offset="70%" stop-color="#d8d0c8"/><stop offset="100%" stop-color="#c8c0b8"/></linearGradient>
+    <linearGradient id="gCopper" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#d4884a"/><stop offset="50%" stop-color="#e8a060"/><stop offset="100%" stop-color="#c07030"/></linearGradient>
+    <linearGradient id="gCartilage" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8d4e8"/><stop offset="100%" stop-color="#90b8d8"/></linearGradient>
+    <pattern id="pBraid" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0,0 L6,6 M6,0 L0,6" stroke="#b0b0b0" stroke-width="0.4" opacity="0.4"/></pattern>
+    <pattern id="pCross" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0,0 L8,8 M8,0 L0,8" stroke="#ccc" stroke-width="0.3"/></pattern>
+    <!-- Muscle gradient -->
+    <radialGradient id="gMuscle" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="rgba(200,50,50,0.18)"/><stop offset="100%" stop-color="rgba(180,40,40,0.08)"/></radialGradient>
+  </defs>
+  <rect width="1200" height="1000" fill="#ffffff"/>
+  <rect x="0" y="0" width="1200" height="1000" fill="url(#gBg)"/>
+
+  <!-- HEADER BAR -->
+  <rect x="20" y="16" width="1160" height="48" rx="6" fill="#d97706"/>
+  <text x="600" y="39" text-anchor="middle" font-size="17" font-weight="700" fill="#fff" font-family="Arial,Helvetica,sans-serif">电动液压式</text>
+  <text x="600" y="56" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)" font-family="Arial,Helvetica,sans-serif">电机泵→液压管路→液压缸 | TRL 5-7 | REEV DREEVEN</text>
+
+  <!-- LEFT PANEL: Pure Scientific Graphics, No Text -->
+  <rect x="20" y="72" width="720" height="862" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+
+  <g id="leftPanelGraphics" transform="translate(45,0)">
+    <!-- === ANATOMICAL LEG (x=60-200) WITH BONE GRADIENT === -->
+    <!-- Quadriceps muscle (anterior thigh) - semi-transparent red -->
+    <path d="M130,95 Q150,95 175,100 Q190,115 195,200 Q198,280 200,350 Q200,400 195,430 Q185,445 170,445 L140,445 Q125,445 120,430 Q115,400 115,350 Q112,280 115,200 Q118,115 130,95 Z" fill="rgba(200,50,50,0.12)" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <!-- Hamstring muscle (posterior thigh) -->
+    <path d="M200,100 Q210,110 215,200 Q218,280 215,350 Q212,400 205,435 Q198,448 185,448 L175,448 Q165,448 160,435 Q155,400 152,350 Q150,280 155,200 Q158,115 170,100 Q180,95 190,95 Z" fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.20)" stroke-width="0.5"/>
+    <!-- Gastrocnemius muscle (calf) -->
+    <path d="M165,450 Q175,450 185,455 Q195,470 200,520 Q202,580 200,650 Q195,700 185,730 Q175,740 165,740 L140,740 Q130,740 125,730 Q118,700 115,650 Q112,580 115,520 Q118,470 128,455 Q135,450 145,450 Z" fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.18)" stroke-width="0.5"/>
+
+    <!-- FEMUR (thigh bone) - with bone gradient -->
+    <path d="M155,100 Q158,100 162,105 Q168,115 172,180 Q175,250 175,300 Q176,350 174,400 Q172,425 168,435 Q162,440 158,440 Q153,440 148,435 Q144,425 142,400 Q140,350 141,300 Q142,250 145,180 Q148,115 152,105 Q153,100 155,100 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="1"/>
+    <!-- Femoral head -->
+    <ellipse cx="158" cy="108" rx="14" ry="16" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <!-- Femoral condyles (knee end) -->
+    <ellipse cx="150" cy="438" rx="10" ry="12" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="165" cy="438" rx="10" ry="12" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <!-- Articular cartilage on condyles -->
+    <path d="M142,442 Q150,452 158,442" fill="none" stroke="#90b8d8" stroke-width="2" opacity="0.5"/>
+    <path d="M157,442 Q165,452 173,442" fill="none" stroke="#90b8d8" stroke-width="2" opacity="0.5"/>
+
+    <!-- TIBIA (shin bone) -->
+    <path d="M155,450 Q158,450 162,455 Q168,470 172,540 Q175,600 175,660 Q176,720 173,760 Q170,775 165,780 Q160,782 155,780 Q150,782 145,780 Q140,775 137,760 Q134,720 135,660 Q136,600 138,540 Q142,470 148,455 Q152,450 155,450 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="1"/>
+    <!-- Tibial plateau -->
+    <rect x="142" y="448" width="28" height="8" rx="3" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.6"/>
+    <!-- Tibial tuberosity -->
+    <ellipse cx="170" cy="480" rx="6" ry="10" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.5" opacity="0.7"/>
+
+    <!-- FIBULA -->
+    <path d="M185,465 Q187,470 188,520 Q189,600 188,680 Q187,720 185,740 Q183,745 180,745 Q177,745 175,740 Q173,720 172,680 Q171,600 172,520 Q173,470 177,465 Q180,463 183,465 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="0.8"/>
+    <!-- Fibula head -->
+    <ellipse cx="182" cy="468" rx="6" ry="8" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.5"/>
+
+    <!-- PATELLA (kneecap) -->
+    <ellipse cx="178" cy="420" rx="16" ry="20" fill="url(#gBone)" stroke="#c8b898" stroke-width="1"/>
+    <path d="M168,410 Q178,405 188,410" fill="none" stroke="#d4c9a8" stroke-width="0.5" opacity="0.5"/>
+    <path d="M166,425 Q178,420 190,425" fill="none" stroke="#d4c9a8" stroke-width="0.5" opacity="0.5"/>
+
+    <!-- Patellar tendon -->
+    <path d="M178,440 L178,465" stroke="#c8b898" stroke-width="1.5" opacity="0.5"/>
+    <path d="M174,440 L174,460" stroke="#c8b898" stroke-width="1" opacity="0.3"/>
+    <path d="M182,440 L182,460" stroke="#c8b898" stroke-width="1" opacity="0.3"/>
+
+    <!-- Joint capsule outline -->
+    <path d="M140,430 Q155,415 170,430 Q165,450 155,455 Q145,450 140,430 Z" fill="none" stroke="#90b8d8" stroke-width="0.8" stroke-dasharray="2,2" opacity="0.4"/>
+    <!-- Cartilage between femur and tibia -->
+    <path d="M143,448 Q155,443 167,448" fill="none" stroke="#b8d4e8" stroke-width="2.5" opacity="0.4"/>
+
+    <!-- === MUSCLE FIBERS ANNOTATION === -->
+    <path d="M100,180 L80,175" stroke="rgba(200,50,50,0.3)" stroke-width="0.5"/>
+    <path d="M100,190 L80,188" stroke="rgba(200,50,50,0.3)" stroke-width="0.5"/>
+    <path d="M100,200 L80,201" stroke="rgba(200,50,50,0.3)" stroke-width="0.5"/>
+
+    <!-- === WAIST MODULE: MOTOR PUMP CROSS-SECTION (x=260-400, y=90-280) === -->
+    <!-- Motor housing -->
+    <rect x="270" y="95" width="130" height="130" rx="8" fill="url(#gMetal)" stroke="#808080" stroke-width="1.5"/>
+    <rect x="280" y="105" width="110" height="110" rx="6" fill="#e8e0d8" stroke="#a0a0a0" stroke-width="0.8"/>
+
+    <!-- Stator coils -->
+    <path d="M290,120 Q295,110 300,120" fill="none" stroke="#c07030" stroke-width="1.2"/>
+    <path d="M310,115 Q315,105 320,115" fill="none" stroke="#c07030" stroke-width="1.2"/>
+    <path d="M330,115 Q335,105 340,115" fill="none" stroke="#c07030" stroke-width="1.2"/>
+    <path d="M350,120 Q355,110 360,120" fill="none" stroke="#c07030" stroke-width="1.2"/>
+    <path d="M290,190 Q295,200 300,190" fill="none" stroke="#c07030" stroke-width="1.2"/>
+    <path d="M310,195 Q315,205 320,195" fill="none" stroke="#c07030" stroke-width="1.2"/>
+    <path d="M330,195 Q335,205 340,195" fill="none" stroke="#c07030" stroke-width="1.2"/>
+    <path d="M350,190 Q355,200 360,190" fill="none" stroke="#c07030" stroke-width="1.2"/>
+
+    <!-- Magnetic rotor -->
+    <circle cx="335" cy="160" r="30" fill="none" stroke="#a0a0a0" stroke-width="1"/>
+    <circle cx="335" cy="160" r="25" fill="url(#gCopper)" stroke="#b07040" stroke-width="0.8"/>
+    <!-- Rotor permanent magnets -->
+    <path d="M320,140 Q335,132 350,140" fill="none" stroke="#c04040" stroke-width="1.5" opacity="0.6"/>
+    <path d="M320,180 Q335,188 350,180" fill="none" stroke="#c04040" stroke-width="1.5" opacity="0.6"/>
+    <path d="M310,155 Q310,165 315,160" fill="none" stroke="#c04040" stroke-width="1.5" opacity="0.6"/>
+    <path d="M355,155 Q360,160 355,170" fill="none" stroke="#c04040" stroke-width="1.5" opacity="0.6"/>
+
+    <!-- Motor shaft -->
+    <line x1="335" y1="190" x2="335" y2="225" stroke="#808080" stroke-width="3"/>
+
+    <!-- Ball screw coupling -->
+    <rect x="325" y="225" width="20" height="12" rx="2" fill="#a0a0a0" stroke="#707070" stroke-width="0.8"/>
+
+    <!-- Ball screw -->
+    <rect x="330" y="237" width="10" height="28" rx="1" fill="url(#gMetalHoriz)" stroke="#808080" stroke-width="0.6"/>
+    <!-- Ball screw thread indication -->
+    <path d="M330,242 L340,245 M330,248 L340,251 M330,254 L340,257 M330,260 L340,263" stroke="#a0a0a0" stroke-width="0.5"/>
+
+    <!-- Dual piston pump -->
+    <rect x="310" y="272" width="50" height="36" rx="4" fill="url(#gMetal)" stroke="#808080" stroke-width="1.2"/>
+    <rect x="317" y="278" width="8" height="24" rx="1" fill="#d0d0d0" stroke="#909090" stroke-width="0.5"/>
+    <rect x="345" y="278" width="8" height="24" rx="1" fill="#d0d0d0" stroke="#909090" stroke-width="0.5"/>
+    <!-- Pump cam/eccentric -->
+    <circle cx="335" cy="290" r="6" fill="#b0b0b0" stroke="#808080" stroke-width="0.6"/>
+    <line x1="335" y1="284" x2="335" y2="296" stroke="#707070" stroke-width="0.8"/>
+
+    <!-- Pump inlet/outlet ports -->
+    <rect x="304" y="285" width="6" height="10" rx="1" fill="#0096f0" opacity="0.3"/>
+    <rect x="360" y="285" width="6" height="10" rx="1" fill="#d97706" opacity="0.3"/>
+
+    <!-- === HYDRAULIC LINES === -->
+    <!-- High pressure line (red/amber) from pump to cylinder -->
+    <path d="M366,290 Q410,310 420,380 Q425,450 415,520 Q410,580 400,630 Q395,660 385,690" fill="none" stroke="#d32f2f" stroke-width="2.5" stroke-dasharray="8,4" opacity="0.7"/>
+    <!-- Low pressure return line (blue) -->
+    <path d="M304,290 Q280,310 275,380 Q270,450 275,520 Q280,580 290,630 Q295,660 305,690" fill="none" stroke="#0096f0" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+    <!-- Flow direction indicators -->
+    <polygon points="400,450 408,440 408,460" fill="#d32f2f" opacity="0.6"/>
+    <polygon points="285,450 277,440 277,460" fill="#0096f0" opacity="0.6"/>
+    <polygon points="392,600 400,590 400,610" fill="#d32f2f" opacity="0.6"/>
+
+    <!-- === CONTROL VALVE MANIFOLD (x=270-310, y=400-440) === -->
+    <rect x="270" y="395" width="70" height="40" rx="3" fill="url(#gMetal)" stroke="#808080" stroke-width="1"/>
+    <rect x="280" y="405" width="50" height="20" rx="2" fill="#d8d0c8" stroke="#a0a0a0" stroke-width="0.5"/>
+    <!-- Spool -->
+    <rect x="295" y="408" width="8" height="14" rx="1" fill="#c0c0c0" stroke="#909090" stroke-width="0.4"/>
+    <!-- Pilot ports -->
+    <circle cx="285" cy="415" r="3" fill="#0096f0" opacity="0.3"/>
+    <circle cx="325" cy="415" r="3" fill="#d32f2f" opacity="0.3"/>
+
+    <!-- === KNEE HYDRAULIC CYLINDER CROSS-SECTION (x=340-420, y=670-780) === -->
+    <!-- Cylinder barrel cutaway -->
+    <rect x="340" y="680" width="70" height="70" rx="5" fill="url(#gCylinder)" stroke="#a0a0a0" stroke-width="1.5"/>
+    <!-- Cylinder internal bore -->
+    <rect x="348" y="688" width="54" height="54" rx="3" fill="#f0ece8" stroke="#c0b8b0" stroke-width="0.5"/>
+    <!-- Piston -->
+    <rect x="358" y="692" width="34" height="46" rx="2" fill="url(#gMetal)" stroke="#808080" stroke-width="1"/>
+    <!-- Piston seal rings -->
+    <rect x="356" y="694" width="4" height="10" rx="1" fill="#d04040" opacity="0.5"/>
+    <rect x="356" y="726" width="4" height="10" rx="1" fill="#d04040" opacity="0.5"/>
+    <rect x="390" y="694" width="4" height="10" rx="1" fill="#d04040" opacity="0.5"/>
+    <rect x="390" y="726" width="4" height="10" rx="1" fill="#d04040" opacity="0.5"/>
+    <!-- Piston rod -->
+    <line x1="375" y1="715" x2="450" y2="715" stroke="#909090" stroke-width="4"/>
+    <line x1="375" y1="715" x2="450" y2="715" stroke="#b0b0b0" stroke-width="2"/>
+    <!-- Rod seal -->
+    <rect x="340" y="711" width="8" height="8" rx="1" fill="#d04040" opacity="0.4"/>
+    <!-- Hydraulic ports (chamber A and B) -->
+    <rect x="340" y="695" width="6" height="8" rx="1" fill="#d32f2f" opacity="0.4"/>
+    <rect x="340" y="727" width="6" height="8" rx="1" fill="#0096f0" opacity="0.4"/>
+    <!-- Port A connection (to high pressure) -->
+    <path d="M340,699 Q330,699 325,690" fill="none" stroke="#d32f2f" stroke-width="1" opacity="0.5"/>
+    <!-- Port B connection (to return) -->
+    <path d="M340,731 Q330,731 325,740" fill="none" stroke="#0096f0" stroke-width="1" opacity="0.5"/>
+
+    <!-- === SPROCKET/ROTARY OUTPUT AT KNEE === -->
+    <!-- Mounting bracket -->
+    <rect x="440" y="700" width="25" height="40" rx="3" fill="#a0a0a0" stroke="#707070" stroke-width="1"/>
+    <!-- Sprocket wheel -->
+    <circle cx="465" cy="720" r="22" fill="none" stroke="#808080" stroke-width="2"/>
+    <circle cx="465" cy="720" r="16" fill="none" stroke="#a0a0a0" stroke-width="1"/>
+    <circle cx="465" cy="720" r="8" fill="#c0c0c0" stroke="#909090" stroke-width="0.8"/>
+    <!-- Sprocket teeth -->
+    <path d="M465,698 L467,696 L467,700 Z" fill="#a0a0a0"/>
+    <path d="M452,703 L449,701 L453,699 Z" fill="#a0a0a0"/>
+    <path d="M478,703 L481,701 L477,699 Z" fill="#a0a0a0"/>
+    <path d="M445,715 L442,714 L443,718 Z" fill="#a0a0a0"/>
+    <path d="M485,715 L488,714 L487,718 Z" fill="#a0a0a0"/>
+    <path d="M452,737 L449,739 L453,741 Z" fill="#a0a0a0"/>
+    <path d="M478,737 L481,739 L477,741 Z" fill="#a0a0a0"/>
+    <path d="M465,742 L467,744 L467,740 Z" fill="#a0a0a0"/>
+    <!-- Chain connection -->
+    <path d="M443,720 L410,720" stroke="#707070" stroke-width="2" stroke-dasharray="3,2"/>
+    <path d="M487,720 L510,720" stroke="#707070" stroke-width="2" stroke-dasharray="3,2"/>
+
+    <!-- === FORCE VECTORS (Red) === -->
+    <!-- Actuation force from cylinder to knee -->
+    <line x1="420" y1="715" x2="455" y2="715" stroke="#d32f2f" stroke-width="2.5" marker-end="url(#aR)"/>
+    <!-- Reaction force at knee joint -->
+    <line x1="178" y1="440" x2="178" y2="480" stroke="#d32f2f" stroke-width="2" marker-end="url(#aR)" opacity="0.6"/>
+    <!-- Ground reaction force -->
+    <line x1="155" y1="780" x2="155" y2="810" stroke="#d32f2f" stroke-width="2" marker-end="url(#aR)" opacity="0.4"/>
+    <!-- Force from piston -->
+    <line x1="392" y1="715" x2="420" y2="715" stroke="#d32f2f" stroke-width="2" marker-end="url(#aR)"/>
+
+    <!-- === ENERGY CONVERSION FLOW ANNOTATION === -->
+    <!-- Chain: Electrical → Mechanical → Hydraulic → Mechanical -->
+    <!-- Box 1: Electrical -->
+    <rect x="50" y="750" width="55" height="36" rx="4" fill="#e8f0fe" stroke="#0096f0" stroke-width="1"/>
+    <path d="M60,768 L95,768" stroke="#0096f0" stroke-width="0.8"/>
+    <path d="M60,762 L68,762 M72,762 L80,762" stroke="#0096f0" stroke-width="0.5"/>
+    <path d="M60,774 L68,774 M72,774 L80,774" stroke="#0096f0" stroke-width="0.5"/>
+    <!-- Box 2: Mechanical -->
+    <rect x="120" y="750" width="55" height="36" rx="4" fill="#fefce8" stroke="#d97706" stroke-width="1"/>
+    <circle cx="147" cy="768" r="10" fill="none" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="147" cy="768" r="5" fill="none" stroke="#d97706" stroke-width="0.5"/>
+    <!-- Box 3: Hydraulic -->
+    <rect x="190" y="750" width="55" height="36" rx="4" fill="#fef2f2" stroke="#d32f2f" stroke-width="1"/>
+    <path d="M198,760 L210,760 L210,776 L198,776 Z" fill="none" stroke="#d32f2f" stroke-width="0.6"/>
+    <path d="M215,760 L227,760 L227,776 L215,776 Z" fill="none" stroke="#d32f2f" stroke-width="0.6"/>
+    <!-- Box 4: Mechanical -->
+    <rect x="260" y="750" width="55" height="36" rx="4" fill="#f0fdf4" stroke="#2e7d32" stroke-width="1"/>
+    <path d="M275,760 Q287,768 275,776" fill="none" stroke="#2e7d32" stroke-width="1"/>
+    <line x1="287" y1="764" x2="303" y2="764" stroke="#2e7d32" stroke-width="0.8"/>
+    <line x1="287" y1="772" x2="303" y2="772" stroke="#2e7d32" stroke-width="0.8"/>
+    <!-- Arrows between boxes -->
+    <line x1="105" y1="768" x2="118" y2="768" stroke="#888" stroke-width="1.2" marker-end="url(#aGy)"/>
+    <line x1="175" y1="768" x2="188" y2="768" stroke="#888" stroke-width="1.2" marker-end="url(#aGy)"/>
+    <line x1="245" y1="768" x2="258" y2="768" stroke="#888" stroke-width="1.2" marker-end="url(#aGy)"/>
+
+    <!-- === KEY FORMULAS (left panel, bottom area, x=50-350 region) === -->
+    <!-- F = P · A -->
+    <text x="50" y="830" font-size="11" font-weight="700" fill="#333" font-family="Arial,Helvetica,sans-serif">F = P · A</text>
+    <text x="50" y="846" font-size="8" fill="#666" font-family="Arial,Helvetica,sans-serif">F=活塞力(N)  P=油压(MPa)  A=活塞面积(mm²)</text>
+    <!-- P = Q · Δp · η_v -->
+    <text x="170" y="830" font-size="11" font-weight="700" fill="#333" font-family="Arial,Helvetica,sans-serif">P_h = Q · Δp · η_v</text>
+    <text x="170" y="846" font-size="8" fill="#666" font-family="Arial,Helvetica,sans-serif">P_h=液压功率(W)  Q=流量(L/min)  η_v=容积效率</text>
+    <!-- Efficiency -->
+    <text x="50" y="870" font-size="11" font-weight="700" fill="#333" font-family="Arial,Helvetica,sans-serif">η_total = η_m · η_v · η_m &lt; 35%</text>
+    <text x="50" y="886" font-size="8" fill="#666" font-family="Arial,Helvetica,sans-serif">系统总效率 = 电机效率 × 容积效率 × 机械效率（典型&lt;35%）</text>
+
+    <!-- === BATTERY PACK (x=270-310, y=82-92) === -->
+    <rect x="272" y="82" width="56" height="18" rx="3" fill="#e8f0fe" stroke="#0096f0" stroke-width="0.8"/>
+    <text x="278" y="95" font-size="7" fill="#0096f0" font-family="Arial,Helvetica,sans-serif">48V锂电池组</text>
+
+    <!-- === ACCUMULATOR (x=420-460, y=100-140) === -->
+    <ellipse cx="440" cy="120" rx="22" ry="20" fill="url(#gMetal)" stroke="#808080" stroke-width="1"/>
+    <ellipse cx="440" cy="120" rx="14" ry="12" fill="#d8d0c8" stroke="#a0a0a0" stroke-width="0.5"/>
+    <path d="M435,115 L445,125" stroke="#888" stroke-width="0.5"/>
+    <path d="M445,115 L435,125" stroke="#888" stroke-width="0.5"/>
+    <line x1="440" y1="140" x2="440" y2="155" stroke="#808080" stroke-width="1"/>
+
+    <!-- === PRESSURE GAUGE (x=420-460, y=170-200) === -->
+    <circle cx="440" cy="185" r="14" fill="#e8e0d8" stroke="#a0a0a0" stroke-width="0.8"/>
+    <circle cx="440" cy="185" r="10" fill="#f8f4f0"/>
+    <line x1="440" y1="185" x2="448" y2="178" stroke="#d32f2f" stroke-width="0.8"/>
+
+    <!-- === HYDRAULIC MOTOR (rotary output alternative, x=500-560, y=600-660) === -->
+    <circle cx="530" cy="630" r="30" fill="url(#gMetal)" stroke="#808080" stroke-width="1.5"/>
+    <circle cx="530" cy="630" r="20" fill="#d8d0c8" stroke="#a0a0a0" stroke-width="0.8"/>
+    <circle cx="530" cy="630" r="10" fill="none" stroke="#c0c0c0" stroke-width="0.5"/>
+    <path d="M520,618 Q530,610 540,618" fill="none" stroke="#a0a0a0" stroke-width="0.8"/>
+    <path d="M518,642 Q530,650 542,642" fill="none" stroke="#a0a0a0" stroke-width="0.8"/>
+    <line x1="530" y1="660" x2="530" y2="685" stroke="#808080" stroke-width="2.5"/>
+    <line x1="530" y1="630" x2="530" y2="600" stroke="#a0a0a0" stroke-width="0.8"/>
+
+    <!-- === CYLINDER ANGLED MOUNTING DETAIL (x=340-420, y=640-670) === -->
+    <line x1="450" y1="715" x2="510" y2="720" stroke="#808080" stroke-width="2"/>
+    <circle cx="510" cy="720" r="4" fill="#a0a0a0" stroke="#707070" stroke-width="0.5"/>
+
+    <!-- === FLOW INDICATORS ON PORTS === -->
+    <circle cx="348" cy="699" r="2" fill="#d32f2f"/>
+    <circle cx="348" cy="731" r="2" fill="#0096f0"/>
+
+    <!-- === HEAT DISSIPATION FINS ON CYLINDER === -->
+    <rect x="340" y="682" width="70" height="3" rx="1" fill="#c0b8b0" opacity="0.3"/>
+    <rect x="340" y="688" width="70" height="2" rx="1" fill="#c0b8b0" opacity="0.2"/>
+    <rect x="340" y="740" width="70" height="2" rx="1" fill="#c0b8b0" opacity="0.2"/>
+    <rect x="340" y="745" width="70" height="3" rx="1" fill="#c0b8b0" opacity="0.3"/>
+
+    <!-- === O-RING SEAL DETAIL AT PISTON === -->
+    <circle cx="358" cy="706" r="2.5" fill="none" stroke="#d04040" stroke-width="0.5" opacity="0.4"/>
+    <circle cx="358" cy="724" r="2.5" fill="none" stroke="#d04040" stroke-width="0.5" opacity="0.4"/>
+
+    <!-- === BLADDER ACCUMULATOR DETAIL (x=260-300, y=300-340) === -->
+    <ellipse cx="280" cy="320" rx="20" ry="16" fill="url(#gMetal)" stroke="#808080" stroke-width="0.8"/>
+    <ellipse cx="280" cy="320" rx="12" ry="10" fill="#d8d0c8" stroke="#a0a0a0" stroke-width="0.4"/>
+    <path d="M272,320 L288,320" stroke="#888" stroke-width="0.5"/>
+
+    <!-- CHINESE ANATOMICAL LABELS -->
+    <line x1="35" y1="180" x2="115" y2="180" stroke="#888" stroke-width="0.5"/><circle cx="115" cy="180" r="1.5" fill="#888"/>
+    <text x="30" y="184" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">股骨</text>
+    <line x1="35" y1="580" x2="155" y2="580" stroke="#888" stroke-width="0.5"/><circle cx="155" cy="580" r="1.5" fill="#888"/>
+    <text x="30" y="584" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">胫骨</text>
+    <line x1="210" y1="600" x2="185" y2="600" stroke="#888" stroke-width="0.5"/><circle cx="185" cy="600" r="1.5" fill="#888"/>
+    <text x="215" y="604" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腓骨</text>
+    <line x1="35" y1="420" x2="178" y2="420" stroke="#888" stroke-width="0.5"/><circle cx="178" cy="420" r="1.5" fill="#888"/>
+    <text x="30" y="424" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">髌骨</text>
+    <line x1="35" y1="448" x2="143" y2="448" stroke="#90b8d8" stroke-width="0.6"/>
+    <text x="30" y="452" text-anchor="end" font-size="10" fill="#777" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关节软骨</text>
+    <path d="M144,452 Q155,458 166,452" fill="none" stroke="#90b8d8" stroke-width="1.5" opacity="0.5"/>
+    <line x1="35" y1="462" x2="155" y2="462" stroke="#90b8d8" stroke-width="0.5"/>
+    <text x="30" y="466" text-anchor="end" font-size="10" fill="#777" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">半月板</text>
+    <line x1="35" y1="240" x2="130" y2="240" stroke="rgba(200,50,50,0.3)" stroke-width="0.5"/>
+    <circle cx="130" cy="240" r="1.5" fill="rgba(200,50,50,0.3)"/>
+    <text x="30" y="244" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">股四头肌</text>
+    <line x1="35" y1="300" x2="200" y2="300" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <circle cx="200" cy="300" r="1.5" fill="rgba(200,50,50,0.25)"/>
+    <text x="30" y="304" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腘绳肌</text>
+    <line x1="35" y1="550" x2="135" y2="550" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <circle cx="135" cy="550" r="1.5" fill="rgba(200,50,50,0.25)"/>
+    <text x="30" y="554" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腓肠肌</text>
+
+    <!-- CHINESE MECHANISM LABELS -->
+    <line x1="335" y1="160" x2="470" y2="155" stroke="#808080" stroke-width="0.5"/>
+    <text x="475" y="159" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">无刷直流电机</text>
+    <line x1="335" y1="250" x2="470" y2="250" stroke="#808080" stroke-width="0.5"/>
+    <text x="475" y="254" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">滚珠丝杠</text>
+    <line x1="335" y1="290" x2="470" y2="290" stroke="#808080" stroke-width="0.5"/>
+    <text x="475" y="294" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">柱塞泵</text>
+    <line x1="305" y1="415" x2="470" y2="415" stroke="#808080" stroke-width="0.5"/>
+    <text x="475" y="419" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">控制阀</text>
+    <line x1="375" y1="715" x2="470" y2="730" stroke="#808080" stroke-width="0.5"/>
+    <text x="475" y="734" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">液压缸</text>
+    <line x1="375" y1="715" x2="505" y2="715" stroke="#808080" stroke-width="0.5"/>
+    <text x="510" y="719" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">活塞</text>
+    <line x1="400" y1="500" x2="470" y2="500" stroke="#d32f2f" stroke-width="0.5"/>
+    <text x="475" y="504" font-size="10" fill="#d32f2f" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">高压管路</text>
+    <line x1="284" y1="500" x2="230" y2="500" stroke="#0096f0" stroke-width="0.5"/>
+    <text x="225" y="504" text-anchor="end" font-size="10" fill="#0096f0" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">回油管路</text>
+    <line x1="440" y1="120" x2="470" y2="110" stroke="#808080" stroke-width="0.5"/>
+    <text x="475" y="114" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">蓄能器</text>
+    <line x1="300" y1="82" x2="470" y2="75" stroke="#0096f0" stroke-width="0.5"/>
+    <text x="475" y="79" font-size="10" fill="#0096f0" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">锂电池 48V</text>
+    <line x1="465" y1="720" x2="530" y2="720" stroke="#808080" stroke-width="0.5"/>
+    <text x="535" y="724" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">链轮输出</text>
+
+    <!-- CHINESE FORCE VECTOR LABELS -->
+    <line x1="455" y1="705" x2="500" y2="700" stroke="#d32f2f" stroke-width="0.6"/>
+    <text x="505" y="704" font-size="10" fill="#d32f2f" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">驱动力F_act（液压缸→膝关节）</text>
+    <line x1="178" y1="475" x2="220" y2="485" stroke="#d32f2f" stroke-width="0.6"/>
+    <text x="225" y="489" font-size="10" fill="#d32f2f" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关节反力 F_reac</text>
+    <line x1="155" y1="810" x2="200" y2="815" stroke="#d32f2f" stroke-width="0.6" opacity="0.5"/>
+    <text x="205" y="819" font-size="10" fill="#d32f2f" opacity="0.6" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">地面反作用力GRF</text>
+  </g>
+
+  <!-- ISOLATION ZONE (60px blank) -->
+  <rect x="740" y="72" width="60" height="862" fill="#ffffff"/>
+
+  <!-- RIGHT PANEL: Text Panels (spacing ≥24px, padding ≥16px) -->
+  <rect x="800" y="72" width="380" height="862" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+
+  <!-- Panel 1: Technology Overview -->
+  <rect x="816" y="86" width="348" height="100" rx="5" fill="#fff8f0" stroke="#d97706" stroke-width="1"/>
+  <rect x="816" y="86" width="348" height="26" rx="5 5 0 0" fill="#d97706"/>
+  <text x="990" y="103" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Arial,Helvetica,sans-serif">技术概述</text>
+  <text x="828" y="128" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">电动液压将电机旋转运动通过液压泵转换为流体</text>
+  <text x="828" y="144" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">压力能，经管路传输后由液压缸还原为线性机械</text>
+  <text x="828" y="160" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">运动，最终转换为膝关节旋转运动。</text>
+  <text x="828" y="178" font-size="9" fill="#888" font-family="Arial,Helvetica,sans-serif">能量转换链：电能→机械能→液压能→机械能 | 效率&lt;35%</text>
+
+  <!-- Panel 2: Technical Specifications -->
+  <rect x="816" y="210" width="348" height="115" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="0.6"/>
+  <rect x="816" y="210" width="348" height="26" rx="5 5 0 0" fill="#d97706" fill-opacity="0.85"/>
+  <text x="990" y="227" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Arial,Helvetica,sans-serif">技术参数</text>
+  <text x="828" y="252" font-size="10" fill="#555" font-family="Arial,Helvetica,sans-serif">峰值扭矩          33 Nm (REEV DREEVEN实测)</text>
+  <text x="828" y="270" font-size="10" fill="#555" font-family="Arial,Helvetica,sans-serif">系统重量          ~5 kg (含泵/电池/管路)</text>
+  <text x="828" y="288" font-size="10" fill="#555" font-family="Arial,Helvetica,sans-serif">工作压力          7-21 MPa (齿轮泵/柱塞泵)</text>
+  <text x="828" y="306" font-size="10" fill="#555" font-family="Arial,Helvetica,sans-serif">频率响应          ~10 Hz (液压刚度限制)</text>
+  <text x="828" y="324" font-size="10" fill="#555" font-family="Arial,Helvetica,sans-serif">功率密度          较高 (功率重量比优越)</text>
+
+  <!-- Panel 3: Representative Products -->
+  <rect x="816" y="349" width="348" height="115" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="0.6"/>
+  <rect x="816" y="349" width="348" height="26" rx="5 5 0 0" fill="#d97706" fill-opacity="0.85"/>
+  <text x="990" y="366" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Arial,Helvetica,sans-serif">代表产品 Representative Products</text>
+  <text x="828" y="391" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">REEV DREEVEN (加拿大)</text>
+  <text x="828" y="409" font-size="10" fill="#666" font-family="Arial,Helvetica,sans-serif">融资 $9.2M · 计划2026年FDA上市</text>
+  <text x="828" y="430" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">Dulsco Hydraulic Knee (日本)</text>
+  <text x="828" y="448" font-size="10" fill="#666" font-family="Arial,Helvetica,sans-serif">工业/医疗重载外骨骼 · 临床验证中</text>
+
+  <!-- Panel 4: Advantages -->
+  <rect x="816" y="488" width="348" height="105" rx="5" fill="#f0fdf4" stroke="#2e7d32" stroke-width="0.6"/>
+  <rect x="816" y="488" width="348" height="26" rx="5 5 0 0" fill="#2e7d32" fill-opacity="0.85"/>
+  <text x="990" y="505" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Arial,Helvetica,sans-serif">优势</text>
+  <text x="828" y="530" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 高功率密度 — 功率重量比在各类驱动中最优</text>
+  <text x="828" y="548" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 柔性管路布线 — 动力源可远端布置</text>
+  <text x="828" y="566" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 天然液压缓冲 — 系统冲击耐受性好</text>
+  <text x="828" y="584" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 高功率传输 — 适合重载外骨骼场景</text>
+
+  <!-- Panel 5: Disadvantages -->
+  <rect x="816" y="617" width="348" height="115" rx="5" fill="#fef2f2" stroke="#c45a5a" stroke-width="0.6"/>
+  <rect x="816" y="617" width="348" height="26" rx="5 5 0 0" fill="#c45a5a" fill-opacity="0.85"/>
+  <text x="990" y="634" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Arial,Helvetica,sans-serif">缺陷 Disadvantages</text>
+  <text x="828" y="659" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 漏液风险 — 医疗设备不可接受的红线问题</text>
+  <text x="828" y="677" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 系统效率低 — 电能→机械能整体 &lt;35%</text>
+  <text x="828" y="695" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 重量大 — 系统总重~5kg，增加患肢负担</text>
+  <text x="828" y="713" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 噪音和发热 — 泵噪音大，连续使用不适</text>
+
+  <!-- Panel 6: Bones Assessment -->
+  <rect x="816" y="756" width="348" height="160" rx="5" fill="#fff8f0" stroke="#d97706" stroke-width="1.2"/>
+  <rect x="816" y="756" width="348" height="26" rx="5 5 0 0" fill="#d97706"/>
+  <text x="990" y="773" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Arial,Helvetica,sans-serif">Bones 评估 Assessment</text>
+  <text x="828" y="798" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">Phase 1-2 (MVP验证期): 不推荐采用</text>
+  <text x="828" y="816" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">Phase 3 (产品化阶段): 关注REEV进展，若解决</text>
+  <text x="828" y="834" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">漏液和重量问题可考虑采用</text>
+  <text x="828" y="858" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">改进方向: 闭式循环系统、集成电机泵单元</text>
+  <text x="828" y="876" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">轻量化材料(钛合金/碳纤维壳体)</text>
+  <text x="828" y="898" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">医用级密封方案(磁力耦合代替轴封)</text>
+
+  <!-- LEGEND BAR -->
+  <rect x="20" y="940" width="1160" height="48" rx="4" fill="#f8f8f8" stroke="#d5d5d5" stroke-width="0.6"/>
+  <rect x="40" y="953" width="18" height="18" rx="2" fill="#0096f0"/>
+  <text x="64" y="967" font-size="12" fill="#333" font-weight="600" font-family="Arial,Helvetica,sans-serif">推荐采用 Recommended</text>
+  <rect x="240" y="953" width="18" height="18" rx="2" fill="#d97706"/>
+  <text x="264" y="967" font-size="12" fill="#333" font-weight="600" font-family="Arial,Helvetica,sans-serif">部分借鉴 Partial Reference</text>
+  <rect x="460" y="953" width="18" height="18" rx="2" fill="#c45a5a"/>
+  <text x="484" y="967" font-size="12" fill="#333" font-weight="600" font-family="Arial,Helvetica,sans-serif">缺陷 Not Recommended</text>
+  <rect x="680" y="953" width="18" height="18" rx="2" fill="#d32f2f"/>
+  <text x="704" y="967" font-size="12" fill="#333" font-weight="600" font-family="Arial,Helvetica,sans-serif">力矢量 Force Vector</text>
+  <rect x="900" y="953" width="18" height="18" rx="2" fill="#0096f0" fill-opacity="0.5"/>
+  <text x="924" y="967" font-size="12" fill="#333" font-weight="600" font-family="Arial,Helvetica,sans-serif">电能 / 回油路径</text>
+</svg>

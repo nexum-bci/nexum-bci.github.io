@@ -1,0 +1,471 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <defs>
+    <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede3cc"/>
+      <stop offset="40%" stop-color="#e8ddc0"/>
+      <stop offset="70%" stop-color="#dfd2b2"/>
+      <stop offset="100%" stop-color="#d4c9a8"/>
+    </linearGradient>
+    <linearGradient id="boneShadow" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#f5edd8"/>
+      <stop offset="100%" stop-color="#c4b898"/>
+    </linearGradient>
+    <linearGradient id="boneDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4c9a8"/>
+      <stop offset="100%" stop-color="#b8ad90"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A0AAB5"/>
+      <stop offset="40%" stop-color="#8B93A0"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+    <linearGradient id="metalDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6B7280"/>
+      <stop offset="100%" stop-color="#4B5563"/>
+    </linearGradient>
+    <linearGradient id="metalLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#B8BFC8"/>
+      <stop offset="100%" stop-color="#9CA3AF"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5f0eb"/>
+      <stop offset="50%" stop-color="#faf5ef"/>
+      <stop offset="100%" stop-color="#f5f0eb"/>
+    </linearGradient>
+    <linearGradient id="muscleGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(200,50,50,0.05)"/>
+      <stop offset="50%" stop-color="rgba(200,50,50,0.10)"/>
+      <stop offset="100%" stop-color="rgba(200,50,50,0.06)"/>
+    </linearGradient>
+    <linearGradient id="padGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e2e8f0" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#cbd5e1" stop-opacity="0.8"/>
+    </linearGradient>
+    <linearGradient id="adjGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9E9E9E"/>
+      <stop offset="100%" stop-color="#757575"/>
+    </linearGradient>
+    <marker id="arrowRed" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#9E9E9E"/>
+    </marker>
+    <filter id="shadow" x="-8%" y="-8%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="rgba(0,0,0,0.15)"/>
+    </filter>
+    <filter id="softShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="1" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.08)"/>
+    </filter>
+    <clipPath id="leftPane">
+      <rect x="0" y="0" width="740" height="1080"/>
+    </clipPath>
+    <style>
+      .label-sm { font-size: 9px; fill: #64748b; font-family: sans-serif; }
+      .label-md { font-size: 11px; fill: #334155; font-family: sans-serif; }
+      .label-lg { font-size: 13px; fill: #1e293b; font-family: sans-serif; font-weight: bold; }
+      .label-em { font-size: 10px; fill: #9E9E9E; font-family: sans-serif; font-weight: bold; }
+      .label-force { font-size: 11px; fill: #dc2626; font-family: sans-serif; font-weight: bold; }
+      .title-gray { font-size: 18px; fill: #616161; font-family: sans-serif; font-weight: bold; }
+      .title-light { font-size: 13px; fill: #475569; font-family: sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1200" fill="#ffffff"/>
+
+  <!-- ISOLATION ZONE -->
+  <rect x="740" y="0" width="60" height="1200" fill="#fafbfc" opacity="0.4"/>
+  <line x1="740" y1="0" x2="740" y2="1200" stroke="#e5e7eb" stroke-width="0.8"/>
+  <line x1="800" y1="0" x2="800" y2="1200" stroke="#e5e7eb" stroke-width="0.8"/>
+
+  <!-- LEFT PANEL -->
+  <g clip-path="url(#leftPane)">
+    <rect x="20" y="0" width="720" height="1080" fill="#ffffff"/>
+    <g>
+      <text x="30" y="24" class="label-em" font-size="12">Fig. I 医疗矫形框架式 | 侧面观 Lateral View</text>
+      <line x1="30" y1="28" x2="300" y2="28" stroke="#e5e7eb" stroke-width="0.5"/>
+    </g>
+
+    <!-- HUMAN BODY -->
+    <g filter="url(#softShadow)">
+      <path d="M 240,70 C 230,110 225,160 230,210 C 235,260 260,300 285,330 L 475,330 C 500,300 525,260 530,210 C 535,160 530,110 520,70 C 510,60 480,55 380,55 C 280,55 250,60 240,70 Z" fill="url(#skinGrad)" stroke="#e8ddd0" stroke-width="0.8"/>
+      <rect x="350" y="30" width="60" height="40" rx="10" fill="#f5f0eb" stroke="#e8ddd0" stroke-width="0.6"/>
+      <ellipse cx="380" cy="10" rx="32" ry="26" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.8"/>
+    </g>
+    <line x1="380" y1="60" x2="380" y2="260" stroke="#d4c9a8" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.5"/>
+    <g stroke="#dccfc0" stroke-width="0.6" fill="none" opacity="0.35">
+      <path d="M 280,110 Q 320,105 340,115"/><path d="M 420,115 Q 440,105 480,110"/>
+      <path d="M 270,140 Q 320,130 340,145"/><path d="M 420,145 Q 440,130 490,140"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 380,255 C 340,252 295,260 270,285 C 250,310 245,340 260,360 C 275,380 295,395 320,405 C 340,412 360,415 380,416 C 400,415 420,412 440,405 C 465,395 485,380 500,360 C 515,340 510,310 490,285 C 465,260 420,252 380,255 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <circle cx="290" cy="355" r="18" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.8"/><circle cx="290" cy="355" r="13" fill="#dfd2b2" stroke="#c4b898" stroke-width="0.4"/>
+      <circle cx="470" cy="355" r="18" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.8"/><circle cx="470" cy="355" r="13" fill="#dfd2b2" stroke="#c4b898" stroke-width="0.4"/>
+    </g>
+    <g filter="url(#shadow)">
+      <circle cx="290" cy="355" r="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 285,355 Q 278,380 282,400 L 290,398 Q 288,378 292,355 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 282,400 C 280,450 278,500 278,550 C 278,600 280,650 285,700 L 298,700 C 293,650 290,600 290,550 C 290,500 292,450 296,400 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <ellipse cx="285" cy="698" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/><ellipse cx="300" cy="698" rx="8" ry="12" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <circle cx="470" cy="355" r="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 475,355 Q 482,380 478,400 L 470,398 Q 472,378 468,355 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 478,400 C 480,450 482,500 482,550 C 482,600 480,650 475,700 L 462,700 C 467,650 470,600 470,550 C 470,500 468,450 464,400 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <ellipse cx="475" cy="698" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/><ellipse cx="460" cy="698" rx="8" ry="12" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+    </g>
+    <g filter="url(#softShadow)">
+      <ellipse cx="290" cy="705" rx="12" ry="9" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/><ellipse cx="470" cy="705" rx="12" ry="9" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 283,710 C 280,760 278,810 277,860 C 276,910 278,950 282,980 L 294,980 C 290,950 288,910 287,860 C 286,810 288,760 290,710 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <path d="M 477,710 C 480,760 482,810 483,860 C 484,910 482,950 478,980 L 466,980 C 470,950 472,910 473,860 C 474,810 472,760 470,710 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+    </g>
+
+    <!-- ==================== MEDICAL FRAME EXOSKELETON ==================== -->
+
+    <!-- Pelvic orthotic frame -->
+    <g filter="url(#shadow)">
+      <path d="M 220,255 C 210,280 205,310 215,335 C 222,352 240,362 260,365 L 500,365 C 520,362 538,352 545,335 C 555,310 550,280 540,255 C 530,243 500,240 380,240 C 260,240 230,243 220,255 Z" fill="none" stroke="url(#adjGrad)" stroke-width="6" stroke-linecap="round"/>
+      <!-- Cushion padding -->
+      <path d="M 225,260 C 215,285 210,310 220,330" fill="none" stroke="url(#padGrad)" stroke-width="14" stroke-linecap="round" opacity="0.5"/>
+      <path d="M 535,260 C 545,285 550,310 540,330" fill="none" stroke="url(#padGrad)" stroke-width="14" stroke-linecap="round" opacity="0.5"/>
+    </g>
+
+    <!-- Adjustable hip joint (left) -->
+    <g filter="url(#shadow)">
+      <circle cx="290" cy="355" r="20" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="2"/>
+      <circle cx="290" cy="355" r="15" fill="#8B93A0" stroke="#6B7280" stroke-width="0.8"/>
+      <circle cx="290" cy="355" r="8" fill="#9CA3AF"/>
+      <circle cx="290" cy="355" r="2" fill="#4B5563"/>
+      <!-- Range of motion indicator -->
+      <path d="M 290,335 A 20 20 0 0 1 310,355" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="3,2"/>
+      <path d="M 310,355 L 315,350" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+    </g>
+
+    <!-- Adjustable hip joint (right) -->
+    <g filter="url(#shadow)">
+      <circle cx="470" cy="355" r="20" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="2"/>
+      <circle cx="470" cy="355" r="15" fill="#8B93A0" stroke="#6B7280" stroke-width="0.8"/>
+      <circle cx="470" cy="355" r="8" fill="#9CA3AF"/>
+      <circle cx="470" cy="355" r="2" fill="#4B5563"/>
+      <path d="M 470,335 A 20 20 0 0 1 450,355" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="3,2"/>
+    </g>
+
+    <!-- Adjustable length thigh brace -->
+    <g filter="url(#shadow)">
+      <!-- Outer tube -->
+      <path d="M 282,380 C 280,440 278,500 279,560 C 280,620 283,660 286,710 L 296,710 C 293,660 291,620 290,560 C 289,500 291,440 294,380 Z" fill="none" stroke="url(#metalLight)" stroke-width="7" stroke-linecap="round"/>
+      <!-- Inner tube (adjustable segment) -->
+      <path d="M 283,550 C 281,590 280,630 283,680" fill="none" stroke="url(#metalGrad)" stroke-width="5" stroke-linecap="round"/>
+      <!-- Adjustment locking pins -->
+      <rect x="278" y="560" width="6" height="8" rx="2" fill="#fbbf24"/>
+      <rect x="278" y="620" width="6" height="8" rx="2" fill="#fbbf24"/>
+    </g>
+
+    <g filter="url(#shadow)">
+      <path d="M 478,380 C 480,440 482,500 481,560 C 480,620 477,660 474,710 L 464,710 C 467,660 469,620 470,560 C 471,500 469,440 464,380 Z" fill="none" stroke="url(#metalLight)" stroke-width="7" stroke-linecap="round"/>
+      <path d="M 477,550 C 479,590 480,630 477,680" fill="none" stroke="url(#metalGrad)" stroke-width="5" stroke-linecap="round"/>
+      <rect x="476" y="560" width="6" height="8" rx="2" fill="#fbbf24"/>
+      <rect x="476" y="620" width="6" height="8" rx="2" fill="#fbbf24"/>
+    </g>
+
+    <!-- Shin brace -->
+    <g filter="url(#shadow)">
+      <path d="M 285,710 C 283,770 282,830 282,890 C 282,930 284,960 288,990 L 294,990 C 292,960 291,930 291,890 C 291,830 292,770 294,710 Z" fill="none" stroke="url(#adjGrad)" stroke-width="5" stroke-linecap="round"/>
+      <path d="M 475,710 C 477,770 478,830 478,890 C 478,930 476,960 472,990 L 466,990 C 468,960 469,930 469,890 C 469,830 468,770 466,710 Z" fill="none" stroke="url(#adjGrad)" stroke-width="5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Cushion padding at key contact points -->
+    <g opacity="0.3">
+      <ellipse cx="255" cy="290" rx="18" ry="12" fill="url(#padGrad)"/>
+      <ellipse cx="505" cy="290" rx="18" ry="12" fill="url(#padGrad)"/>
+      <ellipse cx="280" cy="460" rx="14" ry="10" fill="url(#padGrad)"/>
+      <ellipse cx="480" cy="460" rx="14" ry="10" fill="url(#padGrad)"/>
+      <ellipse cx="290" cy="800" rx="12" ry="8" fill="url(#padGrad)"/>
+      <ellipse cx="470" cy="800" rx="12" ry="8" fill="url(#padGrad)"/>
+    </g>
+
+    <!-- ==================== NUMBERED ANNOTATIONS ==================== -->
+    <line x1="240" y1="270" x2="170" y2="260" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="164" cy="258" r="9" fill="#9E9E9E"/>
+    <text x="164" y="262" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">1</text>
+    <text x="148" y="252" class="label-sm" font-size="8" fill="#9E9E9E" text-anchor="end">骨盆矫形框架</text>
+
+    <line x1="255" y1="290" x2="210" y2="290" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="204" cy="290" r="9" fill="#9E9E9E"/>
+    <text x="204" y="294" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">2</text>
+    <text x="190" y="284" class="label-sm" font-size="8" fill="#9E9E9E" text-anchor="end">骨盆缓冲垫</text>
+
+    <line x1="308" y1="355" x2="330" y2="355" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="336" cy="355" r="9" fill="#9E9E9E"/>
+    <text x="336" y="359" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">3</text>
+    <text x="350" y="352" class="label-sm" font-size="8" fill="#9E9E9E">可调髋关节</text>
+
+    <line x1="300" y1="355" x2="320" y2="340" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="326" cy="338" r="9" fill="#9E9E9E"/>
+    <text x="326" y="342" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">4</text>
+    <text x="340" y="336" class="label-sm" font-size="8" fill="#9E9E9E">ROM 限位</text>
+
+    <line x1="284" y1="562" x2="260" y2="570" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="254" cy="572" r="9" fill="#9E9E9E"/>
+    <text x="254" y="576" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">5</text>
+    <text x="240" y="566" class="label-sm" font-size="8" fill="#9E9E9E" text-anchor="end">长度调节锁</text>
+
+    <line x1="280" y1="460" x2="250" y2="460" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="244" cy="460" r="9" fill="#9E9E9E"/>
+    <text x="244" y="464" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">6</text>
+    <text x="230" y="454" class="label-sm" font-size="8" fill="#9E9E9E" text-anchor="end">大腿缓冲垫</text>
+
+    <line x1="286" y1="710" x2="320" y2="710" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="326" cy="710" r="9" fill="#9E9E9E"/>
+    <text x="326" y="714" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">7</text>
+    <text x="340" y="708" class="label-sm" font-size="8" fill="#9E9E9E">膝关节铰链</text>
+
+    <line x1="290" y1="800" x2="260" y2="795" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="254" cy="793" r="9" fill="#9E9E9E"/>
+    <text x="254" y="797" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">8</text>
+    <text x="240" y="788" class="label-sm" font-size="8" fill="#9E9E9E" text-anchor="end">小腿缓冲垫</text>
+
+    <line x1="470" y1="290" x2="520" y2="285" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="526" cy="283" r="9" fill="#9E9E9E"/>
+    <text x="526" y="287" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">9</text>
+    <text x="540" y="282" class="label-sm" font-size="8" fill="#9E9E9E">右侧缓冲垫</text>
+
+    <line x1="465" y1="562" x2="500" y2="570" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="506" cy="572" r="9" fill="#9E9E9E"/>
+    <text x="506" y="576" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">10</text>
+    <text x="520" y="568" class="label-sm" font-size="8" fill="#9E9E9E">长度调节 (右侧)</text>
+
+    <!-- FORCE VECTORS -->
+    <line x1="380" y1="10" x2="380" y2="-30" stroke="#dc2626" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <text x="388" y="-18" class="label-force">W (体重)</text>
+    <path d="M 260,355 L 240,355" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+    <text x="222" y="353" class="label-force" font-size="10">F_joint</text>
+    <path d="M 500,355 L 520,355" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+    <text x="528" y="353" class="label-force" font-size="10">F_joint</text>
+    <!-- Corrective torque -->
+    <path d="M 308,335 A 18 18 0 0 1 308,375" fill="none" stroke="#9E9E9E" stroke-width="2" marker-end="url(#arrowGray)"/>
+    <text x="316" y="350" class="label-em" font-size="10">T_correct</text>
+    <path d="M 452,335 A 18 18 0 0 0 452,375" fill="none" stroke="#9E9E9E" stroke-width="2" marker-end="url(#arrowGray)"/>
+    <text x="440" y="350" class="label-em" font-size="10">T_correct</text>
+    <line x1="285" y1="1030" x2="285" y2="1055" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="270" y="1068" class="label-force" font-size="9">GRF</text>
+    <line x1="475" y1="1030" x2="475" y2="1055" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="478" y="1068" class="label-force" font-size="9">GRF</text>
+
+    <!-- PRODUCT CALLOUTS -->
+    <g transform="translate(540, 55)">
+      <rect x="0" y="0" width="180" height="140" rx="5" fill="#fff" stroke="#9E9E9E" stroke-width="1.2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="180" height="22" rx="5" fill="#616161"/>
+      <text x="90" y="15" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">ReWalk ReStore</text>
+      <text x="8" y="34" class="label-sm" font-size="8">重量：4.5 kg</text>
+      <text x="8" y="48" class="label-sm" font-size="8">认证：FDA / CE</text>
+      <text x="8" y="62" class="label-sm" font-size="8">驱动：关节电机</text>
+      <text x="8" y="76" class="label-sm" font-size="8">调节：长度/角度可调</text>
+      <text x="8" y="90" class="label-sm" font-size="8">应用：卒中康复</text>
+      <line x1="8" y1="96" x2="172" y2="96" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="8" y="110" class="label-sm" font-size="8" fill="#9E9E9E" font-weight="bold">FDA 认证医疗级矫形</text>
+      <text x="8" y="126" class="label-sm" font-size="8" fill="#94a3b8">可调框架 / 临床康复</text>
+    </g>
+
+    <g transform="translate(540, 210)">
+      <rect x="0" y="0" width="180" height="130" rx="5" fill="#fff" stroke="#9E9E9E" stroke-width="1.2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="180" height="22" rx="5" fill="#616161"/>
+      <text x="90" y="15" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">EksoNR (Ekso Bionics)</text>
+      <text x="8" y="34" class="label-sm" font-size="8">重量：12 kg</text>
+      <text x="8" y="48" class="label-sm" font-size="8">认证：FDA</text>
+      <text x="8" y="62" class="label-sm" font-size="8">可调节：髋/膝/踝</text>
+      <text x="8" y="76" class="label-sm" font-size="8">应用：脊髓损伤</text>
+      <text x="8" y="90" class="label-sm" font-size="8">价格：$100,000+</text>
+      <line x1="8" y1="96" x2="172" y2="96" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="8" y="110" class="label-sm" font-size="8" fill="#9E9E9E" font-weight="bold">多关节可调医疗框架</text>
+    </g>
+
+    <g transform="translate(30, 1020)">
+      <rect x="0" y="0" width="700" height="48" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="10" y="10" width="14" height="14" rx="2" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <text x="28" y="22" class="label-sm" font-size="9">骨骼</text>
+      <rect x="100" y="10" width="14" height="14" rx="2" fill="rgba(200,50,50,0.15)" stroke="rgba(200,50,50,0.3)" stroke-width="0.6"/>
+      <text x="118" y="22" class="label-sm" font-size="9">肌肉</text>
+      <rect x="190" y="10" width="14" height="14" rx="2" fill="url(#metalGrad)" stroke="#6B7280" stroke-width="0.6"/>
+      <text x="208" y="22" class="label-sm" font-size="9">矫形框架</text>
+      <rect x="290" y="10" width="14" height="14" rx="2" fill="#cbd5e1"/>
+      <text x="308" y="22" class="label-sm" font-size="9">缓冲垫</text>
+      <rect x="380" y="10" width="14" height="14" rx="2" fill="#fbbf24"/>
+      <text x="398" y="22" class="label-sm" font-size="9">调节锁</text>
+      <line x1="480" y1="16" x2="495" y2="16" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+      <text x="502" y="22" class="label-sm" font-size="9">力矢量</text>
+      <text x="10" y="42" class="label-sm" font-size="8" fill="#94a3b8">医疗矫形框架式外骨骼 · ReWalk / EksoNR 技术路线</text>
+    </g>
+  </g>
+
+  <!-- RIGHT PANEL -->
+  <g transform="translate(808, 16)">
+    <rect x="-8" y="0" width="380" height="60" rx="4" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5"/>
+    <rect x="-8" y="0" width="4" height="60" rx="2" fill="#9E9E9E"/>
+    <text x="12" y="26" class="title-gray">医疗矫形框架式</text>
+    <text x="12" y="46" class="label-sm" font-size="10" fill="#9ca3af">MEDICAL ORTHOTIC FRAME EXOSKELETON</text>
+    <rect x="262" y="10" width="100" height="24" rx="12" fill="#9E9E9E" opacity="0.15"/>
+    <text x="312" y="27" font-size="12" fill="#9E9E9E" font-family="sans-serif" text-anchor="middle" font-weight="bold">部分借鉴</text>
+
+    <g transform="translate(0, 80)">
+      <rect x="-8" y="0" width="380" height="130" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="130" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-light" font-size="14">架构特征</text>
+      <text x="140" y="22" class="label-sm" fill="#94a3b8">ARCHITECTURE</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <circle cx="16" cy="48" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="53">可调长度/角度的骨盆框架</text>
+        <circle cx="16" cy="68" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="73">髋关节 ROM 限位可调</text>
+        <circle cx="16" cy="88" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="93">大腿/小腿长度可调</text>
+        <circle cx="16" cy="108" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="113">关键接触点缓冲垫保护</text>
+        <circle cx="16" cy="128" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="133">需 FDA/CE 医疗认证</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 228)">
+      <rect x="-8" y="0" width="380" height="145" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="145" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-light" font-size="14">技术参数</text>
+      <text x="120" y="22" class="label-sm" fill="#94a3b8">PARAMETERS</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="50">系统重量</text>
+        <text x="160" y="50" fill="#1f2937" font-weight="bold">4.5 – 12 kg</text>
+        <text x="16" y="70">关节调节</text>
+        <text x="160" y="70" fill="#1f2937" font-weight="bold">髋/膝角度可调</text>
+        <text x="16" y="90">长度调节</text>
+        <text x="160" y="90" fill="#1f2937" font-weight="bold">大腿/小腿可调</text>
+        <text x="16" y="110">代表产品</text>
+        <text x="160" y="110" fill="#1f2937" font-weight="bold">ReWalk / EksoNR</text>
+        <text x="16" y="130">核心优势</text>
+        <text x="160" y="130" fill="#1f2937" font-weight="bold">临床验证 / 医疗合规</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 392)">
+      <rect x="-8" y="0" width="380" height="135" rx="4" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="135" rx="1.5" fill="#9E9E9E"/>
+      <text x="12" y="22" class="title-light" font-size="14">临床应用</text>
+      <text x="110" y="22" class="label-sm" fill="#94a3b8">CLINICAL APPLICATION</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e0e0e0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">卒中后偏瘫步态康复</text>
+        <text x="16" y="66">脊髓损伤 (SCI) 行走辅助</text>
+        <text x="16" y="84">脑瘫 (CP) 步态矫正</text>
+        <text x="16" y="102">多发性硬化症 (MS) 助行</text>
+        <text x="16" y="120">术后髋关节保护</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 546)">
+      <rect x="-8" y="0" width="380" height="115" rx="4" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="380" height="26" rx="4" fill="#9E9E9E" opacity="0.1"/>
+      <text x="12" y="18" font-size="12" fill="#616161" font-family="sans-serif" font-weight="bold">Bones 评估：部分借鉴</text>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">可调框架设计理念值得采用</text>
+        <text x="16" y="66">缓冲垫和长度调节机制可迁移</text>
+        <line x1="16" y1="74" x2="364" y2="74" stroke="#e0e0e0" stroke-width="0.3"/>
+        <text x="16" y="92" fill="#9E9E9E" font-weight="bold">注意：</text>
+        <text x="86" y="92" fill="#475569">医疗级重量 (4.5-12 kg) 不适合消费级</text>
+        <text x="86" y="110" fill="#475569">FDA 认证路径成本极高，不适合初创阶段</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 680)">
+      <rect x="-8" y="0" width="380" height="135" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="135" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-light" font-size="13">市场竞争分析</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.3"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">ReWalk / Ekso NR 已获 FDA 并临床普及</text>
+        <text x="16" y="66">Hocoma (瑞士) Lokomat 是康复金标准</text>
+        <text x="16" y="84">医疗外骨骼 $50K-$150K，医保覆盖逐步扩大</text>
+        <text x="16" y="102">可调框架设计已被广泛验证</text>
+        <text x="16" y="120">消费级外骨骼可借鉴其人体工学调节</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 832)">
+      <rect x="-8" y="0" width="380" height="90" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="90" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-light" font-size="13">关键学习点</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.3"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="46">可调框架 + 缓冲垫设计是消费级产品必学的人体工学</text>
+        <text x="16" y="64">FDA 认证虽非消费级必需，但可为产品增加信任背书</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- BOTTOM LEGEND -->
+  <g transform="translate(0, 1100)">
+    <rect x="20" y="0" width="1160" height="50" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+    <rect x="40" y="10" width="18" height="18" rx="3" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/><text x="62" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">骨骼</text>
+    <rect x="110" y="10" width="18" height="18" rx="3" fill="rgba(200,50,50,0.2)" stroke="rgba(200,50,50,0.4)" stroke-width="0.8"/><text x="132" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">肌肉</text>
+    <rect x="180" y="10" width="18" height="18" rx="3" fill="url(#metalGrad)" stroke="#6B7280" stroke-width="0.8"/><text x="202" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">矫形框架</text>
+    <rect x="290" y="10" width="18" height="18" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="0.8"/><text x="312" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">缓冲垫</text>
+    <rect x="380" y="10" width="18" height="18" rx="3" fill="#fbbf24" stroke="#d97706" stroke-width="0.8"/><text x="402" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">调节锁扣</text>
+    <line x1="490" y1="19" x2="510" y2="19" stroke="#dc2626" stroke-width="3" marker-end="url(#arrowRed)"/><text x="518" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">力矢量</text>
+    <line x1="610" y1="10" x2="630" y2="10" stroke="#9E9E9E" stroke-width="2.5" stroke-dasharray="4,2" marker-end="url(#arrowGray)"/><text x="638" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">矫正力矩</text>
+    <line x1="740" y1="10" x2="760" y2="10" stroke="#e5e7eb" stroke-width="0.8"/><text x="765" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">评估：</text>
+    <rect x="836" y="10" width="18" height="18" rx="3" fill="#0096f0"/><text x="858" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">推荐采用</text>
+    <rect x="934" y="10" width="18" height="18" rx="3" fill="#d97706"/><text x="956" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">部分借鉴</text>
+    <rect x="1032" y="10" width="18" height="18" rx="3" fill="#9E9E9E"/><text x="1054" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">仅跟踪</text>
+    <line x1="40" y1="34" x2="1140" y2="34" stroke="#e2e8f0" stroke-width="0.3"/>
+    <text x="580" y="44" font-size="9" fill="#a0aec0" font-family="sans-serif" text-anchor="middle">附录 C · 髋关节外骨骼架构分析 | Bones &amp; Manifold · Nexum Project 2026</text>
+  </g>
+
+  <!-- OVERLAY: Adjustable Frame Detail -->
+  <g transform="translate(50, 850)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="310" height="190" rx="5" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.8" filter="url(#softShadow)"/>
+    <text x="12" y="20" class="title-gray" font-size="11">可调矫形框架详图</text>
+    <text x="12" y="34" class="label-sm" font-size="8">ADJUSTABLE FRAME — MECHANISM</text>
+    <line x1="12" y1="38" x2="298" y2="38" stroke="#e5e7eb" stroke-width="0.5"/>
+
+    <g transform="translate(15, 48)">
+      <!-- Adjustment mechanism -->
+      <rect x="0" y="0" width="120" height="80" rx="4" fill="#fff" stroke="#e5e7eb" stroke-width="0.8"/>
+      <!-- Outer tube -->
+      <rect x="20" y="5" width="30" height="70" rx="4" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="0.8"/>
+      <!-- Inner tube -->
+      <rect x="25" y="15" width="20" height="55" rx="3" fill="url(#metalLight)"/>
+      <!-- Locking pin -->
+      <rect x="15" y="25" width="8" height="6" rx="1" fill="#fbbf24" stroke="#d97706" stroke-width="0.5"/>
+      <!-- Adjustment holes -->
+      <circle cx="35" cy="20" r="2" fill="#4B5563"/>
+      <circle cx="35" cy="30" r="2" fill="#4B5563"/>
+      <circle cx="35" cy="40" r="2" fill="#4B5563"/>
+      <circle cx="35" cy="50" r="2" fill="#4B5563"/>
+      <circle cx="35" cy="60" r="2" fill="#4B5563"/>
+      <!-- Labels -->
+      <line x1="50" y1="28" x2="70" y2="28" stroke="#9E9E9E" stroke-width="0.6"/>
+      <text x="73" y="30" class="label-sm" font-size="6" fill="#9E9E9E">调节锁销</text>
+      <line x1="50" y1="45" x2="70" y2="55" stroke="#9E9E9E" stroke-width="0.6"/>
+      <text x="73" y="57" class="label-sm" font-size="6" fill="#9E9E9E">调节孔</text>
+    </g>
+
+    <g transform="translate(150, 48)">
+      <text x="0" y="0" class="label-sm" font-size="9" fill="#475569">框架调节范围</text>
+      <text x="0" y="16" class="label-sm" font-size="8" fill="#64748b">骨盆宽度：±30 mm</text>
+      <text x="0" y="28" class="label-sm" font-size="8" fill="#64748b">大腿长度：±50 mm</text>
+      <text x="0" y="40" class="label-sm" font-size="8" fill="#64748b">小腿长度：±40 mm</text>
+      <text x="0" y="52" class="label-sm" font-size="8" fill="#64748b">髋关节 ROM 限位：可调</text>
+      <line x1="0" y1="60" x2="150" y2="60" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="0" y="74" class="label-sm" font-size="8" fill="#9E9E9E" font-weight="bold">材料：</text>
+      <text x="0" y="86" class="label-sm" font-size="8" fill="#64748b">框架：7075 铝合金</text>
+      <text x="0" y="98" class="label-sm" font-size="8" fill="#64748b">衬垫：EVA + 透气网布</text>
+      <text x="0" y="110" class="label-sm" font-size="8" fill="#64748b">铰链：不锈钢 304</text>
+    </g>
+  </g>
+  <g transform="translate(50, 750)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="660" height="70" rx="4" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5"/>
+    <text x="12" y="16" class="label-sm" font-size="8" fill="#475569">注：医疗矫形框架式外骨骼以 ReWalk ReStore (FDA 2018, 4.5 kg) 和 EksoNR (FDA 2016, 12 kg) 为代表。</text>
+    <text x="12" y="30" class="label-sm" font-size="8" fill="#475569">消费级产品暂时不需要 FDA 认证，但可调框架、缓冲垫和 ROM 限位的人体工学设计值得全部采纳。</text>
+    <text x="12" y="44" class="label-sm" font-size="8" fill="#64748b">调节范围：骨盆宽 ±30mm / 大腿长 ±50mm / 小腿长 ±40mm / 髋 ROM 0-120 度可调</text>
+  </g>
+</svg>

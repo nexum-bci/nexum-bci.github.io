@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1100" width="1200" height="1100">
+<defs>
+  <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#f5dcc8"/><stop offset="50%" stop-color="#e8cfb8"/><stop offset="100%" stop-color="#dcc0a8"/>
+  </linearGradient>
+  <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#d0d0d0"/><stop offset="50%" stop-color="#b8b8b8"/><stop offset="100%" stop-color="#a0a0a0"/>
+  </linearGradient>
+  <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#f5f5f5"/><stop offset="25%" stop-color="#e0e0e0"/><stop offset="55%" stop-color="#c8c8c8"/><stop offset="100%" stop-color="#a8a8a8"/>
+  </linearGradient>
+  <linearGradient id="metalDark" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#888"/><stop offset="50%" stop-color="#606060"/><stop offset="100%" stop-color="#484848"/>
+  </linearGradient>
+  <linearGradient id="copperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#dbb068"/><stop offset="30%" stop-color="#c89040"/><stop offset="70%" stop-color="#b88030"/><stop offset="100%" stop-color="#a07028"/>
+  </linearGradient>
+  <linearGradient id="battGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#4a4a4a"/><stop offset="50%" stop-color="#383838"/><stop offset="100%" stop-color="#2a2a2a"/>
+  </linearGradient>
+  <linearGradient id="pcbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#2d8a4e"/><stop offset="50%" stop-color="#1a6b3c"/><stop offset="100%" stop-color="#155630"/>
+  </linearGradient>
+  <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="rgba(200,220,240,0.15)"/><stop offset="50%" stop-color="rgba(180,200,220,0.10)"/><stop offset="100%" stop-color="rgba(200,220,240,0.18)"/>
+  </linearGradient>
+  <pattern id="cfWeave" width="10" height="10" patternUnits="userSpaceOnUse">
+    <rect width="10" height="10" fill="#2a2a2a"/>
+    <path d="M0 5L10 5M5 0L5 10" stroke="#3a3a3a" stroke-width="0.6"/>
+    <path d="M0 0L10 10M10 0L0 10" stroke="rgba(255,255,255,0.04)" stroke-width="0.3"/>
+    <rect x="4" y="4" width="2" height="2" fill="rgba(80,80,80,0.15)" rx="0.5"/>
+  </pattern>
+  <pattern id="fabricWeave" width="4" height="4" patternUnits="userSpaceOnUse">
+    <rect width="4" height="4" fill="#3a3a3a"/>
+    <rect x="0" y="0" width="2" height="2" fill="rgba(80,80,80,0.3)"/>
+    <rect x="2" y="2" width="2" height="2" fill="rgba(80,80,80,0.3)"/>
+  </pattern>
+  <filter id="shadow">
+    <feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="rgba(0,0,0,0.18)"/>
+  </filter>
+  <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#e02020"/>
+  </marker>
+  <marker id="arrowDim" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#d97706"/>
+  </marker>
+</defs>
+
+<!-- FULL BACKGROUND -->
+<rect width="1200" height="1100" fill="#f5f5f5"/>
+
+<!-- TITLE BAR -->
+<rect x="20" y="16" width="1160" height="48" rx="6" fill="#1a3a5a" opacity="0.9"/>
+<text x="600" y="40" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#fff">单铰链膝关节外骨骼 · 产品穿戴图</text>
+<text x="600" y="56" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.8)">腰带供电 · 双膝驱动 · 碳纤维框架 · 磁吸快穿</text>
+
+<!-- ============ LEFT COLUMN: PRODUCT WEAR DIAGRAM ============ -->
+<rect x="20" y="72" width="720" height="970" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+
+<!-- ==================== PERSON DRAWING ==================== -->
+<!-- Body silhouette with skin base (filled completely to avoid gaps) -->
+
+<!-- Hair (behind head) -->
+<path d="M265,148 C260,120 268,95 300,82 C332,95 340,120 335,148 L335,140 L332,133 C328,124 320,117 310,113 L300,110 L290,113 C280,117 272,124 268,133 L265,140 Z" fill="url(#hairGrad)" stroke="#909090" stroke-width="0.8"/>
+<path d="M265,148 C262,155 261,165 263,172 L268,170 L270,162 C270,155 268,150 265,148 Z" fill="url(#hairGrad)"/>
+<path d="M335,148 C338,155 339,165 337,172 L332,170 L330,162 C330,155 332,150 335,148 Z" fill="url(#hairGrad)"/>
+<!-- Hair side wisps -->
+<path d="M262,172 C258,178 258,185 262,190 L268,186 L267,178 Z" fill="url(#hairGrad)"/>
+<path d="M338,172 C342,178 342,185 338,190 L332,186 L333,178 Z" fill="url(#hairGrad)"/>
+
+<!-- Neck -->
+<rect x="282" y="182" width="36" height="32" rx="10" fill="url(#skinGrad)" stroke="#d4bca8" stroke-width="0.6"/>
+
+<!-- Torso (light blue shirt) - fully filled shape -->
+<path d="M240,215 L230,225 L222,245 L218,270 L216,300 L215,330 L214,360 L213,390 L212,420 L215,440 L220,450 L235,455 L245,455 L260,452 L270,448 L280,446 L285,445 L295,445 L305,445 L315,447 L325,450 L340,453 L355,454 L365,452 L375,448 L382,440 L385,430 L387,400 L388,370 L389,340 L390,310 L391,280 L392,250 L388,225 L380,215 L370,210 L355,205 L340,202 L320,200 L300,200 L280,202 L260,206 L248,210 Z" fill="#cfe2f0" stroke="#9ab8d0" stroke-width="0.8"/>
+
+<!-- Collar -->
+<path d="M275,210 L300,230 L325,210" fill="none" stroke="#9ab8d0" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M290,215 L300,225 L310,215" fill="none" stroke="#ffffff" stroke-width="1" stroke-linejoin="round"/>
+
+<!-- LEFT ARM (long sleeve) -->
+<path d="M240,215 L225,235 L215,260 L208,290 L202,320 L196,360 L192,400 L188,440 L185,480 L184,510 L186,535 L190,545 L195,540 L196,510 L197,480 L200,440 L204,400 L210,360 L216,320 L222,290 L228,260 L235,235 L248,220 Z" fill="#cfe2f0" stroke="#9ab8d0" stroke-width="0.8"/>
+<!-- Arm crease -->
+<path d="M225,300 Q220,330 216,360" fill="none" stroke="#9ab8d0" stroke-width="0.6" stroke-dasharray="3,3"/>
+
+<!-- LEFT HAND (holding cane) -->
+<ellipse cx="190" cy="545" rx="12" ry="14" fill="url(#skinGrad)" stroke="#d4bca8" stroke-width="0.6"/>
+<!-- Fingers -->
+<path d="M182,540 Q178,545 180,550" fill="none" stroke="#d4bca8" stroke-width="0.8"/>
+<path d="M185,538 Q181,543 183,548" fill="none" stroke="#d4bca8" stroke-width="0.8"/>
+
+<!-- RIGHT ARM (long sleeve) -->
+<path d="M358,215 L375,235 L385,260 L392,290 L398,320 L404,360 L408,400 L412,440 L414,470 L415,500 L413,520 L408,528 L403,520 L402,500 L400,470 L398,440 L394,400 L388,360 L382,320 L376,290 L368,260 L358,235 L347,220 Z" fill="#cfe2f0" stroke="#9ab8d0" stroke-width="0.8"/>
+<!-- Arm crease -->
+<path d="M375,300 Q380,330 384,360" fill="none" stroke="#9ab8d0" stroke-width="0.6" stroke-dasharray="3,3"/>
+
+<!-- RIGHT HAND -->
+<ellipse cx="408" cy="528" rx="12" ry="14" fill="url(#skinGrad)" stroke="#d4bca8" stroke-width="0.6"/>
+<path d="M416,523 Q420,528 418,533" fill="none" stroke="#d4bca8" stroke-width="0.8"/>
+
+<!-- HEAD -->
+<ellipse cx="300" cy="130" rx="45" ry="55" fill="url(#skinGrad)" stroke="#d4bca8" stroke-width="0.8"/>
+
+<!-- FACE FEATURES -->
+<!-- Eyebrows -->
+<path d="M270,120 Q280,116 290,118" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M310,118 Q320,116 330,120" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+<!-- Eyes -->
+<ellipse cx="280" cy="130" rx="7" ry="4.5" fill="#fcfcfc" stroke="#555" stroke-width="0.8"/>
+<ellipse cx="320" cy="130" rx="7" ry="4.5" fill="#fcfcfc" stroke="#555" stroke-width="0.8"/>
+<circle cx="281" cy="130" r="2.5" fill="#333"/>
+<circle cx="321" cy="130" r="2.5" fill="#333"/>
+<!-- Eye bags (elderly) -->
+<path d="M273,137 Q280,140 287,137" fill="none" stroke="rgba(180,140,120,0.3)" stroke-width="0.6"/>
+<path d="M313,137 Q320,140 327,137" fill="none" stroke="rgba(180,140,120,0.3)" stroke-width="0.6"/>
+<!-- Glasses -->
+<ellipse cx="280" cy="130" rx="18" ry="13" fill="url(#glassGrad)" stroke="#3a4a5a" stroke-width="1.8"/>
+<ellipse cx="320" cy="130" rx="18" ry="13" fill="url(#glassGrad)" stroke="#3a4a5a" stroke-width="1.8"/>
+<line x1="298" y1="130" x2="302" y2="130" stroke="#3a4a5a" stroke-width="1.8"/>
+<line x1="262" y1="128" x2="248" y2="126" stroke="#3a4a5a" stroke-width="1.5"/>
+<line x1="338" y1="128" x2="352" y2="126" stroke="#3a4a5a" stroke-width="1.5"/>
+<!-- Nose -->
+<path d="M297,140 C299,148 302,152 305,154 C308,152 310,148 308,142" fill="none" stroke="#d4bca8" stroke-width="1" stroke-linecap="round"/>
+<!-- Nose bridge shadow -->
+<path d="M298,136 L300,142" fill="none" stroke="rgba(180,140,120,0.2)" stroke-width="0.5"/>
+<!-- Mouth -->
+<path d="M285,162 Q300,170 315,162" fill="none" stroke="#c4a88c" stroke-width="1.2" stroke-linecap="round"/>
+<!-- Nasolabial folds -->
+<path d="M292,156 Q290,165 292,172" fill="none" stroke="rgba(180,140,120,0.2)" stroke-width="0.6"/>
+<path d="M308,156 Q310,165 308,172" fill="none" stroke="rgba(180,140,120,0.2)" stroke-width="0.6"/>
+<!-- Forehead wrinkles -->
+<path d="M275,102 Q300,98 325,102" fill="none" stroke="rgba(180,140,120,0.25)" stroke-width="0.6"/>
+<path d="M278,110 Q300,106 322,110" fill="none" stroke="rgba(180,140,120,0.2)" stroke-width="0.4"/>
+
+<!-- PANTS (both legs, dark gray) - fully covered -->
+<!-- Left pants leg -->
+<path d="M245,455 L240,480 L235,510 L230,545 L228,580 L226,620 L225,660 L224,700 L223,740 L222,780 L221,820 L220,860 L219,890 L218,920 L225,940 L240,950 L260,955 L275,955 L280,950 L282,940 L283,920 L284,890 L285,860 L286,820 L287,780 L288,740 L289,700 L290,660 L291,620 L292,580 L293,545 L294,510 L293,480 L290,455 L282,450 L270,448 L258,450 Z" fill="#3a4a5a" stroke="#2a3a4a" stroke-width="0.8"/>
+<!-- Right pants leg -->
+<path d="M310,455 L307,480 L305,510 L303,545 L302,580 L301,620 L300,660 L299,700 L298,740 L297,780 L296,820 L295,860 L294,890 L293,920 L300,940 L315,950 L335,955 L350,955 L355,950 L360,940 L362,920 L363,890 L364,860 L365,820 L366,780 L367,740 L368,700 L369,660 L370,620 L371,580 L372,545 L373,510 L374,480 L372,455 L365,450 L352,447 L340,448 L325,450 L315,452 Z" fill="#3a4a5a" stroke="#2a3a4a" stroke-width="0.8"/>
+
+<!-- Pants creases -->
+<path d="M240,570 L238,700 L235,850" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+<path d="M305,570 L303,700 L300,850" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+
+<!-- SHOES -->
+<!-- Left shoe -->
+<path d="M220,930 L215,945 L212,960 L215,970 L225,975 L245,978 L265,978 L275,975 L282,970 L285,960 L283,945 L278,930 L265,925 L245,922 L230,925 Z" fill="#5a3a2a" stroke="#4a2a1a" stroke-width="0.8"/>
+<path d="M212,960 L215,970 L225,975 L245,978 L265,978 L275,975 L282,970 L285,960" fill="none" stroke="#4a2a1a" stroke-width="0.5"/>
+<!-- Shoe sole line -->
+<path d="M215,970 L225,975 L245,978 L265,978 L275,975 L282,970" fill="none" stroke="#3a2010" stroke-width="0.6"/>
+<!-- Right shoe -->
+<path d="M310,930 L305,945 L302,960 L305,970 L315,975 L335,978 L355,978 L370,975 L378,970 L380,960 L378,945 L375,930 L365,925 L345,922 L325,925 L315,928 Z" fill="#5a3a2a" stroke="#4a2a1a" stroke-width="0.8"/>
+<path d="M302,960 L305,970 L315,975 L335,978 L355,978 L370,975 L378,970 L380,960" fill="none" stroke="#4a2a1a" stroke-width="0.5"/>
+<path d="M305,970 L315,975 L335,978 L355,978 L370,975 L378,970" fill="none" stroke="#3a2010" stroke-width="0.6"/>
+
+<!-- CANE (left hand) -->
+<line x1="188" y1="550" x2="180" y2="955" stroke="#6b4a22" stroke-width="5" stroke-linecap="round"/>
+<!-- Cane handle -->
+<path d="M188,550 C188,538 192,530 200,525 C208,520 212,525 210,532" fill="none" stroke="#6b4a22" stroke-width="5" stroke-linecap="round"/>
+<!-- Cane tip -->
+<rect x="177" y="950" width="8" height="10" rx="3" fill="#444" stroke="#333" stroke-width="0.5"/>
+
+<!-- ==================== EXOSKELETON COMPONENTS (on RIGHT leg) ==================== -->
+
+<!-- ⑦ CARBON FIBER THIGH FRAME - right thigh outer side -->
+<path d="M380,460 L385,455 L400,455 L405,460 L408,490 L410,530 L410,580 L408,620 L406,660 L404,690 L398,695 L390,695 L385,690 L382,660 L380,620 L378,580 L378,530 L378,490 Z" fill="url(#cfWeave)" stroke="#1a1a1a" stroke-width="1"/>
+<!-- Thigh frame text details -->
+<path d="M383,480 L400,480 M380,540 L405,540 M380,600 L405,600 M380,660 L402,660" fill="none" stroke="rgba(100,100,100,0.4)" stroke-width="0.4" stroke-dasharray="3,4"/>
+
+<!-- ⑧ CARBON FIBER CALF FRAME - right calf outer side -->
+<path d="M378,740 L385,735 L400,735 L405,740 L408,770 L410,810 L410,850 L408,890 L406,920 L400,928 L392,930 L385,928 L380,920 L378,890 L376,850 L376,810 L376,770 Z" fill="url(#cfWeave)" stroke="#1a1a1a" stroke-width="1"/>
+<path d="M380,760 L402,760 M380,820 L405,820 M380,880 L402,880" fill="none" stroke="rgba(100,100,100,0.4)" stroke-width="0.4" stroke-dasharray="3,4"/>
+
+<!-- ① BELT (80mm fabric band) -->
+<path d="M215,445 L225,435 L245,430 L265,427 L285,425 L310,425 L335,427 L355,430 L375,435 L385,445 L388,458 L385,470 L380,480 L370,488 L355,493 L335,497 L310,498 L285,497 L265,493 L245,488 L230,480 L222,470 L217,458 Z" fill="url(#fabricWeave)" stroke="#2a2a2a" stroke-width="1.2"/>
+<!-- Belt buckle center -->
+<rect x="280" y="440" width="40" height="40" rx="4" fill="#555" stroke="#444" stroke-width="0.8"/>
+<rect x="285" y="445" width="30" height="30" rx="2" fill="#666" stroke="#555" stroke-width="0.5"/>
+<circle cx="300" cy="460" r="8" fill="#777" stroke="#666" stroke-width="0.5"/>
+<circle cx="300" cy="460" r="4" fill="#999"/>
+<!-- Belt width indicator -->
+<line x1="217" y1="458" x2="217" y2="478" stroke="#d97706" stroke-width="0.8" stroke-dasharray="2,1"/>
+<line x1="205" y1="458" x2="205" y2="478" stroke="#d97706" stroke-width="0.8"/>
+<line x1="215" y1="460" x2="207" y2="460" stroke="#d97706" stroke-width="0.6"/>
+<line x1="215" y1="476" x2="207" y2="476" stroke="#d97706" stroke-width="0.6"/>
+
+<!-- ② BATTERY PACK (Samsung 50E 4S1P) -->
+<rect x="378" y="462" width="42" height="34" rx="5" fill="url(#battGrad)" stroke="#1a1a1a" stroke-width="1.2"/>
+<rect x="383" y="467" width="32" height="24" rx="3" fill="#333"/>
+<!-- Cell indicators -->
+<rect x="386" y="470" width="6" height="8" rx="1" fill="rgba(255,200,0,0.3)" stroke="#555" stroke-width="0.3"/>
+<rect x="394" y="470" width="6" height="8" rx="1" fill="rgba(255,200,0,0.3)" stroke="#555" stroke-width="0.3"/>
+<rect x="402" y="470" width="6" height="8" rx="1" fill="rgba(255,200,0,0.3)" stroke="#555" stroke-width="0.3"/>
+<rect x="386" y="480" width="6" height="8" rx="1" fill="rgba(255,200,0,0.3)" stroke="#555" stroke-width="0.3"/>
+<rect x="394" y="480" width="6" height="8" rx="1" fill="rgba(255,200,0,0.3)" stroke="#555" stroke-width="0.3"/>
+<rect x="402" y="480" width="6" height="8" rx="1" fill="rgba(255,200,0,0.3)" stroke="#555" stroke-width="0.3"/>
+<!-- Battery connector -->
+<rect x="420" y="474" width="6" height="8" rx="1" fill="#888" stroke="#666" stroke-width="0.3"/>
+<!-- LED indicator -->
+<circle cx="382" cy="476" r="2" fill="#00ff00" opacity="0.8"/>
+
+<!-- ③ MAIN CONTROL BOARD -->
+<rect x="372" y="500" width="50" height="28" rx="3" fill="url(#pcbGrad)" stroke="#0d4a28" stroke-width="0.8"/>
+<!-- Board details -->
+<rect x="376" y="504" width="16" height="6" rx="1" fill="#1a1a1a"/>
+<rect x="376" y="514" width="16" height="6" rx="1" fill="#1a1a1a"/>
+<rect x="396" y="504" width="8" height="16" rx="1" fill="#1a1a1a"/>
+<circle cx="376" cy="526" r="1.5" fill="#00ff00" opacity="0.7"/>
+<circle cx="381" cy="526" r="1.5" fill="#00ff00" opacity="0.5"/>
+<circle cx="386" cy="526" r="1.5" fill="#ff0000" opacity="0.4"/>
+<!-- USB-C port -->
+<rect x="422" y="510" width="5" height="8" rx="1" fill="#888" stroke="#666" stroke-width="0.3"/>
+
+<!-- ④ SHIELDED CABLE (from control board down to motor) -->
+<path d="M415,528 C413,560 410,590 408,620 C406,650 405,670 408,690" fill="none" stroke="#2a2a2a" stroke-width="6" stroke-linecap="round"/>
+<path d="M415,528 C413,560 410,590 408,620 C406,650 405,670 408,690" fill="none" stroke="#555" stroke-width="2" stroke-dasharray="4,5" stroke-linecap="round"/>
+
+<!-- ⑤ AK80-9 MOTOR + PLANETARY REDUCER (right knee lateral) -->
+<!-- Motor housing -->
+<rect x="382" y="690" width="56" height="52" rx="6" fill="url(#metalGrad)" stroke="#888" stroke-width="1.2"/>
+<!-- Motor shaft area -->
+<circle cx="410" cy="716" r="18" fill="url(#metalDark)" stroke="#777" stroke-width="0.8"/>
+<circle cx="410" cy="716" r="12" fill="none" stroke="#999" stroke-width="0.5"/>
+<circle cx="410" cy="716" r="6" fill="#888" stroke="#666" stroke-width="0.8"/>
+<circle cx="410" cy="716" r="3" fill="#aaa"/>
+<!-- Cooling fins -->
+<g stroke="rgba(100,100,100,0.4)" stroke-width="0.5">
+  <line x1="382" y1="698" x2="404" y2="698"/>
+  <line x1="382" y1="704" x2="404" y2="704"/>
+  <line x1="382" y1="710" x2="404" y2="710"/>
+  <line x1="382" y1="722" x2="404" y2="722"/>
+  <line x1="382" y1="728" x2="404" y2="728"/>
+  <line x1="382" y1="734" x2="404" y2="734"/>
+</g>
+<!-- Motor label side -->
+<rect x="432" y="700" width="8" height="32" rx="2" fill="#2a2a2a"/>
+<circle cx="436" cy="704" r="1.5" fill="#ff6600" opacity="0.6"/>
+<circle cx="436" cy="716" r="1.5" fill="#ff6600" opacity="0.6"/>
+<circle cx="436" cy="728" r="1.5" fill="#ff6600" opacity="0.6"/>
+
+<!-- ⑥ ELECTROMAGNETIC CLUTCH (Ogura MCNB-3Z) -->
+<rect x="388" y="746" width="44" height="28" rx="4" fill="url(#copperGrad)" stroke="#a07028" stroke-width="1"/>
+<!-- Clutch detail -->
+<rect x="393" y="750" width="34" height="20" rx="2" fill="rgba(160,112,40,0.3)"/>
+<line x1="398" y1="752" x2="398" y2="768" stroke="#a07028" stroke-width="0.4"/>
+<line x1="404" y1="752" x2="404" y2="768" stroke="#a07028" stroke-width="0.4"/>
+<line x1="410" y1="752" x2="410" y2="768" stroke="#a07028" stroke-width="0.4"/>
+<line x1="416" y1="752" x2="416" y2="768" stroke="#a07028" stroke-width="0.4"/>
+<line x1="422" y1="752" x2="422" y2="768" stroke="#a07028" stroke-width="0.4"/>
+<!-- Connection link -->
+<rect x="410" y="742" width="8" height="6" rx="1" fill="#666" stroke="#555" stroke-width="0.3"/>
+
+<!-- ⑨ THIGH STRAP (60mm blue Fidlock) -->
+<path d="M318,555 L325,548 L345,545 L365,543 L380,545 L395,550 L405,558 L400,568 L390,575 L375,580 L360,582 L345,582 L330,580 L320,572 L315,565 Z" fill="#2980b9" stroke="#1a6a9a" stroke-width="0.8"/>
+<!-- Fidlock buckle -->
+<rect x="380" y="552" width="16" height="22" rx="3" fill="#f0c040" stroke="#d0a020" stroke-width="0.6"/>
+<circle cx="388" cy="563" r="4" fill="#e0b030" stroke="#c09010" stroke-width="0.4"/>
+
+<!-- ⑩ CALF STRAP (50mm blue Fidlock) -->
+<path d="M332,855 L338,850 L355,847 L372,845 L388,847 L400,852 L408,860 L404,868 L395,874 L380,878 L365,880 L350,878 L338,872 L330,865 Z" fill="#2980b9" stroke="#1a6a9a" stroke-width="0.8"/>
+<!-- Fidlock buckle -->
+<rect x="380" y="853" width="14" height="18" rx="3" fill="#f0c040" stroke="#d0a020" stroke-width="0.6"/>
+<circle cx="387" cy="862" r="3.5" fill="#e0b030" stroke="#c09010" stroke-width="0.4"/>
+
+<!-- DIMENSION LINES -->
+<!-- Frame total length 420mm (from top of thigh frame to bottom of calf frame) -->
+<line x1="340" y1="458" x2="355" y2="458" stroke="#d97706" stroke-width="0.8"/>
+<line x1="340" y1="925" x2="355" y2="925" stroke="#d97706" stroke-width="0.8"/>
+<line x1="348" y1="458" x2="348" y2="925" stroke="#d97706" stroke-width="0.8" stroke-dasharray="3,3"/>
+<path d="M348,458 L348,478" stroke="#d97706" stroke-width="0.6"/>
+<path d="M348,905 L348,925" stroke="#d97706" stroke-width="0.6"/>
+<path d="M338,463 L348,463" stroke="#d97706" stroke-width="0.5"/>
+<path d="M338,920 L348,920" stroke="#d97706" stroke-width="0.5"/>
+<!-- Dimension arrows -->
+<polygon points="348,458 345,465 351,465" fill="#d97706"/>
+<polygon points="348,925 345,918 351,918" fill="#d97706"/>
+
+<!-- Cable length marker -->
+<line x1="402" y1="540" x2="390" y2="540" stroke="#d97706" stroke-width="0.6"/>
+<line x1="402" y1="680" x2="390" y2="680" stroke="#d97706" stroke-width="0.6"/>
+<line x1="396" y1="540" x2="396" y2="680" stroke="#d97706" stroke-width="0.5" stroke-dasharray="2,2"/>
+
+<!-- ==================== LABELS WITH RED LEADER LINES ==================== -->
+<!-- Label style: white bg rect, red border, bold black text, red leader line with arrow -->
+
+<!-- ① 腰带标签 -->
+<line x1="300" y1="458" x2="470" y2="340" stroke="#e02020" stroke-width="1.5" stroke-dasharray="4,3"/>
+<circle cx="300" cy="458" r="3" fill="#e02020"/>
+<rect x="440" y="310" width="250" height="50" rx="5" fill="#fff" stroke="#e02020" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="450" y="330" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">① 腰带 (80mm宽织物)</text>
+<text x="450" y="348" font-family="sans-serif" font-size="10" fill="#555">弹性尼龙织物 · 腰间固定</text>
+
+<!-- ② 电池包标签 -->
+<line x1="400" y1="480" x2="480" y2="260" stroke="#e02020" stroke-width="1.5" stroke-dasharray="4,3"/>
+<circle cx="400" cy="480" r="3" fill="#e02020"/>
+<rect x="450" y="225" width="260" height="60" rx="5" fill="#fff" stroke="#e02020" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="460" y="245" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">② 电池包 (Samsung 50E 4S1P)</text>
+<text x="460" y="262" font-family="sans-serif" font-size="10" fill="#555">容量72Wh · 重量310g · 腰带后置</text>
+<text x="460" y="278" font-family="sans-serif" font-size="10" fill="#e02020">可热插拔换电 · USB-C充电</text>
+
+<!-- ③ 主控板标签 -->
+<line x1="400" y1="515" x2="490" y2="380" stroke="#e02020" stroke-width="1.5" stroke-dasharray="4,3"/>
+<circle cx="400" cy="515" r="3" fill="#e02020"/>
+<rect x="460" y="355" width="250" height="55" rx="5" fill="#fff" stroke="#e02020" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="470" y="375" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">③ 主控电路板</text>
+<text x="470" y="392" font-family="sans-serif" font-size="10" fill="#555">STM32G474 + ESP32-S3</text>
+<text x="470" y="406" font-family="sans-serif" font-size="10" fill="#555">BLE + CAN总线 + USB-C</text>
+
+<!-- ④ 屏蔽电缆标签 -->
+<line x1="410" y1="610" x2="500" y2="490" stroke="#e02020" stroke-width="1.5" stroke-dasharray="4,3"/>
+<circle cx="410" cy="610" r="3" fill="#e02020"/>
+<rect x="470" y="470" width="230" height="45" rx="5" fill="#fff" stroke="#e02020" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="480" y="490" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">④ 屏蔽电缆 (φ5mm)</text>
+<text x="480" y="507" font-family="sans-serif" font-size="10" fill="#555">双绞屏蔽线 · 腰侧至膝外侧</text>
+
+<!-- ⑤ 电机标签 -->
+<line x1="420" y1="718" x2="500" y2="600" stroke="#e02020" stroke-width="1.5" stroke-dasharray="4,3"/>
+<circle cx="420" cy="718" r="3" fill="#e02020"/>
+<rect x="470" y="575" width="250" height="60" rx="5" fill="#fff" stroke="#e02020" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="480" y="595" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">⑤ AK80-9 电机 + 行星减速器</text>
+<text x="480" y="612" font-family="sans-serif" font-size="10" fill="#555">重量480g · 峰值扭矩22Nm · 48V</text>
+<text x="480" y="628" font-family="sans-serif" font-size="10" fill="#555">9:1行星减速 · 银色金属外壳</text>
+
+<!-- ⑥ 离合器标签 -->
+<line x1="420" y1="760" x2="500" y2="680" stroke="#e02020" stroke-width="1.5" stroke-dasharray="4,3"/>
+<circle cx="420" cy="760" r="3" fill="#e02020"/>
+<rect x="470" y="655" width="250" height="55" rx="5" fill="#fff" stroke="#e02020" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="480" y="675" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">⑥ 电磁离合器 (Ogura MCNB-3Z)</text>
+<text x="480" y="692" font-family="sans-serif" font-size="10" fill="#555">重量50g · 断电弹簧脱开</text>
+<text x="480" y="706" font-family="sans-serif" font-size="10" fill="#555">铜色外壳 · 安全优先设计</text>
+
+<!-- ⑦ 大腿框架标签 -->
+<line x1="398" y1="580" x2="490" y2="440" stroke="#e02020" stroke-width="1.5" stroke-dasharray="4,3"/>
+<circle cx="398" cy="580" r="3" fill="#e02020"/>
+<rect x="460" y="420" width="250" height="45" rx="5" fill="#fff" stroke="#e02020" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="470" y="440" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">⑦ 碳纤维大腿框架 (T700)</text>
+<text x="470" y="457" font-family="sans-serif" font-size="10" fill="#555">长度240mm · 3K编织纹理 · T700级</text>
+
+<!-- ⑧ 小腿框架标签 -->
+<line x1="398" y1="840" x2="490" y2="740" stroke="#e02020" stroke-width="1.5" stroke-dasharray="4,3"/>
+<circle cx="398" cy="840" r="3" fill="#e02020"/>
+<rect x="460" y="720" width="250" height="45" rx="5" fill="#fff" stroke="#e02020" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="470" y="740" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">⑧ 碳纤维小腿框架 (T700)</text>
+<text x="470" y="757" font-family="sans-serif" font-size="10" fill="#555">长度200mm · 3K编织纹理 · T700级</text>
+
+<!-- ⑨ 大腿绑带标签 -->
+<line x1="360" y1="565" x2="500" y2="520" stroke="#e02020" stroke-width="1.5" stroke-dasharray="4,3"/>
+<circle cx="360" cy="565" r="3" fill="#e02020"/>
+<rect x="470" y="498" width="250" height="40" rx="5" fill="#fff" stroke="#e02020" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="480" y="518" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">⑨ 大腿绑带 (60mm蓝色)</text>
+<text x="480" y="532" font-family="sans-serif" font-size="10" fill="#555">Fidlock磁吸扣 · TPU衬垫防滑</text>
+
+<!-- ⑩ 小腿绑带标签 -->
+<line x1="370" y1="865" x2="500" y2="790" stroke="#e02020" stroke-width="1.5" stroke-dasharray="4,3"/>
+<circle cx="370" cy="865" r="3" fill="#e02020"/>
+<rect x="470" y="770" width="250" height="40" rx="5" fill="#fff" stroke="#e02020" stroke-width="1.5" filter="url(#shadow)"/>
+<text x="480" y="790" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">⑩ 小腿绑带 (50mm蓝色)</text>
+<text x="480" y="804" font-family="sans-serif" font-size="10" fill="#555">Fidlock磁吸扣 · TPU衬垫防滑</text>
+
+<!-- Dimension label: frame total 420mm -->
+<text x="330" y="450" font-family="sans-serif" font-size="9" fill="#d97706" text-anchor="end">框架总长 ~420mm</text>
+
+<!-- Cable dimension label -->
+<text x="392" y="533" font-family="sans-serif" font-size="8" fill="#d97706" text-anchor="end">线长</text>
+
+<!-- ============ ISOLATION ZONE ============ -->
+<rect x="740" y="72" width="60" height="970" fill="#f5f5f5"/>
+
+<!-- ============ RIGHT COLUMN: TEXT PANEL ============ -->
+<rect x="800" y="72" width="380" height="970" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+
+<!-- Panel 1: System Specs -->
+<rect x="816" y="86" width="348" height="210" rx="6" fill="#f8fafb" stroke="#e0e6ea" stroke-width="0.8" filter="url(#shadow)"/>
+<rect x="816" y="86" width="348" height="32" rx="6 6 0 0" fill="#1a3a5a" opacity="0.08"/>
+<rect x="816" y="86" width="5" height="32" rx="2.5" fill="#1a3a5a"/>
+<text x="832" y="108" font-family="sans-serif" font-size="15" fill="#1a2a3a" font-weight="bold">产品规格参数</text>
+<line x1="816" y1="124" x2="1164" y2="124" stroke="#e0e6ea" stroke-width="0.8"/>
+
+<!-- Spec rows -->
+<g font-family="sans-serif">
+  <!-- Row 1: System weight -->
+  <rect x="820" y="130" width="340" height="24" rx="2" fill="#f8f9fa"/>
+  <text x="828" y="147" font-size="11" fill="#1a1a1a" font-weight="bold">系统总重</text>
+  <text x="1000" y="147" font-size="11" fill="#333">~2.4 kg</text>
+  <text x="1080" y="147" font-size="10" fill="#888">双膝完整系统</text>
+
+  <!-- Row 2: Belt -->
+  <rect x="820" y="156" width="340" height="24" rx="2" fill="#fff"/>
+  <text x="828" y="173" font-size="11" fill="#1a1a1a" font-weight="bold">腰带总成</text>
+  <text x="1000" y="173" font-size="11" fill="#333">640 g</text>
+  <text x="1080" y="173" font-size="10" fill="#888">含电池+主控+线缆</text>
+
+  <!-- Row 3: Each knee -->
+  <rect x="820" y="182" width="340" height="24" rx="2" fill="#f8f9fa"/>
+  <text x="828" y="199" font-size="11" fill="#1a1a1a" font-weight="bold">左膝单元</text>
+  <text x="1000" y="199" font-size="11" fill="#333">680 g</text>
+  <text x="828" y="215" font-size="11" fill="#1a1a1a" font-weight="bold">右膝单元</text>
+  <text x="1000" y="215" font-size="11" fill="#333">680 g</text>
+
+  <!-- Row 4: Frame + straps -->
+  <rect x="820" y="220" width="340" height="24" rx="2" fill="#fff"/>
+  <text x="828" y="237" font-size="11" fill="#1a1a1a" font-weight="bold">框架+绑带</text>
+  <text x="1000" y="237" font-size="11" fill="#333">400 g</text>
+  <text x="1080" y="237" font-size="10" fill="#888">T700碳纤维 3K编织</text>
+</g>
+
+<!-- Total -->
+<rect x="820" y="248" width="340" height="24" rx="2" fill="#f8f9fa"/>
+<text x="828" y="265" font-size="11" fill="#1a1a1a" font-weight="bold">穿戴时间</text>
+<text x="1000" y="265" font-size="11" fill="#2ea043" font-weight="bold">~30 秒</text>
+<text x="1080" y="265" font-size="10" fill="#888">三步快捷穿戴</text>
+
+<rect x="820" y="274" width="340" height="24" rx="2" fill="#fff"/>
+<text x="828" y="291" font-size="11" fill="#1a1a1a" font-weight="bold">电池容量</text>
+<text x="1000" y="291" font-size="11" fill="#333">72 Wh</text>
+<text x="1080" y="291" font-size="10" fill="#888">Samsung 50E 4S1P</text>
+
+<rect x="820" y="300" width="340" height="24" rx="2" fill="#f8f9fa"/>
+
+<text x="828" y="317" font-size="11" fill="#1a1a1a" font-weight="bold">峰值扭矩</text>
+<text x="1000" y="317" font-size="11" fill="#333">22 Nm</text>
+<text x="1080" y="317" font-size="10" fill="#888">AK80-9 9:1行星减速</text>
+
+<!-- Panel 2: Wear Steps -->
+<rect x="816" y="320" width="348" height="240" rx="6" fill="#f8fafb" stroke="#e0e6ea" stroke-width="0.8" filter="url(#shadow)"/>
+<rect x="816" y="320" width="348" height="32" rx="6 6 0 0" fill="#1a3a5a" opacity="0.08"/>
+<rect x="816" y="320" width="5" height="32" rx="2.5" fill="#1a3a5a"/>
+<text x="832" y="342" font-family="sans-serif" font-size="15" fill="#1a2a3a" font-weight="bold">穿戴三步法 (训练后 ~30秒)</text>
+<line x1="816" y1="356" x2="1164" y2="356" stroke="#e0e6ea" stroke-width="0.8"/>
+
+<!-- Step 1 -->
+<rect x="826" y="368" width="328" height="48" rx="4" fill="#f0f8ff" stroke="#d0e6f0" stroke-width="0.6"/>
+<circle cx="842" cy="384" r="12" fill="#1a3a5a"/>
+<text x="842" y="389" font-family="sans-serif" font-size="12" fill="#fff" font-weight="bold" text-anchor="middle">1</text>
+<text x="864" y="384" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">系腰带</text>
+<text x="864" y="400" font-family="sans-serif" font-size="10" fill="#555">腰带环绕腰部扣紧, Fidlock磁吸扣锁止</text>
+<text x="1120" y="400" font-family="sans-serif" font-size="11" fill="#2ea043" font-weight="bold" text-anchor="end">~10s</text>
+
+<!-- Arrow down -->
+<path d="M990,416 L990,428" stroke="#999" stroke-width="1.5"/>
+<polygon points="990,430 985,425 995,425" fill="#999"/>
+
+<!-- Step 2 -->
+<rect x="826" y="432" width="328" height="48" rx="4" fill="#f0f8ff" stroke="#d0e6f0" stroke-width="0.6"/>
+<circle cx="842" cy="448" r="12" fill="#1a3a5a"/>
+<text x="842" y="453" font-family="sans-serif" font-size="12" fill="#fff" font-weight="bold" text-anchor="middle">2</text>
+<text x="864" y="448" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">扣大腿</text>
+<text x="864" y="464" font-family="sans-serif" font-size="10" fill="#555">大腿绑带环绕收紧, Fidlock磁吸扣锁止</text>
+<text x="1120" y="464" font-family="sans-serif" font-size="11" fill="#2ea043" font-weight="bold" text-anchor="end">~10s</text>
+
+<!-- Arrow down -->
+<path d="M990,480 L990,492" stroke="#999" stroke-width="1.5"/>
+<polygon points="990,494 985,489 995,489" fill="#999"/>
+
+<!-- Step 3 -->
+<rect x="826" y="496" width="328" height="48" rx="4" fill="#f0f8ff" stroke="#d0e6f0" stroke-width="0.6"/>
+<circle cx="842" cy="512" r="12" fill="#1a3a5a"/>
+<text x="842" y="517" font-family="sans-serif" font-size="12" fill="#fff" font-weight="bold" text-anchor="middle">3</text>
+<text x="864" y="512" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">扣小腿</text>
+<text x="864" y="528" font-family="sans-serif" font-size="10" fill="#555">小腿绑带环绕收紧, Fidlock磁吸扣锁止</text>
+<text x="1120" y="528" font-family="sans-serif" font-size="11" fill="#2ea043" font-weight="bold" text-anchor="end">~10s</text>
+
+<!-- Total time badge -->
+<rect x="870" y="550" width="240" height="32" rx="16" fill="#2ea043"/>
+<text x="990" y="572" font-family="sans-serif" font-size="14" fill="#fff" font-weight="bold" text-anchor="middle">总穿戴时间: ~30 秒</text>
+
+<!-- Panel 3: Key Components -->
+<rect x="816" y="580" width="348" height="240" rx="6" fill="#f8fafb" stroke="#e0e6ea" stroke-width="0.8" filter="url(#shadow)"/>
+<rect x="816" y="580" width="348" height="32" rx="6 6 0 0" fill="#1a3a5a" opacity="0.08"/>
+<rect x="816" y="580" width="5" height="32" rx="2.5" fill="#1a3a5a"/>
+<text x="832" y="602" font-family="sans-serif" font-size="15" fill="#1a2a3a" font-weight="bold">核心组件</text>
+<line x1="816" y1="612" x2="1164" y2="612" stroke="#e0e6ea" stroke-width="0.8"/>
+
+<!-- Components grid -->
+<g font-family="sans-serif">
+  <!-- Row 1 -->
+  <rect x="820" y="618" width="165" height="65" rx="4" fill="#f0fafa" stroke="#d0e6e0" stroke-width="0.5"/>
+  <circle cx="834" cy="632" r="7" fill="#1a3a5a" opacity="0.5"/>
+  <text x="848" y="636" font-size="11" fill="#333" font-weight="bold">电池包</text>
+  <text x="828" y="654" font-size="10" fill="#555">Samsung 50E · 4S1P</text>
+  <text x="828" y="668" font-size="10" fill="#555">72Wh · 310g · 后置</text>
+  <text x="828" y="680" font-size="9" fill="#888">可热插拔 · USB-C</text>
+
+  <rect x="995" y="618" width="165" height="65" rx="4" fill="#f0fafa" stroke="#d0e6e0" stroke-width="0.5"/>
+  <circle cx="1009" cy="632" r="7" fill="#1a3a5a" opacity="0.5"/>
+  <text x="1023" y="636" font-size="11" fill="#333" font-weight="bold">主控板</text>
+  <text x="1003" y="654" font-size="10" fill="#555">STM32G474</text>
+  <text x="1003" y="668" font-size="10" fill="#555">ESP32-S3</text>
+  <text x="1003" y="680" font-size="9" fill="#888">BLE+CAN+USB-C</text>
+
+  <!-- Row 2 -->
+  <rect x="820" y="690" width="165" height="65" rx="4" fill="#faf5f0" stroke="#e6d8c8" stroke-width="0.5"/>
+  <circle cx="834" cy="704" r="7" fill="#d97706" opacity="0.5"/>
+  <text x="848" y="708" font-size="11" fill="#333" font-weight="bold">AK80-9电机</text>
+  <text x="828" y="726" font-size="10" fill="#555">480g · 22Nm峰值</text>
+  <text x="828" y="740" font-size="10" fill="#555">9:1行星减速 · 48V</text>
+  <text x="828" y="752" font-size="9" fill="#888">银色铝合金外壳</text>
+
+  <rect x="995" y="690" width="165" height="65" rx="4" fill="#faf5f0" stroke="#e6d8c8" stroke-width="0.5"/>
+  <circle cx="1009" cy="704" r="7" fill="#d97706" opacity="0.5"/>
+  <text x="1023" y="708" font-size="11" fill="#333" font-weight="bold">电磁离合器</text>
+  <text x="1003" y="726" font-size="10" fill="#555">Ogura MCNB-3Z</text>
+  <text x="1003" y="740" font-size="10" fill="#555">50g · 弹簧复位</text>
+  <text x="1003" y="752" font-size="9" fill="#888">断电安全脱开</text>
+
+  <!-- Row 3 -->
+  <rect x="820" y="762" width="165" height="50" rx="4" fill="#f0f0f0" stroke="#ddd" stroke-width="0.5"/>
+  <circle cx="834" cy="776" r="7" fill="#555" opacity="0.5"/>
+  <text x="848" y="780" font-size="11" fill="#333" font-weight="bold">碳纤维框架</text>
+  <text x="828" y="798" font-size="10" fill="#555">T700 · 3K编织</text>
+
+  <rect x="995" y="762" width="165" height="50" rx="4" fill="#f0f0f0" stroke="#ddd" stroke-width="0.5"/>
+  <circle cx="1009" cy="776" r="7" fill="#555" opacity="0.5"/>
+  <text x="1023" y="780" font-size="11" fill="#333" font-weight="bold">磁吸绑带</text>
+  <text x="1003" y="798" font-size="10" fill="#555">Fidlock® 快拆</text>
+</g>
+
+<!-- Panel 4: Advantage Summary -->
+<rect x="816" y="840" width="348" height="100" rx="6" fill="#fef0e8" stroke="#e6c8b8" stroke-width="0.8" filter="url(#shadow)"/>
+<rect x="816" y="840" width="348" height="28" rx="6 6 0 0" fill="#d97706" opacity="0.12"/>
+<rect x="816" y="840" width="5" height="28" rx="2.5" fill="#d97706"/>
+<text x="832" y="860" font-family="sans-serif" font-size="13" fill="#1a2a3a" font-weight="bold">产品核心优势</text>
+<g font-family="sans-serif" font-size="10" fill="#555">
+  <text x="828" y="882">◆ 腰带供电设计 · 双膝仅680g/侧 · 极致轻量</text>
+  <text x="828" y="898">◆ 电磁离合器断电脱开 · 安全冗余优先</text>
+  <text x="828" y="914">◆ Fidlock磁吸绑带 · 30秒穿戴 · 独立完成</text>
+  <text x="828" y="930">◆ T700碳纤维3K编织 · 高强度轻量化框架</text>
+</g>
+
+<!-- ============ BOTTOM LEGEND ============ -->
+<rect x="20" y="1048" width="1160" height="36" rx="4" fill="#f8f8f8" stroke="#d5d5d5" stroke-width="0.6"/>
+<g font-family="sans-serif" font-size="11" font-weight="600" fill="#333">
+  <!-- Item 1 -->
+  <rect x="40" y="1057" width="14" height="14" rx="2" fill="url(#fabricWeave)" stroke="#2a2a2a" stroke-width="0.5"/>
+  <text x="60" y="1069">织物腰带</text>
+
+  <!-- Item 2 -->
+  <rect x="150" y="1057" width="14" height="14" rx="2" fill="url(#battGrad)" stroke="#1a1a1a" stroke-width="0.5"/>
+  <text x="170" y="1069">电池包</text>
+
+  <!-- Item 3 -->
+  <rect x="250" y="1057" width="14" height="14" rx="2" fill="url(#pcbGrad)" stroke="#0d4a28" stroke-width="0.5"/>
+  <text x="270" y="1069">主控电路板</text>
+
+  <!-- Item 4 -->
+  <rect x="380" y="1057" width="14" height="14" rx="2" fill="url(#cfWeave)" stroke="#1a1a1a" stroke-width="0.5"/>
+  <text x="400" y="1069">碳纤维框架T700</text>
+
+  <!-- Item 5 -->
+  <rect x="530" y="1057" width="14" height="14" rx="2" fill="url(#metalGrad)" stroke="#888" stroke-width="0.5"/>
+  <text x="550" y="1069">AK80-9电机</text>
+
+  <!-- Item 6 -->
+  <rect x="660" y="1057" width="14" height="14" rx="2" fill="url(#copperGrad)" stroke="#a07028" stroke-width="0.5"/>
+  <text x="680" y="1069">Ogura离合器</text>
+
+  <!-- Item 7 -->
+  <rect x="790" y="1057" width="14" height="14" rx="2" fill="#2980b9" stroke="#1a6a9a" stroke-width="0.5"/>
+  <text x="810" y="1069">Fidlock绑带</text>
+
+  <!-- Item 8 -->
+  <rect x="920" y="1057" width="14" height="14" rx="2" fill="#e02020"/>
+  <text x="940" y="1069">红色引线标签</text>
+
+  <!-- Item 9 -->
+  <rect x="1070" y="1057" width="14" height="14" rx="2" fill="#d97706"/>
+  <text x="1090" y="1069">尺寸标注</text>
+</g>
+
+</svg>

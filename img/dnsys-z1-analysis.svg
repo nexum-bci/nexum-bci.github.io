@@ -1,0 +1,302 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1100" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0d1137"/>
+      <stop offset="100%" stop-color="#1a237e"/>
+    </linearGradient>
+    <linearGradient id="takeawayGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0d1137"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+  </defs>
+
+  \&lt;!-- ===== BACKGROUND ===== -->
+  <rect width="1200" height="1100" fill="#ffffff"/>
+
+  \&lt;!-- ===== TITLE BAR (y: 0-65) ===== -->
+  <rect x="0" y="0" width="1200" height="65" fill="url(#titleGrad)"/>
+  <text x="600" y="30" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="18" font-weight="bold" fill="#ffffff">DNSYS Z1 — 膝关节外骨骼深度工程分析</text>
+  <text x="600" y="52" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="normal" fill="#9fa8da">DNSYS Z1 Knee Exoskeleton — Engineering Deep-Dive Analysis (Appendix C3.1)</text>
+
+  \&lt;!-- ===== PRODUCT OVERVIEW (y: 80-190, h: 110) ===== -->
+  <rect x="30" y="80" width="1140" height="110" rx="6" fill="#f0f4f8" filter="url(#shadow)"/>
+  <text x="50" y="102" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="14" font-weight="bold" fill="#1a1a2e">产品概览 · Product Overview</text>
+  <line x1="50" y1="110" x2="1150" y2="110" stroke="#c5cae9" stroke-width="1"/>
+
+  \&lt;!-- Row 1 -->
+  <text x="50" y="127" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" font-weight="bold" fill="#1a1a2e">公司:</text>
+  <text x="95" y="127" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">DNSYS (香港)</text>
+  <text x="50" y="140" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" fill="#546e7a">Company: DNSYS (Hong Kong)</text>
+
+  <text x="320" y="127" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" font-weight="bold" fill="#1a1a2e">价格:</text>
+  <text x="365" y="127" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">$699–2,298 (众筹)</text>
+  <text x="320" y="140" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" fill="#546e7a">Price: $699–2,298 (Kickstarter)</text>
+
+  <text x="590" y="127" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" font-weight="bold" fill="#1a1a2e">重量:</text>
+  <text x="635" y="127" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">1.36kg (双膝)</text>
+  <text x="590" y="140" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" fill="#546e7a">Weight: 1.36kg (dual-knee)</text>
+
+  <text x="860" y="127" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" font-weight="bold" fill="#1a1a2e">奖项:</text>
+  <text x="905" y="127" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">3× CES 2026 创新奖</text>
+  <text x="860" y="140" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" fill="#546e7a">Awards: 3× CES 2026 Innovation</text>
+
+  \&lt;!-- Row 2 -->
+  <text x="50" y="157" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" font-weight="bold" fill="#1a1a2e">专业版:</text>
+  <text x="110" y="157" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">$1,398 Pro</text>
+  <text x="50" y="170" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" fill="#546e7a">Pro version: $1,398</text>
+
+  <text x="320" y="157" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" font-weight="bold" fill="#1a1a2e">功率:</text>
+  <text x="365" y="157" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">900W峰值 / 450W持续</text>
+  <text x="320" y="170" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" fill="#546e7a">Power: 900W peak / 450W cont.</text>
+
+  <text x="590" y="157" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" font-weight="bold" fill="#1a1a2e">防护:</text>
+  <text x="635" y="157" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">IP54 密封</text>
+  <text x="590" y="170" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" fill="#546e7a">Rating: IP54 sealed</text>
+
+  <text x="860" y="157" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" font-weight="bold" fill="#1a1a2e">续航:</text>
+  <text x="905" y="157" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">70分钟 (运动模式)</text>
+  <text x="860" y="170" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" fill="#546e7a">Battery: 70min (sport mode)</text>
+
+  \&lt;!-- Row 3 -->
+  <text x="50" y="187" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" font-weight="bold" fill="#1a1a2e">电机:</text>
+  <text x="95" y="187" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">高KV无刷直流 BLDC</text>
+
+  <text x="320" y="187" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" font-weight="bold" fill="#1a1a2e">传感:</text>
+  <text x="365" y="187" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">IMU + 编码器</text>
+
+  <text x="590" y="187" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" font-weight="bold" fill="#1a1a2e">通讯:</text>
+  <text x="635" y="187" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">BLE 5.0</text>
+
+  <text x="860" y="187" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" font-weight="bold" fill="#1a1a2e">响应:</text>
+  <text x="905" y="187" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">0.01s 力矩建立</text>
+
+  \&lt;!-- ===== COLUMN HEADERS (y: 196) ===== -->
+  <text x="45" y="200" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" font-weight="bold" fill="#b71c1c">╳ DNSYS Z1 工程缺陷 · Engineering Flaws</text>
+  <line x1="45" y1="205" x2="570" y2="205" stroke="#ef9a9a" stroke-width="1"/>
+
+  <text x="630" y="200" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" font-weight="bold" fill="#2e7d32">✓ BONES &amp; MANIFOLD 解决方案 · Our Solutions</text>
+  <line x1="630" y1="205" x2="1155" y2="205" stroke="#a5d6a7" stroke-width="1"/>
+
+  \&lt;!-- ======================================================================== -->
+  \&lt;!-- CARD 1: FLAW 1 (y: 210) -->
+  \&lt;!-- ======================================================================== -->
+  <g transform="translate(0, 0)">
+    \&lt;!-- Card background -->
+    <rect x="30" y="210" width="555" height="115" rx="6" fill="#fff5f5" filter="url(#shadow)"/>
+    <rect x="30" y="216" width="555" height="109" rx="0" fill="#fff5f5"/>
+    <rect x="30" y="210" width="555" height="115" rx="6" fill="none" stroke="#ffcdd2" stroke-width="1"/>
+    \&lt;!-- Header -->
+    <path d="M 30,216 A 6 6 0 0 1 36,210 L 579,210 A 6 6 0 0 1 585,216 L 585,238 L 30,238 Z" fill="#c62828"/>
+    <text x="45" y="228" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffffff">FLAW 1 · 电池置于腿部 · Battery on Leg</text>
+    \&lt;!-- Body text -->
+    <text x="45" y="254" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">电池置于腿部 → 每膝重1.6kg. 力臂效应放大等效惯量3–5倍.</text>
+    <text x="45" y="270" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">Battery on leg → 1.6kg/knee. Torque arm amplifies effective inertia 3–5x.</text>
+    <text x="45" y="286" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">额外髋屈曲力矩 → 步态代偿 → 非对称负载 → 长远关节退变风险</text>
+    <text x="45" y="302" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">Extra hip flexion moment → gait compensation → asymmetric loading → joint risk</text>
+    <text x="45" y="316" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" font-weight="bold" fill="#b71c1c">Impact: ↑62% 髋关节摆动期负荷 · ↑62% hip effort during swing phase</text>
+  </g>
+
+  \&lt;!-- ======================================================================== -->
+  \&lt;!-- CARD 1: SOLUTION 1 (y: 210) -->
+  \&lt;!-- ======================================================================== -->
+  <g transform="translate(0, 0)">
+    <rect x="615" y="210" width="555" height="115" rx="6" fill="#f1f8e9" filter="url(#shadow)"/>
+    <rect x="615" y="216" width="555" height="109" rx="0" fill="#f1f8e9"/>
+    <rect x="615" y="210" width="555" height="115" rx="6" fill="none" stroke="#c8e6c9" stroke-width="1"/>
+    <path d="M 615,216 A 6 6 0 0 1 621,210 L 1164,210 A 6 6 0 0 1 1170,216 L 1170,238 L 615,238 Z" fill="#2e7d32"/>
+    <text x="630" y="228" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffffff">SOLUTION 1 · 腰部电池仓 · Waist-mounted Battery</text>
+    <text x="630" y="254" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">三星50E 4S1P电池组(310g)置于腰部. 膝关节仅保留电机+减速器(~680g)</text>
+    <text x="630" y="270" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">Samsung 50E 4S1P pack (310g) on waist. Knee: motor+gearbox only (~680g)</text>
+    <text x="630" y="286" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">腿部惯量↓50%. 重心上移改善平衡. 电池热插拔支持全天使用.</text>
+    <text x="630" y="302" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">Leg inertia ↓50%. CG upward improves balance. Hot-swap for all-day use.</text>
+    <text x="630" y="316" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" font-weight="bold" fill="#1b5e20">Result: 恢复自然摆动动力学, 零步态代偿 · Natural swing restored, zero compensation</text>
+  </g>
+
+  \&lt;!-- ======================================================================== -->
+  \&lt;!-- CARD 2: FLAW 2 (y: 335) -->
+  \&lt;!-- ======================================================================== -->
+  <g transform="translate(0, 0)">
+    <rect x="30" y="335" width="555" height="115" rx="6" fill="#fff5f5" filter="url(#shadow)"/>
+    <rect x="30" y="341" width="555" height="109" rx="0" fill="#fff5f5"/>
+    <rect x="30" y="335" width="555" height="115" rx="6" fill="none" stroke="#ffcdd2" stroke-width="1"/>
+    <path d="M 30,341 A 6 6 0 0 1 36,335 L 579,335 A 6 6 0 0 1 585,341 L 585,363 L 30,363 Z" fill="#c62828"/>
+    <text x="45" y="353" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffffff">FLAW 2 · 70dB 噪音 · 70dB Noise</text>
+    <text x="45" y="379" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">Wareable评测"机械战警声" — 高KV无刷+BGMotor高速行星减速器</text>
+    <text x="45" y="395" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">Wareable: "RoboCop whirring" — high-KV BLDC + BGMotor high-speed planetary</text>
+    <text x="45" y="411" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">齿轮啮合频率2–5kHz. 壳体共振放大. 步行时路人侧目, 社交尴尬.</text>
+    <text x="45" y="427" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">Gear mesh 2–5kHz. Shell resonance. Draws public attention while walking.</text>
+    <text x="45" y="441" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" font-weight="bold" fill="#b71c1c">Impact: 70dB(A) @1m — 超出办公室/图书馆可接受水平(~50dB)</text>
+  </g>
+
+  \&lt;!-- ======================================================================== -->
+  \&lt;!-- CARD 2: SOLUTION 2 (y: 335) -->
+  \&lt;!-- ======================================================================== -->
+  <g transform="translate(0, 0)">
+    <rect x="615" y="335" width="555" height="115" rx="6" fill="#f1f8e9" filter="url(#shadow)"/>
+    <rect x="615" y="341" width="555" height="109" rx="0" fill="#f1f8e9"/>
+    <rect x="615" y="335" width="555" height="115" rx="6" fill="none" stroke="#c8e6c9" stroke-width="1"/>
+    <path d="M 615,341 A 6 6 0 0 1 621,335 L 1164,335 A 6 6 0 0 1 1170,341 L 1170,363 L 615,363 Z" fill="#2e7d32"/>
+    <text x="630" y="353" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffffff">SOLUTION 2 · 静音驱动 · Silent Drive</text>
+    <text x="630" y="379" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">AK80-9 V3.0 9:1行星(输入450RPM非20,000RPM), 频谱远离人耳敏感区</text>
+    <text x="630" y="395" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">AK80-9 V3.0 9:1 planetary (input 450RPM vs 20,000RPM). Noise below 1kHz.</text>
+    <text x="630" y="411" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">硅胶隔离支架+约束层阻尼(CLD)贴片. 整机噪音↓20dB至~50dB.</text>
+    <text x="630" y="427" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">Silicone isolation mount + CLD damping patches. Overall noise ↓20dB to ~50dB.</text>
+    <text x="630" y="441" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" font-weight="bold" fill="#1b5e20">Result: 50dB(A) @1m — 对话级音量, 社交可接受 · Conversational level</text>
+  </g>
+
+  \&lt;!-- ======================================================================== -->
+  \&lt;!-- CARD 3: FLAW 3 (y: 460) -->
+  \&lt;!-- ======================================================================== -->
+  <g transform="translate(0, 0)">
+    <rect x="30" y="460" width="555" height="115" rx="6" fill="#fff5f5" filter="url(#shadow)"/>
+    <rect x="30" y="466" width="555" height="109" rx="0" fill="#fff5f5"/>
+    <rect x="30" y="460" width="555" height="115" rx="6" fill="none" stroke="#ffcdd2" stroke-width="1"/>
+    <path d="M 30,466 A 6 6 0 0 1 36,460 L 579,460 A 6 6 0 0 1 585,466 L 585,488 L 30,488 Z" fill="#c62828"/>
+    <text x="45" y="478" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffffff">FLAW 3 · 70分钟续航 · 70min Battery Life</text>
+    <text x="45" y="504" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">运动模式450W持续输出. IP54密封无散热 → 热量积聚, 电池热耗散>15W.</text>
+    <text x="45" y="520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">450W continuous in sport mode. IP54 sealed → heat buildup. Battery thermal >15W.</text>
+    <text x="45" y="536" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">热降频→实际可用容量仅60%. 重度用户需2–3小时充电.</text>
+    <text x="45" y="552" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">Thermal throttling → only 60% usable capacity. Needs recharge in 2–3h.</text>
+    <text x="45" y="566" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" font-weight="bold" fill="#b71c1c">Impact: 70分钟 vs 竞品2–4小时(如Hypershell Pro X) · 70min vs competitor 2–4h</text>
+  </g>
+
+  \&lt;!-- ======================================================================== -->
+  \&lt;!-- CARD 3: SOLUTION 3 (y: 460) -->
+  \&lt;!-- ======================================================================== -->
+  <g transform="translate(0, 0)">
+    <rect x="615" y="460" width="555" height="115" rx="6" fill="#f1f8e9" filter="url(#shadow)"/>
+    <rect x="615" y="466" width="555" height="109" rx="0" fill="#f1f8e9"/>
+    <rect x="615" y="460" width="555" height="115" rx="6" fill="none" stroke="#c8e6c9" stroke-width="1"/>
+    <path d="M 615,466 A 6 6 0 0 1 621,460 L 1164,460 A 6 6 0 0 1 1170,466 L 1170,488 L 615,488 Z" fill="#2e7d32"/>
+    <text x="630" y="478" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffffff">SOLUTION 3 · 长效续航 · Extended Battery</text>
+    <text x="630" y="504" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">AK80-9 9Nm额定扭矩(高效区). 腰部4S1P 72Wh. 非峰值功率暴拉.</text>
+    <text x="630" y="520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">AK80-9 9Nm rated (efficiency zone). Waist 4S1P 72Wh. Not peak-power abuse.</text>
+    <text x="630" y="536" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">PCM相变散热片温控. 单电池2–3小时. 热插拔更换&lt;\&lt;5秒 → 无限续行.</text>
+    <text x="630" y="552" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">PCM phase-change thermal mgmt. 2–3h per pack. Hot-swap &lt;5s → unlimited.</text>
+    <text x="630" y="566" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" font-weight="bold" fill="#1b5e20">Result: 3.1× 续航提升(同等电池重量) · 3.1× runtime, same battery weight</text>
+  </g>
+
+  \&lt;!-- ======================================================================== -->
+  \&lt;!-- CARD 4: FLAW 4 (y: 585) -->
+  \&lt;!-- ======================================================================== -->
+  <g transform="translate(0, 0)">
+    <rect x="30" y="585" width="555" height="115" rx="6" fill="#fff5f5" filter="url(#shadow)"/>
+    <rect x="30" y="591" width="555" height="109" rx="0" fill="#fff5f5"/>
+    <rect x="30" y="585" width="555" height="115" rx="6" fill="none" stroke="#ffcdd2" stroke-width="1"/>
+    <path d="M 30,591 A 6 6 0 0 1 36,585 L 579,585 A 6 6 0 0 1 585,591 L 585,613 L 30,613 Z" fill="#c62828"/>
+    <text x="45" y="603" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffffff">FLAW 4 · 蓝牙断连 · Bluetooth Dropout</text>
+    <text x="45" y="629" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">无刷电机PWM换相产生宽频EMI(10–500MHz), 与蓝牙天线直接耦合.</text>
+    <text x="45" y="645" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">BLDC PWM generates broadband EMI (10–500MHz), directly coupled to BT antenna.</text>
+    <text x="45" y="661" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">PCB无隔离分区. 电源纹波>200mVpp. 步行中断连1–3次/小时.</text>
+    <text x="45" y="677" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">No PCB isolation. PSU ripple >200mVpp. 1–3 dropouts/hour while walking.</text>
+    <text x="45" y="691" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" font-weight="bold" fill="#b71c1c">Impact: 断连2–8秒→力矩不连续→跌倒风险 · Dropout 2–8s → fall risk</text>
+  </g>
+
+  \&lt;!-- ======================================================================== -->
+  \&lt;!-- CARD 4: SOLUTION 4 (y: 585) -->
+  \&lt;!-- ======================================================================== -->
+  <g transform="translate(0, 0)">
+    <rect x="615" y="585" width="555" height="115" rx="6" fill="#f1f8e9" filter="url(#shadow)"/>
+    <rect x="615" y="591" width="555" height="109" rx="0" fill="#f1f8e9"/>
+    <rect x="615" y="585" width="555" height="115" rx="6" fill="none" stroke="#c8e6c9" stroke-width="1"/>
+    <path d="M 615,591 A 6 6 0 0 1 621,585 L 1164,585 A 6 6 0 0 1 1170,591 L 1170,613 L 615,613 Z" fill="#2e7d32"/>
+    <text x="630" y="603" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffffff">SOLUTION 4 · 抗干扰链路 · Robust Link</text>
+    <text x="630" y="629" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">PCB严格分区: 数字/模拟/功率间距>10mm, 独立地平面.</text>
+    <text x="630" y="645" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">PCB partitioning: digital/analog/power >10mm clearance, split ground planes.</text>
+    <text x="630" y="661" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">磁环铁氧体+屏蔽双绞线(电机线). 共模扼流圈50μH. 实测零断连.</text>
+    <text x="630" y="677" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">Ferrite core + shielded twisted pair (motor). CM choke 50μH. Zero dropouts.</text>
+    <text x="630" y="691" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" font-weight="bold" fill="#1b5e20">Result: EMI裕量>20dB低于FCC Class B · Link reliability 99.999%</text>
+  </g>
+
+  \&lt;!-- ======================================================================== -->
+  \&lt;!-- CARD 5: FLAW 5 (y: 710) -->
+  \&lt;!-- ======================================================================== -->
+  <g transform="translate(0, 0)">
+    <rect x="30" y="710" width="555" height="115" rx="6" fill="#fff5f5" filter="url(#shadow)"/>
+    <rect x="30" y="716" width="555" height="109" rx="0" fill="#fff5f5"/>
+    <rect x="30" y="710" width="555" height="115" rx="6" fill="none" stroke="#ffcdd2" stroke-width="1"/>
+    <path d="M 30,716 A 6 6 0 0 1 36,710 L 579,710 A 6 6 0 0 1 585,716 L 585,738 L 30,738 Z" fill="#c62828"/>
+    <text x="45" y="728" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffffff">FLAW 5 · 阿凡达效应 · Avatar Effect</text>
+    <text x="45" y="754" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">使用后腿部沉重感, 次日肌肉酸痛. 原因: 无零力矩摆动模式.</text>
+    <text x="45" y="770" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">Post-use leg heaviness, next-day soreness. Cause: no zero-torque swing mode.</text>
+    <text x="45" y="786" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">反向驱动力矩约7Nm(电机+减速器摩擦). 健康腿过载代偿.</text>
+    <text x="45" y="802" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">Back-drive torque ~7Nm (motor+gearbox friction). Healthy leg over-compensates.</text>
+    <text x="45" y="816" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" font-weight="bold" fill="#b71c1c">Impact: 长期→非对称肌群发展, 对侧关节损伤风险 · Asymmetric development</text>
+  </g>
+
+  \&lt;!-- ======================================================================== -->
+  \&lt;!-- CARD 5: SOLUTION 5 (y: 710) -->
+  \&lt;!-- ======================================================================== -->
+  <g transform="translate(0, 0)">
+    <rect x="615" y="710" width="555" height="115" rx="6" fill="#f1f8e9" filter="url(#shadow)"/>
+    <rect x="615" y="716" width="555" height="109" rx="0" fill="#f1f8e9"/>
+    <rect x="615" y="710" width="555" height="115" rx="6" fill="none" stroke="#c8e6c9" stroke-width="1"/>
+    <path d="M 615,716 A 6 6 0 0 1 621,710 L 1164,710 A 6 6 0 0 1 1170,716 L 1170,738 L 615,738 Z" fill="#2e7d32"/>
+    <text x="630" y="728" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffffff">SOLUTION 5 · 自然摆动 · Natural Swing</text>
+    <text x="630" y="754" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">AK80-9 MIT模式零力矩电流环. 反向驱动0.51Nm(&lt;&lt;人体阈值2.3Nm).</text>
+    <text x="630" y="770" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">AK80-9 MIT zero-torque current-loop. Back-drive 0.51Nm (&lt;&lt; threshold 2.3Nm).</text>
+    <text x="630" y="786" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">Ogura MCNB-3Z电磁离合器(断电常开=自由摆动). 步行自然无感.</text>
+    <text x="630" y="802" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">Ogura MCNB-3Z clutch (power-off engaged=free swing). Completely natural.</text>
+    <text x="630" y="816" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" font-weight="bold" fill="#1b5e20">Result: 反向驱动比DNSYS低14× · 14× lower back-drive vs DNSYS</text>
+  </g>
+
+  \&lt;!-- ======================================================================== -->
+  \&lt;!-- CARD 6: FLAW 6 (y: 835) -->
+  \&lt;!-- ======================================================================== -->
+  <g transform="translate(0, 0)">
+    <rect x="30" y="835" width="555" height="115" rx="6" fill="#fff5f5" filter="url(#shadow)"/>
+    <rect x="30" y="841" width="555" height="109" rx="0" fill="#fff5f5"/>
+    <rect x="30" y="835" width="555" height="115" rx="6" fill="none" stroke="#ffcdd2" stroke-width="1"/>
+    <path d="M 30,841 A 6 6 0 0 1 36,835 L 579,835 A 6 6 0 0 1 585,841 L 585,863 L 30,863 Z" fill="#c62828"/>
+    <text x="45" y="853" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffffff">FLAW 6 · 通用辅助 · Generic Assist</text>
+    <text x="45" y="879" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">有限状态机步态检测(4–6阶段)+预设力矩曲线. 无个性化适配.</text>
+    <text x="45" y="895" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">FSM gait detection (4–6 phases) + predefined torque profiles. No personalization.</text>
+    <text x="45" y="911" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">无强化学习. 无KAM(膝内收力矩)优化. 无法适应地形变化.</text>
+    <text x="45" y="927" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">No RL. No KAM optimization. Cannot adapt to terrain changes (slopes/stairs).</text>
+    <text x="45" y="941" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" font-weight="bold" fill="#b71c1c">Impact: 固定曲线对~70%真实步态变异次优 · Sub-optimal for ~70% gait variations</text>
+  </g>
+
+  \&lt;!-- ======================================================================== -->
+  \&lt;!-- CARD 6: SOLUTION 6 (y: 835) -->
+  \&lt;!-- ======================================================================== -->
+  <g transform="translate(0, 0)">
+    <rect x="615" y="835" width="555" height="115" rx="6" fill="#f1f8e9" filter="url(#shadow)"/>
+    <rect x="615" y="841" width="555" height="109" rx="0" fill="#f1f8e9"/>
+    <rect x="615" y="835" width="555" height="115" rx="6" fill="none" stroke="#c8e6c9" stroke-width="1"/>
+    <path d="M 615,841 A 6 6 0 0 1 621,835 L 1164,835 A 6 6 0 0 1 1170,841 L 1170,863 L 615,863 Z" fill="#2e7d32"/>
+    <text x="630" y="853" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffffff">SOLUTION 6 · 智能适配 · Intelligent Adaptation</text>
+    <text x="630" y="879" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">PPO强化学习: 16→64→32→2 Tanh. int8量化部署于ESP32-S3, &lt;1ms推理.</text>
+    <text x="630" y="895" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">PPO RL: 16→64→32→2 Tanh. int8 quantized on ESP32-S3. &lt;1ms inference.</text>
+    <text x="630" y="911" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#1a1a2e">在线贝叶斯参数自适应. KAM力矩优化. ±5%力矩精度. 地形自适应.</text>
+    <text x="630" y="927" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#37474f">Online Bayesian adaptation. KAM optimization. ±5% torque precision. Terrain-adaptive.</text>
+    <text x="630" y="941" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" font-weight="bold" fill="#1b5e20">Result: 比FSM快20倍适应 · 50步内完成个性化 · 20× faster vs FSM, 50-step personalization</text>
+  </g>
+
+  \&lt;!-- ===== TAKEAWAYS (y: 965-1095) ===== -->
+  <rect x="30" y="965" width="1140" height="130" rx="8" fill="url(#takeawayGrad)" filter="url(#shadow)"/>
+
+  \&lt;!-- Takeaways Title -->
+  <text x="600" y="992" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="14" font-weight="bold" fill="#ffd54f">TAKEAWAYS · 从DNSYS学到的三件事 · Three Lessons from DNSYS</text>
+  <line x1="100" y1="1000" x2="1100" y2="1000" stroke="#3949ab" stroke-width="1"/>
+
+  \&lt;!-- Item 1 -->
+  <text x="55" y="1025" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffd54f">① CES获奖品牌建设</text>
+  <text x="55" y="1042" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#9fa8da">CES Awards Brand Building</text>
+  <text x="55" y="1060" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" fill="#e0e0e0">DNSYS获3项CES 2026创新奖. 品牌公信力是B2B/B2C入场券.</text>
+  <text x="55" y="1075" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" fill="#78909c">3× CES 2026 Innovation Awards. Brand credibility = market entry ticket.</text>
+
+  \&lt;!-- Item 2 -->
+  <text x="425" y="1025" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffd54f">② 15秒折叠至A4尺寸</text>
+  <text x="425" y="1042" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#9fa8da">15-second Fold to A4 Size</text>
+  <text x="425" y="1060" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" fill="#e0e0e0">出色的便携性工业设计, 决定用户是否会每天使用.</text>
+  <text x="425" y="1075" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" fill="#78909c">Excellent portable ID determines daily adoption willingness.</text>
+
+  \&lt;!-- Item 3 -->
+  <text x="795" y="1025" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="13" font-weight="bold" fill="#ffd54f">③ 下坡再生制动</text>
+  <text x="795" y="1042" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="11" fill="#9fa8da">Regenerative Braking on Descent</text>
+  <text x="795" y="1060" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" fill="#e0e0e0">DNSYS实现行走能量回收. B&amp;M需纳入下一代能量回收方案.</text>
+  <text x="795" y="1075" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei'" font-size="10" fill="#78909c">DNSYS recovers energy during gait. Integrate into B&amp;M next-gen.</text>
+</svg>

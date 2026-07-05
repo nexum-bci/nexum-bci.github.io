@@ -1,0 +1,353 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000">
+  <defs>
+    <linearGradient id="boneBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f0eb"/>
+      <stop offset="50%" style="stop-color:#efe8e0"/>
+      <stop offset="100%" style="stop-color:#e8dfd5"/>
+    </linearGradient>
+    <linearGradient id="greenTheme" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669"/>
+      <stop offset="100%" style="stop-color:#047857"/>
+    </linearGradient>
+    <linearGradient id="greenLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ecfdf5"/>
+      <stop offset="100%" style="stop-color:#a7f3d0"/>
+    </linearGradient>
+    <linearGradient id="fabricGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2d3748"/>
+      <stop offset="30%" style="stop-color:#4a5568"/>
+      <stop offset="60%" style="stop-color:#2d3748"/>
+      <stop offset="100%" style="stop-color:#4a5568"/>
+    </linearGradient>
+    <linearGradient id="cfSheetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="50%" style="stop-color:#16213e"/>
+      <stop offset="100%" style="stop-color:#0f3460"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fce4d6"/>
+      <stop offset="100%" style="stop-color:#f5d0b8"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#00000040"/>
+    </filter>
+    <filter id="shadowLight" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-color="#00000030"/>
+    </filter>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e63946"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0096f0"/>
+    </marker>
+    <pattern id="fabricPattern" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M0,0 L8,8 M8,0 L0,8" stroke="#5a6a7a" stroke-width="0.4" opacity="0.4"/>
+    </pattern>
+    <pattern id="cfPattern" width="12" height="12" patternUnits="userSpaceOnUse">
+      <path d="M0,0 L12,12 M12,0 L0,12" stroke="#0f3460" stroke-width="0.3" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1200" height="1000" fill="url(#boneBg)" rx="8"/>
+
+  <!-- 60px isolation border -->
+  <rect x="5" y="5" width="1190" height="990" fill="none" stroke="#059669" stroke-width="2" rx="4" stroke-dasharray="10,5" opacity="0.4"/>
+
+  <!-- Title bar -->
+  <rect x="40" y="20" width="1120" height="60" rx="8" fill="url(#greenTheme)" filter="url(#shadow)"/>
+  <text x="600" y="46" text-anchor="middle" fill="white" font-size="22" font-weight="bold" font-family="system-ui, sans-serif">架构演进 Gen 3 — 碳纤维薄片 + 弹性织物</text>
+  <text x="600" y="66" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="13" font-family="system-ui, sans-serif">Gen 3: Carbon-Fiber Laminate Sheets Embedded in Elastic Fabric Exosuit</text>
+
+  <!-- ===== LEFT PANEL: Fabric exosuit with CF sheets ===== 720x700区域 -->
+  <g transform="translate(20, 95)">
+    <!-- Left panel label (unscaled) -->
+    <rect x="0" y="0" width="720" height="30" rx="4" fill="#059669" opacity="0.15"/>
+    <text x="360" y="20" text-anchor="middle" fill="#059669" font-size="15" font-weight="bold" font-family="system-ui, sans-serif">织物外衣与碳纤维嵌入式框架 — 产品/解剖放大图</text>
+
+    <!-- 整体放大1.28x -->
+    <g transform="translate(0, 35) scale(1.28)">
+
+      <!-- === Human legs with fabric pants === -->
+      <g transform="translate(120, 40)">
+        <!-- Pelvis/Hip -->
+        <ellipse cx="80" cy="15" rx="70" ry="30" fill="url(#skinGrad)" stroke="#d4a373" stroke-width="0.5"/>
+        <rect x="30" y="5" width="100" height="15" rx="5" fill="#444" stroke="#333" stroke-width="0.5"/>
+        <rect x="70" y="5" width="20" height="15" rx="2" fill="#bbb" stroke="#999" stroke-width="0.5"/>
+
+        <!-- Left Leg - Fabric pants -->
+        <g>
+          <rect x="10" y="20" width="55" height="220" rx="12" fill="url(#fabricGrad)" opacity="0.85"/>
+          <rect x="10" y="20" width="55" height="220" rx="12" fill="url(#fabricPattern)" opacity="0.6"/>
+          <line x1="15" y1="40" x2="60" y2="40" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <line x1="15" y1="60" x2="60" y2="60" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <line x1="15" y1="80" x2="60" y2="80" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <line x1="15" y1="100" x2="60" y2="100" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <line x1="15" y1="120" x2="60" y2="120" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <line x1="15" y1="140" x2="60" y2="140" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <line x1="15" y1="160" x2="60" y2="160" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <line x1="15" y1="180" x2="60" y2="180" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <g opacity="0.15">
+            <line x1="15" y1="30" x2="60" y2="75" stroke="#8a9aaa" stroke-width="0.5"/>
+            <line x1="15" y1="60" x2="60" y2="105" stroke="#8a9aaa" stroke-width="0.5"/>
+            <line x1="15" y1="90" x2="60" y2="135" stroke="#8a9aaa" stroke-width="0.5"/>
+            <line x1="15" y1="120" x2="60" y2="165" stroke="#8a9aaa" stroke-width="0.5"/>
+            <line x1="15" y1="150" x2="60" y2="195" stroke="#8a9aaa" stroke-width="0.5"/>
+            <line x1="15" y1="180" x2="60" y2="225" stroke="#8a9aaa" stroke-width="0.5"/>
+          </g>
+          <rect x="7" y="35" width="6" height="195" rx="3" fill="url(#cfSheetGrad)" opacity="0.85"/>
+          <rect x="7" y="35" width="6" height="195" rx="3" fill="url(#cfPattern)" opacity="0.5"/>
+          <ellipse cx="55" cy="35" rx="18" ry="14" fill="#4a5568" stroke="#2d3748" stroke-width="1"/>
+          <circle cx="55" cy="35" r="6" fill="#059669" opacity="0.5"/>
+          <circle cx="55" cy="35" r="2" fill="#fff" opacity="0.5"/>
+          <ellipse cx="55" cy="155" rx="16" ry="12" fill="#4a5568" stroke="#2d3748" stroke-width="1"/>
+          <circle cx="55" cy="155" r="5" fill="#059669" opacity="0.5"/>
+          <circle cx="55" cy="155" r="2" fill="#fff" opacity="0.5"/>
+          <rect x="10" y="145" width="55" height="3" rx="1" fill="#2d3748" opacity="0.5"/>
+          <rect x="10" y="240" width="55" height="8" rx="4" fill="#2d3748" opacity="0.7"/>
+        </g>
+
+        <!-- Right Leg -->
+        <g>
+          <rect x="95" y="20" width="55" height="220" rx="12" fill="url(#fabricGrad)" opacity="0.85"/>
+          <rect x="95" y="20" width="55" height="220" rx="12" fill="url(#fabricPattern)" opacity="0.6"/>
+          <line x1="100" y1="40" x2="145" y2="40" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <line x1="100" y1="60" x2="145" y2="60" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <line x1="100" y1="80" x2="145" y2="80" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <line x1="100" y1="100" x2="145" y2="100" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <line x1="100" y1="120" x2="145" y2="120" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <line x1="100" y1="140" x2="145" y2="140" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <line x1="100" y1="160" x2="145" y2="160" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <line x1="100" y1="180" x2="145" y2="180" stroke="#5a6a7a" stroke-width="0.3" opacity="0.3"/>
+          <rect x="147" y="35" width="6" height="195" rx="3" fill="url(#cfSheetGrad)" opacity="0.85"/>
+          <rect x="147" y="35" width="6" height="195" rx="3" fill="url(#cfPattern)" opacity="0.5"/>
+          <ellipse cx="105" cy="35" rx="18" ry="14" fill="#4a5568" stroke="#2d3748" stroke-width="1"/>
+          <circle cx="105" cy="35" r="6" fill="#059669" opacity="0.5"/>
+          <circle cx="105" cy="35" r="2" fill="#fff" opacity="0.5"/>
+          <ellipse cx="105" cy="155" rx="16" ry="12" fill="#4a5568" stroke="#2d3748" stroke-width="1"/>
+          <circle cx="105" cy="155" r="5" fill="#059669" opacity="0.5"/>
+          <circle cx="105" cy="155" r="2" fill="#fff" opacity="0.5"/>
+          <rect x="95" y="145" width="55" height="3" rx="1" fill="#2d3748" opacity="0.5"/>
+          <rect x="95" y="240" width="55" height="8" rx="4" fill="#2d3748" opacity="0.7"/>
+        </g>
+
+        <!-- Tension force flow arrows -->
+        <g>
+          <path d="M55,50 Q58,80 55,100 Q52,120 55,140" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrowGreen)" stroke-dasharray="5,3"/>
+          <path d="M55,170 Q58,190 55,210 Q52,225 55,235" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrowGreen)" stroke-dasharray="5,3"/>
+          <path d="M30,28 Q10,25 5,40 Q2,55 10,70" stroke="#059669" stroke-width="1.5" fill="none" marker-end="url(#arrowGreen)" stroke-dasharray="3,2" opacity="0.6"/>
+          <path d="M105,50 Q108,80 105,100 Q102,120 105,140" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrowGreen)" stroke-dasharray="5,3"/>
+          <path d="M105,170 Q108,190 105,210 Q102,225 105,235" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrowGreen)" stroke-dasharray="5,3"/>
+        </g>
+      </g>
+
+      <!-- Exploded detail: CF sheet cross-section -->
+      <g transform="translate(280, 50)">
+        <rect x="0" y="0" width="250" height="100" rx="8" fill="white" stroke="#059669" stroke-width="1" filter="url(#shadowLight)"/>
+        <text x="125" y="18" text-anchor="middle" fill="#059669" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">碳纤维薄片剖面</text>
+        <rect x="30" y="30" width="190" height="6" rx="2" fill="#1a1a2e" opacity="0.8"/>
+        <rect x="30" y="38" width="190" height="6" rx="2" fill="#16213e" opacity="0.8"/>
+        <rect x="30" y="46" width="190" height="6" rx="2" fill="#1a1a2e" opacity="0.8"/>
+        <rect x="30" y="54" width="190" height="6" rx="2" fill="#0f3460" opacity="0.8"/>
+        <rect x="30" y="62" width="190" height="6" rx="2" fill="#1a1a2e" opacity="0.8"/>
+        <line x1="35" y1="33" x2="100" y2="33" stroke="#00ff88" stroke-width="0.3" opacity="0.4"/>
+        <line x1="35" y1="41" x2="100" y2="41" stroke="#00ff88" stroke-width="0.3" opacity="0.4" transform="rotate(45, 67, 41)"/>
+        <text x="125" y="86" text-anchor="middle" fill="#666" font-size="8" font-family="system-ui, sans-serif">多层碳纤维预浸布 0°/45°/-45°/90° 铺层</text>
+      </g>
+
+      <!-- BLDC motor detail -->
+      <g transform="translate(280, 165)">
+        <rect x="0" y="0" width="250" height="120" rx="8" fill="white" stroke="#059669" stroke-width="1" filter="url(#shadowLight)"/>
+        <text x="125" y="18" text-anchor="middle" fill="#059669" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">嵌入式 BLDC 电机</text>
+        <ellipse cx="125" cy="60" rx="45" ry="20" fill="#4a5568" stroke="#2d3748" stroke-width="1.5"/>
+        <ellipse cx="125" cy="60" rx="30" ry="13" fill="#718096" stroke="#4a5568" stroke-width="0.8"/>
+        <ellipse cx="125" cy="60" rx="15" ry="7" fill="#a0aec0"/>
+        <circle cx="125" cy="60" r="4" fill="#059669" opacity="0.6"/>
+        <g fill="#059669" opacity="0.3">
+          <rect x="110" y="47" width="4" height="10" rx="1"/>
+          <rect x="125" y="44" width="4" height="10" rx="1"/>
+          <rect x="140" y="47" width="4" height="10" rx="1"/>
+          <rect x="110" y="63" width="4" height="10" rx="1"/>
+          <rect x="125" y="66" width="4" height="10" rx="1"/>
+          <rect x="140" y="63" width="4" height="10" rx="1"/>
+        </g>
+        <text x="125" y="102" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">扁平无刷电机 | 嵌入织物夹层 | 无框设计</text>
+      </g>
+
+      <!-- Power Flow + Efficiency Waterfall -->
+      <g transform="translate(280, 305)">
+        <rect x="0" y="0" width="250" height="250" rx="8" fill="white" stroke="#059669" stroke-width="1" filter="url(#shadowLight)"/>
+        <text x="125" y="20" text-anchor="middle" fill="#059669" font-size="12" font-weight="bold" font-family="system-ui, sans-serif">功率流与效率瀑布图</text>
+        <rect x="85" y="32" width="80" height="28" rx="6" fill="#059669" opacity="0.2" stroke="#059669" stroke-width="0.8"/>
+        <text x="125" y="50" text-anchor="middle" fill="#059669" font-size="10" font-weight="bold" font-family="system-ui, sans-serif">电池 144Wh</text>
+        <line x1="125" y1="60" x2="125" y2="78" stroke="#059669" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+        <rect x="75" y="80" width="100" height="28" rx="6" fill="#059669" opacity="0.15" stroke="#059669" stroke-width="0.8"/>
+        <text x="125" y="98" text-anchor="middle" fill="#059669" font-size="10" font-family="system-ui, sans-serif">电源管理 (98%)</text>
+        <line x1="125" y1="108" x2="125" y2="126" stroke="#059669" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+        <rect x="75" y="128" width="100" height="28" rx="6" fill="#059669" opacity="0.12" stroke="#059669" stroke-width="0.8"/>
+        <text x="125" y="146" text-anchor="middle" fill="#059669" font-size="10" font-family="system-ui, sans-serif">电机驱动 (92%)</text>
+        <line x1="125" y1="156" x2="125" y2="174" stroke="#059669" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+        <rect x="75" y="176" width="100" height="28" rx="6" fill="#059669" opacity="0.1" stroke="#059669" stroke-width="0.8"/>
+        <text x="125" y="194" text-anchor="middle" fill="#059669" font-size="10" font-family="system-ui, sans-serif">织物/CF传动 (90%)</text>
+        <line x1="125" y1="204" x2="125" y2="222" stroke="#059669" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+        <rect x="85" y="224" width="80" height="24" rx="6" fill="url(#greenTheme)"/>
+        <text x="125" y="240" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">净效率 81%</text>
+      </g>
+
+      <!-- Label: Wear like pants -->
+      <g transform="translate(20, 10)">
+        <rect x="0" y="0" width="140" height="24" rx="6" fill="white" stroke="#059669" stroke-width="1" filter="url(#shadowLight)"/>
+        <text x="70" y="16" text-anchor="middle" fill="#059669" font-size="10" font-weight="bold" font-family="system-ui, sans-serif">像穿裤子一样穿戴</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Divider / 隔离带 -->
+  <line x1="740" y1="95" x2="740" y2="950" stroke="#059669" stroke-width="0.8" opacity="0.15"/>
+
+  <!-- ===== RIGHT PANEL: Parameter Table (压缩到380px宽) ===== -->
+  <g transform="translate(800, 95)">
+    <rect x="0" y="0" width="380" height="30" rx="4" fill="#059669" opacity="0.15"/>
+    <text x="190" y="20" text-anchor="middle" fill="#059669" font-size="14" font-weight="bold" font-family="system-ui, sans-serif">完整参数表</text>
+
+    <g transform="translate(8, 50)">
+      <!-- Header -->
+      <rect x="0" y="0" width="105" height="28" rx="4" fill="#059669" opacity="0.15"/>
+      <rect x="105" y="0" width="245" height="28" rx="4" fill="#059669" opacity="0.15"/>
+      <text x="52" y="19" text-anchor="middle" fill="#059669" font-size="12" font-weight="bold" font-family="system-ui, sans-serif">参数</text>
+      <text x="227" y="19" text-anchor="middle" fill="#059669" font-size="12" font-weight="bold" font-family="system-ui, sans-serif">Gen 3 规格</text>
+
+      <!-- Row 1: System Mass -->
+      <rect x="0" y="30" width="105" height="34" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="30" width="245" height="34" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="47" r="4" fill="#059669"/>
+      <text x="22" y="51" fill="#333" font-size="11" font-family="system-ui, sans-serif">系统总质量</text>
+      <text x="227" y="47" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">&lt; 1.5 kg</text>
+      <text x="227" y="61" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">织物+CF超轻结构</text>
+
+      <!-- Row 2: Mass breakdown -->
+      <rect x="0" y="66" width="105" height="42" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="66" width="245" height="42" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="87" r="4" fill="#059669"/>
+      <text x="22" y="91" fill="#333" font-size="11" font-family="system-ui, sans-serif">质量分布</text>
+      <rect x="115" y="72" width="120" height="8" rx="3" fill="#e0e0e0"/>
+      <rect x="115" y="72" width="72" height="8" rx="3" fill="#059669" opacity="0.7"/>
+      <text x="240" y="80" fill="#666" font-size="9" font-family="system-ui, sans-serif">织物60%</text>
+      <rect x="115" y="84" width="100" height="8" rx="3" fill="#e0e0e0"/>
+      <rect x="115" y="84" width="32" height="8" rx="3" fill="#059669" opacity="0.5"/>
+      <text x="220" y="92" fill="#666" font-size="9" font-family="system-ui, sans-serif">CF薄片25%</text>
+      <rect x="115" y="96" width="60" height="8" rx="3" fill="#e0e0e0"/>
+      <rect x="115" y="96" width="15" height="8" rx="3" fill="#059669" opacity="0.3"/>
+      <text x="180" y="104" fill="#666" font-size="9" font-family="system-ui, sans-serif">电子15%</text>
+
+      <!-- Row 3: Wear Time -->
+      <rect x="0" y="110" width="105" height="28" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="110" width="245" height="28" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="124" r="4" fill="#059669"/>
+      <text x="22" y="128" fill="#333" font-size="11" font-family="system-ui, sans-serif">穿戴时间</text>
+      <text x="227" y="128" text-anchor="middle" fill="#059669" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">&lt; 30 秒</text>
+
+      <!-- Row 4: Sizing -->
+      <rect x="0" y="140" width="105" height="28" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="140" width="245" height="28" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="154" r="4" fill="#059669"/>
+      <text x="22" y="158" fill="#333" font-size="11" font-family="system-ui, sans-serif">尺码</text>
+      <text x="227" y="158" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">2 个尺码 (M/L)</text>
+
+      <!-- Row 5: Wear Style -->
+      <rect x="0" y="170" width="105" height="28" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="170" width="245" height="28" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="184" r="4" fill="#059669"/>
+      <text x="22" y="188" fill="#333" font-size="11" font-family="system-ui, sans-serif">穿戴方式</text>
+      <text x="227" y="188" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">像穿裤子一样</text>
+
+      <!-- Row 6: Joint Coverage -->
+      <rect x="0" y="200" width="105" height="34" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="200" width="245" height="34" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="217" r="4" fill="#059669"/>
+      <text x="22" y="221" fill="#333" font-size="11" font-family="system-ui, sans-serif">关节覆盖</text>
+      <text x="227" y="217" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">髋+膝模块化</text>
+      <text x="227" y="231" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">可独立更换模块</text>
+
+      <!-- Row 7: Motor -->
+      <rect x="0" y="236" width="105" height="34" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="236" width="245" height="34" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="253" r="4" fill="#059669"/>
+      <text x="22" y="257" fill="#333" font-size="11" font-family="system-ui, sans-serif">驱动电机</text>
+      <text x="227" y="253" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">扁平 BLDC × 4</text>
+      <text x="227" y="267" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">嵌入织物夹层，无框</text>
+
+      <!-- Row 8: Frame Material -->
+      <rect x="0" y="272" width="105" height="34" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="272" width="245" height="34" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="289" r="4" fill="#059669"/>
+      <text x="22" y="293" fill="#333" font-size="11" font-family="system-ui, sans-serif">框架材料</text>
+      <text x="227" y="289" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">碳纤维薄片+弹性织物</text>
+      <text x="227" y="303" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">CF纵向支撑，织物弹性</text>
+
+      <!-- Row 9: Battery -->
+      <rect x="0" y="308" width="105" height="34" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="308" width="245" height="34" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="325" r="4" fill="#059669"/>
+      <text x="22" y="329" fill="#333" font-size="11" font-family="system-ui, sans-serif">电池</text>
+      <text x="227" y="325" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">柔性薄膜锂聚合物</text>
+      <text x="227" y="339" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">嵌入腰带织物 | 100 Wh</text>
+
+      <!-- Row 10: Peak Torque -->
+      <rect x="0" y="344" width="105" height="28" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="344" width="245" height="28" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="358" r="4" fill="#059669"/>
+      <text x="22" y="362" fill="#333" font-size="11" font-family="system-ui, sans-serif">峰值扭矩</text>
+      <text x="227" y="362" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">18 Nm (髋) / 12 Nm (膝)</text>
+
+      <!-- Row 11: Control -->
+      <rect x="0" y="374" width="105" height="34" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="374" width="245" height="34" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="391" r="4" fill="#059669"/>
+      <text x="22" y="395" fill="#333" font-size="11" font-family="system-ui, sans-serif">控制算法</text>
+      <text x="227" y="391" text-anchor="middle" fill="#333" font-size="11" font-family="system-ui, sans-serif">自适应阻抗+前馈</text>
+      <text x="227" y="405" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui, sans-serif">织物弹性变形补偿</text>
+
+      <!-- Row 12: Noise -->
+      <rect x="0" y="410" width="105" height="28" rx="2" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="105" y="410" width="245" height="28" rx="2" fill="white" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="12" cy="424" r="4" fill="#059669"/>
+      <text x="22" y="428" fill="#333" font-size="11" font-family="system-ui, sans-serif">工作噪声</text>
+      <text x="227" y="428" text-anchor="middle" fill="#059669" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">&lt; 40 dB (近乎无声)</text>
+    </g>
+
+    <!-- Bottom summary -->
+    <g transform="translate(8, 480)">
+      <rect x="0" y="0" width="354" height="110" rx="8" fill="white" stroke="#059669" stroke-width="1.5" stroke-dasharray="8,4" filter="url(#shadowLight)"/>
+      <text x="177" y="22" text-anchor="middle" fill="#059669" font-size="12" font-weight="bold" font-family="system-ui, sans-serif">Gen 3 设计特征总结</text>
+      <line x1="12" y1="32" x2="342" y2="32" stroke="#059669" stroke-width="0.5" opacity="0.3"/>
+      <circle cx="16" cy="46" r="3" fill="#059669"/>
+      <text x="26" y="50" fill="#444" font-size="11" font-family="system-ui, sans-serif">碳纤维薄片嵌入弹性织物，像穿裤子一样穿戴</text>
+      <circle cx="16" cy="64" r="3" fill="#059669"/>
+      <text x="26" y="68" fill="#444" font-size="11" font-family="system-ui, sans-serif">扁平 BLDC 直接嵌入织物夹层，无外露金属部件</text>
+      <circle cx="16" cy="82" r="3" fill="#059669"/>
+      <text x="26" y="86" fill="#444" font-size="11" font-family="system-ui, sans-serif">系统质量 &lt;1.5kg，2个尺码覆盖绝大多数人群</text>
+      <circle cx="16" cy="100" r="3" fill="#059669"/>
+      <text x="26" y="104" fill="#444" font-size="11" font-family="system-ui, sans-serif">髋膝关节模块独立可更换，支持未来升级</text>
+    </g>
+
+    <!-- Timeline -->
+    <g transform="translate(8, 605)">
+      <text x="177" y="12" text-anchor="middle" fill="#666" font-size="10" font-family="system-ui, sans-serif">演进路线</text>
+      <rect x="20" y="22" width="314" height="28" rx="14" fill="#f0f0f0"/>
+      <text x="72" y="41" text-anchor="middle" fill="#999" font-size="11" font-family="system-ui, sans-serif">Gen 0-1</text>
+      <text x="177" y="41" text-anchor="middle" fill="#999" font-size="11" font-family="system-ui, sans-serif">Gen 2+</text>
+      <line x1="225" y1="36" x2="252" y2="36" stroke="#ccc" stroke-width="2"/>
+      <rect x="260" y="22" width="105" height="28" rx="14" fill="url(#greenTheme)"/>
+      <text x="312" y="41" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">Gen 3</text>
+    </g>
+  </g>
+
+  <!-- Footer / 全中文图例 -->
+  <rect x="40" y="955" width="1120" height="36" rx="4" fill="#059669" opacity="0.08"/>
+  <text x="600" y="968" text-anchor="middle" fill="#555" font-size="11" font-family="system-ui, sans-serif">骨骼流形 | 架构演进 Gen 3 — 碳纤维薄片 + 弹性织物 | 附图 C-10c</text>
+  <text x="600" y="984" text-anchor="middle" fill="#777" font-size="10" font-family="system-ui, sans-serif">图例：绿色标注为张力传递路径 | 深色织物为外骨骼外衣 | 蓝色薄片示意碳纤维嵌入层 | 虚线箭头为拉力方向</text>
+</svg>

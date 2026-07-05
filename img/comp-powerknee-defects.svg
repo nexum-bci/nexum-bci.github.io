@@ -1,0 +1,318 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="100%" height="100%" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, sans-serif">
+<defs>
+<linearGradient id="boneGrad" x1="0" y1="0" x2="0.4" y2="1">
+<stop offset="0%" stop-color="#ede3cc"/>
+<stop offset="50%" stop-color="#e8ddc0"/>
+<stop offset="100%" stop-color="#d4c9a8"/>
+</linearGradient>
+<linearGradient id="metalGrad" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#A0AAB5"/>
+<stop offset="40%" stop-color="#8B93A0"/>
+<stop offset="100%" stop-color="#6B7280"/>
+</linearGradient>
+<linearGradient id="defectFill" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" stop-color="rgba(220,38,38,0.08)"/>
+<stop offset="100%" stop-color="rgba(220,38,38,0.02)"/>
+</linearGradient>
+<linearGradient id="solutionFill" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" stop-color="rgba(0,150,240,0.08)"/>
+<stop offset="100%" stop-color="rgba(0,150,240,0.02)"/>
+</linearGradient>
+<linearGradient id="vsDivider" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#dc2626"/>
+<stop offset="50%" stop-color="#0096f0"/>
+<stop offset="100%" stop-color="#dc2626"/>
+</linearGradient>
+<marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+<path d="M0,0 L10,5 L0,10 Z" fill="#dc2626"/>
+</marker>
+<marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+<path d="M0,0 L10,5 L0,10 Z" fill="#0096f0"/>
+</marker>
+<marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+<path d="M0,0 L10,5 L0,10 Z" fill="#6b7280"/>
+</marker>
+<filter id="shadow" x="-5%" y="-5%" width="120%" height="120%">
+<feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/>
+</filter>
+<filter id="softShadow" x="-5%" y="-5%" width="120%" height="120%">
+<feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-opacity="0.06"/>
+</filter>
+</defs>
+
+<rect width="1200" height="1000" fill="#f7f7f4"/>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+<path d="M40 0L0 0 0 40" fill="none" stroke="#e8e8e4" stroke-width="0.5"/>
+</pattern>
+<rect width="1200" height="1000" fill="url(#grid)"/>
+
+<rect x="0" y="0" width="1200" height="62" fill="#1f2937"/>
+<text x="600" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">远也PowerKnee 五大工程缺陷与Bones超越方案</text>
+<text x="600" y="48" text-anchor="middle" font-size="11" fill="#9ca3af">Five Engineering Defects and Competitive Advantages 骨骼流形 竞争情报</text>
+
+<rect x="25" y="75" width="1150" height="48" rx="4" fill="rgba(239,68,68,0.06)" stroke="#fca5a5" stroke-width="0.5"/>
+<rect x="600" y="75" width="575" height="48" rx="4" fill="rgba(0,150,240,0.06)" stroke="#93c5fd" stroke-width="0.5"/>
+<text x="310" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#dc2626">PowerKnee 缺陷 (Defect)</text>
+<text x="310" y="112" text-anchor="middle" font-size="9" fill="#ef4444">远也科技现有方案</text>
+<text x="915" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#0096f0">Bones 超越方案 (Solution)</text>
+<text x="915" y="112" text-anchor="middle" font-size="9" fill="#3b82f6">骨骼流形下一代方案</text>
+
+<line x1="590" y1="75" x2="590" y2="123" stroke="#6b7280" stroke-width="1"/>
+<text x="590" y="118" text-anchor="middle" font-size="14" font-weight="bold" fill="#6b7280">VS</text>
+
+<line x1="588" y1="123" x2="612" y2="123" stroke="#6b7280" stroke-width="0.5"/>
+
+<!-- ============ BAND 1: Weight Limit ============ -->
+<rect x="25" y="135" width="1150" height="148" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" filter="url(#softShadow)"/>
+
+<rect x="25" y="135" width="565" height="148" rx="6" fill="url(#defectFill)"/>
+<rect x="610" y="135" width="565" height="148" rx="6" fill="url(#solutionFill)"/>
+
+<rect x="25" y="135" width="24" height="148" fill="#ef4444" rx="6"/>
+<rect x="25" y="135" width="24" height="140" fill="#dc2626"/>
+<text x="37" y="215" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff" transform="rotate(-90,37,215)">缺陷1</text>
+
+<text x="55" y="158" font-size="13" font-weight="bold" fill="#dc2626">缺陷1：承重上限65-75kg</text>
+<text x="55" y="176" font-size="9" fill="#6b7280">用户体重限制严格，超重用户完全无法使用</text>
+
+<rect x="55" y="185" width="120" height="18" rx="9" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="0.5"/>
+<text x="115" y="198" text-anchor="middle" font-size="9" fill="#dc2626">电机扭矩估算</text>
+<rect x="185" y="185" width="100" height="18" rx="9" fill="rgba(245,158,11,0.15)" stroke="#f59e0b" stroke-width="0.5"/>
+<text x="235" y="198" text-anchor="middle" font-size="9" fill="#d97706">12-18 Nm</text>
+
+<rect x="55" y="210" width="150" height="18" rx="9" fill="rgba(220,38,38,0.1)" stroke="#dc2626" stroke-width="0.5"/>
+<text x="130" y="223" text-anchor="middle" font-size="9" fill="#dc2626">限重范围: 65-75kg</text>
+
+<text x="55" y="248" font-size="9" fill="#6b7280">扭矩下限不足，无法支撑75kg以上用户完成</text>
+<text x="55" y="262" font-size="9" fill="#6b7280">步态周期中的承重相 (stance phase)</text>
+
+<!-- Torque bar comparison -->
+<rect x="55" y="270" width="60" height="8" rx="2" fill="#ef4444" opacity="0.6"/>
+<text x="55" y="282" font-size="7" fill="#ef4444">12Nm</text>
+<rect x="55" y="270" width="90" height="8" rx="2" fill="#fca5a5" opacity="0.6"/>
+<text x="115" y="288" font-size="6" fill="#9ca3af">现有</text>
+
+<rect x="610" y="135" width="24" height="148" fill="#3b82f6" rx="6"/>
+<rect x="610" y="135" width="24" height="140" fill="#0096f0"/>
+<text x="622" y="215" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff" transform="rotate(-90,622,215)">方案1</text>
+
+<text x="640" y="158" font-size="13" font-weight="bold" fill="#0096f0">Bones 方案：AK80-9 高扭矩电机</text>
+<text x="640" y="176" font-size="9" fill="#6b7280">直接替换更高转矩密度电机，覆盖≤90kg用户群体</text>
+
+<rect x="640" y="185" width="120" height="18" rx="9" fill="rgba(0,150,240,0.15)" stroke="#0096f0" stroke-width="0.5"/>
+<text x="700" y="198" text-anchor="middle" font-size="9" fill="#0096f0">AK80-9 规格</text>
+<rect x="770" y="185" width="140" height="18" rx="9" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="0.5"/>
+<text x="840" y="198" text-anchor="middle" font-size="9" fill="#059669">22 Nm 连续扭矩</text>
+
+<rect x="640" y="210" width="150" height="18" rx="9" fill="rgba(0,150,240,0.1)" stroke="#0096f0" stroke-width="0.5"/>
+<text x="715" y="223" text-anchor="middle" font-size="9" fill="#0096f0">减速比 9:1 = 198 Nm</text>
+
+<text x="640" y="248" font-size="9" fill="#6b7280">通过高减速比行星齿轮箱将转矩放大至198Nm</text>
+<text x="640" y="262" font-size="9" fill="#6b7280">覆盖75-90kg用户，匹配更大人群的步态需求</text>
+
+<rect x="640" y="270" width="140" height="8" rx="2" fill="#0096f0" opacity="0.7"/>
+<text x="640" y="282" font-size="7" fill="#0096f0">198Nm</text>
+<rect x="640" y="270" width="140" height="8" rx="2" fill="#93c5fd" opacity="0.6"/>
+<text x="780" y="288" font-size="6" fill="#9ca3af">Bones方案</text>
+
+<!-- Connect arrow -->
+<path d="M580,210 L605,210" fill="none" stroke="#6b7280" stroke-width="1" marker-end="url(#arrowGray)"/>
+
+<!-- ============ BAND 2: Straps ============ -->
+<rect x="25" y="293" width="1150" height="148" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" filter="url(#softShadow)"/>
+
+<rect x="25" y="293" width="565" height="148" rx="6" fill="url(#defectFill)"/>
+<rect x="610" y="293" width="565" height="148" rx="6" fill="url(#solutionFill)"/>
+
+<rect x="25" y="293" width="24" height="148" fill="#ef4444" rx="6"/>
+<rect x="25" y="293" width="24" height="140" fill="#dc2626"/>
+<text x="37" y="373" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff" transform="rotate(-90,37,373)">缺陷2</text>
+
+<text x="55" y="316" font-size="13" font-weight="bold" fill="#dc2626">缺陷2：3条绑带 穿戴约5分钟</text>
+<text x="55" y="334" font-size="9" fill="#6b7280">绑带式固定效率低，用户独立穿戴困难</text>
+
+<rect x="55" y="345" width="130" height="18" rx="9" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="0.5"/>
+<text x="120" y="358" text-anchor="middle" font-size="9" fill="#dc2626">锚点数量: 3个</text>
+
+<text x="55" y="385" font-size="9" fill="#6b7280">三条独立绑带需逐一调整松紧</text>
+<text x="55" y="400" font-size="9" fill="#6b7280">产生寄生柔度: 绑带弹性形变导致</text>
+<text x="55" y="415" font-size="9" fill="#6b7280">力传递效率降低约15-20%</text>
+
+<!-- Strap diagram -->
+<line x1="200" y1="360" x2="350" y2="360" stroke="#ef4444" stroke-width="2"/>
+<line x1="200" y1="380" x2="350" y2="380" stroke="#ef4444" stroke-width="2"/>
+<line x1="200" y1="400" x2="350" y2="400" stroke="#ef4444" stroke-width="2"/>
+<circle cx="200" cy="360" r="3" fill="#dc2626"/>
+<circle cx="200" cy="380" r="3" fill="#dc2626"/>
+<circle cx="200" cy="400" r="3" fill="#dc2626"/>
+<text x="355" y="363" font-size="8" fill="#dc2626">上大腿</text>
+<text x="355" y="383" font-size="8" fill="#dc2626">下大腿</text>
+<text x="355" y="403" font-size="8" fill="#dc2626">小腿</text>
+
+<rect x="610" y="293" width="24" height="148" fill="#3b82f6" rx="6"/>
+<rect x="610" y="293" width="24" height="140" fill="#0096f0"/>
+<text x="622" y="373" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff" transform="rotate(-90,622,373)">方案2</text>
+
+<text x="640" y="316" font-size="13" font-weight="bold" fill="#0096f0">Bones 方案：2绑带+Fidlock磁吸扣</text>
+<text x="640" y="334" font-size="9" fill="#6b7280">减少绑带数量并引入磁吸快拆，穿戴时间大幅缩短</text>
+
+<rect x="640" y="345" width="130" height="18" rx="9" fill="rgba(0,150,240,0.15)" stroke="#0096f0" stroke-width="0.5"/>
+<text x="705" y="358" text-anchor="middle" font-size="9" fill="#0096f0">穿戴时间: &lt;60秒</text>
+
+<text x="640" y="385" font-size="9" fill="#6b7280">2条绑带 (大腿+小腿) 减少30%固定点</text>
+<text x="640" y="400" font-size="9" fill="#6b7280">Fidlock磁吸扣实现单手上锁/解锁</text>
+<text x="640" y="415" font-size="9" fill="#6b7280">刚性连接消除寄生柔度，力传递效率&gt;95%</text>
+
+<line x1="850" y1="360" x2="1000" y2="360" stroke="#0096f0" stroke-width="3"/>
+<line x1="850" y1="400" x2="1000" y2="400" stroke="#0096f0" stroke-width="3"/>
+<circle cx="850" cy="360" r="3" fill="#0096f0"/>
+<circle cx="850" cy="400" r="3" fill="#0096f0"/>
+<text x="1005" y="363" font-size="8" fill="#0096f0">大腿 (单条)</text>
+<text x="1005" y="403" font-size="8" fill="#0096f0">小腿 (单条)</text>
+
+<path d="M580,368 L605,368" fill="none" stroke="#6b7280" stroke-width="1" marker-end="url(#arrowGray)"/>
+
+<!-- ============ BAND 3: Appearance ============ -->
+<rect x="25" y="451" width="1150" height="148" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" filter="url(#softShadow)"/>
+
+<rect x="25" y="451" width="565" height="148" rx="6" fill="url(#defectFill)"/>
+<rect x="610" y="451" width="565" height="148" rx="6" fill="url(#solutionFill)"/>
+
+<rect x="25" y="451" width="24" height="148" fill="#ef4444" rx="6"/>
+<rect x="25" y="451" width="24" height="140" fill="#dc2626"/>
+<text x="37" y="531" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff" transform="rotate(-90,37,531)">缺陷3</text>
+
+<text x="55" y="474" font-size="13" font-weight="bold" fill="#dc2626">缺陷3：医疗器械外观</text>
+<text x="55" y="492" font-size="9" fill="#6b7280">白色镁合金壳体+外露机械结构，用户接受度低</text>
+
+<rect x="55" y="503" width="130" height="18" rx="9" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="0.5"/>
+<text x="120" y="516" text-anchor="middle" font-size="9" fill="#dc2626">外观定位: 医疗设备</text>
+
+<text x="55" y="540" font-size="9" fill="#6b7280">白色塑料+金属外观唤起医疗器械联想</text>
+<text x="55" y="555" font-size="9" fill="#6b7280">用户不愿意在公共场合佩戴</text>
+<text x="55" y="570" font-size="9" fill="#6b7280">社交媒体分享意愿低，影响口碑传播</text>
+
+<!-- Appearance icon - simple box -->
+<rect x="250" y="505" width="40" height="55" rx="4" fill="#ffffff" stroke="#ef4444" stroke-width="1.5"/>
+<rect x="255" y="510" width="30" height="45" rx="3" fill="#f0f0f0" stroke="#d1d5db" stroke-width="0.5"/>
+<line x1="260" y1="520" x2="280" y2="520" stroke="#d1d5db" stroke-width="0.5"/>
+<line x1="260" y1="525" x2="280" y2="525" stroke="#d1d5db" stroke-width="0.5"/>
+<line x1="260" y1="540" x2="280" y2="540" stroke="#d1d5db" stroke-width="0.5"/>
+<text x="270" y="570" text-anchor="middle" font-size="8" fill="#ef4444">白色镁合金</text>
+
+<rect x="610" y="451" width="24" height="148" fill="#3b82f6" rx="6"/>
+<rect x="610" y="451" width="24" height="140" fill="#0096f0"/>
+<text x="622" y="531" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff" transform="rotate(-90,622,531)">方案3</text>
+
+<text x="640" y="474" font-size="13" font-weight="bold" fill="#0096f0">Bones 方案：碳纤维+织物包裹+深灰配色</text>
+<text x="640" y="492" font-size="9" fill="#6b7280">去医疗器械化，打造智能护膝外观叙事</text>
+
+<rect x="640" y="503" width="130" height="18" rx="9" fill="rgba(0,150,240,0.15)" stroke="#0096f0" stroke-width="0.5"/>
+<text x="705" y="516" text-anchor="middle" font-size="9" fill="#0096f0">外观定位: 智能可穿戴</text>
+
+<text x="640" y="540" font-size="9" fill="#6b7280">碳纤维哑光纹理+深灰配色，接近运动护具</text>
+<text x="640" y="555" font-size="9" fill="#6b7280">织物包裹隐藏机械结构，视觉简洁</text>
+<text x="640" y="570" font-size="9" fill="#6b7280">"智能护膝"叙事降低使用心理门槛</text>
+
+<rect x="850" y="505" width="40" height="55" rx="4" fill="#374151" stroke="#0096f0" stroke-width="1.5"/>
+<rect x="855" y="510" width="30" height="45" rx="3" fill="#4b5563" stroke="#6b7280" stroke-width="0.5"/>
+<path d="M855,520 L880,520" stroke="#6b7280" stroke-width="0.5"/>
+<path d="M855,525 L880,525" stroke="#6b7280" stroke-width="0.5"/>
+<path d="M855,540 L880,540" stroke="#6b7280" stroke-width="0.5"/>
+<text x="870" y="570" text-anchor="middle" font-size="8" fill="#0096f0">碳纤维哑光</text>
+
+<path d="M580,526 L605,526" fill="none" stroke="#6b7280" stroke-width="1" marker-end="url(#arrowGray)"/>
+
+<!-- ============ BAND 4: Pricing ============ -->
+<rect x="25" y="609" width="1150" height="148" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" filter="url(#softShadow)"/>
+
+<rect x="25" y="609" width="565" height="148" rx="6" fill="url(#defectFill)"/>
+<rect x="610" y="609" width="565" height="148" rx="6" fill="url(#solutionFill)"/>
+
+<rect x="25" y="609" width="24" height="148" fill="#ef4444" rx="6"/>
+<rect x="25" y="609" width="24" height="140" fill="#dc2626"/>
+<text x="37" y="689" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff" transform="rotate(-90,37,689)">缺陷4</text>
+
+<text x="55" y="632" font-size="13" font-weight="bold" fill="#dc2626">缺陷4：定价过高，商业化慢</text>
+<text x="55" y="650" font-size="9" fill="#6b7280">零售价¥7,999，月销数百台，增长缓慢</text>
+
+<rect x="55" y="661" width="130" height="18" rx="9" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="0.5"/>
+<text x="120" y="674" text-anchor="middle" font-size="9" fill="#dc2626">零售价: ¥7,999</text>
+
+<text x="55" y="698" font-size="9" fill="#6b7280">单价¥7,999对标高端医疗器械，用户决策成本高</text>
+<text x="55" y="713" font-size="9" fill="#6b7280">仅京东+Kickstarter线上渠道，缺少线下体验</text>
+<text x="55" y="728" font-size="9" fill="#6b7280">无社区运营，用户粘性低，复购率未验证</text>
+
+<rect x="280" y="663" width="120" height="14" rx="2" fill="#fca5a5"/>
+<text x="340" y="674" text-anchor="middle" font-size="9" font-weight="bold" fill="#dc2626">¥7,999</text>
+<text x="340" y="690" text-anchor="middle" font-size="7" fill="#9ca3af">PowerKnee定价</text>
+
+<rect x="610" y="609" width="24" height="148" fill="#3b82f6" rx="6"/>
+<rect x="610" y="609" width="24" height="140" fill="#0096f0"/>
+<text x="622" y="689" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff" transform="rotate(-90,622,689)">方案4</text>
+
+<text x="640" y="632" font-size="13" font-weight="bold" fill="#0096f0">Bones 方案：¥5,000-8,000 供应链分级</text>
+<text x="640" y="650" font-size="9" fill="#6b7280">多SKU定价策略+线下社区+医院双渠道</text>
+
+<rect x="640" y="661" width="130" height="18" rx="9" fill="rgba(0,150,240,0.15)" stroke="#0096f0" stroke-width="0.5"/>
+<text x="705" y="674" text-anchor="middle" font-size="9" fill="#0096f0">目标定价: ¥5,000-8,000</text>
+
+<text x="640" y="698" font-size="9" fill="#6b7280">基础版¥5,000(标准BLDC) / 高配版¥7,500(AK80)</text>
+<text x="640" y="713" font-size="9" fill="#6b7280">线下社区体验店+医院康复科双渠道渗透</text>
+<text x="640" y="728" font-size="9" fill="#6b7280">APP社区运营增强用户粘性，按月订阅内容服务</text>
+
+<rect x="850" y="663" width="100" height="14" rx="2" fill="#93c5fd"/>
+<text x="900" y="674" text-anchor="middle" font-size="9" font-weight="bold" fill="#0096f0">¥5,000-8,000</text>
+<text x="900" y="690" text-anchor="middle" font-size="7" fill="#9ca3af">Bones定价</text>
+
+<path d="M580,684 L605,684" fill="none" stroke="#6b7280" stroke-width="1" marker-end="url(#arrowGray)"/>
+
+<!-- ============ BAND 5: AI vs RL ============ -->
+<rect x="25" y="767" width="1150" height="148" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" filter="url(#softShadow)"/>
+
+<rect x="25" y="767" width="565" height="148" rx="6" fill="url(#defectFill)"/>
+<rect x="610" y="767" width="565" height="148" rx="6" fill="url(#solutionFill)"/>
+
+<rect x="25" y="767" width="24" height="148" fill="#ef4444" rx="6"/>
+<rect x="25" y="767" width="24" height="140" fill="#dc2626"/>
+<text x="37" y="847" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff" transform="rotate(-90,37,847)">缺陷5</text>
+
+<text x="55" y="790" font-size="13" font-weight="bold" fill="#dc2626">缺陷5：AI预测不等于RL个性化</text>
+<text x="55" y="808" font-size="9" fill="#6b7280">前馈导纳控制缺乏实时优化，无法真正个性化</text>
+
+<rect x="55" y="819" width="130" height="18" rx="9" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="0.5"/>
+<text x="120" y="832" text-anchor="middle" font-size="9" fill="#dc2626">控制方式: 前馈导纳</text>
+
+<text x="55" y="856" font-size="9" fill="#6b7280">AI预测步态相位+前馈导纳控制，无闭环优化</text>
+<text x="55" y="871" font-size="9" fill="#6b7280">无法针对用户步态特征做个性化调整</text>
+<text x="55" y="886" font-size="9" fill="#6b7280">跨用户泛化能力差，需要手动调参</text>
+
+<path d="M220,830 L330,830" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+<path d="M220,850 L330,850" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="275" y="875" text-anchor="middle" font-size="8" fill="#ef4444">前馈: 无反馈修正</text>
+
+<rect x="610" y="767" width="24" height="148" fill="#3b82f6" rx="6"/>
+<rect x="610" y="767" width="24" height="140" fill="#0096f0"/>
+<text x="622" y="847" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff" transform="rotate(-90,622,847)">方案5</text>
+
+<text x="640" y="790" font-size="13" font-weight="bold" fill="#0096f0">Bones 方案：PPO RL直接优化KAM</text>
+<text x="640" y="808" font-size="9" fill="#6b7280">强化学习端到端优化膝关节内收力矩，联邦学习跨用户</text>
+
+<rect x="640" y="819" width="130" height="18" rx="9" fill="rgba(0,150,240,0.15)" stroke="#0096f0" stroke-width="0.5"/>
+<text x="705" y="832" text-anchor="middle" font-size="9" fill="#0096f0">控制方式: PPO 强化学习</text>
+
+<text x="640" y="856" font-size="9" fill="#6b7280">PPO算法直接优化KAM (膝关节内收力矩) 作为奖励函数</text>
+<text x="640" y="871" font-size="9" fill="#6b7280">实时在线学习，逐用户自适应步态参数</text>
+<text x="640" y="886" font-size="9" fill="#6b7280">联邦学习跨用户聚合策略，冷启动即具备基础能力</text>
+
+<path d="M850,830 L960,830" fill="none" stroke="#0096f0" stroke-width="2" marker-end="url(#arrowBlue)"/>
+<path d="M850,850 L960,850" fill="none" stroke="#0096f0" stroke-width="2" marker-end="url(#arrowBlue)"/>
+<text x="905" y="875" text-anchor="middle" font-size="8" fill="#0096f0">RL闭环: 持续优化</text>
+
+<path d="M580,842 L605,842" fill="none" stroke="#6b7280" stroke-width="1" marker-end="url(#arrowGray)"/>
+
+<!-- Bottom footer -->
+<rect x="25" y="930" width="1150" height="45" rx="6" fill="#1f2937" filter="url(#shadow)"/>
+<text x="600" y="950" text-anchor="middle" font-size="10" font-weight="bold" fill="#fbbf24">核心策略: 以电机升级为切入点，系统性解决承重、穿戴、外观、价格、个性化五大短板</text>
+<text x="600" y="965" text-anchor="middle" font-size="9" fill="#9ca3af">数据来源: 远也科技京东商品页 Kickstarter页面 企业公开资料 | 骨骼流形分析 2026.07</text>
+</svg>

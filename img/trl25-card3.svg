@@ -1,0 +1,237 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000">
+  <defs>
+    <marker id="aR" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto"><path d="M0,0 L12,4 L0,8" fill="#d32f2f"/></marker>
+    <marker id="aB" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#0096f0"/></marker>
+    <marker id="aA" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#d97706"/></marker>
+    <marker id="aG" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#2e7d32"/></marker>
+    <marker id="aGy" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#888"/></marker>
+    <linearGradient id="gBone" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e8ddc0"/><stop offset="35%" stop-color="#eee4cc"/><stop offset="65%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#c8b898"/></linearGradient>
+    <linearGradient id="gBoneVert" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8ddc0"/><stop offset="40%" stop-color="#eee4cc"/><stop offset="70%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#c8b898"/></linearGradient>
+    <linearGradient id="gBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fcfcfc"/><stop offset="100%" stop-color="#f8f8f8"/></linearGradient>
+    <linearGradient id="gMetal" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d0d0d0"/><stop offset="50%" stop-color="#b0b0b0"/><stop offset="100%" stop-color="#909090"/></linearGradient>
+    <linearGradient id="gSpringGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8ddd0"/><stop offset="100%" stop-color="#d0c0a0"/></linearGradient>
+    <radialGradient id="gMuscle" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="rgba(200,50,50,0.18)"/><stop offset="100%" stop-color="rgba(180,40,40,0.08)"/></radialGradient>
+    <clipPath id="leftClip"><rect x="20" y="72" width="720" height="862"/></clipPath>
+    <clipPath id="rightClip"><rect x="800" y="72" width="380" height="862"/></clipPath>
+  </defs>
+  <rect width="1200" height="1000" fill="#ffffff"/>
+  <rect x="0" y="0" width="1200" height="1000" fill="url(#gBg)"/>
+  <!-- Header -->
+  <rect x="20" y="16" width="1160" height="48" rx="6" fill="#c45a5a"/>
+  <text x="600" y="39" text-anchor="middle" font-size="18" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">半主动离合器</text>
+  <text x="600" y="56" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">弹簧储能+离合器控制间歇助力 | TRL 2-5 概念验证</text>
+  <!-- Left panel -->
+  <rect x="20" y="72" width="720" height="862" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+  <g id="leftPanelGraphics" transform="translate(45,0)" clip-path="url(#leftClip)">
+    <g >
+    <!-- ANATOMY: MUSCLES -->
+    <path d="M85,95 Q105,95 130,100 Q145,115 150,200 Q152,280 155,350 Q155,400 150,430 Q140,445 125,445 L95,445 Q80,445 75,430 Q70,400 70,350 Q68,280 70,200 Q72,115 85,95 Z" fill="rgba(200,50,50,0.12)" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <path d="M155,100 Q165,110 170,200 Q172,280 170,350 Q168,400 160,435 Q153,448 140,448 L130,448 Q120,448 115,435 Q110,400 108,350 Q105,280 110,200 Q113,115 125,100 Q135,95 145,95 Z" fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.20)" stroke-width="0.5"/>
+    <path d="M120,450 Q130,450 140,455 Q150,470 155,520 Q158,580 155,650 Q150,700 140,730 Q130,740 120,740 L95,740 Q85,740 80,730 Q73,700 70,650 Q68,580 72,520 Q75,470 85,455 Q92,450 102,450 Z" fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.18)" stroke-width="0.5"/>
+    <!-- BONES -->
+    <path d="M110,100 Q113,100 117,105 Q123,115 127,180 Q130,250 130,300 Q131,350 129,400 Q127,425 123,435 Q117,440 113,440 Q108,440 103,435 Q99,425 97,400 Q95,350 96,300 Q97,250 100,180 Q103,115 107,105 Q108,100 110,100 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="1"/>
+    <ellipse cx="113" cy="108" rx="14" ry="16" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="105" cy="438" rx="10" ry="12" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="120" cy="438" rx="10" ry="12" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <path d="M110,450 Q113,450 117,455 Q123,470 127,540 Q130,600 130,660 Q131,720 128,760 Q125,775 120,780 Q115,782 110,780 Q105,782 100,780 Q95,775 92,760 Q89,720 90,660 Q91,600 93,540 Q97,470 103,455 Q107,450 110,450 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="1"/>
+    <rect x="97" y="448" width="28" height="8" rx="3" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.6"/>
+    <ellipse cx="133" cy="420" rx="16" ry="20" fill="url(#gBone)" stroke="#c8b898" stroke-width="1"/>
+    </g>
+    <!-- SPRING + CLUTCH PLATE MECHANISM -->
+    <rect x="220" y="85" width="200" height="140" rx="6" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <rect x="240" y="100" width="30" height="110" rx="2" fill="url(#gMetal)" stroke="#808080" stroke-width="0.8"/>
+    <rect x="280" y="100" width="6" height="110" rx="1" fill="#c45a5a" opacity="0.3"/>
+    <rect x="350" y="100" width="30" height="110" rx="2" fill="url(#gMetal)" stroke="#808080" stroke-width="0.8"/>
+    <rect x="296" y="100" width="6" height="110" rx="1" fill="#c45a5a" opacity="0.3"/>
+    <rect x="330" y="100" width="6" height="110" rx="1" fill="#c45a5a" opacity="0.3"/>
+    <path d="M255,108 L255,200" stroke="#c45a5a" stroke-width="0.5" opacity="0.3"/>
+    <path d="M365,108 L365,200" stroke="#c45a5a" stroke-width="0.5" opacity="0.3"/>
+    <line x1="240" y1="130" x2="228" y2="130" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#aG)"/>
+    <line x1="380" y1="130" x2="392" y2="130" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#aG)"/>
+    <line x1="240" y1="180" x2="228" y2="180" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#aG)"/>
+    <line x1="380" y1="180" x2="392" y2="180" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#aG)"/>
+    <path d="M280,95 Q290,85 300,95 Q310,105 320,95 Q330,85 340,95 Q350,105 360,95 Q370,85 380,95" fill="none" stroke="#d97706" stroke-width="2"/>
+    <path d="M280,115 Q290,105 300,115 Q310,125 320,115 Q330,105 340,115 Q350,125 360,115 Q370,105 380,115" fill="none" stroke="#d97706" stroke-width="2"/>
+    <path d="M280,135 Q290,125 300,135 Q310,145 320,135 Q330,125 340,135 Q350,145 360,135 Q370,125 380,135" fill="none" stroke="#d97706" stroke-width="2"/>
+    <path d="M280,155 Q290,145 300,155 Q310,165 320,155 Q330,145 340,155 Q350,165 360,155 Q370,145 380,155" fill="none" stroke="#d97706" stroke-width="2"/>
+    <path d="M280,175 Q290,165 300,175 Q310,185 320,175 Q330,165 340,175 Q350,185 360,175 Q370,165 380,175" fill="none" stroke="#d97706" stroke-width="2"/>
+    <line x1="225" y1="155" x2="240" y2="155" stroke="#808080" stroke-width="2.5"/>
+    <line x1="380" y1="155" x2="400" y2="155" stroke="#808080" stroke-width="2.5"/>
+    <circle cx="225" cy="155" r="6" fill="none" stroke="#808080" stroke-width="0.8"/>
+    <circle cx="400" cy="155" r="6" fill="none" stroke="#808080" stroke-width="0.8"/>
+    <g >
+    <!-- Anatomical labels -->
+    <line x1="60" y1="180" x2="110" y2="180" stroke="#888" stroke-width="0.5"/><circle cx="110" cy="180" r="1.5" fill="#888"/>
+    <text x="55" y="184" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">股骨</text>
+    <line x1="60" y1="580" x2="110" y2="580" stroke="#888" stroke-width="0.5"/><circle cx="110" cy="580" r="1.5" fill="#888"/>
+    <text x="55" y="584" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">胫骨</text>
+    <line x1="60" y1="440" x2="133" y2="440" stroke="#888" stroke-width="0.5"/><circle cx="133" cy="440" r="1.5" fill="#888"/>
+    <text x="55" y="444" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">髌骨</text>
+    <!-- Supplementary labels -->
+    <line x1="60" y1="620" x2="137" y2="620" stroke="#888" stroke-width="0.5"/><circle cx="137" cy="620" r="1.5" fill="#888"/>
+    <text x="55" y="624" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腓骨</text>
+    <line x1="60" y1="448" x2="98" y2="448" stroke="#90b8d8" stroke-width="0.6"/>
+    <text x="55" y="452" text-anchor="end" font-size="10" fill="#777" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关节软骨</text>
+    <path d="M104,452 Q115,458 126,452" fill="none" stroke="#90b8d8" stroke-width="1.5" opacity="0.5"/>
+    <line x1="60" y1="462" x2="115" y2="462" stroke="#90b8d8" stroke-width="0.5"/>
+    <text x="55" y="466" text-anchor="end" font-size="10" fill="#777" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">半月板</text>
+    <line x1="60" y1="240" x2="95" y2="240" stroke="rgba(200,50,50,0.3)" stroke-width="0.5"/>
+    <circle cx="95" cy="240" r="1.5" fill="rgba(200,50,50,0.3)"/>
+    <text x="55" y="244" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">股四头肌</text>
+    <line x1="60" y1="300" x2="155" y2="300" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <circle cx="155" cy="300" r="1.5" fill="rgba(200,50,50,0.25)"/>
+    <text x="55" y="304" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腘绳肌</text>
+    <line x1="60" y1="550" x2="95" y2="550" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <circle cx="95" cy="550" r="1.5" fill="rgba(200,50,50,0.25)"/>
+    <text x="55" y="554" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腓肠肌</text>
+    </g>
+    <!-- Mechanism labels -->
+    <line x1="240" y1="110" x2="430" y2="95" stroke="#808080" stroke-width="0.5"/>
+    <text x="435" y="99" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">端板（固定端）</text>
+    <line x1="350" y1="110" x2="435" y2="130" stroke="#808080" stroke-width="0.5"/>
+    <text x="440" y="134" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">端板（活动端）</text>
+    <line x1="310" y1="150" x2="435" y2="165" stroke="#d97706" stroke-width="0.5"/>
+    <text x="440" y="169" font-size="10" fill="#d97706" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">弹簧元件</text>
+    <line x1="315" y1="190" x2="435" y2="200" stroke="#2e7d32" stroke-width="0.5"/>
+    <text x="440" y="204" font-size="10" fill="#2e7d32" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">离合接合力方向</text>
+    <!-- Dimension annotations -->
+    <line x1="310" y1="220" x2="310" y2="250" stroke="#d32f2f" stroke-width="0.6"/>
+    <line x1="260" y1="250" x2="360" y2="250" stroke="#d32f2f" stroke-width="0.5" stroke-dasharray="3,2"/>
+    <text x="310" y="268" text-anchor="middle" font-size="10" fill="#d32f2f">储能弹簧行程</text>
+    <!-- Clutch engagement annotation -->
+    <path d="M 225,155 Q 200,155 180,160" fill="none" stroke="#d97706" stroke-width="0.6"/>
+    <text x="155" y="164" text-anchor="end" font-size="10" fill="#d97706">离合器接合/分离时间10-30ms</text>
+    <!-- Energy storage annotation -->
+    <path d="M 310,135 Q 370,135 400,145" fill="none" stroke="#2e7d32" stroke-width="0.5"/>
+    <text x="405" y="149" font-size="10" fill="#2e7d32">储能效率 60-80%</text>
+    <!-- Spring stiffness annotation -->
+    <line x1="280" y1="93" x2="280" y2="80" stroke="#888" stroke-width="0.5"/>
+    <text x="280" y="75" text-anchor="middle" font-size="10" fill="#888">弹簧刚度k可调</text>
+    <!-- Preload mechanism annotation -->
+    <path d="M 240,155 Q 220,160 210,175" fill="none" stroke="#c45a5a" stroke-width="0.5"/>
+    <text x="190" y="185" text-anchor="end" font-size="10" fill="#c45a5a">预紧力调节</text>
+    <!-- Cycle life annotation -->
+    <path d="M 400,155 Q 420,165 430,180" fill="none" stroke="#888" stroke-width="0.5"/>
+    <text x="435" y="184" font-size="10" fill="#888">循环寿命>100万次</text>
+    <g >
+    <!-- Additional muscle fiber detail -->
+    <path d="M90,140 Q105,135 120,140" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M85,170 Q100,165 115,170" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M82,210 Q98,205 112,210" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M80,250 Q95,245 110,250" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M78,290 Q93,285 108,290" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M78,330 Q93,325 108,330" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M80,370 Q95,365 110,370" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M82,410 Q97,405 112,410" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M90,470 Q105,465 120,470" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M85,510 Q100,505 115,510" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M82,550 Q97,545 112,550" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M80,590 Q95,585 110,590" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M80,630 Q95,625 110,630" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M82,670 Q97,665 112,670" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    </g>
+    <!-- Performance annotation block -->
+    <g transform="translate(400,300)">
+      <rect x="0" y="0" width="280" height="95" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="0.5" opacity="0.85"/>
+      <text x="10" y="16" font-size="10" font-weight="bold" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关键性能指标</text>
+      <line x1="10" y1="22" x2="270" y2="22" stroke="#ddd" stroke-width="0.5"/>
+      <circle cx="18" cy="38" r="3" fill="#0096f0"/>
+      <text x="26" y="42" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">储能效率: 60-80% (弹簧充放能)</text>
+      <circle cx="18" cy="56" r="3" fill="#2e7d32"/>
+      <text x="26" y="60" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">助力比: 1:2 - 1:5 (输入:输出)</text>
+      <circle cx="18" cy="74" r="3" fill="#d97706"/>
+      <text x="26" y="78" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">离合器响应: 10-30ms（电磁/机械式）</text>
+      <circle cx="145" cy="38" r="3" fill="#808080"/>
+      <text x="153" y="42" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">循环寿命: >100万次（弹簧疲劳是关键失效模式）</text>
+      <circle cx="145" cy="56" r="3" fill="#c45a5a"/>
+      <text x="153" y="60" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">能量密度: 受弹簧材料限制</text>
+      <circle cx="145" cy="74" r="3" fill="#0096f0"/>
+      <text x="153" y="78" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">效率排序: 全主动 > 半主动 > 被动</text>
+    </g>
+    <!-- Gait phase synchronization annotation -->
+    <line x1="310" y1="220" x2="310" y2="280" stroke="#888" stroke-width="0.6" stroke-dasharray="3,2"/>
+    <circle cx="310" cy="290" r="3" fill="#888"/>
+    <text x="315" y="295" font-size="10" fill="#888" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">步态相位同步: 站立相储能 → 摆动相释放</text>
+    <!-- Zero external power annotation -->
+    <path d="M 310,155 Q 400,135 440,120" fill="none" stroke="#2e7d32" stroke-width="0.6"/>
+    <text x="445" y="124" font-size="10" fill="#2e7d32" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">零外部电源: 弹簧纯机械储能</text>
+    <!-- Clutch wear annotation -->
+    <path d="M 225,155 Q 210,175 215,200" fill="none" stroke="#c45a5a" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <text x="220" y="215" text-anchor="middle" font-size="10" fill="#c45a5a" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">离合器磨损关键</text>
+    <!-- SUPPLEMENTARY: Key Formulas & Energy Flow -->
+    <rect x="220" y="230" width="480" height="55" rx="3" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <text x="230" y="247" font-size="10" font-weight="bold" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关键公式</text>
+    <text x="230" y="263" font-size="9" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">E_spring = ½·k·x²  (弹簧储能)  |  P_out = η·P_in  |  储能效率 60-80%</text>
+    <text x="230" y="278" font-size="9" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">助力比 1:2-1:5  |  离合响应 10-30ms  |  循环寿命 &gt; 100万次</text>
+    <!-- Energy flow: Stance -> Spring -> Swing -->
+    <rect x="220" y="292" width="480" height="32" rx="3" fill="#fcfcfc" stroke="#ddd" stroke-width="0.4"/>
+    <line x1="230" y1="308" x2="280" y2="308" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#aG)"/>
+    <line x1="290" y1="308" x2="340" y2="308" stroke="#d97706" stroke-width="1.2" marker-end="url(#aA)"/>
+    <line x1="350" y1="308" x2="400" y2="308" stroke="#0096f0" stroke-width="1.2" marker-end="url(#aB)"/>
+    <text x="230" y="302" font-size="8" fill="#2e7d32" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">站立相储能</text>
+    <text x="290" y="302" font-size="8" fill="#d97706" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">离合保持</text>
+    <text x="350" y="302" font-size="8" fill="#0096f0" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">摆动相释放</text>
+    <text x="430" y="308" font-size="8" fill="#888" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">→ 膝关节助力</text>
+  </g>
+  <!-- Divider -->
+  <rect x="740" y="72" width="60" height="862" fill="#ffffff"/>
+  <rect x="800" y="72" width="380" height="862" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+  <!-- Right panel -->
+  <g clip-path="url(#rightClip)">
+    <rect x="816" y="86" width="348" height="130" rx="5" fill="#fef2f2" stroke="#c45a5a" stroke-width="1"/>
+    <rect x="816" y="86" width="348" height="28" rx="5 5 0 0" fill="#c45a5a"/>
+    <text x="990" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">技术概述</text>
+    <text x="828" y="130" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">半主动离合器利用弹簧储能与可控离合器的组合，</text>
+    <text x="828" y="148" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">在步态周期特定阶段(站立相)储存能量，在需要时</text>
+    <text x="828" y="166" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">(摆动相)释放辅助做功。</text>
+    <text x="828" y="186" font-size="10" fill="#888" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">储能效率 ~60-80% | 助力比 1:2-1:5 | 零外部电源可选</text>
+    <rect x="816" y="240" width="348" height="150" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="0.6"/>
+    <rect x="816" y="240" width="348" height="28" rx="5 5 0 0" fill="#c45a5a" fill-opacity="0.85"/>
+    <text x="990" y="259" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">技术参数</text>
+    <text x="828" y="286" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">储能效率          60-80% (弹簧充放能)</text>
+    <text x="828" y="306" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">助力比             1:2 - 1:5 (输入:输出)</text>
+    <text x="828" y="326" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">离合器响应         10-30 ms (电磁/机械)</text>
+    <text x="828" y="346" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">能量密度            受弹簧材料限制</text>
+    <text x="828" y="366" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">循环寿命            &gt; 100万次 (弹簧疲劳)</text>
+    <text x="828" y="386" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">储能效率对比      主动 &gt; 半主动 &gt; 被动</text>
+    <rect x="816" y="414" width="348" height="100" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="0.6"/>
+    <rect x="816" y="414" width="348" height="28" rx="5 5 0 0" fill="#c45a5a" fill-opacity="0.85"/>
+    <text x="990" y="433" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">代表研究</text>
+    <text x="828" y="460" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">MIT 离合弹簧外骨骼 (Clutch Spring Exo)</text>
+    <text x="828" y="480" font-size="11" fill="#666" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">密歇根大学 半主动踝关节外骨骼</text>
+    <text x="828" y="503" font-size="11" fill="#666" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">多为学术研究，尚无商业化产品</text>
+    <rect x="816" y="538" width="348" height="115" rx="5" fill="#f0fdf4" stroke="#2e7d32" stroke-width="0.6"/>
+    <rect x="816" y="538" width="348" height="28" rx="5 5 0 0" fill="#2e7d32" fill-opacity="0.85"/>
+    <text x="990" y="557" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">优势</text>
+    <text x="828" y="584" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">零/低功耗 — 弹簧储能不耗电，离合器仅需微量电源</text>
+    <text x="828" y="604" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">天然助力 — 弹簧刚度匹配人体步态周期</text>
+    <text x="828" y="624" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">结构紧凑 — 相比全主动方案重量更轻</text>
+    <text x="828" y="644" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">失效安全 — 弹簧故障时仍可被动运动</text>
+    <rect x="816" y="677" width="348" height="145" rx="5" fill="#fef2f2" stroke="#c45a5a" stroke-width="0.6"/>
+    <rect x="816" y="677" width="348" height="28" rx="5 5 0 0" fill="#c45a5a" fill-opacity="0.85"/>
+    <text x="990" y="696" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">缺陷 Disadvantages</text>
+    <text x="828" y="723" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">助力有限 — 仅能存储/释放弹性势能，无法主动做功</text>
+    <text x="828" y="743" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">步态适配 — 弹簧刚度/预紧需针对患者定制</text>
+    <text x="828" y="763" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">离合器磨损 — 机械离合器寿命有限</text>
+    <text x="828" y="783" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">控制复杂 — 离合时机需精准步态识别</text>
+    <text x="828" y="803" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">响应速度受限 — 离合接合/分离需10-30ms</text>
+    <text x="828" y="823" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">助力效率波动 — 弹簧刚度和步态周期匹配困难</text>
+    <rect x="816" y="850" width="348" height="80" rx="5" fill="#fef2f2" stroke="#c45a5a" stroke-width="1.2"/>
+    <rect x="816" y="850" width="348" height="28" rx="5 5 0 0" fill="#c45a5a"/>
+    <text x="990" y="869" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">Bones 评估 Assessment</text>
+    <text x="828" y="895" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">当前阶段: 不推荐作为独立方案</text>
+    <text x="828" y="915" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">助力能力有限，不满足全周期步态辅助需求</text>
+  </g>
+  <!-- Bottom legend -->
+  <rect x="20" y="940" width="1160" height="50" rx="4" fill="#f8f8f8" stroke="#d5d5d5" stroke-width="0.6"/>
+  <rect x="40" y="953" width="18" height="18" rx="2" fill="#0096f0"/>
+  <text x="64" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">推荐采用</text>
+  <rect x="240" y="953" width="18" height="18" rx="2" fill="#d97706"/>
+  <text x="264" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">部分借鉴</text>
+  <rect x="460" y="953" width="18" height="18" rx="2" fill="#c45a5a"/>
+  <text x="484" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">不推荐</text>
+  <rect x="680" y="953" width="18" height="18" rx="2" fill="#2e7d32"/>
+  <text x="704" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">夹紧/运动方向</text>
+  <rect x="900" y="953" width="18" height="18" rx="2" fill="#c45a5a" fill-opacity="0.5"/>
+  <text x="924" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">离合器/弹簧元件</text>
+</svg>

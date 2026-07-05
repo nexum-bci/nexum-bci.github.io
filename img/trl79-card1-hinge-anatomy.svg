@@ -1,0 +1,818 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000">
+<defs>
+  <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#ece2cc"/>
+    <stop offset="30%" stop-color="#e8ddc0"/>
+    <stop offset="60%" stop-color="#e0d4b6"/>
+    <stop offset="100%" stop-color="#d4c9a8"/>
+  </linearGradient>
+  <linearGradient id="boneDeep" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#d4c9a8"/>
+    <stop offset="100%" stop-color="#b8ac8c"/>
+  </linearGradient>
+  <linearGradient id="muscleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="rgba(220,50,50,0.28)"/>
+    <stop offset="50%" stop-color="rgba(210,45,45,0.35)"/>
+    <stop offset="100%" stop-color="rgba(200,40,40,0.42)"/>
+  </linearGradient>
+  <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#f0f0f0"/>
+    <stop offset="25%" stop-color="#d8d8d8"/>
+    <stop offset="50%" stop-color="#c8c8c8"/>
+    <stop offset="75%" stop-color="#b0b0b0"/>
+    <stop offset="100%" stop-color="#989898"/>
+  </linearGradient>
+  <linearGradient id="metalDark" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#888"/>
+    <stop offset="50%" stop-color="#606060"/>
+    <stop offset="100%" stop-color="#484848"/>
+  </linearGradient>
+  <linearGradient id="copperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#d4a050"/>
+    <stop offset="30%" stop-color="#c89040"/>
+    <stop offset="70%" stop-color="#b88030"/>
+    <stop offset="100%" stop-color="#a07028"/>
+  </linearGradient>
+  <linearGradient id="cartilageGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="rgba(80,180,255,0.40)"/>
+    <stop offset="100%" stop-color="rgba(60,160,240,0.30)"/>
+  </linearGradient>
+  <linearGradient id="meniscusGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="rgba(100,200,255,0.35)"/>
+    <stop offset="100%" stop-color="rgba(80,180,240,0.25)"/>
+  </linearGradient>
+  <pattern id="cfWeave" width="10" height="10" patternUnits="userSpaceOnUse">
+    <rect width="10" height="10" fill="#2a2a2a"/>
+    <path d="M0 5L10 5M5 0L5 10" stroke="#3a3a3a" stroke-width="0.6"/>
+    <path d="M0 0L10 10M10 0L0 10" stroke="rgba(255,255,255,0.04)" stroke-width="0.3"/>
+    <rect x="4" y="4" width="2" height="2" fill="rgba(80,80,80,0.15)" rx="0.5"/>
+  </pattern>
+  <pattern id="trabecular" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+    <rect width="14" height="14" fill="none"/>
+    <path d="M2 2L12 12M7 0L0 7M14 7L7 14M0 0L3 3M11 11L14 14" stroke="rgba(180,165,130,0.40)" stroke-width="0.6" stroke-linecap="round"/>
+    <path d="M5 1L1 5M9 13L13 9M0 14L14 0" stroke="rgba(170,155,120,0.25)" stroke-width="0.4" stroke-linecap="round"/>
+    <circle cx="7" cy="7" r="0.8" fill="rgba(180,165,130,0.20)"/>
+    <circle cx="3" cy="11" r="0.6" fill="rgba(180,165,130,0.15)"/>
+  </pattern>
+  <pattern id="boneTexture" width="20" height="20" patternUnits="userSpaceOnUse">
+    <rect width="20" height="20" fill="none"/>
+    <path d="M0 10L20 10M10 0L10 20" stroke="rgba(200,190,170,0.12)" stroke-width="0.3"/>
+  </pattern>
+  <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#f5dcc8"/>
+    <stop offset="50%" stop-color="#e8cfb8"/>
+    <stop offset="100%" stop-color="#dcc0a8"/>
+  </linearGradient>
+  <linearGradient id="tendonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="rgba(220,210,200,0.35)"/>
+    <stop offset="100%" stop-color="rgba(200,190,180,0.25)"/>
+  </linearGradient>
+  <linearGradient id="tissueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="rgba(240,200,180,0.12)"/>
+    <stop offset="100%" stop-color="rgba(220,180,160,0.08)"/>
+  </linearGradient>
+  <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
+    <feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-color="rgba(0,0,0,0.18)"/>
+  </filter>
+  <filter id="shadowLight" x="-10%" y="-10%" width="130%" height="130%">
+    <feDropShadow dx="0.8" dy="1" stdDeviation="1.5" flood-color="rgba(0,0,0,0.10)"/>
+  </filter>
+  <filter id="glowRed" x="-25%" y="-25%" width="150%" height="150%">
+    <feGaussianBlur stdDeviation="2.5" result="blur"/>
+    <feFlood flood-color="#e02020" flood-opacity="0.35"/>
+    <feComposite in2="blur" operator="in"/>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="glowBlue" x="-25%" y="-25%" width="150%" height="150%">
+    <feGaussianBlur stdDeviation="2" result="blur"/>
+    <feFlood flood-color="#0096f0" flood-opacity="0.30"/>
+    <feComposite in2="blur" operator="in"/>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#e02020"/>
+  </marker>
+  <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#0096f0"/>
+  </marker>
+  <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#2ea043"/>
+  </marker>
+  <marker id="arrowAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#d97706"/>
+  </marker>
+  <marker id="arrowDim" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M 0 1 L 10 5 L 0 9 Z" fill="#888"/>
+  </marker>
+</defs>
+
+<rect width="1200" height="1000" fill="#fcfcfc"/>
+<rect x="60" y="60" width="1080" height="880" fill="none" stroke="#e8e8e8" stroke-width="0.5" rx="4"/>
+
+<!-- Column divider -->
+<line x1="600" y1="60" x2="600" y2="940" stroke="#e0e0e0" stroke-width="1.5"/>
+<line x1="596" y1="60" x2="596" y2="940" stroke="#eee" stroke-width="0.5"/>
+<line x1="604" y1="60" x2="604" y2="940" stroke="#eee" stroke-width="0.5"/>
+
+<!-- ============================================================ -->
+<!-- LEFT COLUMN: ANATOMY + MECHANISM                               -->
+<!-- ============================================================ -->
+<g id="left-column">
+
+<!-- Title -->
+<text x="325" y="50" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#1a2a3a" font-weight="bold">膝关节解剖与外骨骼机构</text>
+<text x="325" y="70" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#888">右腿侧视图 · 骨骼·肌肉·外骨骼集成</text>
+<line x1="160" y1="78" x2="490" y2="78" stroke="#0096f0" stroke-width="2" opacity="0.5"/>
+
+<!-- Soft tissue background -->
+<path d="M160,140 C145,160 130,190 125,230 C120,270 122,310 130,340
+         L135,380 L140,420 C142,450 145,480 148,510
+         L150,540 L155,580 C158,620 160,670 160,720
+         L165,780 L168,820
+         L480,820 L478,780 L475,720
+         C472,670 470,620 468,580 L465,540
+         L462,510 C460,480 458,450 456,420
+         L452,380 L448,340 C445,310 443,270 442,230
+         C441,190 438,160 430,140
+         C425,125 415,118 400,115
+         L390,112 L370,110 L350,112
+         L330,115 C310,118 290,125 275,135
+         C260,145 245,155 235,170
+         L225,185 L215,195 L205,200Z"
+      fill="url(#tissueGrad)" stroke="none"/>
+
+<!-- ==================== QUADRICEPS MUSCLE ==================== -->
+<path d="M290,135 C310,130 340,128 360,132
+         C380,136 395,145 400,158
+         C405,170 408,190 408,215
+         C408,240 406,270 402,300
+         C398,335 392,365 388,390
+         C385,410 382,430 380,448
+         L378,460 L390,465 L395,458
+         C398,438 402,415 406,390
+         C410,362 416,330 420,295
+         C424,260 425,230 424,205
+         C423,180 418,160 410,145
+         C400,128 385,120 365,115
+         C345,110 320,110 300,115
+         C280,120 262,130 250,145
+         L240,160 L235,175 L245,178
+         L248,170 C255,152 270,140 290,135Z"
+      fill="url(#muscleGrad)" filter="url(#shadowLight)"/>
+
+<!-- Quadriceps tendon -->
+<path d="M380,448 C378,460 375,465 370,468
+         L365,470 L370,475
+         C375,472 380,468 382,460
+         L385,452 L384,448Z"
+      fill="url(#tendonGrad)" stroke="rgba(200,190,180,0.3)" stroke-width="0.5"/>
+
+<!-- ==================== HAMSTRINGS ==================== -->
+<path d="M250,148 C240,158 230,175 222,200
+         C214,228 210,260 208,295
+         C206,330 208,365 212,395
+         C215,420 220,440 225,455
+         L228,462 L235,456
+         C232,440 228,420 225,395
+         C222,365 221,330 222,295
+         C223,260 226,228 232,205
+         C238,182 245,165 255,152Z"
+      fill="url(#muscleGrad)" opacity="0.9"/>
+
+<!-- ==================== FEMUR ==================== -->
+<g filter="url(#shadow)">
+  <!-- Femur shaft -->
+  <path d="M265,125 C260,130 258,140 258,155
+           L258,170 L256,190 L254,210
+           L252,240 L250,270 L250,300
+           L252,330 L254,360 L255,380
+           C256,400 258,415 260,425
+           C262,435 265,442 268,445
+           C278,455 290,458 305,458
+           C315,458 322,456 328,452
+           C335,448 340,442 343,435
+           C346,428 348,418 348,405
+           C348,390 346,370 344,350
+           L340,320 L338,290 L336,260
+           L335,240 L334,220 L333,200
+           C332,180 330,160 326,145
+           C322,130 316,122 308,118
+           C295,112 278,115 265,125Z"
+        fill="url(#boneGrad)" stroke="#c4b898" stroke-width="1"/>
+  <!-- Femoral head -->
+  <circle cx="248" cy="118" r="20" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="1"/>
+  <path d="M258,125 C250,118 240,118 235,125
+           C232,130 235,136 240,138
+           C248,140 258,135 265,128Z"
+        fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+  <!-- Greater trochanter -->
+  <path d="M244,135 C240,140 238,148 238,155
+           L238,165 L242,168 L246,160
+           L248,148 L246,140Z"
+        fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+  <!-- Trabecular texture at distal femur -->
+  <path d="M258,415 C256,430 260,442 268,445
+           L272,440 C265,435 260,425 258,415Z"
+        fill="url(#trabecular)"/>
+  <path d="M305,458 L310,452 C305,448 298,448 295,452Z"
+        fill="url(#trabecular)"/>
+  <path d="M270,420 L275,448 L280,445 L275,418Z"
+        fill="none" stroke="rgba(180,165,130,0.25)" stroke-width="0.5"/>
+  <!-- Articular cartilage on condyles -->
+  <path d="M260,440 C262,448 268,452 278,454
+           C288,455 298,453 308,450
+           C315,448 322,444 326,440
+           C330,436 332,430 330,425
+           C325,430 318,435 308,440
+           C298,444 285,445 275,443
+           C268,441 263,438 260,440Z"
+        fill="url(#cartilageGrad)"/>
+</g>
+
+<!-- ==================== PATELLA ==================== -->
+<g filter="url(#shadowLight)">
+  <path d="M350,440 C358,435 365,438 368,445
+           C372,455 372,468 368,478
+           C365,485 358,488 350,485
+           C342,482 338,475 336,468
+           C334,458 336,448 342,442
+           C346,438 348,438 350,440Z"
+        fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+</g>
+
+<!-- Patellar tendon -->
+<path d="M350,485 C348,492 346,498 345,505
+         L344,510 L350,512 L352,506
+         C354,498 355,490 352,485Z"
+      fill="url(#tendonGrad)" stroke="rgba(200,190,180,0.3)" stroke-width="0.5"/>
+
+<!-- ==================== TIBIA ==================== -->
+<g filter="url(#shadowLight)">
+  <path d="M275,460 C270,462 265,468 262,476
+           C260,484 260,495 262,505
+           L264,520 L266,545 L268,570
+           L270,600 L272,630 L274,660
+           L275,690 L276,720 L276,750
+           L275,780 L274,810 L273,830
+           L270,845 L272,848
+           L338,848 L340,845
+           L339,830 L338,810 L337,780
+           L336,750 L335,720 L334,690
+           L332,660 L330,630 L328,600
+           L326,570 L324,545 L322,520
+           L320,505 C318,495 318,484 316,476
+           C314,468 310,462 305,460
+           C295,456 282,456 275,460Z"
+        fill="url(#boneGrad)" stroke="#c4b898" stroke-width="1"/>
+  <!-- Tibial tuberosity -->
+  <path d="M310,470 C318,475 324,482 326,492
+           L324,498 L318,495 L312,488 L310,478Z"
+        fill="url(#boneDeep)" stroke="#c4b898" stroke-width="0.6"/>
+  <!-- Articular cartilage on tibial plateau -->
+  <path d="M262,476 C260,484 262,490 268,494
+           L272,492 C268,486 266,480 268,476
+           C272,472 278,470 285,470
+           C295,470 305,472 312,476
+           L316,478 C320,474 320,468 316,464
+           C310,458 300,456 290,456
+           C278,456 268,460 262,476Z"
+        fill="url(#cartilageGrad)"/>
+</g>
+
+<!-- ==================== FIBULA ==================== -->
+<g filter="url(#shadowLight)">
+  <path d="M246,490 C242,495 240,502 240,512
+           L240,530 L242,555 L244,580
+           L246,610 L248,640 L250,670
+           L252,700 L252,730 L250,760
+           L248,790 L245,810 L242,825
+           L240,832 L244,835
+           L270,835 L272,832
+           L274,825 L276,810 L278,790
+           L280,760 L280,730 L280,700
+           L278,670 L276,640 L274,610
+           L272,580 L270,555 L268,530
+           L266,512 C265,502 262,495 258,490
+           C254,486 250,486 246,490Z"
+        fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8" opacity="0.85"/>
+</g>
+
+<!-- ==================== MENISCUS ==================== -->
+<path d="M268,474 C272,478 280,480 290,480
+         C300,480 308,478 312,474
+         L310,478 C306,482 298,484 290,484
+         C282,484 274,482 270,478Z"
+      fill="url(#meniscusGrad)" stroke="rgba(80,180,255,0.4)" stroke-width="0.5"/>
+<path d="M262,484 C266,488 272,490 280,490
+         L278,494 C272,492 266,490 262,486Z"
+      fill="url(#meniscusGrad)" stroke="rgba(80,180,255,0.3)" stroke-width="0.4"/>
+
+<!-- ==================== CARBON FIBER FRAME ==================== -->
+<g filter="url(#shadow)">
+  <!-- Thigh frame -->
+  <path d="M210,160 C215,175 220,200 225,230
+           L230,270 L235,310 L238,350
+           L240,380 L242,410 L240,435
+           L238,445 L248,448 L252,440
+           L255,410 L258,380 L260,350
+           L262,310 L264,270 L262,230
+           C260,200 255,175 248,160
+           C242,148 234,142 225,140
+           L215,142 L210,150 L210,160Z"
+        fill="url(#cfWeave)" stroke="#333" stroke-width="1.5"/>
+  <!-- Shin frame -->
+  <path d="M215,470 C218,490 222,515 226,545
+           L230,580 L234,620 L236,660
+           L238,700 L238,740 L236,770
+           L234,790 L244,794 L248,785
+           L250,760 L252,730 L252,700
+           L252,660 L250,620 L248,580
+           L244,545 L240,515 L235,490
+           L230,470 L222,462 L215,470Z"
+        fill="url(#cfWeave)" stroke="#333" stroke-width="1.5"/>
+</g>
+
+<!-- Frame joint at knee -->
+<rect x="220" y="445" width="40" height="8" rx="2" fill="url(#metalGrad)" stroke="#888" stroke-width="0.8"/>
+
+<!-- ==================== AK80-9 MOTOR CROSS-SECTION ==================== -->
+<g transform="translate(325,480)" filter="url(#shadow)">
+  <!-- Outer housing -->
+  <circle cx="0" cy="0" r="55" fill="url(#metalGrad)" stroke="#999" stroke-width="1.2"/>
+  <circle cx="0" cy="0" r="52" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <!-- Housing cooling fins -->
+  <g stroke="#aaa" stroke-width="0.5" opacity="0.4">
+    <line x1="-55" y1="-40" x2="-38" y2="-40"/>
+    <line x1="-55" y1="-30" x2="-38" y2="-30"/>
+    <line x1="-55" y1="-20" x2="-38" y2="-20"/>
+    <line x1="-55" y1="-10" x2="-38" y2="-10"/>
+    <line x1="-55" y1="0" x2="-38" y2="0"/>
+    <line x1="-55" y1="10" x2="-38" y2="10"/>
+    <line x1="-55" y1="20" x2="-38" y2="20"/>
+    <line x1="-55" y1="30" x2="-38" y2="30"/>
+    <line x1="-55" y1="40" x2="-38" y2="40"/>
+  </g>
+  <!-- Section cut indication -->
+  <path d="M-50,-50 C-40,-55 -20,-58 0,-58 C20,-58 40,-55 50,-50" fill="none" stroke="#e02020" stroke-width="1" stroke-dasharray="4,3"/>
+  <path d="M-50,50 C-40,55 -20,58 0,58 C20,58 40,55 50,50" fill="none" stroke="#e02020" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Stator core -->
+  <circle cx="0" cy="0" r="46" fill="#555" stroke="#444" stroke-width="0.8"/>
+
+  <!-- Stator windings (copper) - multiple coil representations -->
+  <g fill="none" stroke="url(#copperGrad)" stroke-width="3" opacity="0.9">
+    <path d="M46,0 A46,46 0 0,1 40,24 L44,26 A50,50 0 0,0 50,0Z"/>
+    <path d="M40,24 A46,46 0 0,1 24,40 L26,44 A50,50 0 0,0 44,26Z"/>
+    <path d="M24,40 A46,46 0 0,1 0,46 L0,50 A50,50 0 0,0 26,44Z"/>
+    <path d="M0,46 A46,46 0 0,1 -24,40 L-26,44 A50,50 0 0,0 0,50Z"/>
+    <path d="M-24,40 A46,46 0 0,1 -40,24 L-44,26 A50,50 0 0,0 -26,44Z"/>
+    <path d="M-40,24 A46,46 0 0,1 -46,0 L-50,0 A50,50 0 0,0 -44,26Z"/>
+    <path d="M-46,0 A46,46 0 0,1 -40,-24 L-44,-26 A50,50 0 0,0 -50,0Z"/>
+    <path d="M-40,-24 A46,46 0 0,1 -24,-40 L-26,-44 A50,50 0 0,0 -44,-26Z"/>
+    <path d="M-24,-40 A46,46 0 0,1 0,-46 L0,-50 A50,50 0 0,0 -26,-44Z"/>
+    <path d="M0,-46 A46,46 0 0,1 24,-40 L26,-44 A50,50 0 0,0 0,-50Z"/>
+    <path d="M24,-40 A46,46 0 0,1 40,-24 L44,-26 A50,50 0 0,0 26,-44Z"/>
+    <path d="M40,-24 A46,46 0 0,1 46,0 L50,0 A50,50 0 0,0 44,-26Z"/>
+  </g>
+
+  <!-- Coil insulation paper -->
+  <g fill="rgba(200,180,100,0.15)" stroke="none">
+    <path d="M44,-24 A46,46 0 0,1 46,0 L50,0 A50,50 0 0,0 48,-24Z"/>
+    <path d="M24,-40 A46,46 0 0,1 44,-24 L48,-24 A50,50 0 0,0 26,-44Z"/>
+  </g>
+
+  <!-- Air gap -->
+  <circle cx="0" cy="0" r="36" fill="none" stroke="rgba(200,200,200,0.3)" stroke-width="1.5"/>
+
+  <!-- Permanent magnet rotor -->
+  <circle cx="0" cy="0" r="35" fill="url(#metalDark)" stroke="#555" stroke-width="0.5"/>
+
+  <!-- Magnet segments alternating red/blue -->
+  <g opacity="0.85">
+    <path d="M0,-35 A35,35 0 0,1 24.7,-24.7 L20,-20 A28,28 0 0,0 0,-28Z" fill="#e83030"/>
+    <path d="M24.7,-24.7 A35,35 0 0,1 35,0 L28,0 A28,28 0 0,0 20,-20Z" fill="#3060e8"/>
+    <path d="M35,0 A35,35 0 0,1 24.7,24.7 L20,20 A28,28 0 0,0 28,0Z" fill="#e83030"/>
+    <path d="M24.7,24.7 A35,35 0 0,1 0,35 L0,28 A28,28 0 0,0 20,20Z" fill="#3060e8"/>
+    <path d="M0,35 A35,35 0 0,1 -24.7,24.7 L-20,20 A28,28 0 0,0 0,28Z" fill="#e83030"/>
+    <path d="M-24.7,24.7 A35,35 0 0,1 -35,0 L-28,0 A28,28 0 0,0 -20,20Z" fill="#3060e8"/>
+    <path d="M-35,0 A35,35 0 0,1 -24.7,-24.7 L-20,-20 A28,28 0 0,0 -28,0Z" fill="#e83030"/>
+    <path d="M-24.7,-24.7 A35,35 0 0,1 0,-35 L0,-28 A28,28 0 0,0 -20,-20Z" fill="#3060e8"/>
+  </g>
+
+  <!-- Rotor back iron -->
+  <circle cx="0" cy="0" r="28" fill="#444" stroke="#333" stroke-width="0.5"/>
+
+  <!-- Planetary gear stage -->
+  <circle cx="0" cy="0" r="22" fill="none" stroke="#777" stroke-width="0.8" stroke-dasharray="1.5,1"/>
+  <!-- Sun gear -->
+  <circle cx="0" cy="0" r="8" fill="#888" stroke="#666" stroke-width="0.6"/>
+  <circle cx="0" cy="0" r="5" fill="none" stroke="#999" stroke-width="0.4"/>
+  <!-- Planet gears -->
+  <g fill="url(#metalGrad)" stroke="#888" stroke-width="0.5">
+    <circle cx="0" cy="-14" r="6"/>
+    <circle cx="12" cy="7" r="6"/>
+    <circle cx="-12" cy="7" r="6"/>
+  </g>
+  <!-- Planet gear teeth hints -->
+  <g stroke="#999" stroke-width="0.3" opacity="0.5">
+    <circle cx="0" cy="-14" r="7" fill="none"/>
+    <circle cx="12" cy="7" r="7" fill="none"/>
+    <circle cx="-12" cy="7" r="7" fill="none"/>
+  </g>
+  <!-- Ring gear teeth hints -->
+  <circle cx="0" cy="0" r="20" fill="none" stroke="#888" stroke-width="0.5"/>
+
+  <!-- Output shaft -->
+  <circle cx="0" cy="0" r="4" fill="#bbb" stroke="#999" stroke-width="0.5"/>
+  <line x1="-2" y1="0" x2="2" y2="0" stroke="#888" stroke-width="0.4"/>
+  <line x1="0" y1="-2" x2="0" y2="2" stroke="#888" stroke-width="0.4"/>
+
+  <!-- Bearings -->
+  <circle cx="0" cy="0" r="32" fill="none" stroke="#bbb" stroke-width="0.6"/>
+  <circle cx="0" cy="0" r="31" fill="none" stroke="#aaa" stroke-width="0.3"/>
+
+  <!-- Encoder at back -->
+  <rect x="-6" y="-48" width="12" height="5" rx="1" fill="#0096f0" opacity="0.4"/>
+
+  <!-- Labels -->
+  <text x="0" y="66" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#666" font-weight="bold">AK80-9 V3.0 电机剖面</text>
+  <text x="0" y="76" text-anchor="middle" font-family="sans-serif" font-size="6.5" fill="#888">9:1行星减速 · 22Nm峰值 · 480g</text>
+
+  <!-- Stator label -->
+  <line x1="40" y1="-30" x2="58" y2="-38" stroke="#888" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <text x="62" y="-36" font-family="sans-serif" font-size="6.5" fill="#888">定子铜绕组</text>
+  <!-- Rotor label -->
+  <line x1="22" y1="-20" x2="58" y2="-20" stroke="#888" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <text x="62" y="-18" font-family="sans-serif" font-size="6.5" fill="#888">永磁转子</text>
+  <!-- Gear label -->
+  <line x1="14" y1="10" x2="60" y2="16" stroke="#888" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <text x="64" y="20" font-family="sans-serif" font-size="6.5" fill="#888">行星减速器</text>
+</g>
+
+<!-- ==================== ELECTROMAGNETIC CLUTCH ==================== -->
+<g transform="translate(235,510)" filter="url(#shadowLight)">
+  <rect x="-22" y="-16" width="44" height="32" rx="5" fill="url(#copperGrad)" stroke="#a07030" stroke-width="1"/>
+  <!-- Clutch coil windings -->
+  <path d="M-12,-10 C-10,-6 -16,0 -12,6" fill="none" stroke="#d4a050" stroke-width="2" stroke-linecap="round"/>
+  <path d="M-4,-10 C-2,-6 -8,0 -4,6" fill="none" stroke="#d4a050" stroke-width="2" stroke-linecap="round"/>
+  <path d="M4,-10 C6,-6 0,0 4,6" fill="none" stroke="#d4a050" stroke-width="2" stroke-linecap="round"/>
+  <path d="M12,-10 C14,-6 8,0 12,6" fill="none" stroke="#d4a050" stroke-width="2" stroke-linecap="round"/>
+  <!-- Armature plate -->
+  <rect x="-16" y="-4" width="32" height="8" rx="2" fill="#b87333" opacity="0.6"/>
+  <!-- Spring -->
+  <path d="M-6,-2 L-6,2 M-2,-2 L-2,2 M2,-2 L2,2 M6,-2 L6,2" stroke="#d4956b" stroke-width="0.8"/>
+  <!-- Return spring indicator -->
+  <path d="M8,-12 C12,-14 14,-10 12,-8" fill="none" stroke="#d4956b" stroke-width="0.6" stroke-dasharray="1.5,1"/>
+  <!-- Friction plate -->
+  <rect x="-8" y="-1" width="16" height="2" rx="0.5" fill="#999"/>
+
+  <text x="0" y="24" text-anchor="middle" font-family="sans-serif" font-size="6.5" fill="#888">Ogura MCNB-3Z</text>
+  <text x="0" y="31" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#aaa">电磁离合器 · 弹簧复位</text>
+</g>
+
+<!-- ==================== STRAPS ==================== -->
+<!-- Thigh strap 60mm -->
+<g filter="url(#shadowLight)">
+  <rect x="140" y="285" width="100" height="18" rx="4" fill="#1a5a8a" opacity="0.75" stroke="#0d4a78" stroke-width="0.8"/>
+  <rect x="140" y="285" width="100" height="18" rx="4" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+  <line x1="140" y1="289" x2="240" y2="289" stroke="rgba(255,255,255,0.1)" stroke-width="0.3"/>
+  <line x1="140" y1="293" x2="240" y2="293" stroke="rgba(255,255,255,0.1)" stroke-width="0.3"/>
+  <line x1="140" y1="297" x2="240" y2="297" stroke="rgba(255,255,255,0.1)" stroke-width="0.3"/>
+  <!-- Fidlock buckle -->
+  <rect x="235" y="284" width="14" height="20" rx="3" fill="#666" stroke="#555" stroke-width="0.5"/>
+  <circle cx="242" cy="294" r="4" fill="#888" stroke="#666" stroke-width="0.4"/>
+  <!-- Label -->
+  <text x="190" y="312" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#0096f0">60mm 绑带</text>
+</g>
+
+<!-- Shin strap 50mm -->
+<g filter="url(#shadowLight)">
+  <rect x="145" y="620" width="85" height="15" rx="4" fill="#1a5a8a" opacity="0.75" stroke="#0d4a78" stroke-width="0.8"/>
+  <rect x="145" y="620" width="85" height="15" rx="4" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+  <line x1="145" y1="624" x2="230" y2="624" stroke="rgba(255,255,255,0.1)" stroke-width="0.3"/>
+  <line x1="145" y1="628" x2="230" y2="628" stroke="rgba(255,255,255,0.1)" stroke-width="0.3"/>
+  <rect x="227" y="619" width="12" height="17" rx="3" fill="#666" stroke="#555" stroke-width="0.5"/>
+  <circle cx="233" cy="627" r="3.5" fill="#888" stroke="#666" stroke-width="0.4"/>
+  <text x="188" y="646" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#0096f0">50mm 绑带</text>
+</g>
+
+<!-- ==================== FORCE VECTORS ==================== -->
+<!-- Motor torque τ -->
+<g filter="url(#glowRed)">
+  <path d="M300,398 C310,382 325,372 342,370
+           C358,368 374,372 385,382
+           C396,392 402,406 400,420"
+        fill="none" stroke="#e02020" stroke-width="3" marker-end="url(#arrowRed)"/>
+  <text x="392" y="368" font-family="sans-serif" font-size="12" fill="#e02020" font-weight="bold">τ = 22 Nm</text>
+  <text x="392" y="382" font-family="sans-serif" font-size="8" fill="#e02020">电机输出扭矩</text>
+</g>
+
+<!-- Thigh reaction force -->
+<g>
+  <line x1="275" y1="260" x2="275" y2="180" stroke="#0096f0" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+  <text x="282" y="215" font-family="sans-serif" font-size="10" fill="#0096f0" font-weight="bold">F<sub>大腿</sub></text>
+  <text x="282" y="228" font-family="sans-serif" font-size="7" fill="#0096f0">骨骼反力</text>
+</g>
+
+<!-- Shin reaction force -->
+<g>
+  <line x1="310" y1="560" x2="310" y2="640" stroke="#0096f0" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+  <text x="318" y="605" font-family="sans-serif" font-size="10" fill="#0096f0" font-weight="bold">F<sub>小腿</sub></text>
+  <text x="318" y="618" font-family="sans-serif" font-size="7" fill="#0096f0">骨骼反力</text>
+</g>
+
+<!-- GRF -->
+<g>
+  <line x1="325" y1="850" x2="325" y2="780" stroke="#2ea043" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrowGreen)"/>
+  <text x="340" y="825" font-family="sans-serif" font-size="10" fill="#2ea043" font-weight="bold">GRF</text>
+  <text x="340" y="838" font-family="sans-serif" font-size="7" fill="#2ea043">地面反力</text>
+</g>
+
+<!-- Joint reaction force -->
+<g>
+  <line x1="280" y1="450" x2="280" y2="395" stroke="#d97706" stroke-width="2" marker-end="url(#arrowAmber)"/>
+  <text x="260" y="420" font-family="sans-serif" font-size="9" fill="#d97706">F<sub>关节</sub></text>
+</g>
+
+<!-- ==================== ICR COMPARISON INSET ==================== -->
+<g transform="translate(85,720)">
+  <rect x="0" y="0" width="190" height="180" rx="8" fill="#f8f9fb" stroke="#ddd" stroke-width="0.8" filter="url(#shadowLight)"/>
+  <text x="95" y="18" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555" font-weight="bold">ICR 对比分析</text>
+  <line x1="10" y1="25" x2="180" y2="25" stroke="#e0e0e0" stroke-width="0.5"/>
+
+  <!-- Coordinate axes -->
+  <line x1="20" y1="145" x2="180" y2="145" stroke="#ccc" stroke-width="0.5"/>
+  <line x1="20" y1="35" x2="20" y2="155" stroke="#ccc" stroke-width="0.5"/>
+  <text x="95" y="170" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#aaa">屈曲角度 →</text>
+
+  <!-- Human ICR J-curve -->
+  <path d="M25,140 C35,135 45,125 55,112
+           C65,98 78,85 92,75
+           C108,64 125,56 142,52
+           C155,50 165,52 172,58"
+        fill="none" stroke="#e02020" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- ICR points at 0/30/60/90 deg -->
+  <circle cx="25" cy="140" r="3" fill="#e02020" stroke="#fff" stroke-width="1.2"/>
+  <text x="20" y="134" text-anchor="end" font-family="sans-serif" font-size="6.5" fill="#e02020" font-weight="bold">0°</text>
+
+  <circle cx="55" cy="112" r="3" fill="#e02020" stroke="#fff" stroke-width="1.2"/>
+  <text x="50" y="106" text-anchor="end" font-family="sans-serif" font-size="6.5" fill="#e02020" font-weight="bold">30°</text>
+
+  <circle cx="92" cy="75" r="3" fill="#e02020" stroke="#fff" stroke-width="1.2"/>
+  <text x="87" y="69" text-anchor="end" font-family="sans-serif" font-size="6.5" fill="#e02020" font-weight="bold">60°</text>
+
+  <circle cx="142" cy="52" r="3" fill="#e02020" stroke="#fff" stroke-width="1.2"/>
+  <text x="137" y="46" text-anchor="end" font-family="sans-serif" font-size="6.5" fill="#e02020" font-weight="bold">90°</text>
+
+  <!-- Single axis fixed center (exoskeleton) -->
+  <circle cx="80" cy="100" r="5" fill="#0096f0" stroke="#fff" stroke-width="1.5"/>
+  <text x="75" y="94" text-anchor="end" font-family="sans-serif" font-size="6.5" fill="#0096f0" font-weight="bold">单轴心</text>
+
+  <!-- Offset annotation -->
+  <line x1="80" y1="100" x2="80" y2="75" stroke="#999" stroke-width="0.8" stroke-dasharray="2,2"/>
+  <line x1="78" y1="87" x2="82" y2="87" stroke="#999" stroke-width="0.5"/>
+  <text x="88" y="90" font-family="sans-serif" font-size="6.5" fill="#999">2-5mm</text>
+  <text x="88" y="98" font-family="sans-serif" font-size="5.5" fill="#aaa">偏移量</text>
+
+  <!-- Legend -->
+  <line x1="15" y1="156" x2="35" y2="156" stroke="#e02020" stroke-width="2"/>
+  <text x="40" y="159" font-family="sans-serif" font-size="6.5" fill="#555">人体ICR J形轨迹</text>
+  <line x1="110" y1="156" x2="130" y2="156" stroke="#0096f0" stroke-width="2"/>
+  <circle cx="120" cy="156" r="2.5" fill="#0096f0"/>
+  <text x="135" y="159" font-family="sans-serif" font-size="6.5" fill="#555">外骨骼单轴</text>
+</g>
+
+<!-- ==================== 6 NUMBERED CALLOUTS ==================== -->
+<!-- Callout style: blue circle with white number, leader line -->
+<!-- 1 - Quadriceps -->
+<circle cx="415" cy="195" r="14" fill="#0096f0" stroke="#fff" stroke-width="3"/>
+<text x="415" y="200" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff" font-weight="bold">1</text>
+<line x1="401" y1="195" x2="385" y2="195" stroke="#0096f0" stroke-width="1.2"/>
+<text x="385" y="188" text-anchor="end" font-family="sans-serif" font-size="8" fill="#0096f0">股四头肌</text>
+<text x="385" y="180" text-anchor="end" font-family="sans-serif" font-size="6.5" fill="#888">（伸膝）</text>
+
+<!-- 2 - Hamstrings -->
+<circle cx="200" cy="195" r="14" fill="#0096f0" stroke="#fff" stroke-width="3"/>
+<text x="200" y="200" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff" font-weight="bold">2</text>
+<line x1="214" y1="195" x2="228" y2="195" stroke="#0096f0" stroke-width="1.2"/>
+<text x="240" y="198" font-family="sans-serif" font-size="8" fill="#0096f0">腘绳肌</text>
+<text x="240" y="207" font-family="sans-serif" font-size="6.5" fill="#888">（屈膝）</text>
+
+<!-- 3 - AK80-9 motor -->
+<circle cx="400" cy="460" r="14" fill="#0096f0" stroke="#fff" stroke-width="3"/>
+<text x="400" y="465" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff" font-weight="bold">3</text>
+<line x1="386" y1="460" x2="370" y2="470" stroke="#0096f0" stroke-width="1.2"/>
+<text x="350" y="478" text-anchor="end" font-family="sans-serif" font-size="8" fill="#0096f0">AK80-9 剖面</text>
+
+<!-- 4 - Electromagnetic clutch -->
+<circle cx="200" cy="500" r="14" fill="#0096f0" stroke="#fff" stroke-width="3"/>
+<text x="200" y="505" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff" font-weight="bold">4</text>
+<line x1="214" y1="500" x2="225" y2="510" stroke="#0096f0" stroke-width="1.2"/>
+<text x="240" y="514" font-family="sans-serif" font-size="8" fill="#0096f0">电磁离合器</text>
+
+<!-- 5 - Carbon fiber frame -->
+<circle cx="200" cy="340" r="14" fill="#0096f0" stroke="#fff" stroke-width="3"/>
+<text x="200" y="345" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff" font-weight="bold">5</text>
+<line x1="214" y1="340" x2="228" y2="340" stroke="#0096f0" stroke-width="1.2"/>
+<text x="240" y="343" font-family="sans-serif" font-size="8" fill="#0096f0">T700碳纤维框架</text>
+
+<!-- 6 - Cartilage + meniscus -->
+<circle cx="430" cy="530" r="14" fill="#0096f0" stroke="#fff" stroke-width="3"/>
+<text x="430" y="535" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff" font-weight="bold">6</text>
+<line x1="416" y1="530" x2="390" y2="520" stroke="#0096f0" stroke-width="1.2"/>
+<text x="375" y="527" text-anchor="end" font-family="sans-serif" font-size="8" fill="#0096f0">关节软骨+半月板</text>
+<text x="375" y="536" text-anchor="end" font-family="sans-serif" font-size="6.5" fill="#888">（减震·润滑·稳定）</text>
+
+</g>
+
+<!-- ============================================================ -->
+<!-- RIGHT COLUMN: TECHNICAL SPECS + MECHANICAL ANALYSIS          -->
+<!-- ============================================================ -->
+<g id="right-column" font-family="sans-serif">
+
+<!-- Title -->
+<text x="870" y="90" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#1a2a3a" font-weight="bold">技术规格与力学分析</text>
+<line x1="720" y1="118" x2="1020" y2="118" stroke="#0096f0" stroke-width="2" opacity="0.5"/>
+
+<!-- ====== SPECS TABLE ====== -->
+<g transform="translate(620,135)">
+  <rect x="0" y="0" width="520" height="240" rx="10" fill="#f8fafb" stroke="#e0e6ea" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="0" y="0" width="520" height="36" rx="10" fill="#0096f0" opacity="0.08"/>
+  <rect x="0" y="26" width="520" height="10" fill="#f8fafb"/>
+  <rect x="0" y="0" width="5" height="36" rx="2.5" fill="#0096f0"/>
+  <text x="20" y="23" font-family="sans-serif" font-size="14" fill="#1a2a3a" font-weight="bold">系统技术规格</text>
+
+  <g font-size="11" fill="#3a4a5a">
+    <!-- Table header -->
+    <rect x="12" y="44" width="496" height="20" rx="3" fill="#e8f0f8"/>
+    <text x="20" y="58" font-weight="bold" fill="#555">组件</text>
+    <text x="130" y="58" font-weight="bold" fill="#555">参数</text>
+    <text x="280" y="58" font-weight="bold" fill="#555">规格</text>
+    <text x="400" y="58" font-weight="bold" fill="#555">备注</text>
+
+    <line x1="12" y1="66" x2="508" y2="66" stroke="#e0e6ea" stroke-width="0.5"/>
+
+    <!-- Row: System -->
+    <rect x="12" y="68" width="496" height="24" rx="2" fill="#f8f9fa"/>
+    <text x="20" y="84" fill="#555">系统总重</text>
+    <text x="130" y="84" fill="#666">~2.4 kg</text>
+    <text x="280" y="84" fill="#666">双膝完整系统</text>
+    <text x="400" y="84" font-size="9" fill="#999">含腰带+线缆</text>
+
+    <!-- Row: Belt -->
+    <rect x="12" y="94" width="496" height="24" rx="2" fill="#fff"/>
+    <text x="20" y="110" fill="#555">腰带模块</text>
+    <text x="130" y="110" fill="#666">640 g</text>
+    <text x="280" y="110" fill="#666">后置电池+侧置主控</text>
+    <text x="400" y="110" font-size="9" fill="#999">三星50E 4S1P</text>
+
+    <!-- Row: Single knee -->
+    <rect x="12" y="120" width="496" height="24" rx="2" fill="#f8f9fa"/>
+    <text x="20" y="136" fill="#555">单膝单元</text>
+    <text x="130" y="136" fill="#666">680 g × 2</text>
+    <text x="280" y="136" fill="#666">AK80-9 + 减速器</text>
+    <text x="400" y="136" font-size="9" fill="#999">含框架</text>
+
+    <!-- Row: Frame -->
+    <rect x="12" y="146" width="496" height="24" rx="2" fill="#fff"/>
+    <text x="20" y="162" fill="#555">框架+绑带</text>
+    <text x="130" y="162" fill="#666">400 g</text>
+    <text x="280" y="162" fill="#666">T700碳纤维 3K编织</text>
+    <text x="400" y="162" font-size="9" fill="#999">Fidlock磁吸扣</text>
+
+    <!-- Row: Motor -->
+    <rect x="12" y="172" width="496" height="24" rx="2" fill="#f8f9fa"/>
+    <text x="20" y="188" fill="#555">AK80-9电机</text>
+    <text x="130" y="188" fill="#666">480 g / 22 Nm</text>
+    <text x="280" y="188" fill="#666">9:1 行星减速</text>
+    <text x="400" y="188" font-size="9" fill="#999">峰值扭矩</text>
+
+    <!-- Row: Clutch -->
+    <rect x="12" y="198" width="496" height="24" rx="2" fill="#fff"/>
+    <text x="20" y="214" fill="#555">Ogura离合器</text>
+    <text x="130" y="214" fill="#666">MCNB-3Z</text>
+    <text x="280" y="214" fill="#666">电磁 · 弹簧复位</text>
+    <text x="400" y="214" font-size="9" fill="#999">断电安全脱开</text>
+  </g>
+</g>
+
+<!-- ====== MECHANICAL ANALYSIS ====== -->
+<g transform="translate(620,395)">
+  <rect x="0" y="0" width="520" height="525" rx="10" fill="#f8fafb" stroke="#e0e6ea" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="0" y="0" width="520" height="36" rx="10" fill="#0096f0" opacity="0.08"/>
+  <rect x="0" y="26" width="520" height="10" fill="#f8fafb"/>
+  <rect x="0" y="0" width="5" height="36" rx="2.5" fill="#0096f0"/>
+  <text x="20" y="23" font-family="sans-serif" font-size="14" fill="#1a2a3a" font-weight="bold">力学分析</text>
+
+  <g font-family="sans-serif">
+    <line x1="15" y1="44" x2="505" y2="44" stroke="#e0e6ea" stroke-width="0.5"/>
+
+    <!-- Free body diagram area -->
+    <text x="260" y="70" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333" font-weight="bold">膝关节受力分析（矢状面）</text>
+
+    <!-- Mechanical analysis diagram -->
+    <g transform="translate(260,200)">
+      <!-- Simplified knee joint -->
+      <circle cx="0" cy="0" r="35" fill="none" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
+      <circle cx="0" cy="0" r="5" fill="#0096f0" stroke="#0070c0" stroke-width="0.8"/>
+
+      <!-- Femur line -->
+      <line x1="0" y1="0" x2="0" y2="-100" stroke="#d4c9a8" stroke-width="8" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="0" y2="-100" stroke="#c4b898" stroke-width="1"/>
+
+      <!-- Tibia line -->
+      <line x1="0" y1="0" x2="5" y2="100" stroke="#d4c9a8" stroke-width="7" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="5" y2="100" stroke="#c4b898" stroke-width="0.8"/>
+
+      <!-- GRF arrow -->
+      <line x1="5" y1="100" x2="5" y2="140" stroke="#2ea043" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+      <text x="20" y="130" font-family="sans-serif" font-size="9" fill="#2ea043" font-weight="bold">GRF</text>
+
+      <!-- Joint reaction -->
+      <line x1="0" y1="0" x2="0" y2="-45" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+      <text x="8" y="-40" font-family="sans-serif" font-size="9" fill="#d97706" font-weight="bold">F<sub>j</sub></text>
+
+      <!-- Muscle force - quadriceps -->
+      <line x1="0" y1="-80" x2="-30" y2="-20" stroke="#e02020" stroke-width="2" marker-end="url(#arrowRed)" stroke-dasharray="4,3"/>
+      <text x="-70" y="-55" font-family="sans-serif" font-size="9" fill="#e02020" font-weight="bold">F<sub>m</sub> 股四头肌</text>
+
+      <!-- Torque arrow -->
+      <path d="M-10,-5 C-20,-10 -25,0 -20,10" fill="none" stroke="#e02020" stroke-width="2" marker-end="url(#arrowRed)"/>
+      <text x="-38" y="5" font-family="sans-serif" font-size="9" fill="#e02020" font-weight="bold">τ</text>
+
+      <!-- Angle annotation -->
+      <path d="M8,0 A10,10 0 0,1 12,5" fill="none" stroke="#888" stroke-width="0.8"/>
+      <text x="18" y="6" font-family="sans-serif" font-size="8" fill="#888">θ</text>
+    </g>
+
+    <!-- Analysis formulas -->
+    <g transform="translate(20,85)">
+      <text x="0" y="0" font-family="sans-serif" font-size="10" fill="#555" font-weight="bold">平衡方程（矢状面）：</text>
+      <text x="0" y="18" font-family="sans-serif" font-size="11" fill="#333">ΣF<sub>y</sub> = F<sub>m</sub> · cos(θ) + F<sub>j</sub> − GRF = 0</text>
+      <text x="0" y="36" font-family="sans-serif" font-size="11" fill="#333">ΣM = τ − F<sub>m</sub> · d = 0</text>
+      <text x="0" y="54" font-family="sans-serif" font-size="10" fill="#666">其中 d = 股四头肌力臂（~35mm）</text>
+
+      <text x="0" y="80" font-family="sans-serif" font-size="10" fill="#555" font-weight="bold">外骨骼力矩传递效率：</text>
+      <text x="0" y="98" font-family="sans-serif" font-size="11" fill="#333">η = τ<sub>输出</sub> / τ<sub>电机</sub> &gt; 90%</text>
+      <text x="0" y="116" font-family="sans-serif" font-size="10" fill="#666">直接机械传动，无柔性环节损耗</text>
+
+      <!-- KAM analysis -->
+      <text x="0" y="145" font-family="sans-serif" font-size="10" fill="#555" font-weight="bold">膝内收力矩（KAM）估算：</text>
+      <text x="0" y="163" font-family="sans-serif" font-size="11" fill="#333">KAM = GRF × d<sub>膝</sub></text>
+      <text x="0" y="181" font-family="sans-serif" font-size="10" fill="#666">双膝独立控制，个性化补偿 KAM</text>
+      <text x="0" y="195" font-family="sans-serif" font-size="9" fill="#888">→ 降低膝内侧关节负荷 15-30%</text>
+    </g>
+
+    <!-- Key metrics boxes -->
+    <g transform="translate(20,315)">
+      <rect x="0" y="0" width="155" height="90" rx="6" fill="#f0f8ff" stroke="#d0e6f0" stroke-width="0.8"/>
+      <text x="77" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#0096f0" font-weight="bold">峰值扭矩</text>
+      <text x="77" y="44" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#1a2a3a" font-weight="bold">22</text>
+      <text x="77" y="62" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Nm</text>
+      <text x="77" y="82" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#888">AK80-9 @ 48V</text>
+
+      <rect x="170" y="0" width="155" height="90" rx="6" fill="#f0fff0" stroke="#d0e8d0" stroke-width="0.8"/>
+      <text x="247" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#2ea043" font-weight="bold">力矩传递效率</text>
+      <text x="247" y="44" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#1a2a3a" font-weight="bold">&gt;90</text>
+      <text x="247" y="62" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">%</text>
+      <text x="247" y="82" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#888">直接机械传动</text>
+
+      <rect x="340" y="0" width="155" height="90" rx="6" fill="#fff5f0" stroke="#e8d8c8" stroke-width="0.8"/>
+      <text x="417" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#d97706" font-weight="bold">ICR最大偏移</text>
+      <text x="417" y="44" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#1a2a3a" font-weight="bold">&lt;5</text>
+      <text x="417" y="62" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">mm</text>
+      <text x="417" y="82" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#888">单轴 vs J曲线</text>
+    </g>
+
+    <!-- Design implications -->
+    <g transform="translate(20,420)">
+      <rect x="0" y="0" width="475" height="85" rx="6" fill="#f8f4f0" stroke="#e0d8d0" stroke-width="0.8"/>
+      <text x="15" y="18" font-family="sans-serif" font-size="10" fill="#555" font-weight="bold">设计意义：</text>
+      <text x="15" y="35" font-family="sans-serif" font-size="9" fill="#666">• ICR 2-5mm偏差在可接受范围内，可通过柔性绑带补偿</text>
+      <text x="15" y="50" font-family="sans-serif" font-size="9" fill="#666">• 电磁离合器在站立相锁定，摆动相释放，降低能耗</text>
+      <text x="15" y="65" font-family="sans-serif" font-size="9" fill="#666">• 直接机械传动 &gt;90%效率优于绳索/软组织传动方案</text>
+      <text x="15" y="80" font-family="sans-serif" font-size="9" fill="#666">• 双膝独立 22Nm 足以覆盖日常行走辅助需求</text>
+    </g>
+  </g>
+</g>
+
+<!-- Legend -->
+<g transform="translate(620,940)">
+  <rect x="0" y="-12" width="520" height="24" rx="4" fill="#f8f8f8" stroke="#e8e8e8" stroke-width="0.5"/>
+  <rect x="8" y="-7" width="10" height="10" rx="2" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.5"/>
+  <text x="22" y="1" font-family="sans-serif" font-size="8" fill="#888">骨</text>
+  <rect x="50" y="-7" width="10" height="10" rx="2" fill="rgba(220,50,50,0.4)" stroke="rgba(200,40,40,0.5)" stroke-width="0.5"/>
+  <text x="64" y="1" font-family="sans-serif" font-size="8" fill="#888">肌肉</text>
+  <rect x="100" y="-7" width="10" height="10" rx="2" fill="url(#cfWeave)" stroke="#444" stroke-width="0.5"/>
+  <text x="114" y="1" font-family="sans-serif" font-size="8" fill="#888">碳纤维</text>
+  <rect x="158" y="-7" width="10" height="10" rx="2" fill="url(#metalGrad)" stroke="#aaa" stroke-width="0.5"/>
+  <text x="172" y="1" font-family="sans-serif" font-size="8" fill="#888">金属</text>
+  <rect x="210" y="-7" width="10" height="10" rx="2" fill="url(#copperGrad)" stroke="#a07030" stroke-width="0.5"/>
+  <text x="224" y="1" font-family="sans-serif" font-size="8" fill="#888">离合器</text>
+  <line x1="275" y1="-2" x2="290" y2="-2" stroke="#e02020" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+  <text x="295" y="1" font-family="sans-serif" font-size="8" fill="#888">力/扭矩</text>
+</g>
+
+</g>
+</svg>

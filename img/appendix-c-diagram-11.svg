@@ -1,0 +1,343 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 1200" width="1300" height="1200"
+     font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,sans-serif">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#00000010"/></filter>
+    <filter id="shadow-deep" x="-3%" y="-3%" width="106%" height="108%"><feDropShadow dx="1" dy="3" stdDeviation="4" flood-color="#00000018"/></filter>
+    <marker id="arrow-right" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#9E9E9E"/></marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#0096f0"/></marker>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#fafafa"/></linearGradient>
+  </defs>
+  <rect width="1300" height="1200" fill="url(#bg-grad)"/>
+  <line x1="800" y1="0" x2="800" y2="1200" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- ================================================================ -->
+  <!-- LEFT COLUMN: 7-STEP PIPELINE (y=30 to y=350, 320px total)        -->
+  <!-- ================================================================ -->
+  <g transform="translate(20,30)">
+    <text x="400" y="12" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">算法-硬件完整管线 (7步 · 端到端 &lt;2ms)</text>
+
+    <!-- ===== ROW 1: 7 STEP BOXES (y=25 to y=125) ===== -->
+    <!-- Step 1: 传感器 -->
+    <g transform="translate(18,25)"><rect x="0" y="0" width="80" height="95" rx="6" fill="#fff" stroke="#0096f0" stroke-width="1.5" filter="url(#shadow)"/><circle cx="15" cy="16" r="10" fill="#0096f0"/><text x="15" y="21" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">1</text><text x="40" y="44" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">传感器</text><text x="40" y="64" text-anchor="middle" font-size="10" fill="#666">IMUx4+编码器</text><text x="40" y="82" text-anchor="middle" font-size="10" fill="#0096f0">SPI &lt;8us</text></g>
+    <line x1="108" y1="72" x2="120" y2="72" stroke="#9E9E9E" stroke-width="2" marker-end="url(#arrow-right)"/>
+
+    <!-- Step 2: 姿态 -->
+    <g transform="translate(124,25)"><rect x="0" y="0" width="80" height="95" rx="6" fill="#fff" stroke="#0096f0" stroke-width="1.5" filter="url(#shadow)"/><circle cx="15" cy="16" r="10" fill="#0096f0"/><text x="15" y="21" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">2</text><text x="40" y="44" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">姿态</text><text x="40" y="64" text-anchor="middle" font-size="10" fill="#666">Madgwick AHRS</text><text x="40" y="82" text-anchor="middle" font-size="10" fill="#0096f0">&lt;50us</text></g>
+    <line x1="210" y1="72" x2="212" y2="72" stroke="#9E9E9E" stroke-width="2" marker-end="url(#arrow-right)"/>
+
+    <!-- Step 3: 步态KAM -->
+    <g transform="translate(230,25)"><rect x="0" y="0" width="80" height="95" rx="6" fill="#fff" stroke="#0096f0" stroke-width="1.5" filter="url(#shadow)"/><circle cx="15" cy="16" r="10" fill="#0096f0"/><text x="15" y="21" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">3</text><text x="40" y="44" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">步态KAM</text><text x="40" y="64" text-anchor="middle" font-size="10" fill="#666">6状态FSM</text><text x="40" y="82" text-anchor="middle" font-size="10" fill="#0096f0">&lt;1ms</text></g>
+    <line x1="312" y1="72" x2="314" y2="72" stroke="#9E9E9E" stroke-width="2" marker-end="url(#arrow-right)"/>
+
+    <!-- Step 4: RL推理 (蓝底高亮) -->
+    <g transform="translate(336,23)" filter="url(#shadow-deep)"><rect x="0" y="0" width="80" height="99" rx="6" fill="#0096f0" stroke="#0096f0" stroke-width="2"/><circle cx="15" cy="16" r="10" fill="#fff"/><text x="15" y="21" text-anchor="middle" font-size="10" font-weight="bold" fill="#0096f0">4</text><text x="40" y="44" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">RL推理</text><text x="40" y="64" text-anchor="middle" font-size="10" fill="#d4f5ff">PPO int8 TFLite</text><text x="40" y="84" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">&lt;1ms</text></g>
+    <line x1="414" y1="72" x2="416" y2="72" stroke="#9E9E9E" stroke-width="2" marker-end="url(#arrow-right)"/>
+
+    <!-- Step 5: FOC -->
+    <g transform="translate(442,25)"><rect x="0" y="0" width="80" height="95" rx="6" fill="#fff" stroke="#0096f0" stroke-width="1.5" filter="url(#shadow)"/><circle cx="15" cy="16" r="10" fill="#0096f0"/><text x="15" y="21" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">5</text><text x="40" y="44" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">FOC</text><text x="40" y="64" text-anchor="middle" font-size="10" fill="#666">Clarke/Park/SVPWM</text><text x="40" y="82" text-anchor="middle" font-size="10" fill="#0096f0">&lt;50us</text></g>
+    <line x1="514" y1="72" x2="516" y2="72" stroke="#9E9E9E" stroke-width="2" marker-end="url(#arrow-right)"/>
+
+    <!-- Step 6: 电机 -->
+    <g transform="translate(548,25)"><rect x="0" y="0" width="80" height="95" rx="6" fill="#fff" stroke="#0096f0" stroke-width="1.5" filter="url(#shadow)"/><circle cx="15" cy="16" r="10" fill="#0096f0"/><text x="15" y="21" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">6</text><text x="40" y="44" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">电机</text><text x="40" y="64" text-anchor="middle" font-size="10" fill="#666">AK80-9 22Nm</text><text x="40" y="82" text-anchor="middle" font-size="10" fill="#0096f0">~1ms响应</text></g>
+    <line x1="614" y1="72" x2="616" y2="72" stroke="#9E9E9E" stroke-width="2" marker-end="url(#arrow-right)"/>
+
+    <!-- Step 7: 安全 (红底警示) -->
+    <g transform="translate(654,25)"><rect x="0" y="0" width="80" height="95" rx="6" fill="#fff5f5" stroke="#c45a5a" stroke-width="1.5" filter="url(#shadow)"/><circle cx="15" cy="16" r="10" fill="#c45a5a"/><text x="15" y="21" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">7</text><text x="40" y="44" text-anchor="middle" font-size="13" font-weight="bold" fill="#c45a5a">安全</text><text x="40" y="64" text-anchor="middle" font-size="10" fill="#666">双MCU+离合器</text><text x="42" y="82" text-anchor="middle" font-size="11" font-weight="bold" fill="#c45a5a">&lt;30ms响应</text></g>
+
+    <!-- ===== TIMING LABELS (y=135) ===== -->
+    <g transform="translate(0,135)">
+      <text x="58" y="12" text-anchor="middle" font-size="10" fill="#666">8us</text>
+      <text x="164" y="12" text-anchor="middle" font-size="10" fill="#666">50us</text>
+      <text x="270" y="12" text-anchor="middle" font-size="10" fill="#666">&lt;1ms</text>
+      <text x="376" y="12" text-anchor="middle" font-size="11" fill="#0096f0" font-weight="bold">&lt;1ms ★</text>
+      <text x="482" y="12" text-anchor="middle" font-size="10" fill="#666">50us</text>
+      <text x="588" y="12" text-anchor="middle" font-size="10" fill="#666">~1ms</text>
+      <text x="694" y="12" text-anchor="middle" font-size="11" fill="#c45a5a" font-weight="bold">并行&lt;1ms</text>
+    </g>
+
+    <!-- ===== ROW 2: E2E LATENCY BAR (y=160 to y=230) ===== -->
+    <g transform="translate(0,160)">
+      <text x="400" y="12" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">端到端延迟分解 (合计 &lt;2ms)</text>
+      <g transform="translate(0,20)">
+        <rect x="0" y="0" width="780" height="32" rx="4" fill="#f0f0f0" stroke="#ddd" stroke-width="0.5"/>
+        <rect x="0" y="0" width="35" height="32" rx="4" fill="#90caf9"/>
+        <rect x="35" y="0" width="3" height="32" fill="#90caf9"/>
+        <text x="17" y="21" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">S</text>
+        <rect x="38" y="0" width="40" height="32" fill="#64b5f6"/>
+        <text x="58" y="21" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">AHRS</text>
+        <rect x="78" y="0" width="120" height="32" fill="#42a5f5"/>
+        <text x="138" y="21" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">步态KAM ~1ms</text>
+        <rect x="198" y="0" width="140" height="32" fill="#0096f0"/>
+        <text x="268" y="21" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">RL推理 &lt;1ms</text>
+        <rect x="338" y="0" width="60" height="32" fill="#66bb6a"/>
+        <text x="368" y="21" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">FOC</text>
+        <rect x="398" y="0" width="110" height="32" fill="#ffa726"/>
+        <text x="453" y="21" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">电机响应</text>
+        <rect x="508" y="0" width="125" height="32" rx="4" fill="#ef9a9a"/>
+        <text x="570" y="21" text-anchor="middle" font-size="10" fill="#c45a5a" font-weight="bold">安全监控(并行)</text>
+        <text x="616" y="21" font-size="12" font-weight="bold" fill="#0096f0">总和 &lt;2ms</text>
+        <path d="M 640,-2 L 640,-8 L 590,-8" fill="none" stroke="#0096f0" stroke-width="0.8"/>
+      </g>
+      <g transform="translate(0,35)">
+        <text x="17" y="14" font-size="10" fill="#666">8us</text>
+        <text x="58" y="14" font-size="10" fill="#666">50us</text>
+        <text x="138" y="14" font-size="10" fill="#666">~1ms</text>
+        <text x="268" y="14" font-size="10" fill="#666">&lt;1ms</text>
+        <text x="368" y="14" font-size="10" fill="#666">50us</text>
+        <text x="453" y="14" font-size="10" fill="#666">~1ms</text>
+        <text x="570" y="14" font-size="10" fill="#666">并行&lt;1ms</text>
+      </g>
+    </g>
+
+    <!-- ===== ROW 3: TIMING BUDGET DETAIL (y=245 to y=350) ===== -->
+    <g transform="translate(0,245)">
+      <rect x="0" y="0" width="780" height="105" rx="6" fill="#f8faff" stroke="#0096f0" stroke-width="0.8"/>
+      <text x="15" y="20" font-size="12" font-weight="bold" fill="#0096f0">端到端时序预算分解</text>
+      <!-- Row 1 -->
+      <rect x="15" y="28" width="690" height="24" rx="3" fill="#fff"/>
+      <circle cx="25" cy="40" r="5" fill="#90caf9"/>
+      <text x="35" y="44" font-size="11" fill="#333">传感器 → 姿态 → 步态KAM: 合计 ~1.1ms （前置处理链）</text>
+      <text x="580" y="44" font-size="11" font-weight="bold" fill="#0096f0">步骤 1-3</text>
+      <!-- Row 2 -->
+      <rect x="15" y="54" width="690" height="24" rx="3" fill="#e3f2fd"/>
+      <circle cx="25" cy="66" r="5" fill="#0096f0"/>
+      <text x="35" y="70" font-size="11" fill="#333">RL推理 → FOC → 电机执行: 合计 ~1.9ms （控制执行链）</text>
+      <text x="580" y="70" font-size="11" font-weight="bold" fill="#0096f0">步骤 4-6</text>
+      <!-- Row 3 -->
+      <rect x="15" y="80" width="690" height="24" rx="3" fill="#fff"/>
+      <circle cx="25" cy="92" r="5" fill="#ef9a9a"/>
+      <text x="35" y="96" font-size="11" fill="#333">安全监控层: 独立并行通道，不占用主回路时序预算</text>
+      <text x="580" y="96" font-size="11" font-weight="bold" fill="#c45a5a">步骤 7</text>
+    </g>
+  </g>
+
+  <!-- ================================================================ -->
+  <!-- LEFT COLUMN: FEDERATED LEARNING (y=370 to y=600, 230px)          -->
+  <!-- ================================================================ -->
+  <g transform="translate(20,370)">
+    <rect x="0" y="0" width="780" height="230" rx="6" fill="#f8faff" stroke="#0096f0" stroke-width="1" filter="url(#shadow)"/>
+    <text x="360" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#0096f0">联邦学习管线 (离线 · 夜间WiFi · 隐私保护)</text>
+
+    <!-- Step A: 本地存储 -->
+    <g transform="translate(30,36)"><rect x="0" y="0" width="140" height="55" rx="5" fill="#fff" stroke="#0096f0" stroke-width="1.2"/><text x="70" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="#0096f0">本地存储</text><text x="70" y="40" text-anchor="middle" font-size="10" fill="#666">SPI Flash 16MB</text><text x="70" y="52" text-anchor="middle" font-size="10" fill="#666">全天传感器日志</text><rect x="8" y="8" width="18" height="16" rx="2" fill="none" stroke="#0096f0" stroke-width="1.2"/><path d="M 8,13 L 15,8 L 22,13" fill="none" stroke="#0096f0" stroke-width="1.2"/></g>
+    <g transform="translate(175,59)"><line x1="0" y1="5" x2="25" y2="5" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrow-blue)"/><text x="12" y="0" text-anchor="middle" font-size="10" fill="#666">夜间</text></g>
+
+    <!-- Step B: WiFi加密上传 -->
+    <g transform="translate(205,36)"><rect x="0" y="0" width="140" height="55" rx="5" fill="#fff" stroke="#0096f0" stroke-width="1.2"/><text x="70" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="#0096f0">WiFi加密上传</text><text x="70" y="40" text-anchor="middle" font-size="10" fill="#666">差分隐私 ε=4</text><text x="70" y="52" text-anchor="middle" font-size="10" fill="#666">仅上传模型梯度</text><path d="M 10,30 Q 18,22 26,30" fill="none" stroke="#0096f0" stroke-width="1.2"/><path d="M 14,27 Q 18,22 22,27" fill="none" stroke="#0096f0" stroke-width="1.2"/><circle cx="18" cy="32" r="1.5" fill="#0096f0"/></g>
+    <g transform="translate(350,59)"><line x1="0" y1="5" x2="25" y2="5" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrow-blue)"/></g>
+
+    <!-- Step C: 云端安全聚合 -->
+    <g transform="translate(380,36)"><rect x="0" y="0" width="140" height="55" rx="5" fill="#fff" stroke="#0096f0" stroke-width="1.2"/><text x="70" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="#0096f0">云端安全聚合</text><text x="70" y="40" text-anchor="middle" font-size="10" fill="#666">pFedAC 算法</text><text x="70" y="52" text-anchor="middle" font-size="10" fill="#666">无法反推个体</text><path d="M 8,30 Q 8,24 14,24 Q 14,18 22,18 Q 28,18 30,24 Q 36,24 36,30 Z" fill="none" stroke="#0096f0" stroke-width="1.2"/></g>
+    <g transform="translate(525,59)"><line x1="0" y1="5" x2="25" y2="5" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrow-blue)"/></g>
+
+    <!-- Step D: 下载更新模型 -->
+    <g transform="translate(555,36)"><rect x="0" y="0" width="140" height="55" rx="5" fill="#fff" stroke="#0096f0" stroke-width="1.2"/><text x="70" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="#0096f0">下载更新模型</text><text x="70" y="40" text-anchor="middle" font-size="10" fill="#666">全局模型更新</text><text x="70" y="52" text-anchor="middle" font-size="10" fill="#666">次日自动生效</text><path d="M 12,22 L 18,32 L 24,22" fill="none" stroke="#0096f0" stroke-width="1.2"/><line x1="18" y1="10" x2="18" y2="32" stroke="#0096f0" stroke-width="1.2"/><line x1="10" y1="36" x2="26" y2="36" stroke="#0096f0" stroke-width="1"/></g>
+
+    <!-- Day timeline -->
+    <g transform="translate(30,105)">
+      <line x1="0" y1="0" x2="665" y2="0" stroke="#e0e0e0" stroke-width="1"/>
+      <circle cx="0" cy="0" r="6" fill="#0096f0"/><text x="0" y="20" text-anchor="middle" font-size="11" fill="#0096f0">Day 1</text><text x="0" y="35" text-anchor="middle" font-size="10" fill="#666">云端通用模型</text>
+      <circle cx="222" cy="0" r="6" fill="#0096f0"/><text x="222" y="20" text-anchor="middle" font-size="11" fill="#0096f0">Day 7</text><text x="222" y="35" text-anchor="middle" font-size="10" fill="#666">个体初见效果</text>
+      <circle cx="443" cy="0" r="6" fill="#0096f0"/><text x="443" y="20" text-anchor="middle" font-size="11" fill="#0096f0">Day 30</text><text x="443" y="35" text-anchor="middle" font-size="10" fill="#666">显著优于通用</text>
+      <circle cx="665" cy="0" r="6" fill="#0096f0"/><text x="665" y="20" text-anchor="middle" font-size="11" fill="#0096f0">Day 100</text><text x="665" y="35" text-anchor="middle" font-size="10" fill="#666">独有个体策略</text>
+    </g>
+
+    <!-- Privacy detail -->
+    <g transform="translate(15,150)">
+      <rect x="0" y="0" width="690" height="72" rx="5" fill="#f0f7ff" stroke="#0096f0" stroke-width="0.8"/>
+      <text x="12" y="20" font-size="12" font-weight="bold" fill="#0096f0">隐私保护机制</text>
+      <text x="12" y="38" font-size="11" fill="#333">• 差分隐私 (DP): ε=4 噪声注入，保证个体数据无法从梯度反推</text>
+      <text x="12" y="56" font-size="11" fill="#333">• 安全聚合 (SecAgg): 云端仅见加密聚合梯度，无法识别个体</text>
+      <text x="12" y="70" font-size="10" fill="#666">• 原始传感器数据不出设备，每日夜间自动同步，可随时 opt-out</text>
+    </g>
+  </g>
+
+  <!-- ================================================================ -->
+  <!-- LEFT COLUMN: PHASE 0 TIMELINE (y=620 to y=800, 180px)            -->
+  <!-- ================================================================ -->
+  <g transform="translate(20,620)">
+    <rect x="0" y="0" width="780" height="180" rx="6" fill="#fff" stroke="#ddd" stroke-width="1" filter="url(#shadow)"/>
+    <text x="360" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">Phase 0 六个月验证时间表 (预算 ￥50,000)</text>
+    <line x1="0" y1="30" x2="720" y2="30" stroke="#e0e0e0" stroke-width="1"/>
+
+    <g transform="translate(0,32)">
+      <!-- Header -->
+      <rect x="0" y="0" width="140" height="22" fill="#f5f5f5"/><text x="70" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="#555">任务</text>
+      <rect x="140" y="0" width="97" height="22" fill="#f0f4ff"/><text x="188" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="#0096f0">月1-2</text>
+      <rect x="237" y="0" width="97" height="22" fill="#f0f4ff"/><text x="285" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="#0096f0">月3-4</text>
+      <rect x="334" y="0" width="97" height="22" fill="#f0f4ff"/><text x="382" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="#d97706">月5</text>
+      <rect x="431" y="0" width="97" height="22" fill="#f0f4ff"/><text x="479" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="#059669">月6</text>
+      <rect x="528" y="0" width="192" height="22" fill="#f5f5f5"/><text x="624" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="#555">交付物/里程碑</text>
+
+      <line x1="140" y1="0" x2="140" y2="146" stroke="#e0e0e0" stroke-width="0.5"/>
+      <line x1="237" y1="0" x2="237" y2="146" stroke="#e0e0e0" stroke-width="0.5"/>
+      <line x1="334" y1="0" x2="334" y2="146" stroke="#e0e0e0" stroke-width="0.5"/>
+      <line x1="431" y1="0" x2="431" y2="146" stroke="#e0e0e0" stroke-width="0.5"/>
+      <line x1="528" y1="0" x2="528" y2="146" stroke="#e0e0e0" stroke-width="0.5"/>
+      <line x1="0" y1="22" x2="720" y2="22" stroke="#e0e0e0" stroke-width="0.5"/>
+
+      <!-- Row 1: 仿真环境搭建 -->
+      <rect x="0" y="22" width="780" height="30" fill="#fafafa"/>
+      <text x="10" y="40" font-size="11" fill="#333">仿真环境搭建</text><text x="10" y="50" font-size="10" fill="#999">MyoWarp·肌骨模型</text>
+      <rect x="142" y="24" width="90" height="24" rx="4" fill="#0096f0" opacity="0.8"/><text x="187" y="41" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">416肌骨模型</text>
+      <text x="535" y="40" font-size="11" fill="#666">MyoWarp仿真环境</text><text x="535" y="50" font-size="10" fill="#999">PID基线完成</text>
+      <line x1="0" y1="52" x2="720" y2="52" stroke="#e0e0e0" stroke-width="0.5"/>
+
+      <!-- Row 2: PPO训练 -->
+      <rect x="0" y="52" width="780" height="30" fill="#fff"/>
+      <text x="10" y="70" font-size="11" fill="#333">PPO强化学习训练</text><text x="10" y="80" font-size="10" fill="#999">10,000虚拟被试</text>
+      <rect x="192" y="54" width="135" height="24" rx="4" fill="#0096f0" opacity="0.9"/><text x="259" y="71" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">PPO训练·万级虚拟被试</text>
+      <text x="535" y="70" font-size="11" fill="#666">KAM减少 &gt;20% vs PID</text><text x="535" y="80" font-size="10" fill="#999">RL策略模型完成</text>
+      <line x1="0" y1="82" x2="720" y2="82" stroke="#e0e0e0" stroke-width="0.5"/>
+
+      <!-- Row 3: HIL测试 -->
+      <rect x="0" y="82" width="780" height="30" fill="#fafafa"/>
+      <text x="10" y="100" font-size="11" fill="#333">HIL硬件在环测试</text><text x="10" y="110" font-size="10" fill="#999">AK80-9真实电机</text>
+      <rect x="335" y="84" width="92" height="24" rx="4" fill="#d97706"/><text x="381" y="101" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">HIL验证</text>
+      <text x="535" y="100" font-size="11" fill="#666">力矩误差 &lt;10%</text><text x="535" y="110" font-size="10" fill="#999">硬件接口稳定</text>
+      <line x1="0" y1="112" x2="720" y2="112" stroke="#e0e0e0" stroke-width="0.5"/>
+
+      <!-- Row 4: 10人实测 -->
+      <rect x="0" y="112" width="780" height="30" fill="#fff"/>
+      <text x="10" y="130" font-size="11" fill="#333">10人用户测试</text><text x="10" y="140" font-size="10" fill="#999">真实场景验证</text>
+      <rect x="414" y="114" width="95" height="24" rx="4" fill="#059669"/><text x="479" y="131" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">10人实测</text>
+      <text x="535" y="130" font-size="11" fill="#666">KAM减少 &gt;15%</text><text x="535" y="140" font-size="10" fill="#999">≥6/10 主观改善</text>
+      <line x1="0" y1="142" x2="720" y2="142" stroke="#e0e0e0" stroke-width="0.5"/>
+
+      <!-- Budget row -->
+      <rect x="0" y="142" width="780" height="35" fill="#f0f7ff" stroke="#0096f0" stroke-width="0.5"/>
+      <text x="10" y="160" font-size="11" font-weight="bold" fill="#0096f0">预算分配</text>
+      <text x="130" y="160" font-size="11" fill="#555">仿真服务器: ￥15,000</text>
+      <text x="290" y="160" font-size="11" fill="#555">硬件物料: ￥5,000</text>
+      <text x="430" y="160" font-size="11" fill="#555">被试费: ￥10,000</text>
+      <text x="560" y="160" font-size="11" fill="#555">其他: ￥20,000</text>
+      <text x="360" y="174" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">共计: ￥50,000</text>
+    </g>
+  </g>
+
+  <!-- ================================================================ -->
+  <!-- RIGHT COLUMN: 7-STEP DETAILS (evenly distributed y=45 to y=815)  -->
+  <!-- ================================================================ -->
+  <text x="1050" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">7步管线详细说明</text>
+
+  <!-- Step 1 -->
+  <g transform="translate(760,45)" filter="url(#shadow)">
+    <rect x="0" y="0" width="420" height="90" rx="5" fill="#fff" stroke="#0096f0" stroke-width="1.2"/>
+    <rect x="0" y="0" width="6" height="90" rx="3" fill="#0096f0"/>
+    <text x="16" y="22" font-size="13" font-weight="bold" fill="#0096f0">① 传感器采集</text>
+    <text x="16" y="40" font-size="11" fill="#333">硬件: ICM-42688-P IMU x4, AS5048A磁编码器 x2, AD7124 24位ADC</text>
+    <text x="16" y="56" font-size="11" fill="#333">方案: SPI 10MHz 读取, MCU硬件同步采集, 时间戳对齐</text>
+    <text x="16" y="74" font-size="11" fill="#0096f0" font-weight="bold">延迟: &lt;8 us  |  精度: 16位加速度, 16位角速度</text>
+  </g>
+
+  <!-- Step 2 -->
+  <g transform="translate(760,145)" filter="url(#shadow)">
+    <rect x="0" y="0" width="420" height="90" rx="5" fill="#fff" stroke="#0096f0" stroke-width="1.2"/>
+    <rect x="0" y="0" width="6" height="90" rx="3" fill="#0096f0"/>
+    <text x="16" y="22" font-size="13" font-weight="bold" fill="#0096f0">② 姿态解算</text>
+    <text x="16" y="40" font-size="11" fill="#333">硬件: ESP32-S3 FPU 加速浮点运算</text>
+    <text x="16" y="56" font-size="11" fill="#333">算法: Madgwick AHRS 融合加速度计 + 陀螺仪, 四元数 → 欧拉角</text>
+    <text x="16" y="74" font-size="11" fill="#0096f0" font-weight="bold">延迟: &lt;50 us  |  姿态精度: &lt;2° 静态, &lt;5° 动态</text>
+  </g>
+
+  <!-- Step 3 -->
+  <g transform="translate(760,245)" filter="url(#shadow)">
+    <rect x="0" y="0" width="420" height="90" rx="5" fill="#fff" stroke="#0096f0" stroke-width="1.2"/>
+    <rect x="0" y="0" width="6" height="90" rx="3" fill="#0096f0"/>
+    <text x="16" y="22" font-size="13" font-weight="bold" fill="#0096f0">③ 步态检测 + KAM估算</text>
+    <text x="16" y="40" font-size="11" fill="#333">算法: 6状态有限状态机 — 着地/站立/推离/摆动/预着地/支撑</text>
+    <text x="16" y="56" font-size="11" fill="#333">KAM推算: f(膝角, 角速度, 地面反力), 实时膝关节内收力矩</text>
+    <text x="16" y="74" font-size="11" fill="#0096f0" font-weight="bold">延迟: &lt;1 ms  |  步态阶段识别准确率 &gt;95%</text>
+  </g>
+
+  <!-- Step 4: RL (蓝色高亮) -->
+  <g transform="translate(760,345)" filter="url(#shadow-deep)">
+    <rect x="0" y="0" width="420" height="90" rx="5" fill="#0096f0" stroke="#0096f0" stroke-width="1.2"/>
+    <rect x="0" y="0" width="6" height="90" rx="3" fill="#fff" opacity="0.5"/>
+    <text x="16" y="22" font-size="13" font-weight="bold" fill="#fff">④ 强化学习推理 (核心算法)</text>
+    <text x="16" y="40" font-size="11" fill="#d4f5ff">硬件: ESP32-S3 int8 TFLite Micro 推理引擎</text>
+    <text x="16" y="56" font-size="11" fill="#d4f5ff">算法: PPO策略网络 16→64→32→2, 输入姿态+步态+KAM, 输出目标力矩</text>
+    <text x="16" y="74" font-size="11" font-weight="bold" fill="#fff">延迟: &lt;1 ms  |  模型量化: FP32→int8, 体积 &lt;50KB</text>
+  </g>
+
+  <!-- Step 5 -->
+  <g transform="translate(760,445)" filter="url(#shadow)">
+    <rect x="0" y="0" width="420" height="90" rx="5" fill="#fff" stroke="#0096f0" stroke-width="1.2"/>
+    <rect x="0" y="0" width="6" height="90" rx="3" fill="#0096f0"/>
+    <text x="16" y="22" font-size="13" font-weight="bold" fill="#0096f0">⑤ FOC 力矩控制</text>
+    <text x="16" y="40" font-size="11" fill="#333">硬件: STM32 G474 专用FOC MCU</text>
+    <text x="16" y="56" font-size="11" fill="#333">算法: Clarke/Park 变换 → PI电流环 (10kHz) → SVPWM 输出</text>
+    <text x="16" y="74" font-size="11" fill="#0096f0" font-weight="bold">延迟: &lt;50 us  |  电流环带宽 10kHz, 力矩精度 &lt;5%</text>
+  </g>
+
+  <!-- Step 6 -->
+  <g transform="translate(760,545)" filter="url(#shadow)">
+    <rect x="0" y="0" width="420" height="90" rx="5" fill="#fff" stroke="#0096f0" stroke-width="1.2"/>
+    <rect x="0" y="0" width="6" height="90" rx="3" fill="#0096f0"/>
+    <text x="16" y="22" font-size="13" font-weight="bold" fill="#0096f0">⑥ 电机执行</text>
+    <text x="16" y="40" font-size="11" fill="#333">硬件: AK80-9 V3.0 BLDC 无刷电机, 9:1 行星减速器</text>
+    <text x="16" y="56" font-size="11" fill="#333">性能: 峰值力矩 22 Nm, 膝关节实际输出 15-25 Nm</text>
+    <text x="16" y="74" font-size="11" fill="#0096f0" font-weight="bold">响应: ~1 ms  |  端到端管线合计 &lt;2ms</text>
+  </g>
+
+  <!-- Step 7: 安全 (红色警示) -->
+  <g transform="translate(760,645)" filter="url(#shadow)">
+    <rect x="0" y="0" width="420" height="90" rx="5" fill="#fff5f5" stroke="#c45a5a" stroke-width="1.2"/>
+    <rect x="0" y="0" width="6" height="90" rx="3" fill="#c45a5a"/>
+    <text x="16" y="22" font-size="13" font-weight="bold" fill="#c45a5a">⑦ 安全监控 (独立保护层)</text>
+    <text x="16" y="40" font-size="11" fill="#333">硬件: TPS3850 窗口看门狗 + 双MCU (G474 + G030) 独立供电</text>
+    <text x="16" y="56" font-size="11" fill="#333">独立传感器, 完全独立于控制回路, 硬件级互锁</text>
+    <text x="16" y="74" font-size="11" font-weight="bold" fill="#c45a5a">触发: Ogura离合器 &lt;30ms 断电分离, 故障安全</text>
+  </g>
+
+  <!-- Summary box -->
+  <g transform="translate(760,745)" filter="url(#shadow)">
+    <rect x="0" y="0" width="420" height="70" rx="5" fill="#f0f7ff" stroke="#0096f0" stroke-width="1"/>
+    <rect x="0" y="0" width="6" height="70" rx="3" fill="#0096f0"/>
+    <text x="16" y="22" font-size="12" font-weight="bold" fill="#0096f0">管线总结</text>
+    <text x="16" y="40" font-size="11" fill="#333">总延迟: 传感器 → 电机 端到端 &lt;1.2 ms (核心7步串行)</text>
+    <text x="16" y="58" font-size="11" fill="#333">安全监控层: 独立并行通道, 完全硬件隔离, 响应 &lt;1 ms</text>
+  </g>
+
+  <!-- ================================================================ -->
+  <!-- BOTTOM: LEGEND + GLOSSARY (y=820 to y=1180)                    -->
+  <!-- ================================================================ -->
+
+  <!-- Legend -->
+  <g transform="translate(20,825)">
+    <rect x="0" y="0" width="1260" height="60" fill="#fafafa" stroke="#e0e0e0" stroke-width="1" rx="6"/>
+    <text x="20" y="22" font-size="12" font-weight="bold" fill="#333">图例:</text>
+    <rect x="80" y="10" width="18" height="18" rx="3" fill="#0096f0"/>
+    <text x="104" y="24" font-size="12" fill="#333">推荐采用 / 核心组件 — 直接使用成熟方案, 降低 Phase 0 风险</text>
+    <rect x="550" y="10" width="18" height="18" rx="3" fill="#d97706"/>
+    <text x="574" y="24" font-size="12" fill="#333">部分借鉴 / 定制开发 — 需根据实际验证结果调整方案</text>
+    <rect x="1000" y="10" width="18" height="18" rx="3" fill="#c45a5a"/>
+    <text x="1024" y="24" font-size="12" fill="#333">缺陷 / 不推荐 — 需重点监控的风险点</text>
+    <text x="20" y="50" font-size="11" fill="#666">核心原则: 先仿真证明RL比PID好20%+ (月1-4, 零硬件成本) → 再HIL验证 (月5, ￥5,000) → 最后10人实测 (月6, ￥10,000)</text>
+  </g>
+
+  <!-- Glossary -->
+  <g transform="translate(20,900)">
+    <rect x="0" y="0" width="1260" height="200" fill="#fff" stroke="#e0e0e0" stroke-width="1" rx="6"/>
+    <text x="20" y="24" font-size="13" font-weight="bold" fill="#333">附录C.5 关键术语与缩略语</text>
+    <line x1="20" y1="32" x2="1140" y2="32" stroke="#e0e0e0" stroke-width="0.5"/>
+    <text x="20" y="52" font-size="11" fill="#333"><tspan font-weight="bold">KAM</tspan> — Knee Adduction Moment (膝关节内收力矩), 步态生物力学核心指标, 衡量膝关节内侧负荷</text>
+    <text x="20" y="70" font-size="11" fill="#333"><tspan font-weight="bold">FOC</tspan> — Field-Oriented Control (磁场定向控制), 无刷电机矢量控制算法, 实现精确力矩输出</text>
+    <text x="20" y="88" font-size="11" fill="#333"><tspan font-weight="bold">RL</tspan> — Reinforcement Learning (强化学习), PPO策略梯度算法, 端到端学习控制策略</text>
+    <text x="20" y="106" font-size="11" fill="#333"><tspan font-weight="bold">HIL</tspan> — Hardware-in-the-Loop (硬件在环), 含真实执行器的半实物仿真验证方法</text>
+    <text x="20" y="124" font-size="11" fill="#333"><tspan font-weight="bold">FL / DP / FSM</tspan> — Federated Learning (联邦学习) / Differential Privacy (差分隐私) / Finite State Machine (有限状态机)</text>
+    <line x1="20" y1="135" x2="1140" y2="135" stroke="#e0e0e0" stroke-width="0.5"/>
+    <text x="20" y="155" font-size="11" fill="#333"><tspan font-weight="bold">PPO</tspan> — Proximal Policy Optimization (近端策略优化), 强化学习中稳定高效的策略梯度方法</text>
+    <text x="20" y="173" font-size="11" fill="#333"><tspan font-weight="bold">SVPWM</tspan> — Space Vector Pulse Width Modulation (空间矢量脉宽调制), FOC中电机电压矢量控制</text>
+    <text x="20" y="191" font-size="11" fill="#333"><tspan font-weight="bold">AHRS</tspan> — Attitude and Heading Reference System (姿态航向参考系统), 基于IMU的姿态估计算法</text>
+    <line x1="20" y1="198" x2="1140" y2="198" stroke="#e0e0e0" stroke-width="0.5"/>
+  </g>
+
+  <!-- Footer metadata -->
+  <g transform="translate(20,1115)">
+    <rect x="0" y="0" width="1260" height="70" rx="4" fill="#f8f8f8" stroke="#e0e0e0" stroke-width="0.8"/>
+    <text x="580" y="18" text-anchor="middle" font-size="11" fill="#666">C.5 算法-硬件管线图 | Nexum 逐念而行 外骨骼系统</text>
+    <text x="580" y="36" text-anchor="middle" font-size="11" fill="#666">设计版本: Phase 0 Architecture v2.2 | 2026-07  |  关键约束: 端到端延迟 &lt;2ms, 安全隔离, 联邦隐私保护</text>
+    <text x="580" y="54" text-anchor="middle" font-size="11" fill="#666">硬件平台: ESP32-S3 (RL推理) + STM32 G474 (FOC控制)  |  传感器: ICM-42688-P IMU + AS5048A 编码器 + AD7124 ADC</text>
+  </g>
+</svg>

@@ -1,0 +1,472 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <defs>
+    <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede3cc"/>
+      <stop offset="40%" stop-color="#e8ddc0"/>
+      <stop offset="70%" stop-color="#dfd2b2"/>
+      <stop offset="100%" stop-color="#d4c9a8"/>
+    </linearGradient>
+    <linearGradient id="boneShadow" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#f5edd8"/>
+      <stop offset="100%" stop-color="#c4b898"/>
+    </linearGradient>
+    <linearGradient id="boneDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4c9a8"/>
+      <stop offset="100%" stop-color="#b8ad90"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A0AAB5"/>
+      <stop offset="40%" stop-color="#8B93A0"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+    <linearGradient id="metalDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6B7280"/>
+      <stop offset="100%" stop-color="#4B5563"/>
+    </linearGradient>
+    <linearGradient id="metalLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#B8BFC8"/>
+      <stop offset="100%" stop-color="#9CA3AF"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5f0eb"/>
+      <stop offset="50%" stop-color="#faf5ef"/>
+      <stop offset="100%" stop-color="#f5f0eb"/>
+    </linearGradient>
+    <linearGradient id="muscleGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(200,50,50,0.05)"/>
+      <stop offset="50%" stop-color="rgba(200,50,50,0.10)"/>
+      <stop offset="100%" stop-color="rgba(200,50,50,0.06)"/>
+    </linearGradient>
+    <linearGradient id="pneuGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9E9E9E" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#BDBDBD" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#9E9E9E" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="airLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#42A5F5" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#64B5F6" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#42A5F5" stop-opacity="0.7"/>
+    </linearGradient>
+    <marker id="arrowRed" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowRedSmall" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#9E9E9E"/>
+    </marker>
+    <marker id="arrowGraySmall" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4" markerHeight="4" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#9E9E9E"/>
+    </marker>
+    <filter id="shadow" x="-8%" y="-8%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="rgba(0,0,0,0.15)"/>
+    </filter>
+    <filter id="softShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="1" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.08)"/>
+    </filter>
+    <clipPath id="leftPane">
+      <rect x="0" y="0" width="740" height="1080"/>
+    </clipPath>
+    <style>
+      .label-sm { font-size: 9px; fill: #64748b; font-family: sans-serif; }
+      .label-md { font-size: 11px; fill: #334155; font-family: sans-serif; }
+      .label-lg { font-size: 13px; fill: #1e293b; font-family: sans-serif; font-weight: bold; }
+      .label-em { font-size: 10px; fill: #9E9E9E; font-family: sans-serif; font-weight: bold; }
+      .label-force { font-size: 11px; fill: #dc2626; font-family: sans-serif; font-weight: bold; }
+      .title-gray { font-size: 18px; fill: #616161; font-family: sans-serif; font-weight: bold; }
+      .title-light { font-size: 13px; fill: #475569; font-family: sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+  <rect width="1200" height="1200" fill="#ffffff"/>
+  <rect x="740" y="0" width="60" height="1200" fill="#fafbfc" opacity="0.4"/>
+  <line x1="740" y1="0" x2="740" y2="1200" stroke="#e5e7eb" stroke-width="0.8"/>
+  <line x1="800" y1="0" x2="800" y2="1200" stroke="#e5e7eb" stroke-width="0.8"/>
+  <g clip-path="url(#leftPane)">
+    <rect x="20" y="0" width="720" height="1080" fill="#ffffff"/>
+    <g>
+      <text x="30" y="24" class="label-em" font-size="12">Fig. E 气动人工肌肉 | 侧面观 Lateral View</text>
+      <line x1="30" y1="28" x2="300" y2="28" stroke="#e5e7eb" stroke-width="0.5"/>
+    </g>
+    <g filter="url(#softShadow)">
+      <path d="M 240,70 C 230,110 225,160 230,210 C 235,260 260,300 285,330 L 475,330 C 500,300 525,260 530,210 C 535,160 530,110 520,70 C 510,60 480,55 380,55 C 280,55 250,60 240,70 Z" fill="url(#skinGrad)" stroke="#e8ddd0" stroke-width="0.8"/>
+      <rect x="350" y="30" width="60" height="40" rx="10" fill="#f5f0eb" stroke="#e8ddd0" stroke-width="0.6"/>
+      <ellipse cx="380" cy="10" rx="32" ry="26" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.8"/>
+      <line x1="380" y1="0" x2="380" y2="8" stroke="#dccfc0" stroke-width="0.5"/>
+      <line x1="370" y1="14" x2="390" y2="14" stroke="#dccfc0" stroke-width="0.5"/>
+    </g>
+    <line x1="380" y1="60" x2="380" y2="260" stroke="#d4c9a8" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.5"/>
+    <g stroke="#dccfc0" stroke-width="0.6" fill="none" opacity="0.35">
+      <path d="M 280,110 Q 320,105 340,115"/><path d="M 420,115 Q 440,105 480,110"/>
+      <path d="M 270,140 Q 320,130 340,145"/><path d="M 420,145 Q 440,130 490,140"/>
+      <path d="M 265,170 Q 315,155 340,175"/><path d="M 420,175 Q 445,155 495,170"/>
+      <path d="M 268,200 Q 318,185 340,205"/><path d="M 420,205 Q 442,185 492,200"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 380,255 C 340,252 295,260 270,285 C 250,310 245,340 260,360 C 275,380 295,395 320,405 C 340,412 360,415 380,416 C 400,415 420,412 440,405 C 465,395 485,380 500,360 C 515,340 510,310 490,285 C 465,260 420,252 380,255 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <circle cx="290" cy="355" r="18" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.8"/><circle cx="290" cy="355" r="13" fill="#dfd2b2" stroke="#c4b898" stroke-width="0.4"/>
+      <circle cx="470" cy="355" r="18" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.8"/><circle cx="470" cy="355" r="13" fill="#dfd2b2" stroke="#c4b898" stroke-width="0.4"/>
+    </g>
+    <g filter="url(#shadow)">
+      <circle cx="290" cy="355" r="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 285,355 Q 278,380 282,400 L 290,398 Q 288,378 292,355 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 282,400 C 280,450 278,500 278,550 C 278,600 280,650 285,700 L 298,700 C 293,650 290,600 290,550 C 290,500 292,450 296,400 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <ellipse cx="285" cy="698" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/><ellipse cx="300" cy="698" rx="8" ry="12" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <circle cx="470" cy="355" r="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 475,355 Q 482,380 478,400 L 470,398 Q 472,378 468,355 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 478,400 C 480,450 482,500 482,550 C 482,600 480,650 475,700 L 462,700 C 467,650 470,600 470,550 C 470,500 468,450 464,400 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <ellipse cx="475" cy="698" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/><ellipse cx="460" cy="698" rx="8" ry="12" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+    </g>
+    <g opacity="0.12">
+      <path d="M 285,410 C 282,470 280,530 283,590 C 286,630 290,660 295,690 L 285,690 C 282,660 278,630 276,590 C 274,530 277,470 282,410 Z" fill="#dc2626"/>
+      <path d="M 475,410 C 478,470 480,530 477,590 C 474,630 470,660 465,690 L 475,690 C 478,660 482,630 484,590 C 486,530 483,470 478,410 Z" fill="#dc2626"/>
+    </g>
+    <g filter="url(#softShadow)">
+      <ellipse cx="290" cy="705" rx="12" ry="9" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/><ellipse cx="470" cy="705" rx="12" ry="9" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 283,710 C 280,760 278,810 277,860 C 276,910 278,950 282,980 L 294,980 C 290,950 288,910 287,860 C 286,810 288,760 290,710 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <path d="M 477,710 C 480,760 482,810 483,860 C 484,910 482,950 478,980 L 466,980 C 470,950 472,910 473,860 C 474,810 472,760 470,710 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+    </g>
+    <g filter="url(#softShadow)">
+      <path d="M 280,980 L 278,1010 C 278,1020 282,1025 290,1025 L 296,1020 C 298,1015 296,1005 294,980 Z" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.6"/>
+      <path d="M 480,980 L 482,1010 C 482,1020 478,1025 470,1025 L 464,1020 C 462,1015 464,1005 466,980 Z" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.6"/>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="310" y="80" width="140" height="100" rx="10" fill="url(#metalDark)" stroke="#374151" stroke-width="1.5"/>
+      <rect x="320" y="90" width="120" height="80" rx="6" fill="#4B5563" stroke="#374151" stroke-width="0.8"/>
+      <circle cx="350" cy="120" r="14" fill="#f0f0f0" stroke="#9CA3AF" stroke-width="1"/>
+      <path d="M 350,120 L 355,112" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="350" cy="120" r="2" fill="#374151"/>
+      <text x="350" y="128" class="label-sm" font-size="6" fill="#475569" text-anchor="middle">PSI</text>
+      <rect x="390" y="110" width="36" height="28" rx="4" fill="#6B7280" stroke="#4B5563" stroke-width="0.8"/>
+      <text x="408" y="128" font-size="7" fill="#d1d5db" font-family="sans-serif" text-anchor="middle">阀组</text>
+      <text x="380" y="160" font-size="8" fill="#9CA3AF" font-family="sans-serif" text-anchor="middle">空气压缩机 / 储气罐</text>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 320,170 C 300,200 280,240 270,280 C 265,300 268,320 275,340"
+            fill="none" stroke="url(#airLineGrad)" stroke-width="3" stroke-dasharray="4,3"/>
+      <path d="M 275,340 C 265,360 255,380 252,400 C 250,420 255,435 265,445"
+            fill="none" stroke="url(#pneuGrad)" stroke-width="10" stroke-linecap="round"/>
+      <g opacity="0.3">
+        <path d="M 270,350 L 278,360 M 265,370 L 273,380 M 260,390 L 268,400 M 257,410 L 265,420 M 258,430 L 266,440"
+              fill="none" stroke="#757575" stroke-width="1.5"/>
+        <path d="M 278,350 L 270,360 M 273,370 L 265,380 M 268,390 L 260,400 M 265,410 L 257,420 M 266,430 L 258,440"
+              fill="none" stroke="#757575" stroke-width="1.5"/>
+      </g>
+      <circle cx="275" cy="340" r="5" fill="#6B7280" stroke="#4B5563" stroke-width="0.8"/>
+      <circle cx="265" cy="445" r="5" fill="#6B7280" stroke="#4B5563" stroke-width="0.8"/>
+      <line x1="265" y1="445" x2="280" y2="460" stroke="#6B7280" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 440,170 C 460,200 480,240 490,280 C 495,300 492,320 485,340"
+            fill="none" stroke="url(#airLineGrad)" stroke-width="3" stroke-dasharray="4,3"/>
+      <path d="M 485,340 C 495,360 505,380 508,400 C 510,420 505,435 495,445"
+            fill="none" stroke="url(#pneuGrad)" stroke-width="10" stroke-linecap="round"/>
+      <g opacity="0.3">
+        <path d="M 490,350 L 482,360 M 495,370 L 487,380 M 500,390 L 492,400 M 503,410 L 495,420 M 502,430 L 494,440"
+              fill="none" stroke="#757575" stroke-width="1.5"/>
+        <path d="M 482,350 L 490,360 M 487,370 L 495,380 M 492,390 L 500,400 M 495,410 L 503,420 M 494,430 L 502,440"
+              fill="none" stroke="#757575" stroke-width="1.5"/>
+      </g>
+      <circle cx="485" cy="340" r="5" fill="#6B7280" stroke="#4B5563" stroke-width="0.8"/>
+      <circle cx="495" cy="445" r="5" fill="#6B7280" stroke="#4B5563" stroke-width="0.8"/>
+      <line x1="495" y1="445" x2="480" y2="460" stroke="#6B7280" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="340" y="240" width="80" height="40" rx="5" fill="#616161" stroke="#424242" stroke-width="1"/>
+      <rect x="348" y="248" width="64" height="24" rx="3" fill="#757575"/>
+      <text x="380" y="261" font-size="8" fill="#e0e0e0" font-family="sans-serif" text-anchor="middle">气动控制器</text>
+      <rect x="350" y="274" width="10" height="6" rx="1" fill="#9E9E9E"/>
+      <rect x="370" y="274" width="10" height="6" rx="1" fill="#9E9E9E"/>
+      <rect x="390" y="274" width="10" height="6" rx="1" fill="#9E9E9E"/>
+    </g>
+    <g opacity="0.4">
+      <path d="M 275,445 Q 268,460 272,470" fill="none" stroke="#9E9E9E" stroke-width="1.5"/>
+      <path d="M 485,445 Q 492,460 488,470" fill="none" stroke="#9E9E9E" stroke-width="1.5"/>
+    </g>
+    <line x1="320" y1="100" x2="250" y2="90" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="244" cy="88" r="9" fill="#9E9E9E"/>
+    <text x="244" y="92" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">1</text>
+    <text x="230" y="82" class="label-sm" font-size="8" fill="#9E9E9E" text-anchor="end">空压机/储气罐</text>
+    <line x1="350" y1="120" x2="320" y2="130" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="314" cy="132" r="9" fill="#9E9E9E"/>
+    <text x="314" y="136" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">2</text>
+    <text x="300" y="126" class="label-sm" font-size="8" fill="#9E9E9E" text-anchor="end">气压表</text>
+    <line x1="408" y1="120" x2="440" y2="120" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="446" cy="120" r="9" fill="#9E9E9E"/>
+    <text x="446" y="124" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">3</text>
+    <text x="460" y="118" class="label-sm" font-size="8" fill="#9E9E9E">电磁阀组</text>
+    <line x1="320" y1="220" x2="290" y2="210" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="284" cy="208" r="9" fill="#9E9E9E"/>
+    <text x="284" y="212" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">4</text>
+    <text x="270" y="204" class="label-sm" font-size="8" fill="#9E9E9E" text-anchor="end">高压气管</text>
+    <line x1="275" y1="390" x2="310" y2="380" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="316" cy="378" r="9" fill="#9E9E9E"/>
+    <text x="316" y="382" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">5</text>
+    <text x="330" y="376" class="label-sm" font-size="8" fill="#9E9E9E">气动人工肌肉</text>
+    <line x1="260" y1="445" x2="310" y2="445" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="316" cy="445" r="9" fill="#9E9E9E"/>
+    <text x="316" y="449" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">6</text>
+    <text x="330" y="442" class="label-sm" font-size="8" fill="#9E9E9E">肌肉附着端</text>
+    <line x1="380" y1="260" x2="430" y2="255" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="436" cy="253" r="9" fill="#9E9E9E"/>
+    <text x="436" y="257" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">7</text>
+    <text x="450" y="252" class="label-sm" font-size="8" fill="#9E9E9E">气动控制器</text>
+    <line x1="230" y1="250" x2="250" y2="245" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="224" cy="243" r="9" fill="#9E9E9E"/>
+    <text x="224" y="247" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">8</text>
+    <text x="208" y="238" class="label-sm" font-size="8" fill="#9E9E9E" text-anchor="end">骨盆固定架</text>
+    <line x1="485" y1="390" x2="520" y2="380" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="526" cy="378" r="9" fill="#9E9E9E"/>
+    <text x="526" y="382" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">9</text>
+    <text x="540" y="376" class="label-sm" font-size="8" fill="#9E9E9E">右侧人工肌肉</text>
+    <line x1="272" y1="465" x2="310" y2="475" stroke="#9E9E9E" stroke-width="0.8"/>
+    <circle cx="316" cy="477" r="9" fill="#9E9E9E"/>
+    <text x="316" y="481" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">10</text>
+    <text x="330" y="472" class="label-sm" font-size="8" fill="#9E9E9E">排气口</text>
+    <line x1="380" y1="10" x2="380" y2="-30" stroke="#dc2626" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <text x="388" y="-18" class="label-force">W (体重+气罐)</text>
+    <path d="M 255,390 L 235,420" stroke="#9E9E9E" stroke-width="2.5" stroke-dasharray="4,2" marker-end="url(#arrowGray)"/>
+    <text x="220" y="428" class="label-sm" font-size="9" fill="#9E9E9E" text-anchor="end">F_pneu (收缩力)</text>
+    <path d="M 505,390 L 525,420" stroke="#9E9E9E" stroke-width="2.5" stroke-dasharray="4,2" marker-end="url(#arrowGray)"/>
+    <text x="530" y="428" class="label-sm" font-size="9" fill="#9E9E9E">F_pneu</text>
+    <path d="M 260,355 L 240,355" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+    <text x="222" y="353" class="label-force" font-size="10">F_joint</text>
+    <path d="M 500,355 L 520,355" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+    <text x="528" y="353" class="label-force" font-size="10">F_joint</text>
+    <line x1="285" y1="1030" x2="285" y2="1055" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="270" y="1068" class="label-force" font-size="9">GRF</text>
+    <line x1="475" y1="1030" x2="475" y2="1055" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="478" y="1068" class="label-force" font-size="9">GRF</text>
+    <g transform="translate(540, 55)">
+      <rect x="0" y="0" width="180" height="140" rx="5" fill="#fff" stroke="#9E9E9E" stroke-width="1.2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="180" height="22" rx="5" fill="#616161"/>
+      <text x="90" y="15" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Soft Pneumatic Exosuit</text>
+      <text x="8" y="34" class="label-sm" font-size="8">重量：3.0 kg (含气罐)</text>
+      <text x="8" y="48" class="label-sm" font-size="8">驱动：McKibben 气动肌肉</text>
+      <text x="8" y="62" class="label-sm" font-size="8">压力：0.2 – 0.6 MPa</text>
+      <text x="8" y="76" class="label-sm" font-size="8">收缩比：20 – 30%</text>
+      <text x="8" y="90" class="label-sm" font-size="8">应用：康复 / 辅助</text>
+      <line x1="8" y1="96" x2="172" y2="96" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="8" y="110" class="label-sm" font-size="8" fill="#9E9E9E" font-weight="bold">柔顺驱动力 | 固有缓冲</text>
+      <text x="8" y="126" class="label-sm" font-size="8" fill="#94a3b8">空气压缩驱动，肌肉仿生</text>
+    </g>
+    <g transform="translate(540, 210)">
+      <rect x="0" y="0" width="180" height="130" rx="5" fill="#fff" stroke="#9E9E9E" stroke-width="1.2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="180" height="22" rx="5" fill="#616161"/>
+      <text x="90" y="15" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">PneuMuscle (学术)</text>
+      <text x="8" y="34" class="label-sm" font-size="8">重量：2.5 kg</text>
+      <text x="8" y="48" class="label-sm" font-size="8">力输出：200 – 500 N</text>
+      <text x="8" y="62" class="label-sm" font-size="8">带宽：0 – 5 Hz</text>
+      <text x="8" y="76" class="label-sm" font-size="8">控制：比例伺服阀</text>
+      <text x="8" y="90" class="label-sm" font-size="8">应用：步态矫正</text>
+      <line x1="8" y1="96" x2="172" y2="96" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="8" y="110" class="label-sm" font-size="8" fill="#9E9E9E" font-weight="bold">高力/重比 | 低刚度</text>
+    </g>
+    <line x1="350" y1="280" x2="330" y2="270" stroke="#64748b" stroke-width="0.6"/>
+    <line x1="330" y1="270" x2="220" y2="270" stroke="#64748b" stroke-width="0.6" stroke-dasharray="3,2"/>
+    <text x="218" y="275" class="label-md" font-size="10" text-anchor="end">骨盆 Pelvis</text>
+    <line x1="285" y1="450" x2="220" y2="440" stroke="#64748b" stroke-width="0.6"/>
+    <text x="218" y="445" class="label-md" font-size="10" text-anchor="end">股骨 Femur</text>
+    <g transform="translate(30, 1020)">
+      <rect x="0" y="0" width="700" height="48" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="10" y="10" width="14" height="14" rx="2" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <text x="28" y="22" class="label-sm" font-size="9">骨骼 Bone</text>
+      <rect x="100" y="10" width="14" height="14" rx="2" fill="rgba(200,50,50,0.15)" stroke="rgba(200,50,50,0.3)" stroke-width="0.6"/>
+      <text x="118" y="22" class="label-sm" font-size="9">肌肉 Muscle</text>
+      <rect x="190" y="10" width="14" height="14" rx="2" fill="url(#metalGrad)" stroke="#6B7280" stroke-width="0.6"/>
+      <text x="208" y="22" class="label-sm" font-size="9">框架</text>
+      <rect x="280" y="10" width="14" height="14" rx="2" fill="#757575"/>
+      <text x="298" y="22" class="label-sm" font-size="9">气动肌肉</text>
+      <rect x="380" y="10" width="14" height="14" rx="2" fill="#42A5F5"/>
+      <text x="398" y="22" class="label-sm" font-size="9">高压气管</text>
+      <line x1="480" y1="16" x2="495" y2="16" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+      <text x="502" y="22" class="label-sm" font-size="9">力矢量</text>
+      <text x="10" y="42" class="label-sm" font-size="8" fill="#94a3b8">气动人工肌肉髋外骨骼 · Soft Pneumatic Exosuit 技术路线</text>
+    </g>
+  </g>
+  <g transform="translate(808, 16)">
+    <rect x="-8" y="0" width="380" height="60" rx="4" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5"/>
+    <rect x="-8" y="0" width="4" height="60" rx="2" fill="#9E9E9E"/>
+    <text x="12" y="26" class="title-gray">气动人工肌肉式</text>
+    <text x="12" y="46" class="label-sm" font-size="10" fill="#9ca3af">PNEUMATIC HIP EXOSKELETON</text>
+    <rect x="262" y="10" width="100" height="24" rx="12" fill="#9E9E9E" opacity="0.15"/>
+    <text x="312" y="27" font-size="12" fill="#9E9E9E" font-family="sans-serif" text-anchor="middle" font-weight="bold">仅跟踪</text>
+    <g transform="translate(0, 80)">
+      <rect x="-8" y="0" width="380" height="130" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="130" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-light" font-size="14">架构特征</text>
+      <text x="140" y="22" class="label-sm" fill="#94a3b8">ARCHITECTURE</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <circle cx="16" cy="48" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="53">背部空压机 / 储气罐</text>
+        <circle cx="16" cy="68" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="73">McKibben 气动人工肌肉跨髋关节</text>
+        <circle cx="16" cy="88" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="93">电磁阀组精确控制充放气</text>
+        <circle cx="16" cy="108" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="113">高压气管输送压缩空气</text>
+        <circle cx="16" cy="128" r="3.5" fill="#9E9E9E"/>
+        <text x="28" y="133">仿生肌肉式收缩驱动</text>
+      </g>
+    </g>
+    <g transform="translate(0, 228)">
+      <rect x="-8" y="0" width="380" height="145" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="145" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-light" font-size="14">技术参数</text>
+      <text x="120" y="22" class="label-sm" fill="#94a3b8">PARAMETERS</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="50">系统重量</text>
+        <text x="160" y="50" fill="#1f2937" font-weight="bold">2.5 – 3.5 kg</text>
+        <text x="16" y="70">收缩力</text>
+        <text x="160" y="70" fill="#1f2937" font-weight="bold">200 – 500 N</text>
+        <text x="16" y="90">工作压力</text>
+        <text x="160" y="90" fill="#1f2937" font-weight="bold">0.2 – 0.6 MPa</text>
+        <text x="16" y="110">带宽</text>
+        <text x="160" y="110" fill="#1f2937" font-weight="bold">0 – 5 Hz</text>
+        <text x="16" y="130">核心优势</text>
+        <text x="160" y="130" fill="#1f2937" font-weight="bold">高力/重比，固有柔顺</text>
+      </g>
+    </g>
+    <g transform="translate(0, 392)">
+      <rect x="-8" y="0" width="380" height="135" rx="4" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="135" rx="1.5" fill="#9E9E9E"/>
+      <text x="12" y="22" class="title-light" font-size="14">工作原理</text>
+      <text x="110" y="22" class="label-sm" fill="#94a3b8">PRINCIPLE</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e0e0e0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">McKibben 肌肉收缩原理：</text>
+        <text x="16" y="68">1. 充气时编织网膨胀 → 径向膨胀</text>
+        <text x="16" y="86">2. 编织网约束导致轴向收缩 (~25%)</text>
+        <text x="16" y="104">3. 收缩产生拉力驱动髋关节</text>
+        <text x="16" y="122">4. 排气时弹性回位</text>
+      </g>
+    </g>
+    <g transform="translate(0, 546)">
+      <rect x="-8" y="0" width="380" height="115" rx="4" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="380" height="26" rx="4" fill="#9E9E9E" opacity="0.1"/>
+      <text x="12" y="18" font-size="12" fill="#616161" font-family="sans-serif" font-weight="bold">Bones 评估：仅跟踪</text>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">气动肌肉力/重比优于电机，柔顺性极佳</text>
+        <text x="16" y="66">但空压机体积大、噪音高、响应慢</text>
+        <line x1="16" y1="74" x2="364" y2="74" stroke="#e0e0e0" stroke-width="0.3"/>
+        <text x="16" y="92" fill="#9E9E9E" font-weight="bold">不采用的核心理由：</text>
+        <text x="116" y="92" fill="#475569">气源系统过于笨重，不适合消费级</text>
+        <text x="116" y="110" fill="#475569">控制带宽低 (&lt; 5 Hz) 不适合敏捷步态</text>
+      </g>
+    </g>
+    <g transform="translate(0, 680)">
+      <rect x="-8" y="0" width="380" height="110" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="110" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-light" font-size="13">市场竞争分析</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.3"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">学术应用为主 (Harvard/CMU)</text>
+        <text x="16" y="66">气压源限制了商业化</text>
+        <text x="16" y="84">康复领域有少量应用</text>
+        <text x="16" y="102">微气动技术 (可穿戴气源) 正在发展</text>
+      </g>
+    </g>
+    <g transform="translate(0, 808)">
+      <rect x="-8" y="0" width="380" height="115" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="115" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-light" font-size="13">关键学习点</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.3"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="46">McKibben 肌肉是优秀的力/重比驱动方案</text>
+        <text x="16" y="64">固有柔顺性对安全交互极有价值</text>
+        <text x="16" y="82">可关注微气源技术进步 (电化学/化学气体)</text>
+        <text x="16" y="100">编织材料 (Kevlar/Dyneema) 决定寿命</text>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(0, 1100)">
+    <rect x="20" y="0" width="1160" height="50" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+    <rect x="40" y="10" width="18" height="18" rx="3" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+    <text x="62" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">骨骼</text>
+    <rect x="110" y="10" width="18" height="18" rx="3" fill="rgba(200,50,50,0.2)" stroke="rgba(200,50,50,0.4)" stroke-width="0.8"/>
+    <text x="132" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">肌肉</text>
+    <rect x="180" y="10" width="18" height="18" rx="3" fill="url(#metalGrad)" stroke="#6B7280" stroke-width="0.8"/>
+    <text x="202" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">框架</text>
+    <rect x="270" y="10" width="18" height="18" rx="3" fill="#757575" stroke="#616161" stroke-width="0.8"/>
+    <text x="292" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">气动肌肉</text>
+    <rect x="380" y="10" width="18" height="18" rx="3" fill="#42A5F5" stroke="#1E88E5" stroke-width="0.8"/>
+    <text x="402" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">气管</text>
+    <line x1="470" y1="19" x2="490" y2="19" stroke="#dc2626" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <text x="498" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">力矢量</text>
+    <line x1="580" y1="10" x2="600" y2="10" stroke="#e5e7eb" stroke-width="0.8"/>
+    <text x="605" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">评估：</text>
+    <rect x="676" y="10" width="18" height="18" rx="3" fill="#0096f0"/>
+    <text x="698" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">推荐采用</text>
+    <rect x="774" y="10" width="18" height="18" rx="3" fill="#d97706"/>
+    <text x="796" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">部分借鉴</text>
+    <rect x="872" y="10" width="18" height="18" rx="3" fill="#9E9E9E"/>
+    <text x="894" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">仅跟踪</text>
+    <line x1="40" y1="34" x2="1140" y2="34" stroke="#e2e8f0" stroke-width="0.3"/>
+    <text x="580" y="44" font-size="9" fill="#a0aec0" font-family="sans-serif" text-anchor="middle">附录 C · 髋关节外骨骼架构分析 | Bones &amp; Manifold · Nexum Project 2026</text>
+  </g>
+  <g transform="translate(50, 850)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="310" height="190" rx="5" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.8" filter="url(#softShadow)"/>
+    <text x="12" y="20" class="title-gray" font-size="11">McKibben 气动肌肉详图</text>
+    <text x="12" y="34" class="label-sm" font-size="8">MCKIBBEN MUSCLE — CROSS SECTION</text>
+    <line x1="12" y1="38" x2="298" y2="38" stroke="#e5e7eb" stroke-width="0.5"/>
+    <g transform="translate(15, 48)">
+      <rect x="0" y="0" width="100" height="80" rx="4" fill="#fff" stroke="#e5e7eb" stroke-width="0.8"/>
+      <ellipse cx="50" cy="40" rx="30" ry="35" fill="none" stroke="#757575" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <ellipse cx="50" cy="40" rx="20" ry="28" fill="rgba(66,165,245,0.2)" stroke="#42A5F5" stroke-width="1"/>
+      <ellipse cx="50" cy="40" rx="10" ry="15" fill="rgba(66,165,245,0.1)"/>
+      <line x1="80" y1="20" x2="95" y2="20" stroke="#757575" stroke-width="0.6"/>
+      <text x="98" y="22" class="label-sm" font-size="6" fill="#757575">编织网</text>
+      <line x1="70" y1="40" x2="95" y2="40" stroke="#42A5F5" stroke-width="0.6"/>
+      <text x="98" y="42" class="label-sm" font-size="6" fill="#42A5F5">内胆</text>
+    </g>
+    <g transform="translate(150, 48)">
+      <text x="0" y="0" class="label-sm" font-size="9" fill="#475569">气动肌肉规格</text>
+      <text x="0" y="16" class="label-sm" font-size="8" fill="#64748b">收缩比：20-30%</text>
+      <text x="0" y="28" class="label-sm" font-size="8" fill="#64748b">最大力：300-500 N</text>
+      <text x="0" y="40" class="label-sm" font-size="8" fill="#64748b">工作压力：0.2-0.6 MPa</text>
+      <text x="0" y="52" class="label-sm" font-size="8" fill="#64748b">响应带宽：0-5 Hz</text>
+      <line x1="0" y1="60" x2="150" y2="60" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="0" y="74" class="label-sm" font-size="8" fill="#9E9E9E" font-weight="bold">优缺点：</text>
+      <text x="0" y="86" class="label-sm" font-size="8" fill="#64748b">+ 高力/重比、固有柔顺</text>
+      <text x="0" y="98" class="label-sm" font-size="8" fill="#64748b">- 气源笨重、响应慢</text>
+      <text x="0" y="110" class="label-sm" font-size="8" fill="#64748b">- 寿命 10^5 次 (编织疲劳)</text>
+    </g>
+  </g>
+  <g transform="translate(400, 830)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="300" height="210" rx="5" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.8" filter="url(#softShadow)"/>
+    <text x="12" y="20" class="title-gray" font-size="11">气动 vs 电机驱动对比</text>
+    <text x="12" y="34" class="label-sm" font-size="8">PNEUMATIC vs ELECTRIC — COMPARISON</text>
+    <line x1="12" y1="38" x2="288" y2="38" stroke="#e0e0e0" stroke-width="0.5"/>
+    <g transform="translate(12, 48)">
+      <rect x="0" y="0" width="130" height="90" rx="3" fill="#fff" stroke="#9E9E9E" stroke-width="0.6"/>
+      <text x="65" y="12" font-size="7" fill="#9E9E9E" font-family="sans-serif" text-anchor="middle" font-weight="bold">气动</text>
+      <text x="4" y="26" class="label-sm" font-size="7" fill="#64748b">力/重：4:1</text>
+      <text x="4" y="38" class="label-sm" font-size="7" fill="#64748b">柔顺：高 (固有)</text>
+      <text x="4" y="50" class="label-sm" font-size="7" fill="#64748b">带宽：0-5 Hz</text>
+      <text x="4" y="62" class="label-sm" font-size="7" fill="#64748b">控制：非线</text>
+      <text x="4" y="74" class="label-sm" font-size="7" fill="#64748b">重量：3+ kg</text>
+      <text x="4" y="86" class="label-sm" font-size="7" fill="#64748b">噪音：60 dB</text>
+      <rect x="140" y="0" width="130" height="90" rx="3" fill="#fff" stroke="#0096f0" stroke-width="0.6"/>
+      <text x="205" y="12" font-size="7" fill="#0096f0" font-family="sans-serif" text-anchor="middle" font-weight="bold">电机</text>
+      <text x="144" y="26" class="label-sm" font-size="7" fill="#64748b">力/重：1.5:1</text>
+      <text x="144" y="38" class="label-sm" font-size="7" fill="#64748b">柔顺：需控制</text>
+      <text x="144" y="50" class="label-sm" font-size="7" fill="#64748b">带宽：0-50 Hz</text>
+      <text x="144" y="62" class="label-sm" font-size="7" fill="#64748b">控制：线性</text>
+      <text x="144" y="74" class="label-sm" font-size="7" fill="#64748b">重量：1-2 kg</text>
+      <text x="144" y="86" class="label-sm" font-size="7" fill="#64748b">噪音：&lt; 30 dB</text>
+      <text x="6" y="104" class="label-sm" font-size="8" fill="#9E9E9E" font-weight="bold">结论：电机在消费级场景全胜</text>
+      <text x="6" y="118" class="label-sm" font-size="7" fill="#64748b">气动仅在康复/柔顺需求场景有优势</text>
+      <text x="6" y="132" class="label-sm" font-size="7" fill="#64748b">微气源技术 (电化学/过氧化物) 值得跟踪</text>
+    </g>
+  </g>
+  <g transform="translate(50, 750)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="660" height="70" rx="4" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5"/>
+    <text x="12" y="16" class="label-sm" font-size="8" fill="#475569">注：气动人工肌肉 (McKibben) 力/重比 4:1 优于电机的 1.5:1，且固有柔顺性对人机交互安全极为有利。</text>
+    <text x="12" y="30" class="label-sm" font-size="8" fill="#475569">但气源系统 (空压机/储气罐) 使总重 &gt; 3 kg，控制带宽 &lt; 5 Hz，不适合敏捷步态的消费级产品。</text>
+    <text x="12" y="44" class="label-sm" font-size="8" fill="#64748b">关注：微气源技术 (电化学气体发生 / 过氧化物分解) 可能在 3-5 年内解决气源小型化问题</text>
+  </g>
+</svg>

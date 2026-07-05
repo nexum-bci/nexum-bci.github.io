@@ -1,0 +1,363 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1050">
+  <defs>
+    <marker id="aR" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto"><path d="M0,0 L12,4 L0,8" fill="#d32f2f"/></marker>
+    <marker id="aB" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#0096f0"/></marker>
+    <marker id="aA" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#d97706"/></marker>
+    <marker id="aG" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#2e7d32"/></marker>
+    <marker id="aGy" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#888"/></marker>
+    <linearGradient id="gBone" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e8ddc0"/><stop offset="35%" stop-color="#eee4cc"/><stop offset="65%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#c8b898"/></linearGradient>
+    <linearGradient id="gBoneVert" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8ddc0"/><stop offset="40%" stop-color="#eee4cc"/><stop offset="70%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#c8b898"/></linearGradient>
+    <linearGradient id="gBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fcfcfc"/><stop offset="100%" stop-color="#f8f8f8"/></linearGradient>
+    <linearGradient id="gMetal" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d0d0d0"/><stop offset="50%" stop-color="#b0b0b0"/><stop offset="100%" stop-color="#909090"/></linearGradient>
+    <linearGradient id="gCartilage" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8d4e8"/><stop offset="100%" stop-color="#90b8d8"/></linearGradient>
+    <radialGradient id="gMuscle" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="rgba(200,50,50,0.18)"/><stop offset="100%" stop-color="rgba(180,40,40,0.08)"/></radialGradient>
+    <pattern id="pBraid" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0,0 L8,8 M8,0 L0,8" stroke="#b0b0b0" stroke-width="0.5" opacity="0.5"/></pattern>
+    <pattern id="pBraidDense" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M0,0 L5,5 M5,0 L0,5" stroke="#909090" stroke-width="0.4" opacity="0.4"/></pattern>
+  </defs>
+  <rect width="1200" height="1000" fill="#ffffff"/>
+  <rect x="0" y="0" width="1200" height="1000" fill="url(#gBg)"/>
+
+  <!-- HEADER BAR -->
+  <rect x="20" y="16" width="1160" height="48" rx="6" fill="#d97706"/>
+  <text x="600" y="39" text-anchor="middle" font-size="17" font-weight="700" fill="#fff" font-family="Arial,Helvetica,sans-serif">气动人工肌肉（PAM）</text>
+  <text x="600" y="56" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)" font-family="Arial,Helvetica,sans-serif">McKibben编织网套+弹性气囊 | TRL 5-7 | EsoMark1·XoBrace</text>
+
+  <!-- LEFT PANEL: Pure Scientific Graphics -->
+  <rect x="20" y="72" width="720" height="862" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+
+  <g id="leftPanelGraphics" transform="translate(80,0)">
+    <!-- === ANATOMICAL LEG (x=60-200) === -->
+    <!-- Quadriceps -->
+    <path d="M95,95 Q115,95 140,100 Q155,115 160,200 Q162,280 165,350 Q165,400 160,430 Q150,445 135,445 L105,445 Q90,445 85,430 Q80,400 80,350 Q78,280 80,200 Q82,115 95,95 Z" fill="rgba(200,50,50,0.12)" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <!-- Hamstrings -->
+    <path d="M165,100 Q175,110 180,200 Q182,280 180,350 Q178,400 170,435 Q163,448 150,448 L140,448 Q130,448 125,435 Q120,400 118,350 Q115,280 120,200 Q123,115 135,100 Q145,95 155,95 Z" fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.20)" stroke-width="0.5"/>
+    <!-- Gastrocnemius -->
+    <path d="M130,450 Q140,450 150,455 Q160,470 165,520 Q168,580 165,650 Q160,700 150,730 Q140,740 130,740 L105,740 Q95,740 90,730 Q83,700 80,650 Q78,580 82,520 Q85,470 95,455 Q102,450 112,450 Z" fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.18)" stroke-width="0.5"/>
+
+    <!-- FEMUR -->
+    <path d="M120,100 Q123,100 127,105 Q133,115 137,180 Q140,250 140,300 Q141,350 139,400 Q137,425 133,435 Q127,440 123,440 Q118,440 113,435 Q109,425 107,400 Q105,350 106,300 Q107,250 110,180 Q113,115 117,105 Q118,100 120,100 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="1"/>
+    <ellipse cx="123" cy="108" rx="14" ry="16" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="115" cy="438" rx="10" ry="12" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="130" cy="438" rx="10" ry="12" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <path d="M107,442 Q115,452 123,442" fill="none" stroke="#90b8d8" stroke-width="2" opacity="0.5"/>
+    <path d="M122,442 Q130,452 138,442" fill="none" stroke="#90b8d8" stroke-width="2" opacity="0.5"/>
+
+    <!-- TIBIA -->
+    <path d="M120,450 Q123,450 127,455 Q133,470 137,540 Q140,600 140,660 Q141,720 138,760 Q135,775 130,780 Q125,782 120,780 Q115,782 110,780 Q105,775 102,760 Q99,720 100,660 Q101,600 103,540 Q107,470 113,455 Q117,450 120,450 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="1"/>
+    <rect x="107" y="448" width="28" height="8" rx="3" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.6"/>
+    <ellipse cx="135" cy="480" rx="6" ry="10" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.5" opacity="0.7"/>
+
+    <!-- FIBULA -->
+    <path d="M150,465 Q152,470 153,520 Q154,600 153,680 Q152,720 150,740 Q148,745 145,745 Q142,745 140,740 Q138,720 137,680 Q136,600 137,520 Q138,470 142,465 Q145,463 148,465 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="147" cy="468" rx="6" ry="8" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.5"/>
+
+    <!-- PATELLA -->
+    <ellipse cx="143" cy="420" rx="16" ry="20" fill="url(#gBone)" stroke="#c8b898" stroke-width="1"/>
+    <path d="M133,410 Q143,405 153,410" fill="none" stroke="#d4c9a8" stroke-width="0.5" opacity="0.5"/>
+    <path d="M131,425 Q143,420 155,425" fill="none" stroke="#d4c9a8" stroke-width="0.5" opacity="0.5"/>
+    <path d="M143,440 L143,460" stroke="#c8b898" stroke-width="1.5" opacity="0.5"/>
+
+    <!-- Joint capsule -->
+    <path d="M105,430 Q120,415 135,430 Q130,450 120,455 Q110,450 105,430 Z" fill="none" stroke="#90b8d8" stroke-width="0.8" stroke-dasharray="2,2" opacity="0.4"/>
+    <path d="M108,448 Q120,443 132,448" fill="none" stroke="#b8d4e8" stroke-width="2.5" opacity="0.4"/>
+
+    <!-- === McKIBBEN MUSCLE CROSS-SECTION (x=250-380, y=90-250) === -->
+    <!-- Outer braided mesh (diamond pattern on cylinder) -->
+    <rect x="260" y="100" width="110" height="160" rx="8" fill="url(#gBg)" stroke="#808080" stroke-width="1.5"/>
+    <rect x="260" y="100" width="110" height="160" rx="8" fill="url(#pBraidDense)"/>
+
+    <!-- Braided mesh lines (diagonal weave) -->
+    <path d="M270,100 L258,120" stroke="#909090" stroke-width="0.6" opacity="0.5"/>
+    <path d="M290,100 L258,145" stroke="#909090" stroke-width="0.6" opacity="0.5"/>
+    <path d="M310,100 L258,170" stroke="#909090" stroke-width="0.6" opacity="0.5"/>
+    <path d="M330,100 L258,195" stroke="#909090" stroke-width="0.6" opacity="0.5"/>
+    <path d="M345,100 L258,220" stroke="#909090" stroke-width="0.6" opacity="0.5"/>
+    <path d="M360,100 L270,240" stroke="#909090" stroke-width="0.6" opacity="0.5"/>
+    <path d="M270,100 L360,140" stroke="#909090" stroke-width="0.6" opacity="0.5"/>
+    <path d="M295,100 L360,170" stroke="#909090" stroke-width="0.6" opacity="0.5"/>
+    <path d="M320,100 L360,200" stroke="#909090" stroke-width="0.6" opacity="0.5"/>
+    <path d="M345,100 L360,230" stroke="#909090" stroke-width="0.6" opacity="0.5"/>
+    <path d="M260,125 L360,260" stroke="#909090" stroke-width="0.6" opacity="0.5"/>
+
+    <!-- Inner elastic bladder -->
+    <rect x="278" y="108" width="74" height="144" rx="5" fill="#fef0e8" stroke="#d4884a" stroke-width="1" opacity="0.8"/>
+    <!-- Bladder wall thickness -->
+    <rect x="278" y="108" width="6" height="144" rx="2" fill="#f0d8c8" stroke="#d4884a" stroke-width="0.5" opacity="0.6"/>
+    <rect x="346" y="108" width="6" height="144" rx="2" fill="#f0d8c8" stroke="#d4884a" stroke-width="0.5" opacity="0.6"/>
+
+    <!-- Air pressure inside -->
+    <path d="M290,130 Q315,120 340,130" fill="none" stroke="#0096f0" stroke-width="0.6" opacity="0.3"/>
+    <path d="M290,160 Q315,150 340,160" fill="none" stroke="#0096f0" stroke-width="0.6" opacity="0.3"/>
+    <path d="M290,190 Q315,180 340,190" fill="none" stroke="#0096f0" stroke-width="0.6" opacity="0.3"/>
+    <path d="M290,220 Q315,210 340,220" fill="none" stroke="#0096f0" stroke-width="0.6" opacity="0.3"/>
+
+    <!-- End fittings -->
+    <rect x="256" y="96" width="118" height="8" rx="3" fill="url(#gMetal)" stroke="#707070" stroke-width="0.8"/>
+    <rect x="256" y="256" width="118" height="8" rx="3" fill="url(#gMetal)" stroke="#707070" stroke-width="0.8"/>
+    <!-- Air port -->
+    <rect x="300" y="256" width="12" height="6" rx="1" fill="#a0a0a0" stroke="#707070" stroke-width="0.5"/>
+
+    <!-- === BRAID ANGLE θ ANNOTATION === -->
+    <!-- Angle arc -->
+    <path d="M268,130 Q272,118 282,115" fill="none" stroke="#2e7d32" stroke-width="0.8"/>
+    <text x="270" y="122" font-size="8" font-weight="700" fill="#2e7d32" font-family="Arial,Helvetica,sans-serif">θ</text>
+    <!-- Contraction annotation -->
+    <line x1="315" y1="96" x2="315" y2="90" stroke="#2e7d32" stroke-width="0.8"/>
+    <line x1="315" y1="264" x2="315" y2="270" stroke="#2e7d32" stroke-width="0.8"/>
+    <line x1="300" y1="90" x2="330" y2="90" stroke="#2e7d32" stroke-width="0.6"/>
+    <line x1="300" y1="270" x2="330" y2="270" stroke="#2e7d32" stroke-width="0.6"/>
+
+    <!-- Contraction arrows -->
+    <line x1="290" y1="86" x2="290" y2="75" stroke="#2e7d32" stroke-width="1" marker-end="url(#aG)"/>
+    <line x1="340" y1="86" x2="340" y2="75" stroke="#2e7d32" stroke-width="1" marker-end="url(#aG)"/>
+
+    <!-- === PAM DETAIL: RELAXED vs CONTRACTED (x=250-380, y=280-370) === -->
+    <!-- Relaxed PAM -->
+    <rect x="260" y="290" width="80" height="55" rx="6" fill="#fef0e8" stroke="#d4884a" stroke-width="1" opacity="0.4"/>
+    <rect x="260" y="290" width="80" height="55" rx="6" fill="url(#pBraidDense)" opacity="0.3"/>
+    <text x="262" y="302" font-size="7" fill="#888" font-family="Arial,Helvetica,sans-serif">松弛状态</text>
+    <!-- Contracted PAM -->
+    <rect x="360" y="300" width="60" height="40" rx="6" fill="#fef0e8" stroke="#d4884a" stroke-width="1.2" opacity="0.6"/>
+    <rect x="360" y="300" width="60" height="40" rx="6" fill="url(#pBraidDense)" opacity="0.5"/>
+    <text x="362" y="310" font-size="7" fill="#888" font-family="Arial,Helvetica,sans-serif">收缩状态</text>
+    <!-- Expansion arrow between them -->
+    <line x1="340" y1="317" x2="358" y2="317" stroke="#d32f2f" stroke-width="1.2" marker-end="url(#aR)"/>
+    <line x1="340" y1="317" x2="326" y2="317" stroke="#888" stroke-width="1"/>
+
+    <!-- === ANTAGONISTIC PAIR AT KNEE JOINT (x=200-280, y=430-550) === -->
+    <!-- Flexor PAM (posterior side) -->
+    <path d="M235,445 Q260,480 255,530 Q250,560 240,570" fill="none" stroke="#808080" stroke-width="10" stroke-linecap="round" opacity="0.3"/>
+    <path d="M235,445 Q260,480 255,530 Q250,560 240,570" fill="none" stroke="#d4884a" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
+    <path d="M235,445 Q260,480 255,530 Q250,560 240,570" fill="none" stroke="#808080" stroke-width="10" stroke-linecap="round" stroke-dasharray="2,4" opacity="0.15"/>
+
+    <!-- Extensor PAM (anterior side) -->
+    <path d="M175,445 Q165,490 175,540 Q180,565 185,570" fill="none" stroke="#808080" stroke-width="10" stroke-linecap="round" opacity="0.3"/>
+    <path d="M175,445 Q165,490 175,540 Q180,565 185,570" fill="none" stroke="#d4884a" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
+    <path d="M175,445 Q165,490 175,540 Q180,565 185,570" fill="none" stroke="#808080" stroke-width="10" stroke-linecap="round" stroke-dasharray="2,4" opacity="0.15"/>
+
+    <!-- Knee joint pivot -->
+    <circle cx="210" cy="455" r="16" fill="url(#gMetal)" stroke="#808080" stroke-width="1.5"/>
+    <circle cx="210" cy="455" r="6" fill="#c0c0c0" stroke="#909090" stroke-width="0.8"/>
+
+    <!-- Force vectors on PAMs -->
+    <line x1="235" y1="445" x2="220" y2="440" stroke="#d32f2f" stroke-width="1.5" marker-end="url(#aR)"/>
+    <line x1="240" y1="570" x2="225" y2="575" stroke="#d32f2f" stroke-width="1.5" marker-end="url(#aR)"/>
+    <line x1="175" y1="445" x2="190" y2="440" stroke="#d32f2f" stroke-width="1.5" marker-end="url(#aR)"/>
+    <line x1="185" y1="570" x2="200" y2="575" stroke="#d32f2f" stroke-width="1.5" marker-end="url(#aR)"/>
+
+    <!-- === PNEUMATIC CIRCUIT DIAGRAM (x=430, y=90-190) === -->
+    <rect x="430" y="90" width="250" height="110" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <!-- Compressor -->
+    <circle cx="460" cy="145" r="18" fill="#e8f0fe" stroke="#0096f0" stroke-width="1"/>
+    <path d="M453,140 Q460,135 467,140" fill="none" stroke="#0096f0" stroke-width="0.6"/>
+    <path d="M453,150 Q460,155 467,150" fill="none" stroke="#0096f0" stroke-width="0.6"/>
+    <line x1="460" y1="163" x2="460" y2="175" stroke="#0096f0" stroke-width="1"/>
+    <!-- Filter -->
+    <rect x="475" y="140" width="14" height="18" rx="1" fill="#fefce8" stroke="#d97706" stroke-width="0.6"/>
+    <path d="M478,142 L486,142 L486,156 L478,156 Z" fill="none" stroke="#d97706" stroke-width="0.4"/>
+    <!-- Proportional valve -->
+    <rect x="510" y="132" width="22" height="34" rx="3" fill="#f5f5f5" stroke="#808080" stroke-width="0.8"/>
+    <rect x="514" y="140" width="14" height="18" rx="1" fill="#a0a0a0" stroke="#707070" stroke-width="0.4"/>
+    <!-- Valve spool -->
+    <rect x="518" y="142" width="6" height="14" rx="1" fill="#c0c0c0"/>
+    <!-- Pilot line -->
+    <path d="M530,149 L540,149" stroke="#888" stroke-width="0.6"/>
+    <!-- Lines from valve to PAMs -->
+    <path d="M511,140 Q490,95 460,95 Q430,95 315,95" fill="none" stroke="#0096f0" stroke-width="0.8" marker-end="url(#aB)"/>
+    <path d="M511,158 Q490,180 460,180 Q440,180 315,260" fill="none" stroke="#0096f0" stroke-width="0.8" marker-end="url(#aB)"/>
+    <!-- Exhaust -->
+    <path d="M532,165 L545,175 L540,180" stroke="#888" stroke-width="0.6"/>
+    <circle cx="545" cy="175" r="2" fill="#888"/>
+
+    <!-- === FORCE-CONTRACTION CHARACTERISTIC CURVE (x=430, y=220-340) === -->
+    <rect x="430" y="220" width="250" height="130" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <line x1="445" y1="335" x2="665" y2="335" stroke="#888" stroke-width="0.8"/>
+    <line x1="445" y1="235" x2="445" y2="335" stroke="#888" stroke-width="0.8"/>
+    <!-- Force-contraction curve -->
+    <path d="M460,325 Q480,310 500,290 Q520,265 540,250 Q560,242 580,240 Q600,239 620,240 Q640,242 660,245" fill="none" stroke="#d32f2f" stroke-width="1.8"/>
+    <!-- Isometric force point -->
+    <circle cx="460" cy="325" r="3" fill="#d32f2f"/>
+    <line x1="460" y1="325" x2="460" y2="335" stroke="#d32f2f" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <!-- Working range annotation -->
+    <path d="M500,290 Q520,265 540,250" fill="none" stroke="#2e7d32" stroke-width="0.8" stroke-dasharray="3,2"/>
+    <polygon points="445,235 441,245 449,245" fill="#888"/>
+    <polygon points="665,335 655,331 655,339" fill="#888"/>
+
+    <!-- === PRESSURE-CONTRACTION FAMILY (x=430, y=370-470) === -->
+    <rect x="430" y="370" width="250" height="110" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <line x1="445" y1="466" x2="665" y2="466" stroke="#888" stroke-width="0.8"/>
+    <line x1="445" y1="385" x2="445" y2="466" stroke="#888" stroke-width="0.8"/>
+    <path d="M460,455 Q480,440 500,420 Q520,400 540,395 Q560,392 580,393 Q600,395 620,398 Q640,402 660,406" fill="none" stroke="#d32f2f" stroke-width="1.2"/>
+    <path d="M460,450 Q480,430 500,410 Q520,393 540,388 Q560,385 580,386 Q600,388 620,392 Q640,396 660,400" fill="none" stroke="#d97706" stroke-width="1.2" stroke-dasharray="4,2"/>
+    <path d="M460,445 Q480,420 500,400 Q520,385 540,380 Q560,378 580,379 Q600,381 620,385 Q640,389 660,394" fill="none" stroke="#0096f0" stroke-width="1.2" stroke-dasharray="2,3"/>
+    <polygon points="445,385 441,395 449,395" fill="#888"/>
+    <polygon points="665,466 655,462 655,470" fill="#888"/>
+
+    <!-- === EFFICIENCY COMPARISON BAR (x=430, y=498-545) === -->
+    <rect x="430" y="498" width="250" height="55" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <line x1="460" y1="518" x2="540" y2="518" stroke="#d97706" stroke-width="2.5"/>
+    <line x1="460" y1="538" x2="520" y2="538" stroke="#0096f0" stroke-width="2.5"/>
+    <line x1="460" y1="558" x2="580" y2="558" stroke="#d32f2f" stroke-width="2.5"/>
+
+    <!-- === ANTAGONISTIC PAIR SCHEMATIC (x=430, y=565-625) === -->
+    <rect x="430" y="565" width="250" height="65" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <circle cx="555" cy="597" r="10" fill="url(#gMetal)" stroke="#808080" stroke-width="0.8"/>
+    <line x1="480" y1="597" x2="545" y2="597" stroke="#d32f2f" stroke-width="2"/>
+    <line x1="565" y1="597" x2="630" y2="597" stroke="#d32f2f" stroke-width="2"/>
+    <path d="M490,587 Q500,597 490,607" fill="none" stroke="#2e7d32" stroke-width="0.8"/>
+    <path d="M575,587 Q565,597 575,607" fill="none" stroke="#2e7d32" stroke-width="0.8"/>
+    <!-- Spring representation of PAM -->
+    <path d="M500,593 L505,597 L500,601" fill="none" stroke="#d97706" stroke-width="0.6"/>
+
+    <!-- === McKIBBEN FORCE EQUATION (x=50, y=570-610) === -->
+    <rect x="50" y="650" width="340" height="45" rx="3" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <text x="60" y="670" font-size="11" font-weight="700" fill="#333" font-family="Arial,Helvetica,sans-serif">F = (πD₀²/4) · P · (3cos²θ - 1)</text>
+    <text x="60" y="612" font-size="8" fill="#666" font-family="Arial,Helvetica,sans-serif">F=收缩力(N)  D₀=初始直径(mm)  P=气压(MPa)  θ=编织角(°)</text>
+
+    <!-- === CONTRACTION RATIO FORMULA (x=50, y=630-670) === -->
+    <rect x="50" y="705" width="340" height="45" rx="3" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <text x="60" y="725" font-size="11" font-weight="700" fill="#333" font-family="Arial,Helvetica,sans-serif">ε = (L₀ - L)/L₀ = 1 - cosθ/cosθ₀</text>
+    <text x="60" y="667" font-size="8" fill="#666" font-family="Arial,Helvetica,sans-serif">ε=收缩率(%)  L₀=初始长度(mm)  θ₀=初始编织角(°)</text>
+
+    <!-- === TYPICAL PAM PARAMETERS (x=50, y=685-725) === -->
+    <rect x="50" y="760" width="340" height="50" rx="3" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <text x="60" y="780" font-size="11" font-weight="700" fill="#333" font-family="Arial,Helvetica,sans-serif">F_max = πD₀²P/4 · (1/sin²θ₀)</text>
+    <text x="60" y="722" font-size="8" fill="#666" font-family="Arial,Helvetica,sans-serif">等长收缩最大力 | 典型值: 直径20mm @0.6MPa → 约3500N</text>
+
+    <!-- === EsoMark1 DATA PANEL (x=50, y=740-800) === -->
+    <rect x="50" y="815" width="340" height="70" rx="3" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <text x="60" y="835" font-size="10" font-weight="700" fill="#333" font-family="Arial,Helvetica,sans-serif">EsoMark1（EsoBionics公司）— PAM踝关节外骨骼</text>
+    <text x="60" y="778" font-size="9" fill="#555" font-family="Arial,Helvetica,sans-serif">售价约£6,000 | 重量1.4kg | 临床前验证中</text>
+    <text x="60" y="794" font-size="9" fill="#555" font-family="Arial,Helvetica,sans-serif">XoBrace: 约$150低成本穿戴式腰椎矫正PAM外骨骼</text>
+
+    <!-- === BANDWIDTH COMPARISON (x=430, y=640-690) === -->
+    <rect x="430" y="640" width="250" height="55" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <line x1="460" y1="660" x2="580" y2="660" stroke="#888" stroke-width="0.8"/>
+    <path d="M460,660 Q480,658 500,650 Q520,638 540,645 Q560,655 580,658" fill="none" stroke="#d32f2f" stroke-width="1.2"/>
+    <path d="M460,660 Q485,655 510,640 Q535,648 560,655 Q575,658 580,658" fill="none" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+    <!-- CHINESE ANATOMICAL LABELS -->
+    <line x1="35" y1="180" x2="80" y2="180" stroke="#888" stroke-width="0.5"/><circle cx="80" cy="180" r="1.5" fill="#888"/>
+    <text x="30" y="184" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">股骨</text>
+    <line x1="35" y1="580" x2="120" y2="580" stroke="#888" stroke-width="0.5"/><circle cx="120" cy="580" r="1.5" fill="#888"/>
+    <text x="30" y="584" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">胫骨</text>
+    <line x1="175" y1="600" x2="147" y2="600" stroke="#888" stroke-width="0.5"/><circle cx="147" cy="600" r="1.5" fill="#888"/>
+    <text x="180" y="604" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腓骨</text>
+    <line x1="35" y1="420" x2="143" y2="420" stroke="#888" stroke-width="0.5"/><circle cx="143" cy="420" r="1.5" fill="#888"/>
+    <text x="30" y="424" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">髌骨</text>
+    <line x1="35" y1="448" x2="108" y2="448" stroke="#90b8d8" stroke-width="0.6"/>
+    <text x="30" y="452" text-anchor="end" font-size="10" fill="#777" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关节软骨</text>
+    <path d="M108,452 Q120,458 132,452" fill="none" stroke="#90b8d8" stroke-width="1.5" opacity="0.5"/>
+    <line x1="35" y1="462" x2="120" y2="462" stroke="#90b8d8" stroke-width="0.5"/>
+    <text x="30" y="466" text-anchor="end" font-size="10" fill="#777" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">半月板</text>
+    <line x1="35" y1="240" x2="100" y2="240" stroke="rgba(200,50,50,0.3)" stroke-width="0.5"/>
+    <circle cx="100" cy="240" r="1.5" fill="rgba(200,50,50,0.3)"/>
+    <text x="30" y="244" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">股四头肌</text>
+    <line x1="35" y1="300" x2="165" y2="300" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <circle cx="165" cy="300" r="1.5" fill="rgba(200,50,50,0.25)"/>
+    <text x="30" y="304" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腘绳肌</text>
+    <line x1="35" y1="550" x2="105" y2="550" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <circle cx="105" cy="550" r="1.5" fill="rgba(200,50,50,0.25)"/>
+    <text x="30" y="554" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腓肠肌</text>
+
+    <!-- CHINESE MECHANISM LABELS -->
+    <line x1="315" y1="180" x2="430" y2="175" stroke="#808080" stroke-width="0.5"/>
+    <text x="435" y="179" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">McKibben编织网 Braided Mesh</text>
+    <line x1="315" y1="180" x2="430" y2="195" stroke="#d4884a" stroke-width="0.5"/>
+    <text x="435" y="199" font-size="10" fill="#d4884a" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">弹性气囊 Elastic Bladder</text>
+    <path d="M272,118 Q300,110 330,118" fill="none" stroke="#2e7d32" stroke-width="0.6"/>
+    <text x="335" y="114" font-size="10" fill="#2e7d32" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">编织角 θ</text>
+    <line x1="300" y1="215" x2="430" y2="230" stroke="#0096f0" stroke-width="0.5"/>
+    <text x="435" y="234" font-size="10" fill="#0096f0" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">压缩空气 Compressed Air</text>
+    <line x1="520" y1="150" x2="560" y2="140" stroke="#808080" stroke-width="0.5"/>
+    <text x="565" y="144" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">比例阀 Proportional Valve</text>
+    <line x1="460" y1="145" x2="540" y2="155" stroke="#0096f0" stroke-width="0.5"/>
+    <text x="545" y="159" font-size="10" fill="#0096f0" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">气源 Compressor</text>
+    <line x1="210" y1="455" x2="360" y2="455" stroke="#808080" stroke-width="0.5"/>
+    <text x="365" y="459" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">拮抗对 Antagonistic Pair</text>
+    <line x1="210" y1="455" x2="360" y2="475" stroke="#808080" stroke-width="0.5"/>
+    <text x="365" y="479" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关节枢轴 Joint Pivot</text>
+    <line x1="235" y1="445" x2="210" y2="435" stroke="#d32f2f" stroke-width="0.6"/>
+    <text x="185" y="439" text-anchor="end" font-size="10" fill="#d32f2f" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">收缩力 F_contract</text>
+
+    <!-- CHINESE FORMULA LABELS -->
+    <text x="60" y="592" font-size="9" fill="#666" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">F=收缩力(N)  D₀=初始直径(mm)  P=气压(MPa)  θ=编织角(°)</text>
+    <text x="60" y="650" font-size="9" fill="#666" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">ε=收缩率(%)  L₀=初始长度(mm)  θ₀=初始编织角(°)</text>
+  </g>
+
+  <!-- ISOLATION ZONE -->
+  <rect x="740" y="72" width="60" height="862" fill="#ffffff"/>
+
+  <!-- RIGHT PANEL: Text Panels -->
+  <rect x="800" y="72" width="380" height="862" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+
+  <!-- Panel 1 -->
+  <rect x="816" y="86" width="348" height="110" rx="5" fill="#fff8f0" stroke="#d97706" stroke-width="1"/>
+  <rect x="816" y="86" width="348" height="26" rx="5 5 0 0" fill="#d97706"/>
+  <text x="990" y="103" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Arial,Helvetica,sans-serif">技术概述</text>
+  <text x="828" y="128" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">气动人工肌肉(PAM)基于McKibben原理：编织网套</text>
+  <text x="828" y="144" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">包裹弹性气囊，充气时径向膨胀→轴向收缩产生拉</text>
+  <text x="828" y="160" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">力。天然拮抗对配置模拟生物肌肉行为。</text>
+  <text x="828" y="178" font-size="9" fill="#888" font-family="Arial,Helvetica,sans-serif">收缩率 ~25-35% | 力/重比 400:1 | 带宽 ~3-5 Hz</text>
+
+  <!-- Panel 2 -->
+  <rect x="816" y="220" width="348" height="115" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="0.6"/>
+  <rect x="816" y="220" width="348" height="26" rx="5 5 0 0" fill="#d97706" fill-opacity="0.85"/>
+  <text x="990" y="237" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Arial,Helvetica,sans-serif">技术参数</text>
+  <text x="828" y="262" font-size="10" fill="#555" font-family="Arial,Helvetica,sans-serif">峰值拉力          3500 N (典型20mm直径McKibben)</text>
+  <text x="828" y="280" font-size="10" fill="#555" font-family="Arial,Helvetica,sans-serif">收缩率            25-35% (受编织角θ影响)</text>
+  <text x="828" y="298" font-size="10" fill="#555" font-family="Arial,Helvetica,sans-serif">工作压力          0.2-0.8 MPa (低压安全驱动)</text>
+  <text x="828" y="316" font-size="10" fill="#555" font-family="Arial,Helvetica,sans-serif">频率响应          3-5 Hz (受气路容积限制)</text>
+  <text x="828" y="334" font-size="10" fill="#555" font-family="Arial,Helvetica,sans-serif">力/重比           400:1 (极高功率重量比)</text>
+
+  <!-- Panel 3 -->
+  <rect x="816" y="359" width="348" height="115" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="0.6"/>
+  <rect x="816" y="359" width="348" height="26" rx="5 5 0 0" fill="#d97706" fill-opacity="0.85"/>
+  <text x="990" y="376" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Arial,Helvetica,sans-serif">代表产品 Representative Products</text>
+  <text x="828" y="401" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">EsoMark1 (EsoBionics) — 售价£6K · 重1.4kg</text>
+  <text x="828" y="419" font-size="10" fill="#666" font-family="Arial,Helvetica,sans-serif">PAM驱动的踝关节外骨骼 · 临床前验证</text>
+  <text x="828" y="440" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">XoBrace — 售价$150 (低成本穿戴式)</text>
+  <text x="828" y="458" font-size="10" fill="#666" font-family="Arial,Helvetica,sans-serif">气动肌肉辅助腰椎矫正 · 消费级产品</text>
+
+  <!-- Panel 4 -->
+  <rect x="816" y="498" width="348" height="100" rx="5" fill="#f0fdf4" stroke="#2e7d32" stroke-width="0.6"/>
+  <rect x="816" y="498" width="348" height="26" rx="5 5 0 0" fill="#2e7d32" fill-opacity="0.85"/>
+  <text x="990" y="515" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Arial,Helvetica,sans-serif">优势</text>
+  <text x="828" y="540" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 极高的力/重比(400:1) — 驱动单元轻量化</text>
+  <text x="828" y="558" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 天然柔顺性 — 气动弹性提供天然阻抗容差</text>
+  <text x="828" y="576" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 安全性高 — 低压驱动(&lt;1MPa)，无电击风险</text>
+  <text x="828" y="594" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 低成本潜力 — 材料简单(橡胶+编织网)</text>
+
+  <!-- Panel 5 -->
+  <rect x="816" y="622" width="348" height="115" rx="5" fill="#fef2f2" stroke="#c45a5a" stroke-width="0.6"/>
+  <rect x="816" y="622" width="348" height="26" rx="5 5 0 0" fill="#c45a5a" fill-opacity="0.85"/>
+  <text x="990" y="639" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Arial,Helvetica,sans-serif">缺陷 Disadvantages</text>
+  <text x="828" y="664" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 带宽低 — 气路响应慢，≤5 Hz限制控制带宽</text>
+  <text x="828" y="682" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 精度差 — 非线性和迟滞严重，精确位置控制困难</text>
+  <text x="828" y="700" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 气源系统 — 需要压缩机/气瓶，系统体积大</text>
+  <text x="828" y="718" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">• 耐久性 — 橡胶疲劳和编织磨损寿命有限</text>
+
+  <!-- Panel 6 -->
+  <rect x="816" y="761" width="348" height="155" rx="5" fill="#fff8f0" stroke="#d97706" stroke-width="1.2"/>
+  <rect x="816" y="761" width="348" height="26" rx="5 5 0 0" fill="#d97706"/>
+  <text x="990" y="778" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Arial,Helvetica,sans-serif">Bones 评估 Assessment</text>
+  <text x="828" y="803" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">Phase 1-2: 不采用气动方案 (气源系统复杂)</text>
+  <text x="828" y="821" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">核心技术借鉴: 编织网套结构设计原理</text>
+  <text x="828" y="842" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">Phase 3: 若微型气源成熟，可用于上肢/手指外骨骼</text>
+  <text x="828" y="863" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">关注方向: 编织角优化设计、柔顺力控制策略</text>
+  <text x="828" y="881" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">EsoBionics临床进展、低成本XoBrace验证</text>
+  <text x="828" y="899" font-size="10" fill="#333" font-family="Arial,Helvetica,sans-serif">潜在应用: 手指/手腕康复外骨骼</text>
+
+  <!-- LEGEND BAR -->
+  <rect x="20" y="940" width="1160" height="48" rx="4" fill="#f8f8f8" stroke="#d5d5d5" stroke-width="0.6"/>
+  <rect x="40" y="953" width="18" height="18" rx="2" fill="#0096f0"/>
+  <text x="64" y="967" font-size="12" fill="#333" font-weight="600" font-family="Arial,Helvetica,sans-serif">推荐采用 Recommended</text>
+  <rect x="240" y="953" width="18" height="18" rx="2" fill="#d97706"/>
+  <text x="264" y="967" font-size="12" fill="#333" font-weight="600" font-family="Arial,Helvetica,sans-serif">部分借鉴 Partial Reference</text>
+  <rect x="460" y="953" width="18" height="18" rx="2" fill="#c45a5a"/>
+  <text x="484" y="967" font-size="12" fill="#333" font-weight="600" font-family="Arial,Helvetica,sans-serif">缺陷 Not Recommended</text>
+  <rect x="680" y="953" width="18" height="18" rx="2" fill="#d32f2f"/>
+  <text x="704" y="967" font-size="12" fill="#333" font-weight="600" font-family="Arial,Helvetica,sans-serif">力矢量 Force Vector</text>
+  <rect x="900" y="953" width="18" height="18" rx="2" fill="#0096f0" fill-opacity="0.5"/>
+  <text x="924" y="967" font-size="12" fill="#333" font-weight="600" font-family="Arial,Helvetica,sans-serif">气压信号 Pneumatic</text>
+</svg>

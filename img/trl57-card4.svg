@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000">
+  <defs>
+    <marker id="aR" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto"><path d="M0,0 L12,4 L0,8" fill="#d32f2f"/></marker>
+    <marker id="aB" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#0096f0"/></marker>
+    <marker id="aA" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#d97706"/></marker>
+    <marker id="aG" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#2e7d32"/></marker>
+    <marker id="aGy" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#888"/></marker>
+    <linearGradient id="gBone" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e8ddc0"/><stop offset="35%" stop-color="#eee4cc"/><stop offset="65%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#c8b898"/></linearGradient>
+    <linearGradient id="gBoneVert" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8ddc0"/><stop offset="40%" stop-color="#eee4cc"/><stop offset="70%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#c8b898"/></linearGradient>
+    <linearGradient id="gBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fcfcfc"/><stop offset="100%" stop-color="#f8f8f8"/></linearGradient>
+    <linearGradient id="gMetal" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d0d0d0"/><stop offset="50%" stop-color="#b0b0b0"/><stop offset="100%" stop-color="#909090"/></linearGradient>
+    <linearGradient id="gMetalHoriz" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#d0d0d0"/><stop offset="50%" stop-color="#b8b8b8"/><stop offset="100%" stop-color="#909090"/></linearGradient>
+    <linearGradient id="gCartilage" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8d4e8"/><stop offset="100%" stop-color="#90b8d8"/></linearGradient>
+    <radialGradient id="gMuscle" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="rgba(200,50,50,0.18)"/><stop offset="100%" stop-color="rgba(180,40,40,0.08)"/></radialGradient>
+    <linearGradient id="gSpring" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#d0d0d0"/><stop offset="50%" stop-color="#e0e0e0"/><stop offset="100%" stop-color="#b0b0b0"/></linearGradient>
+    <clipPath id="leftClip"><rect x="20" y="72" width="720" height="862"/></clipPath>
+    <clipPath id="rightClip"><rect x="800" y="72" width="380" height="862"/></clipPath>
+  </defs>
+  <rect width="1200" height="1000" fill="#ffffff"/>
+  <rect x="0" y="0" width="1200" height="1000" fill="url(#gBg)"/>
+  <!-- Header -->
+  <rect x="20" y="16" width="1160" height="48" rx="6" fill="#d97706"/>
+  <text x="600" y="39" text-anchor="middle" font-size="18" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">串联弹性驱动器（SEA）</text>
+  <text x="600" y="56" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">电机+弹性元件+关节串联 | TRL 5-7 | MIT RFSEA·Ossur Power Knee</text>
+  <!-- Left panel -->
+  <rect x="20" y="72" width="720" height="862" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+  <g id="leftPanelGraphics" transform="translate(45,0)" clip-path="url(#leftClip)">
+    <!-- ANATOMY: MUSCLES -->
+    <path d="M85,95 Q105,95 130,100 Q145,115 150,200 Q152,280 155,350 Q155,400 150,430 Q140,445 125,445 L95,445 Q80,445 75,430 Q70,400 70,350 Q68,280 70,200 Q72,115 85,95 Z" fill="rgba(200,50,50,0.12)" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <path d="M155,100 Q165,110 170,200 Q172,280 170,350 Q168,400 160,435 Q153,448 140,448 L130,448 Q120,448 115,435 Q110,400 108,350 Q105,280 110,200 Q113,115 125,100 Q135,95 145,95 Z" fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.20)" stroke-width="0.5"/>
+    <path d="M120,450 Q130,450 140,455 Q150,470 155,520 Q158,580 155,650 Q150,700 140,730 Q130,740 120,740 L95,740 Q85,740 80,730 Q73,700 70,650 Q68,580 72,520 Q75,470 85,455 Q92,450 102,450 Z" fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.18)" stroke-width="0.5"/>
+    <!-- BONES (FEMUR) -->
+    <path d="M110,100 Q113,100 117,105 Q123,115 127,180 Q130,250 130,300 Q131,350 129,400 Q127,425 123,435 Q117,440 113,440 Q108,440 103,435 Q99,425 97,400 Q95,350 96,300 Q97,250 100,180 Q103,115 107,105 Q108,100 110,100 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="1"/>
+    <ellipse cx="113" cy="108" rx="14" ry="16" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="105" cy="438" rx="10" ry="12" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="120" cy="438" rx="10" ry="12" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <path d="M97,442 Q105,452 113,442" fill="none" stroke="#90b8d8" stroke-width="2" opacity="0.5"/>
+    <path d="M112,442 Q120,452 128,442" fill="none" stroke="#90b8d8" stroke-width="2" opacity="0.5"/>
+    <!-- BONES (TIBIA) -->
+    <path d="M110,450 Q113,450 117,455 Q123,470 127,540 Q130,600 130,660 Q131,720 128,760 Q125,775 120,780 Q115,782 110,780 Q105,782 100,780 Q95,775 92,760 Q89,720 90,660 Q91,600 93,540 Q97,470 103,455 Q107,450 110,450 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="1"/>
+    <rect x="97" y="448" width="28" height="8" rx="3" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.6"/>
+    <ellipse cx="125" cy="480" rx="6" ry="10" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.5" opacity="0.7"/>
+    <path d="M140,465 Q142,470 143,520 Q144,600 143,680 Q142,720 140,740 Q138,745 135,745 Q132,745 130,740 Q128,720 127,680 Q126,600 127,520 Q128,470 132,465 Q135,463 138,465 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="137" cy="468" rx="6" ry="8" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.5"/>
+    <ellipse cx="133" cy="420" rx="16" ry="20" fill="url(#gBone)" stroke="#c8b898" stroke-width="1"/>
+    <path d="M123,410 Q133,405 143,410" fill="none" stroke="#d4c9a8" stroke-width="0.5" opacity="0.5"/>
+    <path d="M121,425 Q133,420 145,425" fill="none" stroke="#d4c9a8" stroke-width="0.5" opacity="0.5"/>
+    <path d="M133,440 Q133,450 133,460" stroke="#c8b898" stroke-width="1.5" opacity="0.5"/>
+    <path d="M95,430 Q110,415 125,430 Q120,450 110,455 Q100,450 95,430 Z" fill="none" stroke="#90b8d8" stroke-width="0.8" stroke-dasharray="2,2" opacity="0.4"/>
+    <path d="M98,448 Q110,443 122,448" fill="none" stroke="#b8d4e8" stroke-width="2.5" opacity="0.4"/>
+    <!-- SEA MECHANISM: MOTOR + PLANETARY + TORSION SPRING + OUTPUT -->
+    <rect x="250" y="95" width="100" height="100" rx="8" fill="url(#gMetal)" stroke="#808080" stroke-width="1.5"/>
+    <path d="M265,115 Q270,105 275,115" fill="none" stroke="#c07030" stroke-width="1"/>
+    <path d="M285,110 Q290,100 295,110" fill="none" stroke="#c07030" stroke-width="1"/>
+    <path d="M305,110 Q310,100 315,110" fill="none" stroke="#c07030" stroke-width="1"/>
+    <path d="M325,115 Q330,105 335,115" fill="none" stroke="#c07030" stroke-width="1"/>
+    <path d="M265,175 Q270,185 275,175" fill="none" stroke="#c07030" stroke-width="1"/>
+    <path d="M285,180 Q290,190 295,180" fill="none" stroke="#c07030" stroke-width="1"/>
+    <path d="M305,180 Q310,190 315,180" fill="none" stroke="#c07030" stroke-width="1"/>
+    <path d="M325,175 Q330,185 335,175" fill="none" stroke="#c07030" stroke-width="1"/>
+    <circle cx="300" cy="145" r="25" fill="none" stroke="#a0a0a0" stroke-width="1"/>
+    <circle cx="300" cy="145" r="20" fill="#c07030" opacity="0.4"/>
+    <path d="M285,127 Q300,120 315,127" fill="none" stroke="#c04040" stroke-width="1.2" opacity="0.6"/>
+    <path d="M285,163 Q300,170 315,163" fill="none" stroke="#c04040" stroke-width="1.2" opacity="0.6"/>
+    <path d="M278,142 Q278,148 282,145" fill="none" stroke="#c04040" stroke-width="1.2" opacity="0.6"/>
+    <path d="M318,142 Q318,148 322,145" fill="none" stroke="#c04040" stroke-width="1.2" opacity="0.6"/>
+    <line x1="300" y1="170" x2="300" y2="195" stroke="#808080" stroke-width="3"/>
+    <rect x="275" y="200" width="50" height="40" rx="5" fill="url(#gMetal)" stroke="#707070" stroke-width="1.2"/>
+    <circle cx="300" cy="220" r="6" fill="#b0b0b0" stroke="#808080" stroke-width="0.5"/>
+    <circle cx="289" cy="215" r="4" fill="#c0c0c0" stroke="#909090" stroke-width="0.4"/>
+    <circle cx="311" cy="215" r="4" fill="#c0c0c0" stroke="#909090" stroke-width="0.4"/>
+    <circle cx="289" cy="225" r="4" fill="#c0c0c0" stroke="#909090" stroke-width="0.4"/>
+    <circle cx="311" cy="225" r="4" fill="#c0c0c0" stroke="#909090" stroke-width="0.4"/>
+    <circle cx="300" cy="220" r="11" fill="none" stroke="#a0a0a0" stroke-width="0.4"/>
+    <line x1="300" y1="240" x2="300" y2="260" stroke="#808080" stroke-width="2.5"/>
+    <rect x="260" y="265" width="80" height="55" rx="4" fill="#fefce8" stroke="#d97706" stroke-width="1.5"/>
+    <path d="M275,280 Q280,273 285,280 Q290,287 295,280 Q300,273 305,280 Q310,287 315,280 Q320,273 325,280" fill="none" stroke="#d97706" stroke-width="1.2"/>
+    <path d="M275,295 Q280,288 285,295 Q290,302 295,295 Q300,288 305,295 Q310,302 315,295 Q320,288 325,295" fill="none" stroke="#d97706" stroke-width="1.2"/>
+    <path d="M275,308 Q280,301 285,308 Q290,315 295,308 Q300,301 305,308 Q310,315 315,308" fill="none" stroke="#d97706" stroke-width="1.2" opacity="0.7"/>
+    <rect x="260" y="272" width="6" height="40" rx="1" fill="#a0a0a0" stroke="#808080" stroke-width="0.5"/>
+    <rect x="334" y="272" width="6" height="40" rx="1" fill="#a0a0a0" stroke="#808080" stroke-width="0.5"/>
+    <line x1="300" y1="320" x2="300" y2="355" stroke="#808080" stroke-width="3"/>
+    <rect x="345" y="272" width="18" height="40" rx="3" fill="#e8f0fe" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="354" cy="292" r="5" fill="none" stroke="#0096f0" stroke-width="0.5"/>
+    <rect x="342" y="275" width="4" height="8" fill="#0096f0" opacity="0.3"/>
+    <line x1="300" y1="355" x2="280" y2="430" stroke="#808080" stroke-width="3"/>
+    <circle cx="280" cy="450" r="16" fill="url(#gMetal)" stroke="#808080" stroke-width="1.5"/>
+    <circle cx="280" cy="450" r="6" fill="#c0c0c0" stroke="#909090" stroke-width="0.8"/>
+    <line x1="280" y1="350" x2="280" y2="434" stroke="#808080" stroke-width="2.5"/>
+    <line x1="280" y1="466" x2="280" y2="550" stroke="#808080" stroke-width="2.5"/>
+    <!-- Force vectors -->
+    <line x1="300" y1="200" x2="300" y2="185" stroke="#d32f2f" stroke-width="2" marker-end="url(#aR)"/>
+    <line x1="300" y1="260" x2="300" y2="250" stroke="#d32f2f" stroke-width="1.5" marker-end="url(#aR)"/>
+    <line x1="300" y1="355" x2="300" y2="340" stroke="#d32f2f" stroke-width="2" marker-end="url(#aR)"/>
+    <path d="M290,438 A12,12 0 0,1 294,462" fill="none" stroke="#d32f2f" stroke-width="1.5" marker-end="url(#aR)"/>
+    <line x1="110" y1="780" x2="110" y2="810" stroke="#d32f2f" stroke-width="2" marker-end="url(#aR)" opacity="0.4"/>
+    <!-- Anatomical labels -->
+    <line x1="60" y1="180" x2="110" y2="180" stroke="#888" stroke-width="0.5"/><circle cx="110" cy="180" r="1.5" fill="#888"/>
+    <text x="55" y="184" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">股骨</text>
+    <line x1="60" y1="580" x2="110" y2="580" stroke="#888" stroke-width="0.5"/><circle cx="110" cy="580" r="1.5" fill="#888"/>
+    <text x="55" y="584" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">胫骨</text>
+    <line x1="60" y1="440" x2="133" y2="440" stroke="#888" stroke-width="0.5"/><circle cx="133" cy="440" r="1.5" fill="#888"/>
+    <text x="55" y="444" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">髌骨</text>
+    <!-- Mechanism labels -->
+    <line x1="300" y1="100" x2="420" y2="95" stroke="#808080" stroke-width="0.5"/>
+    <text x="425" y="99" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">无刷直流电机</text>
+    <line x1="300" y1="220" x2="420" y2="215" stroke="#a0a0a0" stroke-width="0.5"/>
+    <text x="425" y="219" font-size="10" fill="#a0a0a0" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">行星减速器</text>
+    <line x1="260" y1="290" x2="420" y2="285" stroke="#d97706" stroke-width="0.5"/>
+    <text x="425" y="289" font-size="10" fill="#d97706" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">扭簧弹性元件</text>
+    <line x1="280" y1="450" x2="420" y2="465" stroke="#808080" stroke-width="0.5"/>
+    <text x="425" y="469" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关节输出轴</text>
+    <!-- Dimension annotations -->
+    <line x1="300" y1="195" x2="300" y2="230" stroke="#d32f2f" stroke-width="0.6"/>
+    <line x1="250" y1="230" x2="350" y2="230" stroke="#d32f2f" stroke-width="0.5" stroke-dasharray="3,2"/>
+    <text x="300" y="248" text-anchor="middle" font-size="10" fill="#d32f2f">电机输出扭矩τ_m</text>
+    <line x1="280" y1="466" x2="280" y2="500" stroke="#d32f2f" stroke-width="0.6"/>
+    <line x1="230" y1="500" x2="330" y2="500" stroke="#d32f2f" stroke-width="0.5" stroke-dasharray="3,2"/>
+    <text x="300" y="518" text-anchor="middle" font-size="10" fill="#d32f2f">关节输出扭矩τ_out</text>
+    <!-- Spring compression annotation -->
+    <line x1="280" y1="272" x2="260" y2="272" stroke="#d97706" stroke-width="0.5"/>
+    <line x1="340" y1="272" x2="360" y2="272" stroke="#d97706" stroke-width="0.5"/>
+    <line x1="260" y1="272" x2="260" y2="310" stroke="#d97706" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <line x1="360" y1="272" x2="360" y2="310" stroke="#d97706" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <text x="310" y="325" text-anchor="middle" font-size="10" fill="#d97706">弹簧形变Δx</text>
+    <!-- Control bandwidth annotation -->
+    <path d="M 354,292 Q 370,285 380,292" fill="none" stroke="#0096f0" stroke-width="0.5"/>
+    <text x="385" y="296" font-size="10" fill="#0096f0">编码器</text>
+    <!-- Force transformation -->
+    <path d="M 300,195 Q 300,240 295,260" fill="none" stroke="#888" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <text x="305" y="355" text-anchor="start" font-size="10" fill="#888">F = k · Δx</text>
+    <!-- Efficiency annotation -->
+    <path d="M 250,310 Q 240,330 230,355" fill="none" stroke="#2e7d32" stroke-width="0.5"/>
+    <text x="205" y="365" text-anchor="end" font-size="10" fill="#2e7d32">力控精度±0.5N</text>
+    <!-- Additional muscle fiber detail -->
+    <path d="M90,140 Q105,135 120,140" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M85,170 Q100,165 115,170" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M82,210 Q98,205 112,210" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M80,250 Q95,245 110,250" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M78,290 Q93,285 108,290" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M78,330 Q93,325 108,330" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M80,370 Q95,365 110,370" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M82,410 Q97,405 112,410" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M90,470 Q105,465 120,470" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M85,510 Q100,505 115,510" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M82,550 Q97,545 112,550" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M80,590 Q95,585 110,590" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M80,630 Q95,625 110,630" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M82,670 Q97,665 112,670" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <!-- Performance annotation block -->
+    <g transform="translate(400,480)">
+      <rect x="0" y="0" width="280" height="95" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="0.5" opacity="0.85"/>
+      <text x="10" y="16" font-size="10" font-weight="bold" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关键性能指标</text>
+      <line x1="10" y1="22" x2="270" y2="22" stroke="#ddd" stroke-width="0.5"/>
+      <circle cx="18" cy="38" r="3" fill="#0096f0"/>
+      <text x="26" y="42" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">峰值扭矩: 85Nm（MIT RFSEA参考值）</text>
+      <circle cx="18" cy="56" r="3" fill="#2e7d32"/>
+      <text x="26" y="60" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">力控带宽: 6Hz（弹簧刚度选型决定上限）</text>
+      <circle cx="18" cy="74" r="3" fill="#d97706"/>
+      <text x="26" y="78" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">扭矩密度: 53Nm/kg（MIT RFSEA指标）</text>
+      <circle cx="145" cy="38" r="3" fill="#808080"/>
+      <text x="153" y="42" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">执行器质量: 1.6kg（MIT RFSEA实测）</text>
+      <circle cx="145" cy="56" r="3" fill="#c45a5a"/>
+      <text x="153" y="60" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">力控精度: ±0.5N（通过编码器测量弹簧形变）</text>
+      <circle cx="145" cy="74" r="3" fill="#0096f0"/>
+      <text x="153" y="78" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">控制模型: F = k · Δx (弹簧形变)</text>
+    </g>
+    <!-- SUPPLEMENTARY CHINESE LABELS -->
+    <line x1="35" y1="620" x2="137" y2="620" stroke="#888" stroke-width="0.5"/><circle cx="137" cy="620" r="1.5" fill="#888"/>
+    <text x="30" y="624" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腓骨</text>
+    <line x1="35" y1="448" x2="98" y2="448" stroke="#90b8d8" stroke-width="0.6"/>
+    <text x="30" y="452" text-anchor="end" font-size="10" fill="#777" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关节软骨</text>
+    <path d="M104,452 Q115,458 126,452" fill="none" stroke="#90b8d8" stroke-width="1.5" opacity="0.5"/>
+    <line x1="35" y1="462" x2="115" y2="462" stroke="#90b8d8" stroke-width="0.5"/>
+    <text x="30" y="466" text-anchor="end" font-size="10" fill="#777" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">半月板</text>
+    <line x1="35" y1="240" x2="95" y2="240" stroke="rgba(200,50,50,0.3)" stroke-width="0.5"/>
+    <circle cx="95" cy="240" r="1.5" fill="rgba(200,50,50,0.3)"/>
+    <text x="30" y="244" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">股四头肌</text>
+    <line x1="35" y1="300" x2="155" y2="300" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <circle cx="155" cy="300" r="1.5" fill="rgba(200,50,50,0.25)"/>
+    <text x="30" y="304" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腘绳肌</text>
+    <line x1="35" y1="550" x2="95" y2="550" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <circle cx="95" cy="550" r="1.5" fill="rgba(200,50,50,0.25)"/>
+    <text x="30" y="554" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腓肠肌</text>
+  </g>
+  <!-- Divider -->
+  <rect x="740" y="72" width="60" height="862" fill="#ffffff"/>
+  <rect x="800" y="72" width="380" height="862" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+  <!-- Right panel -->
+  <g clip-path="url(#rightClip)">
+    <rect x="816" y="86" width="348" height="130" rx="5" fill="#fff8f0" stroke="#d97706" stroke-width="1"/>
+    <rect x="816" y="86" width="348" height="28" rx="5 5 0 0" fill="#d97706"/>
+    <text x="990" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">技术概述</text>
+    <text x="828" y="130" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">串联弹性驱动器(SEA)在电机与关节之间串入弹性</text>
+    <text x="828" y="148" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">元件，通过测量弹簧形变(Delta x)计算输出力。</text>
+    <text x="828" y="166" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">本质上是力源 + 弹簧阻抗，实现精确力控。</text>
+    <text x="828" y="186" font-size="10" fill="#888" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">F = k * Delta x | 控制带宽 ~6 Hz | 力控精度 ± 0.5 N</text>
+    <rect x="816" y="240" width="348" height="135" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="0.6"/>
+    <rect x="816" y="240" width="348" height="28" rx="5 5 0 0" fill="#d97706" fill-opacity="0.85"/>
+    <text x="990" y="259" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">技术参数</text>
+    <text x="828" y="286" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">峰值扭矩          85 Nm (MIT RFSEA)</text>
+    <text x="828" y="306" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">峰值功率          500 W</text>
+    <text x="828" y="326" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">执行器质量        1.6 kg (MIT RFSEA)</text>
+    <text x="828" y="346" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">力控带宽          6 Hz (弹簧选型决定)</text>
+    <text x="828" y="366" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">扭矩密度          53 Nm/kg</text>
+    <rect x="816" y="399" width="348" height="100" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="0.6"/>
+    <rect x="816" y="399" width="348" height="28" rx="5 5 0 0" fill="#d97706" fill-opacity="0.85"/>
+    <text x="990" y="418" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">代表产品 Representative Products</text>
+    <text x="828" y="445" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">MIT RFSEA (Robust Force SEA)</text>
+    <text x="828" y="465" font-size="11" fill="#666" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">85 Nm / 1.6 kg / 6 Hz 力控带宽</text>
+    <text x="828" y="488" font-size="11" fill="#666" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">外骨骼和下肢机器人标准参考设计</text>
+    <rect x="816" y="523" width="348" height="135" rx="5" fill="#f0fdf4" stroke="#2e7d32" stroke-width="0.6"/>
+    <rect x="816" y="523" width="348" height="28" rx="5 5 0 0" fill="#2e7d32" fill-opacity="0.85"/>
+    <text x="990" y="542" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">优势</text>
+    <text x="828" y="569" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">精确力控 — 弹簧形变直接测量力，无需力传感器</text>
+    <text x="828" y="589" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">低阻抗 — 弹簧吸收冲击，天然安全柔顺</text>
+    <text x="828" y="609" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">能量存储 — 弹簧可存储/释放能量，提高效率</text>
+    <text x="828" y="629" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">抗冲击 — 减速器和电机受到弹簧保护</text>
+    <text x="828" y="649" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">技术成熟 — 学术和工业界验证充分</text>
+    <rect x="816" y="682" width="348" height="125" rx="5" fill="#fef2f2" stroke="#c45a5a" stroke-width="0.6"/>
+    <rect x="816" y="682" width="348" height="28" rx="5 5 0 0" fill="#c45a5a" fill-opacity="0.85"/>
+    <text x="990" y="701" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">缺陷 Disadvantages</text>
+    <text x="828" y="728" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">带宽受限 — 弹簧共振频率限制力控带宽 (&lt;15Hz)</text>
+    <text x="828" y="748" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">复杂 — 需要额外编码器测量弹簧形变</text>
+    <text x="828" y="768" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">弹簧疲劳 — 弹性元件长期使用后性能衰减</text>
+    <text x="828" y="788" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">轴向尺寸大 — 串联结构增加长度</text>
+    <text x="828" y="808" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">弹簧非线性 — 形变与力的关系不完全线性</text>
+    <rect x="816" y="835" width="348" height="95" rx="5" fill="#fff8f0" stroke="#d97706" stroke-width="1.2"/>
+    <rect x="816" y="835" width="348" height="28" rx="5 5 0 0" fill="#d97706"/>
+    <text x="990" y="854" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">Bones 评估 Assessment</text>
+    <text x="828" y="880" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">Phase 1-2: 推荐采用SEA作为力控方案</text>
+    <text x="828" y="900" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">参考MIT RFSEA设计，针对膝关节优化</text>
+    <text x="828" y="920" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">与多轴铰链联合设计，集成编码器</text>
+  </g>
+  <!-- Bottom legend -->
+  <rect x="20" y="940" width="1160" height="50" rx="4" fill="#f8f8f8" stroke="#d5d5d5" stroke-width="0.6"/>
+  <rect x="40" y="953" width="18" height="18" rx="2" fill="#0096f0"/>
+  <text x="64" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">推荐采用 Recommended</text>
+  <rect x="260" y="953" width="18" height="18" rx="2" fill="#d97706"/>
+  <text x="284" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">部分借鉴 Partial Reference</text>
+  <rect x="500" y="953" width="18" height="18" rx="2" fill="#c45a5a"/>
+  <text x="524" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">缺陷 Not Recommended</text>
+  <rect x="740" y="953" width="18" height="18" rx="2" fill="#d32f2f"/>
+  <text x="764" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">力矢量 Force Vector</text>
+  <rect x="980" y="953" width="18" height="18" rx="2" fill="#d97706" fill-opacity="0.6"/>
+  <text x="1004" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">弹性元件 Spring</text>
+</svg>

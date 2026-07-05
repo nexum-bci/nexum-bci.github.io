@@ -1,0 +1,78 @@
+<svg viewBox="0 0 1200 650" style="width:100%;max-width:1200px;height:auto" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1200" height="650" rx="12" fill="#f8fafc" stroke="#0096f0" stroke-width="2"/>
+  <text x="600" y="30" text-anchor="middle" font-size="16" font-weight="800" fill="#0096f0">外骨骼如何帮助膝OA老人走路？— 步态周期中的助力逻辑</text>
+
+  <!-- GAIT CYCLE BAR -->
+  <rect x="40" y="55" width="720" height="35" rx="6" fill="#0096f0" opacity="0.15"/>
+  <rect x="40" y="55" width="432" height="35" rx="6" fill="#0096f0" opacity="0.4"/>
+  <text x="256" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="#0096f0">Stance Phase 支撑相（脚着地·60%）— 需要助力！膝承受3-4倍体重</text>
+  <rect x="472" y="55" width="288" height="35" rx="6" fill="#666" opacity="0.15"/>
+  <text x="616" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="#666">Swing Phase 摆动相（脚离地·40%）— 需要零阻力！腿自由前摆</text>
+
+  <!-- Left: STANCE PHASE with assistance -->
+  <rect x="40" y="110" width="540" height="250" rx="8" fill="#e8f4fd" stroke="#0096f0" stroke-width="1.5"/>
+  <text x="310" y="135" text-anchor="middle" font-size="13" font-weight="700" fill="#0096f0">Stance Phase 支撑相 — Bones外骨骼如何助力</text>
+
+  <!-- Walking figures -->
+  <circle cx="120" cy="200" r="14" fill="none" stroke="#0096f0" stroke-width="2"/><text x="120" y="204" text-anchor="middle" font-size="7" fill="#0096f0">膝</text>
+  <rect x="105" y="220" width="30" height="60" rx="5" fill="none" stroke="#000" stroke-width="1"/>
+
+  <!-- Force vectors -->
+  <text x="120" y="310" text-anchor="middle" font-size="8" fill="#c45a5a" font-weight="700">↓ 体重3-4倍</text>
+  <text x="200" y="200" font-size="8" fill="#0096f0">电机输出15-25Nm</text>
+  <line x1="180" y1="195" x2="140" y2="195" stroke="#0096f0" stroke-width="2.5" marker-end="url(#arrowBlue2)"/>
+  <text x="200" y="220" font-size="7" fill="#000" font-weight="700">支撑膝→分担负荷</text>
+
+  <text x="310" y="175" text-anchor="middle" font-size="9" font-weight="700" fill="#000">具体场景的助力方式</text>
+  <text x="50" y="200" font-size="8" fill="#000" font-weight="700">平地行走：</text><text x="140" y="200" font-size="7" fill="#000">支撑相早期提供8-15Nm外展力矩→减少KAM 15-20%</text>
+  <text x="50" y="220" font-size="8" fill="#000" font-weight="700">上楼梯：</text><text x="140" y="220" font-size="7" fill="#000">身体上升时提供20-30Nm伸展助力→减轻股四头肌负荷</text>
+  <text x="50" y="240" font-size="8" fill="#000" font-weight="700">下楼梯：</text><text x="140" y="240" font-size="7" fill="#000">制动模式·提供15-25Nm缓冲阻力→吸收冲击·减少60%膝压</text>
+  <text x="50" y="260" font-size="8" fill="#000" font-weight="700">坐-站：</text><text x="140" y="260" font-size="7" fill="#000">从90°屈膝到站立·20-30Nm峰值→OA患者膝力矩仅健康人的1/3·最需要辅助</text>
+  <text x="50" y="280" font-size="8" fill="#000" font-weight="700">蹲下/蹲便器：</text><text x="140" y="280" font-size="7" fill="#000">深度屈膝>60°时持续辅助→防止起立失败（中国独有场景）</text>
+
+  <text x="310" y="310" text-anchor="middle" font-size="8" fill="#0096f0" font-weight="700">脚着地时=膝盖最痛时=外骨骼助力时刻</text>
+  <text x="310" y="330" text-anchor="middle" font-size="7" fill="#000">传感器实时检测足跟触地→电机立刻输出力矩→在膝负荷最高的200ms内完成助力</text>
+  <text x="310" y="350" text-anchor="middle" font-size="7" fill="#666">IMU+编码器<5ms检测步态相位·RL策略<1ms推理·FOC<1ms执行</text>
+
+  <!-- Right: SWING PHASE zero resistance -->
+  <rect x="600" y="110" width="560" height="250" rx="8" fill="#fff" stroke="#666" stroke-width="1.5"/>
+  <text x="880" y="135" text-anchor="middle" font-size="13" font-weight="700" fill="#666">Swing Phase 摆动相 — 为什么需要零阻力</text>
+
+  <text x="620" y="165" font-size="9" font-weight="700" fill="#000">为什么摆动相不能助力？</text>
+  <text x="620" y="188" font-size="8" fill="#000">摆动相是腿向前摆的时刻。如果电机在这时施加阻力（哪怕是轻微阻力），老人需要用</text>
+  <text x="620" y="208" font-size="8" fill="#000">腘绳肌额外做功来"拖"动电机——这会导致：</text>
+  <text x="620" y="232" font-size="8" fill="#c45a5a">① 摆动相肌肉激活量增加20-40%（疲劳加速）</text>
+  <text x="620" y="252" font-size="8" fill="#c45a5a">② 腘绳肌离心过载→次日DOMS（延迟性肌肉酸痛）</text>
+  <text x="620" y="272" font-size="8" fill="#c45a5a">③ 步态不对称→跌倒风险增加</text>
+
+  <rect x="620" y="290" width="520" height="60" rx="4" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="880" y="310" text-anchor="middle" font-size="9" font-weight="700" fill="#0096f0">Bones如何实现摆动相零阻力？</text>
+  <text x="880" y="330" text-anchor="middle" font-size="8" fill="#000">AK80-9内置行星减速器·反向驱动扭矩仅0.51Nm（人体膝摆动相阻力阈值约2.3Nm）</text>
+  <text x="880" y="348" text-anchor="middle" font-size="8" fill="#000">+ 电磁离合器(Ogura MCNB-3Z·断电脱开) = 摆动相完全自由·用户感觉不到电机存在</text>
+
+  <!-- BOTTOM: COMPARISON -->
+  <text x="600" y="385" text-anchor="middle" font-size="13" font-weight="800" fill="#000">对比：正确的外骨骼 vs 错误的外骨骼</text>
+
+  <rect x="40" y="400" width="540" height="100" rx="6" fill="#e8f4fd" stroke="#0096f0" stroke-width="2"/>
+  <text x="310" y="422" text-anchor="middle" font-size="10" font-weight="700" fill="#0096f0">Bones膝安 — 正确的外骨骼</text>
+  <text x="50" y="445" font-size="7" fill="#000">Stance Phase: 电机输出15-25Nm助力（分担膝负荷·减少KAM 15-20%）</text>
+  <text x="50" y="462" font-size="7" fill="#000">Swing Phase: 离合器断电→0.51Nm反向驱动（自然摆动·不额外耗能）</text>
+  <text x="50" y="480" font-size="7" fill="#000">效果：老人感觉"腿变轻了"·走更远不累·不酸痛·步态自然</text>
+  <text x="50" y="496" font-size="6" fill="#666">类比：电动自行车→踩踏板时助力(支撑相)，滑行时不助力(摆动相)。你不会希望滑行时电机也在转。</text>
+
+  <rect x="600" y="400" width="560" height="100" rx="6" fill="#fdf2f8" stroke="#c45a5a" stroke-width="2"/>
+  <text x="880" y="422" text-anchor="middle" font-size="10" font-weight="700" fill="#c45a5a">DNSYS Z1 — 错误的外骨骼（"Avatar效应"）</text>
+  <text x="610" y="445" font-size="7" fill="#000">Stance Phase: 450W助力（但力矩精度±20-30%·不优化KAM）</text>
+  <text x="610" y="462" font-size="7" fill="#000">Swing Phase: 大减速比→高阻力·无零力矩模式（No Zero-Torque Mode）→用户需额外用力"拖"电机</text>
+  <text x="610" y="480" font-size="7" fill="#000">效果：用户反馈"使用后腿部感觉更重·次日肌肉酸痛"（Trustpilot 3.5/5）</text>
+  <text x="610" y="496" font-size="6" fill="#666">问题根源：只考虑了"如何助力"，没考虑"何时该完全不插手"。</text>
+
+  <!-- Bottom explanation -->
+  <rect x="40" y="515" width="1120" height="100" rx="8" fill="#0096f0" opacity="0.04"/>
+  <text x="600" y="540" text-anchor="middle" font-size="11" font-weight="700" fill="#0096f0">为什么"零力矩摆动相"是外骨骼最重要的设计之一</text>
+  <text x="600" y="562" text-anchor="middle" font-size="8" fill="#000">人体正常行走时，膝关节在摆动相不需要任何外部助力——人体自己的腘绳肌就能完成。外骨骼在摆动相的任何阻力都是"多余的负担"。</text>
+  <text x="600" y="582" text-anchor="middle" font-size="8" fill="#000">一个好的膝外骨骼，应该像影子一样：站立时支撑你，摆动时完全不打扰你。<tspan font-weight="700">DNSYS做了前一半（助力），但没做后一半（零阻力），这是它最大的工程缺陷。</tspan></text>
+  <text x="600" y="602" text-anchor="middle" font-size="8" fill="#000">Bones的设计哲学：<tspan font-weight="700" fill="#0096f0">Stance Phase精确助力 + Swing Phase完全透明 = 老人只觉得"走路变轻松了"，而感觉不到机器的存在。</tspan></text>
+
+  <defs><marker id="arrowBlue2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#0096f0"/></marker></defs>
+</svg>

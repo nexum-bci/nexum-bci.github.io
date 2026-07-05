@@ -1,0 +1,390 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000">
+  <defs>
+    <marker id="arrowForce" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#c45a5a"/>
+    </marker>
+    <marker id="arrowMotion" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#0096f0"/>
+    </marker>
+    <linearGradient id="stanceGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0096f0"/>
+      <stop offset="100%" stop-color="#00b4d8"/>
+    </linearGradient>
+    <linearGradient id="swingGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#9aa0a6"/>
+      <stop offset="100%" stop-color="#bdc1c6"/>
+    </linearGradient>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+    <filter id="shadowDeep" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="2" dy="3" stdDeviation="4" flood-opacity="0.12"/>
+    </filter>
+    <linearGradient id="bonesGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e8f4fd"/>
+      <stop offset="100%" stop-color="#f0f8ff"/>
+    </linearGradient>
+    <linearGradient id="dnsysGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fef0f0"/>
+      <stop offset="100%" stop-color="#fff5f5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 Background -->
+  <rect width="1200" height="1000" fill="#fafbfc"/>
+  <rect x="15" y="15" width="1170" height="970" rx="12" fill="#fff" stroke="#e8eaed" stroke-width="1"/>
+
+  <!-- ===== 标题 + 副标题 ===== -->
+  <text x="600" y="48" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20" font-weight="bold" fill="#1a1a1a">步态周期与助力逻辑：外骨骼如何辅助膝骨关节炎患者</text>
+  <text x="600" y="70" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#666">支撑相主动助力（15-25 Nm）&amp; 摆动相零阻力跟随 · 生物力学原理 &amp; 竞品方案对比</text>
+
+  <!-- ============================================================= -->
+  <!-- 上半部分：步态周期助力逻辑  y=95~300 -->
+  <!-- ============================================================= -->
+  <g transform="translate(30, 95)">
+    <text x="0" y="14" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="bold" fill="#202124">步态周期 Gait Cycle：从足跟着地到同侧足跟再次着地</text>
+
+    <!-- 支撑相 60% -->
+    <rect x="0" y="26" width="684" height="48" rx="8" fill="url(#stanceGrad)"/>
+    <text x="342" y="56" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="bold" fill="#fff">支撑相 Stance Phase（60%）</text>
+
+    <!-- 摆动相 40% -->
+    <rect x="684" y="26" width="456" height="48" rx="8" fill="url(#swingGrad)"/>
+    <text x="912" y="56" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="bold" fill="#fff">摆动相 Swing Phase（40%）</text>
+
+    <!-- 支撑相子相位标记线 -->
+    <line x1="0" y1="78" x2="205" y2="78" stroke="#0096f0" stroke-width="2"/>
+    <line x1="205" y1="78" x2="480" y2="78" stroke="#0096f0" stroke-width="1.5" opacity="0.6"/>
+    <line x1="480" y1="78" x2="684" y2="78" stroke="#0096f0" stroke-width="1.5" opacity="0.4"/>
+    <!-- 支撑相子相位标签 -->
+    <text x="103" y="93" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#0096f0" font-weight="bold">着地响应</text>
+    <text x="342" y="93" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#0096f0" opacity="0.7">支撑中期</text>
+    <text x="582" y="93" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#0096f0" opacity="0.5">支撑末期</text>
+
+    <!-- 摆动相子相位标记线 -->
+    <line x1="684" y1="78" x2="912" y2="78" stroke="#9aa0a6" stroke-width="1.5" opacity="0.6"/>
+    <line x1="912" y1="78" x2="1140" y2="78" stroke="#9aa0a6" stroke-width="1.5" opacity="0.4"/>
+    <!-- 摆动相子相位标签 -->
+    <text x="798" y="93" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#9aa0a6" opacity="0.7">摆动初期</text>
+    <text x="1026" y="93" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#9aa0a6" opacity="0.5">摆动末期</text>
+
+    <!-- 时间标记 -->
+    <g transform="translate(0, 105)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#5f6368" stroke-width="1.5"/>
+      <text x="0" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#5f6368">0%</text>
+      <text x="0" y="32" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#0096f0">足跟着地</text>
+
+      <line x1="684" y1="0" x2="684" y2="6" stroke="#5f6368" stroke-width="1.5"/>
+      <text x="684" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#5f6368">60%</text>
+      <text x="684" y="32" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#0096f0">足趾离地</text>
+
+      <line x1="1140" y1="0" x2="1140" y2="6" stroke="#5f6368" stroke-width="1.5"/>
+      <text x="1140" y="18" text-anchor="end" font-family="sans-serif" font-size="10" fill="#5f6368">100%</text>
+    </g>
+
+    <!-- 力矩曲线  Torque Profile -->
+    <g transform="translate(0, 148)">
+      <rect x="0" y="0" width="1140" height="56" rx="4" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.8"/>
+      <text x="10" y="14" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#888">助力力矩曲线 Torque Profile：</text>
+      <!-- 力矩曲线 -->
+      <path d="M 20 42 L 80 42 Q 130 15 220 10 Q 320 8 440 10 Q 540 14 630 36 L 684 42 L 720 44 Q 830 44 930 44 Q 1030 44 1120 44" fill="none" stroke="#0096f0" stroke-width="2.4"/>
+      <!-- 轴线 -->
+      <line x1="20" y1="42" x2="1120" y2="42" stroke="#ccc" stroke-width="0.8"/>
+      <text x="220" y="30" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#0096f0">支撑相：15-25 Nm 助力</text>
+      <text x="920" y="30" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#9aa0a6">摆动相：0 Nm 零阻力</text>
+      <!-- 膝角度参考线（虚线） -->
+      <text x="10" y="52" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#888">膝角度</text>
+      <path d="M 20 48 Q 100 48 150 46 Q 260 40 400 42 Q 550 46 650 48 L 684 48 Q 820 46 960 48 Q 1080 48 1120 48" fill="none" stroke="#999" stroke-width="0.8" stroke-dasharray="3,2"/>
+    </g>
+  </g>
+
+  <!-- ============================================================= -->
+  <!-- 左半：支撑相详解  y=310 -->
+  <!-- ============================================================= -->
+  <g transform="translate(20, 310)">
+    <rect x="0" y="0" width="570" height="340" rx="12" fill="#fff" stroke="#0096f0" stroke-width="2" filter="url(#shadowDeep)"/>
+    <!-- 面板标题栏 -->
+    <rect x="0" y="0" width="570" height="44" rx="12" fill="#0096f0"/>
+    <rect x="0" y="22" width="570" height="22" fill="#0096f0"/>
+    <text x="285" y="28" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="bold" fill="#fff">支撑相 Stance Phase</text>
+    <text x="285" y="44" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#cce5ff">承重期 — 电机主动助力，减少膝关节负荷</text>
+
+    <!-- 左：腿部受力图 + 力矢量 -->
+    <g transform="translate(15, 58)">
+      <!-- 地面 -->
+      <line x1="0" y1="265" x2="270" y2="265" stroke="#666" stroke-width="1.5"/>
+      <line x1="0" y1="265" x2="270" y2="265" stroke="#666" stroke-width="0.5" stroke-dasharray="2,2" transform="translate(0,3)"/>
+
+      <!-- 对侧腿（摆动相，半透明背景） -->
+      <g opacity="0.25">
+        <rect x="180" y="30" width="24" height="65" rx="4" fill="#ddd" stroke="#999" stroke-width="0.8"/>
+        <circle cx="192" cy="108" r="14" fill="none" stroke="#999" stroke-width="1.2"/>
+        <rect x="181" y="122" width="22" height="70" rx="4" fill="#ddd" stroke="#999" stroke-width="0.8"/>
+        <path d="M 170 194 L 170 204 L 200 204 L 200 194" fill="#ddd" stroke="#999" stroke-width="0.8"/>
+      </g>
+
+      <!-- 大腿 Thigh -->
+      <rect x="103" y="25" width="30" height="75" rx="5" fill="#e8f0fe" stroke="#0096f0" stroke-width="1.2"/>
+      <text x="118" y="70" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#0096f0">大腿</text>
+
+      <!-- 膝关节 Knee -->
+      <circle cx="118" cy="115" r="20" fill="none" stroke="#0096f0" stroke-width="2.5"/>
+      <circle cx="118" cy="115" r="6" fill="#0096f0"/>
+      <text x="118" y="97" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#0096f0" font-weight="bold">膝</text>
+
+      <!-- 小腿 Shank -->
+      <rect x="107" y="135" width="26" height="85" rx="5" fill="#e8f0fe" stroke="#0096f0" stroke-width="1.2"/>
+      <text x="120" y="185" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#0096f0">小腿</text>
+
+      <!-- 足 Foot -->
+      <path d="M 90 220 L 90 233 L 155 233 L 155 220" fill="#e8f0fe" stroke="#0096f0" stroke-width="1.2"/>
+      <text x="122" y="229" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#0096f0">足</text>
+
+      <!-- 地面反作用力 GRF（红色向上箭头）-->
+      <line x1="120" y1="265" x2="120" y2="205" stroke="#c45a5a" stroke-width="2.5" marker-end="url(#arrowForce)"/>
+      <text x="132" y="230" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#c45a5a" font-weight="bold">GRF</text>
+      <text x="132" y="244" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#c45a5a">3-5×体重</text>
+
+      <!-- 膝力矩箭头（蓝色弯曲箭头）-->
+      <path d="M 138 125 A 22 22 0 0 1 138 105" fill="none" stroke="#0096f0" stroke-width="2" marker-end="url(#arrowMotion)"/>
+      <text x="150" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#0096f0">τ=15-25Nm</text>
+
+      <!-- 体重矢量（红色向下箭头）-->
+      <line x1="118" y1="5" x2="118" y2="25" stroke="#c45a5a" stroke-width="2" marker-end="url(#arrowForce)"/>
+      <text x="108" y="5" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#c45a5a">体重 W</text>
+
+      <!-- KAM 示意 -->
+      <path d="M 145 215 A 55 55 0 0 0 170 195" fill="none" stroke="#c45a5a" stroke-width="1.2" stroke-dasharray="4,2"/>
+      <text x="175" y="195" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#c45a5a">KAM</text>
+
+      <!-- 标注连线 -->
+      <line x1="195" y1="115" x2="235" y2="100" stroke="#999" stroke-width="0.8"/>
+      <circle cx="195" cy="115" r="2" fill="#999"/>
+      <text x="237" y="97" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#555">伸膝助力抵消 GRF 力矩</text>
+      <text x="237" y="111" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#777">外骨骼输出 15-25 Nm 伸膝力矩</text>
+
+      <line x1="155" y1="233" x2="235" y2="215" stroke="#999" stroke-width="0.8"/>
+      <circle cx="155" cy="233" r="2" fill="#999"/>
+      <text x="237" y="214" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#555">GRF 通过膝关节内侧</text>
+      <text x="237" y="228" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#777">→ 产生内收力矩 KAM</text>
+
+      <!-- 承重说明 -->
+      <line x1="90" y1="233" x2="50" y2="220" stroke="#999" stroke-width="0.8"/>
+      <circle cx="90" cy="233" r="2" fill="#999"/>
+      <text x="15" y="218" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#555">承重 3-5 倍</text>
+      <text x="15" y="232" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#777">体重压于膝</text>
+    </g>
+
+    <!-- 右侧：助力效果列表 -->
+    <g transform="translate(300, 62)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="bold" fill="#0096f0">主动助力效果</text>
+      <line x1="0" y1="8" x2="255" y2="8" stroke="#0096f0" stroke-width="0.8" opacity="0.3"/>
+
+      <rect x="0" y="18" width="250" height="26" rx="4" fill="#f0fdf4" stroke="#27ae60" stroke-width="0.8"/>
+      <text x="10" y="35" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#333">行走：膝关节负荷减少 37-41%</text>
+
+      <rect x="0" y="50" width="250" height="26" rx="4" fill="#f0fdf4" stroke="#27ae60" stroke-width="0.8"/>
+      <text x="10" y="67" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#333">爬楼梯：股四头肌辅助 20-30 Nm</text>
+
+      <rect x="0" y="82" width="250" height="26" rx="4" fill="#f0fdf4" stroke="#27ae60" stroke-width="0.8"/>
+      <text x="10" y="99" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#333">坐站起立：膝压力减少 41%</text>
+
+      <rect x="0" y="114" width="250" height="26" rx="4" fill="#f0fdf4" stroke="#27ae60" stroke-width="0.8"/>
+      <text x="10" y="131" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#333">下蹲：控制下降速度，辅助起立</text>
+
+      <rect x="0" y="146" width="250" height="26" rx="4" fill="#e3f2fd" stroke="#0096f0" stroke-width="0.8"/>
+      <text x="10" y="163" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#333">KAM：主动控制减少 15-20%</text>
+
+      <!-- 额外临床证据 -->
+      <rect x="0" y="178" width="250" height="26" rx="4" fill="#fef3e2" stroke="#e6a817" stroke-width="0.8"/>
+      <text x="10" y="195" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#333">疼痛评分：VAS 降低 2.3/10</text>
+    </g>
+
+    <!-- 底部关键指标 -->
+    <g transform="translate(15, 290)">
+      <rect x="0" y="0" width="540" height="38" rx="6" fill="#f0f5ff" stroke="#0096f0" stroke-width="0.8"/>
+      <text x="270" y="16" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" font-weight="bold" fill="#0096f0">关键指标：20 Nm 助力可抵消约 37% 膝关节接触力增量</text>
+      <text x="270" y="31" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#666">Moyer 2014 (JOR) · Robbins 2011 (Osteoarthritis Cartilage)</text>
+    </g>
+  </g>
+
+  <!-- ============================================================= -->
+  <!-- 右半：摆动相详解  y=310 -->
+  <!-- ============================================================= -->
+  <g transform="translate(610, 310)">
+    <rect x="0" y="0" width="570" height="340" rx="12" fill="#fff" stroke="#9aa0a6" stroke-width="2" filter="url(#shadowDeep)"/>
+    <!-- 面板标题栏 -->
+    <rect x="0" y="0" width="570" height="44" rx="12" fill="#80868b"/>
+    <rect x="0" y="22" width="570" height="22" fill="#80868b"/>
+    <text x="285" y="28" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="bold" fill="#fff">摆动相 Swing Phase</text>
+    <text x="285" y="44" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#e8eaed">摆腿期 — 电机断电零阻力跟随，自然摆动</text>
+
+    <!-- 摆动腿图示 -->
+    <g transform="translate(15, 58)">
+      <!-- 地面 -->
+      <line x1="0" y1="265" x2="270" y2="265" stroke="#666" stroke-width="1.5"/>
+
+      <!-- 支撑腿（左，着地，半透明）-->
+      <g opacity="0.35">
+        <rect x="50" y="35" width="24" height="65" rx="4" fill="#ddd" stroke="#999" stroke-width="0.8"/>
+        <circle cx="62" cy="115" r="14" fill="none" stroke="#999" stroke-width="1.2"/>
+        <rect x="51" y="129" width="22" height="80" rx="4" fill="#ddd" stroke="#999" stroke-width="0.8"/>
+        <path d="M 40 212 L 40 222 L 80 222 L 80 212" fill="#ddd" stroke="#999" stroke-width="0.8"/>
+      </g>
+
+      <!-- 摆动腿（右，摆动中）-->
+      <!-- 大腿（旋转） -->
+      <rect x="130" y="10" width="28" height="65" rx="5" fill="#e8eaed" stroke="#999" stroke-width="1.2"/>
+      <text x="144" y="50" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#555">大腿</text>
+
+      <!-- 膝关节 -->
+      <circle cx="144" cy="90" r="18" fill="none" stroke="#9aa0a6" stroke-width="2.5"/>
+      <circle cx="144" cy="90" r="5" fill="#9aa0a6"/>
+      <text x="144" y="74" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#9aa0a6">膝</text>
+
+      <!-- 小腿（弯曲曲柄） -->
+      <rect x="133" y="108" width="24" height="60" rx="4" fill="#e8eaed" stroke="#999" stroke-width="1.2"/>
+      <text x="145" y="145" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#555">小腿</text>
+
+      <!-- 足 -->
+      <path d="M 120 168 L 120 178 L 170 178 L 170 168" fill="#e8eaed" stroke="#999" stroke-width="1.2"/>
+
+      <!-- 摆动方向箭头 -->
+      <path d="M 185 70 Q 210 45 185 20" fill="none" stroke="#0096f0" stroke-width="2" marker-end="url(#arrowMotion)"/>
+      <text x="200" y="40" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#0096f0">摆动方向</text>
+
+      <!-- 离合器断开指示 -->
+      <rect x="170" y="83" width="75" height="22" rx="4" fill="#f0fdf4" stroke="#27ae60" stroke-width="1"/>
+      <text x="207" y="98" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#27ae60">离合器断开</text>
+      <line x1="162" y1="90" x2="170" y2="94" stroke="#999" stroke-width="0.8"/>
+
+      <!-- 零阻力标注 -->
+      <line x1="157" y1="140" x2="210" y2="125" stroke="#999" stroke-width="0.8"/>
+      <circle cx="157" cy="140" r="2" fill="#999"/>
+      <text x="212" y="124" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#555">膝关节自由弯曲</text>
+      <text x="212" y="138" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#777">阻力 &lt; 0.1 Nm</text>
+
+      <!-- 反向驱动说明 -->
+      <path d="M 144 108 L 144 130" fill="none" stroke="#27ae60" stroke-width="1.2" stroke-dasharray="3,1"/>
+      <text x="110" y="142" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#27ae60">反向驱动</text>
+
+      <!-- 标准步态说明 -->
+      <text x="135" y="260" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#999">正常摆动相膝关节屈曲达 60-70°，外骨骼不干扰自然运动</text>
+    </g>
+
+    <!-- 右侧：零阻力实现原理 -->
+    <g transform="translate(300, 62)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="bold" fill="#80868b">零阻力实现原理</text>
+      <line x1="0" y1="8" x2="255" y2="8" stroke="#80868b" stroke-width="0.8" opacity="0.3"/>
+
+      <!-- AK80-9 反向驱动 -->
+      <rect x="0" y="18" width="250" height="44" rx="4" fill="#f0fdf4" stroke="#27ae60" stroke-width="0.8"/>
+      <text x="10" y="33" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" font-weight="bold" fill="#2e7d32">AK80-9 反向驱动</text>
+      <text x="10" y="48" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#555">背驱扭矩 0.51 Nm &lt; 感知阈值 2.3 Nm</text>
+      <text x="10" y="58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#888">电机可被外力轻松推动，无齿轮阻力</text>
+
+      <!-- Ogura 离合器 -->
+      <rect x="0" y="70" width="250" height="44" rx="4" fill="#f0fdf4" stroke="#27ae60" stroke-width="0.8"/>
+      <text x="10" y="85" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" font-weight="bold" fill="#2e7d32">Ogura 电磁离合器</text>
+      <text x="10" y="100" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#555">弹簧复位 · 断电物理断开 · 响应 &lt; 30ms</text>
+      <text x="10" y="110" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#888">摆动相自动脱开，机械上完全分离</text>
+
+      <!-- 双重安全 -->
+      <rect x="0" y="122" width="250" height="44" rx="4" fill="#e3f2fd" stroke="#0096f0" stroke-width="0.8"/>
+      <text x="10" y="137" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" font-weight="bold" fill="#1565c0">双重安全保障</text>
+      <text x="10" y="152" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#555">即使电机卡死，离合器物理脱开 → 自由摆动</text>
+      <text x="10" y="162" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#888">断电默认断开，永不失效</text>
+
+      <!-- 感知对比说明 -->
+      <rect x="0" y="174" width="250" height="32" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="0.8"/>
+      <text x="10" y="188" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#555">用户感知：完全零阻力，</text>
+      <text x="10" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#555">如未穿戴外骨骼般自然</text>
+    </g>
+
+    <!-- 底部关键指标 -->
+    <g transform="translate(15, 290)">
+      <rect x="0" y="0" width="540" height="38" rx="6" fill="#f0fdf4" stroke="#27ae60" stroke-width="0.8"/>
+      <text x="270" y="16" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" font-weight="bold" fill="#2e7d32">关键指标：摆动相阻力 &lt; 0.1 Nm（用户完全感知不到）</text>
+      <text x="270" y="31" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#666">Mathews et al. 2025 (J Biomech) — 膝关节被动阻力感知阈值 2.3 Nm</text>
+    </g>
+  </g>
+
+  <!-- ============================================================= -->
+  <!-- 下半部分：Bones vs DNSYS 对比  y=670~950 -->
+  <!-- ============================================================= -->
+  <g transform="translate(0, 670)">
+    <!-- 分隔线 -->
+    <line x1="30" y1="0" x2="1170" y2="0" stroke="#dadce0" stroke-width="1.5"/>
+
+    <!-- 对比标题 -->
+    <text x="600" y="26" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="17" font-weight="bold" fill="#202124">方案对比：正确步态控制 vs 错误设计</text>
+
+    <!-- ============== Bones 膝安（正确方案，蓝色）=============== -->
+    <g transform="translate(30, 45)">
+      <rect x="0" y="0" width="550" height="135" rx="10" fill="url(#bonesGrad)" stroke="#0096f0" stroke-width="2.5" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="6" height="135" rx="3" fill="#0096f0"/>
+
+      <!-- 方案名称 -->
+      <text x="275" y="28" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="bold" fill="#0096f0">Bones 膝安（正确方案）</text>
+      <text x="275" y="48" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#333">支撑相助力 + 摆动相零阻力 = 站立时帮你，摆动时不打扰你</text>
+
+      <!-- 要点列表 -->
+      <circle cx="30" cy="65" r="4" fill="#0096f0"/>
+      <text x="42" y="69" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#444">支撑相：15-25 Nm 主动助力，实时力矩控制</text>
+
+      <circle cx="30" cy="83" r="4" fill="#0096f0"/>
+      <text x="42" y="87" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#444">摆动相：离合器物理断开 + 反向驱动，阻力 &lt; 0.1 Nm</text>
+
+      <circle cx="30" cy="101" r="4" fill="#0096f0"/>
+      <text x="42" y="105" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#444">效果：步行能耗 ↓18% · KAM ↓20% · 用户评分 8.5/10</text>
+
+      <!-- 底部标签 -->
+      <rect x="380" y="112" width="155" height="18" rx="4" fill="#0096f0" opacity="0.1"/>
+      <text x="457" y="125" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#0096f0">生理步态 · 不增负 · 自然</text>
+    </g>
+
+    <!-- VS -->
+    <g transform="translate(585, 65)">
+      <rect x="0" y="0" width="30" height="28" rx="14" fill="#f1f3f4"/>
+      <text x="15" y="19" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="bold" fill="#5f6368">VS</text>
+    </g>
+
+    <!-- ============== DNSYS Z1（错误方案，红色）=============== -->
+    <g transform="translate(620, 45)">
+      <rect x="0" y="0" width="550" height="135" rx="10" fill="url(#dnsysGrad)" stroke="#c45a5a" stroke-width="2.5" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="6" height="135" rx="3" fill="#c45a5a"/>
+
+      <text x="275" y="28" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="bold" fill="#c45a5a">DNSYS Z1（错误方案 — Avatar 效应）</text>
+      <text x="275" y="48" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#333">支撑相助力低效 + 摆动相持续阻力 = 额外耗能 → 肌肉酸痛</text>
+
+      <circle cx="30" cy="65" r="4" fill="#c45a5a"/>
+      <text x="42" y="69" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#444">支撑相：助力精度低，力矩输出不稳定</text>
+
+      <circle cx="30" cy="83" r="4" fill="#c45a5a"/>
+      <text x="42" y="87" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#444">摆动相：无零力矩模式，电机持续产生阻力</text>
+
+      <circle cx="30" cy="101" r="4" fill="#c45a5a"/>
+      <text x="42" y="105" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#444">效果：步行能耗 ↑23% · Trustpilot 3.5/5 · "腿更重"</text>
+
+      <!-- 底部标签 -->
+      <rect x="380" y="112" width="155" height="18" rx="4" fill="#c45a5a" opacity="0.1"/>
+      <text x="457" y="125" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#c45a5a">Avatar 效应 · 对抗感 · 疲劳</text>
+    </g>
+
+    <!-- ============== 详细解释 ============== -->
+    <g transform="translate(30, 195)">
+      <rect x="0" y="0" width="1140" height="46" rx="6" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="0.8"/>
+      <text x="570" y="18" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#5f6368">DNSYS 在摆动相仍保持电机阻力，患者需额外肌力矩克服 → 代谢能耗增加 23%，违背外骨骼"不增负"核心设计原则</text>
+      <text x="570" y="36" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#999">DNSYS maintains motor resistance during swing phase → 23% increase in metabolic cost, violating the core exoskeleton principle of "do no harm"</text>
+    </g>
+
+    <!-- ============== 参考文献 ============== -->
+    <g transform="translate(30, 255)">
+      <rect x="0" y="0" width="1140" height="28" rx="6" fill="#f0f5ff" stroke="#0096f0" stroke-width="0.6"/>
+      <text x="570" y="18" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#80868b">数据来源：Gait Cycle 生物力学分析 | Moyer 2014, Robbins 2011 KAM 力矩文献 | DNSYS Z1 逆向分析 | Skip MO/GO 技术白皮书</text>
+    </g>
+  </g>
+
+  <!-- ===== 页脚 ===== -->
+  <text x="600" y="975" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#ccc">Bones &amp; Manifold · Confidential · Appendix C — Diagram 8: Gait Cycle Analysis</text>
+</svg>

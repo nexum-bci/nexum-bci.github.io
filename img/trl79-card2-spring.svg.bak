@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700">
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/></filter>
+  </defs>
+  <rect width="1200" height="700" fill="#f8fafc" rx="12"/>
+  
+  <!-- Header bar -->
+  <rect x="20" y="20" width="1160" height="60" rx="10" fill="#d97706" opacity="0.9"/>
+  <text x="600" y="48" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">被动弹簧阻尼式 · Passive Spring-Damper</text>
+  <text x="600" y="68" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.85)">弹簧屈曲储能→伸展释放·纯机械零功耗 | TRL 7-9 量产级</text>
+  
+  <!-- Products -->
+  <rect x="20" y="95" width="1160" height="36" rx="6" fill="#fff" stroke="#e5e5e5"/>
+  <text x="40" y="118" font-size="12" fill="#000" font-weight="600">代表产品：Ski-Mojo(法国·€895·15年·~900g) | GOGOA Xnowers(西班牙) | 多所中国高校研究</text>
+  
+  <!-- Diagram area -->
+  <rect x="20" y="145" width="700" height="360" rx="8" fill="#fff" stroke="#e5e5e5" filter="url(#shadow)"/>
+  <text x="370" y="170" text-anchor="middle" font-size="12" font-weight="700" fill="#666">力学路径示意图</text>
+  
+  <!-- Diagram content based on type -->
+
+  <!-- Spring mechanism -->
+  <rect x="180" y="200" width="40" height="220" rx="15" fill="none" stroke="#999" stroke-width="2"/>
+  <circle cx="200" cy="250" r="20" fill="none" stroke="#d97706" stroke-width="2"/>
+  <text x="200" y="254" text-anchor="middle" font-size="8" fill="#d97706">膝</text>
+  <!-- Spring zigzag -->
+  <polyline points="240,230 255,215 270,230 285,215 300,230" fill="none" stroke="#d97706" stroke-width="3"/>
+  <text x="270" y="210" text-anchor="middle" font-size="8" fill="#d97706">压缩弹簧</text>
+  <!-- Extension spring -->
+  <polyline points="240,360 255,375 270,360 285,375 300,360" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="4,2"/>
+  <text x="270" y="395" text-anchor="middle" font-size="8" fill="#d97706">伸展释放</text>
+  <!-- No battery -->
+  <text x="270" y="440" text-anchor="middle" font-size="10" font-weight="700" fill="#d97706">零电池·零电子·零故障</text>
+
+  <!-- Specs sidebar -->
+  <rect x="740" y="145" width="440" height="360" rx="8" fill="#fff" stroke="#e5e5e5"/>
+  <text x="960" y="175" text-anchor="middle" font-size="14" font-weight="700" fill="#000">关键评估</text>
+  <line x1="760" y1="188" x2="1160" y2="188" stroke="#e5e5e5"/>
+  
+  <rect x="760" y="200" width="400" height="75" rx="6" fill="#e8f4fd"/>
+  <text x="780" y="222" font-size="11" font-weight="700" fill="##d97706">优势</text>
+  <text x="780" y="242" font-size="10" fill="#000">零电池·零电子故障·极可靠·任何气候可用·低成本</text>
+  
+  <rect x="760" y="285" width="400" height="75" rx="6" fill="#fdf2f8"/>
+  <text x="780" y="307" font-size="11" font-weight="700" fill="#c45a5a">缺陷</text>
+  <text x="780" y="327" font-size="10" fill="#000">完全不能提供主动助力·仅储能释放·刚度固定·力-位置耦合·不能自适应</text>
+  
+  <rect x="760" y="370" width="400" height="120" rx="6" fill="#0096f0" opacity="0.06" stroke="##d97706" stroke-width="1.5"/>
+  <text x="780" y="395" font-size="11" font-weight="700" fill="##d97706">Bones适用性</text>
+  <text x="780" y="418" font-size="10" fill="#000">低端产品线参考 · 可开发纯机械版¥999-1,999·零充电·B2B租赁场景适用</text>
+</svg>

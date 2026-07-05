@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1100" width="1200" height="1100">
+<defs>
+  <!-- Bone gradient series -->
+  <linearGradient id="boneGrad" x1="0" y1="0" x2="0.5" y2="1">
+    <stop offset="0%" stop-color="#f2ebd4"/>
+    <stop offset="20%" stop-color="#e8ddc0"/>
+    <stop offset="50%" stop-color="#e0d2b0"/>
+    <stop offset="80%" stop-color="#d8c8a0"/>
+    <stop offset="100%" stop-color="#ceba88"/>
+  </linearGradient>
+  <linearGradient id="boneGradH" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#d4c49a"/>
+    <stop offset="30%" stop-color="#e8ddc0"/>
+    <stop offset="50%" stop-color="#f0e8d0"/>
+    <stop offset="70%" stop-color="#e0d2b0"/>
+    <stop offset="100%" stop-color="#c8b888"/>
+  </linearGradient>
+  <!-- Trabecular bone pattern -->
+  <pattern id="trabecular" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(25)">
+    <path d="M0,5 Q2.5,2 5,5 Q7.5,8 10,5" stroke="#d4c49a" stroke-width="0.35" fill="none" opacity="0.35"/>
+    <path d="M0,0 Q2.5,3 5,0 Q7.5,-3 10,0" stroke="#d4c49a" stroke-width="0.25" fill="none" opacity="0.25"/>
+    <path d="M0,10 Q2.5,7 5,10 Q7.5,13 10,10" stroke="#d4c49a" stroke-width="0.25" fill="none" opacity="0.25"/>
+    <path d="M2.5,0 Q5,3 7.5,0" stroke="#d4c49a" stroke-width="0.2" fill="none" opacity="0.2"/>
+    <path d="M2.5,10 Q5,7 7.5,10" stroke="#d4c49a" stroke-width="0.2" fill="none" opacity="0.2"/>
+  </pattern>
+  <!-- Cortical bone ring pattern -->
+  <pattern id="cortical" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+    <line x1="0" y1="0" x2="4" y2="4" stroke="#e8ddc0" stroke-width="0.3" opacity="0.3"/>
+  </pattern>
+  <!-- Muscle gradient - semi-transparent red -->
+  <linearGradient id="muscleGrad" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0%" stop-color="rgba(200,50,50,0.30)"/>
+    <stop offset="30%" stop-color="rgba(190,45,45,0.42)"/>
+    <stop offset="60%" stop-color="rgba(175,40,40,0.38)"/>
+    <stop offset="100%" stop-color="rgba(160,35,35,0.28)"/>
+  </linearGradient>
+  <linearGradient id="muscleGrad2" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="rgba(200,50,50,0.28)"/>
+    <stop offset="50%" stop-color="rgba(185,45,45,0.40)"/>
+    <stop offset="100%" stop-color="rgba(170,40,40,0.28)"/>
+  </linearGradient>
+  <!-- Muscle fiber striation pattern -->
+  <pattern id="muscleFiber" width="3" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(-6)">
+    <line x1="1.5" y1="0" x2="1.5" y2="18" stroke="rgba(180,40,40,0.20)" stroke-width="0.4"/>
+    <line x1="0" y1="0" x2="0" y2="18" stroke="rgba(180,40,40,0.10)" stroke-width="0.2"/>
+  </pattern>
+  <!-- Cartilage gradient -->
+  <linearGradient id="cartilageGrad" x1="0" y1="0" x2="0.5" y2="1">
+    <stop offset="0%" stop-color="rgba(160,200,220,0.50)"/>
+    <stop offset="50%" stop-color="rgba(180,215,230,0.70)"/>
+    <stop offset="100%" stop-color="rgba(155,195,215,0.50)"/>
+  </linearGradient>
+  <!-- Tendon gradient -->
+  <linearGradient id="tendonGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="rgba(220,200,180,0.50)"/>
+    <stop offset="50%" stop-color="rgba(235,215,195,0.65)"/>
+    <stop offset="100%" stop-color="rgba(215,195,175,0.50)"/>
+  </linearGradient>
+  <!-- Metallic gradients -->
+  <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#a0a0a0"/>
+    <stop offset="20%" stop-color="#c8c8c8"/>
+    <stop offset="40%" stop-color="#e8e8e8"/>
+    <stop offset="50%" stop-color="#f5f5f5"/>
+    <stop offset="60%" stop-color="#e0e0e0"/>
+    <stop offset="80%" stop-color="#c0c0c0"/>
+    <stop offset="100%" stop-color="#a0a0a0"/>
+  </linearGradient>
+  <linearGradient id="metalGradV" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#b0b0b0"/>
+    <stop offset="25%" stop-color="#d8d8d8"/>
+    <stop offset="50%" stop-color="#e8e8e8"/>
+    <stop offset="75%" stop-color="#c8c8c8"/>
+    <stop offset="100%" stop-color="#a0a0a0"/>
+  </linearGradient>
+  <!-- Spring steel gradient -->
+  <linearGradient id="springSteel" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0%" stop-color="#d0d0d0"/>
+    <stop offset="25%" stop-color="#b8b8b8"/>
+    <stop offset="50%" stop-color="#909090"/>
+    <stop offset="75%" stop-color="#b0b0b0"/>
+    <stop offset="100%" stop-color="#c8c8c8"/>
+  </linearGradient>
+  <!-- Chrome/piston gradient -->
+  <linearGradient id="chromeGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#888888"/>
+    <stop offset="20%" stop-color="#c0c0c0"/>
+    <stop offset="40%" stop-color="#f0f0f0"/>
+    <stop offset="50%" stop-color="#ffffff"/>
+    <stop offset="60%" stop-color="#e8e8e8"/>
+    <stop offset="80%" stop-color="#b0b0b0"/>
+    <stop offset="100%" stop-color="#888888"/>
+  </linearGradient>
+  <!-- Damper fluid gradient -->
+  <linearGradient id="fluidGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="rgba(60,120,160,0.30)"/>
+    <stop offset="50%" stop-color="rgba(50,110,150,0.45)"/>
+    <stop offset="100%" stop-color="rgba(60,120,160,0.30)"/>
+  </linearGradient>
+  <!-- Cross-section hatch patterns -->
+  <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="5" stroke="#888888" stroke-width="0.3" opacity="0.35"/>
+  </pattern>
+  <pattern id="hatchDense" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+    <line x1="0" y1="0" x2="0" y2="3" stroke="#666666" stroke-width="0.25" opacity="0.40"/>
+  </pattern>
+  <!-- Drop shadow filter -->
+  <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+    <feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-opacity="0.12"/>
+  </filter>
+  <filter id="shadowDeep" x="-8%" y="-8%" width="120%" height="120%">
+    <feDropShadow dx="2" dy="3" stdDeviation="4" flood-opacity="0.18"/>
+  </filter>
+  <!-- Ghost blur filter -->
+  <filter id="ghostBlur">
+    <feGaussianBlur stdDeviation="0.5"/>
+  </filter>
+  <!-- Arrow markers -->
+  <marker id="arrRed" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L12,4 L0,8 L3,4 Z" fill="#cc0000"/>
+  </marker>
+  <marker id="arrBlue" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L12,4 L0,8 L3,4 Z" fill="#0066cc"/>
+  </marker>
+  <marker id="arrGreen" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L12,4 L0,8 L3,4 Z" fill="#008844"/>
+  </marker>
+  <marker id="arrAmber" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L12,4 L0,8 L3,4 Z" fill="#d97706"/>
+  </marker>
+  <marker id="arrGray" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L10,3.5 L0,7 Z" fill="#777777"/>
+  </marker>
+  <marker id="arrSmall" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L10,3.5 L0,7 Z" fill="#555555"/>
+  </marker>
+  <style>
+    .bone-fill { fill: url(#boneGrad); stroke: #c8b888; stroke-width: 0.7; }
+    .bone-hfill { fill: url(#boneGradH); stroke: #c8b888; stroke-width: 0.7; }
+    .muscle-fill { fill: url(#muscleGrad); stroke: rgba(160,30,30,0.30); stroke-width: 0.4; }
+    .cartilage { fill: url(#cartilageGrad); stroke: rgba(140,185,210,0.50); stroke-width: 0.4; }
+    .tendon { fill: url(#tendonGrad); stroke: rgba(200,180,160,0.40); stroke-width: 0.3; }
+    .metal { fill: url(#metalGrad); stroke: #888888; stroke-width: 0.7; }
+    .metal-v { fill: url(#metalGradV); stroke: #888888; stroke-width: 0.7; }
+    .spring { fill: none; stroke: url(#springSteel); stroke-width: 2.8; stroke-linecap: round; }
+    .chrome { fill: url(#chromeGrad); stroke: #888888; stroke-width: 0.6; }
+    .ann { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 10px; fill: #333333; }
+    .ann-title { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 12px; fill: #222222; font-weight: bold; }
+    .ann-s { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 8px; fill: #666666; }
+    .ann-xs { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 8px; fill: #888888; }
+    .formula { font-family: "Times New Roman","STIX",serif; font-size: 14px; fill: #222222; }
+    .formula-s { font-family: "Times New Roman","STIX",serif; font-size: 11px; fill: #444444; }
+    .flabel { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 11px; fill: #cc0000; font-weight: bold; }
+    .panel-title { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 13px; font-weight: bold; }
+    .panel-txt { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 9px; fill: #444444; }
+    .panel-bold { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 9px; fill: #333333; font-weight: bold; }
+    .legend-txt { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 11px; fill: #333333; }
+  </style>
+</defs>
+
+<!-- ===== BACKGROUND ===== -->
+<rect width="1200" height="1100" fill="#ffffff"/>
+
+<!-- Column framework -->
+<rect x="20" y="20" width="720" height="1040" fill="none" stroke="#e0ddd5" stroke-width="0.5"/>
+<rect x="740" y="20" width="60" height="1040" fill="#fafaf8" stroke="#e0ddd5" stroke-width="0.5"/>
+<rect x="800" y="20" width="380" height="1040" fill="none" stroke="#e0ddd5" stroke-width="0.5"/>
+
+<!-- ===== LEFT COLUMN UPPER ZONE (y=20 to y=592): ANATOMY + SPRING-DAMPER ===== -->
+<!-- Region label - minimal -->
+<text x="380" y="36" text-anchor="middle" class="ann-title" fill="#666666" font-size="11">膝关节矢状面解剖与被动弹簧-阻尼并联机构</text>
+<text x="380" y="50" text-anchor="middle" class="ann-s" fill="#999999">Sagittal knee anatomy with parallel spring-damper mechanism</text>
+
+<!-- ===== BONE ANATOMY ===== -->
+<g filter="url(#shadowDeep)">
+  <!-- FEMUR - main shaft with anatomical curvature -->
+  <path d="M445,55 C450,48 458,46 462,52 C466,58 468,70 465,90 C460,115 452,150 445,185 C438,220 432,255 428,285 C425,310 422,330 420,345 C418,358 415,368 410,375 L405,382 C400,388 394,392 388,393 C380,394 374,390 370,384 C366,378 365,370 368,362 C371,354 377,348 383,344 C389,340 395,335 400,328 L404,322 C408,314 412,300 416,282 C420,264 425,240 430,215 C435,190 442,155 448,120 C454,85 458,62 462,52 C465,45 448,52 445,55 Z" class="bone-fill"/>
+  <!-- Femoral trabecular overlay -->
+  <path d="M445,55 C450,48 458,46 462,52 C466,58 468,70 465,90 C460,115 452,150 445,185 C438,220 432,255 428,285 C425,310 422,330 420,345 C418,358 415,368 410,375 L405,382 C400,388 394,392 388,393 C380,394 374,390 370,384 C366,378 365,370 368,362 C371,354 377,348 383,344 C389,340 395,335 400,328 L404,322 C408,314 412,300 416,282 C420,264 425,240 430,215 C435,190 442,155 448,120 C454,85 458,62 462,52 C465,45 448,52 445,55 Z" fill="url(#trabecular)"/>
+  <!-- Femoral head outline -->
+  <path d="M462,52 C468,44 472,40 470,36 C467,30 460,32 454,40 C448,50 445,55 445,55" fill="url(#boneGradH)" stroke="#c8b888" stroke-width="0.6"/>
+  <!-- Greater trochanter -->
+  <path d="M445,55 C440,58 435,65 433,75 C430,88 432,95 438,92 C444,88 448,78 450,68 C451,60 448,55 445,55 Z" fill="url(#boneGrad)" stroke="#c8b888" stroke-width="0.5"/>
+  <!-- Femoral condyles - medial -->
+  <path d="M368,362 C364,370 362,380 366,388 C370,396 378,400 386,398 C392,396 396,390 398,382 C400,374 398,366 394,360 C390,354 384,350 378,350 C372,350 370,356 368,362 Z" class="bone-fill"/>
+  <!-- Femoral condyles - lateral -->
+  <path d="M400,328 C404,336 408,346 410,356 C412,366 410,374 406,380 C402,386 396,390 390,390 C384,388 380,382 378,374 C376,366 378,358 382,352 C386,346 392,342 398,340 C402,338 404,334 400,328 Z" class="bone-fill"/>
+  <!-- Intercondylar notch -->
+  <path d="M382,385 C378,378 380,370 384,365 C388,360 394,358 398,362 C394,370 390,378 386,384 Z" fill="#c0b898" stroke="#c8b888" stroke-width="0.4"/>
+  <!-- Articular cartilage on condyles -->
+  <path d="M366,386 C362,392 364,398 370,402 C376,406 384,406 390,402 C394,398 396,392 394,386 C390,390 384,392 378,392 C372,392 368,390 366,386 Z" class="cartilage"/>
+  <path d="M402,354 C406,360 410,368 408,376 C406,384 400,390 394,392 C398,386 400,378 398,370 C396,362 398,356 402,354 Z" class="cartilage"/>
+
+  <!-- TIBIA -->
+  <!-- Tibial plateau -->
+  <path d="M360,398 C355,394 358,388 365,385 C372,382 380,382 388,385 C396,388 400,394 402,400 C404,406 400,410 394,412 C388,414 380,414 372,412 C364,410 358,406 356,400 C354,396 358,400 360,398 Z" class="bone-fill"/>
+  <!-- Tibia shaft (anterior crest more prominent) -->
+  <path d="M358,410 C354,440 350,475 348,510 C346,545 347,570 350,590 C353,608 358,620 362,628 L366,634 C370,638 376,638 380,634 L384,628 C388,618 392,604 394,585 C396,565 396,540 394,510 C392,480 388,448 384,422 C380,404 374,398 368,400 C362,402 358,406 358,410 Z" class="bone-fill"/>
+  <!-- Tibial trabecular -->
+  <path d="M358,410 C354,440 350,475 348,510 C346,545 347,570 350,590 C353,608 358,620 362,628 L366,634 C370,638 376,638 380,634 L384,628 C388,618 392,604 394,585 C396,565 396,540 394,510 C392,480 388,448 384,422 C380,404 374,398 368,400 C362,402 358,406 358,410 Z" fill="url(#trabecular)"/>
+  <!-- Tibial tuberosity -->
+  <path d="M360,398 C362,404 366,410 372,412 C378,414 384,412 388,408 C392,404 394,398 392,394 C390,398 385,404 378,406 C371,408 364,406 360,398 Z" fill="url(#boneGradH)" stroke="#c8b888" stroke-width="0.5" opacity="0.7"/>
+  <!-- Articular cartilage meniscus -->
+  <ellipse cx="380" cy="392" rx="16" ry="3" fill="rgba(160,200,220,0.35)" stroke="rgba(140,185,210,0.40)" stroke-width="0.4"/>
+
+  <!-- FIBULA -->
+  <path d="M348,430 C344,465 342,505 342,540 C342,575 344,600 348,615 C352,628 356,632 360,628 C364,624 366,612 366,595 C366,570 365,540 362,505 C359,470 356,442 352,432 C350,428 348,430 348,430 Z" class="bone-fill" opacity="0.6"/>
+  <path d="M348,430 C344,465 342,505 342,540 C342,575 344,600 348,615 C352,628 356,632 360,628 C364,624 366,612 366,595 C366,570 365,540 362,505 C359,470 356,442 352,432 C350,428 348,430 348,430 Z" fill="url(#trabecular)" opacity="0.6"/>
+
+  <!-- PATELLA -->
+  <path d="M395,340 C402,334 410,332 416,336 C422,340 426,350 424,360 C422,370 416,378 408,382 C400,386 394,384 390,378 C386,372 384,362 386,352 C388,344 392,340 395,340 Z" class="bone-fill"/>
+  <path d="M395,340 C402,334 410,332 416,336 C422,340 426,350 424,360 C422,370 416,378 408,382 C400,386 394,384 390,378 C386,372 384,362 386,352 C388,344 392,340 395,340 Z" fill="url(#trabecular)"/>
+  <!-- Patellar cartilage -->
+  <path d="M395,340 C400,338 406,338 410,342 C414,348 414,356 410,362 C406,368 400,370 395,370 C390,368 386,362 386,356 C386,348 390,342 395,340 Z" fill="rgba(200,220,235,0.25)" stroke="rgba(180,200,220,0.30)" stroke-width="0.3"/>
+</g>
+
+<!-- ===== MUSCLES ===== -->
+<!-- QUADRICEPS - anterior thigh -->
+<g filter="url(#shadow)">
+  <path d="M435,60 C445,65 452,80 456,100 C460,125 462,155 462,185 C462,220 458,255 452,285 C448,305 442,320 436,332 C432,340 428,346 425,350 C420,356 416,358 412,356 C408,354 406,348 406,340 C406,330 410,316 416,298 C422,278 428,252 432,225 C436,198 440,168 442,140 C444,112 444,88 442,72 C440,60 436,55 435,60 Z" class="muscle-fill"/>
+  <path d="M435,60 C445,65 452,80 456,100 C460,125 462,155 462,185 C462,220 458,255 452,285 C448,305 442,320 436,332 C432,340 428,346 425,350 C420,356 416,358 412,356 C408,354 406,348 406,340 C406,330 410,316 416,298 C422,278 428,252 432,225 C436,198 440,168 442,140 C444,112 444,88 442,72 C440,60 436,55 435,60 Z" fill="url(#muscleFiber)"/>
+  <!-- Muscle fiber striation lines -->
+  <path d="M440,72 C442,82 444,95 445,110 C446,125 446,142 444,160" fill="none" stroke="rgba(180,40,40,0.15)" stroke-width="0.5"/>
+  <path d="M445,100 C446,115 447,132 446,150 C445,168 442,188 438,208" fill="none" stroke="rgba(180,40,40,0.15)" stroke-width="0.5"/>
+  <path d="M450,130 C451,148 450,168 448,188 C446,208 442,228 436,248" fill="none" stroke="rgba(180,40,40,0.15)" stroke-width="0.5"/>
+  <path d="M452,160 C452,178 450,198 446,218 C442,238 436,258 430,275" fill="none" stroke="rgba(180,40,40,0.15)" stroke-width="0.5"/>
+  <path d="M448,190 C446,208 442,226 436,244 C430,262 424,278 418,292" fill="none" stroke="rgba(180,40,40,0.15)" stroke-width="0.5"/>
+  <!-- Quadriceps tendon -->
+  <path d="M425,350 C422,354 418,358 416,356 C412,352 418,344 428,336 C434,330 438,328 436,332 C432,340 428,346 425,350 Z" class="tendon"/>
+</g>
+
+<!-- HAMSTRINGS - posterior thigh -->
+<g filter="url(#shadow)">
+  <path d="M418,58 C412,62 405,72 400,88 C395,108 390,135 386,165 C382,195 380,225 380,255 C380,278 382,298 386,315 C390,332 396,345 402,354 C408,362 414,366 418,364 C422,362 424,356 424,348 C424,338 420,324 414,306 C408,286 402,262 398,235 C394,208 392,178 394,150 C396,122 400,100 406,85 C412,70 418,60 422,56 C420,54 418,58 418,58 Z" class="muscle-fill"/>
+  <path d="M418,58 C412,62 405,72 400,88 C395,108 390,135 386,165 C382,195 380,225 380,255 C380,278 382,298 386,315 C390,332 396,345 402,354 C408,362 414,366 418,364 C422,362 424,356 424,348 C424,338 420,324 414,306 C408,286 402,262 398,235 C394,208 392,178 394,150 C396,122 400,100 406,85 C412,70 418,60 422,56 C420,54 418,58 418,58 Z" fill="url(#muscleFiber)"/>
+  <!-- Hamstring fiber lines -->
+  <path d="M410,80 C406,100 402,125 400,152 C398,180 398,208 400,235" fill="none" stroke="rgba(180,40,40,0.15)" stroke-width="0.5"/>
+  <path d="M402,110 C398,135 395,162 394,190 C393,218 394,245 398,270" fill="none" stroke="rgba(180,40,40,0.15)" stroke-width="0.5"/>
+  <path d="M394,145 C392,170 390,198 390,226 C390,254 392,278 396,300" fill="none" stroke="rgba(180,40,40,0.15)" stroke-width="0.5"/>
+  <path d="M388,180 C386,205 386,232 388,258 C390,284 394,306 400,325" fill="none" stroke="rgba(180,40,40,0.15)" stroke-width="0.5"/>
+</g>
+
+<!-- GASTROCNEMIUS - calf -->
+<g filter="url(#shadow)">
+  <path d="M349,410 C344,440 340,480 340,520 C340,555 344,580 350,595 C356,608 362,612 366,608 C370,604 372,594 372,580 C372,560 370,535 366,505 C362,475 358,448 354,428 C352,418 350,412 349,410 Z" class="muscle-fill"/>
+  <path d="M349,410 C344,440 340,480 340,520 C340,555 344,580 350,595 C356,608 362,612 366,608 C370,604 372,594 372,580 C372,560 370,535 366,505 C362,475 358,448 354,428 C352,418 350,412 349,410 Z" fill="url(#muscleFiber)"/>
+</g>
+
+<!-- SOLEUS - deep calf -->
+<g filter="url(#shadow)">
+  <path d="M384,628 C380,610 376,585 374,555 C372,525 374,498 378,478 C382,462 386,455 388,458 C390,462 390,472 388,488 C386,504 382,525 380,548 C378,571 380,590 384,605 C386,614 386,622 384,628 Z" class="muscle-fill" opacity="0.5"/>
+</g>
+
+<!-- PATELLAR LIGAMENT -->
+<path d="M400,382 C404,386 406,392 404,398 C402,404 398,408 394,410 C390,412 388,408 388,402 C388,396 392,390 396,386 C398,384 399,383 400,382 Z" class="tendon"/>
+
+<!-- ===== SPRING-DAMPER MECHANISM (posterior side) ===== -->
+<g filter="url(#shadowDeep)">
+  <!-- Upper mounting bracket - femoral attachment -->
+  <rect x="285" y="145" width="145" height="10" rx="2" class="metal" transform="rotate(-5, 357, 150)"/>
+  <!-- Fixation screws -->
+  <circle cx="300" cy="150" r="2.5" fill="#888888" stroke="#666666" stroke-width="0.4"/>
+  <circle cx="325" cy="149" r="2.5" fill="#888888" stroke="#666666" stroke-width="0.4"/>
+  <circle cx="350" cy="148" r="2.5" fill="#888888" stroke="#666666" stroke-width="0.4"/>
+  <circle cx="375" cy="147" r="2.5" fill="#888888" stroke="#666666" stroke-width="0.4"/>
+  <circle cx="400" cy="146" r="2.5" fill="#888888" stroke="#666666" stroke-width="0.4"/>
+  <circle cx="420" cy="145" r="2.5" fill="#888888" stroke="#666666" stroke-width="0.4"/>
+  <!-- Screw cross slots -->
+  <line x1="298" y1="148" x2="302" y2="152" stroke="#555555" stroke-width="0.3"/>
+  <line x1="323" y1="147" x2="327" y2="151" stroke="#555555" stroke-width="0.3"/>
+  <line x1="348" y1="146" x2="352" y2="150" stroke="#555555" stroke-width="0.3"/>
+  <line x1="373" y1="145" x2="377" y2="149" stroke="#555555" stroke-width="0.3"/>
+  <line x1="398" y1="144" x2="402" y2="148" stroke="#555555" stroke-width="0.3"/>
+
+  <!-- Upper bracket extension/connector plate -->
+  <rect x="285" y="155" width="12" height="18" rx="1" class="metal-v"/>
+
+  <!-- Lower mounting bracket - tibial attachment -->
+  <rect x="280" y="490" width="120" height="10" rx="2" class="metal" transform="rotate(4, 340, 495)"/>
+  <!-- Fixation screws -->
+  <circle cx="295" cy="494" r="2.5" fill="#888888" stroke="#666666" stroke-width="0.4"/>
+  <circle cx="320" cy="495" r="2.5" fill="#888888" stroke="#666666" stroke-width="0.4"/>
+  <circle cx="345" cy="496" r="2.5" fill="#888888" stroke="#666666" stroke-width="0.4"/>
+  <circle cx="370" cy="497" r="2.5" fill="#888888" stroke="#666666" stroke-width="0.4"/>
+  <circle cx="392" cy="498" r="2.5" fill="#888888" stroke="#666666" stroke-width="0.4"/>
+
+  <!-- Lower bracket connector -->
+  <rect x="280" y="480" width="12" height="16" rx="1" class="metal-v"/>
+
+  <!-- ===== HELICAL SPRING (12 coils) ===== -->
+  <g>
+    <!-- Spring guide/body outline -->
+    <rect x="291" y="173" width="20" height="318" rx="8" fill="none" stroke="#aaaaaa" stroke-width="0.3" opacity="0.30"/>
+    <!-- 12 coil zigzag path -->
+    <path d="
+      M 301,173 L 301,180
+      L 291,187 L 311,194 L 291,201 L 311,208
+      L 291,215 L 311,222 L 291,229 L 311,236
+      L 291,243 L 311,250 L 291,257 L 311,264
+      L 291,271 L 311,278 L 291,285 L 311,292
+      L 291,299 L 311,306 L 291,313 L 311,320
+      L 291,327 L 311,334 L 291,341 L 311,348
+      L 291,355 L 311,362 L 291,369 L 311,376
+      L 291,383 L 311,390 L 291,397 L 311,404
+      L 291,411 L 311,418 L 291,425 L 311,432
+      L 291,439 L 311,446 L 291,453 L 311,460
+      L 291,467 L 311,474 L 291,481 L 301,488
+      L 301,490
+    " class="spring"/>
+    <!-- Spring coil shading highlights -->
+    <path d="
+      M 311,194 L 291,201 M 311,208 L 291,215
+      M 311,222 L 291,229 M 311,236 L 291,243
+      M 311,250 L 291,257 M 311,264 L 291,271
+      M 311,278 L 291,285 M 311,292 L 291,299
+      M 311,306 L 291,313 M 311,320 L 291,327
+      M 311,334 L 291,341 M 311,348 L 291,355
+      M 311,362 L 291,369 M 311,376 L 291,383
+      M 311,390 L 291,397 M 311,404 L 291,411
+      M 311,418 L 291,425 M 311,432 L 291,439
+      M 311,446 L 291,453 M 311,460 L 291,467
+      M 311,474 L 291,481
+    " stroke="#dddddd" stroke-width="1.2" opacity="0.25" fill="none"/>
+  </g>
+
+  <!-- ===== HYDRAULIC DAMPER ===== -->
+  <!-- Damper cylinder -->
+  <rect x="320" y="240" width="20" height="175" rx="4" class="metal" stroke="#777777" stroke-width="1.2"/>
+  <!-- Damper internal bore -->
+  <rect x="324" y="248" width="12" height="158" rx="2" fill="#f0f0f0" stroke="#aaaaaa" stroke-width="0.3"/>
+  <!-- Damper cross-section hatch -->
+  <rect x="324" y="248" width="12" height="158" rx="2" fill="url(#hatch)" stroke="none"/>
+  <!-- Hydraulic fluid -->
+  <rect x="324" y="268" width="12" height="80" rx="1" fill="url(#fluidGrad)"/>
+  <!-- Fluid level line -->
+  <line x1="322" y1="268" x2="338" y2="268" stroke="rgba(60,120,160,0.50)" stroke-width="0.8"/>
+  <!-- Fluid annotation dots (molecular) -->
+  <circle cx="328" cy="285" r="0.8" fill="rgba(60,120,160,0.30)"/>
+  <circle cx="332" cy="292" r="0.8" fill="rgba(60,120,160,0.30)"/>
+  <circle cx="326" cy="300" r="0.8" fill="rgba(60,120,160,0.30)"/>
+  <circle cx="334" cy="308" r="0.8" fill="rgba(60,120,160,0.30)"/>
+  <circle cx="328" cy="318" r="0.8" fill="rgba(60,120,160,0.30)"/>
+  <circle cx="330" cy="330" r="0.8" fill="rgba(60,120,160,0.30)"/>
+
+  <!-- Damper upper chamber (gas) -->
+  <rect x="324" y="248" width="12" height="20" rx="1" fill="none" stroke="rgba(200,200,200,0.30)" stroke-width="0.3"/>
+
+  <!-- Piston rod -->
+  <rect x="327" y="173" width="6" height="78" class="chrome"/>
+  <!-- Piston rod upper eyelet -->
+  <circle cx="330" cy="178" r="5" fill="none" stroke="#888888" stroke-width="1.2"/>
+  <circle cx="330" cy="178" r="2" fill="#888888"/>
+  <!-- Piston rod connecting pin -->
+  <line x1="297" y1="178" x2="325" y2="178" stroke="#999999" stroke-width="2"/>
+  <circle cx="297" cy="178" r="3" fill="#aaaaaa" stroke="#888888" stroke-width="0.5"/>
+
+  <!-- Piston head -->
+  <rect x="322" y="248" width="16" height="8" rx="1" class="metal-v" stroke="#666666" stroke-width="0.8"/>
+  <!-- Piston seal rings -->
+  <rect x="322" y="250" width="16" height="1.5" fill="#444444" opacity="0.50"/>
+  <rect x="322" y="253" width="16" height="1.5" fill="#444444" opacity="0.50"/>
+  <!-- Orifice hole -->
+  <circle cx="330" cy="260" r="1.2" fill="#333355" opacity="0.40"/>
+  <!-- Orifice annotation -->
+  <line x1="330" y1="260" x2="360" y2="260" stroke="#777777" stroke-width="0.4"/>
+  <circle cx="330" cy="260" r="1" fill="#777777"/>
+
+  <!-- Damper lower eyelet -->
+  <circle cx="330" cy="412" r="5" fill="none" stroke="#888888" stroke-width="1.2"/>
+  <circle cx="330" cy="412" r="2" fill="#888888"/>
+  <!-- Lower connection to bracket -->
+  <line x1="286" y1="412" x2="325" y2="412" stroke="#999999" stroke-width="2"/>
+  <circle cx="286" cy="412" r="3" fill="#aaaaaa" stroke="#888888" stroke-width="0.5"/>
+
+  <!-- ===== PARALLEL MOUNTING BRACKETS (connecting spring and damper) ===== -->
+  <!-- Upper parallel bridge -->
+  <rect x="290" y="180" width="50" height="5" rx="1" class="metal" stroke="#888888" stroke-width="0.5"/>
+  <!-- Lower parallel bridge -->
+  <rect x="290" y="408" width="50" height="5" rx="1" class="metal" stroke="#888888" stroke-width="0.5"/>
+</g>
+
+<!-- ===== GHOST POSITION (45° knee flexion) ===== -->
+<g opacity="0.18" filter="url(#ghostBlur)">
+  <!-- Ghost lower leg rotated ~45° around knee center -->
+  <g transform="rotate(42, 385, 385)">
+    <!-- Ghost calf -->
+    <path d="M349,410 C344,440 340,480 340,520 C340,555 344,580 350,595 C356,608 362,612 366,608 C370,604 372,594 372,580 C372,560 370,535 366,505 C362,475 358,448 354,428 C352,418 350,412 349,410 Z" fill="none" stroke="#999999" stroke-width="1.2" stroke-dasharray="5,4"/>
+    <!-- Ghost tibia -->
+    <path d="M358,410 C354,440 350,475 348,510 C346,545 347,570 350,590 C353,608 358,620 362,628 L366,634 C370,638 376,638 380,634 L384,628 C388,618 392,604 394,585 C396,565 396,540 394,510 C392,480 388,448 384,422 C380,404 374,398 368,400 C362,402 358,406 358,410 Z" fill="none" stroke="#999999" stroke-width="1" stroke-dasharray="5,4"/>
+    <!-- Ghost fibula -->
+    <path d="M348,430 C344,465 342,505 342,540 C342,575 344,600 348,615 C352,628 356,632 360,628 C364,624 366,612 366,595 C366,570 365,540 362,505 C359,470 356,442 352,432 C350,428 348,430 348,430 Z" fill="none" stroke="#999999" stroke-width="0.6" stroke-dasharray="4,3"/>
+    <!-- Ghost foot -->
+    <path d="M340,628 Q335,645 330,660 L325,675 Q322,680 326,682 Q332,683 342,678 L355,670 Q365,662 372,652 Q378,642 380,632 Q370,630 360,628" fill="none" stroke="#999999" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <!-- Ghost compressed spring (shorter height) -->
+    <path d="M 285,173 L 285,180
+      L 278,187 L 298,194 L 278,201 L 298,208
+      L 278,215 L 298,222 L 278,229 L 298,236
+      L 278,243 L 298,250 L 278,257 L 298,264
+      L 278,271 L 298,278 L 278,285 L 298,292
+      L 278,299 L 298,306 L 278,313 L 298,320
+      L 278,327 L 298,334 L 278,341 L 298,348
+      L 278,355 L 298,362 L 278,369 L 298,376
+      L 278,383 L 298,390 L 285,395 L 285,400
+    " fill="none" stroke="#999999" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <!-- Ghost damper -->
+    <rect x="305" y="230" width="14" height="90" rx="3" fill="none" stroke="#999999" stroke-width="0.8" stroke-dasharray="3,2"/>
+    <!-- Ghost piston rod -->
+    <line x1="312" y1="178" x2="312" y2="230" stroke="#999999" stroke-width="0.8" stroke-dasharray="3,2"/>
+  </g>
+  <!-- 45° rotation arc -->
+  <path d="M 395,385 C 410,392 418,410 412,430" fill="none" stroke="#999999" stroke-width="0.8" stroke-dasharray="2,2"/>
+</g>
+
+<!-- ===== FORCE VECTORS ===== -->
+<!-- Mg - body weight -->
+<line x1="452" y1="42" x2="452" y2="85" stroke="#cc0000" stroke-width="2.8" marker-end="url(#arrRed)"/>
+<!-- GRF - ground reaction force -->
+<line x1="375" y1="640" x2="375" y2="580" stroke="#0066cc" stroke-width="2.8" marker-end="url(#arrBlue)"/>
+<!-- Ground line -->
+<line x1="335" y1="640" x2="420" y2="640" stroke="#666666" stroke-width="0.8" stroke-dasharray="3,2"/>
+<!-- Fspring - spring force -->
+<line x1="301" y1="173" x2="301" y2="220" stroke="#008844" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+<!-- Fdamper - damper force -->
+<line x1="340" y1="335" x2="340" y2="290" stroke="#d97706" stroke-width="2" marker-end="url(#arrAmber)" opacity="0.7"/>
+
+<!-- ===== LEGEND FOR DIAGRAM SYMBOLS ===== -->
+<circle cx="68" cy="560" r="3.5" fill="#cc0000" opacity="0.8"/>
+<text x="78" y="564" class="ann-xs" fill="#cc0000">体重 Mg</text>
+<circle cx="68" cy="576" r="3.5" fill="#0066cc" opacity="0.8"/>
+<text x="78" y="580" class="ann-xs" fill="#0066cc">地面反力 GRF</text>
+<circle cx="68" cy="592" r="3.5" fill="#008844" opacity="0.8"/>
+<text x="78" y="596" class="ann-xs" fill="#008844">弹簧力 Fspring</text>
+<circle cx="68" cy="608" r="3.5" fill="#d97706" opacity="0.8"/>
+<text x="78" y="612" class="ann-xs" fill="#d97706">阻尼力 Fdamper</text>
+
+<!-- ===== LEFT COLUMN LOWER ZONE (y=612 to y=1060): GAIT CYCLE + PRODUCT ===== -->
+<!-- Separator -->
+<line x1="30" y1="598" x2="730" y2="598" stroke="#cccccc" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+<text x="380" y="630" text-anchor="middle" class="ann-title" fill="#666666" font-size="11">步态工作循环 · 产品参照</text>
+
+<!-- ===== 3-PHASE GAIT CYCLE ===== -->
+<g>
+  <text x="140" y="655" text-anchor="middle" class="ann-title" fill="#444444" font-size="10">三相步态工作循环</text>
+
+  <!-- Phase 1: Stance Compression -->
+  <g transform="translate(20, 662)">
+    <rect x="0" y="0" width="225" height="140" rx="4" fill="#fefaf5" stroke="#d97706" stroke-width="0.8"/>
+    <rect x="0" y="0" width="225" height="20" rx="4" fill="#d97706" opacity="0.08"/>
+    <rect x="0" y="16" width="225" height="4" fill="#d97706" opacity="0.08"/>
+    <text x="112" y="14" text-anchor="middle" class="ann-s" fill="#d97706" font-weight="bold">Phase 1 · 支撑期压缩储能</text>
+    <!-- Stick leg -->
+    <line x1="112" y1="28" x2="112" y2="52" stroke="#555555" stroke-width="2"/>
+    <line x1="112" y1="52" x2="112" y2="82" stroke="#555555" stroke-width="2"/>
+    <line x1="112" y1="82" x2="112" y2="118" stroke="#555555" stroke-width="2"/>
+    <line x1="95" y1="118" x2="129" y2="118" stroke="#555555" stroke-width="2"/>
+    <!-- Compressed spring -->
+    <path d="M 135,56 L 140,60 L 135,64 L 140,68 L 135,72 L 140,76 L 135,80 L 140,84 L 135,88 L 140,92" fill="none" stroke="#d97706" stroke-width="1.5"/>
+    <text x="155" y="75" class="ann-xs" fill="#d97706">弹簧压缩</text>
+    <!-- Force arrows -->
+    <line x1="112" y1="24" x2="112" y2="32" stroke="#cc0000" stroke-width="1.2" marker-end="url(#arrRed)"/>
+    <line x1="112" y1="122" x2="112" y2="115" stroke="#0066cc" stroke-width="1.2" marker-end="url(#arrBlue)"/>
+    <text x="95" y="32" class="ann-xs" fill="#cc0000">Mg</text>
+  </g>
+
+  <!-- Phase 2: Swing Release -->
+  <g transform="translate(258, 662)">
+    <rect x="0" y="0" width="225" height="140" rx="4" fill="#f5fdf5" stroke="#008844" stroke-width="0.8"/>
+    <rect x="0" y="0" width="225" height="20" rx="4" fill="#008844" opacity="0.08"/>
+    <rect x="0" y="16" width="225" height="4" fill="#008844" opacity="0.08"/>
+    <text x="112" y="14" text-anchor="middle" class="ann-s" fill="#008844" font-weight="bold">Phase 2 · 摆动期伸展释放</text>
+    <!-- Stick leg swinging -->
+    <line x1="112" y1="28" x2="112" y2="52" stroke="#555555" stroke-width="2"/>
+    <line x1="112" y1="52" x2="120" y2="82" stroke="#555555" stroke-width="2"/>
+    <line x1="120" y1="82" x2="135" y2="118" stroke="#555555" stroke-width="2"/>
+    <line x1="118" y1="118" x2="148" y2="118" stroke="#555555" stroke-width="2"/>
+    <!-- Extending spring -->
+    <path d="M 148,56 L 143,60 L 148,64 L 143,68 L 148,72 L 143,76 L 148,80 L 143,84 L 148,88" fill="none" stroke="#008844" stroke-width="1.5"/>
+    <text x="158" y="75" class="ann-xs" fill="#008844">弹簧释放</text>
+    <!-- Assist arrow -->
+    <line x1="148" y1="118" x2="140" y2="100" stroke="#008844" stroke-width="1.2" marker-end="url(#arrGreen)"/>
+    <!-- Swing direction -->
+    <line x1="135" y1="118" x2="118" y2="118" stroke="#777777" stroke-width="0.8" marker-end="url(#arrSmall)"/>
+  </g>
+
+  <!-- Phase 3: Zero-power Free -->
+  <g transform="translate(496, 662)">
+    <rect x="0" y="0" width="225" height="140" rx="4" fill="#f8f8f8" stroke="#999999" stroke-width="0.8"/>
+    <rect x="0" y="0" width="225" height="20" rx="4" fill="#999999" opacity="0.08"/>
+    <rect x="0" y="16" width="225" height="4" fill="#999999" opacity="0.08"/>
+    <text x="112" y="14" text-anchor="middle" class="ann-s" fill="#666666" font-weight="bold">Phase 3 · 自由相零功耗</text>
+    <!-- Stick leg, no spring engagement -->
+    <line x1="112" y1="28" x2="112" y2="52" stroke="#555555" stroke-width="2"/>
+    <line x1="112" y1="52" x2="108" y2="82" stroke="#555555" stroke-width="2"/>
+    <line x1="108" y1="82" x2="105" y2="115" stroke="#555555" stroke-width="2"/>
+    <line x1="90" y1="115" x2="120" y2="115" stroke="#555555" stroke-width="2"/>
+    <!-- Disconnected spring -->
+    <path d="M 135,56 L 140,60 L 135,64 L 140,68 L 135,72 L 140,76 L 135,80" fill="none" stroke="#cccccc" stroke-width="1.2"/>
+    <line x1="135" y1="56" x2="135" y2="48" stroke="#cccccc" stroke-width="0.8"/>
+    <line x1="135" y1="80" x2="135" y2="88" stroke="#cccccc" stroke-width="0.8"/>
+    <text x="145" y="72" class="ann-xs" fill="#999999">自由摆动</text>
+    <text x="145" y="82" class="ann-xs" fill="#999999">无约束</text>
+    <!-- Power-off symbol -->
+    <rect x="148" y="30" width="14" height="22" rx="2" fill="none" stroke="#cc0000" stroke-width="0.8"/>
+    <rect x="154" y="27" width="3" height="3" rx="0.5" fill="#cc0000"/>
+    <line x1="150" y1="32" x2="160" y2="50" stroke="#cc0000" stroke-width="0.8"/>
+    <line x1="160" y1="32" x2="150" y2="50" stroke="#cc0000" stroke-width="0.8"/>
+  </g>
+
+  <!-- Cycle arrows -->
+  <path d="M 248,732 Q 253,742 258,732" fill="none" stroke="#d97706" stroke-width="1.2" marker-end="url(#arrSmall)"/>
+  <path d="M 486,732 Q 491,742 496,732" fill="none" stroke="#008844" stroke-width="1.2" marker-end="url(#arrSmall)"/>
+  <path d="M 720,732 Q 725,720 720,708 Q 715,695 20,695" fill="none" stroke="#777777" stroke-width="0.8" stroke-dasharray="3,2" marker-end="url(#arrSmall)"/>
+</g>
+
+<!-- ===== Ski-Mojo PRODUCT ===== -->
+<g transform="translate(20, 812)">
+  <text x="185" y="15" text-anchor="middle" class="ann-title" fill="#444444" font-size="10">Ski-Mojo 产品参照</text>
+
+  <g filter="url(#shadow)">
+    <!-- Waist belt -->
+    <rect x="70" y="25" width="230" height="22" rx="4" fill="#e8e8e8" stroke="#bbbbbb" stroke-width="1.2"/>
+    <text x="185" y="39" text-anchor="middle" class="ann-xs" fill="#666666">腰带 (骨盆固定)</text>
+
+    <!-- Side struts -->
+    <rect x="85" y="47" width="10" height="16" rx="2" class="metal"/>
+    <rect x="275" y="47" width="10" height="16" rx="2" class="metal"/>
+
+    <!-- Spring mechanism housing -->
+    <rect x="95" y="63" width="180" height="28" rx="6" fill="#dddddd" stroke="#aaaaaa" stroke-width="1.2"/>
+    <!-- Internal spring indication -->
+    <path d="M 115,77 L 125,70 L 135,77 L 145,70 L 155,77 L 165,70 L 175,77 L 185,70 L 195,77 L 205,70 L 215,77 L 225,70 L 235,77 L 245,70 L 255,77" fill="none" stroke="#d97706" stroke-width="1.2" opacity="0.5"/>
+    <text x="185" y="82" text-anchor="middle" class="ann-xs" fill="#666666">弹簧机构</text>
+
+    <!-- Thigh straps -->
+    <path d="M 95,91 C 80,100 75,110 80,120 C 84,128 92,132 100,128" fill="none" stroke="#cccccc" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 275,91 C 290,100 295,110 290,120 C 286,128 278,132 270,128" fill="none" stroke="#cccccc" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="185" y="135" text-anchor="middle" class="ann-xs" fill="#999999">大腿绑带</text>
+
+    <!-- Product label -->
+    <text x="52" y="85" class="ann-s" fill="#999999">Ski-Mojo</text>
+    <text x="52" y="97" class="ann-xs" fill="#aaaaaa">€895 | 900g | 15年</text>
+    <text x="52" y="109" class="ann-xs" fill="#aaaaaa">瑞士制造</text>
+  </g>
+</g>
+
+<!-- ===== RIGHT COLUMN PANELS (x=800 to x=1180) ===== -->
+<g transform="translate(808, 28)">
+  <!-- Panel 1: Title Card -->
+  <rect x="0" y="0" width="364" height="48" rx="5" fill="#d97706"/>
+  <text x="182" y="22" text-anchor="middle" class="panel-title" fill="#ffffff" font-size="14">被动弹簧阻尼膝关节外骨骼</text>
+  <text x="182" y="40" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="8" fill="rgba(255,255,255,0.80)">Passive Spring-Damper Knee Exoskeleton</text>
+
+  <!-- Panel 2: Specifications -->
+  <g transform="translate(0, 68)">
+    <rect x="0" y="0" width="364" height="165" rx="4" fill="#f8f8f5" stroke="#ece8e0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#f0ece2"/>
+    <rect x="0" y="22" width="364" height="6" fill="#f0ece2"/>
+    <text x="18" y="18" class="panel-title" fill="#555533" font-size="12">技术规格</text>
+    <!-- Spec rows -->
+    <rect x="16" y="34" width="148" height="24" rx="2" fill="#f8f6f0"/>
+    <rect x="168" y="34" width="180" height="24" rx="2" fill="#f8f6f0"/>
+    <text x="24" y="50" class="panel-bold" fill="#555555">重量</text>
+    <text x="258" y="50" text-anchor="middle" class="panel-bold" fill="#d97706" font-size="11">~900 g (单侧)</text>
+    <rect x="16" y="60" width="148" height="24" rx="2" fill="#ffffff"/>
+    <rect x="168" y="60" width="180" height="24" rx="2" fill="#ffffff"/>
+    <text x="24" y="76" class="panel-bold" fill="#555555">功耗</text>
+    <text x="258" y="76" text-anchor="middle" class="panel-bold" fill="#d97706">0 W (纯被动)</text>
+    <rect x="16" y="86" width="148" height="24" rx="2" fill="#f8f6f0"/>
+    <rect x="168" y="86" width="180" height="24" rx="2" fill="#f8f6f0"/>
+    <text x="24" y="102" class="panel-bold" fill="#555555">TRL</text>
+    <text x="258" y="102" text-anchor="middle" class="panel-bold" fill="#d97706">7-9 (量产成熟)</text>
+    <rect x="16" y="112" width="148" height="24" rx="2" fill="#ffffff"/>
+    <rect x="168" y="112" width="180" height="24" rx="2" fill="#ffffff"/>
+    <text x="24" y="128" class="panel-bold" fill="#555555">辅助力矩</text>
+    <text x="258" y="128" text-anchor="middle" class="panel-bold" fill="#d97706">15-30 Nm</text>
+    <rect x="16" y="138" width="148" height="24" rx="2" fill="#f8f6f0"/>
+    <rect x="168" y="138" width="180" height="24" rx="2" fill="#f8f6f0"/>
+    <text x="24" y="154" class="panel-bold" fill="#555555">疲劳寿命</text>
+    <text x="258" y="154" text-anchor="middle" class="panel-bold" fill="#d97706">&gt;50万次 / &gt;10年</text>
+  </g>
+
+  <!-- Panel 3: Products -->
+  <g transform="translate(0, 257)">
+    <rect x="0" y="0" width="364" height="145" rx="4" fill="#f8f8f5" stroke="#ece8e0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#ede4f0"/>
+    <rect x="0" y="22" width="364" height="6" fill="#ede4f0"/>
+    <text x="18" y="18" class="panel-title" fill="#554466" font-size="12">代表产品</text>
+    <!-- Product items -->
+    <rect x="16" y="34" width="332" height="32" rx="3" fill="#ffffff" stroke="#eee8f0" stroke-width="0.4"/>
+    <circle cx="28" cy="48" r="3.5" fill="#d97706"/>
+    <text x="38" y="46" class="panel-bold" fill="#333333">Ski-Mojo</text>
+    <text x="240" y="46" class="panel-txt" fill="#888888">€895 · 瑞士 · 滑雪</text>
+    <text x="38" y="62" class="panel-txt" fill="#888888">被动弹簧减荷 · 900g · 15年市场验证</text>
+    <rect x="16" y="70" width="332" height="32" rx="3" fill="#ffffff" stroke="#eee8f0" stroke-width="0.4"/>
+    <circle cx="28" cy="84" r="3.5" fill="#d97706"/>
+    <text x="38" y="82" class="panel-bold" fill="#333333">GOGOA Xnowers</text>
+    <text x="240" y="82" class="panel-txt" fill="#888888">西班牙 · 步态康复</text>
+    <text x="38" y="98" class="panel-txt" fill="#888888">弹性膝外骨骼 · 医疗认证</text>
+    <rect x="16" y="106" width="332" height="32" rx="3" fill="#ffffff" stroke="#eee8f0" stroke-width="0.4"/>
+    <circle cx="28" cy="120" r="3.5" fill="#d97706"/>
+    <text x="38" y="118" class="panel-bold" fill="#333333">Ossur Unloader One</text>
+    <text x="240" y="118" class="panel-txt" fill="#888888">冰岛 · 临床20年+</text>
+    <text x="38" y="134" class="panel-txt" fill="#888888">弹簧减荷膝支架 · 保险覆盖</text>
+  </g>
+
+  <!-- Panel 4: Pros/Cons -->
+  <g transform="translate(0, 426)">
+    <rect x="0" y="0" width="364" height="165" rx="4" fill="#f8f8f5" stroke="#ece8e0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#e8f0e0"/>
+    <rect x="0" y="22" width="364" height="6" fill="#e8f0e0"/>
+    <text x="18" y="18" class="panel-title" fill="#446644" font-size="12">优势与劣势</text>
+    <!-- Pros -->
+    <rect x="16" y="34" width="160" height="90" rx="4" fill="#f0faf0" stroke="#88bb88" stroke-width="0.5"/>
+    <text x="96" y="50" text-anchor="middle" class="panel-bold" fill="#008844" font-size="10">优势 +</text>
+    <text x="24" y="66" class="panel-txt" fill="#333333">+ 零功耗，全机械可靠</text>
+    <text x="24" y="82" class="panel-txt" fill="#333333">+ 轻量化 ~900g/侧</text>
+    <text x="24" y="98" class="panel-txt" fill="#333333">+ 技术极成熟，BOM低</text>
+    <text x="24" y="114" class="panel-txt" fill="#333333">+ 免维护，无限续航</text>
+    <!-- Cons -->
+    <rect x="188" y="34" width="160" height="90" rx="4" fill="#fdf2f5" stroke="#cc8888" stroke-width="0.5"/>
+    <text x="268" y="50" text-anchor="middle" class="panel-bold" fill="#cc4444" font-size="10">劣势 -</text>
+    <text x="196" y="66" class="panel-txt" fill="#333333">- 无智能控制/自适应</text>
+    <text x="196" y="82" class="panel-txt" fill="#333333">- 柔顺性差，步态干扰</text>
+    <text x="196" y="98" class="panel-txt" fill="#333333">- 适用场景单一</text>
+    <text x="196" y="114" class="panel-txt" fill="#333333">- 无法主动助力</text>
+  </g>
+
+  <!-- Panel 5: Bones Strategy -->
+  <g transform="translate(0, 615)">
+    <rect x="0" y="0" width="364" height="145" rx="4" fill="#f8f8f5" stroke="#ece8e0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#f5eddc"/>
+    <rect x="0" y="22" width="364" height="6" fill="#f5eddc"/>
+    <text x="18" y="18" class="panel-title" fill="#887744" font-size="12">Bones &amp; Manifold 评估与策略</text>
+
+    <rect x="16" y="34" width="332" height="100" rx="5" fill="#fefaf0" stroke="#d97706" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="24" y="52" class="panel-bold" fill="#d97706" font-size="10">评估: 部分借鉴 (TRL高但技术局限)</text>
+    <line x1="24" y1="58" x2="340" y2="58" stroke="#edcfa0" stroke-width="0.4" opacity="0.5"/>
+    <text x="24" y="74" class="panel-txt" fill="#666666">策略定位: 低端产品线</text>
+    <text x="24" y="90" class="panel-txt" fill="#666666">目标定价: ¥999-1,999 (入门级/大众市场)</text>
+    <text x="24" y="106" class="panel-txt" fill="#666666">商业模式: B2B康复租赁</text>
+    <text x="24" y="122" class="panel-txt" fill="#666666">借鉴弹簧阻尼原理，Gen 2 叠加智能控制</text>
+  </g>
+
+  <!-- Panel 6: Constitutive Equation -->
+  <g transform="translate(0, 784)">
+    <rect x="0" y="0" width="364" height="90" rx="4" fill="#f8f8f5" stroke="#ece8e0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#e8f0e8"/>
+    <rect x="0" y="22" width="364" height="6" fill="#e8f0e8"/>
+    <text x="18" y="18" class="panel-title" fill="#446644" font-size="12">本构方程</text>
+    <rect x="16" y="34" width="332" height="48" rx="4" fill="#f5faf5" stroke="#88bb88" stroke-width="0.6"/>
+    <text x="182" y="56" text-anchor="middle" class="formula" font-size="18">F = k · x + c · v</text>
+    <text x="182" y="74" text-anchor="middle" class="panel-txt" fill="#666666">k:刚度 [N/mm]  x:位移 [mm]  c:阻尼 [N·s/m]  v:速度 [m/s]</text>
+    <text x="182" y="92" text-anchor="middle" class="formula" font-size="14">E = ½ k x² + ½ c v²</text>
+    <text x="182" y="108" text-anchor="middle" class="panel-txt" fill="#666666">E:总能量  k:弹簧刚度  x:位移  c:阻尼系数  v:速度</text>
+  </g>
+</g>
+
+<!-- ===== BOTTOM LEGEND ===== -->
+<g transform="translate(20, 1070)">
+  <line x1="0" y1="0" x2="1160" y2="0" stroke="#dddddd" stroke-width="0.8"/>
+  <rect x="0" y="4" width="1160" height="24" rx="3" fill="#fafafa" stroke="#e8e8e8" stroke-width="0.4"/>
+  <!-- Title -->
+  <text x="14" y="20" class="legend-txt" font-weight="bold" font-size="12">图例 |</text>
+  <!-- Legend item 1 -->
+  <rect x="68" y="8" width="14" height="14" rx="2" fill="#0096f0"/>
+  <text x="86" y="20" class="legend-txt">推荐采用</text>
+  <!-- Legend item 2 -->
+  <rect x="195" y="8" width="14" height="14" rx="2" fill="#d97706"/>
+  <text x="213" y="20" class="legend-txt">部分借鉴</text>
+  <!-- Legend item 3 -->
+  <rect x="322" y="8" width="14" height="14" rx="2" fill="#c45a5a"/>
+  <text x="340" y="20" class="legend-txt">缺陷/不推荐</text>
+  <!-- Current card -->
+  <text x="490" y="20" class="legend-txt" fill="#d97706">本卡片: 被动弹簧阻尼式 — 部分借鉴</text>
+  <!-- Tech note -->
+  <text x="840" y="20" class="legend-txt" fill="#999999" font-size="9">TRL 7-9 | B&amp;M Gen 1 低端线参考</text>
+</g>
+
+</svg>

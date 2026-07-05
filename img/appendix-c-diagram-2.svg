@@ -1,0 +1,315 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 920" width="1300" height="920">
+  <defs>
+    <marker id="arrowPower" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d13438"/>
+    </marker>
+    <marker id="arrowData" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#0096f0"/>
+    </marker>
+    <marker id="arrowDataL" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+      <path d="M8,0 L0,3 L8,6 Z" fill="#0096f0"/>
+    </marker>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fafcff"/>
+      <stop offset="100%" stop-color="#f0f5ff"/>
+    </linearGradient>
+    <linearGradient id="batteryGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff3e0"/>
+      <stop offset="100%" stop-color="#ffe0b2"/>
+    </linearGradient>
+    <linearGradient id="mcuGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e3f2fd"/>
+      <stop offset="100%" stop-color="#bbdefb"/>
+    </linearGradient>
+    <linearGradient id="motorGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8f5e9"/>
+      <stop offset="100%" stop-color="#c8e6c9"/>
+    </linearGradient>
+    <linearGradient id="sensorGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fce4ec"/>
+      <stop offset="100%" stop-color="#f8bbd0"/>
+    </linearGradient>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <filter id="shadowLight" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1300" height="920" fill="url(#bgGrad)" rx="4"/>
+  <rect x="15" y="15" width="1270" height="890" rx="8" fill="none" stroke="#0096f0" stroke-width="0.8" opacity="0.25"/>
+
+  <!-- Title -->
+  <text x="650" y="42" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22" font-weight="bold" fill="#1a1a1a">硬件系统框图：腰带集中供电 · 双膝独立执行 · CAN总线数据流</text>
+  <text x="650" y="64" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666">系统架构图 — 动力线（红色）与数据线（蓝色）物理分离</text>
+  <line x1="200" y1="78" x2="1100" y2="78" stroke="#0096f0" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- ==================== LEGEND ==================== -->
+  <g transform="translate(50, 95)">
+    <rect x="0" y="0" width="200" height="28" rx="14" fill="#fff" stroke="#e0e0e0" stroke-width="1" filter="url(#shadowLight)"/>
+    <line x1="14" y1="14" x2="40" y2="14" stroke="#d13438" stroke-width="2.5"/>
+    <text x="48" y="18" font-family="sans-serif" font-size="11" fill="#555">动力线（电源）</text>
+    <line x1="100" y1="14" x2="126" y2="14" stroke="#0096f0" stroke-width="2.5"/>
+    <text x="134" y="18" font-family="sans-serif" font-size="11" fill="#555">数据线（信号）</text>
+  </g>
+
+  <!-- ==================== WAIST MODULE ==================== -->
+  <g transform="translate(50, 140)">
+    <rect x="0" y="0" width="1200" height="210" rx="10" fill="#fff" stroke="#0096f0" stroke-width="1.5" filter="url(#shadow)"/>
+    <!-- Section title bar -->
+    <rect x="0" y="0" width="1200" height="36" rx="10" fill="#0096f0"/>
+    <rect x="0" y="20" width="1200" height="16" fill="#0096f0"/>
+    <text x="600" y="24" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="bold" fill="#fff">腰带单元 Belt Module（后腰位置 · 重量 ~350g）</text>
+
+    <!-- Battery Block -->
+    <g transform="translate(40, 55)">
+      <rect x="0" y="0" width="200" height="130" rx="8" fill="url(#batteryGrad)" stroke="#e65100" stroke-width="1.5" filter="url(#shadowLight)"/>
+      <rect x="0" y="0" width="200" height="30" rx="8" fill="#e65100"/>
+      <rect x="0" y="15" width="200" height="15" fill="#e65100"/>
+      <text x="100" y="20" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fff">电池组</text>
+      <text x="100" y="50" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">18650 4S2P</text>
+      <text x="100" y="68" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">14.8V / 4800 mAh</text>
+      <text x="100" y="86" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">~250g</text>
+
+      <!-- Internal details -->
+      <rect x="10" y="98" width="85" height="22" rx="3" fill="#fff" opacity="0.6"/>
+      <text x="52" y="113" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">BMS保护板</text>
+      <rect x="105" y="98" width="85" height="22" rx="3" fill="#fff" opacity="0.6"/>
+      <text x="147" y="113" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">电压检测</text>
+    </g>
+
+    <!-- Main Controller -->
+    <g transform="translate(280, 55)">
+      <rect x="0" y="0" width="280" height="130" rx="8" fill="url(#mcuGrad)" stroke="#1565c0" stroke-width="1.5" filter="url(#shadowLight)"/>
+      <rect x="0" y="0" width="280" height="30" rx="8" fill="#1565c0"/>
+      <rect x="0" y="15" width="280" height="15" fill="#1565c0"/>
+      <text x="140" y="20" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fff">主控 MCU</text>
+      <text x="140" y="50" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">STM32G474</text>
+      <text x="140" y="68" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">Cortex-M4 FPU @ 170 MHz</text>
+
+      <rect x="10" y="82" width="125" height="38" rx="4" fill="#fff" opacity="0.7"/>
+      <text x="72" y="97" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#333">CAN FD 控制器</text>
+      <text x="72" y="112" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#555">5 Mbps 双通道</text>
+
+      <rect x="145" y="82" width="125" height="38" rx="4" fill="#fff" opacity="0.7"/>
+      <text x="207" y="97" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#333">电源管理 PMIC</text>
+      <text x="207" y="112" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#555">BUCK-BOOST 3.3V/5V/12V</text>
+    </g>
+
+    <!-- BLE Module -->
+    <g transform="translate(600, 55)">
+      <rect x="0" y="0" width="190" height="130" rx="8" fill="url(#sensorGrad)" stroke="#c62828" stroke-width="1.2" filter="url(#shadowLight)"/>
+      <rect x="0" y="0" width="190" height="30" rx="8" fill="#c62828"/>
+      <rect x="0" y="15" width="190" height="15" fill="#c62828"/>
+      <text x="95" y="20" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fff">无线模块</text>
+      <text x="95" y="50" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">ESP32-C3 BLE 5.0</text>
+      <text x="95" y="70" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">手机 App 连接</text>
+      <text x="95" y="90" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">OTA 固件升级</text>
+      <text x="95" y="110" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">数据日志上传</text>
+    </g>
+
+    <!-- Safety Module -->
+    <g transform="translate(830, 55)">
+      <rect x="0" y="0" width="170" height="130" rx="8" fill="#fff" stroke="#d13438" stroke-width="1.5" filter="url(#shadowLight)"/>
+      <rect x="0" y="0" width="170" height="30" rx="8" fill="#d13438"/>
+      <rect x="0" y="15" width="170" height="15" fill="#d13438"/>
+      <text x="85" y="20" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fff">安全监控</text>
+      <rect x="10" y="42" width="150" height="22" rx="3" fill="#fef2f2" stroke="#d13438" stroke-width="0.8"/>
+      <text x="85" y="56" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#d13438">TPS3850 窗口看门狗</text>
+      <rect x="10" y="70" width="150" height="22" rx="3" fill="#fef2f2" stroke="#d13438" stroke-width="0.8"/>
+      <text x="85" y="84" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#d13438">过流保护</text>
+      <rect x="10" y="98" width="150" height="22" rx="3" fill="#fef2f2" stroke="#d13438" stroke-width="0.8"/>
+      <text x="85" y="112" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#d13438">紧急停止按钮</text>
+    </g>
+
+    <!-- Waist IMU -->
+    <g transform="translate(1040, 55)">
+      <rect x="0" y="0" width="130" height="130" rx="8" fill="url(#sensorGrad)" stroke="#c62828" stroke-width="1.2" filter="url(#shadowLight)"/>
+      <rect x="0" y="0" width="130" height="30" rx="8" fill="#c62828"/>
+      <rect x="0" y="15" width="130" height="15" fill="#c62828"/>
+      <text x="65" y="20" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fff">腰部传感器</text>
+      <text x="65" y="52" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#333">ICM-42688-P</text>
+      <text x="65" y="70" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">6轴IMU</text>
+      <text x="65" y="90" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">姿态检测</text>
+      <text x="65" y="110" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">跌倒识别</text>
+    </g>
+  </g>
+
+  <!-- ==================== POWER FLOW (Red dashed lines from battery to knees) ==================== -->
+  <!-- Battery to left knee power -->
+  <path d="M 170 350 L 170 390 L 280 390 L 280 410" fill="none" stroke="#d13438" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowPower)"/>
+  <!-- Battery to right knee power -->
+  <path d="M 230 350 L 230 390 L 880 390 L 880 410" fill="none" stroke="#d13438" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowPower)"/>
+
+  <!-- CAN bus line (data, from MCU) -->
+  <path d="M 420 350 L 420 380 L 1150 380 L 1150 410" fill="none" stroke="#0096f0" stroke-width="2" marker-end="url(#arrowData)"/>
+  <path d="M 400 350 L 400 380 L 150 380 L 150 410" fill="none" stroke="#0096f0" stroke-width="2" marker-end="url(#arrowData)"/>
+
+  <!-- Shielding annotation -->
+  <rect x="420" y="358" width="260" height="20" rx="10" fill="#fff" stroke="#0096f0" stroke-width="0.8"/>
+  <text x="550" y="373" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#0096f0">屏蔽线缆 · 防水连接器 · IP54</text>
+
+  <!-- ==================== CAN BUS ANNOTATION ==================== -->
+  <rect x="450" y="365" width="160" height="18" rx="9" fill="#e3f2fd" stroke="#1565c0" stroke-width="0.8"/>
+  <text x="530" y="378" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1565c0">CAN FD 总线 5 Mbps</text>
+
+  <!-- ==================== LEFT KNEE MODULE ==================== -->
+  <g transform="translate(50, 420)">
+    <rect x="0" y="0" width="580" height="250" rx="10" fill="#fff" stroke="#27ae60" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="580" height="36" rx="10" fill="#27ae60"/>
+    <rect x="0" y="20" width="580" height="16" fill="#27ae60"/>
+    <text x="290" y="24" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="bold" fill="#fff">左膝单元 Left Knee Unit（~480g）</text>
+
+    <!-- Motor -->
+    <g transform="translate(20, 50)">
+      <rect x="0" y="0" width="180" height="110" rx="6" fill="url(#motorGrad)" stroke="#2e7d32" stroke-width="1.2"/>
+      <text x="90" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2e7d32">电机执行器</text>
+      <rect x="10" y="28" width="160" height="22" rx="3" fill="#fff" opacity="0.7"/>
+      <text x="90" y="43" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">CubeMars AK80-9 V3.0</text>
+      <text x="90" y="60" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">BLDC · 480g · 22Nm峰值</text>
+      <text x="90" y="76" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">FOC矢量控制 @ 20 kHz</text>
+
+      <!-- Power in -->
+      <rect x="10" y="88" width="75" height="16" rx="3" fill="#fef2f2" stroke="#d13438" stroke-width="0.6"/>
+      <text x="47" y="100" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#d13438">电源输入 14.8V</text>
+      <rect x="95" y="88" width="75" height="16" rx="3" fill="#e3f2fd" stroke="#1565c0" stroke-width="0.6"/>
+      <text x="132" y="100" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#1565c0">CAN FD 数据</text>
+    </g>
+
+    <!-- Clutch -->
+    <g transform="translate(215, 50)">
+      <rect x="0" y="0" width="155" height="110" rx="6" fill="#fafafa" stroke="#666" stroke-width="1.2"/>
+      <text x="77" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">电磁离合器</text>
+      <rect x="10" y="28" width="135" height="22" rx="3" fill="#fff" stroke="#999" stroke-width="0.6"/>
+      <text x="77" y="43" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Ogura MCNB-3Z</text>
+      <text x="77" y="60" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">弹簧复位 · 断电脱开</text>
+      <text x="77" y="76" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">~50g · 响应 &lt; 30ms</text>
+      <rect x="10" y="88" width="135" height="16" rx="3" fill="#fef2f2" stroke="#d13438" stroke-width="0.6"/>
+      <text x="77" y="100" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#d13438">12V 驱动</text>
+    </g>
+
+    <!-- Knee sensors -->
+    <g transform="translate(385, 50)">
+      <rect x="0" y="0" width="175" height="110" rx="6" fill="url(#sensorGrad)" stroke="#c62828" stroke-width="1.2"/>
+      <text x="87" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#c62828">传感器组</text>
+      <rect x="10" y="28" width="155" height="22" rx="3" fill="#fff" opacity="0.7"/>
+      <text x="87" y="43" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#333">ICM-42688-P 膝部IMU</text>
+      <rect x="10" y="55" width="155" height="22" rx="3" fill="#fff" opacity="0.7"/>
+      <text x="87" y="70" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#333">MA730 磁编码器</text>
+      <rect x="10" y="82" width="155" height="22" rx="3" fill="#fff" opacity="0.7"/>
+      <text x="87" y="97" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#333">TI INA240 电流检测</text>
+    </g>
+
+    <!-- Mechanical output -->
+    <g transform="translate(20, 175)">
+      <rect x="0" y="0" width="540" height="55" rx="6" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+      <text x="270" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#555">机械输出 Mechanical Output</text>
+      <rect x="15" y="28" width="120" height="18" rx="3" fill="#fff" stroke="#999" stroke-width="0.6"/>
+      <text x="75" y="40" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#555">碳纤维框架</text>
+      <rect x="145" y="28" width="120" height="18" rx="3" fill="#fff" stroke="#999" stroke-width="0.6"/>
+      <text x="205" y="40" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#555">5:1 行星减速器</text>
+      <rect x="275" y="28" width="120" height="18" rx="3" fill="#fff" stroke="#999" stroke-width="0.6"/>
+      <text x="335" y="40" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#555">力矩输出 30Nm</text>
+      <rect x="405" y="28" width="120" height="18" rx="3" fill="#fff" stroke="#999" stroke-width="0.6"/>
+      <text x="465" y="40" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#555">KAM 力矩控制</text>
+    </g>
+  </g>
+
+  <!-- ==================== RIGHT KNEE MODULE ==================== -->
+  <g transform="translate(670, 420)">
+    <rect x="0" y="0" width="580" height="250" rx="10" fill="#fff" stroke="#27ae60" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="580" height="36" rx="10" fill="#27ae60"/>
+    <rect x="0" y="20" width="580" height="16" fill="#27ae60"/>
+    <text x="290" y="24" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="bold" fill="#fff">右膝单元 Right Knee Unit（~480g）· 镜像对称</text>
+
+    <!-- Motor -->
+    <g transform="translate(20, 50)">
+      <rect x="0" y="0" width="180" height="110" rx="6" fill="url(#motorGrad)" stroke="#2e7d32" stroke-width="1.2"/>
+      <text x="90" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2e7d32">电机执行器</text>
+      <rect x="10" y="28" width="160" height="22" rx="3" fill="#fff" opacity="0.7"/>
+      <text x="90" y="43" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">CubeMars AK80-9 V3.0</text>
+      <text x="90" y="60" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">BLDC · 480g · 22Nm峰值</text>
+      <text x="90" y="76" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">FOC矢量控制 @ 20 kHz</text>
+      <rect x="10" y="88" width="75" height="16" rx="3" fill="#fef2f2" stroke="#d13438" stroke-width="0.6"/>
+      <text x="47" y="100" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#d13438">电源输入 14.8V</text>
+      <rect x="95" y="88" width="75" height="16" rx="3" fill="#e3f2fd" stroke="#1565c0" stroke-width="0.6"/>
+      <text x="132" y="100" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#1565c0">CAN FD 数据</text>
+    </g>
+
+    <!-- Clutch -->
+    <g transform="translate(215, 50)">
+      <rect x="0" y="0" width="155" height="110" rx="6" fill="#fafafa" stroke="#666" stroke-width="1.2"/>
+      <text x="77" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">电磁离合器</text>
+      <rect x="10" y="28" width="135" height="22" rx="3" fill="#fff" stroke="#999" stroke-width="0.6"/>
+      <text x="77" y="43" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Ogura MCNB-3Z</text>
+      <text x="77" y="60" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">弹簧复位 · 断电脱开</text>
+      <text x="77" y="76" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">~50g · 响应 &lt; 30ms</text>
+      <rect x="10" y="88" width="135" height="16" rx="3" fill="#fef2f2" stroke="#d13438" stroke-width="0.6"/>
+      <text x="77" y="100" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#d13438">12V 驱动</text>
+    </g>
+
+    <!-- Sensors -->
+    <g transform="translate(385, 50)">
+      <rect x="0" y="0" width="175" height="110" rx="6" fill="url(#sensorGrad)" stroke="#c62828" stroke-width="1.2"/>
+      <text x="87" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#c62828">传感器组</text>
+      <rect x="10" y="28" width="155" height="22" rx="3" fill="#fff" opacity="0.7"/>
+      <text x="87" y="43" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#333">ICM-42688-P 膝部IMU</text>
+      <rect x="10" y="55" width="155" height="22" rx="3" fill="#fff" opacity="0.7"/>
+      <text x="87" y="70" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#333">MA730 磁编码器</text>
+      <rect x="10" y="82" width="155" height="22" rx="3" fill="#fff" opacity="0.7"/>
+      <text x="87" y="97" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#333">TI INA240 电流检测</text>
+    </g>
+
+    <!-- Mechanical output -->
+    <g transform="translate(20, 175)">
+      <rect x="0" y="0" width="540" height="55" rx="6" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+      <text x="270" y="18" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#555">机械输出 Mechanical Output</text>
+      <rect x="15" y="28" width="120" height="18" rx="3" fill="#fff" stroke="#999" stroke-width="0.6"/>
+      <text x="75" y="40" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#555">碳纤维框架</text>
+      <rect x="145" y="28" width="120" height="18" rx="3" fill="#fff" stroke="#999" stroke-width="0.6"/>
+      <text x="205" y="40" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#555">5:1 行星减速器</text>
+      <rect x="275" y="28" width="120" height="18" rx="3" fill="#fff" stroke="#999" stroke-width="0.6"/>
+      <text x="335" y="40" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#555">力矩输出 30Nm</text>
+      <rect x="405" y="28" width="120" height="18" rx="3" fill="#fff" stroke="#999" stroke-width="0.6"/>
+      <text x="465" y="40" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#555">KAM 力矩控制</text>
+    </g>
+  </g>
+
+  <!-- ==================== CAN BUS LINE WITH NODES ==================== -->
+  <g transform="translate(50, 700)">
+    <!-- CAN bus horizontal line -->
+    <line x1="0" y1="20" x2="1200" y2="20" stroke="#0096f0" stroke-width="2.5"/>
+
+    <!-- CAN node dots -->
+    <circle cx="600" cy="20" r="8" fill="#0096f0" stroke="#fff" stroke-width="2"/>
+    <text x="600" y="24" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#fff">C</text>
+
+    <!-- CAN bus label -->
+    <rect x="500" y="-20" width="200" height="24" rx="4" fill="#e3f2fd" stroke="#1565c0" stroke-width="1"/>
+    <text x="600" y="-3" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1565c0">CAN FD 总线拓扑 5 Mbps</text>
+
+    <!-- Node labels -->
+    <text x="110" y="60" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">电机左</text>
+    <text x="600" y="60" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">主控左</text>
+    <text x="900" y="60" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">主控右</text>
+    <text x="1120" y="60" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">电机右</text>
+
+    <!-- Lines to nodes -->
+    <line x1="110" y1="20" x2="110" y2="50" stroke="#0096f0" stroke-width="1" stroke-dasharray="3,2"/>
+    <line x1="600" y1="20" x2="600" y2="50" stroke="#0096f0" stroke-width="1" stroke-dasharray="3,2"/>
+    <line x1="900" y1="20" x2="900" y2="50" stroke="#0096f0" stroke-width="1" stroke-dasharray="3,2"/>
+    <line x1="1120" y1="20" x2="1120" y2="50" stroke="#0096f0" stroke-width="1" stroke-dasharray="3,2"/>
+  </g>
+
+  <!-- ==================== FOOTER ==================== -->
+  <g transform="translate(50, 790)">
+    <rect x="0" y="0" width="1200" height="80" rx="8" fill="#f0f5ff" stroke="#0096f0" stroke-width="1"/>
+    <text x="600" y="22" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="bold" fill="#0096f0">系统重量汇总 System Weight Summary</text>
+    <text x="600" y="44" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">腰带 350g + 左膝 480g + 右膝 480g + 碳纤维框架 800g + 绑带 200g = ~2,310g（2.3 kg）</text>
+    <text x="600" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">对比：DNSYS Z1 3.2kg（双膝电池在腿部）| 远也 PowerKnee ~3kg/腿 | Skip MO/GO ~2kg（仅单功能）</text>
+  </g>
+
+  <text x="650" y="905" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ccc">Bones &amp; Manifold · Confidential · Appendix C — Diagram 2: Hardware System Block Diagram</text>
+</svg>

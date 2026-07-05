@@ -1,0 +1,147 @@
+<svg viewBox="0 0 1200 900" style="width:100%;max-width:1200px;height:auto" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1200" height="900" rx="12" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="600" y="32" text-anchor="middle" font-size="16" font-weight="800" fill="#0096f0">TRL 7-9 · 商业化量产 — 4大成熟膝关节外骨骼架构</text>
+  
+  <!-- 1. SINGLE-AXIS HINGE (Lateral) -->
+  <rect x="25" y="55" width="560" height="400" rx="8" fill="#fff" stroke="#0096f0" stroke-width="2.5"/>
+  <rect x="25" y="55" width="560" height="30" rx="8" fill="#0096f0"/><rect x="25" y="73" width="560" height="12" fill="#0096f0"/>
+  <text x="305" y="76" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">1. 铰链单轴外置式 (TRL 7-9) — 全球消费级膝外骨骼主力</text>
+
+  <!-- Human leg simplified -->
+  <rect x="100" y="110" width="40" height="180" rx="15" fill="none" stroke="#ccc" stroke-width="2"/>
+  <circle cx="120" cy="145" r="18" fill="none" stroke="#0096f0" stroke-width="2.5"/>
+  <text x="120" y="150" text-anchor="middle" font-size="7" fill="#0096f0">膝</text>
+
+  <!-- Motor on lateral side -->
+  <rect x="150" y="125" width="80" height="50" rx="6" fill="#0096f0" opacity="0.7"/>
+  <text x="190" y="145" text-anchor="middle" font-size="7" fill="#fff">BLDC电机</text>
+  <text x="190" y="160" text-anchor="middle" font-size="6" fill="#fff">+行星减速器</text>
+  <!-- Force arrows -->
+  <line x1="190" y1="175" x2="100" y2="205" stroke="#0096f0" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <line x1="190" y1="175" x2="100" y2="260" stroke="#0096f0" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="200" y="200" font-size="6" fill="#0096f0">大腿绑带</text>
+  <text x="200" y="260" font-size="6" fill="#0096f0">小腿绑带</text>
+  
+  <!-- Battery on leg -->
+  <rect x="240" y="140" width="50" height="30" rx="4" fill="#d97706" opacity="0.5"/>
+  <text x="265" y="159" text-anchor="middle" font-size="5" fill="#000">电池</text>
+  
+  <!-- Specs box -->
+  <rect x="310" y="110" width="250" height="200" rx="6" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="435" y="130" text-anchor="middle" font-size="9" font-weight="700" fill="#000">代表产品</text>
+  <text x="320" y="150" font-size="7" fill="#000">远也PowerKnee: 2.5kg·¥7,999·1520W</text>
+  <text x="320" y="168" font-size="7" fill="#000">DNSYS Z1: 1.36kg·$699-2,298·900W</text>
+  <text x="320" y="186" font-size="7" fill="#000">Hypershell X: 1.8kg·$799-1,999·1000W</text>
+  <text x="320" y="208" font-size="7" fill="#0096f0" font-weight="700">力矩效率>90%·单侧650g·量产成熟</text>
+  <text x="320" y="228" font-size="7" fill="#c45a5a">关节对齐差·无个性化·噪音70dB</text>
+  <text x="320" y="250" font-size="7" fill="#000">控制: 通用助力曲线·FSM步态检测</text>
+  <text x="320" y="268" font-size="7" fill="#000">电池: 腿部·70min-4h续航·IP54</text>
+  <text x="320" y="290" font-size="7" fill="#000">穿戴: 2-5min·2-3条绑带</text>
+  <text x="320" y="308" font-size="7" fill="#666">Kickstarter/$246万(DNSYS)·78+国(Hypershell)</text>
+
+  <!-- Bones adaptation -->
+  <rect x="320" y="325" width="240" height="55" rx="4" fill="#e8f4fd"/>
+  <text x="440" y="345" text-anchor="middle" font-size="7" font-weight="700" fill="#0096f0">Bones Gen 0-2 采用此架构</text>
+  <text x="440" y="362" text-anchor="middle" font-size="6" fill="#000">改进:腰带供电(腿轻)·AK80-9(低噪)·RL个性化·电磁离合器(安全)</text>
+  <text x="440" y="376" text-anchor="middle" font-size="6" fill="#000">保持:力矩效率>90%·单侧<700g·30秒穿戴·2条绑带</text>
+
+  <!-- Force path diagram -->
+  <text x="50" y="330" font-size="7" font-weight="700" fill="#000">力学路径：</text>
+  <text x="50" y="348" font-size="6" fill="#666">电机扭矩→行星减速器→单轴铰链</text>
+  <text x="50" y="364" font-size="6" fill="#666">→大腿连杆+小腿连杆→绑带→人体骨骼</text>
+  <text x="50" y="382" font-size="6" fill="#666">单轴旋转中心与人体ICR偏差2-5mm</text>
+
+  <!-- 2. PASSIVE SPRING -->
+  <rect x="610" y="55" width="565" height="400" rx="8" fill="#fff" stroke="#d97706" stroke-width="2.5"/>
+  <rect x="610" y="55" width="565" height="30" rx="8" fill="#d97706"/><rect x="610" y="73" width="565" height="12" fill="#d97706"/>
+  <text x="892" y="76" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">10. 被动弹簧/阻尼器式 (TRL 7-9) — 零功耗·15年验证</text>
+
+  <!-- Spring mechanism -->
+  <rect x="660" y="110" width="50" height="150" rx="6" fill="none" stroke="#d97706" stroke-width="2"/>
+  <text x="685" y="160" text-anchor="middle" font-size="7" fill="#d97706">弹簧</text>
+  <line x1="685" y1="260" x2="640" y2="310" stroke="#d97706" stroke-width="2"/>
+  <text x="650" y="295" font-size="6" fill="#000">屈曲压缩储能</text>
+  <line x1="685" y1="260" x2="730" y2="310" stroke="#d97706" stroke-width="2" stroke-dasharray="3,2"/>
+  <text x="735" y="295" font-size="6" fill="#000">伸展释放助力</text>
+  <text x="685" y="345" text-anchor="middle" font-size="6" fill="#666">无电池·无电机</text>
+
+  <!-- Specs -->
+  <rect x="760" y="110" width="390" height="200" rx="6" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="955" y="130" text-anchor="middle" font-size="9" font-weight="700" fill="#000">代表产品</text>
+  <text x="770" y="150" font-size="7" fill="#000">Ski-Mojo(法国): €895·15年销售·~900g</text>
+  <text x="770" y="168" font-size="7" fill="#000">GOGOA Xnowers(西班牙): 滑雪专用</text>
+  <text x="770" y="186" font-size="7" fill="#000">多所中国高校: 八杆被动·Bio-弹簧研究</text>
+  <text x="770" y="208" font-size="7" fill="#d97706" font-weight="700">零能耗·零电子故障·极可靠·任何气候</text>
+  <text x="770" y="228" font-size="7" fill="#c45a5a">无主动助力·刚度固定·力-位置耦合</text>
+  <text x="770" y="248" font-size="7" fill="#000">适用: 滑雪下坡·重复下楼梯·运动防护</text>
+  <text x="770" y="266" font-size="7" fill="#000">3种弹簧(蓝<57kg·银58-80kg·金>80kg)</text>
+  <text x="770" y="286" font-size="7" fill="#000">材料: 铝合金+弹性体·法国制造</text>
+
+  <rect x="760" y="325" width="390" height="55" rx="4" fill="#fef9f0"/>
+  <text x="955" y="345" text-anchor="middle" font-size="7" font-weight="700" fill="#d97706">Bones 低端产品线参考</text>
+  <text x="955" y="362" text-anchor="middle" font-size="6" fill="#000">可以开发纯机械储能版·定价¥999-1,999·零充电零维护·适合B2B租赁</text>
+
+  <!-- 3. CABLE REMOTE (below) -->
+  <rect x="25" y="470" width="560" height="410" rx="8" fill="#fff" stroke="#0096f0" stroke-width="2"/>
+  <rect x="25" y="470" width="560" height="30" rx="8" fill="#0096f0"/><rect x="25" y="488" width="560" height="12" fill="#0096f0"/>
+  <text x="305" y="491" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">3. 电缆远程驱动式 (TRL 6-8) — 膝关节端极轻·全部质量在腰部</text>
+
+  <!-- Cable remote diagram -->
+  <rect x="200" y="520" width="180" height="40" rx="6" fill="#0096f0" opacity="0.7"/>
+  <text x="290" y="545" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">腰带：电机+电池+主控</text>
+  <!-- Cables going down -->
+  <line x1="250" y1="560" x2="180" y2="660" stroke="#0096f0" stroke-width="2.5"/>
+  <line x1="330" y1="560" x2="400" y2="660" stroke="#0096f0" stroke-width="2.5"/>
+  <text x="160" y="620" font-size="6" fill="#c45a5a">Bowden电缆</text>
+  <text x="160" y="635" font-size="6" fill="#c45a5a">摩擦30-50%</text>
+  <!-- Knee terminals -->
+  <circle cx="180" cy="680" r="16" fill="#0096f0" opacity="0.4"/>
+  <text x="180" y="684" text-anchor="middle" font-size="6" fill="#fff">滑轮</text>
+  <circle cx="400" cy="680" r="16" fill="#0096f0" opacity="0.4"/>
+  <text x="400" y="684" text-anchor="middle" font-size="6" fill="#fff">滑轮</text>
+  <text x="180" y="710" text-anchor="middle" font-size="6" fill="#000">膝端<150g</text>
+  <text x="400" y="710" text-anchor="middle" font-size="6" fill="#000">膝端<150g</text>
+
+  <rect x="60" y="730" width="500" height="60" rx="4" fill="#e8f4fd"/>
+  <text x="310" y="750" text-anchor="middle" font-size="7" font-weight="700" fill="#0096f0">Bones Gen 2+ 升级方向</text>
+  <text x="310" y="768" text-anchor="middle" font-size="6" fill="#000">TSA(扭绳驱动器)替代Bowden→效率>85% vs 50-70%·膝端<500g·电机在腰带可升级更大功率</text>
+  <text x="310" y="784" text-anchor="middle" font-size="6" fill="#000">Hurotics H-Medi FDA II类已商业化·2.8-4.5kg·200N助力·CES三连创新奖</text>
+
+  <!-- Specs -->
+  <rect x="60" y="520" width="130" height="100" rx="4" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="125" y="540" text-anchor="middle" font-size="7" font-weight="700" fill="#000">Hurotics H-Medi</text>
+  <text x="125" y="558" text-anchor="middle" font-size="6" fill="#000">2.8-4.5kg·200N</text>
+  <text x="125" y="574" text-anchor="middle" font-size="6" fill="#000">FDA II类·CES三连奖</text>
+  <text x="125" y="590" text-anchor="middle" font-size="6" fill="#000">3xIMU·AI预测92%</text>
+  <text x="125" y="606" text-anchor="middle" font-size="6" fill="#000">~30秒穿戴</text>
+
+  <!-- 4. SOFT EXOSUIT -->
+  <rect x="610" y="470" width="565" height="410" rx="8" fill="#fff" stroke="#0096f0" stroke-width="1.5"/>
+  <rect x="610" y="470" width="565" height="30" rx="8" fill="#0096f0"/><rect x="610" y="488" width="565" height="12" fill="#0096f0"/>
+  <text x="892" y="491" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">4. 软体Exosuit (TRL 6-8) — 社会接受度最高·像穿裤子</text>
+
+  <!-- Fabric pants -->
+  <rect x="680" y="520" width="140" height="200" rx="8" fill="none" stroke="#0096f0" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="750" y="630" text-anchor="middle" font-size="8" fill="#0096f0">裤子承载平台</text>
+  <circle cx="720" cy="580" r="18" fill="#0096f0" opacity="0.5"/>
+  <text x="720" y="584" text-anchor="middle" font-size="6" fill="#fff">致动器L</text>
+  <circle cx="780" cy="580" r="18" fill="#0096f0" opacity="0.5"/>
+  <text x="780" y="584" text-anchor="middle" font-size="6" fill="#fff">致动器R</text>
+  <text x="750" y="675" text-anchor="middle" font-size="7" fill="#c45a5a">力传递效率<50%</text>
+
+  <rect x="840" y="520" width="310" height="170" rx="6" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="995" y="540" text-anchor="middle" font-size="9" font-weight="700" fill="#000">代表产品</text>
+  <text x="850" y="560" font-size="7" fill="#000">Skip MO/GO: $5,000·始祖鸟·3.2kg</text>
+  <text x="850" y="578" font-size="7" fill="#000">Roam Ascend: ~$7,000·气动·FDA注册</text>
+  <text x="850" y="596" font-size="7" fill="#000">XoBrace: ~$150·气动人工肌肉·香港</text>
+  <text x="850" y="614" font-size="7" fill="#000">Seismic: DARPA背景·Cintas合作</text>
+  <text x="850" y="636" font-size="7" fill="#0096f0" font-weight="700">✓ 像衣服·社会接受度最高</text>
+  <text x="850" y="656" font-size="7" fill="#c45a5a">✗ 助力<20Nm·效率<50%·耐久差·10尺码</text>
+
+  <rect x="840" y="700" width="310" height="55" rx="4" fill="#e8f4fd"/>
+  <text x="995" y="720" text-anchor="middle" font-size="7" font-weight="700" fill="#0096f0">Bones Gen 3 终极方向</text>
+  <text x="995" y="738" text-anchor="middle" font-size="6" fill="#000">碳纤维薄片(0.3mm)+弹性织物混合·标准电机降本</text>
+  <text x="995" y="752" text-anchor="middle" font-size="6" fill="#000">2个尺码(S/M·L/XL)·外观=高端运动裤·可水洗</text>
+
+  <defs><marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#0096f0"/></marker></defs>
+</svg>

@@ -1,0 +1,61 @@
+<svg viewBox="0 0 1200 600" style="width:100%;max-width:1200px;height:auto" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1200" height="600" rx="12" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="600" y="32" text-anchor="middle" font-size="16" font-weight="800" fill="#c45a5a">TRL 2-5 · 学术研究阶段 — 4种前沿膝关节外骨骼架构</text>
+
+  <!-- 8. QDD -->
+  <rect x="25" y="55" width="560" height="250" rx="8" fill="#fff" stroke="#c45a5a" stroke-width="1"/>
+  <rect x="25" y="55" width="560" height="26" rx="8" fill="#c45a5a"/><rect x="25" y="69" width="560" height="12" fill="#c45a5a"/>
+  <text x="305" y="73" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">8. 准直驱 QDD (TRL 3-5)</text>
+  
+  <rect x="50" y="100" width="200" height="100" rx="6" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="150" y="122" text-anchor="middle" font-size="8" font-weight="700" fill="#000">原理</text>
+  <text x="150" y="142" text-anchor="middle" font-size="7" fill="#000">高扭矩外转子BLDC</text>
+  <text x="150" y="160" text-anchor="middle" font-size="7" fill="#000">+极低减速比(6-36:1)</text>
+  <text x="150" y="178" text-anchor="middle" font-size="7" fill="#000">反向驱动0.4Nm</text>
+  <text x="150" y="194" text-anchor="middle" font-size="6" fill="#666">几乎透明(无感)</text>
+
+  <rect x="270" y="100" width="290" height="100" rx="6" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="415" y="120" text-anchor="middle" font-size="8" font-weight="700" fill="#000">代表研究</text>
+  <text x="415" y="140" text-anchor="middle" font-size="7" fill="#000">SU Lab(2019): 6:1行星·20Nm连续</text>
+  <text x="415" y="158" text-anchor="middle" font-size="7" fill="#000">UTD/Michigan: 7:1·9.9-12.8Nm·91.9%效率</text>
+  <text x="415" y="176" text-anchor="middle" font-size="7" fill="#000">T-BLUE开源: Wolfrom 15:1·<$200/执行器</text>
+  <text x="415" y="194" text-anchor="middle" font-size="7" fill="#c45a5a">✗ 扭矩密度不足(10-20Nm)·需定制电机</text>
+
+  <!-- 11. SEMI-ACTIVE -->
+  <rect x="25" y="320" width="560" height="260" rx="8" fill="#fff" stroke="#c45a5a" stroke-width="1"/>
+  <rect x="25" y="320" width="560" height="26" rx="8" fill="#c45a5a"/><rect x="25" y="334" width="560" height="12" fill="#c45a5a"/>
+  <text x="305" y="338" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">11. 半主动离合器式 (TRL 3-5)</text>
+
+  <rect x="50" y="365" width="500" height="100" rx="6" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="300" y="385" text-anchor="middle" font-size="8" font-weight="700" fill="#000">弹簧储能+电控释放 — 1:160能量效率比</text>
+  <text x="300" y="405" text-anchor="middle" font-size="7" fill="#000">负功阶段离合器锁住弹簧储能→正功阶段电控释放→辅助伸展。仅需0.1W舵机电控功耗→代谢节省16W</text>
+  <text x="300" y="425" text-anchor="middle" font-size="7" fill="#000">BGU(以色列·2024): 28Nm设计/17Nm实测。中科大CPEMA(2023): ERMR。MIT CSEA: 70%节能</text>
+  <text x="300" y="445" text-anchor="middle" font-size="7" fill="#c45a5a" font-weight="700">✓ 超高能效·结构简单·仅需微电控</text>
+  <text x="300" y="463" font-size="7" fill="#c45a5a">✗ 仅储能释放(无外部能量注入)·离合器开合冲击·时机精度要求极高</text>
+
+  <!-- 9. MR -->
+  <rect x="610" y="55" width="565" height="250" rx="8" fill="#fff" stroke="#c45a5a" stroke-width="1"/>
+  <rect x="610" y="55" width="565" height="26" rx="8" fill="#c45a5a"/><rect x="610" y="69" width="565" height="12" fill="#c45a5a"/>
+  <text x="892" y="73" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">9. 磁流变 MR (TRL 3-6)</text>
+
+  <rect x="640" y="100" width="510" height="100" rx="6" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="895" y="120" text-anchor="middle" font-size="8" font-weight="700" fill="#000">MR流体+磁场控阻尼 — 16ms响应·无磨损</text>
+  <text x="895" y="142" text-anchor="middle" font-size="7" fill="#000">海普曼(振江603507): 研发中·2025发布计划。BaDMr双向异性: 迟滞6.42%·力矩RMSE 5.3%</text>
+  <text x="895" y="162" text-anchor="middle" font-size="7" fill="#000">60-150Nm阻尼范围。断电→MR流体恢复低粘度=关节自由(安全失效模式)</text>
+  <text x="895" y="182" text-anchor="middle" font-size="7" fill="#c45a5a" font-weight="700">✗ 仅提供阻力(不能主动助力)·需持续供电维持阻尼·MR流体长期沉降</text>
+
+  <!-- 12. SMA -->
+  <rect x="610" y="320" width="565" height="260" rx="8" fill="#fff" stroke="#c45a5a" stroke-width="1"/>
+  <rect x="610" y="320" width="565" height="26" rx="8" fill="#c45a5a"/><rect x="610" y="334" width="565" height="12" fill="#c45a5a"/>
+  <text x="892" y="338" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">12. 形状记忆合金 SMA (TRL 2-4)</text>
+
+  <rect x="640" y="365" width="510" height="100" rx="6" fill="#f8fafc" stroke="#e5e5e5"/>
+  <text x="895" y="385" text-anchor="middle" font-size="8" font-weight="700" fill="#000">NiTi丝加热→相变收缩4% — 极致静音·高力重比</text>
+  <text x="895" y="405" text-anchor="middle" font-size="7" fill="#000">UC3 Madrid(2024): 儿童SMA膝外骨骼·0.51mm丝径·90°C激活·拮抗Bowden电缆·56.2g/刚度单元</text>
+  <text x="895" y="425" text-anchor="middle" font-size="7" fill="#000">大连理工: 可变刚度·0.32s切换。KIT: SMA力传感。韩国: 仿生膝补丁</text>
+  <text x="895" y="445" text-anchor="middle" font-size="7" fill="#c45a5a" font-weight="700">✓ 极致静音(无电机/齿轮/气泵)·100g可产>10kg力(待查证)·天然柔顺适合织物集成</text>
+  <text x="895" y="463" font-size="7" fill="#c45a5a">✗ 响应慢(冷却>0.5s无法跑步)·电热效率<10%·寿命<1万次·滞回严重·控制极难</text>
+
+  <!-- BONES SYNTHESIS -->
+  <rect x="25" y="590" width="1150" height="2" fill="#0096f0"/>
+</svg>

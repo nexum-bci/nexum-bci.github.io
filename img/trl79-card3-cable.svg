@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1100" width="1200" height="1100">
+<defs>
+  <!-- Bone gradient series -->
+  <linearGradient id="boneGrad" x1="0" y1="0" x2="0.5" y2="1">
+    <stop offset="0%" stop-color="#f2ebd4"/>
+    <stop offset="20%" stop-color="#e8ddc0"/>
+    <stop offset="50%" stop-color="#e0d2b0"/>
+    <stop offset="80%" stop-color="#d8c8a0"/>
+    <stop offset="100%" stop-color="#ceba88"/>
+  </linearGradient>
+  <linearGradient id="boneGradH" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#d4c49a"/>
+    <stop offset="30%" stop-color="#e8ddc0"/>
+    <stop offset="50%" stop-color="#f0e8d0"/>
+    <stop offset="70%" stop-color="#e0d2b0"/>
+    <stop offset="100%" stop-color="#c8b888"/>
+  </linearGradient>
+  <!-- Trabecular bone pattern -->
+  <pattern id="trabecular" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(25)">
+    <path d="M0,5 Q2.5,2 5,5 Q7.5,8 10,5" stroke="#d4c49a" stroke-width="0.35" fill="none" opacity="0.35"/>
+    <path d="M0,0 Q2.5,3 5,0 Q7.5,-3 10,0" stroke="#d4c49a" stroke-width="0.25" fill="none" opacity="0.25"/>
+    <path d="M0,10 Q2.5,7 5,10 Q7.5,13 10,10" stroke="#d4c49a" stroke-width="0.25" fill="none" opacity="0.25"/>
+    <path d="M2.5,0 Q5,3 7.5,0" stroke="#d4c49a" stroke-width="0.2" fill="none" opacity="0.2"/>
+  </pattern>
+  <!-- Muscle gradient -->
+  <linearGradient id="muscleGrad" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0%" stop-color="rgba(200,50,50,0.30)"/>
+    <stop offset="30%" stop-color="rgba(190,45,45,0.42)"/>
+    <stop offset="60%" stop-color="rgba(175,40,40,0.38)"/>
+    <stop offset="100%" stop-color="rgba(160,35,35,0.28)"/>
+  </linearGradient>
+  <linearGradient id="muscleGrad2" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="rgba(200,50,50,0.28)"/>
+    <stop offset="50%" stop-color="rgba(185,45,45,0.40)"/>
+    <stop offset="100%" stop-color="rgba(170,40,40,0.28)"/>
+  </linearGradient>
+  <!-- Muscle fiber pattern -->
+  <pattern id="muscleFiber" width="3" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(-6)">
+    <line x1="1.5" y1="0" x2="1.5" y2="18" stroke="rgba(180,40,40,0.18)" stroke-width="0.35"/>
+  </pattern>
+  <!-- Cartilage gradient -->
+  <linearGradient id="cartilageGrad" x1="0" y1="0" x2="0.5" y2="1">
+    <stop offset="0%" stop-color="rgba(160,200,220,0.50)"/>
+    <stop offset="50%" stop-color="rgba(180,215,230,0.70)"/>
+    <stop offset="100%" stop-color="rgba(155,195,215,0.50)"/>
+  </linearGradient>
+  <!-- Metallic gradients -->
+  <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#a0a0a0"/>
+    <stop offset="20%" stop-color="#c8c8c8"/>
+    <stop offset="40%" stop-color="#e8e8e8"/>
+    <stop offset="50%" stop-color="#f5f5f5"/>
+    <stop offset="60%" stop-color="#e0e0e0"/>
+    <stop offset="80%" stop-color="#c0c0c0"/>
+    <stop offset="100%" stop-color="#a0a0a0"/>
+  </linearGradient>
+  <linearGradient id="metalGradV" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#b0b0b0"/>
+    <stop offset="25%" stop-color="#d8d8d8"/>
+    <stop offset="50%" stop-color="#e8e8e8"/>
+    <stop offset="75%" stop-color="#c8c8c8"/>
+    <stop offset="100%" stop-color="#a0a0a0"/>
+  </linearGradient>
+  <!-- Motor housing gradient -->
+  <linearGradient id="motorGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#3a3a4a"/>
+    <stop offset="30%" stop-color="#4a4a5a"/>
+    <stop offset="60%" stop-color="#3e3e4e"/>
+    <stop offset="100%" stop-color="#2e2e3e"/>
+  </linearGradient>
+  <!-- Cross-section hatch -->
+  <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="5" stroke="#888888" stroke-width="0.3" opacity="0.30"/>
+  </pattern>
+  <pattern id="hatchDense" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+    <line x1="0" y1="0" x2="0" y2="3" stroke="#666666" stroke-width="0.25" opacity="0.35"/>
+  </pattern>
+  <!-- Friction loss hatch -->
+  <pattern id="frictionHatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+    <line x1="0" y1="0" x2="6" y2="6" stroke="#c45a5a" stroke-width="0.4" opacity="0.25"/>
+    <line x1="3" y1="0" x2="6" y2="3" stroke="#c45a5a" stroke-width="0.3" opacity="0.15"/>
+  </pattern>
+  <!-- Cable outer housing texture -->
+  <pattern id="cableOuter" width="4" height="4" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1" fill="none" stroke="#777777" stroke-width="0.3" opacity="0.30"/>
+  </pattern>
+  <!-- Drop shadow -->
+  <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+    <feDropShadow dx="1.5" dy="2" stdDeviation="2.5" flood-opacity="0.10"/>
+  </filter>
+  <filter id="shadowDeep" x="-8%" y="-8%" width="120%" height="120%">
+    <feDropShadow dx="2" dy="3" stdDeviation="4" flood-opacity="0.15"/>
+  </filter>
+  <!-- Glow filter -->
+  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="1.5" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <!-- Arrow markers -->
+  <marker id="arrRed" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L12,4 L0,8 L3,4 Z" fill="#cc0000"/>
+  </marker>
+  <marker id="arrBlue" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L12,4 L0,8 L3,4 Z" fill="#0096f0"/>
+  </marker>
+  <marker id="arrGreen" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L12,4 L0,8 L3,4 Z" fill="#008844"/>
+  </marker>
+  <marker id="arrAmber" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L12,4 L0,8 L3,4 Z" fill="#d97706"/>
+  </marker>
+  <marker id="arrGray" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L10,3.5 L0,7 Z" fill="#777777"/>
+  </marker>
+  <marker id="arrSmall" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L8,3 L0,6 Z" fill="#555555"/>
+  </marker>
+  <style>
+    .bf { fill: url(#boneGrad); stroke: #c8b888; stroke-width: 0.7; }
+    .bhf { fill: url(#boneGradH); stroke: #c8b888; stroke-width: 0.7; }
+    .mf { fill: url(#muscleGrad); stroke: rgba(160,30,30,0.30); stroke-width: 0.4; }
+    .cart { fill: url(#cartilageGrad); stroke: rgba(140,185,210,0.50); stroke-width: 0.4; }
+    .meta { fill: url(#metalGrad); stroke: #888888; stroke-width: 0.7; }
+    .metav { fill: url(#metalGradV); stroke: #888888; stroke-width: 0.7; }
+    .motor { fill: url(#motorGrad); stroke: #2a2a38; stroke-width: 0.8; }
+    .ann { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 10px; fill: #333333; }
+    .annt { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 11px; fill: #222222; font-weight: bold; }
+    .anns { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 8px; fill: #666666; }
+    .annx { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 8px; fill: #888888; }
+    .form { font-family: "Times New Roman","STIX",serif; font-size: 14px; fill: #222222; }
+    .forms { font-family: "Times New Roman","STIX",serif; font-size: 11px; fill: #444444; }
+    .flbl { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 10px; fill: #cc0000; font-weight: bold; }
+    .pttl { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 13px; font-weight: bold; }
+    .ptxt { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 9px; fill: #444444; }
+    .pbld { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 9px; fill: #333333; font-weight: bold; }
+    .lgt { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; font-size: 11px; fill: #333333; }
+  </style>
+</defs>
+
+<!-- ===== BACKGROUND ===== -->
+<rect width="1200" height="1100" fill="#ffffff"/>
+<rect x="20" y="20" width="720" height="1040" fill="none" stroke="#e0e5ec" stroke-width="0.5"/>
+<rect x="740" y="20" width="60" height="1040" fill="#fafaf8" stroke="#e0e5ec" stroke-width="0.5"/>
+<rect x="800" y="20" width="380" height="1040" fill="none" stroke="#e0e5ec" stroke-width="0.5"/>
+
+<!-- ===== LEFT COLUMN UPPER ZONE (y=20 to y=592): TORSO+LEG ANATOMY + BOWDEN CABLE ===== -->
+<text x="380" y="36" text-anchor="middle" class="annt" fill="#666666" font-size="11">躯干-膝关节矢状面解剖与Bowden线缆驱动机构</text>
+<text x="380" y="50" text-anchor="middle" class="anns" fill="#999999">Torso-knee sagittal anatomy with Bowden cable remote actuation</text>
+
+<!-- ===== RIBCAGE / TORSO OUTLINE ===== -->
+<path d="M325,55 C340,48 365,45 385,48 C405,52 415,60 420,72 C425,88 425,108 420,125 C415,140 408,150 400,155 C392,160 380,162 365,162 C350,162 338,158 328,150 C320,142 315,130 312,115 C308,95 308,75 312,60 C315,52 320,48 325,55 Z" fill="none" stroke="#d0d5dc" stroke-width="0.8" opacity="0.35"/>
+
+<!-- ===== SPINE (sagittal) ===== -->
+<g filter="url(#shadowDeep)">
+  <path d="M345,55 C348,52 352,50 355,52 C360,58 362,70 362,85 C362,100 360,115 358,130 C356,145 355,155 354,160 C352,164 350,165 348,163 C345,160 344,152 343,140 C342,125 342,108 343,92 C344,75 345,62 345,55 Z" class="bf" opacity="0.5"/>
+  <!-- Vertebral bodies -->
+  <ellipse cx="352" cy="65" rx="6" ry="4" class="bf" opacity="0.4"/>
+  <ellipse cx="354" cy="80" rx="7" ry="4" class="bf" opacity="0.4"/>
+  <ellipse cx="355" cy="95" rx="7" ry="4" class="bf" opacity="0.4"/>
+  <ellipse cx="355" cy="110" rx="6" ry="4" class="bf" opacity="0.4"/>
+  <ellipse cx="354" cy="125" rx="6" ry="4" class="bf" opacity="0.4"/>
+  <ellipse cx="353" cy="140" rx="5" ry="3" class="bf" opacity="0.4"/>
+  <!-- Spinous processes -->
+  <path d="M345,65 L340,68 M347,80 L342,83 M348,95 L343,98 M348,110 L343,113 M347,125 L342,128" stroke="#c8b888" stroke-width="0.4" opacity="0.3"/>
+</g>
+
+<!-- ===== RIBS (simplified) ===== -->
+<path d="M325,72 C335,66 345,64 352,66 C358,68 362,74 360,82 C358,90 352,94 345,94 C338,94 332,90 328,84" fill="none" stroke="#c8b888" stroke-width="0.6" opacity="0.35"/>
+<path d="M322,90 C332,84 343,82 352,84 C360,86 365,92 362,100 C360,108 352,112 345,112 C338,112 330,108 325,102" fill="none" stroke="#c8b888" stroke-width="0.6" opacity="0.35"/>
+<path d="M320,108 C332,102 343,100 352,102 C360,104 366,110 363,118 C360,126 352,130 344,130 C337,130 328,126 323,120" fill="none" stroke="#c8b888" stroke-width="0.6" opacity="0.35"/>
+<path d="M320,126 C332,120 342,118 351,120 C358,122 364,128 361,136 C358,144 350,148 343,148 C336,148 328,144 323,138" fill="none" stroke="#c8b888" stroke-width="0.6" opacity="0.35"/>
+
+<!-- ===== PELVIS ===== -->
+<g filter="url(#shadowDeep)">
+  <path d="M305,155 C315,160 330,165 348,166 C365,167 380,164 392,158 C398,154 400,148 398,144 C395,140 388,142 378,146 C365,152 348,155 330,154 C312,153 300,150 295,147 C290,144 290,148 295,152 C300,156 305,158 305,155 Z" class="bf"/>
+  <!-- Iliac crest -->
+  <path d="M305,155 C300,158 295,162 292,168 C290,174 294,178 300,176 C306,174 310,168 312,162 C314,158 310,155 305,155 Z" class="bhf" opacity="0.6"/>
+  <!-- Pelvis trabecular -->
+  <path d="M305,155 C315,160 330,165 348,166 C365,167 380,164 392,158 C398,154 400,148 398,144 C395,140 388,142 378,146 C365,152 348,155 330,154 C312,153 300,150 295,147 C290,144 290,148 295,152 C300,156 305,158 305,155 Z" fill="url(#trabecular)"/>
+</g>
+
+<!-- ===== LEG SKIN OUTLINE ===== -->
+<path d="M315,175 C328,170 345,168 360,172 C375,178 382,195 385,220 C388,250 388,285 385,315 C382,340 378,355 372,360 C366,365 358,362 350,355 C342,346 338,330 336,310 C332,275 330,240 330,210 C330,190 325,180 315,175 Z" fill="none" stroke="#d0d5dc" stroke-width="0.8" opacity="0.30"/>
+<path d="M350,370 C358,375 365,378 372,375 C380,370 386,378 392,405 C398,440 400,480 398,520 C396,560 390,600 385,635 C380,660 376,678 370,685 C364,690 358,688 354,682 C350,674 348,658 348,635 C346,600 345,555 348,510 C350,465 354,420 356,388 C357,375 352,370 350,370 Z" fill="none" stroke="#d0d5dc" stroke-width="0.8" opacity="0.30"/>
+<!-- Foot -->
+<path d="M340,685 C348,692 358,696 368,696 C380,696 388,700 392,708 C396,716 392,722 384,724 C374,726 360,724 348,720 C336,716 328,710 324,702 C320,694 326,688 340,685 Z" class="bf" opacity="0.5"/>
+
+<!-- ===== MUSCLES ===== -->
+<!-- Quadriceps -->
+<path d="M322,178 C335,172 352,170 368,175 C382,182 390,200 394,225 C398,255 398,285 394,310 C390,330 384,342 378,346 C372,350 366,348 360,342 C354,334 350,318 348,295 C344,260 342,225 342,195 C342,182 335,178 322,178 Z" class="mf"/>
+<path d="M322,178 C335,172 352,170 368,175 C382,182 390,200 394,225 C398,255 398,285 394,310 C390,330 384,342 378,346 C372,350 366,348 360,342 C354,334 350,318 348,295 C344,260 342,225 342,195 C342,182 335,178 322,178 Z" fill="url(#muscleFiber)"/>
+<!-- Hamstrings -->
+<path d="M320,178 C312,185 306,200 304,220 C302,245 302,272 306,298 C310,322 316,340 324,352 C332,362 340,364 346,360 C350,356 352,348 350,336 C348,320 342,298 336,272 C330,245 328,218 328,198 C328,186 324,180 320,178 Z" class="mf"/>
+<path d="M320,178 C312,185 306,200 304,220 C302,245 302,272 306,298 C310,322 316,340 324,352 C332,362 340,364 346,360 C350,356 352,348 350,336 C348,320 342,298 336,272 C330,245 328,218 328,198 C328,186 324,180 320,178 Z" fill="url(#muscleFiber)"/>
+<!-- Gluteus -->
+<path d="M305,155 C310,150 320,148 330,150 C340,152 348,158 352,166 C356,174 354,180 348,184 C342,188 332,188 322,185 C312,182 306,176 304,168 C302,160 303,155 305,155 Z" class="mf"/>
+<!-- Gastrocnemius -->
+<path d="M356,378 C352,400 348,430 346,465 C344,500 346,530 350,555 C354,575 360,588 366,592 C372,596 378,594 380,586 C382,576 380,558 376,535 C372,510 368,478 366,445 C364,420 362,398 360,385 C358,378 356,378 356,378 Z" class="mf"/>
+
+<!-- ===== BONES ===== -->
+<g filter="url(#shadowDeep)">
+  <!-- FEMUR -->
+  <path d="M335,170 C345,165 358,162 368,168 C380,176 388,195 392,225 C396,258 396,290 392,320 C390,340 386,352 382,358 C378,364 372,366 366,364 C360,362 356,356 354,348 C352,338 352,324 354,306 C356,286 360,258 364,228 C368,198 370,175 368,168 C365,160 355,163 345,167 C338,170 335,172 335,170 Z" class="bf"/>
+  <path d="M335,170 C345,165 358,162 368,168 C380,176 388,195 392,225 C396,258 396,290 392,320 C390,340 386,352 382,358 C378,364 372,366 366,364 C360,362 356,356 354,348 C352,338 352,324 354,306 C356,286 360,258 364,228 C368,198 370,175 368,168 C365,160 355,163 345,167 C338,170 335,172 335,170 Z" fill="url(#trabecular)"/>
+  <ellipse cx="374" cy="362" rx="10" ry="6" class="bf"/>
+  <ellipse cx="358" cy="360" rx="9" ry="5" class="bf"/>
+  <!-- PATELLA -->
+  <ellipse cx="392" cy="330" rx="7" ry="10" class="bf"/>
+  <!-- Joint space -->
+  <rect x="362" y="368" width="28" height="3" rx="1.5" class="cart"/>
+  <!-- TIBIA -->
+  <path d="M362,372 C368,376 374,380 378,395 C384,425 388,470 390,515 C392,560 390,600 386,635 C384,655 380,668 374,672 C368,676 362,674 358,668 C354,660 352,645 352,625 C350,590 350,550 352,510 C354,470 358,430 360,405 C362,385 360,375 362,372 Z" class="bf"/>
+  <path d="M362,372 C368,376 374,380 378,395 C384,425 388,470 390,515 C392,560 390,600 386,635 C384,655 380,668 374,672 C368,676 362,674 358,668 C354,660 352,645 352,625 C350,590 350,550 352,510 C354,470 358,430 360,405 C362,385 360,375 362,372 Z" fill="url(#trabecular)"/>
+  <!-- Tibial plateau -->
+  <path d="M362,372 C366,368 374,366 382,368 C388,370 392,374 390,378 C386,380 378,378 370,376 C364,374 362,372 362,372 Z" class="bhf"/>
+  <!-- FIBULA -->
+  <path d="M355,405 C352,435 350,475 350,515 C350,555 352,590 355,615 C358,635 362,642 366,638 C370,634 372,620 372,600 C372,570 370,530 368,490 C366,450 362,420 358,408 C356,403 355,405 355,405 Z" class="bf" opacity="0.5"/>
+</g>
+
+<!-- ===== WAIST BELT + MOTOR PACK ===== -->
+<g filter="url(#shadowDeep)">
+  <!-- Waist belt -->
+  <rect x="280" y="148" width="175" height="38" rx="5" fill="#0096f0" opacity="0.82"/>
+  <rect x="280" y="148" width="175" height="38" rx="5" fill="none" stroke="#0077cc" stroke-width="0.8"/>
+  <!-- Belt padding -->
+  <rect x="280" y="150" width="175" height="4" rx="2" fill="#0077cc" opacity="0.4"/>
+  <!-- Belt closure -->
+  <rect x="290" y="155" width="155" height="2" rx="1" fill="#005599" opacity="0.3"/>
+  <!-- Belt straps -->
+  <line x1="280" y1="165" x2="245" y2="165" stroke="#555555" stroke-width="2.5" stroke-dasharray="4,2"/>
+  <line x1="455" y1="165" x2="480" y2="165" stroke="#555555" stroke-width="2.5" stroke-dasharray="4,2"/>
+  <!-- Belt buckle/battery indicator -->
+  <rect x="352" y="158" width="26" height="18" rx="3" fill="#0077cc" stroke="#0066aa" stroke-width="0.5"/>
+  <circle cx="365" cy="167" r="3" fill="#00ff88" opacity="0.6"/>
+  <circle cx="365" cy="167" r="1.5" fill="#00ffcc"/>
+
+  <!-- Motor pack on belt (right side) -->
+  <g transform="translate(410, 150)">
+    <!-- BLDC motor housing -->
+    <rect x="0" y="0" width="28" height="34" rx="4" class="motor"/>
+    <rect x="2" y="0" width="24" height="34" rx="3" fill="none" stroke="#505060" stroke-width="0.3"/>
+    <!-- Cooling fins -->
+    <rect x="0" y="3" width="28" height="2" fill="#505060" opacity="0.5"/>
+    <rect x="0" y="9" width="28" height="2" fill="#505060" opacity="0.5"/>
+    <rect x="0" y="15" width="28" height="2" fill="#505060" opacity="0.5"/>
+    <rect x="0" y="21" width="28" height="2" fill="#505060" opacity="0.5"/>
+    <rect x="0" y="27" width="28" height="2" fill="#505060" opacity="0.5"/>
+    <!-- Motor output shaft -->
+    <circle cx="8" cy="34" r="2" fill="#aaaaaa" stroke="#888888" stroke-width="0.4"/>
+    <!-- Electrical connector -->
+    <rect x="20" y="10" width="3" height="14" rx="1" fill="#666677"/>
+    <rect x="24" y="12" width="2" height="10" fill="#888899"/>
+    <text x="14" y="-2" text-anchor="middle" class="annx" fill="#0096f0">BLDC</text>
+  </g>
+
+  <!-- Planetary gearbox detail -->
+  <g transform="translate(438, 152)">
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#666666" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="4" fill="none" stroke="#888888" stroke-width="0.8"/>
+    <circle cx="0" cy="0" r="1.5" fill="#aaaaaa"/>
+    <!-- Sun gear -->
+    <circle cx="0" cy="0" r="2.5" fill="none" stroke="#999999" stroke-width="0.6"/>
+    <!-- Planet gears -->
+    <circle cx="3" cy="5" r="2" fill="none" stroke="#aaaaaa" stroke-width="0.4"/>
+    <circle cx="-3" cy="5" r="2" fill="none" stroke="#aaaaaa" stroke-width="0.4"/>
+    <circle cx="0" cy="-6" r="2" fill="none" stroke="#aaaaaa" stroke-width="0.4"/>
+    <text x="0" y="14" text-anchor="middle" class="annx" fill="#666666">减速器</text>
+  </g>
+
+  <!-- Belt + motor pack callout label -->
+  <line x1="455" y1="165" x2="530" y2="125" stroke="#0096f0" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <rect x="530" y="108" width="135" height="38" rx="4" fill="#f0f8ff" stroke="#0096f0" stroke-width="0.6"/>
+  <text x="542" y="126" class="anns" fill="#0096f0" font-weight="bold">腰带电机组剖面</text>
+  <text x="542" y="140" class="annx" fill="#666666">无刷电机+行星减速器+电池+控制器</text>
+</g>
+
+<!-- ===== BOWDEN CABLE ROUTING ===== -->
+<!-- Cable path from waist down lateral thigh to knee pulley -->
+<!-- Outer housing (dashed tube) -->
+<path d="M 430,184 C 432,210 420,240 398,270 C 376,300 355,330 342,365 C 330,398 328,430 335,460 C 342,488 358,510 380,525 C 398,536 418,540 432,538" fill="none" stroke="#999999" stroke-width="4" stroke-dasharray="8,5" opacity="0.55"/>
+<!-- Outer housing crosshatch overlay -->
+<path d="M 430,184 C 432,210 420,240 398,270 C 376,300 355,330 342,365 C 330,398 328,430 335,460 C 342,488 358,510 380,525 C 398,536 418,540 432,538" fill="none" stroke="#777777" stroke-width="2" stroke-dasharray="2,6" opacity="0.30"/>
+
+<!-- Inner wire (solid, in tension) -->
+<path d="M 430,184 C 432,210 420,240 398,270 C 376,300 355,330 342,365 C 330,398 328,430 335,460 C 342,488 358,510 380,525 C 398,536 418,540 432,538" fill="none" stroke="#0096f0" stroke-width="2.2"/>
+<!-- Wire tension highlight -->
+<path d="M 430,184 C 432,210 420,240 398,270 C 376,300 355,330 342,365 C 330,398 328,430 335,460 C 342,488 358,510 380,525 C 398,536 418,540 432,538" fill="none" stroke="#33aaff" stroke-width="0.8" opacity="0.40"/>
+
+<!-- Cable cross-section callout -->
+<line x1="365" y1="295" x2="160" y2="275" stroke="#999999" stroke-width="0.4" stroke-dasharray="2,2"/>
+<g transform="translate(80, 257)">
+  <rect x="0" y="0" width="95" height="36" rx="4" fill="#ffffff" stroke="#0096f0" stroke-width="0.6" filter="url(#shadow)"/>
+  <circle cx="20" cy="16" r="9" fill="none" stroke="#aaaaaa" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <circle cx="20" cy="16" r="9" fill="url(#cableOuter)"/>
+  <circle cx="20" cy="16" r="4" fill="#0096f0" opacity="0.65"/>
+  <circle cx="20" cy="16" r="1.8" fill="#0066cc"/>
+  <text x="32" y="12" class="anns" fill="#0096f0" font-size="8">Bowden线缆</text>
+  <text x="32" y="24" class="annx" fill="#888888" font-size="8">虚线=外管 实线=内钢丝</text>
+  <line x1="20" y1="7" x2="20" y2="25" stroke="#aaaaaa" stroke-width="0.4" stroke-dasharray="2,2"/>
+</g>
+
+<!-- Knee pulley terminal -->
+<g filter="url(#shadowDeep)">
+  <circle cx="435" cy="522" r="22" fill="#eef6ff" stroke="#0096f0" stroke-width="2"/>
+  <circle cx="435" cy="522" r="12" fill="none" stroke="#0096f0" stroke-width="1"/>
+  <circle cx="435" cy="522" r="4" fill="#0096f0"/>
+  <circle cx="435" cy="522" r="1.5" fill="#003366"/>
+  <!-- Pulley spokes -->
+  <line x1="435" y1="502" x2="435" y2="516" stroke="#0096f0" stroke-width="0.6" opacity="0.4"/>
+  <line x1="435" y1="528" x2="435" y2="542" stroke="#0096f0" stroke-width="0.6" opacity="0.4"/>
+  <line x1="415" y1="522" x2="429" y2="522" stroke="#0096f0" stroke-width="0.6" opacity="0.4"/>
+  <line x1="441" y1="522" x2="455" y2="522" stroke="#0096f0" stroke-width="0.6" opacity="0.4"/>
+  <!-- Cable wrap around pulley -->
+  <path d="M 424,500 C 430,496 440,496 446,500" fill="none" stroke="#0096f0" stroke-width="2"/>
+  <path d="M 435,544 C 440,548 443,555 440,560" fill="none" stroke="#0096f0" stroke-width="2"/>
+  <path d="M 435,544 C 430,548 427,555 430,560" fill="none" stroke="#0096f0" stroke-width="2"/>
+  <!-- Terminal anchor to shin -->
+  <rect x="428" y="562" width="14" height="6" rx="2" fill="#0096f0" opacity="0.7"/>
+  <circle cx="435" cy="565" r="1.5" fill="#cccccc"/>
+
+  <!-- Pulley bracket -->
+  <rect x="456" y="512" width="16" height="18" rx="2" class="metav"/>
+  <line x1="472" y1="521" x2="490" y2="521" stroke="#888888" stroke-width="1.2"/>
+  <circle cx="435" cy="522" r="1.5" fill="#333333"/>
+</g>
+
+<!-- Pulley detail callout -->
+<line x1="457" y1="522" x2="540" y2="560" stroke="#0096f0" stroke-width="0.5" stroke-dasharray="2,2"/>
+<rect x="540" y="548" width="115" height="32" rx="4" fill="#f0f8ff" stroke="#0096f0" stroke-width="0.6"/>
+<circle cx="556" cy="562" r="6" fill="none" stroke="#0096f0" stroke-width="1"/>
+<circle cx="556" cy="562" r="2" fill="#0096f0"/>
+<text x="568" y="560" class="anns" fill="#0096f0" font-size="8">膝部滑轮终端</text>
+<text x="568" y="573" class="annx" fill="#888888" font-size="8">线缆转向+力传递</text>
+
+<!-- ===== THREE FRICTION LOSS ZONES ===== -->
+<!-- Zone 1: Entrance bend -->
+<ellipse cx="430" cy="186" rx="20" ry="12" fill="url(#frictionHatch)" stroke="#c45a5a" stroke-width="0.8" stroke-dasharray="3,2"/>
+<text x="430" y="212" text-anchor="middle" class="annx" fill="#c45a5a" font-size="8">摩擦区1</text>
+<text x="430" y="222" text-anchor="middle" class="annx" fill="#c45a5a" font-size="8">入口弯曲</text>
+
+<!-- Zone 2: Mid cable bend -->
+<ellipse cx="352" cy="352" rx="22" ry="14" fill="url(#frictionHatch)" stroke="#c45a5a" stroke-width="0.8" stroke-dasharray="3,2"/>
+<text x="352" y="380" text-anchor="middle" class="annx" fill="#c45a5a" font-size="8">摩擦区2</text>
+<text x="352" y="390" text-anchor="middle" class="annx" fill="#c45a5a" font-size="8">中段弯曲</text>
+
+<!-- Zone 3: Pulley friction -->
+<ellipse cx="435" cy="522" rx="28" ry="28" fill="url(#frictionHatch)" stroke="#c45a5a" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+<!-- ===== CAPSTAN EFFECT FORMULA ===== -->
+<rect x="55" y="410" width="280" height="58" rx="5" fill="#fff5f5" stroke="#c45a5a" stroke-width="0.8"/>
+<text x="195" y="432" text-anchor="middle" class="form" font-size="15">T<tspan font-size="9" dy="-3">out</tspan><tspan dy="3"> = T</tspan><tspan font-size="9" dy="-3">in</tspan><tspan dy="3"> · e</tspan><tspan font-size="8" dy="-4">-μθ</tspan></text>
+<text x="195" y="455" text-anchor="middle" class="anns" fill="#666666">Capstan效应：摩擦力导致线缆张力指数衰减</text>
+<text x="195" y="465" text-anchor="middle" class="annx" fill="#888888">T:张力  μ:摩擦系数  θ:缠绕角度 (rad)</text>
+
+<!-- ===== FORCE VECTORS ===== -->
+<!-- Motor torque -->
+<line x1="452" y1="165" x2="490" y2="165" stroke="#008844" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+<!-- Cable pull direction -->
+<line x1="335" y1="460" x2="335" y2="430" stroke="#0096f0" stroke-width="2.2" marker-end="url(#arrBlue)"/>
+<!-- Pulley output force -->
+<line x1="435" y1="570" x2="435" y2="600" stroke="#008844" stroke-width="2.2" marker-end="url(#arrGreen)"/>
+<!-- Body weight -->
+<line x1="350" y1="42" x2="350" y2="75" stroke="#cc0000" stroke-width="2.5" marker-end="url(#arrRed)"/>
+<!-- GRF -->
+<line x1="390" y1="728" x2="390" y2="690" stroke="#cc0000" stroke-width="2.2" marker-end="url(#arrRed)"/>
+
+<!-- Cord path labeled arrows -->
+<path d="M 270,280 C 250,280 240,290 240,305" fill="none" stroke="#0096f0" stroke-width="1.2" marker-end="url(#arrSmall)"/>
+
+<!-- ===== BOWDEN vs TSA COMPARISON + EFFICIENCY BARS (Lower zone) ===== -->
+
+<!-- ===== LEFT COLUMN LOWER ZONE (y=612 to y=1060) ===== -->
+<line x1="30" y1="598" x2="730" y2="598" stroke="#cccccc" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+<text x="380" y="630" text-anchor="middle" class="annt" fill="#666666" font-size="11">传动效率对比 · TSA扭绳驱动器原理 · 产品参照</text>
+
+<!-- ===== EFFICIENCY COMPARISON: Bowden vs TSA ===== -->
+<g transform="translate(30, 645)">
+  <rect x="0" y="0" width="680" height="115" rx="5" fill="#f8fafc" stroke="#d0dce8" stroke-width="0.6"/>
+  <text x="340" y="20" text-anchor="middle" class="annt" fill="#444444" font-size="10">Bowden vs TSA 传动效率对比</text>
+
+  <!-- Bowden bar -->
+  <text x="10" y="46" class="anns" font-weight="bold" fill="#0096f0">Bowden</text>
+  <rect x="70" y="34" width="380" height="16" rx="3" fill="#eef4fa" stroke="#0096f0" stroke-width="0.8"/>
+  <rect x="70" y="34" width="228" height="16" rx="3" fill="#0096f0" opacity="0.30"/>
+  <text x="260" y="46" text-anchor="middle" class="anns" font-weight="bold" fill="#0096f0">50-70% 效率</text>
+  <text x="460" y="46" class="annx" fill="#888888">摩擦损耗30-50%</text>
+
+  <!-- TSA bar -->
+  <text x="10" y="76" class="anns" font-weight="bold" fill="#008844">TSA</text>
+  <rect x="70" y="64" width="380" height="16" rx="3" fill="#e6f7e6" stroke="#008844" stroke-width="0.8"/>
+  <rect x="70" y="64" width="342" height="16" rx="3" fill="#008844" opacity="0.35"/>
+  <text x="260" y="76" text-anchor="middle" class="anns" font-weight="bold" fill="#008844">85-95% 效率</text>
+  <text x="460" y="76" class="annx" fill="#888888">近零摩擦</text>
+
+  <!-- Scale -->
+  <line x1="70" y1="98" x2="450" y2="98" stroke="#dddddd" stroke-width="0.8"/>
+  <text x="70" y="110" class="annx" font-size="8">0%</text>
+  <text x="260" y="110" text-anchor="middle" class="annx" font-size="8">50%</text>
+  <text x="450" y="110" text-anchor="end" class="annx" font-size="8">100%</text>
+  <line x1="260" y1="94" x2="260" y2="98" stroke="#dddddd" stroke-width="0.5"/>
+  <line x1="450" y1="94" x2="450" y2="98" stroke="#dddddd" stroke-width="0.5"/>
+  <line x1="70" y1="94" x2="70" y2="98" stroke="#dddddd" stroke-width="0.5"/>
+
+  <!-- Comparison arrow -->
+  <path d="M 480,42 L 530,42 L 530,72 L 480,72" fill="none" stroke="#999999" stroke-width="0.6" marker-end="url(#arrSmall)"/>
+  <text x="510" y="64" text-anchor="middle" class="annx" fill="#999999" font-size="8">+25-45%</text>
+</g>
+
+<!-- ===== TSA PRINCIPLE DIAGRAM ===== -->
+<g transform="translate(30, 772)">
+  <rect x="0" y="0" width="350" height="140" rx="5" fill="#f0faf0" stroke="#88cc88" stroke-width="0.6"/>
+  <text x="175" y="20" text-anchor="middle" class="annt" fill="#336633" font-size="10">TSA扭绳驱动器原理</text>
+
+  <!-- Motor -->
+  <rect x="10" y="35" width="40" height="40" rx="4" class="motor"/>
+  <text x="30" y="60" text-anchor="middle" class="annx" fill="#ffffff" font-size="8">电机</text>
+  <!-- Motor shaft -->
+  <line x1="50" y1="55" x2="65" y2="55" stroke="#888888" stroke-width="1.5"/>
+
+  <!-- Winch/rotor -->
+  <circle cx="80" cy="55" r="15" fill="#dddddd" stroke="#888888" stroke-width="1.2"/>
+  <circle cx="80" cy="55" r="6" fill="#cccccc" stroke="#999999" stroke-width="0.6"/>
+  <circle cx="80" cy="55" r="2" fill="#888888"/>
+  <line x1="72" y1="55" x2="88" y2="55" stroke="#aaaaaa" stroke-width="0.5"/>
+  <line x1="80" y1="47" x2="80" y2="63" stroke="#aaaaaa" stroke-width="0.5"/>
+  <text x="80" y="82" text-anchor="middle" class="annx" fill="#666666" font-size="8">绞盘</text>
+
+  <!-- Twisted string -->
+  <path d="M 95,55 C 110,48 120,50 130,55 C 140,60 150,58 165,55" fill="none" stroke="#888888" stroke-width="2.5"/>
+  <!-- Twist texture -->
+  <path d="M 100,52 L 105,58 M 110,50 L 115,56 M 120,51 L 125,57 M 130,53 L 135,56 M 140,56 L 145,54 M 150,55 L 155,53" stroke="#666666" stroke-width="0.6"/>
+  <text x="130" y="72" text-anchor="middle" class="annx" fill="#666666" font-size="8">多股纤维绳 (扭转变短)</text>
+
+  <!-- Load attachment -->
+  <rect x="160" y="40" width="30" height="30" rx="2" fill="none" stroke="#008844" stroke-width="1.5"/>
+  <text x="175" y="60" text-anchor="middle" class="annx" fill="#008844" font-size="8">负载</text>
+  <!-- Connection -->
+  <line x1="165" y1="55" x2="160" y2="55" stroke="#888888" stroke-width="1.5"/>
+
+  <!-- Force/output arrow -->
+  <line x1="190" y1="55" x2="220" y2="55" stroke="#008844" stroke-width="2" marker-end="url(#arrGreen)"/>
+  <text x="205" y="50" class="anns" fill="#008844" font-size="8">F<tspan font-size="8" dy="-2">out</tspan></text>
+
+  <!-- Efficiency note -->
+  <rect x="10" y="95" width="330" height="35" rx="4" fill="#e6f7e6" stroke="#88cc88" stroke-width="0.5"/>
+  <text x="175" y="112" text-anchor="middle" class="anns" fill="#336633"> | TSA工作模式：电机旋转 → 纤维绳扭转 → 长度缩短 → 产生拉力</text>
+  <text x="175" y="125" text-anchor="middle" class="annx" fill="#558855">绞线非线性需RL/Learning-based补偿</text>
+</g>
+
+<!-- ===== HUROTICS H-MEDI PRODUCT ===== -->
+<g transform="translate(390, 772)">
+  <rect x="0" y="0" width="320" height="140" rx="5" fill="#f0f6ff" stroke="#0096f0" stroke-width="0.6"/>
+  <text x="160" y="20" text-anchor="middle" class="annt" fill="#005599" font-size="10">Hurotics H-Medi 产品参照</text>
+
+  <g filter="url(#shadow)">
+    <!-- Torso outline -->
+    <rect x="85" y="30" width="70" height="30" rx="8" fill="#e8e8e8" stroke="#cccccc" stroke-width="0.8"/>
+    <text x="120" y="48" text-anchor="middle" class="annx" fill="#888888" font-size="8">躯干</text>
+
+    <!-- Belt pack -->
+    <rect x="75" y="55" width="90" height="18" rx="4" fill="#0096f0" opacity="0.7"/>
+    <text x="120" y="67" text-anchor="middle" class="annx" fill="#ffffff" font-size="8">电机+电池包</text>
+
+    <!-- Cable (simplified) -->
+    <path d="M 110,73 C 108,90 105,100 100,108" fill="none" stroke="#0096f0" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+    <!-- Thigh -->
+    <rect x="95" y="75" width="40" height="35" rx="6" fill="#f0e8d8" stroke="#d8d0b8" stroke-width="0.6"/>
+    <text x="115" y="95" text-anchor="middle" class="annx" fill="#888888" font-size="8">大腿</text>
+
+    <!-- Knee joint -->
+    <circle cx="115" cy="112" r="5" fill="none" stroke="#999999" stroke-width="0.8"/>
+
+    <!-- Shin -->
+    <rect x="100" y="112" width="30" height="30" rx="5" fill="#f0e8d8" stroke="#d8d0b8" stroke-width="0.6"/>
+
+    <!-- Cable terminal at knee -->
+    <circle cx="108" cy="112" r="3" fill="#0096f0"/>
+  </g>
+
+  <!-- Product info -->
+  <rect x="10" y="100" width="145" height="30" rx="4" fill="#eef4fa" stroke="#0096f0" stroke-width="0.4"/>
+  <text x="82" y="116" text-anchor="middle" class="anns" fill="#0096f0" font-size="8">Hurotics H-Medi</text>
+  <text x="82" y="127" text-anchor="middle" class="annx" fill="#888888" font-size="8">FDA II级 · 2.8-4.5kg · 200N</text>
+</g>
+
+<!-- ===== FRICTION LOSS CHAIN (bar visualization) ===== -->
+<g transform="translate(30, 920)">
+  <rect x="0" y="0" width="680" height="40" rx="4" fill="#f8fafc" stroke="#d0dce8" stroke-width="0.5"/>
+  <text x="340" y="18" text-anchor="middle" class="anns" font-weight="bold" fill="#666666">Bowden线缆功率损耗链</text>
+
+  <!-- Loss blocks -->
+  <rect x="15" y="24" width="55" height="12" rx="2" fill="#0096f0" opacity="0.15"/>
+  <text x="42" y="33" text-anchor="middle" class="annx" font-size="8" fill="#0096f0" font-weight="bold">输入100%</text>
+  <text x="72" y="33" class="annx" font-size="8" fill="#cccccc">→</text>
+  <rect x="78" y="24" width="65" height="12" rx="2" fill="#c45a5a" opacity="0.20"/>
+  <text x="110" y="33" text-anchor="middle" class="annx" font-size="8" fill="#c45a5a">摩擦10-20%</text>
+  <text x="145" y="33" class="annx" font-size="8" fill="#cccccc">→</text>
+  <rect x="152" y="24" width="65" height="12" rx="2" fill="#c45a5a" opacity="0.20"/>
+  <text x="184" y="33" text-anchor="middle" class="annx" font-size="8" fill="#c45a5a">弯曲5-15%</text>
+  <text x="219" y="33" class="annx" font-size="8" fill="#cccccc">→</text>
+  <rect x="226" y="24" width="65" height="12" rx="2" fill="#c45a5a" opacity="0.20"/>
+  <text x="258" y="33" text-anchor="middle" class="annx" font-size="8" fill="#c45a5a">滑轮5-10%</text>
+  <text x="293" y="33" class="annx" font-size="8" fill="#cccccc">→</text>
+  <rect x="300" y="24" width="65" height="12" rx="2" fill="#c45a5a" opacity="0.20"/>
+  <text x="332" y="33" text-anchor="middle" class="annx" font-size="8" fill="#c45a5a">滞后5-10%</text>
+  <text x="367" y="33" class="annx" font-size="8" fill="#cccccc">=</text>
+  <rect x="374" y="24" width="80" height="12" rx="2" fill="#008844" opacity="0.20"/>
+  <text x="414" y="33" text-anchor="middle" class="annx" font-size="8" fill="#008844" font-weight="bold">有效50-70%</text>
+</g>
+
+<!-- ===== RIGHT COLUMN PANELS ===== -->
+<g transform="translate(808, 28)">
+  <!-- Panel 1: Title Card -->
+  <rect x="0" y="0" width="364" height="48" rx="5" fill="#0096f0"/>
+  <text x="182" y="22" text-anchor="middle" class="pttl" fill="#ffffff" font-size="14">线缆远程驱动膝关节外骨骼</text>
+  <text x="182" y="40" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="8" fill="rgba(255,255,255,0.80)">Bowden Cable Remote Actuation · TRL 7-9</text>
+
+  <!-- Panel 2: Specifications -->
+  <g transform="translate(0, 68)">
+    <rect x="0" y="0" width="364" height="165" rx="4" fill="#f8fafc" stroke="#e0e8f0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#e0ecf8"/>
+    <rect x="0" y="22" width="364" height="6" fill="#e0ecf8"/>
+    <text x="18" y="18" class="pttl" fill="#335577" font-size="12">技术规格</text>
+    <rect x="16" y="34" width="148" height="24" rx="2" fill="#eef4fa"/>
+    <rect x="168" y="34" width="180" height="24" rx="2" fill="#eef4fa"/>
+    <text x="24" y="50" class="pbld" fill="#555555">末端质量</text>
+    <text x="258" y="50" text-anchor="middle" class="pbld" fill="#0096f0" font-size="11">&lt; 150 g (膝关节)</text>
+    <rect x="16" y="60" width="148" height="24" rx="2" fill="#ffffff"/>
+    <rect x="168" y="60" width="180" height="24" rx="2" fill="#ffffff"/>
+    <text x="24" y="76" class="pbld" fill="#555555">系统总重</text>
+    <text x="258" y="76" text-anchor="middle" class="pbld" fill="#0096f0">2.8-4.5 kg</text>
+    <rect x="16" y="86" width="148" height="24" rx="2" fill="#eef4fa"/>
+    <rect x="168" y="86" width="180" height="24" rx="2" fill="#eef4fa"/>
+    <text x="24" y="102" class="pbld" fill="#555555">最大拉力</text>
+    <text x="258" y="102" text-anchor="middle" class="pbld" fill="#0096f0">~200 N</text>
+    <rect x="16" y="112" width="148" height="24" rx="2" fill="#ffffff"/>
+    <rect x="168" y="112" width="180" height="24" rx="2" fill="#ffffff"/>
+    <text x="24" y="128" class="pbld" fill="#555555">传动效率</text>
+    <text x="258" y="128" text-anchor="middle" class="pbld" fill="#0096f0">50-70% (Bowden)</text>
+    <rect x="16" y="138" width="148" height="24" rx="2" fill="#eef4fa"/>
+    <rect x="168" y="138" width="180" height="24" rx="2" fill="#eef4fa"/>
+    <text x="24" y="154" class="pbld" fill="#555555">TRL / 认证</text>
+    <text x="258" y="154" text-anchor="middle" class="pbld" fill="#0096f0">7-9 · FDA II级</text>
+  </g>
+
+  <!-- Panel 3: Products -->
+  <g transform="translate(0, 257)">
+    <rect x="0" y="0" width="364" height="155" rx="4" fill="#f8fafc" stroke="#e0e8f0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#ede4f0"/>
+    <rect x="0" y="22" width="364" height="6" fill="#ede4f0"/>
+    <text x="18" y="18" class="pttl" fill="#554466" font-size="12">代表产品</text>
+    <rect x="16" y="34" width="332" height="36" rx="3" fill="#ffffff" stroke="#e0e8f0" stroke-width="0.4"/>
+    <circle cx="28" cy="48" r="3.5" fill="#0096f0"/>
+    <text x="38" y="46" class="pbld" fill="#333333">Hurotics H-Medi</text>
+    <text x="210" y="46" class="ptxt" fill="#888888">FDA II · 韩-美认证</text>
+    <text x="38" y="64" class="ptxt" fill="#888888">康复+辅助双市场 · ~$15,000</text>
+    <rect x="16" y="74" width="332" height="36" rx="3" fill="#ffffff" stroke="#e0e8f0" stroke-width="0.4"/>
+    <circle cx="28" cy="88" r="3.5" fill="#0096f0"/>
+    <text x="38" y="86" class="pbld" fill="#333333">Harvard Exosuit ReStore</text>
+    <text x="210" y="86" class="ptxt" fill="#888888">Nature/Science 论文</text>
+    <text x="38" y="104" class="ptxt" fill="#888888">FDA认证 · 下垂足辅助 · 研究标杆</text>
+    <rect x="16" y="114" width="332" height="36" rx="3" fill="#ffffff" stroke="#e0e8f0" stroke-width="0.4"/>
+    <circle cx="28" cy="128" r="3.5" fill="#0096f0"/>
+    <text x="38" y="126" class="pbld" fill="#333333">Samsung GEMS Hip / Keeogo</text>
+    <text x="220" y="126" class="ptxt" fill="#888888">髋关节Bowden驱动</text>
+    <text x="38" y="144" class="ptxt" fill="#888888">消费+康复市场 · FDA认证</text>
+  </g>
+
+  <!-- Panel 4: Pros/Cons -->
+  <g transform="translate(0, 436)">
+    <rect x="0" y="0" width="364" height="155" rx="4" fill="#f8fafc" stroke="#e0e8f0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#e0f0e0"/>
+    <rect x="0" y="22" width="364" height="6" fill="#e0f0e0"/>
+    <text x="18" y="18" class="pttl" fill="#446644" font-size="12">优势与劣势</text>
+    <rect x="16" y="34" width="160" height="85" rx="4" fill="#e8f4fd" stroke="#0096f0" stroke-width="0.5"/>
+    <text x="96" y="50" text-anchor="middle" class="pbld" fill="#0096f0" font-size="10">优势 +</text>
+    <text x="24" y="66" class="ptxt" fill="#333333">+ 末端极轻 &lt;150g</text>
+    <text x="24" y="82" class="ptxt" fill="#333333">+ 摆动相惯性低</text>
+    <text x="24" y="98" class="ptxt" fill="#333333">+ 电机集中在腰部</text>
+    <text x="24" y="114" class="ptxt" fill="#333333">+ 响应快，可主动控制</text>
+    <rect x="188" y="34" width="160" height="85" rx="4" fill="#fdf2f8" stroke="#c45a5a" stroke-width="0.5"/>
+    <text x="268" y="50" text-anchor="middle" class="pbld" fill="#cc4444" font-size="10">劣势 -</text>
+    <text x="196" y="66" class="ptxt" fill="#333333">- 摩擦总损耗30-50%</text>
+    <text x="196" y="82" class="ptxt" fill="#333333">- 系统总重2.8-4.5kg</text>
+    <text x="196" y="98" class="ptxt" fill="#333333">- 线缆疲劳 &lt;50万次</text>
+    <text x="196" y="114" class="ptxt" fill="#333333">- 弯曲半径受限</text>
+  </g>
+
+  <!-- Panel 5: Bones Strategy -->
+  <g transform="translate(0, 615)">
+    <rect x="0" y="0" width="364" height="155" rx="4" fill="#f8fafc" stroke="#e0e8f0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#e0ecf8"/>
+    <rect x="0" y="22" width="364" height="6" fill="#e0ecf8"/>
+    <text x="18" y="18" class="pttl" fill="#335577" font-size="12">Bones &amp; Manifold 策略</text>
+    <rect x="16" y="34" width="332" height="112" rx="5" fill="#f0f8ff" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="24" y="52" class="pbld" fill="#0096f0" font-size="10">评估: 推荐采用 | Gen 2+ TSA替代方案</text>
+    <line x1="24" y1="58" x2="340" y2="58" stroke="#b8d0e8" stroke-width="0.4" opacity="0.5"/>
+    <text x="24" y="76" class="ptxt" fill="#005999">传动效率从50-70%提升至85-95%</text>
+    <text x="24" y="94" class="ptxt" fill="#005999">消除摩擦损耗 + 弹性滞后效应</text>
+    <text x="24" y="112" class="ptxt" fill="#005999">保留腰部质量分布 · 末端轻量优势</text>
+    <text x="24" y="130" class="ptxt" fill="#005999">关键技术：绞线非线性RL补偿算法</text>
+  </g>
+
+  <!-- Panel 6: Architecture -->
+  <g transform="translate(0, 794)">
+    <rect x="0" y="0" width="364" height="90" rx="4" fill="#f8fafc" stroke="#e0e8f0" stroke-width="0.5"/>
+    <rect x="0" y="0" width="364" height="26" rx="4" fill="#e8e0f0"/>
+    <rect x="0" y="22" width="364" height="6" fill="#e8e0f0"/>
+    <text x="18" y="18" class="pttl" fill="#554466" font-size="12">架构要点</text>
+    <rect x="16" y="34" width="332" height="48" rx="4" fill="#f4f0fa" stroke="#0096f0" stroke-width="0.5"/>
+    <text x="182" y="50" text-anchor="middle" class="pbld" fill="#335577" font-size="8">电机 → Bowden线缆 → 滑轮 → 膝关节辅助</text>
+    <text x="182" y="66" text-anchor="middle" class="ptxt" fill="#666666">Bowden比TSA：空间布置灵活，但摩擦高30-50个百分点</text>
+    <text x="182" y="78" text-anchor="middle" class="ptxt" fill="#666666">多关节可串联，弯曲半径需 &gt;50mm</text>
+  </g>
+</g>
+
+<!-- ===== BOTTOM LEGEND ===== -->
+<g transform="translate(20, 1070)">
+  <line x1="0" y1="0" x2="1160" y2="0" stroke="#dddddd" stroke-width="0.8"/>
+  <rect x="0" y="4" width="1160" height="24" rx="3" fill="#fafafa" stroke="#e8e8e8" stroke-width="0.4"/>
+  <text x="14" y="20" class="lgt" font-weight="bold" font-size="12">图例 |</text>
+  <rect x="68" y="8" width="14" height="14" rx="2" fill="#0096f0"/>
+  <text x="86" y="20" class="lgt">推荐采用</text>
+  <rect x="195" y="8" width="14" height="14" rx="2" fill="#d97706"/>
+  <text x="213" y="20" class="lgt">部分借鉴</text>
+  <rect x="322" y="8" width="14" height="14" rx="2" fill="#c45a5a"/>
+  <text x="340" y="20" class="lgt">缺陷/不推荐</text>
+  <text x="490" y="20" class="lgt" fill="#0096f0">本卡片: 线缆远程驱动式 — 推荐采用</text>
+  <text x="840" y="20" class="lgt" fill="#999999" font-size="9">TRL 7-9 | B&amp;M Gen 2+ TSA Upgrade</text>
+</g>
+
+</svg>

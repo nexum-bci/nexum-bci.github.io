@@ -1,0 +1,240 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000">
+  <defs>
+    <marker id="aR" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto"><path d="M0,0 L12,4 L0,8" fill="#d32f2f"/></marker>
+    <marker id="aB" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#0096f0"/></marker>
+    <marker id="aA" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#d97706"/></marker>
+    <marker id="aG" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><path d="M0,0 L10,3.5 L0,7" fill="#2e7d32"/></marker>
+    <marker id="aGy" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#888"/></marker>
+    <linearGradient id="gBone" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e8ddc0"/><stop offset="35%" stop-color="#eee4cc"/><stop offset="65%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#c8b898"/></linearGradient>
+    <linearGradient id="gBoneVert" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8ddc0"/><stop offset="40%" stop-color="#eee4cc"/><stop offset="70%" stop-color="#d4c9a8"/><stop offset="100%" stop-color="#c8b898"/></linearGradient>
+    <linearGradient id="gBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fcfcfc"/><stop offset="100%" stop-color="#f8f8f8"/></linearGradient>
+    <linearGradient id="gMetal" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d0d0d0"/><stop offset="50%" stop-color="#b0b0b0"/><stop offset="100%" stop-color="#909090"/></linearGradient>
+    <linearGradient id="gCopper" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c07030"/><stop offset="100%" stop-color="#a06020"/></linearGradient>
+    <radialGradient id="gMuscle" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="rgba(200,50,50,0.18)"/><stop offset="100%" stop-color="rgba(180,40,40,0.08)"/></radialGradient>
+    <linearGradient id="gMR" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c45a5a" stop-opacity="0.1"/><stop offset="50%" stop-color="#c45a5a" stop-opacity="0.2"/><stop offset="100%" stop-color="#c45a5a" stop-opacity="0.1"/></linearGradient>
+    <clipPath id="leftClip"><rect x="20" y="72" width="720" height="862"/></clipPath>
+    <clipPath id="rightClip"><rect x="800" y="72" width="380" height="862"/></clipPath>
+  </defs>
+  <rect width="1200" height="1000" fill="#ffffff"/>
+  <rect x="0" y="0" width="1200" height="1000" fill="url(#gBg)"/>
+  <!-- Header -->
+  <rect x="20" y="16" width="1160" height="48" rx="6" fill="#c45a5a"/>
+  <text x="600" y="39" text-anchor="middle" font-size="18" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">磁流变阻尼器（MR）</text>
+  <text x="600" y="56" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">磁场控制流体粘度·调节阻尼力 | TRL 2-5 前沿研究</text>
+  <!-- Left panel -->
+  <rect x="20" y="72" width="720" height="862" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+  <g id="leftPanelGraphics" transform="translate(45,0)" clip-path="url(#leftClip)">
+    <g >
+    <!-- ANATOMY: MUSCLES -->
+    <path d="M85,95 Q105,95 130,100 Q145,115 150,200 Q152,280 155,350 Q155,400 150,430 Q140,445 125,445 L95,445 Q80,445 75,430 Q70,400 70,350 Q68,280 70,200 Q72,115 85,95 Z" fill="rgba(200,50,50,0.12)" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <path d="M155,100 Q165,110 170,200 Q172,280 170,350 Q168,400 160,435 Q153,448 140,448 L130,448 Q120,448 115,435 Q110,400 108,350 Q105,280 110,200 Q113,115 125,100 Q135,95 145,95 Z" fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.20)" stroke-width="0.5"/>
+    <path d="M120,450 Q130,450 140,455 Q150,470 155,520 Q158,580 155,650 Q150,700 140,730 Q130,740 120,740 L95,740 Q85,740 80,730 Q73,700 70,650 Q68,580 72,520 Q75,470 85,455 Q92,450 102,450 Z" fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.18)" stroke-width="0.5"/>
+    <!-- BONES -->
+    <path d="M110,100 Q113,100 117,105 Q123,115 127,180 Q130,250 130,300 Q131,350 129,400 Q127,425 123,435 Q117,440 113,440 Q108,440 103,435 Q99,425 97,400 Q95,350 96,300 Q97,250 100,180 Q103,115 107,105 Q108,100 110,100 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="1"/>
+    <ellipse cx="113" cy="108" rx="14" ry="16" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="105" cy="438" rx="10" ry="12" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <ellipse cx="120" cy="438" rx="10" ry="12" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.8"/>
+    <path d="M110,450 Q113,450 117,455 Q123,470 127,540 Q130,600 130,660 Q131,720 128,760 Q125,775 120,780 Q115,782 110,780 Q105,782 100,780 Q95,775 92,760 Q89,720 90,660 Q91,600 93,540 Q97,470 103,455 Q107,450 110,450 Z" fill="url(#gBoneVert)" stroke="#c8b898" stroke-width="1"/>
+    <rect x="97" y="448" width="28" height="8" rx="3" fill="url(#gBone)" stroke="#c8b898" stroke-width="0.6"/>
+    <ellipse cx="133" cy="420" rx="16" ry="20" fill="url(#gBone)" stroke="#c8b898" stroke-width="1"/>
+    </g>
+    <!-- MR DAMPER CROSS-SECTION -->
+    <rect x="220" y="85" width="200" height="130" rx="6" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <rect x="235" y="95" width="170" height="110" rx="5" fill="url(#gMetal)" stroke="#707070" stroke-width="1.5"/>
+    <rect x="250" y="105" width="140" height="90" rx="3" fill="#fef2f2" stroke="#c45a5a" stroke-width="0.8"/>
+    <circle cx="265" cy="118" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="280" cy="125" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="272" cy="140" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="295" cy="115" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="310" cy="130" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="300" cy="148" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="325" cy="120" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="340" cy="135" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="350" cy="148" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="355" cy="125" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="318" cy="145" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="335" cy="155" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="278" cy="160" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="345" cy="160" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="290" cy="170" r="2" fill="#c45a5a" opacity="0.3"/>
+    <circle cx="360" cy="138" r="2" fill="#c45a5a" opacity="0.3"/>
+    <rect x="260" y="145" width="120" height="18" rx="2" fill="url(#gCopper)" stroke="#a06020" stroke-width="0.8"/>
+    <path d="M265,148 Q270,144 275,148 Q280,152 285,148 Q290,144 295,148 Q300,152 305,148 Q310,144 315,148 Q320,152 325,148 Q330,144 335,148 Q340,152 345,148 Q350,144 355,148 Q360,152 365,148 Q370,144 375,148" fill="none" stroke="#a06020" stroke-width="0.5"/>
+    <path d="M240,155 Q245,165 260,168" fill="none" stroke="#c45a5a" stroke-width="0.6" stroke-dasharray="3,2"/>
+    <path d="M240,135 Q245,125 260,122" fill="none" stroke="#c45a5a" stroke-width="0.6" stroke-dasharray="3,2"/>
+    <path d="M395,155 Q400,165 390,168" fill="none" stroke="#c45a5a" stroke-width="0.6" stroke-dasharray="3,2"/>
+    <path d="M395,135 Q400,125 390,122" fill="none" stroke="#c45a5a" stroke-width="0.6" stroke-dasharray="3,2"/>
+    <line x1="300" y1="95" x2="300" y2="80" stroke="#808080" stroke-width="3"/>
+    <line x1="300" y1="215" x2="300" y2="240" stroke="#808080" stroke-width="3"/>
+    <rect x="280" y="140" width="40" height="8" rx="2" fill="#a0a0a0" stroke="#808080" stroke-width="0.5"/>
+    <line x1="245" y1="128" x2="255" y2="128" stroke="#888" stroke-width="0.5"/>
+    <line x1="375" y1="128" x2="385" y2="128" stroke="#888" stroke-width="0.5"/>
+    <g >
+    <!-- Anatomical labels -->
+    <line x1="60" y1="180" x2="110" y2="180" stroke="#888" stroke-width="0.5"/><circle cx="110" cy="180" r="1.5" fill="#888"/>
+    <text x="55" y="184" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">股骨</text>
+    <line x1="60" y1="580" x2="110" y2="580" stroke="#888" stroke-width="0.5"/><circle cx="110" cy="580" r="1.5" fill="#888"/>
+    <text x="55" y="584" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">胫骨</text>
+    <line x1="60" y1="440" x2="133" y2="440" stroke="#888" stroke-width="0.5"/><circle cx="133" cy="440" r="1.5" fill="#888"/>
+    <text x="55" y="444" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">髌骨</text>
+    <!-- Supplementary labels -->
+    <line x1="60" y1="620" x2="137" y2="620" stroke="#888" stroke-width="0.5"/><circle cx="137" cy="620" r="1.5" fill="#888"/>
+    <text x="55" y="624" text-anchor="end" font-size="10" fill="#555" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腓骨</text>
+    <line x1="60" y1="448" x2="98" y2="448" stroke="#90b8d8" stroke-width="0.6"/>
+    <text x="55" y="452" text-anchor="end" font-size="10" fill="#777" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关节软骨</text>
+    <path d="M104,452 Q115,458 126,452" fill="none" stroke="#90b8d8" stroke-width="1.5" opacity="0.5"/>
+    <line x1="60" y1="462" x2="115" y2="462" stroke="#90b8d8" stroke-width="0.5"/>
+    <text x="55" y="466" text-anchor="end" font-size="10" fill="#777" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">半月板</text>
+    <line x1="60" y1="240" x2="95" y2="240" stroke="rgba(200,50,50,0.3)" stroke-width="0.5"/>
+    <circle cx="95" cy="240" r="1.5" fill="rgba(200,50,50,0.3)"/>
+    <text x="55" y="244" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">股四头肌</text>
+    <line x1="60" y1="300" x2="155" y2="300" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <circle cx="155" cy="300" r="1.5" fill="rgba(200,50,50,0.25)"/>
+    <text x="55" y="304" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腘绳肌</text>
+    <line x1="60" y1="550" x2="95" y2="550" stroke="rgba(200,50,50,0.25)" stroke-width="0.5"/>
+    <circle cx="95" cy="550" r="1.5" fill="rgba(200,50,50,0.25)"/>
+    <text x="55" y="554" text-anchor="end" font-size="10" fill="#a04040" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">腓肠肌</text>
+    </g>
+    <!-- Mechanism labels -->
+    <line x1="300" y1="100" x2="430" y2="95" stroke="#808080" stroke-width="0.5"/>
+    <text x="435" y="99" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">缸体外壳</text>
+    <line x1="300" y1="155" x2="430" y2="155" stroke="#a06020" stroke-width="0.5"/>
+    <text x="435" y="159" font-size="10" fill="#a06020" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">励磁线圈</text>
+    <line x1="300" y1="130" x2="430" y2="135" stroke="#c45a5a" stroke-width="0.5"/>
+    <text x="435" y="139" font-size="10" fill="#c45a5a" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">磁流变液（羰基铁粉+载液）</text>
+    <line x1="300" y1="215" x2="430" y2="225" stroke="#808080" stroke-width="0.5"/>
+    <text x="435" y="229" font-size="10" fill="#808080" font-weight="bold" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">活塞杆</text>
+    <!-- Dimension annotations -->
+    <line x1="300" y1="215" x2="300" y2="250" stroke="#d32f2f" stroke-width="0.6"/>
+    <line x1="250" y1="250" x2="350" y2="250" stroke="#d32f2f" stroke-width="0.5" stroke-dasharray="3,2"/>
+    <text x="300" y="268" text-anchor="middle" font-size="10" fill="#d32f2f">阻尼力F_d可调范围50-3000N</text>
+    <!-- Magnetic field annotation -->
+    <path d="M 260,145 Q 240,145 225,155" fill="none" stroke="#d97706" stroke-width="0.6"/>
+    <text x="200" y="165" text-anchor="end" font-size="10" fill="#d97706">磁场B控制表观粘度</text>
+    <!-- Response time annotation -->
+    <path d="M 375,145 Q 400,145 420,150" fill="none" stroke="#2e7d32" stroke-width="0.5"/>
+    <text x="425" y="154" font-size="10" fill="#2e7d32">响应时间&lt;10ms（毫秒级磁场响应）</text>
+    <!-- Working temperature annotation -->
+    <line x1="300" y1="80" x2="300" y2="70" stroke="#888" stroke-width="0.5"/>
+    <text x="300" y="65" text-anchor="middle" font-size="10" fill="#888">工作温度范围-40°C~+150°C</text>
+    <!-- Nonlinear characteristic annotation -->
+    <path d="M 395,155 Q 410,170 415,200" fill="none" stroke="#c45a5a" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <text x="420" y="210" font-size="10" fill="#c45a5a">强非线性 / 磁滞特性</text>
+    <!-- MR Fluid particle annotation -->
+    <path d="M 290,175 Q 280,195 270,215" fill="none" stroke="#c45a5a" stroke-width="0.4"/>
+    <text x="245" y="225" text-anchor="end" font-size="10" fill="#c45a5a">铁磁颗粒链化</text>
+    <g >
+    <!-- Additional muscle fiber detail -->
+    <path d="M90,140 Q105,135 120,140" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M85,170 Q100,165 115,170" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M82,210 Q98,205 112,210" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M80,250 Q95,245 110,250" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M78,290 Q93,285 108,290" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M78,330 Q93,325 108,330" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M80,370 Q95,365 110,370" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M82,410 Q97,405 112,410" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M90,470 Q105,465 120,470" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M85,510 Q100,505 115,510" fill="none" stroke="rgba(200,50,50,0.10)" stroke-width="0.6"/>
+    <path d="M82,550 Q97,545 112,550" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M80,590 Q95,585 110,590" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M80,630 Q95,625 110,630" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    <path d="M82,670 Q97,665 112,670" fill="none" stroke="rgba(200,50,50,0.08)" stroke-width="0.6"/>
+    </g>
+    <!-- Performance annotation block -->
+    <g transform="translate(400,300)">
+      <rect x="0" y="0" width="280" height="95" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="0.5" opacity="0.85"/>
+      <text x="10" y="16" font-size="10" font-weight="bold" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关键性能指标</text>
+      <line x1="10" y1="22" x2="270" y2="22" stroke="#ddd" stroke-width="0.5"/>
+      <circle cx="18" cy="38" r="3" fill="#0096f0"/>
+      <text x="26" y="42" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">响应时间: &lt;10ms（磁场控制·毫秒级响应）</text>
+      <circle cx="18" cy="56" r="3" fill="#2e7d32"/>
+      <text x="26" y="60" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">阻尼力范围: 50-3000N（连续可调）</text>
+      <circle cx="18" cy="74" r="3" fill="#d97706"/>
+      <text x="26" y="78" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">工作温度: -40°C 至 +150°C</text>
+      <circle cx="145" cy="38" r="3" fill="#808080"/>
+      <text x="153" y="42" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">磁场功耗: 1-50 W (电磁铁)</text>
+      <circle cx="145" cy="56" r="3" fill="#c45a5a"/>
+      <text x="153" y="60" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">特性: 强非线性/磁滞 (控制模型复杂)</text>
+      <circle cx="145" cy="74" r="3" fill="#0096f0"/>
+      <text x="153" y="78" font-size="10" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">流体问题: 长期静置需搅拌恢复</text>
+    </g>
+    <!-- Backdrivability annotation -->
+    <path d="M 300,215 Q 300,250 300,280" fill="none" stroke="#d32f2f" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5"/>
+    <text x="305" y="295" font-size="10" fill="#d32f2f" opacity="0.6" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">阻尼力传递路径</text>
+    <path d="M 260,145 Q 230,150 215,165" fill="none" stroke="#d97706" stroke-width="0.6"/>
+    <text x="200" y="175" text-anchor="end" font-size="10" fill="#d97706" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">磁场控制: 0→Bmax 连续可调</text>
+    <!-- SUPPLEMENTARY: Key Formulas -->
+    <rect x="220" y="190" width="480" height="55" rx="3" fill="#fafafa" stroke="#ddd" stroke-width="0.5"/>
+    <text x="230" y="207" font-size="10" font-weight="bold" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">关键公式</text>
+    <text x="230" y="223" font-size="9" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">F_d = c·v + F_y·sgn(v)  (Bingham塑性模型)  |  F_y = f(B)  (磁场→屈服应力)</text>
+    <text x="230" y="238" font-size="9" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">τ_y(H) = A·H^β  |  阻尼力范围 50-3000N  |  响应 &lt; 10ms</text>
+    <!-- Damper force flow -->
+    <rect x="220" y="252" width="480" height="32" rx="3" fill="#fcfcfc" stroke="#ddd" stroke-width="0.4"/>
+    <line x1="230" y1="268" x2="280" y2="268" stroke="#d97706" stroke-width="1.2" marker-end="url(#aA)"/>
+    <line x1="290" y1="268" x2="340" y2="268" stroke="#c45a5a" stroke-width="1.2" marker-end="url(#aR)"/>
+    <text x="230" y="262" font-size="8" fill="#d97706" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">磁场B</text>
+    <text x="290" y="262" font-size="8" fill="#c45a5a" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">颗粒链化</text>
+    <text x="370" y="268" font-size="8" fill="#888" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">→ 阻尼力 F_d (50-3000N)</text>
+  </g>
+  <!-- Divider -->
+  <rect x="740" y="72" width="60" height="862" fill="#ffffff"/>
+  <rect x="800" y="72" width="380" height="862" rx="4" fill="#ffffff" stroke="#d5d5d5" stroke-width="0.6"/>
+  <!-- Right panel -->
+  <g clip-path="url(#rightClip)">
+    <rect x="816" y="86" width="348" height="130" rx="5" fill="#fef2f2" stroke="#c45a5a" stroke-width="1"/>
+    <rect x="816" y="86" width="348" height="28" rx="5 5 0 0" fill="#c45a5a"/>
+    <text x="990" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">技术概述</text>
+    <text x="828" y="130" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">磁流变(MR)阻尼器利用磁场控制悬浮在载液中</text>
+    <text x="828" y="148" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">的微米级铁磁颗粒排列状态，实现毫秒级阻尼力</text>
+    <text x="828" y="166" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">调节。磁场增强时颗粒链化，阻尼力急剧增大。</text>
+    <text x="828" y="186" font-size="10" fill="#888" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">响应时间 &lt;10 ms | 阻尼力范围 50-3000 N (可控)</text>
+    <rect x="816" y="240" width="348" height="150" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="0.6"/>
+    <rect x="816" y="240" width="348" height="28" rx="5 5 0 0" fill="#c45a5a" fill-opacity="0.85"/>
+    <text x="990" y="259" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">技术参数</text>
+    <text x="828" y="286" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">响应时间          &lt;10 ms (磁场控制)</text>
+    <text x="828" y="306" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">阻尼力范围        50-3000 N (取决于设计)</text>
+    <text x="828" y="326" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">工作温度          -40 至 +150 摄氏度</text>
+    <text x="828" y="346" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">磁场功耗          1-50 W (电磁铁)</text>
+    <text x="828" y="366" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">MR流体沉降        长期静置需搅拌恢复</text>
+    <text x="828" y="386" font-size="11" fill="#555" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">力-速度关系      强非线性/磁滞 (控制模型复杂)</text>
+    <rect x="816" y="414" width="348" height="100" rx="5" fill="#fafafa" stroke="#ddd" stroke-width="0.6"/>
+    <rect x="816" y="414" width="348" height="28" rx="5 5 0 0" fill="#c45a5a" fill-opacity="0.85"/>
+    <text x="990" y="433" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">代表研究</text>
+    <text x="828" y="460" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">Lord Corporation MR阻尼器 (汽车半主动悬架)</text>
+    <text x="828" y="480" font-size="11" fill="#666" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">外骨骼应用：MIT / Vanderbilt 穿戴式阻尼研究</text>
+    <text x="828" y="503" font-size="11" fill="#666" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">主要停留于实验室验证，无商业化外骨骼产品</text>
+    <rect x="816" y="538" width="348" height="115" rx="5" fill="#f0fdf4" stroke="#2e7d32" stroke-width="0.6"/>
+    <rect x="816" y="538" width="348" height="28" rx="5 5 0 0" fill="#2e7d32" fill-opacity="0.85"/>
+    <text x="990" y="557" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">优势</text>
+    <text x="828" y="584" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">响应快 — 磁场控制，&lt;10 ms瞬态响应</text>
+    <text x="828" y="604" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">阻尼范围广 — 连续可控，50-3000N调节</text>
+    <text x="828" y="624" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">失效安全 — 零磁场时低阻尼，天然安全</text>
+    <text x="828" y="644" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">结构简单 — 无活动阀门，可靠性高</text>
+    <rect x="816" y="677" width="348" height="145" rx="5" fill="#fef2f2" stroke="#c45a5a" stroke-width="0.6"/>
+    <rect x="816" y="677" width="348" height="28" rx="5 5 0 0" fill="#c45a5a" fill-opacity="0.85"/>
+    <text x="990" y="696" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">缺陷 Disadvantages</text>
+    <text x="828" y="723" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">仅阻尼 — 只能耗散能量，无法主动做功</text>
+    <text x="828" y="743" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">磁滞非线性 — 控制模型复杂，精度受限</text>
+    <text x="828" y="763" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">MR流体沉降 — 长期静置后颗粒沉积</text>
+    <text x="828" y="783" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">温度敏感性 — 粘度随温度变化</text>
+    <text x="828" y="803" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">响应特性饱和 — 电流-阻尼力非线性/磁滞</text>
+    <text x="828" y="823" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">功率密度较低 — 无法提供持续主动助力</text>
+    <rect x="816" y="850" width="348" height="80" rx="5" fill="#fef2f2" stroke="#c45a5a" stroke-width="1.2"/>
+    <rect x="816" y="850" width="348" height="28" rx="5 5 0 0" fill="#c45a5a"/>
+    <text x="990" y="869" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">Bones 评估 Assessment</text>
+    <text x="828" y="895" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">当前阶段: 不推荐作为主驱动或主阻尼方案</text>
+    <text x="828" y="915" font-size="11" fill="#333" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">仅阻尼属性限制了在外骨骼中的应用场景</text>
+  </g>
+  <!-- Bottom legend -->
+  <rect x="20" y="940" width="1160" height="50" rx="4" fill="#f8f8f8" stroke="#d5d5d5" stroke-width="0.6"/>
+  <rect x="40" y="953" width="18" height="18" rx="2" fill="#0096f0"/>
+  <text x="64" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">推荐采用</text>
+  <rect x="240" y="953" width="18" height="18" rx="2" fill="#d97706"/>
+  <text x="264" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">部分借鉴</text>
+  <rect x="460" y="953" width="18" height="18" rx="2" fill="#c45a5a"/>
+  <text x="484" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">不推荐</text>
+  <rect x="680" y="953" width="18" height="18" rx="2" fill="#2e7d32"/>
+  <text x="704" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">磁场方向</text>
+  <rect x="900" y="953" width="18" height="18" rx="2" fill="#c45a5a" fill-opacity="0.5"/>
+  <text x="924" y="967" font-size="13" fill="#333" font-weight="600" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,Arial,Helvetica,sans-serif">MR流体/阻尼特性</text>
+</svg>

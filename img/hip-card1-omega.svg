@@ -1,0 +1,546 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <defs>
+    <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede3cc"/>
+      <stop offset="40%" stop-color="#e8ddc0"/>
+      <stop offset="70%" stop-color="#dfd2b2"/>
+      <stop offset="100%" stop-color="#d4c9a8"/>
+    </linearGradient>
+    <linearGradient id="boneShadow" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#f5edd8"/>
+      <stop offset="100%" stop-color="#c4b898"/>
+    </linearGradient>
+    <linearGradient id="boneDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4c9a8"/>
+      <stop offset="100%" stop-color="#b8ad90"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A0AAB5"/>
+      <stop offset="40%" stop-color="#8B93A0"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+    <linearGradient id="metalDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6B7280"/>
+      <stop offset="100%" stop-color="#4B5563"/>
+    </linearGradient>
+    <linearGradient id="metalLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#B8BFC8"/>
+      <stop offset="100%" stop-color="#9CA3AF"/>
+    </linearGradient>
+    <linearGradient id="copperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5f0eb"/>
+      <stop offset="50%" stop-color="#faf5ef"/>
+      <stop offset="100%" stop-color="#f5f0eb"/>
+    </linearGradient>
+    <linearGradient id="muscleGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(220,38,38,0.05)"/>
+      <stop offset="50%" stop-color="rgba(220,38,38,0.10)"/>
+      <stop offset="100%" stop-color="rgba(220,38,38,0.06)"/>
+    </linearGradient>
+    <linearGradient id="cableGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c3e50"/>
+      <stop offset="50%" stop-color="#34495e"/>
+      <stop offset="100%" stop-color="#2c3e50"/>
+    </linearGradient>
+    <marker id="arrowRed" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowRedSmall" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#d97706"/>
+    </marker>
+    <marker id="arrowAmberSmall" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#d97706"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#9CA3AF"/>
+    </marker>
+    <filter id="shadow" x="-8%" y="-8%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="rgba(0,0,0,0.15)"/>
+    </filter>
+    <filter id="softShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="1" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.08)"/>
+    </filter>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="leftPane">
+      <rect x="0" y="0" width="740" height="1080"/>
+    </clipPath>
+    <style>
+      .label-sm { font-size: 9px; fill: #64748b; font-family: sans-serif; }
+      .label-md { font-size: 11px; fill: #334155; font-family: sans-serif; }
+      .label-lg { font-size: 13px; fill: #1e293b; font-family: sans-serif; font-weight: bold; }
+      .label-em { font-size: 10px; fill: #d97706; font-family: sans-serif; font-weight: bold; }
+      .label-force { font-size: 11px; fill: #dc2626; font-family: sans-serif; font-weight: bold; }
+      .title-amber { font-size: 18px; fill: #d97706; font-family: sans-serif; font-weight: bold; }
+      .title-gray { font-size: 13px; fill: #475569; font-family: sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+  <rect width="1200" height="1200" fill="#ffffff"/>
+  <rect x="740" y="0" width="60" height="1200" fill="#fafbfc" opacity="0.4"/>
+  <line x1="740" y1="0" x2="740" y2="1200" stroke="#e5e7eb" stroke-width="0.8"/>
+  <line x1="800" y1="0" x2="800" y2="1200" stroke="#e5e7eb" stroke-width="0.8"/>
+  <g clip-path="url(#leftPane)">
+    <rect x="20" y="0" width="720" height="1080" fill="#ffffff"/>
+    <g>
+      <text x="30" y="24" class="label-em" font-size="12">Fig. A Omega 柔性线缆牵引 | 侧面观 Lateral View</text>
+      <line x1="30" y1="28" x2="300" y2="28" stroke="#e5e7eb" stroke-width="0.5"/>
+    </g>
+    <g filter="url(#softShadow)">
+      <path d="M 240,70 C 230,110 225,160 230,210 C 235,260 260,300 285,330
+               L 475,330 C 500,300 525,260 530,210 C 535,160 530,110 520,70
+               C 510,60 480,55 380,55 C 280,55 250,60 240,70 Z"
+            fill="url(#skinGrad)" stroke="#e8ddd0" stroke-width="0.8"/>
+      <rect x="350" y="30" width="60" height="40" rx="10" fill="#f5f0eb" stroke="#e8ddd0" stroke-width="0.6"/>
+      <ellipse cx="380" cy="10" rx="32" ry="26" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.8"/>
+      <line x1="380" y1="0" x2="380" y2="8" stroke="#dccfc0" stroke-width="0.5"/>
+      <line x1="370" y1="14" x2="390" y2="14" stroke="#dccfc0" stroke-width="0.5"/>
+    </g>
+    <line x1="380" y1="60" x2="380" y2="260" stroke="#d4c9a8" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.5"/>
+    <g stroke="#dccfc0" stroke-width="0.6" fill="none" opacity="0.35">
+      <path d="M 280,110 Q 320,105 340,115"/>
+      <path d="M 420,115 Q 440,105 480,110"/>
+      <path d="M 270,140 Q 320,130 340,145"/>
+      <path d="M 420,145 Q 440,130 490,140"/>
+      <path d="M 265,170 Q 315,155 340,175"/>
+      <path d="M 420,175 Q 445,155 495,170"/>
+      <path d="M 268,200 Q 318,185 340,205"/>
+      <path d="M 420,205 Q 442,185 492,200"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 380,255 C 340,252 295,260 270,285 C 250,310 245,340 260,360
+               C 275,380 295,395 320,405 C 340,412 360,415 380,416
+               C 400,415 420,412 440,405 C 465,395 485,380 500,360
+               C 515,340 510,310 490,285 C 465,260 420,252 380,255 Z"
+            fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 265,290 C 260,305 258,325 265,345" fill="none" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 495,290 C 500,305 502,325 495,345" fill="none" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="380" cy="400" rx="12" ry="6" fill="url(#boneShadow)" stroke="#b8ad90" stroke-width="0.4"/>
+      <ellipse cx="380" cy="290" rx="18" ry="12" fill="url(#boneDark)" opacity="0.3"/>
+      <circle cx="290" cy="355" r="18" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.8"/>
+      <circle cx="290" cy="355" r="13" fill="#dfd2b2" stroke="#c4b898" stroke-width="0.4"/>
+      <circle cx="470" cy="355" r="18" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.8"/>
+      <circle cx="470" cy="355" r="13" fill="#dfd2b2" stroke="#c4b898" stroke-width="0.4"/>
+    </g>
+    <path d="M 260,290 C 240,310 235,340 250,365 C 265,390 285,400 310,405
+             C 300,385 295,360 300,335 C 305,310 290,295 260,290 Z"
+          fill="url(#muscleGlow)" stroke="rgba(200,50,50,0.12)" stroke-width="0.5"/>
+    <path d="M 500,290 C 520,310 525,340 510,365 C 495,390 475,400 450,405
+             C 460,385 465,360 460,335 C 455,310 470,295 500,290 Z"
+          fill="url(#muscleGlow)" stroke="rgba(200,50,50,0.12)" stroke-width="0.5"/>
+    <g filter="url(#shadow)">
+      <circle cx="290" cy="355" r="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 285,355 Q 278,380 282,400 L 290,398 Q 288,378 292,355 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 282,400 C 280,450 278,500 278,550 C 278,600 280,650 285,700 L 298,700 C 293,650 290,600 290,550 C 290,500 292,450 296,400 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <path d="M 296,400 Q 310,415 308,430 L 300,428 Q 300,415 296,400 Z" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.5"/>
+      <ellipse cx="285" cy="698" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="300" cy="698" rx="8" ry="12" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+    </g>
+    <g filter="url(#shadow)">
+      <circle cx="470" cy="355" r="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 475,355 Q 482,380 478,400 L 470,398 Q 472,378 468,355 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 478,400 C 480,450 482,500 482,550 C 482,600 480,650 475,700 L 462,700 C 467,650 470,600 470,550 C 470,500 468,450 464,400 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <path d="M 464,400 Q 450,415 452,430 L 460,428 Q 460,415 464,400 Z" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.5"/>
+      <ellipse cx="475" cy="698" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="460" cy="698" rx="8" ry="12" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+    </g>
+    <g opacity="0.12">
+      <path d="M 285,410 C 282,470 280,530 283,590 C 286,630 290,660 295,690 L 285,690 C 282,660 278,630 276,590 C 274,530 277,470 282,410 Z" fill="#dc2626"/>
+      <path d="M 283,450 C 278,500 275,550 278,620 C 280,660 283,690 285,695 L 278,695 C 276,660 273,620 272,550 C 271,500 276,450 283,450 Z" fill="#dc2626"/>
+      <path d="M 296,450 C 300,500 302,560 300,630 C 298,670 296,695 295,698 L 302,698 C 304,670 306,630 305,560 C 303,500 298,450 296,450 Z" fill="#dc2626"/>
+      <path d="M 475,410 C 478,470 480,530 477,590 C 474,630 470,660 465,690 L 475,690 C 478,660 482,630 484,590 C 486,530 483,470 478,410 Z" fill="#dc2626"/>
+      <path d="M 477,450 C 482,500 485,550 482,620 C 480,660 477,690 475,695 L 482,695 C 484,660 487,620 488,550 C 489,500 484,450 477,450 Z" fill="#dc2626"/>
+      <path d="M 464,450 C 460,500 458,560 460,630 C 462,670 464,695 465,698 L 458,698 C 456,670 454,630 455,560 C 457,500 462,450 464,450 Z" fill="#dc2626"/>
+    </g>
+    <g filter="url(#softShadow)">
+      <ellipse cx="290" cy="705" rx="12" ry="9" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="290" cy="705" rx="7" ry="5" fill="url(#boneShadow)"/>
+      <ellipse cx="470" cy="705" rx="12" ry="9" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="470" cy="705" rx="7" ry="5" fill="url(#boneShadow)"/>
+    </g>
+    <g filter="url(#shadow)">
+      <ellipse cx="290" cy="700" rx="8" ry="10" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="285" cy="700" rx="7" ry="10" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.5"/>
+      <path d="M 283,710 C 280,760 278,810 277,860 C 276,910 278,950 282,980 L 294,980 C 290,950 288,910 287,860 C 286,810 288,760 290,710 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <ellipse cx="470" cy="700" rx="8" ry="10" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="475" cy="700" rx="7" ry="10" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.5"/>
+      <path d="M 477,710 C 480,760 482,810 483,860 C 484,910 482,950 478,980 L 466,980 C 470,950 472,910 473,860 C 474,810 472,760 470,710 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+    </g>
+    <g opacity="0.10">
+      <path d="M 278,740 C 273,780 271,830 273,870 C 275,900 280,930 288,960 L 280,960 C 274,930 269,900 267,870 C 265,830 268,780 275,740 Z" fill="#dc2626"/>
+      <path d="M 482,740 C 487,780 489,830 487,870 C 485,900 480,930 472,960 L 480,960 C 486,930 491,900 493,870 C 495,830 492,780 485,740 Z" fill="#dc2626"/>
+    </g>
+    <g filter="url(#softShadow)">
+      <path d="M 280,980 L 278,1010 C 278,1020 282,1025 290,1025 L 296,1020 C 298,1015 296,1005 294,980 Z" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.6"/>
+      <path d="M 480,980 L 482,1010 C 482,1020 478,1025 470,1025 L 464,1020 C 462,1015 464,1005 466,980 Z" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.6"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 230,80 C 226,100 225,140 228,180 L 528,180 C 531,140 530,100 526,80 L 230,80 Z" fill="none" stroke="url(#metalDark)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 230,80 L 226,150" fill="none" stroke="url(#metalGrad)" stroke-width="5" stroke-linecap="round"/>
+      <path d="M 526,80 L 530,150" fill="none" stroke="url(#metalGrad)" stroke-width="5" stroke-linecap="round"/>
+      <rect x="240" y="85" width="280" height="70" rx="8" fill="url(#metalDark)" opacity="0.4" stroke="#4B5563" stroke-width="0.8"/>
+      <text x="380" y="110" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" opacity="0.6">背部安装板</text>
+      <text x="380" y="125" font-size="8" fill="#94a3b8" font-family="sans-serif" text-anchor="middle">Backpack Mount</text>
+    </g>
+    <g>
+      <path d="M 280,155 C 270,200 260,250 265,300 C 270,330 280,345 290,355"
+            fill="none" stroke="url(#cableGrad)" stroke-width="2.5" opacity="0.8"/>
+      <path d="M 290,355 C 305,365 315,380 310,395 C 305,410 290,415 280,410"
+            fill="none" stroke="url(#cableGrad)" stroke-width="2.5" opacity="0.8"/>
+      <path d="M 280,410 C 275,450 272,500 275,550 C 278,600 280,650 285,700"
+            fill="none" stroke="url(#cableGrad)" stroke-width="2.5" opacity="0.8"/>
+      <circle cx="285" cy="700" r="5" fill="#4B5563" stroke="#6B7280" stroke-width="0.8"/>
+    </g>
+    <g>
+      <path d="M 480,155 C 490,200 500,250 495,300 C 490,330 480,345 470,355"
+            fill="none" stroke="url(#cableGrad)" stroke-width="2.5" opacity="0.8"/>
+      <path d="M 470,355 C 455,365 445,380 450,395 C 455,410 470,415 480,410"
+            fill="none" stroke="url(#cableGrad)" stroke-width="2.5" opacity="0.8"/>
+      <path d="M 480,410 C 485,450 488,500 485,550 C 482,600 480,650 475,700"
+            fill="none" stroke="url(#cableGrad)" stroke-width="2.5" opacity="0.8"/>
+      <circle cx="475" cy="700" r="5" fill="#4B5563" stroke="#6B7280" stroke-width="0.8"/>
+    </g>
+    <g filter="url(#shadow)">
+      <circle cx="290" cy="355" r="12" fill="#6B7280" stroke="#4B5563" stroke-width="1.5"/>
+      <circle cx="290" cy="355" r="8" fill="#9CA3AF" stroke="#6B7280" stroke-width="0.8"/>
+      <circle cx="290" cy="355" r="2" fill="#4B5563"/>
+      <line x1="290" y1="347" x2="290" y2="363" stroke="#6B7280" stroke-width="0.8"/>
+      <line x1="282" y1="355" x2="298" y2="355" stroke="#6B7280" stroke-width="0.8"/>
+    </g>
+    <g filter="url(#shadow)">
+      <circle cx="470" cy="355" r="12" fill="#6B7280" stroke="#4B5563" stroke-width="1.5"/>
+      <circle cx="470" cy="355" r="8" fill="#9CA3AF" stroke="#6B7280" stroke-width="0.8"/>
+      <circle cx="470" cy="355" r="2" fill="#4B5563"/>
+      <line x1="470" y1="347" x2="470" y2="363" stroke="#6B7280" stroke-width="0.8"/>
+      <line x1="462" y1="355" x2="478" y2="355" stroke="#6B7280" stroke-width="0.8"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 278,410 C 275,460 273,520 274,580 C 275,630 278,670 282,710 L 292,710 C 288,670 285,630 284,580 C 283,520 285,460 288,410 Z" fill="none" stroke="url(#metalLight)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M 482,410 C 485,460 487,520 486,580 C 485,630 482,670 478,710 L 468,710 C 472,670 475,630 476,580 C 477,520 475,460 472,410 Z" fill="none" stroke="url(#metalLight)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="310" y="88" width="50" height="30" rx="4" fill="#6B7280" stroke="#4B5563" stroke-width="0.8"/>
+      <rect x="316" y="94" width="38" height="6" rx="2" fill="#d97706" opacity="0.6"/>
+      <rect x="316" y="104" width="28" height="6" rx="2" fill="#d97706" opacity="0.4"/>
+      <text x="335" y="130" class="label-sm" font-size="8" fill="#d97706" text-anchor="middle">张力调节器</text>
+    </g>
+    <g opacity="0.3">
+      <path d="M 288,700 C 286,730 284,760 284,790" fill="none" stroke="#6B7280" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 472,700 C 474,730 476,760 476,790" fill="none" stroke="#6B7280" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <line x1="240" y1="90" x2="170" y2="80" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="165" cy="78" r="9" fill="#d97706"/>
+    <text x="165" y="82" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">1</text>
+    <text x="148" y="72" class="label-sm" font-size="8" fill="#d97706" text-anchor="end">背部安装架</text>
+    <line x1="298" y1="355" x2="330" y2="340" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="336" cy="338" r="9" fill="#d97706"/>
+    <text x="336" y="342" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">2</text>
+    <text x="350" y="336" class="label-sm" font-size="8" fill="#d97706">髋关节滑轮</text>
+    <line x1="305" y1="395" x2="330" y2="400" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="336" cy="402" r="9" fill="#d97706"/>
+    <text x="336" y="406" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">3</text>
+    <text x="350" y="398" class="label-sm" font-size="8" fill="#d97706">Omega 线环</text>
+    <line x1="360" y1="118" x2="390" y2="118" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="396" cy="118" r="9" fill="#d97706"/>
+    <text x="396" y="122" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">4</text>
+    <text x="410" y="116" class="label-sm" font-size="8" fill="#d97706">线缆张力器</text>
+    <line x1="291" y1="550" x2="320" y2="540" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="326" cy="538" r="9" fill="#d97706"/>
+    <text x="326" y="542" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">5</text>
+    <text x="340" y="536" class="label-sm" font-size="8" fill="#d97706">大腿线槽导轨</text>
+    <line x1="285" y1="700" x2="260" y2="700" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="254" cy="700" r="9" fill="#d97706"/>
+    <text x="254" y="704" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">6</text>
+    <text x="240" y="694" class="label-sm" font-size="8" fill="#d97706" text-anchor="end">膝部锚点</text>
+    <line x1="284" y1="780" x2="260" y2="785" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="254" cy="785" r="9" fill="#d97706"/>
+    <text x="254" y="789" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">7</text>
+    <text x="240" y="780" class="label-sm" font-size="8" fill="#d97706" text-anchor="end">柔性线管</text>
+    <line x1="230" y1="270" x2="170" y2="260" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="165" cy="258" r="9" fill="#d97706"/>
+    <text x="165" y="262" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">8</text>
+    <text x="148" y="252" class="label-sm" font-size="8" fill="#d97706" text-anchor="end">骨盆固定带</text>
+    <line x1="296" y1="420" x2="320" y2="425" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="326" cy="428" r="9" fill="#d97706"/>
+    <text x="326" y="432" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">9</text>
+    <text x="340" y="422" class="label-sm" font-size="8" fill="#d97706">股骨枢轴点</text>
+    <line x1="475" y1="700" x2="510" y2="690" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="516" cy="688" r="9" fill="#d97706"/>
+    <text x="516" y="692" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">10</text>
+    <text x="530" y="686" class="label-sm" font-size="8" fill="#d97706">线缆终端</text>
+    <line x1="380" y1="10" x2="380" y2="-30" stroke="#dc2626" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <text x="388" y="-18" class="label-force">W (体重)</text>
+    <path d="M 275,410 L 260,440" stroke="#d97706" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowAmber)"/>
+    <text x="248" y="448" class="label-em" font-size="9">F_cable</text>
+    <path d="M 485,410 L 500,440" stroke="#d97706" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowAmber)"/>
+    <text x="502" y="448" class="label-em" font-size="9">F_cable</text>
+    <path d="M 260,355 L 240,355" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+    <text x="222" y="353" class="label-force" font-size="10">F_joint</text>
+    <path d="M 500,355 L 520,355" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+    <text x="528" y="353" class="label-force" font-size="10">F_joint</text>
+    <path d="M 290,330 L 290,315" stroke="#d97706" stroke-width="1.5" marker-end="url(#arrowAmberSmall)"/>
+    <text x="296" y="318" class="label-em" font-size="8">牵引</text>
+    <path d="M 470,330 L 470,315" stroke="#d97706" stroke-width="1.5" marker-end="url(#arrowAmberSmall)"/>
+    <text x="476" y="318" class="label-em" font-size="8">牵引</text>
+    <line x1="285" y1="1030" x2="285" y2="1055" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="270" y="1068" class="label-force" font-size="9">GRF</text>
+    <line x1="475" y1="1030" x2="475" y2="1055" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="478" y="1068" class="label-force" font-size="9">GRF</text>
+    <g transform="translate(540, 55)">
+      <rect x="0" y="0" width="180" height="140" rx="5" fill="#fff" stroke="#d97706" stroke-width="1.2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="180" height="22" rx="5" fill="#d97706" opacity="0.9"/>
+      <text x="90" y="15" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Harvard Soft Exosuit</text>
+      <text x="8" y="34" class="label-sm" font-size="8">重量：3 kg</text>
+      <text x="8" y="48" class="label-sm" font-size="8">助力：髋屈伸 Bowden 线缆</text>
+      <text x="8" y="62" class="label-sm" font-size="8">材质：织物 + 柔性线管</text>
+      <text x="8" y="76" class="label-sm" font-size="8">穿戴：&lt; 2 min</text>
+      <text x="8" y="90" class="label-sm" font-size="8">应用：步态辅助 / 工业</text>
+      <line x1="8" y1="96" x2="172" y2="96" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="8" y="110" class="label-em" font-size="8">Omega 线缆牵引先驱</text>
+      <text x="8" y="126" class="label-sm" font-size="8" fill="#94a3b8">线缆驱动柔性外骨骼</text>
+    </g>
+    <g transform="translate(540, 210)">
+      <rect x="0" y="0" width="180" height="130" rx="5" fill="#fff" stroke="#d97706" stroke-width="1.2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="180" height="22" rx="5" fill="#d97706" opacity="0.9"/>
+      <text x="90" y="15" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">XoSoft EU Project</text>
+      <text x="8" y="34" class="label-sm" font-size="8">重量：4 kg</text>
+      <text x="8" y="48" class="label-sm" font-size="8">模式：自适应阻抗</text>
+      <text x="8" y="62" class="label-sm" font-size="8">传感器：IMU + 力传感器</text>
+      <text x="8" y="76" class="label-sm" font-size="8">智能 Omega 线缆张力</text>
+      <text x="8" y="90" class="label-sm" font-size="8">应用：老年人助行</text>
+      <line x1="8" y1="96" x2="172" y2="96" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="8" y="110" class="label-em" font-size="8">智能线缆张力控制</text>
+    </g>
+    <line x1="350" y1="280" x2="330" y2="270" stroke="#64748b" stroke-width="0.6"/>
+    <line x1="330" y1="270" x2="220" y2="270" stroke="#64748b" stroke-width="0.6" stroke-dasharray="3,2"/>
+    <text x="218" y="275" class="label-md" font-size="10" text-anchor="end">骨盆 Pelvis</text>
+    <line x1="285" y1="450" x2="220" y2="440" stroke="#64748b" stroke-width="0.6"/>
+    <text x="218" y="445" class="label-md" font-size="10" text-anchor="end">股骨 Femur</text>
+    <line x1="283" y1="800" x2="220" y2="790" stroke="#64748b" stroke-width="0.6"/>
+    <text x="218" y="795" class="label-md" font-size="10" text-anchor="end">胫骨 Tibia</text>
+    <line x1="302" y1="705" x2="320" y2="705" stroke="#64748b" stroke-width="0.6"/>
+    <text x="322" y="709" class="label-sm" font-size="9">髌骨 Patella</text>
+    <g transform="translate(30, 1020)">
+      <rect x="0" y="0" width="700" height="48" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="10" y="10" width="14" height="14" rx="2" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <text x="28" y="22" class="label-sm" font-size="9">骨骼 Bone</text>
+      <rect x="100" y="10" width="14" height="14" rx="2" fill="rgba(220,38,38,0.15)" stroke="rgba(220,38,38,0.3)" stroke-width="0.6"/>
+      <text x="118" y="22" class="label-sm" font-size="9">肌肉 Muscle</text>
+      <rect x="190" y="10" width="14" height="14" rx="2" fill="url(#metalGrad)" stroke="#6B7280" stroke-width="0.6"/>
+      <text x="208" y="22" class="label-sm" font-size="9">框架 Frame</text>
+      <rect x="280" y="10" width="14" height="14" rx="2" fill="#2c3e50"/>
+      <text x="298" y="22" class="label-sm" font-size="9">线缆 Cable</text>
+      <rect x="380" y="10" width="14" height="14" rx="2" fill="#d97706"/>
+      <text x="398" y="22" class="label-sm" font-size="9">滑轮/机构</text>
+      <line x1="490" y1="16" x2="505" y2="16" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+      <text x="510" y="22" class="label-sm" font-size="9">力矢量 Force</text>
+      <text x="10" y="42" class="label-sm" font-size="8" fill="#94a3b8">Omega 柔性线缆牵引外骨骼 · Harvard Soft Exosuit / XoSoft 技术路线</text>
+    </g>
+  </g>
+  <g transform="translate(808, 16)">
+    <rect x="-8" y="0" width="380" height="60" rx="4" fill="#fefdf8" stroke="#f0e0c0" stroke-width="0.5"/>
+    <rect x="-8" y="0" width="4" height="60" rx="2" fill="#d97706"/>
+    <text x="12" y="26" class="title-amber">Omega 柔性线缆牵引式</text>
+    <text x="12" y="46" class="label-sm" font-size="10" fill="#9ca3af">OMEGA CABLE-DRIVEN HIP EXOSKELETON</text>
+    <rect x="262" y="10" width="100" height="24" rx="12" fill="#d97706" opacity="0.15"/>
+    <text x="312" y="27" font-size="12" fill="#d97706" font-family="sans-serif" text-anchor="middle" font-weight="bold">部分借鉴</text>
+    <g transform="translate(0, 80)">
+      <rect x="-8" y="0" width="380" height="130" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="130" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="14">架构特征</text>
+      <text x="140" y="22" class="label-sm" fill="#94a3b8">ARCHITECTURE</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <circle cx="16" cy="48" r="3.5" fill="#d97706"/>
+        <text x="28" y="53">柔性织物框架 + 背部安装板</text>
+        <circle cx="16" cy="68" r="3.5" fill="#d97706"/>
+        <text x="28" y="73">Omega 形线缆路径经髋关节滑轮</text>
+        <circle cx="16" cy="88" r="3.5" fill="#d97706"/>
+        <text x="28" y="93">Bowden 线缆牵引髋屈伸</text>
+        <circle cx="16" cy="108" r="3.5" fill="#d97706"/>
+        <text x="28" y="113">背部张力调节模块</text>
+        <circle cx="16" cy="128" r="3.5" fill="#d97706"/>
+        <text x="28" y="133">膝部锚点 + 大腿线槽导轨</text>
+      </g>
+    </g>
+    <g transform="translate(0, 228)">
+      <rect x="-8" y="0" width="380" height="145" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="145" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="14">技术参数</text>
+      <text x="120" y="22" class="label-sm" fill="#94a3b8">PARAMETERS</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="50">系统重量</text>
+        <text x="160" y="50" fill="#1f2937" font-weight="bold">3 – 4 kg</text>
+        <text x="16" y="70">髋关节助力</text>
+        <text x="160" y="70" fill="#1f2937" font-weight="bold">10 – 15 kg (线缆牵引)</text>
+        <text x="16" y="90">驱动方式</text>
+        <text x="160" y="90" fill="#1f2937" font-weight="bold">Bowden 线缆 + 滑轮</text>
+        <text x="16" y="110">代表产品</text>
+        <text x="160" y="110" fill="#1f2937" font-weight="bold">Soft Exosuit / XoSoft</text>
+        <text x="16" y="130">核心优势</text>
+        <text x="160" y="130" fill="#1f2937" font-weight="bold">超轻量 3 kg 穿戴舒适</text>
+      </g>
+    </g>
+    <g transform="translate(0, 392)">
+      <rect x="-8" y="0" width="380" height="185" rx="4" fill="#fefdf8" stroke="#f0e0c0" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="185" rx="1.5" fill="#d97706"/>
+      <text x="12" y="22" class="title-gray" font-size="14">产品对比</text>
+      <text x="110" y="22" class="label-sm" fill="#94a3b8">PRODUCT COMPARISON</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#f0e0c0" stroke-width="0.5"/>
+      <rect x="12" y="36" width="354" height="62" rx="3" fill="#fff" stroke="#d97706" stroke-width="0.6"/>
+      <rect x="12" y="36" width="354" height="18" rx="3" fill="#d97706"/>
+      <text x="189" y="49" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Harvard Soft Exosuit (美国)</text>
+      <text x="16" y="70" class="label-sm" font-size="10">3 kg | Bowden 线缆驱动 | 髋屈伸助力</text>
+      <text x="16" y="86" class="label-sm" font-size="10">织物材质 | 穿戴 &lt; 2 min</text>
+      <text x="16" y="98" class="label-sm" font-size="10" fill="#d97706">优势：超轻 | 劣势：助力有限 (~10 kg)</text>
+      <rect x="12" y="104" width="354" height="62" rx="3" fill="#fff" stroke="#d97706" stroke-width="0.6"/>
+      <rect x="12" y="104" width="354" height="18" rx="3" fill="#d97706"/>
+      <text x="189" y="117" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">XoSoft EU (欧盟)</text>
+      <text x="16" y="138" class="label-sm" font-size="10">4 kg | Omega 线缆 | 自适应阻抗控制</text>
+      <text x="16" y="154" class="label-sm" font-size="10">老年人助行 | 轻量级助力</text>
+      <text x="16" y="166" class="label-sm" font-size="10" fill="#d97706">优势：智能控制 | 劣势：助力偏小</text>
+    </g>
+    <g transform="translate(0, 596)">
+      <rect x="-8" y="0" width="380" height="140" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="140" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="14">工作原理</text>
+      <text x="100" y="22" class="label-sm" fill="#94a3b8">WORKING PRINCIPLE</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">Omega 线缆牵引路径：</text>
+        <text x="16" y="68">背部固定锚点 → 肩部支撑 →</text>
+        <text x="16" y="84">髋关节滑轮 (90° 转向) →</text>
+        <text x="16" y="100">大腿线槽 → 膝部锚点</text>
+        <line x1="16" y1="108" x2="364" y2="108" stroke="#e2e8f0" stroke-width="0.3"/>
+        <text x="16" y="126" fill="#d97706" font-weight="bold">效果：</text>
+        <text x="76" y="126" fill="#475569">线缆张力产生髋屈伸辅助力矩</text>
+      </g>
+    </g>
+    <g transform="translate(0, 754)">
+      <rect x="-8" y="0" width="380" height="115" rx="4" fill="#fefcf8" stroke="#fde68a" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="380" height="26" rx="4" fill="#d97706" opacity="0.1"/>
+      <text x="12" y="18" font-size="12" fill="#d97706" font-family="sans-serif" font-weight="bold">Bones 评估：部分借鉴</text>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">Omega 线缆路径设计 + Bowden 驱动值得采纳</text>
+        <text x="16" y="66">3 kg 超轻量级系统是消费级目标</text>
+        <line x1="16" y1="74" x2="364" y2="74" stroke="#fde68a" stroke-width="0.3"/>
+        <text x="16" y="92" fill="#d97706" font-weight="bold">注意风险：</text>
+        <text x="86" y="92" fill="#475569">线缆磨损及疲劳寿命 (需冗余设计)</text>
+        <text x="86" y="110" fill="#475569">助力上限有限 (10-15 kg 不足以支持重度需求)</text>
+      </g>
+    </g>
+    <g transform="translate(0, 886)">
+      <rect x="-8" y="0" width="380" height="110" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="110" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="13">市场竞争分析</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.3"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">Harvard Wyss 研究所领跑柔性外骨骼赛道</text>
+        <text x="16" y="66">ReWalk ReStore 已获 FDA 认证 (软性)</text>
+        <text x="16" y="84">线缆驱动路径优化是核心知识产权</text>
+        <text x="16" y="102">消费级产品 (如 C-Rex) 开始出现</text>
+      </g>
+    </g>
+    <g transform="translate(0, 1012)">
+      <rect x="-8" y="0" width="380" height="70" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="70" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="13">关键学习点</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.3"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="46">Omega 路径 + Bowden 线缆方案是最轻量级髋助力结构</text>
+        <text x="16" y="64">线缆张力控制和滑轮摩擦补偿是关键工程挑战</text>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(0, 1100)">
+    <rect x="20" y="0" width="1160" height="50" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+    <rect x="40" y="10" width="18" height="18" rx="3" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+    <text x="62" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">骨骼</text>
+    <rect x="110" y="10" width="18" height="18" rx="3" fill="rgba(220,38,38,0.2)" stroke="rgba(220,38,38,0.4)" stroke-width="0.8"/>
+    <text x="132" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">肌肉</text>
+    <rect x="180" y="10" width="18" height="18" rx="3" fill="url(#metalGrad)" stroke="#6B7280" stroke-width="0.8"/>
+    <text x="202" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">金属框架</text>
+    <rect x="280" y="10" width="18" height="18" rx="3" fill="#2c3e50" stroke="#1a252f" stroke-width="0.8"/>
+    <text x="302" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">牵引线缆</text>
+    <rect x="380" y="10" width="18" height="18" rx="3" fill="#d97706" stroke="#b45309" stroke-width="0.8"/>
+    <text x="402" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">滑轮/机构</text>
+    <line x1="480" y1="19" x2="500" y2="19" stroke="#dc2626" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <text x="508" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">力矢量</text>
+    <line x1="600" y1="19" x2="620" y2="19" stroke="#d97706" stroke-width="2.5" stroke-dasharray="4,2" marker-end="url(#arrowAmber)"/>
+    <text x="628" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">辅助力矢量</text>
+    <line x1="730" y1="10" x2="750" y2="10" stroke="#e5e7eb" stroke-width="0.8"/>
+    <text x="755" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">评估分类：</text>
+    <rect x="830" y="10" width="18" height="18" rx="3" fill="#0096f0"/>
+    <text x="852" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">推荐采用</text>
+    <rect x="928" y="10" width="18" height="18" rx="3" fill="#d97706"/>
+    <text x="950" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">部分借鉴</text>
+    <rect x="1026" y="10" width="18" height="18" rx="3" fill="#9E9E9E"/>
+    <text x="1048" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">仅跟踪</text>
+    <line x1="40" y1="34" x2="1140" y2="34" stroke="#e2e8f0" stroke-width="0.3"/>
+    <text x="580" y="44" font-size="9" fill="#a0aec0" font-family="sans-serif" text-anchor="middle">附录 C · 髋关节外骨骼架构分析 | Bones &amp; Manifold · Nexum Project 2026</text>
+  </g>
+  <g transform="translate(50, 860)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="310" height="180" rx="5" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.8" filter="url(#softShadow)"/>
+    <text x="12" y="20" class="title-amber" font-size="11">Omega 线缆路径详图</text>
+    <text x="12" y="34" class="label-sm" font-size="8">CABLE ROUTING — CROSS SECTION</text>
+    <line x1="12" y1="38" x2="298" y2="38" stroke="#e5e7eb" stroke-width="0.5"/>
+    <g transform="translate(20, 50)">
+      <rect x="0" y="0" width="30" height="20" rx="3" fill="#2c3e50"/>
+      <text x="15" y="13" font-size="6" fill="#fff" font-family="sans-serif" text-anchor="middle">锚点</text>
+      <path d="M 15,20 C 10,35 5,50 20,60 C 35,70 45,85 30,95 C 15,105 5,115 15,125"
+            fill="none" stroke="#2c3e50" stroke-width="2.5" marker-end="url(#arrowAmberSmall)"/>
+      <circle cx="20" cy="60" r="6" fill="#6B7280" stroke="#4B5563" stroke-width="0.8"/>
+      <circle cx="30" cy="95" r="6" fill="#6B7280" stroke="#4B5563" stroke-width="0.8"/>
+      <text x="5" y="50" class="label-sm" font-size="7" fill="#d97706">Ω 形路径</text>
+      <text x="5" y="70" class="label-sm" font-size="6" fill="#64748b">背→髋→膝</text>
+    </g>
+    <g transform="translate(120, 50)">
+      <text x="0" y="0" class="label-sm" font-size="9" fill="#475569">Bowden 线缆规格</text>
+      <text x="0" y="16" class="label-sm" font-size="8" fill="#64748b">芯线：Kevlar / Dyneema Ø1.2mm</text>
+      <text x="0" y="28" class="label-sm" font-size="8" fill="#64748b">护套：PTFE 内衬 + 不锈钢编织</text>
+      <text x="0" y="40" class="label-sm" font-size="8" fill="#64748b">断裂强度 &gt; 200 kg</text>
+      <text x="0" y="52" class="label-sm" font-size="8" fill="#64748b">弯曲半径 ≥ 20 mm</text>
+      <text x="0" y="66" class="label-sm" font-size="8" fill="#64748b">效率：η ≈ 0.85 (润滑后)</text>
+      <line x1="0" y1="74" x2="178" y2="74" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="0" y="88" class="label-sm" font-size="8" fill="#d97706" font-weight="bold">关键参数：</text>
+      <text x="0" y="100" class="label-sm" font-size="8" fill="#64748b">预紧力：50-100 N</text>
+      <text x="0" y="112" class="label-sm" font-size="8" fill="#64748b">工作张力：200-500 N</text>
+      <text x="0" y="124" class="label-sm" font-size="8" fill="#64748b">寿命：&gt; 10^6 次弯曲</text>
+    </g>
+  </g>
+  <g transform="translate(400, 860)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="300" height="180" rx="5" fill="#fefdf8" stroke="#f0e0c0" stroke-width="0.8" filter="url(#softShadow)"/>
+    <text x="12" y="20" class="title-amber" font-size="11">Omega 架构 vs Belt 方案对比</text>
+    <text x="12" y="34" class="label-sm" font-size="8">OMEGA vs BELT — COMPARISON</text>
+    <line x1="12" y1="38" x2="288" y2="38" stroke="#f0e0c0" stroke-width="0.5"/>
+    <g transform="translate(12, 48)">
+      <rect x="0" y="0" width="130" height="56" rx="3" fill="#fff" stroke="#d97706" stroke-width="0.6"/>
+      <text x="65" y="12" font-size="7" fill="#d97706" font-family="sans-serif" text-anchor="middle" font-weight="bold">Omega 方案</text>
+      <text x="4" y="26" class="label-sm" font-size="7">+ 背部承载主轴</text>
+      <text x="4" y="38" class="label-sm" font-size="7">+ 线缆路径灵活</text>
+      <text x="4" y="50" class="label-sm" font-size="7">- 线缆磨损</text>
+      <rect x="140" y="0" width="130" height="56" rx="3" fill="#fff" stroke="#0096f0" stroke-width="0.6"/>
+      <text x="205" y="12" font-size="7" fill="#0096f0" font-family="sans-serif" text-anchor="middle" font-weight="bold">Belt 方案</text>
+      <text x="144" y="26" class="label-sm" font-size="7">+ 无背部框架</text>
+      <text x="144" y="38" class="label-sm" font-size="7">+ 重量更轻</text>
+      <text x="144" y="50" class="label-sm" font-size="7">- 力臂较短</text>
+      <text x="4" y="68" class="label-sm" font-size="8" fill="#d97706">建议：初期 Omega 快速原型，后期迭代 Belt</text>
+      <text x="4" y="82" class="label-sm" font-size="7" fill="#94a3b8">Bones 初代产品建议采用 Omega 路径设计</text>
+    </g>
+  </g>
+  <g transform="translate(50, 750)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="660" height="55" rx="4" fill="#fefdf8" stroke="#f0e0c0" stroke-width="0.5"/>
+    <text x="12" y="16" class="label-sm" font-size="8" fill="#475569">注：Omega 柔性线缆牵引式以 Harvard Soft Exosuit (3 kg, Bowden 线缆) 和 XoSoft EU (4 kg, 自适应阻抗) 为代表。</text>
+    <text x="12" y="30" class="label-sm" font-size="8" fill="#475569">线缆路径优化 (Omega 形经髋关节滑轮) 是核心 IP。线缆张力控制和滑轮摩擦补偿是主要工程挑战。</text>
+    <text x="12" y="44" class="label-sm" font-size="8" fill="#64748b">Bones V1 建议采用 Omega 路径设计初期原型，迭代到 Belt 方案减重</text>
+  </g>
+</svg>

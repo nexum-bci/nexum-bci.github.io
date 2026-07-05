@@ -1,0 +1,240 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 1000" width="1300" height="1000">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fafcff"/>
+      <stop offset="100%" stop-color="#eef1f8"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1300" height="1000" fill="url(#bgGrad)" rx="4"/>
+  <rect x="15" y="15" width="1270" height="970" rx="8" fill="none" stroke="#1a2a3a" stroke-width="0.8" opacity="0.12"/>
+
+  <!-- Title Bar -->
+  <rect x="30" y="20" width="1240" height="62" rx="6" fill="#1a2a3a"/>
+  <rect x="30" y="20" width="6" height="62" rx="3" fill="#3b82f6"/>
+  <text x="650" y="47" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Bones核心技术可行性评估</text>
+  <text x="650" y="67" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#9aaec9">基于现有产品/学术文献/硬件规格的客观评估 · 不回避风险 · 备选方案已规划</text>
+
+  <!-- Legend Bar -->
+  <g transform="translate(30, 92)">
+    <rect x="0" y="0" width="1240" height="28" rx="4" fill="#ffffff" stroke="#d1d5db" stroke-width="0.8" filter="url(#shadow)"/>
+    <rect x="20" y="6" width="16" height="16" rx="3" fill="#059669"/>
+    <text x="44" y="18" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#333">已验证可行: 现有产品/论文/量产硬件支撑</text>
+    <rect x="420" y="6" width="16" height="16" rx="3" fill="#d97706"/>
+    <text x="444" y="18" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#333">待自证: 学术验证但未商业化 · 备选方案已规划</text>
+    <line x1="820" y1="4" x2="820" y2="24" stroke="#d1d5db" stroke-width="1"/>
+    <text x="840" y="18" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#888">4项已验证 · 2项待自证</text>
+  </g>
+
+  <!-- Item 1: 支撑相助力 -->
+  <g transform="translate(30, 132)">
+    <rect x="0" y="0" width="1240" height="120" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="170" height="120" rx="6" fill="#f0fdf4"/>
+    <rect x="0" y="0" width="170" height="120" rx="6" fill="none" stroke="#059669" stroke-width="1.5"/>
+    <text x="85" y="46" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">支撑相助力</text>
+    <rect x="32" y="56" width="106" height="26" rx="13" fill="#059669"/>
+    <text x="85" y="73" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="bold" fill="#ffffff">已验证 ✓</text>
+    <text x="205" y="24" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#333">
+      <tspan font-weight="bold" fill="#059669">▸ </tspan>AK80-9 22Nm峰值(CubeMars量产) | PowerKnee 1520W·DNSYS Z1 900W均已发货
+    </text>
+    <text x="205" y="48" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#333">
+      <tspan font-weight="bold" fill="#059669">▸ </tspan>膝外骨骼15-25Nm助力已被多款量产产品验证
+    </text>
+    <text x="205" y="76" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#888">
+      <tspan font-weight="bold" fill="#555">风险等级: </tspan>低 · 成熟硬件方案 · 仅需标准FOC集成
+    </text>
+    <text x="205" y="98" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#aaa">技术债: 暂无 · 产业链成熟</text>
+    <g transform="translate(920, 18)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" font-weight="bold" fill="#555">成熟度</text>
+      <rect x="0" y="8" width="130" height="10" rx="5" fill="#e5e7eb"/>
+      <rect x="0" y="8" width="120" height="10" rx="5" fill="url(#greenGrad)"/>
+      <text x="140" y="17" font-family="sans-serif" font-size="11" font-weight="bold" fill="#059669">92%</text>
+      <rect x="0" y="32" width="190" height="34" rx="4" fill="#f0fdf4" stroke="#059669" stroke-width="0.8"/>
+      <text x="8" y="48" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#059669">备选电机方案充足</text>
+      <text x="8" y="62" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#888">多款量产电机可直接选用</text>
+    </g>
+  </g>
+
+  <!-- Item 2: 摆动相零阻力 -->
+  <g transform="translate(30, 264)">
+    <rect x="0" y="0" width="1240" height="120" rx="6" fill="#f8f9fb" stroke="#e5e7eb" stroke-width="0.8" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="170" height="120" rx="6" fill="#f0fdf4"/>
+    <rect x="0" y="0" width="170" height="120" rx="6" fill="none" stroke="#059669" stroke-width="1.5"/>
+    <text x="85" y="46" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">摆动相零阻力</text>
+    <rect x="32" y="56" width="106" height="26" rx="13" fill="#059669"/>
+    <text x="85" y="73" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="bold" fill="#ffffff">已验证 ✓</text>
+    <text x="205" y="24" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#333">
+      <tspan font-weight="bold" fill="#059669">▸ </tspan>AK80-9反向驱动0.51Nm &lt; 人体感知阈值2.3Nm
+    </text>
+    <text x="205" y="48" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#333">
+      <tspan font-weight="bold" fill="#059669">▸ </tspan>Ogura MCNB-3Z离合器·50g·30ms响应·已量产 | 硬件级双保险
+    </text>
+    <text x="205" y="76" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#888">
+      <tspan font-weight="bold" fill="#555">风险等级: </tspan>低 · 硬件双保险 · 最坏情况仍保证膝关节自由
+    </text>
+    <text x="205" y="98" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#aaa">技术债: 需10万次循环可靠性测试</text>
+    <g transform="translate(920, 18)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" font-weight="bold" fill="#555">成熟度</text>
+      <rect x="0" y="8" width="130" height="10" rx="5" fill="#e5e7eb"/>
+      <rect x="0" y="8" width="120" height="10" rx="5" fill="url(#greenGrad)"/>
+      <text x="140" y="17" font-family="sans-serif" font-size="11" font-weight="bold" fill="#059669">92%</text>
+      <rect x="0" y="32" width="190" height="34" rx="4" fill="#f0fdf4" stroke="#059669" stroke-width="0.8"/>
+      <text x="8" y="48" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#059669">离合器脱开不受电子失效影响</text>
+      <text x="8" y="62" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#888">硬件原理无风险</text>
+    </g>
+  </g>
+
+  <!-- Item 3: 步态相位检测 -->
+  <g transform="translate(30, 396)">
+    <rect x="0" y="0" width="1240" height="120" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="170" height="120" rx="6" fill="#f0fdf4"/>
+    <rect x="0" y="0" width="170" height="120" rx="6" fill="none" stroke="#059669" stroke-width="1.5"/>
+    <text x="85" y="46" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">步态相位检测</text>
+    <rect x="32" y="56" width="106" height="26" rx="13" fill="#059669"/>
+    <text x="85" y="73" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="bold" fill="#ffffff">已验证 ✓</text>
+    <text x="205" y="24" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#333">
+      <tspan font-weight="bold" fill="#059669">▸ </tspan>ICM-42688-P(3.5mdps/√Hz) + Madgwick AHRS(40μs)
+    </text>
+    <text x="205" y="48" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#333">
+      <tspan font-weight="bold" fill="#059669">▸ </tspan>STM32G474 6状态FSM &lt; 5ms延迟 · 多款商业外骨骼已验证
+    </text>
+    <text x="205" y="76" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#888">
+      <tspan font-weight="bold" fill="#555">风险等级: </tspan>低 · 商业外骨骼已验证 · 仅需OA步态参数标定
+    </text>
+    <text x="205" y="98" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#aaa">技术债: 针对OA患者的步态数据库需采集</text>
+    <g transform="translate(920, 18)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" font-weight="bold" fill="#555">成熟度</text>
+      <rect x="0" y="8" width="130" height="10" rx="5" fill="#e5e7eb"/>
+      <rect x="0" y="8" width="120" height="10" rx="5" fill="url(#greenGrad)"/>
+      <text x="140" y="17" font-family="sans-serif" font-size="11" font-weight="bold" fill="#059669">92%</text>
+      <rect x="0" y="32" width="190" height="34" rx="4" fill="#f0fdf4" stroke="#059669" stroke-width="0.8"/>
+      <text x="8" y="48" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#059669">多款商业IMU方案已验证</text>
+      <text x="8" y="62" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#888">仅需参数标定适配OA患者</text>
+    </g>
+  </g>
+
+  <!-- Item 4: 安全系统(三重冗余) -->
+  <g transform="translate(30, 528)">
+    <rect x="0" y="0" width="1240" height="120" rx="6" fill="#f8f9fb" stroke="#e5e7eb" stroke-width="0.8" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="170" height="120" rx="6" fill="#f0fdf4"/>
+    <rect x="0" y="0" width="170" height="120" rx="6" fill="none" stroke="#059669" stroke-width="1.5"/>
+    <text x="85" y="46" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">安全系统(三重冗余)</text>
+    <rect x="32" y="56" width="106" height="26" rx="13" fill="#059669"/>
+    <text x="85" y="73" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="bold" fill="#ffffff">已验证 ✓</text>
+    <text x="205" y="24" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#333">
+      <tspan font-weight="bold" fill="#059669">▸ </tspan>Ogura离合器 · TPS3850看门狗(TI汽车级) · 双MCU独立供电
+    </text>
+    <text x="205" y="48" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#333">
+      <tspan font-weight="bold" fill="#059669">▸ </tspan>最坏情况: 电子失效→离合器弹簧复位→膝关节自由(物理定律保证)
+    </text>
+    <text x="205" y="76" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#888">
+      <tspan font-weight="bold" fill="#555">风险等级: </tspan>极低 · 全部成熟工业元器件 · 安全不依赖任何算法
+    </text>
+    <text x="205" y="98" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#aaa">技术债: 暂无 · 所有器件均为工业标准品</text>
+    <g transform="translate(920, 18)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" font-weight="bold" fill="#555">成熟度</text>
+      <rect x="0" y="8" width="130" height="10" rx="5" fill="#e5e7eb"/>
+      <rect x="0" y="8" width="126" height="10" rx="5" fill="url(#greenGrad)"/>
+      <text x="140" y="17" font-family="sans-serif" font-size="11" font-weight="bold" fill="#059669">97%</text>
+      <rect x="0" y="32" width="190" height="34" rx="4" fill="#f0fdf4" stroke="#059669" stroke-width="0.8"/>
+      <text x="8" y="48" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#059669">最坏情况物理定律保证安全</text>
+      <text x="8" y="62" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#888">安全不依赖任何待验证算法</text>
+    </g>
+  </g>
+
+  <!-- Item 5: RL个性化力矩控制 -->
+  <g transform="translate(30, 660)">
+    <rect x="0" y="0" width="1240" height="145" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="170" height="145" rx="6" fill="#fef9f0"/>
+    <rect x="0" y="0" width="170" height="145" rx="6" fill="none" stroke="#d97706" stroke-width="1.5"/>
+    <text x="85" y="42" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">RL个性化</text>
+    <text x="85" y="58" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">力矩控制</text>
+    <rect x="32" y="68" width="106" height="26" rx="13" fill="#d97706"/>
+    <text x="85" y="85" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="bold" fill="#ffffff">待自证 ⚠</text>
+    <text x="85" y="115" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#d97706" opacity="0.7">全球无商业化膝外骨骼使用RL</text>
+    <text x="205" y="22" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#333">
+      <tspan font-weight="bold" fill="#d97706">▸ </tspan>PPO策略(16→64→32→2)·int8推理&lt;1ms · TFLite Micro可行
+    </text>
+    <text x="205" y="44" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#333">
+      <tspan font-weight="bold" fill="#d97706">▸ </tspan>MyoSuite/MyoLeg仿真已有论文验证(Science Robotics 2022)
+    </text>
+    <text x="205" y="70" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#d97706">
+      <tspan font-weight="bold">⚠ 需自证: </tspan>sim-to-real gap · 老年人效果 · 10人KAM↓&gt;15%
+    </text>
+    <text x="205" y="95" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#888">
+      <tspan font-weight="bold" fill="#555">风险等级: </tspan>中高 · 全球无商业化膝外骨骼使用RL
+    </text>
+    <text x="205" y="117" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#888">
+      <tspan font-weight="bold" fill="#555">缓解: </tspan>Phase 0自证+备选方案就绪 (见底部总结栏)
+    </text>
+    <g transform="translate(920, 18)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" font-weight="bold" fill="#555">成熟度</text>
+      <rect x="0" y="8" width="130" height="10" rx="5" fill="#e5e7eb"/>
+      <rect x="0" y="8" width="55" height="10" rx="5" fill="url(#orangeGrad)"/>
+      <text x="140" y="17" font-family="sans-serif" font-size="11" font-weight="bold" fill="#d97706">42%</text>
+      <rect x="0" y="32" width="230" height="36" rx="4" fill="#fef9f0" stroke="#d97706" stroke-width="0.8"/>
+      <text x="8" y="48" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#d97706">备选: ①阻抗控制 ②贝叶斯优化</text>
+      <text x="8" y="62" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#888">若失败则用PID+在线调参</text>
+    </g>
+  </g>
+
+  <!-- Item 6: KAM实时估算(无测力台) -->
+  <g transform="translate(30, 817)">
+    <rect x="0" y="0" width="1240" height="145" rx="6" fill="#f8f9fb" stroke="#e5e7eb" stroke-width="0.8" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="170" height="145" rx="6" fill="#fef9f0"/>
+    <rect x="0" y="0" width="170" height="145" rx="6" fill="none" stroke="#d97706" stroke-width="1.5"/>
+    <text x="85" y="42" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">KAM实时估算</text>
+    <text x="85" y="58" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#666">(无测力台)</text>
+    <rect x="32" y="72" width="106" height="26" rx="13" fill="#d97706"/>
+    <text x="85" y="89" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="bold" fill="#ffffff">待自证 ⚠</text>
+    <text x="205" y="22" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#333">
+      <tspan font-weight="bold" fill="#d97706">▸ </tspan>IMU+力传感器融合GRF(Jung 2024 LSTM MAPE 8.47%)
+    </text>
+    <text x="205" y="44" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#333">
+      <tspan font-weight="bold" fill="#d97706">▸ </tspan>简化肌骨模型标定后误差&lt;15% (学术文献支持)
+    </text>
+    <text x="205" y="70" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#d97706">
+      <tspan font-weight="bold">⚠ 待验证: </tspan>inter-participant差异 · OA患者参数 · 长期漂移
+    </text>
+    <text x="205" y="95" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#888">
+      <tspan font-weight="bold" fill="#555">风险等级: </tspan>中 · 若误差&gt;20%则用步态对称性替代
+    </text>
+    <text x="205" y="117" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#888">
+      <tspan font-weight="bold" fill="#555">缓解: </tspan>步态对称性方案已就绪 · 临床精度要求合理
+    </text>
+    <g transform="translate(920, 18)">
+      <text x="0" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" font-weight="bold" fill="#555">成熟度</text>
+      <rect x="0" y="8" width="130" height="10" rx="5" fill="#e5e7eb"/>
+      <rect x="0" y="8" width="52" height="10" rx="5" fill="url(#orangeGrad)"/>
+      <text x="140" y="17" font-family="sans-serif" font-size="11" font-weight="bold" fill="#d97706">40%</text>
+      <rect x="0" y="32" width="230" height="36" rx="4" fill="#fef9f0" stroke="#d97706" stroke-width="0.8"/>
+      <text x="8" y="48" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#d97706">备选: 步态对称性替代方案</text>
+      <text x="8" y="62" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="8" fill="#888">精度降低但临床可接受</text>
+    </g>
+  </g>
+
+  <!-- Summary Footer -->
+  <g transform="translate(30, 975)">
+    <rect x="0" y="0" width="1240" height="25" rx="4" fill="#1a2a3a"/>
+    <text x="12" y="17" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" font-weight="bold" fill="#ffffff">核心赌注:</text>
+    <text x="88" y="17" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#b0c4de">RL在仿真中比PID好20%+并能迁移到10个老人膝盖上</text>
+    <text x="495" y="17" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" font-weight="bold" fill="#fbbf24">Phase 0: 6个月·¥50K</text>
+    <text x="685" y="17" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" font-weight="bold" fill="#93c5fd">备选方案:</text>
+    <text x="755" y="17" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="9" fill="#b0c4de">①贝叶斯优化 ②阻抗控制 ③步态对称性</text>
+  </g>
+</svg>

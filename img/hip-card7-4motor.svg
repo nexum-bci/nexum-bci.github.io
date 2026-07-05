@@ -1,0 +1,542 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <defs>
+    <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede3cc"/>
+      <stop offset="40%" stop-color="#e8ddc0"/>
+      <stop offset="70%" stop-color="#dfd2b2"/>
+      <stop offset="100%" stop-color="#d4c9a8"/>
+    </linearGradient>
+    <linearGradient id="boneShadow" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#f5edd8"/>
+      <stop offset="100%" stop-color="#c4b898"/>
+    </linearGradient>
+    <linearGradient id="boneDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4c9a8"/>
+      <stop offset="100%" stop-color="#b8ad90"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A0AAB5"/>
+      <stop offset="40%" stop-color="#8B93A0"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+    <linearGradient id="metalDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6B7280"/>
+      <stop offset="100%" stop-color="#4B5563"/>
+    </linearGradient>
+    <linearGradient id="metalLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#B8BFC8"/>
+      <stop offset="100%" stop-color="#9CA3AF"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5f0eb"/>
+      <stop offset="50%" stop-color="#faf5ef"/>
+      <stop offset="100%" stop-color="#f5f0eb"/>
+    </linearGradient>
+    <linearGradient id="muscleGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(220,38,38,0.05)"/>
+      <stop offset="50%" stop-color="rgba(220,38,38,0.10)"/>
+      <stop offset="100%" stop-color="rgba(220,38,38,0.06)"/>
+    </linearGradient>
+    <linearGradient id="m1Grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e0f2fe" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#bae6fd" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="m2Grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae8ff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#f0abfc" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="m3Grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dbeafe" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#93c5fd" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="m4Grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fef9c3" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#fde047" stop-opacity="0.3"/>
+    </linearGradient>
+    <marker id="arrowRed" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowRedSmall" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#0096f0"/>
+    </marker>
+    <marker id="arrowBlueSmall" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#0096f0"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#9CA3AF"/>
+    </marker>
+    <filter id="shadow" x="-8%" y="-8%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="rgba(0,0,0,0.15)"/>
+    </filter>
+    <filter id="softShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="1" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.08)"/>
+    </filter>
+    <clipPath id="leftPane">
+      <rect x="0" y="0" width="740" height="1080"/>
+    </clipPath>
+    <style>
+      .label-sm { font-size: 9px; fill: #64748b; font-family: sans-serif; }
+      .label-md { font-size: 11px; fill: #334155; font-family: sans-serif; }
+      .label-lg { font-size: 13px; fill: #1e293b; font-family: sans-serif; font-weight: bold; }
+      .label-em { font-size: 10px; fill: #0096f0; font-family: sans-serif; font-weight: bold; }
+      .label-force { font-size: 11px; fill: #dc2626; font-family: sans-serif; font-weight: bold; }
+      .title-blue { font-size: 18px; fill: #0096f0; font-family: sans-serif; font-weight: bold; }
+      .title-gray { font-size: 13px; fill: #475569; font-family: sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1200" fill="#ffffff"/>
+
+  <!-- ISOLATION ZONE -->
+  <rect x="740" y="0" width="60" height="1200" fill="#fafbfc" opacity="0.4"/>
+  <line x1="740" y1="0" x2="740" y2="1200" stroke="#e5e7eb" stroke-width="0.8"/>
+  <line x1="800" y1="0" x2="800" y2="1200" stroke="#e5e7eb" stroke-width="0.8"/>
+
+  <!-- LEFT PANEL -->
+  <g clip-path="url(#leftPane)">
+    <rect x="20" y="0" width="720" height="1080" fill="#ffffff"/>
+    <g>
+      <text x="30" y="24" class="label-em" font-size="12">Fig. G 四电机独立驱动 | 侧面观 Lateral View</text>
+      <line x1="30" y1="28" x2="300" y2="28" stroke="#e5e7eb" stroke-width="0.5"/>
+    </g>
+
+    <!-- HUMAN BODY -->
+    <g filter="url(#softShadow)">
+      <path d="M 240,70 C 230,110 225,160 230,210 C 235,260 260,300 285,330 L 475,330 C 500,300 525,260 530,210 C 535,160 530,110 520,70 C 510,60 480,55 380,55 C 280,55 250,60 240,70 Z" fill="url(#skinGrad)" stroke="#e8ddd0" stroke-width="0.8"/>
+      <rect x="350" y="30" width="60" height="40" rx="10" fill="#f5f0eb" stroke="#e8ddd0" stroke-width="0.6"/>
+      <ellipse cx="380" cy="10" rx="32" ry="26" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.8"/>
+    </g>
+    <line x1="380" y1="60" x2="380" y2="260" stroke="#d4c9a8" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.5"/>
+    <g stroke="#dccfc0" stroke-width="0.6" fill="none" opacity="0.35">
+      <path d="M 280,110 Q 320,105 340,115"/><path d="M 420,115 Q 440,105 480,110"/>
+      <path d="M 270,140 Q 320,130 340,145"/><path d="M 420,145 Q 440,130 490,140"/>
+      <path d="M 265,170 Q 315,155 340,175"/><path d="M 420,175 Q 445,155 495,170"/>
+      <path d="M 268,200 Q 318,185 340,205"/><path d="M 420,205 Q 442,185 492,200"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 380,255 C 340,252 295,260 270,285 C 250,310 245,340 260,360 C 275,380 295,395 320,405 C 340,412 360,415 380,416 C 400,415 420,412 440,405 C 465,395 485,380 500,360 C 515,340 510,310 490,285 C 465,260 420,252 380,255 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <circle cx="290" cy="355" r="18" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.8"/><circle cx="290" cy="355" r="13" fill="#dfd2b2" stroke="#c4b898" stroke-width="0.4"/>
+      <circle cx="470" cy="355" r="18" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.8"/><circle cx="470" cy="355" r="13" fill="#dfd2b2" stroke="#c4b898" stroke-width="0.4"/>
+    </g>
+    <g filter="url(#shadow)">
+      <circle cx="290" cy="355" r="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 285,355 Q 278,380 282,400 L 290,398 Q 288,378 292,355 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 282,400 C 280,450 278,500 278,550 C 278,600 280,650 285,700 L 298,700 C 293,650 290,600 290,550 C 290,500 292,450 296,400 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <ellipse cx="285" cy="698" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/><ellipse cx="300" cy="698" rx="8" ry="12" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <circle cx="470" cy="355" r="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 475,355 Q 482,380 478,400 L 470,398 Q 472,378 468,355 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 478,400 C 480,450 482,500 482,550 C 482,600 480,650 475,700 L 462,700 C 467,650 470,600 470,550 C 470,500 468,450 464,400 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <ellipse cx="475" cy="698" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/><ellipse cx="460" cy="698" rx="8" ry="12" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+    </g>
+    <g opacity="0.12">
+      <path d="M 285,410 C 282,470 280,530 283,590 C 286,630 290,660 295,690 L 285,690 C 282,660 278,630 276,590 C 274,530 277,470 282,410 Z" fill="#dc2626"/>
+      <path d="M 475,410 C 478,470 480,530 477,590 C 474,630 470,660 465,690 L 475,690 C 478,660 482,630 484,590 C 486,530 483,470 478,410 Z" fill="#dc2626"/>
+    </g>
+    <g filter="url(#softShadow)">
+      <ellipse cx="290" cy="705" rx="12" ry="9" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/><ellipse cx="470" cy="705" rx="12" ry="9" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 283,710 C 280,760 278,810 277,860 C 276,910 278,950 282,980 L 294,980 C 290,950 288,910 287,860 C 286,810 288,760 290,710 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <path d="M 477,710 C 480,760 482,810 483,860 C 484,910 482,950 478,980 L 466,980 C 470,950 472,910 473,860 C 474,810 472,760 470,710 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+    </g>
+
+    <!-- ==================== 4-MOTOR EXOSKELETON ==================== -->
+
+    <!-- Motor 1 (M1): Hip flexion/extension - large primary motor -->
+    <g filter="url(#shadow)">
+      <g transform="translate(290, 355)">
+        <circle cx="0" cy="0" r="32" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="2"/>
+        <circle cx="0" cy="0" r="28" fill="#4B5563" stroke="#374151" stroke-width="0.8"/>
+        <circle cx="0" cy="0" r="18" fill="url(#m1Grad)"/>
+        <circle cx="0" cy="0" r="10" fill="#6B7280"/>
+        <circle cx="0" cy="0" r="4" fill="#9CA3AF"/>
+        <circle cx="0" cy="0" r="1.5" fill="#4B5563"/>
+        <text x="0" y="22" font-size="7" fill="#0096f0" font-family="sans-serif" text-anchor="middle" font-weight="bold">M1</text>
+      </g>
+    </g>
+
+    <!-- Motor 2 (M2): Hip abduction/adduction - lateral -->
+    <g filter="url(#shadow)">
+      <g transform="translate(310, 355)">
+        <circle cx="0" cy="0" r="18" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="14" fill="#4B5563"/>
+        <circle cx="0" cy="0" r="8" fill="url(#m2Grad)"/>
+        <circle cx="0" cy="0" r="3" fill="#9CA3AF"/>
+        <text x="0" y="13" font-size="6" fill="#0096f0" font-family="sans-serif" text-anchor="middle" font-weight="bold">M2</text>
+      </g>
+    </g>
+
+    <!-- Motor 3 (M3): Hip internal/external rotation - medial -->
+    <g filter="url(#shadow)">
+      <g transform="translate(270, 355)">
+        <circle cx="0" cy="0" r="14" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="10" fill="#4B5563"/>
+        <circle cx="0" cy="0" r="5" fill="url(#m3Grad)"/>
+        <circle cx="0" cy="0" r="2" fill="#9CA3AF"/>
+        <text x="0" y="10" font-size="5" fill="#0096f0" font-family="sans-serif" text-anchor="middle" font-weight="bold">M3</text>
+      </g>
+    </g>
+
+    <!-- Right side motors -->
+    <g filter="url(#shadow)">
+      <g transform="translate(470, 355)">
+        <circle cx="0" cy="0" r="32" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="2"/>
+        <circle cx="0" cy="0" r="28" fill="#4B5563" stroke="#374151" stroke-width="0.8"/>
+        <circle cx="0" cy="0" r="18" fill="url(#m1Grad)"/>
+        <circle cx="0" cy="0" r="10" fill="#6B7280"/>
+        <circle cx="0" cy="0" r="4" fill="#9CA3AF"/>
+        <circle cx="0" cy="0" r="1.5" fill="#4B5563"/>
+        <text x="0" y="22" font-size="7" fill="#0096f0" font-family="sans-serif" text-anchor="middle" font-weight="bold">M1</text>
+      </g>
+    </g>
+    <g filter="url(#shadow)">
+      <g transform="translate(450, 355)">
+        <circle cx="0" cy="0" r="18" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="14" fill="#4B5563"/>
+        <circle cx="0" cy="0" r="8" fill="url(#m2Grad)"/>
+        <circle cx="0" cy="0" r="3" fill="#9CA3AF"/>
+        <text x="0" y="13" font-size="6" fill="#0096f0" font-family="sans-serif" text-anchor="middle" font-weight="bold">M2</text>
+      </g>
+    </g>
+    <g filter="url(#shadow)">
+      <g transform="translate(490, 355)">
+        <circle cx="0" cy="0" r="14" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="10" fill="#4B5563"/>
+        <circle cx="0" cy="0" r="5" fill="url(#m3Grad)"/>
+        <circle cx="0" cy="0" r="2" fill="#9CA3AF"/>
+        <text x="0" y="10" font-size="5" fill="#0096f0" font-family="sans-serif" text-anchor="middle" font-weight="bold">M3</text>
+      </g>
+    </g>
+
+    <!-- Motor 4 (M4): Knee assistance (at thigh level) -->
+    <g filter="url(#shadow)">
+      <g transform="translate(285, 530)">
+        <circle cx="0" cy="0" r="16" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="12" fill="#4B5563"/>
+        <circle cx="0" cy="0" r="6" fill="url(#m4Grad)"/>
+        <circle cx="0" cy="0" r="2.5" fill="#9CA3AF"/>
+        <text x="0" y="12" font-size="6" fill="#0096f0" font-family="sans-serif" text-anchor="middle" font-weight="bold">M4</text>
+      </g>
+      <g transform="translate(475, 530)">
+        <circle cx="0" cy="0" r="16" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="12" fill="#4B5563"/>
+        <circle cx="0" cy="0" r="6" fill="url(#m4Grad)"/>
+        <circle cx="0" cy="0" r="2.5" fill="#9CA3AF"/>
+        <text x="0" y="12" font-size="6" fill="#0096f0" font-family="sans-serif" text-anchor="middle" font-weight="bold">M4</text>
+      </g>
+    </g>
+
+    <!-- Thigh braces -->
+    <g filter="url(#shadow)">
+      <path d="M 282,390 C 280,440 278,500 279,560 C 280,620 283,660 286,710 L 296,710 C 293,660 291,620 290,560 C 289,500 291,440 294,390 Z" fill="none" stroke="url(#metalLight)" stroke-width="5" stroke-linecap="round"/>
+      <path d="M 478,390 C 480,440 482,500 481,560 C 480,620 477,660 474,710 L 464,710 C 467,660 469,620 470,560 C 471,500 469,440 464,390 Z" fill="none" stroke="url(#metalLight)" stroke-width="5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Transmission lines -->
+    <g opacity="0.3">
+      <path d="M 290,323 L 290,310" stroke="#0096f0" stroke-width="1.5"/>
+      <path d="M 470,323 L 470,310" stroke="#0096f0" stroke-width="1.5"/>
+    </g>
+
+    <!-- Motor controller module -->
+    <g filter="url(#shadow)">
+      <rect x="340" y="240" width="80" height="45" rx="5" fill="#6B7280" stroke="#4B5563" stroke-width="1"/>
+      <rect x="348" y="248" width="64" height="30" rx="3" fill="#4B5563"/>
+      <text x="380" y="261" font-size="8" fill="#9CA3AF" font-family="sans-serif" text-anchor="middle">4 轴电机</text>
+      <text x="380" y="274" font-size="7" fill="#9CA3AF" font-family="sans-serif" text-anchor="middle">控制器</text>
+    </g>
+
+    <!-- ==================== NUMBERED ANNOTATIONS ==================== -->
+    <line x1="298" y1="355" x2="330" y2="340" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="336" cy="338" r="9" fill="#0096f0"/>
+    <text x="336" y="342" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">1</text>
+    <text x="350" y="336" class="label-sm" font-size="8" fill="#0096f0">M1 髋屈伸电机 (主)</text>
+
+    <line x1="310" y1="355" x2="330" y2="365" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="336" cy="367" r="9" fill="#0096f0"/>
+    <text x="336" y="371" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">2</text>
+    <text x="350" y="364" class="label-sm" font-size="8" fill="#0096f0">M2 髋外展/内收</text>
+
+    <line x1="270" y1="355" x2="250" y2="355" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="244" cy="355" r="9" fill="#0096f0"/>
+    <text x="244" y="359" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">3</text>
+    <text x="230" y="350" class="label-sm" font-size="8" fill="#0096f0" text-anchor="end">M3 髋内外旋</text>
+
+    <line x1="285" y1="546" x2="260" y2="555" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="254" cy="557" r="9" fill="#0096f0"/>
+    <text x="254" y="561" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">4</text>
+    <text x="240" y="552" class="label-sm" font-size="8" fill="#0096f0" text-anchor="end">M4 膝助力</text>
+
+    <line x1="380" y1="260" x2="430" y2="255" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="436" cy="253" r="9" fill="#0096f0"/>
+    <text x="436" y="257" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">5</text>
+    <text x="450" y="252" class="label-sm" font-size="8" fill="#0096f0">多轴控制器</text>
+
+    <line x1="296" y1="550" x2="320" y2="570" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="326" cy="573" r="9" fill="#0096f0"/>
+    <text x="326" y="577" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">6</text>
+    <text x="340" y="570" class="label-sm" font-size="8" fill="#0096f0">大腿连杆</text>
+
+    <line x1="286" y1="710" x2="320" y2="710" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="326" cy="710" r="9" fill="#0096f0"/>
+    <text x="326" y="714" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">7</text>
+    <text x="340" y="708" class="label-sm" font-size="8" fill="#0096f0">膝关节铰链</text>
+
+    <line x1="470" y1="370" x2="510" y2="360" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="516" cy="358" r="9" fill="#0096f0"/>
+    <text x="516" y="362" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">8</text>
+    <text x="530" y="356" class="label-sm" font-size="8" fill="#0096f0">右侧 M1/M2/M3</text>
+
+    <line x1="225" y1="265" x2="170" y2="255" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="164" cy="253" r="9" fill="#0096f0"/>
+    <text x="164" y="257" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">9</text>
+    <text x="148" y="248" class="label-sm" font-size="8" fill="#0096f0" text-anchor="end">骨盆框架</text>
+
+    <line x1="255" y1="405" x2="230" y2="415" stroke="#0096f0" stroke-width="0.8"/>
+    <circle cx="224" cy="417" r="9" fill="#0096f0"/>
+    <text x="224" y="421" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">10</text>
+    <text x="210" y="412" class="label-sm" font-size="8" fill="#0096f0" text-anchor="end">谐波减速器</text>
+
+    <!-- FORCE VECTORS -->
+    <line x1="380" y1="10" x2="380" y2="-30" stroke="#dc2626" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <text x="388" y="-18" class="label-force">W (体重)</text>
+    <path d="M 310,335 A 22 22 0 0 1 310,375" fill="none" stroke="#0096f0" stroke-width="2" marker-end="url(#arrowBlueSmall)"/>
+    <text x="318" y="350" class="label-em" font-size="10">tau1</text>
+    <path d="M 450,335 A 22 22 0 0 0 450,375" fill="none" stroke="#0096f0" stroke-width="2" marker-end="url(#arrowBlueSmall)"/>
+    <text x="438" y="350" class="label-em" font-size="10">tau1</text>
+    <path d="M 305,500 L 330,480" stroke="#0096f0" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowBlue)"/>
+    <text x="338" y="478" class="label-em" font-size="10">F_assist</text>
+    <path d="M 455,500 L 430,480" stroke="#0096f0" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowBlue)"/>
+    <text x="400" y="478" class="label-em" font-size="10" text-anchor="end">F_assist</text>
+    <line x1="285" y1="1030" x2="285" y2="1055" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="270" y="1068" class="label-force" font-size="9">GRF</text>
+    <line x1="475" y1="1030" x2="475" y2="1055" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="478" y="1068" class="label-force" font-size="9">GRF</text>
+
+    <!-- PRODUCT CALLOUTS -->
+    <g transform="translate(540, 55)">
+      <rect x="0" y="0" width="180" height="140" rx="5" fill="#fff" stroke="#0096f0" stroke-width="1.2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="180" height="22" rx="5" fill="#0096f0" opacity="0.9"/>
+      <text x="90" y="15" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Sarcos Guardian XO</text>
+      <text x="8" y="34" class="label-sm" font-size="8">重量：24 kg</text>
+      <text x="8" y="48" class="label-sm" font-size="8">驱动：4 × 伺服电机</text>
+      <text x="8" y="62" class="label-sm" font-size="8">自由度：4 DOF/leg</text>
+      <text x="8" y="76" class="label-sm" font-size="8">助力：全身助力</text>
+      <text x="8" y="90" class="label-sm" font-size="8">应用：工业 / 军事</text>
+      <line x1="8" y1="96" x2="172" y2="96" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="8" y="110" class="label-em" font-size="8">四电机架构极致</text>
+      <text x="8" y="126" class="label-sm" font-size="8" fill="#94a3b8">全身外骨骼重型机器人</text>
+    </g>
+
+    <g transform="translate(540, 210)">
+      <rect x="0" y="0" width="180" height="130" rx="5" fill="#fff" stroke="#0096f0" stroke-width="1.2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="180" height="22" rx="5" fill="#0096f0" opacity="0.9"/>
+      <text x="90" y="15" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Festo Exo (德国)</text>
+      <text x="8" y="34" class="label-sm" font-size="8">重量：8 kg</text>
+      <text x="8" y="48" class="label-sm" font-size="8">多电机协调控制</text>
+      <text x="8" y="62" class="label-sm" font-size="8">传感器：力/力矩</text>
+      <text x="8" y="76" class="label-sm" font-size="8">应用：工业辅助</text>
+      <text x="8" y="90" class="label-sm" font-size="8">价格：原型阶段</text>
+      <line x1="8" y1="96" x2="172" y2="96" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="8" y="110" class="label-em" font-size="8">气电混合多电机</text>
+    </g>
+
+    <!-- Anatomy labels -->
+    <line x1="350" y1="280" x2="330" y2="270" stroke="#64748b" stroke-width="0.6"/>
+    <line x1="330" y1="270" x2="220" y2="270" stroke="#64748b" stroke-width="0.6" stroke-dasharray="3,2"/>
+    <text x="218" y="275" class="label-md" font-size="10" text-anchor="end">骨盆 Pelvis</text>
+    <line x1="285" y1="450" x2="220" y2="440" stroke="#64748b" stroke-width="0.6"/>
+    <text x="218" y="445" class="label-md" font-size="10" text-anchor="end">股骨 Femur</text>
+
+    <g transform="translate(30, 1020)">
+      <rect x="0" y="0" width="700" height="48" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="10" y="10" width="14" height="14" rx="2" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <text x="28" y="22" class="label-sm" font-size="9">骨骼</text>
+      <rect x="100" y="10" width="14" height="14" rx="2" fill="rgba(220,38,38,0.15)" stroke="rgba(220,38,38,0.3)" stroke-width="0.6"/>
+      <text x="118" y="22" class="label-sm" font-size="9">肌肉</text>
+      <rect x="190" y="10" width="14" height="14" rx="2" fill="url(#metalGrad)" stroke="#6B7280" stroke-width="0.6"/>
+      <text x="208" y="22" class="label-sm" font-size="9">框架</text>
+      <rect x="280" y="10" width="14" height="14" rx="2" fill="#0096f0"/>
+      <text x="298" y="22" class="label-sm" font-size="9">M1 屈伸电机</text>
+      <rect x="380" y="10" width="14" height="14" rx="2" fill="#c084fc"/>
+      <text x="398" y="22" class="label-sm" font-size="9">M2/M3/M4</text>
+      <line x1="480" y1="16" x2="495" y2="16" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+      <text x="502" y="22" class="label-sm" font-size="9">力矢量</text>
+      <text x="10" y="42" class="label-sm" font-size="8" fill="#94a3b8">四电机独立驱动外骨骼 · Sarcos Guardian XO 技术路线</text>
+    </g>
+  </g>
+
+  <!-- RIGHT PANEL -->
+  <g transform="translate(808, 16)">
+    <rect x="-8" y="0" width="380" height="60" rx="4" fill="#f0f7ff" stroke="#bfdbfe" stroke-width="0.5"/>
+    <rect x="-8" y="0" width="4" height="60" rx="2" fill="#0096f0"/>
+    <text x="12" y="26" class="title-blue">四电机独立驱动式</text>
+    <text x="12" y="46" class="label-sm" font-size="10" fill="#9ca3af">4-MOTOR INDEPENDENT HIP EXOSKELETON</text>
+    <rect x="262" y="10" width="100" height="24" rx="12" fill="#0096f0" opacity="0.15"/>
+    <text x="312" y="27" font-size="12" fill="#0096f0" font-family="sans-serif" text-anchor="middle" font-weight="bold">仅跟踪</text>
+
+    <g transform="translate(0, 80)">
+      <rect x="-8" y="0" width="380" height="130" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="130" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="14">架构特征</text>
+      <text x="140" y="22" class="label-sm" fill="#94a3b8">ARCHITECTURE</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <circle cx="16" cy="48" r="3.5" fill="#0096f0"/>
+        <text x="28" y="53">M1 髋屈伸电机 (主驱)</text>
+        <circle cx="16" cy="68" r="3.5" fill="#0096f0"/>
+        <text x="28" y="73">M2 髋外展/内收电机</text>
+        <circle cx="16" cy="88" r="3.5" fill="#0096f0"/>
+        <text x="28" y="93">M3 髋内外旋电机</text>
+        <circle cx="16" cy="108" r="3.5" fill="#0096f0"/>
+        <text x="28" y="113">M4 膝助力电机</text>
+        <circle cx="16" cy="128" r="3.5" fill="#0096f0"/>
+        <text x="28" y="133">4 轴协调控制器 + 谐波减速器</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 228)">
+      <rect x="-8" y="0" width="380" height="145" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="145" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="14">技术参数</text>
+      <text x="120" y="22" class="label-sm" fill="#94a3b8">PARAMETERS</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="50">系统重量</text>
+        <text x="160" y="50" fill="#1f2937" font-weight="bold">8 – 24 kg</text>
+        <text x="16" y="70">关节自由度</text>
+        <text x="160" y="70" fill="#1f2937" font-weight="bold">4 DOF/leg</text>
+        <text x="16" y="90">驱动方式</text>
+        <text x="160" y="90" fill="#1f2937" font-weight="bold">4 × 伺服电机 + 谐波</text>
+        <text x="16" y="110">代表产品</text>
+        <text x="160" y="110" fill="#1f2937" font-weight="bold">Sarcos / Festo Exo</text>
+        <text x="16" y="130">核心优势</text>
+        <text x="160" y="130" fill="#1f2937" font-weight="bold">全自由度覆盖，力大</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 392)">
+      <rect x="-8" y="0" width="380" height="135" rx="4" fill="#f0f7ff" stroke="#bfdbfe" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="135" rx="1.5" fill="#0096f0"/>
+      <text x="12" y="22" class="title-gray" font-size="14">产品对比</text>
+      <text x="110" y="22" class="label-sm" fill="#94a3b8">COMPARISON</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#bfdbfe" stroke-width="0.5"/>
+      <rect x="12" y="36" width="354" height="40" rx="3" fill="#fff" stroke="#0096f0" stroke-width="0.6"/>
+      <rect x="12" y="36" width="354" height="18" rx="3" fill="#0096f0"/>
+      <text x="189" y="49" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Sarcos Guardian XO — 24 kg / 全身助力</text>
+      <text x="16" y="70" class="label-sm" font-size="10">多电机 + 全身外骨骼 + 工业/军事用途</text>
+      <rect x="12" y="82" width="354" height="40" rx="3" fill="#fff" stroke="#0096f0" stroke-width="0.6"/>
+      <rect x="12" y="82" width="354" height="18" rx="3" fill="#0096f0"/>
+      <text x="189" y="95" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Festo Exo — 8 kg / 工业辅助</text>
+      <text x="16" y="116" class="label-sm" font-size="10">气电混合 + 四电机 + 工业级</text>
+    </g>
+
+    <g transform="translate(0, 546)">
+      <rect x="-8" y="0" width="380" height="115" rx="4" fill="#f0f7ff" stroke="#93c5fd" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="380" height="26" rx="4" fill="#0096f0" opacity="0.1"/>
+      <text x="12" y="18" font-size="12" fill="#0096f0" font-family="sans-serif" font-weight="bold">Bones 评估：仅跟踪</text>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">四电机可实现全自由度独立控制</text>
+        <text x="16" y="66">但重量 (8-24 kg) 远超消费级需求</text>
+        <line x1="16" y1="74" x2="364" y2="74" stroke="#93c5fd" stroke-width="0.3"/>
+        <text x="16" y="92" fill="#0096f0" font-weight="bold">不采用：</text>
+        <text x="86" y="92" fill="#475569">多电机方案过于复杂和沉重</text>
+        <text x="86" y="110" fill="#475569">控制协调难度大，消费级性价比低</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 680)">
+      <rect x="-8" y="0" width="380" height="135" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="135" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="13">市场竞争分析</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.3"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">Sarcos 获美国国防部资助，技术领先</text>
+        <text x="16" y="66">Festo 气电混合方案创新但复杂</text>
+        <text x="16" y="84">多电机架构在工业/军事领域占主导</text>
+        <text x="16" y="102">消费级市场暂不需要 4 DOF 方案</text>
+        <text x="16" y="120">M1 控制策略可借鉴到简化架构</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 832)">
+      <rect x="-8" y="0" width="380" height="90" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="90" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="13">关键学习点</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.3"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="46">多电机协调控制算法可迁移到简化系统</text>
+        <text x="16" y="64">谐波减速器在各方案中普遍采用</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- BOTTOM LEGEND -->
+  <g transform="translate(0, 1100)">
+    <rect x="20" y="0" width="1160" height="50" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+    <rect x="40" y="10" width="18" height="18" rx="3" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/><text x="62" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">骨骼</text>
+    <rect x="110" y="10" width="18" height="18" rx="3" fill="rgba(220,38,38,0.2)" stroke="rgba(220,38,38,0.4)" stroke-width="0.8"/><text x="132" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">肌肉</text>
+    <rect x="180" y="10" width="18" height="18" rx="3" fill="url(#metalGrad)" stroke="#6B7280" stroke-width="0.8"/><text x="202" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">框架</text>
+    <rect x="270" y="10" width="18" height="18" rx="3" fill="#0096f0" stroke="#0a6bc0" stroke-width="0.8"/><text x="292" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">M1 主电机</text>
+    <rect x="370" y="10" width="18" height="18" rx="3" fill="#c084fc" stroke="#a855f7" stroke-width="0.8"/><text x="392" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">辅助电机</text>
+    <line x1="480" y1="19" x2="500" y2="19" stroke="#dc2626" stroke-width="3" marker-end="url(#arrowRed)"/><text x="508" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">力矢量</text>
+    <line x1="600" y1="10" x2="620" y2="10" stroke="#e5e7eb" stroke-width="0.8"/><text x="625" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">评估：</text>
+    <rect x="696" y="10" width="18" height="18" rx="3" fill="#0096f0"/><text x="718" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">推荐采用</text>
+    <rect x="794" y="10" width="18" height="18" rx="3" fill="#d97706"/><text x="816" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">部分借鉴</text>
+    <rect x="892" y="10" width="18" height="18" rx="3" fill="#9E9E9E"/><text x="914" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">仅跟踪</text>
+    <line x1="40" y1="34" x2="1140" y2="34" stroke="#e2e8f0" stroke-width="0.3"/>
+    <text x="580" y="44" font-size="9" fill="#a0aec0" font-family="sans-serif" text-anchor="middle">附录 C · 髋关节外骨骼架构分析 | Bones &amp; Manifold · Nexum Project 2026</text>
+  </g>
+
+  <!-- OVERLAY: 4-Motor Control Architecture -->
+  <g transform="translate(50, 850)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="310" height="190" rx="5" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.8" filter="url(#softShadow)"/>
+    <text x="12" y="20" class="title-blue" font-size="11">四电机协调控制系统</text>
+    <text x="12" y="34" class="label-sm" font-size="8">4-MOTOR COORDINATION — CONTROL</text>
+    <line x1="12" y1="38" x2="298" y2="38" stroke="#e5e7eb" stroke-width="0.5"/>
+
+    <g transform="translate(15, 48)">
+      <!-- Control diagram -->
+      <rect x="0" y="0" width="140" height="80" rx="4" fill="#fff" stroke="#e5e7eb" stroke-width="0.8"/>
+      <!-- Master controller -->
+      <rect x="45" y="5" width="50" height="20" rx="3" fill="#0096f0" opacity="0.8"/>
+      <text x="70" y="18" font-size="7" fill="#fff" font-family="sans-serif" text-anchor="middle">主控</text>
+      <!-- M1-M4 boxes -->
+      <rect x="5" y="35" width="30" height="15" rx="2" fill="#38bdf8" opacity="0.6"/>
+      <text x="20" y="46" font-size="6" fill="#1e293b" font-family="sans-serif" text-anchor="middle">M1</text>
+      <rect x="40" y="35" width="30" height="15" rx="2" fill="#38bdf8" opacity="0.6"/>
+      <text x="55" y="46" font-size="6" fill="#1e293b" font-family="sans-serif" text-anchor="middle">M2</text>
+      <rect x="75" y="35" width="30" height="15" rx="2" fill="#38bdf8" opacity="0.6"/>
+      <text x="90" y="46" font-size="6" fill="#1e293b" font-family="sans-serif" text-anchor="middle">M3</text>
+      <rect x="110" y="35" width="25" height="15" rx="2" fill="#38bdf8" opacity="0.6"/>
+      <text x="122" y="46" font-size="6" fill="#1e293b" font-family="sans-serif" text-anchor="middle">M4</text>
+      <!-- Connections -->
+      <line x1="70" y1="25" x2="20" y2="35" stroke="#0096f0" stroke-width="0.8"/>
+      <line x1="70" y1="25" x2="55" y2="35" stroke="#0096f0" stroke-width="0.8"/>
+      <line x1="70" y1="25" x2="90" y2="35" stroke="#0096f0" stroke-width="0.8"/>
+      <line x1="70" y1="25" x2="122" y2="35" stroke="#0096f0" stroke-width="0.8"/>
+    </g>
+
+    <g transform="translate(170, 48)">
+      <text x="0" y="0" class="label-sm" font-size="9" fill="#475569">控制策略</text>
+      <text x="0" y="16" class="label-sm" font-size="8" fill="#64748b">M1: 髋屈伸 — PD + 重力补偿</text>
+      <text x="0" y="28" class="label-sm" font-size="8" fill="#64748b">M2: 外展/内收 — 阻抗控制</text>
+      <text x="0" y="40" class="label-sm" font-size="8" fill="#64748b">M3: 内外旋 — 跟随模式</text>
+      <text x="0" y="52" class="label-sm" font-size="8" fill="#64748b">M4: 膝助力 — 力矩触发</text>
+      <line x1="0" y1="60" x2="130" y2="60" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="0" y="74" class="label-sm" font-size="8" fill="#0096f0" font-weight="bold">通信：</text>
+      <text x="0" y="86" class="label-sm" font-size="8" fill="#64748b">CAN FD 总线 1 Mbps</text>
+      <text x="0" y="98" class="label-sm" font-size="8" fill="#64748b">控制周期：1 kHz</text>
+      <text x="0" y="110" class="label-sm" font-size="8" fill="#64748b">安全：力矩限幅 + 急停</text>
+    </g>
+  </g>
+  <g transform="translate(50, 750)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="660" height="70" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+    <text x="12" y="16" class="label-sm" font-size="8" fill="#475569">注：四电机架构常见于 Sarcos Guardian XO (24 kg, 工业级)、Festo Exo (8 kg, 研究级)。消费级产品无需 4 DOF，</text>
+    <text x="12" y="30" class="label-sm" font-size="8" fill="#475569">但 M1 髋屈伸的 SEA 串联弹性控制和谐波减速器设计值得借鉴。Bones 初代建议采用 1-2 电机简化架构。</text>
+    <text x="12" y="44" class="label-sm" font-size="8" fill="#64748b">谐波减速器选型：HD 系列 1:50 用于髋关节，精度 ~30 arcsec，零背隙，效率 ~80%</text>
+  </g>
+</svg>

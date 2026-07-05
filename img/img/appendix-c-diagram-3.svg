@@ -1,0 +1,92 @@
+<svg viewBox="0 0 900 460" style="max-width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="900" height="460" rx="12" fill="#f8fafc" stroke="#e5e5e5" stroke-width="1"/>
+  <text x="450" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#000000">主要竞品架构对比：电机位置 · 供电方式 · 穿戴复杂度</text>
+  
+  <!-- 远也 PowerKnee -->
+  <rect x="20" y="44" width="210" height="400" rx="8" fill="#fff" stroke="#e5e5e5"/>
+  <rect x="20" y="44" width="210" height="30" rx="8" fill="#fdf2f8"/>
+  <rect x="20" y="60" width="210" height="14" fill="#fdf2f8"/>
+  <text x="125" y="65" text-anchor="middle" font-size="10" font-weight="700" fill="#0096f0">远也 PowerKnee</text>
+  <circle cx="125" cy="120" r="18" fill="none" stroke="#0096f0" stroke-width="2"/>
+  <text x="125" y="124" text-anchor="middle" font-size="8" fill="#0096f0">膝电机</text>
+  <rect x="105" y="148" width="40" height="20" rx="3" fill="#0096f0" opacity="0.6"/>
+  <text x="125" y="162" text-anchor="middle" font-size="7" fill="#fff">电池</text>
+  <line x1="125" y1="138" x2="125" y2="148" stroke="#0096f0" stroke-width="1"/>
+  <text x="125" y="195" text-anchor="middle" font-size="9" fill="#000000">3条绑带·大腿+小腿</text>
+  <text x="125" y="215" text-anchor="middle" font-size="9" fill="#000000">电机+电池在膝部</text>
+  <text x="125" y="235" text-anchor="middle" font-size="8" fill="#0096f0">¥7,999·~3kg/腿</text>
+  <text x="125" y="255" text-anchor="middle" font-size="8" fill="#0096f0">5分钟穿戴</text>
+  <line x1="40" y1="280" x2="190" y2="280" stroke="#eee" stroke-width="1"/>
+  <text x="125" y="300" text-anchor="middle" font-size="9" font-weight="700" fill="#0096f0">单膝模式：有</text>
+  <text x="125" y="318" text-anchor="middle" font-size="8" fill="#000000">适配单侧OA患者</text>
+  <text x="125" y="340" text-anchor="middle" font-size="9" font-weight="700" fill="#0096f0">双膝模式：有</text>
+  <text x="125" y="358" text-anchor="middle" font-size="8" fill="#000000">左右独立·¥7,999×2</text>
+  <text x="125" y="380" text-anchor="middle" font-size="9" font-weight="700" fill="#0096f0">高端版：Relink</text>
+  <text x="125" y="398" text-anchor="middle" font-size="8" fill="#000000">NMPA认证·医疗级</text>
+  <text x="125" y="430" text-anchor="middle" font-size="8" fill="#0096f0">问题：医疗器械外观·太重·太贵</text>
+  
+  <!-- Skip MO/GO -->
+  <rect x="245" y="44" width="210" height="400" rx="8" fill="#fff" stroke="#e5e5e5"/>
+  <rect x="245" y="44" width="210" height="30" rx="8" fill="#e8f4fd"/>
+  <rect x="245" y="60" width="210" height="14" fill="#e8f4fd"/>
+  <text x="350" y="65" text-anchor="middle" font-size="10" font-weight="700" fill="#0096f0">Skip MO/GO</text>
+  <rect x="300" y="95" width="100" height="130" rx="3" fill="none" stroke="#0096f0" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="350" y="235" text-anchor="middle" font-size="8" fill="#0096f0">裤子承载</text>
+  <circle cx="350" cy="155" r="14" fill="none" stroke="#0096f0" stroke-width="2"/>
+  <text x="350" y="159" text-anchor="middle" font-size="7" fill="#0096f0">磁力电机</text>
+  <rect x="330" y="178" width="40" height="16" rx="3" fill="#0096f0" opacity="0.5"/>
+  <text x="350" y="190" text-anchor="middle" font-size="7" fill="#fff">电池</text>
+  <line x1="350" y1="169" x2="350" y2="178" stroke="#0096f0" stroke-width="1"/>
+  <text x="350" y="270" text-anchor="middle" font-size="9" fill="#000000">腰带供电·藏在裤内</text>
+  <text x="350" y="290" text-anchor="middle" font-size="8" fill="#0096f0">$5,000·~2kg系统</text>
+  <text x="350" y="310" text-anchor="middle" font-size="8" fill="#0096f0">10个尺码</text>
+  <line x1="265" y1="330" x2="415" y2="330" stroke="#eee" stroke-width="1"/>
+  <text x="350" y="350" text-anchor="middle" font-size="9" font-weight="700" fill="#0096f0">单膝模式：计划中</text>
+  <text x="350" y="368" text-anchor="middle" font-size="8" fill="#000000">未来更新支持</text>
+  <text x="350" y="430" text-anchor="middle" font-size="8" fill="#0096f0">问题：$5,000太贵·10 SKU复杂·不做老人</text>
+  
+  <!-- DNSYS Z1 -->
+  <rect x="470" y="44" width="210" height="400" rx="8" fill="#fff" stroke="#e5e5e5"/>
+  <rect x="470" y="44" width="210" height="30" rx="8" fill="#f0f4f3"/>
+  <rect x="470" y="60" width="210" height="14" fill="#f0f4f3"/>
+  <text x="575" y="65" text-anchor="middle" font-size="10" font-weight="700" fill="#000000">DNSYS Z1</text>
+  <circle cx="575" cy="120" r="18" fill="none" stroke="#000000" stroke-width="2"/>
+  <text x="575" y="124" text-anchor="middle" font-size="8" fill="#000000">膝电机</text>
+  <rect x="555" y="148" width="40" height="20" rx="3" fill="#000000" opacity="0.6"/>
+  <text x="575" y="162" text-anchor="middle" font-size="7" fill="#fff">电池</text>
+  <line x1="575" y1="138" x2="575" y2="148" stroke="#000000" stroke-width="1"/>
+  <text x="575" y="195" text-anchor="middle" font-size="9" fill="#000000">大腿绑带·每腿独立</text>
+  <text x="575" y="215" text-anchor="middle" font-size="8" fill="#0096f0">$899-2,298·~1.6kg/腿</text>
+  <text x="575" y="235" text-anchor="middle" font-size="8" fill="#0096f0">App控制·3档助力</text>
+  <line x1="490" y1="260" x2="640" y2="260" stroke="#eee" stroke-width="1"/>
+  <text x="575" y="280" text-anchor="middle" font-size="9" font-weight="700" fill="#000000">单膝模式：可独立购买</text>
+  <text x="575" y="298" text-anchor="middle" font-size="8" fill="#000000">50%用户>50岁</text>
+  <text x="575" y="320" text-anchor="middle" font-size="9" font-weight="700" fill="#000000">双膝模式：X1+Z1叠加</text>
+  <text x="575" y="338" text-anchor="middle" font-size="8" fill="#000000">髋膝联动·$2,300-3,300</text>
+  <text x="575" y="430" text-anchor="middle" font-size="8" fill="#0096f0">问题：未为老人优化·无坐-站·无蹲起</text>
+  
+  <!-- Bones 膝安 -->
+  <rect x="695" y="44" width="185" height="400" rx="8" fill="#fff" stroke="#0096f0" stroke-width="2"/>
+  <rect x="695" y="44" width="185" height="30" rx="8" fill="#0096f0"/>
+  <rect x="695" y="60" width="185" height="14" fill="#0096f0"/>
+  <text x="787" y="65" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">Bones 膝安 ★</text>
+  <rect x="740" y="95" width="95" height="20" rx="3" fill="#0096f0"/>
+  <text x="787" y="109" text-anchor="middle" font-size="7" fill="#fff">腰带·电池·主控</text>
+  <circle cx="770" cy="160" r="13" fill="#0096f0" opacity="0.8"/>
+  <text x="770" y="163" text-anchor="middle" font-size="6" fill="#fff">左膝</text>
+  <circle cx="805" cy="160" r="13" fill="#0096f0" opacity="0.8"/>
+  <text x="805" y="163" text-anchor="middle" font-size="6" fill="#fff">右膝</text>
+  <line x1="770" y1="109" x2="770" y2="147" stroke="#0096f0" stroke-width="1"/>
+  <line x1="805" y1="109" x2="805" y2="147" stroke="#0096f0" stroke-width="1"/>
+  <text x="787" y="200" text-anchor="middle" font-size="9" fill="#000000">腰带供电·双膝独立</text>
+  <text x="787" y="220" text-anchor="middle" font-size="8" fill="#0096f0">~2.0kg·30秒穿戴</text>
+  <text x="787" y="240" text-anchor="middle" font-size="8" fill="#0096f0">碳纤维·运动护具外观</text>
+  <line x1="705" y1="260" x2="860" y2="260" stroke="#eee" stroke-width="1"/>
+  <text x="787" y="280" text-anchor="middle" font-size="9" font-weight="700" fill="#0096f0">单膝模式：¥2,499</text>
+  <text x="787" y="298" text-anchor="middle" font-size="8" fill="#000000">入门·单侧OA·腰带通用</text>
+  <text x="787" y="320" text-anchor="middle" font-size="9" font-weight="700" fill="#0096f0">双膝标准：¥3,999</text>
+  <text x="787" y="338" text-anchor="middle" font-size="8" fill="#000000">主力·RL个性化·全功能</text>
+  <text x="787" y="360" text-anchor="middle" font-size="9" font-weight="700" fill="#0096f0">Pro版：¥5,999(Gen3)</text>
+  <text x="787" y="378" text-anchor="middle" font-size="8" fill="#000000">钛合金·柔性执行器·<1kg</text>
+  <text x="787" y="410" text-anchor="middle" font-size="8" fill="#0096f0">优势：三档定价·运动外观·全场景</text>
+</svg>

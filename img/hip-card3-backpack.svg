@@ -1,0 +1,504 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <defs>
+    <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede3cc"/>
+      <stop offset="40%" stop-color="#e8ddc0"/>
+      <stop offset="70%" stop-color="#dfd2b2"/>
+      <stop offset="100%" stop-color="#d4c9a8"/>
+    </linearGradient>
+    <linearGradient id="boneShadow" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#f5edd8"/>
+      <stop offset="100%" stop-color="#c4b898"/>
+    </linearGradient>
+    <linearGradient id="boneDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4c9a8"/>
+      <stop offset="100%" stop-color="#b8ad90"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A0AAB5"/>
+      <stop offset="40%" stop-color="#8B93A0"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+    <linearGradient id="metalDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6B7280"/>
+      <stop offset="100%" stop-color="#4B5563"/>
+    </linearGradient>
+    <linearGradient id="metalLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#B8BFC8"/>
+      <stop offset="100%" stop-color="#9CA3AF"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5f0eb"/>
+      <stop offset="50%" stop-color="#faf5ef"/>
+      <stop offset="100%" stop-color="#f5f0eb"/>
+    </linearGradient>
+    <linearGradient id="muscleGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(220,38,38,0.05)"/>
+      <stop offset="50%" stop-color="rgba(220,38,38,0.10)"/>
+      <stop offset="100%" stop-color="rgba(220,38,38,0.06)"/>
+    </linearGradient>
+    <linearGradient id="bpGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2c3e50"/>
+      <stop offset="100%" stop-color="#1a252f"/>
+    </linearGradient>
+    <marker id="arrowRed" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowRedSmall" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#d97706"/>
+    </marker>
+    <marker id="arrowAmberSmall" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#d97706"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#9CA3AF"/>
+    </marker>
+    <filter id="shadow" x="-8%" y="-8%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="rgba(0,0,0,0.15)"/>
+    </filter>
+    <filter id="softShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="1" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.08)"/>
+    </filter>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="leftPane">
+      <rect x="0" y="0" width="740" height="1080"/>
+    </clipPath>
+    <style>
+      .label-sm { font-size: 9px; fill: #64748b; font-family: sans-serif; }
+      .label-md { font-size: 11px; fill: #334155; font-family: sans-serif; }
+      .label-lg { font-size: 13px; fill: #1e293b; font-family: sans-serif; font-weight: bold; }
+      .label-em { font-size: 10px; fill: #d97706; font-family: sans-serif; font-weight: bold; }
+      .label-force { font-size: 11px; fill: #dc2626; font-family: sans-serif; font-weight: bold; }
+      .title-amber { font-size: 18px; fill: #d97706; font-family: sans-serif; font-weight: bold; }
+      .title-gray { font-size: 13px; fill: #475569; font-family: sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+  <rect width="1200" height="1200" fill="#ffffff"/>
+  <rect x="740" y="0" width="60" height="1200" fill="#fafbfc" opacity="0.4"/>
+  <line x1="740" y1="0" x2="740" y2="1200" stroke="#e5e7eb" stroke-width="0.8"/>
+  <line x1="800" y1="0" x2="800" y2="1200" stroke="#e5e7eb" stroke-width="0.8"/>
+  <g clip-path="url(#leftPane)">
+    <rect x="20" y="0" width="720" height="1080" fill="#ffffff"/>
+    <g>
+      <text x="30" y="24" class="label-em" font-size="12">Fig. C 背包式外骨骼 | 侧面观 Lateral View</text>
+      <line x1="30" y1="28" x2="300" y2="28" stroke="#e5e7eb" stroke-width="0.5"/>
+    </g>
+    <g filter="url(#softShadow)">
+      <path d="M 240,70 C 230,110 225,160 230,210 C 235,260 260,300 285,330 L 475,330 C 500,300 525,260 530,210 C 535,160 530,110 520,70 C 510,60 480,55 380,55 C 280,55 250,60 240,70 Z" fill="url(#skinGrad)" stroke="#e8ddd0" stroke-width="0.8"/>
+      <rect x="350" y="30" width="60" height="40" rx="10" fill="#f5f0eb" stroke="#e8ddd0" stroke-width="0.6"/>
+      <ellipse cx="380" cy="10" rx="32" ry="26" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.8"/>
+      <line x1="380" y1="0" x2="380" y2="8" stroke="#dccfc0" stroke-width="0.5"/>
+      <line x1="370" y1="14" x2="390" y2="14" stroke="#dccfc0" stroke-width="0.5"/>
+    </g>
+    <line x1="380" y1="60" x2="380" y2="260" stroke="#d4c9a8" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.5"/>
+    <g stroke="#dccfc0" stroke-width="0.6" fill="none" opacity="0.35">
+      <path d="M 280,110 Q 320,105 340,115"/><path d="M 420,115 Q 440,105 480,110"/>
+      <path d="M 270,140 Q 320,130 340,145"/><path d="M 420,145 Q 440,130 490,140"/>
+      <path d="M 265,170 Q 315,155 340,175"/><path d="M 420,175 Q 445,155 495,170"/>
+      <path d="M 268,200 Q 318,185 340,205"/><path d="M 420,205 Q 442,185 492,200"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 380,255 C 340,252 295,260 270,285 C 250,310 245,340 260,360 C 275,380 295,395 320,405 C 340,412 360,415 380,416 C 400,415 420,412 440,405 C 465,395 485,380 500,360 C 515,340 510,310 490,285 C 465,260 420,252 380,255 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 265,290 C 260,305 258,325 265,345" fill="none" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 495,290 C 500,305 502,325 495,345" fill="none" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="380" cy="400" rx="12" ry="6" fill="url(#boneShadow)" stroke="#b8ad90" stroke-width="0.4"/>
+      <ellipse cx="380" cy="290" rx="18" ry="12" fill="url(#boneDark)" opacity="0.3"/>
+      <circle cx="290" cy="355" r="18" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.8"/>
+      <circle cx="290" cy="355" r="13" fill="#dfd2b2" stroke="#c4b898" stroke-width="0.4"/>
+      <circle cx="470" cy="355" r="18" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.8"/>
+      <circle cx="470" cy="355" r="13" fill="#dfd2b2" stroke="#c4b898" stroke-width="0.4"/>
+    </g>
+    <path d="M 260,290 C 240,310 235,340 250,365 C 265,390 285,400 310,405 C 300,385 295,360 300,335 C 305,310 290,295 260,290 Z" fill="url(#muscleGlow)" stroke="rgba(200,50,50,0.12)" stroke-width="0.5"/>
+    <path d="M 500,290 C 520,310 525,340 510,365 C 495,390 475,400 450,405 C 460,385 465,360 460,335 C 455,310 470,295 500,290 Z" fill="url(#muscleGlow)" stroke="rgba(200,50,50,0.12)" stroke-width="0.5"/>
+    <g filter="url(#shadow)">
+      <circle cx="290" cy="355" r="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 285,355 Q 278,380 282,400 L 290,398 Q 288,378 292,355 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 282,400 C 280,450 278,500 278,550 C 278,600 280,650 285,700 L 298,700 C 293,650 290,600 290,550 C 290,500 292,450 296,400 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <path d="M 296,400 Q 310,415 308,430 L 300,428 Q 300,415 296,400 Z" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.5"/>
+      <ellipse cx="285" cy="698" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="300" cy="698" rx="8" ry="12" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <circle cx="470" cy="355" r="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+      <path d="M 475,355 Q 482,380 478,400 L 470,398 Q 472,378 468,355 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <path d="M 478,400 C 480,450 482,500 482,550 C 482,600 480,650 475,700 L 462,700 C 467,650 470,600 470,550 C 470,500 468,450 464,400 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <path d="M 464,400 Q 450,415 452,430 L 460,428 Q 460,415 464,400 Z" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.5"/>
+      <ellipse cx="475" cy="698" rx="10" ry="14" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="460" cy="698" rx="8" ry="12" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+    </g>
+    <g opacity="0.12">
+      <path d="M 285,410 C 282,470 280,530 283,590 C 286,630 290,660 295,690 L 285,690 C 282,660 278,630 276,590 C 274,530 277,470 282,410 Z" fill="#dc2626"/>
+      <path d="M 283,450 C 278,500 275,550 278,620 C 280,660 283,690 285,695 L 278,695 C 276,660 273,620 272,550 C 271,500 276,450 283,450 Z" fill="#dc2626"/>
+      <path d="M 296,450 C 300,500 302,560 300,630 C 298,670 296,695 295,698 L 302,698 C 304,670 306,630 305,560 C 303,500 298,450 296,450 Z" fill="#dc2626"/>
+      <path d="M 475,410 C 478,470 480,530 477,590 C 474,630 470,660 465,690 L 475,690 C 478,660 482,630 484,590 C 486,530 483,470 478,410 Z" fill="#dc2626"/>
+      <path d="M 477,450 C 482,500 485,550 482,620 C 480,660 477,690 475,695 L 482,695 C 484,660 487,620 488,550 C 489,500 484,450 477,450 Z" fill="#dc2626"/>
+      <path d="M 464,450 C 460,500 458,560 460,630 C 462,670 464,695 465,698 L 458,698 C 456,670 454,630 455,560 C 457,500 462,450 464,450 Z" fill="#dc2626"/>
+    </g>
+    <g filter="url(#softShadow)">
+      <ellipse cx="290" cy="705" rx="12" ry="9" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="290" cy="705" rx="7" ry="5" fill="url(#boneShadow)"/>
+      <ellipse cx="470" cy="705" rx="12" ry="9" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="470" cy="705" rx="7" ry="5" fill="url(#boneShadow)"/>
+    </g>
+    <g filter="url(#shadow)">
+      <ellipse cx="290" cy="700" rx="8" ry="10" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="285" cy="700" rx="7" ry="10" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.5"/>
+      <path d="M 283,710 C 280,760 278,810 277,860 C 276,910 278,950 282,980 L 294,980 C 290,950 288,910 287,860 C 286,810 288,760 290,710 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+      <ellipse cx="470" cy="700" rx="8" ry="10" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <ellipse cx="475" cy="700" rx="7" ry="10" fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.5"/>
+      <path d="M 477,710 C 480,760 482,810 483,860 C 484,910 482,950 478,980 L 466,980 C 470,950 472,910 473,860 C 474,810 472,760 470,710 Z" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.7"/>
+    </g>
+    <g opacity="0.10">
+      <path d="M 278,740 C 273,780 271,830 273,870 C 275,900 280,930 288,960 L 280,960 C 274,930 269,900 267,870 C 265,830 268,780 275,740 Z" fill="#dc2626"/>
+      <path d="M 482,740 C 487,780 489,830 487,870 C 485,900 480,930 472,960 L 480,960 C 486,930 491,900 493,870 C 495,830 492,780 485,740 Z" fill="#dc2626"/>
+    </g>
+    <g filter="url(#softShadow)">
+      <path d="M 280,980 L 278,1010 C 278,1020 282,1025 290,1025 L 296,1020 C 298,1015 296,1005 294,980 Z" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.6"/>
+      <path d="M 480,980 L 482,1010 C 482,1020 478,1025 470,1025 L 464,1020 C 462,1015 464,1005 466,980 Z" fill="#f5f0eb" stroke="#e0d5c8" stroke-width="0.6"/>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="290" y="55" width="180" height="180" rx="12" fill="url(#bpGrad)" stroke="#1a252f" stroke-width="1.5"/>
+      <path d="M 290,65 Q 380,40 470,65" fill="url(#bpGrad)" stroke="#1a252f" stroke-width="1"/>
+      <path d="M 380,55 L 380,45" stroke="#4B5563" stroke-width="3" stroke-linecap="round"/>
+      <rect x="300" y="65" width="160" height="30" rx="6" fill="#4B5563" opacity="0.3"/>
+      <text x="380" y="84" font-size="9" fill="#94a3b8" font-family="sans-serif" text-anchor="middle">背部缓冲垫</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="320" y="100" width="120" height="60" rx="6" fill="#6B7280" stroke="#4B5563" stroke-width="1"/>
+      <rect x="330" y="108" width="100" height="44" rx="4" fill="#4B5563"/>
+      <circle cx="360" cy="130" r="8" fill="url(#metalGrad)" stroke="#374151" stroke-width="0.8"/>
+      <circle cx="360" cy="130" r="5" fill="#9CA3AF"/>
+      <circle cx="360" cy="130" r="2" fill="#4B5563"/>
+      <text x="370" y="126" class="label-sm" font-size="7" fill="#d1d5db">电机</text>
+      <rect x="390" y="110" width="30" height="40" rx="4" fill="#374151" stroke="#1f2937" stroke-width="0.6"/>
+      <rect x="394" y="114" width="22" height="4" rx="1" fill="#22c55e" opacity="0.6"/>
+      <rect x="394" y="122" width="22" height="4" rx="1" fill="#22c55e" opacity="0.4"/>
+      <rect x="394" y="130" width="22" height="4" rx="1" fill="#22c55e" opacity="0.2"/>
+      <text x="405" y="155" class="label-sm" font-size="7" fill="#d1d5db" text-anchor="middle">电池</text>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 305,180 C 280,210 265,260 270,310 C 275,340 282,352 290,360"
+            fill="none" stroke="#6B7280" stroke-width="5" stroke-linecap="round"/>
+      <path d="M 455,180 C 480,210 495,260 490,310 C 485,340 478,352 470,360"
+            fill="none" stroke="#6B7280" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <g filter="url(#shadow)">
+      <circle cx="290" cy="355" r="22" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="1.5"/>
+      <circle cx="290" cy="355" r="16" fill="#4B5563" stroke="#374151" stroke-width="0.8"/>
+      <circle cx="290" cy="355" r="8" fill="#9CA3AF"/>
+      <circle cx="290" cy="355" r="3" fill="#4B5563"/>
+      <circle cx="470" cy="355" r="22" fill="url(#metalGrad)" stroke="#4B5563" stroke-width="1.5"/>
+      <circle cx="470" cy="355" r="16" fill="#4B5563" stroke="#374151" stroke-width="0.8"/>
+      <circle cx="470" cy="355" r="8" fill="#9CA3AF"/>
+      <circle cx="470" cy="355" r="3" fill="#4B5563"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 282,380 C 280,440 278,500 279,560 C 280,620 283,660 286,710 L 298,710 C 295,660 292,620 291,560 C 290,500 292,440 296,380 Z" fill="none" stroke="url(#metalLight)" stroke-width="5" stroke-linecap="round"/>
+      <path d="M 478,380 C 480,440 482,500 481,560 C 480,620 477,660 474,710 L 462,710 C 465,660 468,620 469,560 C 470,500 468,440 464,380 Z" fill="none" stroke="url(#metalLight)" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <g filter="url(#shadow)">
+      <circle cx="290" cy="710" r="7" fill="#6B7280" stroke="#4B5563" stroke-width="0.8"/>
+      <circle cx="290" cy="710" r="3" fill="#9CA3AF"/>
+      <circle cx="470" cy="710" r="7" fill="#6B7280" stroke="#4B5563" stroke-width="0.8"/>
+      <circle cx="470" cy="710" r="3" fill="#9CA3AF"/>
+    </g>
+    <g filter="url(#shadow)">
+      <path d="M 288,710 C 286,770 285,830 285,890 C 285,930 287,960 291,990 L 295,990 C 293,960 292,930 292,890 C 292,830 293,770 295,710 Z" fill="none" stroke="url(#metalLight)" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 472,710 C 474,770 475,830 475,890 C 475,930 473,960 469,990 L 465,990 C 467,960 468,930 468,890 C 468,830 467,770 465,710 Z" fill="none" stroke="url(#metalLight)" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <line x1="290" y1="60" x2="170" y2="55" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="165" cy="53" r="9" fill="#d97706"/>
+    <text x="165" y="57" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">1</text>
+    <text x="148" y="47" class="label-sm" font-size="8" fill="#d97706" text-anchor="end">背包壳体</text>
+    <line x1="380" y1="160" x2="410" y2="175" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="416" cy="178" r="9" fill="#d97706"/>
+    <text x="416" y="182" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">2</text>
+    <text x="430" y="174" class="label-sm" font-size="8" fill="#d97706">电机+电池模组</text>
+    <line x1="290" y1="260" x2="260" y2="255" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="254" cy="253" r="9" fill="#d97706"/>
+    <text x="254" y="257" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">3</text>
+    <text x="240" y="248" class="label-sm" font-size="8" fill="#d97706" text-anchor="end">柔性线缆护套</text>
+    <line x1="290" y1="80" x2="260" y2="75" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="254" cy="73" r="9" fill="#d97706"/>
+    <text x="254" y="77" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">4</text>
+    <text x="240" y="68" class="label-sm" font-size="8" fill="#d97706" text-anchor="end">背部缓冲垫</text>
+    <line x1="290" y1="378" x2="260" y2="390" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="254" cy="392" r="9" fill="#d97706"/>
+    <text x="254" y="396" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">5</text>
+    <text x="240" y="386" class="label-sm" font-size="8" fill="#d97706" text-anchor="end">髋关节电机</text>
+    <line x1="296" y1="550" x2="320" y2="540" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="326" cy="538" r="9" fill="#d97706"/>
+    <text x="326" y="542" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">6</text>
+    <text x="340" y="536" class="label-sm" font-size="8" fill="#d97706">大腿支撑杆</text>
+    <line x1="297" y1="710" x2="320" y2="710" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="326" cy="710" r="9" fill="#d97706"/>
+    <text x="326" y="714" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">7</text>
+    <text x="340" y="708" class="label-sm" font-size="8" fill="#d97706">膝关节铰链</text>
+    <line x1="284" y1="800" x2="260" y2="795" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="254" cy="793" r="9" fill="#d97706"/>
+    <text x="254" y="797" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">8</text>
+    <text x="240" y="788" class="label-sm" font-size="8" fill="#d97706" text-anchor="end">小腿支撑杆</text>
+    <line x1="380" y1="45" x2="380" y2="30" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="380" cy="24" r="9" fill="#d97706"/>
+    <text x="380" y="28" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">9</text>
+    <text x="394" y="28" class="label-sm" font-size="8" fill="#d97706">肩部负载带</text>
+    <line x1="230" y1="240" x2="170" y2="230" stroke="#d97706" stroke-width="0.8"/>
+    <circle cx="165" cy="228" r="9" fill="#d97706"/>
+    <text x="165" y="232" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">10</text>
+    <text x="148" y="224" class="label-sm" font-size="8" fill="#d97706" text-anchor="end">骨盆束带</text>
+    <line x1="380" y1="10" x2="380" y2="-30" stroke="#dc2626" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <text x="388" y="-18" class="label-force">W (体重+背包)</text>
+    <path d="M 260,355 L 240,355" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+    <text x="222" y="353" class="label-force" font-size="10">F_joint</text>
+    <path d="M 500,355 L 520,355" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+    <text x="528" y="353" class="label-force" font-size="10">F_joint</text>
+    <path d="M 310,335 A 20 20 0 0 1 310,375" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrowAmberSmall)"/>
+    <text x="318" y="350" class="label-em" font-size="10">tau</text>
+    <path d="M 450,335 A 20 20 0 0 0 450,375" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrowAmberSmall)"/>
+    <text x="438" y="350" class="label-em" font-size="10">tau</text>
+    <path d="M 305,500 L 330,480" stroke="#d97706" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowAmber)"/>
+    <text x="338" y="478" class="label-em" font-size="10">F_assist</text>
+    <path d="M 455,500 L 430,480" stroke="#d97706" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowAmber)"/>
+    <text x="400" y="478" class="label-em" font-size="10" text-anchor="end">F_assist</text>
+    <line x1="285" y1="1030" x2="285" y2="1055" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="270" y="1068" class="label-force" font-size="9">GRF</text>
+    <line x1="475" y1="1030" x2="475" y2="1055" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="478" y="1068" class="label-force" font-size="9">GRF</text>
+    <g transform="translate(540, 55)">
+      <rect x="0" y="0" width="180" height="140" rx="5" fill="#fff" stroke="#d97706" stroke-width="1.2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="180" height="22" rx="5" fill="#d97706" opacity="0.9"/>
+      <text x="90" y="15" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Honda Walking Assist</text>
+      <text x="8" y="34" class="label-sm" font-size="8">重量：2.8 kg</text>
+      <text x="8" y="48" class="label-sm" font-size="8">驱动：背包电机 + 线缆</text>
+      <text x="8" y="62" class="label-sm" font-size="8">助力峰值：4 Nm</text>
+      <text x="8" y="76" class="label-sm" font-size="8">模式：步态相位同步</text>
+      <text x="8" y="90" class="label-sm" font-size="8">应用：老年人助行</text>
+      <line x1="8" y1="96" x2="172" y2="96" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="8" y="110" class="label-em" font-size="8">背包式外骨骼标杆</text>
+      <text x="8" y="126" class="label-sm" font-size="8" fill="#94a3b8">背包电机+线缆驱动</text>
+    </g>
+    <g transform="translate(540, 210)">
+      <rect x="0" y="0" width="180" height="130" rx="5" fill="#fff" stroke="#d97706" stroke-width="1.2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="180" height="22" rx="5" fill="#d97706" opacity="0.9"/>
+      <text x="90" y="15" font-size="9" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Laevo (荷兰)</text>
+      <text x="8" y="34" class="label-sm" font-size="8">重量：3.5 kg</text>
+      <text x="8" y="48" class="label-sm" font-size="8">结构：背包 + 胸板</text>
+      <text x="8" y="62" class="label-sm" font-size="8">承力：被动机械结构</text>
+      <text x="8" y="76" class="label-sm" font-size="8">应用：弯腰工作辅助</text>
+      <text x="8" y="90" class="label-sm" font-size="8">价格：$2,500</text>
+      <line x1="8" y1="96" x2="172" y2="96" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="8" y="110" class="label-em" font-size="8">背包式被动支撑</text>
+    </g>
+    <line x1="350" y1="280" x2="330" y2="270" stroke="#64748b" stroke-width="0.6"/>
+    <line x1="330" y1="270" x2="220" y2="270" stroke="#64748b" stroke-width="0.6" stroke-dasharray="3,2"/>
+    <text x="218" y="275" class="label-md" font-size="10" text-anchor="end">骨盆 Pelvis</text>
+    <line x1="285" y1="450" x2="220" y2="440" stroke="#64748b" stroke-width="0.6"/>
+    <text x="218" y="445" class="label-md" font-size="10" text-anchor="end">股骨 Femur</text>
+    <g transform="translate(30, 1020)">
+      <rect x="0" y="0" width="700" height="48" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="10" y="10" width="14" height="14" rx="2" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.6"/>
+      <text x="28" y="22" class="label-sm" font-size="9">骨骼 Bone</text>
+      <rect x="100" y="10" width="14" height="14" rx="2" fill="rgba(220,38,38,0.15)" stroke="rgba(220,38,38,0.3)" stroke-width="0.6"/>
+      <text x="118" y="22" class="label-sm" font-size="9">肌肉 Muscle</text>
+      <rect x="190" y="10" width="14" height="14" rx="2" fill="url(#metalGrad)" stroke="#6B7280" stroke-width="0.6"/>
+      <text x="208" y="22" class="label-sm" font-size="9">框架 Frame</text>
+      <rect x="280" y="10" width="14" height="14" rx="2" fill="#2c3e50"/>
+      <text x="298" y="22" class="label-sm" font-size="9">背包壳体</text>
+      <rect x="380" y="10" width="14" height="14" rx="2" fill="#d97706"/>
+      <text x="398" y="22" class="label-sm" font-size="9">电机/机构</text>
+      <line x1="480" y1="16" x2="495" y2="16" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+      <text x="502" y="22" class="label-sm" font-size="9">力矢量</text>
+      <text x="10" y="42" class="label-sm" font-size="8" fill="#94a3b8">背包式外骨骼 · Honda Walking Assist / Laevo 技术路线</text>
+    </g>
+  </g>
+  <g transform="translate(808, 16)">
+    <rect x="-8" y="0" width="380" height="60" rx="4" fill="#fefdf8" stroke="#f0e0c0" stroke-width="0.5"/>
+    <rect x="-8" y="0" width="4" height="60" rx="2" fill="#d97706"/>
+    <text x="12" y="26" class="title-amber">背包式外骨骼</text>
+    <text x="12" y="46" class="label-sm" font-size="10" fill="#9ca3af">BACKPACK-MOUNTED HIP EXOSKELETON</text>
+    <rect x="262" y="10" width="100" height="24" rx="12" fill="#d97706" opacity="0.15"/>
+    <text x="312" y="27" font-size="12" fill="#d97706" font-family="sans-serif" text-anchor="middle" font-weight="bold">推荐采用</text>
+    <g transform="translate(0, 80)">
+      <rect x="-8" y="0" width="380" height="130" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="130" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="14">架构特征</text>
+      <text x="140" y="22" class="label-sm" fill="#94a3b8">ARCHITECTURE</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <circle cx="16" cy="48" r="3.5" fill="#d97706"/>
+        <text x="28" y="53">背部背包式壳体容纳电机/电池/控制器</text>
+        <circle cx="16" cy="68" r="3.5" fill="#d97706"/>
+        <text x="28" y="73">柔性线缆护套连接背包至髋关节</text>
+        <circle cx="16" cy="88" r="3.5" fill="#d97706"/>
+        <text x="28" y="93">髋关节电机驱动大腿/小腿连杆</text>
+        <circle cx="16" cy="108" r="3.5" fill="#d97706"/>
+        <text x="28" y="113">肩部负载带 + 骨盆束带固定</text>
+        <circle cx="16" cy="128" r="3.5" fill="#d97706"/>
+        <text x="28" y="133">膝关节铰链允许自然弯曲</text>
+      </g>
+    </g>
+    <g transform="translate(0, 228)">
+      <rect x="-8" y="0" width="380" height="145" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="145" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="14">技术参数</text>
+      <text x="120" y="22" class="label-sm" fill="#94a3b8">PARAMETERS</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="50">系统重量</text>
+        <text x="160" y="50" fill="#1f2937" font-weight="bold">2.8 – 3.5 kg</text>
+        <text x="16" y="70">髋关节助力</text>
+        <text x="160" y="70" fill="#1f2937" font-weight="bold">4 – 8 Nm (电机驱动)</text>
+        <text x="16" y="90">驱动方式</text>
+        <text x="160" y="90" fill="#1f2937" font-weight="bold">背包内置电机 + 线缆</text>
+        <text x="16" y="110">代表产品</text>
+        <text x="160" y="110" fill="#1f2937" font-weight="bold">Honda / Laevo</text>
+        <text x="16" y="130">核心优势</text>
+        <text x="160" y="130" fill="#1f2937" font-weight="bold">器件集成度高，重心在后</text>
+      </g>
+    </g>
+    <g transform="translate(0, 392)">
+      <rect x="-8" y="0" width="380" height="185" rx="4" fill="#fefdf8" stroke="#f0e0c0" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="185" rx="1.5" fill="#d97706"/>
+      <text x="12" y="22" class="title-gray" font-size="14">产品对比</text>
+      <text x="110" y="22" class="label-sm" fill="#94a3b8">PRODUCT COMPARISON</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#f0e0c0" stroke-width="0.5"/>
+      <rect x="12" y="36" width="354" height="62" rx="3" fill="#fff" stroke="#d97706" stroke-width="0.6"/>
+      <rect x="12" y="36" width="354" height="18" rx="3" fill="#d97706"/>
+      <text x="189" y="49" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Honda Walking Assist (日本)</text>
+      <text x="16" y="70" class="label-sm" font-size="10">2.8 kg | 4 Nm 峰值 | 步态相位同步</text>
+      <text x="16" y="86" class="label-sm" font-size="10">背包电机 + 线缆 | 老年人助行</text>
+      <text x="16" y="98" class="label-sm" font-size="10" fill="#d97706">优势：Honda 品质 | 劣势：助力偏小</text>
+      <rect x="12" y="104" width="354" height="62" rx="3" fill="#fff" stroke="#d97706" stroke-width="0.6"/>
+      <rect x="12" y="104" width="354" height="18" rx="3" fill="#d97706"/>
+      <text x="189" y="117" font-size="10" fill="#fff" font-family="sans-serif" text-anchor="middle" font-weight="bold">Laevo (荷兰)</text>
+      <text x="16" y="138" class="label-sm" font-size="10">3.5 kg | 被动机械支撑 | $2,500</text>
+      <text x="16" y="154" class="label-sm" font-size="10">弯腰工作辅助 | 工业级</text>
+      <text x="16" y="166" class="label-sm" font-size="10" fill="#d97706">优势：无电源无电机 | 劣势：被动式范围有限</text>
+    </g>
+    <g transform="translate(0, 596)">
+      <rect x="-8" y="0" width="380" height="140" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="140" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="14">力流分析</text>
+      <text x="100" y="22" class="label-sm" fill="#94a3b8">FORCE FLOW</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.5"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">背包式力传导路径：</text>
+        <text x="16" y="68">背包电机 → 线缆护套 →</text>
+        <text x="16" y="84">髋关节电机/执行器 →</text>
+        <text x="16" y="100">大腿杆 → 膝关节 → 小腿杆</text>
+        <line x1="16" y1="108" x2="364" y2="108" stroke="#e2e8f0" stroke-width="0.3"/>
+        <text x="16" y="126" fill="#d97706" font-weight="bold">优势：</text>
+        <text x="76" y="126" fill="#475569">重心在背部，不影响自然行走</text>
+      </g>
+    </g>
+    <g transform="translate(0, 754)">
+      <rect x="-8" y="0" width="380" height="115" rx="4" fill="#fefcf8" stroke="#fde68a" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="380" height="26" rx="4" fill="#d97706" opacity="0.1"/>
+      <text x="12" y="18" font-size="12" fill="#d97706" font-family="sans-serif" font-weight="bold">Bones 评估：推荐采用</text>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">背包式架构成熟，Honda 已验证市场可行性</text>
+        <text x="16" y="66">适合初期产品形态，迭代空间大</text>
+        <line x1="16" y1="74" x2="364" y2="74" stroke="#fde68a" stroke-width="0.3"/>
+        <text x="16" y="92" fill="#d97706" font-weight="bold">采用理由：</text>
+        <text x="86" y="92" fill="#475569">电机/电池/控制器一体化，降低系统复杂度</text>
+        <text x="86" y="110" fill="#475569">重量控制到 3 kg 以下即可实现消费级产品</text>
+      </g>
+    </g>
+    <g transform="translate(0, 886)">
+      <rect x="-8" y="0" width="380" height="110" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="110" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="13">市场竞争分析</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.3"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="48">Honda Walking Assist 已有 10 年研发历史</text>
+        <text x="16" y="66">Laevo 被动式在工业场景有独特优势</text>
+        <text x="16" y="84">背包式是中国厂商 (程天/大艾) 首选路线</text>
+        <text x="16" y="102">价格从 $1,500-$5,000 均有布局</text>
+      </g>
+    </g>
+    <g transform="translate(0, 1012)">
+      <rect x="-8" y="0" width="380" height="70" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+      <rect x="-8" y="0" width="3" height="70" rx="1.5" fill="#94a3b8"/>
+      <text x="12" y="22" class="title-gray" font-size="13">关键学习点</text>
+      <line x1="12" y1="28" x2="364" y2="28" stroke="#e2e8f0" stroke-width="0.3"/>
+      <g font-size="12" fill="#475569" font-family="sans-serif">
+        <text x="16" y="46">背包式架构集成度高，是快速产品化的最优起点</text>
+        <text x="16" y="64">背包减重 (&lt; 3 kg) 和背部散热是设计关键</text>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(0, 1100)">
+    <rect x="20" y="0" width="1160" height="50" rx="4" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.5"/>
+    <rect x="40" y="10" width="18" height="18" rx="3" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8"/>
+    <text x="62" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">骨骼</text>
+    <rect x="110" y="10" width="18" height="18" rx="3" fill="rgba(220,38,38,0.2)" stroke="rgba(220,38,38,0.4)" stroke-width="0.8"/>
+    <text x="132" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">肌肉</text>
+    <rect x="180" y="10" width="18" height="18" rx="3" fill="url(#metalGrad)" stroke="#6B7280" stroke-width="0.8"/>
+    <text x="202" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">金属框架</text>
+    <rect x="280" y="10" width="18" height="18" rx="3" fill="#2c3e50" stroke="#1a252f" stroke-width="0.8"/>
+    <text x="302" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">背包壳体</text>
+    <rect x="380" y="10" width="18" height="18" rx="3" fill="#d97706" stroke="#b45309" stroke-width="0.8"/>
+    <text x="402" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">电机/机构</text>
+    <line x1="490" y1="19" x2="510" y2="19" stroke="#dc2626" stroke-width="3" marker-end="url(#arrowRed)"/>
+    <text x="518" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">力矢量</text>
+    <line x1="610" y1="19" x2="630" y2="19" stroke="#d97706" stroke-width="2.5" stroke-dasharray="4,2" marker-end="url(#arrowAmber)"/>
+    <text x="638" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">辅助力</text>
+    <line x1="730" y1="10" x2="750" y2="10" stroke="#e5e7eb" stroke-width="0.8"/>
+    <text x="755" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">评估分类：</text>
+    <rect x="830" y="10" width="18" height="18" rx="3" fill="#0096f0"/>
+    <text x="852" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">推荐采用</text>
+    <rect x="928" y="10" width="18" height="18" rx="3" fill="#d97706"/>
+    <text x="950" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">部分借鉴</text>
+    <rect x="1026" y="10" width="18" height="18" rx="3" fill="#9E9E9E"/>
+    <text x="1048" y="24" font-size="12" fill="#475569" font-family="sans-serif" font-weight="500">仅跟踪</text>
+    <line x1="40" y1="34" x2="1140" y2="34" stroke="#e2e8f0" stroke-width="0.3"/>
+    <text x="580" y="44" font-size="9" fill="#a0aec0" font-family="sans-serif" text-anchor="middle">附录 C · 髋关节外骨骼架构分析 | Bones &amp; Manifold · Nexum Project 2026</text>
+  </g>
+  <g transform="translate(50, 850)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="310" height="190" rx="5" fill="#fafbfc" stroke="#eef0f2" stroke-width="0.8" filter="url(#softShadow)"/>
+    <text x="12" y="20" class="title-amber" font-size="11">背包内部布局详图</text>
+    <text x="12" y="34" class="label-sm" font-size="8">BACKPACK INTERNAL — LAYOUT</text>
+    <line x1="12" y1="38" x2="298" y2="38" stroke="#e5e7eb" stroke-width="0.5"/>
+    <g transform="translate(15, 48)">
+      <rect x="0" y="0" width="140" height="100" rx="6" fill="#2c3e50" stroke="#1a252f" stroke-width="1"/>
+      <circle cx="35" cy="30" r="18" fill="#6B7280" stroke="#4B5563" stroke-width="1"/>
+      <circle cx="35" cy="30" r="10" fill="#9CA3AF"/>
+      <text x="35" y="33" font-size="7" fill="#374151" font-family="sans-serif" text-anchor="middle">M</text>
+      <rect x="65" y="10" width="55" height="40" rx="4" fill="#374151" stroke="#1f2937" stroke-width="0.6"/>
+      <rect x="70" y="15" width="45" height="6" rx="1" fill="#22c55e" opacity="0.5"/>
+      <rect x="70" y="24" width="45" height="6" rx="1" fill="#22c55e" opacity="0.3"/>
+      <text x="92" y="55" font-size="6" fill="#9CA3AF" font-family="sans-serif" text-anchor="middle">BAT</text>
+      <rect x="10" y="60" width="60" height="30" rx="3" fill="#4B5563" stroke="#374151" stroke-width="0.5"/>
+      <text x="40" y="78" font-size="6" fill="#9CA3AF" font-family="sans-serif" text-anchor="middle">CTRL</text>
+      <rect x="80" y="70" width="40" height="20" rx="3" fill="#4B5563"/>
+      <rect x="85" y="75" width="30" height="10" rx="2" fill="#6B7280"/>
+      <text x="97" y="82" font-size="5" fill="#d1d5db" font-family="sans-serif" text-anchor="middle">线缆口</text>
+      <line x1="53" y1="30" x2="75" y2="-15" stroke="#d97706" stroke-width="0.6"/>
+      <text x="78" y="-12" class="label-sm" font-size="7" fill="#d97706">无刷电机</text>
+      <line x1="120" y1="30" x2="145" y2="30" stroke="#d97706" stroke-width="0.6"/>
+      <text x="148" y="33" class="label-sm" font-size="7" fill="#d97706">锂电池组</text>
+    </g>
+    <g transform="translate(170, 48)">
+      <text x="0" y="0" class="label-sm" font-size="9" fill="#475569">背包设计要点</text>
+      <text x="0" y="16" class="label-sm" font-size="8" fill="#64748b">重心位置：T7 胸椎处</text>
+      <text x="0" y="28" class="label-sm" font-size="8" fill="#64748b">通风散热：背部导风槽</text>
+      <text x="0" y="40" class="label-sm" font-size="8" fill="#64748b">总重 &lt; 3 kg 时可接受</text>
+      <line x1="0" y1="48" x2="130" y2="48" stroke="#e5e7eb" stroke-width="0.3"/>
+      <text x="0" y="62" class="label-sm" font-size="8" fill="#d97706" font-weight="bold">关键问题：</text>
+      <text x="0" y="76" class="label-sm" font-size="8" fill="#64748b">重心偏高影响平衡</text>
+      <text x="0" y="88" class="label-sm" font-size="8" fill="#64748b">背部出汗/闷热</text>
+      <text x="0" y="100" class="label-sm" font-size="8" fill="#64748b">肩带压力 (已优化)</text>
+      <text x="0" y="112" class="label-sm" font-size="8" fill="#64748b">重量与续航的 trade-off</text>
+    </g>
+  </g>
+  <g transform="translate(50, 750)" clip-path="url(#leftPane)">
+    <rect x="0" y="0" width="660" height="55" rx="4" fill="#fefdf8" stroke="#f0e0c0" stroke-width="0.5"/>
+    <text x="12" y="16" class="label-sm" font-size="8" fill="#475569">注：背包式架构是 Honda Walking Assist (2.8 kg, 步态同步) 和 Laevo (3.5 kg, 被动机械) 采用的结构。</text>
+    <text x="12" y="30" class="label-sm" font-size="8" fill="#475569">器件集成度高 (电机/电池/控制器一体)，适合快速产品化。但重心偏高、背部散热、重量 &gt; 2.8 kg 是短板。</text>
+    <text x="12" y="44" class="label-sm" font-size="8" fill="#64748b">Bones V1 建议：背包式方案可在 1 个月内完成原型，后期迭代过渡到腰带式</text>
+  </g>
+</svg>

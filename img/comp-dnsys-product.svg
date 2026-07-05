@@ -1,0 +1,365 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede3cc"/>
+      <stop offset="40%" stop-color="#e8ddc0"/>
+      <stop offset="70%" stop-color="#dfd2b2"/>
+      <stop offset="100%" stop-color="#d4c9a8"/>
+    </linearGradient>
+    <linearGradient id="boneShadow" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#f5edd8"/>
+      <stop offset="100%" stop-color="#c4b898"/>
+    </linearGradient>
+    <linearGradient id="boneDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4c9a8"/>
+      <stop offset="100%" stop-color="#b8ad90"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A0AAB5"/>
+      <stop offset="40%" stop-color="#8B93A0"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+    <linearGradient id="metalLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B8C0CA"/>
+      <stop offset="50%" stop-color="#8B93A0"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0d1137"/>
+      <stop offset="100%" stop-color="#1a237e"/>
+    </linearGradient>
+    <linearGradient id="panelBgLeft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fafcff"/>
+      <stop offset="100%" stop-color="#f0f5ff"/>
+    </linearGradient>
+    <linearGradient id="panelBgRight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fefefa"/>
+      <stop offset="100%" stop-color="#f5f5f0"/>
+    </linearGradient>
+    <linearGradient id="batteryGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="cartilageGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cce5f0"/>
+      <stop offset="100%" stop-color="#a8cce0"/>
+    </linearGradient>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+    <filter id="shadowLight" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.06"/>
+    </filter>
+    <marker id="arrowRed" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#0096f0"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#d97706"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#8B93A0"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1000" fill="#ffffff"/>
+
+  <!-- ===== TITLE BAR ===== -->
+  <rect x="0" y="0" width="1200" height="68" fill="url(#titleGrad)"/>
+  <text x="600" y="30" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="20" font-weight="bold" fill="#ffffff">DNSYS Z1 产品工程分析图</text>
+  <text x="600" y="54" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" fill="#9fa8da">DNSYS Z1 Product Engineering Analysis — 膝关节外骨骼拆解与工程批判</text>
+
+  <!-- ===== LEFT PANEL: Anatomy ===== -->
+  <rect x="25" y="85" width="710" height="822" rx="8" fill="url(#panelBgLeft)" stroke="#e0e5ef" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="380" y="110" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="bold" fill="#0d1137">膝关节解剖结构 (Human Knee Anatomy)</text>
+  <line x1="60" y1="118" x2="700" y2="118" stroke="#0096f0" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- === Anatomy Drawing === -->
+  <g transform="translate(0, 0)">
+    <!-- Femur (thigh bone) -->
+    <path d="M 330,135 
+             C 310,140 290,155 280,175 
+             C 265,205 270,235 275,260
+             L 275,400
+             C 275,420 260,435 250,445
+             C 265,452 285,448 300,446
+             C 310,444 325,444 335,446
+             C 350,448 365,452 380,445
+             C 370,435 355,420 355,400
+             L 355,260
+             C 355,235 340,210 335,180
+             C 332,160 335,145 345,135
+             Z"
+          fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8" filter="url(#shadowLight)"/>
+    <!-- Femur head highlight -->
+    <ellipse cx="330" cy="395" rx="18" ry="8" fill="url(#boneShadow)" opacity="0.5"/>
+    <!-- Femur condyle shading -->
+    <path d="M 255,435 C 260,448 280,450 305,446" fill="none" stroke="#b8ad90" stroke-width="0.6" opacity="0.5"/>
+    <path d="M 375,435 C 370,448 350,450 325,446" fill="none" stroke="#b8ad90" stroke-width="0.6" opacity="0.5"/>
+
+    <!-- Patella (kneecap) -->
+    <ellipse cx="385" cy="415" rx="22" ry="30" fill="url(#boneGrad)" stroke="#c4b898" stroke-width="1" transform="rotate(-10,385,415)" filter="url(#shadowLight)"/>
+    <path d="M 375,400 C 370,410 375,430 385,435" fill="none" stroke="#b8ad90" stroke-width="0.6" opacity="0.4"/>
+
+    <!-- Tibia (shin bone) -->
+    <path d="M 255,455 
+             C 265,450 280,448 300,448
+             C 320,448 330,450 340,452
+             L 365,455
+             C 370,458 375,462 372,470
+             L 350,480
+             L 310,790
+             C 308,800 292,800 290,790
+             L 260,490
+             C 255,478 252,465 255,455 Z"
+          fill="url(#boneGrad)" stroke="#c4b898" stroke-width="0.8" filter="url(#shadowLight)"/>
+    <!-- Tibial plateau detail -->
+    <path d="M 255,455 C 265,465 300,470 370,460" fill="none" stroke="#b8ad90" stroke-width="0.5" opacity="0.4"/>
+
+    <!-- Fibula -->
+    <path d="M 365,510 
+             C 372,505 378,510 378,520
+             L 370,760
+             C 368,770 360,770 358,760
+             L 350,520
+             C 348,510 358,505 365,510 Z"
+          fill="url(#boneShadow)" stroke="#c4b898" stroke-width="0.6" opacity="0.7"/>
+
+    <!-- Joint Cartilage (between femur and tibia) -->
+    <ellipse cx="300" cy="448" rx="40" ry="6" fill="url(#cartilageGrad)" opacity="0.7"/>
+    <ellipse cx="340" cy="450" rx="38" ry="5" fill="url(#cartilageGrad)" opacity="0.7"/>
+
+    <!-- Quadriceps Muscle (front of thigh) -->
+    <path d="M 345,165 
+             C 380,180 400,220 410,270
+             C 418,310 415,350 410,380
+             C 405,400 395,410 385,415
+             C 380,405 375,395 370,380
+             C 370,360 370,330 368,300
+             C 365,260 358,220 345,190
+             Z"
+          fill="rgba(200,50,50,0.12)" stroke="rgba(200,50,50,0.25)" stroke-width="1"/>
+    <!-- Quadriceps tendon -->
+    <path d="M 385,415 L 390,440" stroke="rgba(200,50,50,0.3)" stroke-width="2"/>
+
+    <!-- Hamstring Muscle (back of thigh) -->
+    <path d="M 280,170 
+             C 255,185 235,225 228,270
+             C 222,310 222,350 230,390
+             C 235,410 245,420 255,430
+             C 260,415 268,400 270,385
+             C 272,360 270,330 268,300
+             C 265,260 265,220 275,190
+             Z"
+          fill="rgba(200,50,50,0.14)" stroke="rgba(200,50,50,0.25)" stroke-width="1"/>
+
+    <!-- Gastrocnemius Muscle (calf) -->
+    <path d="M 275,480 
+             C 265,510 258,550 255,590
+             C 252,630 255,670 260,710
+             C 262,730 265,745 270,755
+             C 275,740 280,720 282,700
+             C 285,660 288,620 290,580
+             C 292,540 292,510 288,485
+             Z"
+          fill="rgba(200,50,50,0.10)" stroke="rgba(200,50,50,0.2)" stroke-width="1"/>
+    <path d="M 330,490
+             C 335,510 338,540 338,570
+             C 338,600 335,640 330,680
+             C 328,700 325,720 320,740
+             C 318,720 316,700 315,680
+             C 312,640 312,600 315,570
+             C 318,540 322,515 330,490
+             Z"
+          fill="rgba(200,50,50,0.08)" stroke="rgba(200,50,50,0.15)" stroke-width="0.8"/>
+
+    <!-- Muscle label lines -->
+    <line x1="410" y1="260" x2="470" y2="230" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="472" y="228" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#0096f0">股四头肌</text>
+
+    <line x1="228" y1="300" x2="160" y2="280" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="108" y="278" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#0096f0">腘绳肌</text>
+
+    <line x1="268" y1="620" x2="160" y2="610" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="108" y="608" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#0096f0">腓肠肌</text>
+
+    <!-- Bone labels -->
+    <line x1="340" y1="280" x2="480" y2="290" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="482" y="288" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#0096f0">股骨</text>
+
+    <line x1="310" y1="600" x2="480" y2="590" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="482" y="588" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#0096f0">胫骨</text>
+
+    <line x1="372" y1="640" x2="480" y2="640" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="482" y="638" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#0096f0">腓骨</text>
+
+    <line x1="398" y1="410" x2="480" y2="420" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="482" y="418" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#0096f0">髌骨</text>
+
+    <line x1="320" y1="452" x2="480" y2="455" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="482" y="453" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#0096f0">关节软骨</text>
+
+    <!-- Joint center marker -->
+    <circle cx="320" cy="448" r="2.5" fill="#dc2626"/>
+    <line x1="320" y1="440" x2="320" y2="456" stroke="#dc2626" stroke-width="1" stroke-dasharray="2,2"/>
+    <line x1="312" y1="448" x2="328" y2="448" stroke="#dc2626" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="330" y="465" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#dc2626">膝关节旋转中心</text>
+  </g>
+
+  <!-- ===== RIGHT PANEL: DNSYS Z1 Mechanism ===== -->
+  <rect x="748" y="85" width="427" height="822" rx="8" fill="url(#panelBgRight)" stroke="#e0e0d8" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="961" y="110" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="bold" fill="#0d1137">DNSYS Z1 机构拆解 (Mechanism Breakdown)</text>
+  <line x1="770" y1="118" x2="1153" y2="118" stroke="#d97706" stroke-width="0.8" opacity="0.3"/>
+
+  <g transform="translate(0, 0)">
+    <!-- Leg silhouette outline on right panel -->
+    <path d="M 870,160 C 870,160 880,180 890,220 L 920,400 C 925,420 920,440 910,450 L 890,520 L 870,740 C 868,750 860,750 858,740 L 840,520 L 820,450 C 810,440 805,420 810,400 L 840,220 C 850,180 860,160 870,160 Z"
+          fill="none" stroke="#ccc" stroke-width="0.8" stroke-dasharray="4,4" opacity="0.5"/>
+
+    <!-- Motor Unit (at knee lateral side) -->
+    <rect x="850" y="370" width="95" height="70" rx="10" fill="url(#metalGrad)" stroke="#555" stroke-width="1" filter="url(#shadowLight)"/>
+    <rect x="855" y="375" width="85" height="12" rx="2" fill="#555" opacity="0.3"/>
+    <rect x="855" y="392" width="85" height="12" rx="2" fill="#555" opacity="0.2"/>
+    <rect x="855" y="409" width="85" height="12" rx="2" fill="#555" opacity="0.3"/>
+    <circle cx="897" cy="405" r="8" fill="#333" opacity="0.5"/>
+    <circle cx="897" cy="405" r="4" fill="#666"/>
+    <!-- Motor mounting bracket -->
+    <rect x="840" y="395" width="12" height="20" rx="2" fill="url(#metalLight)"/>
+
+    <!-- Gearbox output flange -->
+    <rect x="840" y="388" width="8" height="34" rx="1" fill="#6B7280"/>
+    <circle cx="840" cy="405" r="8" fill="none" stroke="#8B93A0" stroke-width="1.5"/>
+
+    <!-- Battery Pack (integrated in knee unit) -->
+    <rect x="948" y="375" width="60" height="70" rx="6" fill="url(#batteryGrad)" stroke="#92400e" stroke-width="0.8" filter="url(#shadowLight)"/>
+    <rect x="955" y="380" width="46" height="8" rx="1" fill="#fef3c7" opacity="0.6"/>
+    <rect x="955" y="392" width="46" height="8" rx="1" fill="#fef3c7" opacity="0.6"/>
+    <rect x="955" y="404" width="46" height="8" rx="1" fill="#fef3c7" opacity="0.6"/>
+    <!-- Battery terminals -->
+    <rect x="970" y="446" width="16" height="4" rx="1" fill="#fcd34d"/>
+    <rect x="972" y="450" width="12" height="3" rx="1" fill="#fbbf24"/>
+
+    <!-- Rigid hinge aligned with knee axis -->
+    <circle cx="840" cy="405" r="14" fill="none" stroke="url(#metalLight)" stroke-width="3"/>
+    <circle cx="840" cy="405" r="5" fill="#6B7280" stroke="#555" stroke-width="0.8"/>
+    <!-- Hinge arm upper -->
+    <line x1="840" y1="405" x2="870" y2="340" stroke="#6B7280" stroke-width="3.5"/>
+    <!-- Hinge arm lower -->
+    <line x1="840" y1="405" x2="855" y2="480" stroke="#6B7280" stroke-width="3.5"/>
+
+    <!-- Upper thigh strap -->
+    <path d="M 805,310 C 820,305 870,305 950,320" fill="none" stroke="#5a626e" stroke-width="4" opacity="0.7"/>
+    <path d="M 805,310 C 800,312 798,316 800,320" fill="none" stroke="#5a626e" stroke-width="3"/>
+    <rect x="800" y="308" width="8" height="14" rx="2" fill="#8B93A0"/>
+
+    <!-- Lower thigh strap -->
+    <path d="M 808,360 C 825,355 870,355 955,365" fill="none" stroke="#5a626e" stroke-width="4" opacity="0.7"/>
+    <path d="M 808,360 C 803,362 800,366 802,370" fill="none" stroke="#5a626e" stroke-width="3"/>
+    <rect x="802" y="358" width="8" height="14" rx="2" fill="#8B93A0"/>
+
+    <!-- Calf strap -->
+    <path d="M 815,520 C 830,515 870,515 930,525" fill="none" stroke="#5a626e" stroke-width="4" opacity="0.7"/>
+    <path d="M 815,520 C 810,522 808,525 810,530" fill="none" stroke="#5a626e" stroke-width="3"/>
+    <rect x="808" y="518" width="8" height="14" rx="2" fill="#8B93A0"/>
+
+    <!-- Component Labels -->
+    <!-- Motor label -->
+    <line x1="897" y1="340" x2="897" y2="370" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="897" y="336" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#0096f0">高速BLDC电机 ~20,000RPM</text>
+
+    <!-- Battery label -->
+    <line x1="978" y1="340" x2="978" y2="375" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="978" y="336" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#0096f0">腿侧电池 1.6kg/腿</text>
+
+    <!-- Gearbox label -->
+    <line x1="835" y1="460" x2="835" y2="490" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="835" y="504" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#0096f0">高减速比行星齿轮 &gt;100:1</text>
+
+    <!-- Hinge label -->
+    <line x1="900" y1="405" x2="1010" y2="405" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="1012" y="403" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#0096f0">单轴刚性铰链</text>
+
+    <!-- Straps label -->
+    <line x1="955" y1="365" x2="1010" y2="365" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="1012" y="363" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#0096f0">3条绑带锚固</text>
+
+    <!-- PCB label -->
+    <rect x="948" y="448" width="55" height="30" rx="3" fill="#1a5e1a" opacity="0.3" stroke="#1a5e1a" stroke-width="0.5"/>
+    <line x1="975" y1="478" x2="975" y2="500" stroke="#0096f0" stroke-width="0.8" stroke-dasharray="4,2"/>
+    <text x="975" y="512" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#0096f0">控制电路板 (PCB)</text>
+
+    <!-- ===== Force Vectors ===== -->
+    <!-- Motor torque arrow (rotational) -->
+    <path d="M 820,385 C 800,385 780,405 800,425" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="788" y="418" text-anchor="end" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#dc2626">电机扭矩</text>
+
+    <!-- Ground reaction force -->
+    <line x1="870" y1="780" x2="870" y2="730" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+    <text x="875" y="758" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#dc2626">地面反作用力</text>
+
+    <!-- Strap shear forces -->
+    <line x1="830" y1="310" x2="815" y2="290" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrowRed)" opacity="0.7"/>
+    <line x1="830" y1="360" x2="815" y2="340" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrowRed)" opacity="0.7"/>
+    <line x1="835" y1="520" x2="820" y2="500" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrowRed)" opacity="0.7"/>
+    <text x="800" y="285" text-anchor="end" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#dc2626">绑带剪切力</text>
+
+    <!-- Gravity arrow -->
+    <line x1="930" y1="160" x2="930" y2="200" stroke="#8B93A0" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+    <text x="932" y="185" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#8B93A0">重力</text>
+  </g>
+
+  <!-- ===== CALL OUT BOX ===== -->
+  <rect x="748" y="610" width="427" height="65" rx="6" fill="#fff7ed" stroke="#fcd34d" stroke-width="1.5" filter="url(#shadowLight)"/>
+  <text x="961" y="632" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="bold" fill="#b45309">核心矛盾</text>
+  <text x="961" y="652" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" fill="#92400e">680g膝关节单元内塞进电机+减速器+电池+PCB</text>
+  <text x="961" y="668" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" fill="#a16207">功率密度 vs 散热 vs 重量 vs 噪音 — 四个不可兼得</text>
+
+  <!-- ===== Annotations on side ===== -->
+  <g transform="translate(748, 690)">
+    <rect x="0" y="0" width="427" height="105" rx="6" fill="#f0f4ff" stroke="#b3ddfb" stroke-width="1" filter="url(#shadowLight)"/>
+    <text x="213" y="22" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" font-weight="bold" fill="#0d1137">关键工程参数</text>
+    <line x1="20" y1="30" x2="407" y2="30" stroke="#0096f0" stroke-width="0.5" opacity="0.3"/>
+    <text x="25" y="50" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#37474f">噪音: ~70dB(A) @1m — 远超对话级(50dB)</text>
+    <text x="25" y="68" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#37474f">续航: ~70min(运动模式) — 热降频致实际可用仅60%</text>
+    <text x="25" y="86" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#37474f">重量: 单腿680g(含电池) — 摆动力矩放大3-5×</text>
+    <text x="25" y="102" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#37474f">众筹: Kickstarter $246万 · 2,061人支持</text>
+  </g>
+
+  <!-- ===== LEGEND (y: 920-980) ===== -->
+  <rect x="25" y="920" width="1150" height="60" rx="6" fill="#f8f9fa" stroke="#ddd" stroke-width="0.8"/>
+  <text x="45" y="940" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" font-weight="bold" fill="#333">图例:</text>
+
+  <!-- Bone -->
+  <rect x="95" y="930" width="18" height="14" rx="2" fill="#ede3cc" stroke="#c4b898" stroke-width="0.6"/>
+  <text x="117" y="942" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#555">骨骼(米黄)</text>
+
+  <!-- Muscle -->
+  <rect x="195" y="930" width="18" height="14" rx="2" fill="rgba(200,50,50,0.15)" stroke="rgba(200,50,50,0.3)" stroke-width="0.6"/>
+  <text x="217" y="942" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#555">肌肉(半透明红)</text>
+
+  <!-- Motor/Mechanism -->
+  <rect x="325" y="930" width="18" height="14" rx="2" fill="#8B93A0" stroke="#6B7280" stroke-width="0.6"/>
+  <text x="347" y="942" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#555">电机(金属灰)</text>
+
+  <!-- Battery -->
+  <rect x="445" y="930" width="18" height="14" rx="2" fill="#d97706" stroke="#b45309" stroke-width="0.6"/>
+  <text x="467" y="942" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#555">电池(橙)</text>
+
+  <!-- Force vector -->
+  <line x1="555" y1="937" x2="575" y2="937" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="580" y="942" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#555">力矢量(红)</text>
+
+  <!-- Cartilage -->
+  <rect x="655" y="930" width="18" height="14" rx="2" fill="#b8d4e8" stroke="#8cb8d0" stroke-width="0.6"/>
+  <text x="677" y="942" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" fill="#555">关节软骨(蓝)</text>
+
+  <!-- Data source -->
+  <text x="45" y="962" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#999">数据来源: DNSYS Kickstarter页面 · Wareable评测 · Trustpilot用户反馈 · CES 2026</text>
+
+  <!-- English legend -->
+  <text x="800" y="962" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="8" fill="#999" text-anchor="end">Legend: Bone · Muscle · Motor · Battery · Force Vector · Cartilage</text>
+</svg>
