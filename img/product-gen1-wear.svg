@@ -1,125 +1,222 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" width="720" height="900">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 960" width="800" height="960">
   <defs>
     <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f8f9fb"/>
-      <stop offset="100%" stop-color="#e8ecf0"/>
+      <stop offset="0%" stop-color="#f5f7fa"/>
+      <stop offset="100%" stop-color="#e2e6ed"/>
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#0096f0"/>
-      <stop offset="100%" stop-color="#0066cc"/>
+      <stop offset="100%" stop-color="#0055cc"/>
     </linearGradient>
     <linearGradient id="frameGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="0%" stop-color="#333"/>
       <stop offset="100%" stop-color="#1a1a1a"/>
     </linearGradient>
     <linearGradient id="motorGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#4a4a4a"/>
-      <stop offset="100%" stop-color="#333"/>
+      <stop offset="0%" stop-color="#555"/>
+      <stop offset="100%" stop-color="#2a2a2a"/>
     </linearGradient>
-    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/>
+    <linearGradient id="beltGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0d0d1a"/>
+    </linearGradient>
+    <filter id="drop" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-opacity="0.1"/>
     </filter>
-    <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.12"/>
+    <filter id="soft" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-opacity="0.15"/>
     </filter>
-    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <path d="M0,0 L8,3 L0,6 Z" fill="#0096f0"/>
+    </marker>
+    <marker id="arrowWarn" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#cc3300"/>
     </marker>
   </defs>
 
-  <rect width="720" height="900" rx="16" fill="url(#bgGrad)"/>
-  <rect x="0" y="0" width="720" height="56" rx="16" fill="url(#accentGrad)"/>
-  <rect x="0" y="40" width="720" height="16" fill="url(#accentGrad)"/>
-  <text x="360" y="36" text-anchor="middle" font-family="-apple-system,PingFang SC,sans-serif" font-size="18" font-weight="700" fill="#fff">Bones Gen 1 · 膝安 KneeEase · 消费级膝关节智能外骨骼</text>
-  <text x="360" y="80" text-anchor="middle" font-family="-apple-system,PingFang SC,sans-serif" font-size="12" fill="#666">碳纤维框架 · 低减速比电机 · 腰带集中供电 · 30秒穿戴 · 运动护具外观</text>
+  <rect width="800" height="960" rx="18" fill="url(#bgGrad)"/>
 
-  <!-- Human figure side view -->
-  <g transform="translate(280, 110)" filter="url(#softShadow)">
-    <ellipse cx="0" cy="120" rx="38" ry="55" fill="#d4c8b8" stroke="#b8a898" stroke-width="1.5"/>
-    <ellipse cx="0" cy="170" rx="42" ry="22" fill="#d4c8b8" stroke="#b8a898" stroke-width="1"/>
-    <circle cx="0" cy="28" r="28" fill="#d4c8b8" stroke="#b8a898" stroke-width="1.5"/>
-    <path d="M-25,20 Q-28,0 -15,-8 Q0,-18 15,-8 Q28,0 25,20" fill="#c0c0c0" stroke="none"/>
-    <path d="M0,192 Q5,260 8,340" stroke="#d4c8b8" stroke-width="48" stroke-linecap="round" fill="none"/>
-    <path d="M-5,360 Q0,420 5,500" stroke="#d4c8b8" stroke-width="36" stroke-linecap="round" fill="none"/>
-    <ellipse cx="35" cy="510" rx="50" ry="10" fill="#333" stroke="#222" stroke-width="1"/>
-    <path d="M-25,140 Q-40,210 -30,280" stroke="#d4c8b8" stroke-width="18" stroke-linecap="round" fill="none"/>
-    <path d="M-30,280 Q-20,340 -10,380" stroke="#d4c8b8" stroke-width="14" stroke-linecap="round" fill="none"/>
-    <circle cx="-5" cy="385" r="8" fill="#d4c8b8"/>
-    <line x1="-5" y1="385" x2="15" y2="530" stroke="#8B4513" stroke-width="4" stroke-linecap="round"/>
-    <path d="M-22,195 Q-15,340 -10,400" stroke="#335" stroke-width="44" stroke-linecap="round" fill="none" opacity="0.15"/>
+  <!-- Title -->
+  <rect x="0" y="0" width="800" height="60" rx="18" fill="url(#accent)"/>
+  <rect x="0" y="44" width="800" height="16" fill="url(#accent)"/>
+  <text x="400" y="38" text-anchor="middle" font-family="-apple-system,PingFang SC,sans-serif" font-size="19" font-weight="700" fill="#fff">Bones Gen 1 · 膝安 KneeEase · 消费级膝关节运动辅助装置</text>
+  <text x="400" y="82" text-anchor="middle" font-family="-apple-system,PingFang SC,sans-serif" font-size="12" fill="#555">碳纤维框架 · AK80-9低减速比电机 · 腰带电池 · 30秒穿戴 · 断电零阻力Fail-Safe · 运动护具外观</text>
+
+  <!-- ====== HUMAN FIGURE (complete side view, elder, with cane) ====== -->
+  <g transform="translate(310, 115)" filter="url(#soft)">
+
+    <!-- HEAD -->
+    <circle cx="0" cy="30" r="30" fill="#e8dcc8" stroke="#c8b898" stroke-width="1.5"/>
+    <!-- Hair (grey elder) -->
+    <path d="M-28,22 Q-30,2 -18,-8 Q-5,-18 10,-10 Q24,-2 25,16 Q28,10 27,22" fill="#c0c0c0"/>
+    <!-- Face features -->
+    <circle cx="-10" cy="28" r="2.5" fill="#888"/>
+    <circle cx="10" cy="28" r="2.5" fill="#888"/>
+    <path d="M-5,36 Q0,40 5,36" stroke="#999" stroke-width="1.2" fill="none"/>
+    <!-- Glasses hint -->
+    <rect x="-16" y="25" width="12" height="8" rx="3" fill="none" stroke="#666" stroke-width="1"/>
+    <rect x="4" y="25" width="12" height="8" rx="3" fill="none" stroke="#666" stroke-width="1"/>
+    <line x1="-4" y1="29" x2="4" y2="29" stroke="#666" stroke-width="1"/>
+
+    <!-- NECK -->
+    <rect x="-8" y="55" width="16" height="10" rx="3" fill="#e8dcc8"/>
+
+    <!-- TORSO (clothed) -->
+    <path d="M-42,65 Q-45,120 -40,175 Q-35,195 0,200 Q35,195 40,175 Q45,120 42,65" fill="#4a5568" stroke="#3a4558" stroke-width="2"/>
+    <!-- Shirt collar -->
+    <path d="M-20,65 L-5,80 L10,65" fill="#3a4558" stroke="#3a4558" stroke-width="1"/>
+
+    <!-- LEFT ARM (background, behind body) -->
+    <path d="M-42,80 Q-60,140 -50,220 Q-45,280 -50,340" stroke="#3a4558" stroke-width="22" stroke-linecap="round" fill="none" opacity="0.5"/>
+
+    <!-- RIGHT ARM (foreground, holding cane) -->
+    <path d="M42,80 Q58,140 50,200 Q45,250 50,320" stroke="#4a5568" stroke-width="22" stroke-linecap="round" fill="none"/>
+    <path d="M50,320 Q48,360 45,390" stroke="#e8dcc8" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <!-- Hand -->
+    <circle cx="43" cy="395" r="10" fill="#e8dcc8" stroke="#c8b898" stroke-width="1"/>
+    <!-- Fingers gripping cane -->
+    <ellipse cx="38" cy="402" rx="5" ry="3" fill="#e8dcc8" transform="rotate(-15,38,402)"/>
+
+    <!-- CANE -->
+    <line x1="43" y1="395" x2="68" y2="560" stroke="#8B6914" stroke-width="5" stroke-linecap="round"/>
+    <line x1="68" y1="395" x2="58" y2="560" stroke="#8B6914" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+    <!-- Cane handle -->
+    <path d="M35,390 Q30,378 40,375 Q50,378 48,390" stroke="#8B6914" stroke-width="4" fill="none"/>
+    <!-- Cane tip -->
+    <ellipse cx="63" cy="563" rx="6" ry="3" fill="#333"/>
+
+    <!-- RIGHT LEG (foreground, with exoskeleton) -->
+    <!-- Upper leg -->
+    <path d="M5,200 Q12,280 15,360" stroke="#4a5568" stroke-width="52" stroke-linecap="round" fill="none"/>
+    <!-- Knee area -->
+    <circle cx="14" cy="365" r="26" fill="none" stroke="none"/>
+    <!-- Lower leg -->
+    <path d="M12,390 Q8,460 5,530" stroke="#4a5568" stroke-width="38" stroke-linecap="round" fill="none"/>
+    <!-- Foot (complete, side view) -->
+    <path d="M-20,535 L-30,540 Q-38,542 -42,540 L-15,555 Q-5,560 5,555 L20,540 Q25,538 30,540 L0,530 Z" fill="#2d2d2d" stroke="#1a1a1a" stroke-width="1.5"/>
+    <!-- Shoe sole -->
+    <path d="M-40,540 L28,540" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+    <!-- Shoe heel -->
+    <rect x="-40" y="536" width="18" height="6" rx="2" fill="#1a1a1a"/>
+
+    <!-- LEFT LEG (background) -->
+    <path d="M-8,200 Q-18,280 -20,360 Q-22,430 -18,520 Q-15,540 -12,555" stroke="#3a4558" stroke-width="42" stroke-linecap="round" fill="none" opacity="0.35"/>
+    <!-- Left foot (background) -->
+    <ellipse cx="-5" cy="555" rx="38" ry="8" fill="#222" opacity="0.3"/>
   </g>
 
-  <!-- Exoskeleton device -->
-  <g transform="translate(280, 110)" filter="url(#shadow)">
-    <rect x="-48" y="155" width="96" height="32" rx="10" fill="#1a1a2e" stroke="#0096f0" stroke-width="2"/>
-    <text x="0" y="175" text-anchor="middle" font-family="monospace" font-size="8" fill="#0096f0" font-weight="700">MAIN CTRL</text>
-    <rect x="-30" y="160" width="14" height="8" rx="2" fill="#0a0" opacity="0.8"/>
-    <text x="-23" y="167" text-anchor="middle" font-family="monospace" font-size="5" fill="#fff">72Wh</text>
-    <path d="M-5,200 Q25,220 15,260" stroke="#0096f0" stroke-width="2.5" fill="none" stroke-dasharray="6,3" opacity="0.6"/>
-    <rect x="-30" y="230" width="60" height="14" rx="4" fill="#2a2a2a" stroke="#555" stroke-width="1"/>
-    <text x="0" y="240" text-anchor="middle" font-family="monospace" font-size="6" fill="#aaa">IMU×2</text>
-    <path d="M-5,200 L-5,280" stroke="url(#frameGrad)" stroke-width="10" stroke-linecap="round"/>
-    <path d="M-5,200 L-5,280" stroke="#444" stroke-width="8" stroke-linecap="round"/>
-    <circle cx="-5" cy="295" r="18" fill="url(#motorGrad)" stroke="#0096f0" stroke-width="2.5"/>
-    <circle cx="-5" cy="295" r="10" fill="#555" stroke="#666" stroke-width="1"/>
-    <circle cx="-5" cy="295" r="3" fill="#0096f0"/>
-    <text x="-5" y="298" text-anchor="middle" font-family="monospace" font-size="5" fill="#fff" font-weight="700">AK80</text>
-    <circle cx="-5" cy="295" r="14" fill="none" stroke="#0096f0" stroke-width="1" stroke-dasharray="2,2" opacity="0.5"/>
-    <text x="20" y="298" font-family="monospace" font-size="5" fill="#0096f0">9:1</text>
-    <path d="M-5,310 L-5,420" stroke="url(#frameGrad)" stroke-width="10" stroke-linecap="round"/>
-    <path d="M-5,310 L-5,420" stroke="#444" stroke-width="8" stroke-linecap="round"/>
-    <rect x="-28" y="380" width="56" height="14" rx="4" fill="#2a2a2a" stroke="#555" stroke-width="1"/>
-    <text x="0" y="390" text-anchor="middle" font-family="monospace" font-size="6" fill="#aaa">IMU×2</text>
-    <path d="M-30,170 Q-40,230 -20,285" stroke="#0096f0" stroke-width="1.5" fill="none" stroke-dasharray="4,3" opacity="0.4"/>
-    <circle cx="12" cy="295" r="4" fill="#00cc66" opacity="0.8"/>
-    <text x="20" y="297" font-family="monospace" font-size="5" fill="#00cc66">ENC</text>
+  <!-- ====== EXOSKELETON DEVICE (on right leg) ====== -->
+  <g transform="translate(310, 115)" filter="url(#drop)">
+
+    <!-- WAIST BELT -->
+    <rect x="-52" y="160" width="104" height="36" rx="12" fill="url(#beltGrad)" stroke="#0096f0" stroke-width="2.5"/>
+    <!-- Belt LED indicators -->
+    <circle cx="-30" cy="178" r="3" fill="#00cc66"/>
+    <circle cx="-20" cy="178" r="3" fill="#00cc66"/>
+    <circle cx="-10" cy="178" r="3" fill="#ffaa00"/>
+    <!-- Belt label -->
+    <text x="0" y="175" text-anchor="middle" font-family="monospace" font-size="8" fill="#0096f0" font-weight="700">MCU+BMS</text>
+    <text x="0" y="187" text-anchor="middle" font-family="monospace" font-size="6" fill="#888">ESP32-S3·72Wh</text>
+    <!-- Belt buckle -->
+    <rect x="44" y="166" width="14" height="24" rx="4" fill="#0096f0" opacity="0.7"/>
+
+    <!-- POWER CABLE (belt→knee, running along thigh) -->
+    <path d="M30,180 Q35,250 28,350" stroke="#0096f0" stroke-width="2" fill="none" stroke-dasharray="6,4" opacity="0.5"/>
+
+    <!-- UPPER THIGH STRAP -->
+    <path d="M-8,205 Q35,230 25,290" stroke="#0096f0" stroke-width="2" fill="none" stroke-dasharray="5,3" opacity="0.5"/>
+    <rect x="-35" y="240" width="70" height="16" rx="5" fill="#2a2a2a" stroke="#555" stroke-width="1.5"/>
+    <text x="0" y="251" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#aaa">IMU×1 · 大腿</text>
+
+    <!-- CARBON FIBER FRAME — UPPER -->
+    <path d="M5,210 L12,280 L14,340" stroke="url(#frameGrad)" stroke-width="12" stroke-linecap="round"/>
+    <path d="M5,210 L12,280 L14,340" stroke="#444" stroke-width="8" stroke-linecap="round"/>
+    <!-- Carbon weave texture -->
+    <path d="M2,230 L8,234 M1,250 L7,254 M8,270 L14,274 M9,300 L15,304 M10,320 L16,324" stroke="#666" stroke-width="0.6" opacity="0.5"/>
+
+    <!-- KNEE JOINT — Motor + Hinge -->
+    <circle cx="14" cy="360" r="20" fill="url(#motorGrad)" stroke="#0096f0" stroke-width="3"/>
+    <circle cx="14" cy="360" r="12" fill="#555" stroke="#777" stroke-width="1"/>
+    <circle cx="14" cy="360" r="4" fill="#0096f0"/>
+    <text x="14" y="363" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#fff" font-weight="700">AK80-9</text>
+    <!-- ICR alignment ring -->
+    <circle cx="14" cy="360" r="15" fill="none" stroke="#0096f0" stroke-width="1" stroke-dasharray="2,2" opacity="0.4"/>
+    <!-- Encoder dot -->
+    <circle cx="35" cy="352" r="3.5" fill="#00cc66"/>
+    <text x="42" y="354" font-family="monospace" font-size="5" fill="#00cc66">ENC</text>
+
+    <!-- Electromagnetic clutch indicator -->
+    <circle cx="14" cy="383" r="6" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-dasharray="2,1"/>
+    <text x="25" y="386" font-family="monospace" font-size="5" fill="#ff6600">离合器</text>
+
+    <!-- CARBON FIBER FRAME — LOWER -->
+    <path d="M14,380 L12,440 L8,510" stroke="url(#frameGrad)" stroke-width="12" stroke-linecap="round"/>
+    <path d="M14,380 L12,440 L8,510" stroke="#444" stroke-width="8" stroke-linecap="round"/>
+    <path d="M10,400 L16,404 M7,430 L13,434 M5,470 L11,474 M3,500 L9,504" stroke="#666" stroke-width="0.6" opacity="0.5"/>
+
+    <!-- LOWER SHANK STRAP -->
+    <rect x="-30" y="445" width="60" height="16" rx="5" fill="#2a2a2a" stroke="#555" stroke-width="1.5"/>
+    <text x="0" y="456" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#aaa">IMU×1 · 小腿</text>
+
+    <!-- ANKLE STRAP (lightweight, sensor only) -->
+    <rect x="-18" y="510" width="36" height="12" rx="4" fill="#2a2a2a" stroke="#555" stroke-width="1" opacity="0.7"/>
+    <text x="0" y="519" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#777">足底压力接口</text>
   </g>
 
-  <!-- Callout annotations -->
+  <!-- ====== CALLOUTS (right side) ====== -->
   <g font-family="-apple-system,PingFang SC,sans-serif" font-size="11">
-    <line x1="440" y1="280" x2="340" y2="278" stroke="#0096f0" stroke-width="1.2" marker-end="url(#arrowBlue)"/>
-    <text x="448" y="275" font-size="12" font-weight="700" fill="#000">腰带主控 + 电池</text>
-    <text x="448" y="292" font-size="10" fill="#666">72Wh Samsung 50E 4S1P</text>
-    <text x="448" y="306" font-size="10" fill="#666">ESP32-S3 MCU · 低重心设计</text>
 
-    <line x1="440" y1="410" x2="300" y2="408" stroke="#0096f0" stroke-width="1.2" marker-end="url(#arrowBlue)"/>
-    <text x="448" y="405" font-size="12" font-weight="700" fill="#000">膝侧低减速比电机</text>
-    <text x="448" y="422" font-size="10" fill="#666">CubeMars AK80-9 · 22Nm峰值</text>
-    <text x="448" y="436" font-size="10" fill="#666">9:1低减速比 · 反向驱动0.51Nm</text>
-    <text x="448" y="450" font-size="10" fill="#666">断电自动脱开 · 零阻力行走</text>
+    <!-- 1. Waist Belt -->
+    <line x1="460" y1="290" x2="370" y2="288" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="468" y="270" width="300" height="48" rx="6" fill="#fff" stroke="#e0e4e8" stroke-width="1" filter="url(#drop)"/>
+    <text x="478" y="288" font-size="12" font-weight="700" fill="#000">① 腰带主控 + 电池</text>
+    <text x="478" y="304" font-size="10" fill="#555">ESP32-S3双MCU · 72Wh Samsung 50E 4S1P</text>
+    <text x="478" y="316" font-size="9" fill="#888">低重心设计 · 可换电 · USB-C PD 2h充满</text>
 
-    <line x1="440" y1="530" x2="310" y2="528" stroke="#0096f0" stroke-width="1.2" marker-end="url(#arrowBlue)"/>
-    <text x="448" y="525" font-size="12" font-weight="700" fill="#000">碳纤维框架</text>
-    <text x="448" y="542" font-size="10" fill="#666">两尺码设计 · P5-P95人体覆盖</text>
-    <text x="448" y="556" font-size="10" fill="#666">独立绑带 · 不绑定服装</text>
-    <text x="448" y="570" font-size="10" fill="#666">运动护具外观 · 双膝 ~2.0kg</text>
+    <!-- 2. Knee Motor + Clutch -->
+    <line x1="460" y1="480" x2="340" y2="478" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="468" y="455" width="300" height="60" rx="6" fill="#fff" stroke="#e0e4e8" stroke-width="1" filter="url(#drop)"/>
+    <text x="478" y="473" font-size="12" font-weight="700" fill="#000">② 膝侧低减速比电机 + 电磁离合器</text>
+    <text x="478" y="489" font-size="10" fill="#555">CubeMars AK80-9 · 22Nm峰值 · 9:1低减速比</text>
+    <text x="478" y="501" font-size="10" fill="#555">反向驱动0.51Nm · 断电自动脱开→零阻力</text>
+    <text x="478" y="513" font-size="9" fill="#888">Ogura MCNB-3Z电磁离合器·&lt;30ms响应</text>
 
-    <line x1="440" y1="640" x2="320" y2="638" stroke="#0096f0" stroke-width="1.2" marker-end="url(#arrowBlue)"/>
-    <text x="448" y="635" font-size="12" font-weight="700" fill="#000">IMU 传感器阵列</text>
-    <text x="448" y="652" font-size="10" fill="#666">ICM-42688-P ×4（大腿+小腿）</text>
-    <text x="448" y="666" font-size="10" fill="#666">AS5048A 磁性编码器 ×2</text>
-    <text x="448" y="680" font-size="10" fill="#666">步态相位检测 · 实时力矩控制</text>
+    <!-- 3. Carbon Frame -->
+    <line x1="460" y1="620" x2="340" y2="618" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="468" y="600" width="300" height="52" rx="6" fill="#fff" stroke="#e0e4e8" stroke-width="1" filter="url(#drop)"/>
+    <text x="478" y="618" font-size="12" font-weight="700" fill="#000">③ 碳纤维框架</text>
+    <text x="478" y="634" font-size="10" fill="#555">两尺码(S/M+L/XL)·P5-P95人体覆盖·GB/T 10000</text>
+    <text x="478" y="648" font-size="9" fill="#888">独立绑带设计·不绑定服装(无需买特定裤子)</text>
 
-    <line x1="440" y1="740" x2="330" y2="738" stroke="#0096f0" stroke-width="1.2" marker-end="url(#arrowBlue)"/>
-    <text x="448" y="735" font-size="12" font-weight="700" fill="#000">30秒快速穿戴</text>
-    <text x="448" y="752" font-size="10" fill="#666">三步穿戴 · 咔嗒确认</text>
-    <text x="448" y="766" font-size="10" fill="#666">老人独立操作 · 无需协助</text>
+    <!-- 4. Safety: Fail-Safe -->
+    <line x1="460" y1="740" x2="340" y2="738" stroke="#cc3300" stroke-width="1.5" marker-end="url(#arrowWarn)"/>
+    <rect x="468" y="715" width="300" height="60" rx="6" fill="#fff8f6" stroke="#ffcccc" stroke-width="1" filter="url(#drop)"/>
+    <text x="478" y="733" font-size="12" font-weight="700" fill="#cc3300">④ 安全设计：断电=零阻力（Fail-Safe）</text>
+    <text x="478" y="749" font-size="10" fill="#555">任何单点故障→电磁离合器自动脱开→零助力</text>
+    <text x="478" y="761" font-size="10" fill="#555">双MCU独立监控·物理急停按钮·IMU跌倒检测</text>
+    <text x="478" y="773" font-size="9" fill="#888">借鉴飞机起落架fail-safe原理·任何故障→安全状态</text>
+
+    <!-- 5. 30s Wear -->
+    <line x1="460" y1="850" x2="350" y2="848" stroke="#0096f0" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="468" y="835" width="300" height="40" rx="6" fill="#fff" stroke="#e0e4e8" stroke-width="1" filter="url(#drop)"/>
+    <text x="478" y="853" font-size="12" font-weight="700" fill="#000">⑤ 30秒穿戴 · 三步完成</text>
+    <text x="478" y="869" font-size="10" fill="#555">腰带快拆扣(1秒)·魔术贴绑带(20秒)·站立位完成(无需弯腰)</text>
   </g>
 
-  <!-- Bottom spec bar -->
-  <g transform="translate(40, 830)">
-    <rect x="0" y="0" width="640" height="52" rx="10" fill="#fff" stroke="#ddd" stroke-width="1" filter="url(#shadow)"/>
-    <text x="80" y="22" text-anchor="middle" font-family="-apple-system,PingFang SC,sans-serif" font-size="10" font-weight="700" fill="#000">Gen 1 · 双膝</text>
-    <text x="80" y="39" text-anchor="middle" font-size="10" fill="#666">碳纤维 · ~2.0kg</text>
-    <text x="208" y="22" text-anchor="middle" font-size="10" font-weight="700" fill="#000">22Nm 峰值力矩</text>
-    <text x="208" y="39" text-anchor="middle" font-size="10" fill="#666">AK80-9 · 9:1低减速比</text>
-    <text x="336" y="22" text-anchor="middle" font-size="10" font-weight="700" fill="#000">2-3h 续航</text>
-    <text x="336" y="39" text-anchor="middle" font-size="10" fill="#666">72Wh · USB-C PD充电</text>
-    <text x="464" y="22" text-anchor="middle" font-size="10" font-weight="700" fill="#000">IP54 防护</text>
-    <text x="464" y="39" text-anchor="middle" font-size="10" fill="#666">防尘防溅 · 雨天可用</text>
-    <text x="592" y="22" text-anchor="middle" font-size="10" font-weight="700" fill="#000">断电零阻力</text>
-    <text x="592" y="39" text-anchor="middle" font-size="10" fill="#666">电磁离合器自动脱开</text>
+  <!-- ====== BOTTOM SPEC BAR ====== -->
+  <g transform="translate(30, 905)">
+    <rect x="0" y="0" width="740" height="46" rx="10" fill="#fff" stroke="#ddd" stroke-width="1" filter="url(#drop)"/>
+    <text x="62" y="18" text-anchor="middle" font-family="-apple-system,PingFang SC,sans-serif" font-size="10" font-weight="700" fill="#000">Gen 1 双膝</text>
+    <text x="62" y="34" text-anchor="middle" font-size="9" fill="#666">碳纤维 · 2.0-2.5kg</text>
+    <text x="185" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="#000">22Nm 峰值力矩</text>
+    <text x="185" y="34" text-anchor="middle" font-size="9" fill="#666">AK80-9 · 9:1低减速比</text>
+    <text x="308" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="#000">2-3h 续航</text>
+    <text x="308" y="34" text-anchor="middle" font-size="9" fill="#666">72Wh · USB-C PD</text>
+    <text x="431" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="#000">IP54 防护</text>
+    <text x="431" y="34" text-anchor="middle" font-size="9" fill="#666">防尘防溅·雨天可用</text>
+    <text x="554" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="#000">断电零阻力</text>
+    <text x="554" y="34" text-anchor="middle" font-size="9" fill="#666">Fail-Safe·&lt;30ms</text>
+    <text x="677" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="#000">30秒穿戴</text>
+    <text x="677" y="34" text-anchor="middle" font-size="9" fill="#666">三步·站立位完成</text>
   </g>
-
-  <text x="360" y="894" text-anchor="middle" font-family="-apple-system,PingFang SC,sans-serif" font-size="8" fill="#999">概念渲染图 · 产品外观可能随工程迭代调整 · Bones &amp; Manifold © 2026</text>
 </svg>
