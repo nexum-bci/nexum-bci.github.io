@@ -428,35 +428,28 @@ blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; ba
 <!-- EXECUTIVE SUMMARY -->
 <!-- ============================================================ -->
 <div style="margin:36px 0;padding:40px 44px;background:#000000;border-radius:14px;color:#fff;line-height:1.8">
+
 <div style="font-size:11px;font-weight:700;color:#fff;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px">Executive Summary</div>
 
-<div style="font-size:21px;font-weight:800;line-height:1.5;margin-bottom:18px">
-全球5.28亿骨关节炎患者。膝关节占60-85%。从首次疼痛到关节置换的10-15年里——拐杖被嫌弃、支具72%废弃、止痛药伤胃肠——没有一个好答案。这是一个价值$110-160B、每年增长8-12%的全球市场。
-</div>
+<p style="font-size:21px;font-weight:800;line-height:1.5;margin-bottom:18px;color:#fff">全球5.28亿骨关节炎患者。膝关节占60-85%。从首次疼痛到关节置换的10-15年里——拐杖被嫌弃、支具72%废弃、止痛药伤胃肠——没有一个好答案。这是一个价值$110-160B、每年增长8-12%的全球市场。</p>
 
-<div style="font-size:14.5px;line-height:1.75;margin-bottom:22px;color:#fff">
-骨骼流形 Bones &amp; Manifold 构建消费级膝关节外骨骼——一台能学习每个用户独特步态、输出个性化辅助力矩的穿戴设备。这是<b>硬件（数据触点）+ 模型（RL策略引擎·416肌骨模型）+ 数据（个性化联邦学习）+ 服务（持续OTA）</b>的四层全栈。四层叠加构成随时间增强而非衰减的护城河。
-</div>
+<p style="font-size:14.5px;line-height:1.75;margin-bottom:22px;color:#fff">骨骼流形 Bones &amp; Manifold 构建消费级膝关节外骨骼——一台能学习每个用户独特步态、输出个性化辅助力矩的穿戴设备。这是<b>硬件（数据触点）+ 模型（RL策略引擎·416肌骨模型）+ 数据（个性化联邦学习）+ 服务（持续OTA）</b>的四层全栈。四层叠加构成随时间增强而非衰减的护城河。</p>
 
-<div style="font-size:13px;line-height:1.8;margin-bottom:18px;color:#ccc">
-<p><b>创始团队</b></p>
-<p style="margin-bottom:8px">赵子睿（CEO）—— Columbia University 电子工程硕士（机器学习方向·师从美国国家工程院院士 Shih-Fu Chang）。前华为美国研究院 IoT Lab。智擎机器人（宇树金牌合作伙伴）CTO——主导人形机器人多模态硬件与背包系统设计、RL运控算法、具身大脑与数采管线、文旅导览·医疗康复·工业巡检场景的全栈交付。同时具备<b>人形机器人硬件工程+运控算法+肌骨RL学术训练</b>的复合背景。</p>
-<p style="margin-bottom:8px">汪牧星（联合创始人）—— Northeastern University 计算机工程博士在读。MyoWarp 框架联合发起人——该框架是 Bones RL 策略训练的核心仿真基础设施（GPU加速弹性肌腱肌骨模型·2048并行世界·5.3B步/天训练吞吐）。联邦强化学习·个性化联邦学习算法（pFedAC 等）作者——其研究工作直接构成 Bones Gen 2+ 联邦学习架构的理论基础。</p>
-<p style="margin-bottom:8px">周峰 —— Columbia University 电子工程硕士。Bloomberg 纽约总部·运满满·猎萝卜·OYO 早期团队。微软云数据基础设施团队技术负责人。负责个性化数据平台：肌骨仿真数据管线·联邦学习数据基础设施·用户生物力学数据闭环。</p>
-<p style="margin-bottom:8px">陈健俊 —— Johns Hopkins University 计算机科学硕士·Columbia University 化学工程硕士。微软大规模机器学习系统·大模型与智能体系统设计·MLOps 与生产系统可靠性。Salesforce·Vantiv·Health Integrity 工作经历。YC 创业经历（智能手表）。负责软件解决方案与海外市场。</p>
-<p style="margin-bottom:8px"><b>学术导师团队</b></p>
-<p style="margin-bottom:6px">Seungmoon Song —— Northeastern University 机械与工业工程系助理教授。CMU Robotics PhD（师从 Hartmut Geyer·神经力学控制奠基人之一）·Stanford Biomechatronics Lab 博士后（Steve Collins·外骨骼人机环路优化公认顶尖实验室）。NeuMove Lab PI。NIH K99/R00 获得者。全球外骨骼RL领域最关键的基础设施贡献者：<b>MyoSuite</b>（肌骨仿真+RL训练事实上的标准平台·NeurIPS MyoChallenge 连续三年基于此框架）核心贡献者·<b>MyoAssist</b>（首次集成 Dephy/HMEDI/Humotech 商业外骨骼模型到 MyoSuite）发起人。</p>
-<p style="margin-bottom:6px">苏丽丽 —— Northeastern University 电子与计算机工程系助理教授。UIUC PhD·MIT CSAIL 博士后。NSF CAREER Award。研究联邦学习在对抗环境下的安全性与鲁棒性——解决"用户数据不出设备但模型不能被恶意梯度污染"的核心理论问题。对 Bones 的意义：当数万台外骨骼设备通过联邦学习共享策略更新时，必须保证即使部分设备上传了受损或被篡改的梯度，全局模型仍然能正确收敛——这是消费级联邦学习从百人到万人规模化部署的数学前提。</p>
-<p style="margin-bottom:6px">杨朋昆 —— 清华大学统计与数据科学系副教授。UIUC PhD·Princeton 博士后。IEEE Thomas M. Cover Dissertation Award。研究联邦学习的统计收敛性——已发表联邦Q-learning收敛性分析（TMLR 2025），从数学上保证联邦RL的优化过程可以收敛到最优解。</p>
-</div>
+<p style="font-size:13px;line-height:1.8;margin-bottom:18px;color:#ccc">
+<b>创始团队</b><br>
+<b>赵子睿（CEO）</b> —— Columbia University 电子工程硕士（机器学习方向·师从美国国家工程院院士 Shih-Fu Chang）。前华为美国研究院 IoT Lab。智擎机器人（宇树金牌合作伙伴）CTO——主导人形机器人多模态硬件与背包系统设计、RL运控算法、具身大脑与数采管线、文旅导览·医疗康复·工业巡检场景的全栈交付。同时具备人形机器人硬件工程+运控算法+肌骨RL学术训练的复合背景。<br><br>
+<b>汪牧星（联合创始人）</b> —— Northeastern University 计算机工程博士在读。MyoWarp 框架联合发起人——Bones RL 策略训练的核心仿真基础设施（GPU加速弹性肌腱肌骨模型·2048并行世界·5.3B步/天训练吞吐）。联邦强化学习·个性化联邦学习算法（pFedAC等）作者——其研究工作直接构成 Bones Gen 2+ 联邦学习架构的理论基础。<br><br>
+<b>周峰</b> —— Columbia University 电子工程硕士。Bloomberg 纽约总部·运满满·猎萝卜·OYO 早期团队。微软云数据基础设施团队技术负责人。负责个性化数据平台：肌骨仿真数据管线·联邦学习数据基础设施·用户生物力学数据闭环。<br><br>
+<b>陈健俊</b> —— Johns Hopkins University 计算机科学硕士·Columbia University 化学工程硕士。微软大规模机器学习系统·大模型与智能体系统设计·MLOps 与生产系统可靠性。Salesforce·Vantiv·Health Integrity。YC 创业经历（智能手表）。负责软件解决方案与海外市场。<br><br>
+<b>学术导师</b> —— Seungmoon Song（Northeastern·MyoSuite/MyoAssist·肌骨仿真基础设施）· 苏丽丽（Northeastern·NSF CAREER·联邦学习安全与鲁棒性）· 杨朋昆（清华大学·IEEE Cover Award·联邦RL收敛性理论）。
+</p>
 
-<div style="font-size:13px;line-height:1.8;margin-bottom:18px;color:#ccc">
-<p><b>一、数据层的意义</b></p>
-<p style="font-size:13px;line-height:1.8;margin-bottom:12px;color:#ccc">当前所有主流AI训练数据是观测性的：文本、图像、视频。用Judea Pearl的因果阶梯框架来看，它们停留在第一层（关联）——只能回答"看到X时，Y通常是多少"。外骨骼产生的是一种根本不同的数据：<b>干预数据</b>。因为它必须实时向人体输出精确力矩才能工作，它必然在测量"施加15Nm→膝关节角度改变3°→足底压力分布偏移X牛顿"。这是物理因果链，对应Pearl因果阶梯的第二层（干预）——"如果我做了X，Y会怎样"。这种数据类型在当前的AI训练集中极度稀缺，因为除了外骨骼，没有任何消费级设备在正常使用中天然产生干预-响应数据对。手表、戒指、眼镜都只能观测——它们能记录你的心率在爬楼梯时升高了，但无法告诉你爬这级楼梯时你的膝关节承受了体重的几倍。外骨骼知道——因为它不仅"看"到了你爬楼梯，它参与了"帮你"爬楼梯，并且在参与过程中实时测量了力和力矩。</p>
-<p style="font-size:13px;line-height:1.8;margin-bottom:12px;color:#ccc"><p><b>二、社会学的意义</b></p>
-<p style="font-size:13px;line-height:1.8;margin-bottom:12px;color:#ccc">全球老龄化是人类社会在21世纪面临的最确定的宏观趋势。物理机能的衰退——走路变慢、上下楼困难、从椅子上站不起来——是衰老最直接的体感，也是"变老"这个心理认知形成的起点。当前社会对这个问题的回答是<b>补偿</b>：拐杖和轮椅补偿失去的支撑力，子女和护工补偿失去的独立行动能力。外骨骼提供的是一个不同的答案：<b>增强</b>——不是替代你衰退的肌肉，而是放大你剩余的肌肉。一个80岁的老人穿着外骨骼从椅子上站起来的时候，他用的是自己的肌肉——外骨骼只是让这组肌肉的输出力矩回到了他60岁时的水平。这不是"照顾老人"，这是<b>延长人类的独立行动寿命</b>。当数以亿计的人能够将独立行走的年限延长十年以上，整个社会的代际关系、照护经济、养老产业的定义都会重构。外骨骼是这个重构中最基础、最普适的硬件载体。</p>
-<p style="font-size:13px;line-height:1.8;margin-bottom:12px;color:#ccc">膝关节外骨骼是这个基础设施的第一个终端。商业路径是渐进的：膝关节（最迫切的需求·最大的市场）→其他关节（同一RL架构·不同参数）→与眼镜/手表/戒指的数据融合→人机物理交互的基础模型。每一步都有上一步的营收和用户基础支撑。</p></div>
-</div>
+<p style="font-size:13px;line-height:1.8;margin-bottom:18px;color:#ccc">
+<b>这个产品背后的命题，比膝关节本身大得多。</b><br><br>
+<b>数据层的意义。</b>当前所有主流AI训练数据是观测性的：文本、图像、视频。用Judea Pearl的因果阶梯框架来看，它们停留在第一层（关联）。外骨骼产生的是一种根本不同的数据：干预数据——因为它必须实时向人体输出精确力矩才能工作，它必然在测量"施加15Nm→膝关节角度改变3°→足底压力分布偏移X牛顿"。这是物理因果链，对应Pearl因果阶梯的第二层（干预）。这种数据类型在当前的AI训练集中极度稀缺——除了外骨骼，没有任何消费级设备在正常使用中天然产生干预-响应数据对。<br><br>
+<b>社会学的意义。</b>全球老龄化是人类社会在21世纪面临的最确定的宏观趋势。当前社会对这个问题的回答是补偿——拐杖和轮椅补偿失去的支撑力，子女和护工补偿失去的独立行动能力。外骨骼提供的是一个不同的答案：增强——不是替代你衰退的肌肉，而是放大你剩余的肌肉。一个80岁的老人穿着外骨骼从椅子上站起来的时候，他用的是自己的肌肉——外骨骼只是让这组肌肉的输出力矩回到了他60岁时的水平。这不是照顾老人，这是延长人类的独立行动寿命。当数以亿计的人能够将独立行走的年限延长十年以上，整个社会的代际关系、照护经济、养老产业的定义都会重构。外骨骼是这个重构中最基础、最普适的硬件载体。<br><br>
+膝关节外骨骼是这个基础设施的第一个终端。商业路径是渐进的：膝关节（最迫切的需求·最大的市场）→其他关节（同一RL架构·不同参数）→与眼镜/手表/戒指的数据融合→人机物理交互的基础模型。每一步都有上一步的营收和用户基础支撑。
+</p>
 
 <div style="display:flex;gap:24px;margin-bottom:22px">
 <div style="flex:1;padding:20px 16px;background:rgba(255,255,255,.06);border-radius:10px;text-align:center">
@@ -481,9 +474,7 @@ blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; ba
 </div>
 </div>
 
-<div style="font-size:12px;color:#fff;text-align:center;line-height:1.6">
-Gen 1 · 膝安/KneeEase · 全球市场 · 四功能闭环（助力·训练·舒缓·洞察）· 一个技术平台 · 全球市场
-</div>
+<p style="font-size:12px;color:#fff;text-align:center;line-height:1.6">Gen 1 · 膝安/KneeEase · 全球市场 · 四功能闭环（助力·训练·舒缓·洞察）· 一个技术平台 · 全球市场</p>
 </div>
 
 <!-- Product Visualizations — standalone section -->
