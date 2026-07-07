@@ -578,8 +578,9 @@ blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; ba
 ._pc { text-align:center; font-size:11px; color:#888; font-weight:600; margin-top:12px; font-family:-apple-system,PingFang SC,sans-serif; }
 
 /* ===== DEVICE PANEL (elder physical interface — NOT a phone) ===== */
-._dp { position:relative; width:280px; height:420px; border-radius:24px; padding:16px; background:linear-gradient(160deg,#3a3a42 0%,#1e1e24 40%,#18181c 100%); box-shadow:0 4px 0 #111,0 0 0 2px rgba(255,255,255,0.04),0 12px 40px rgba(0,0,0,0.6); flex-shrink:0; }
-._dp ._dsc { width:100%; height:100%; border-radius:14px; background:#0a0a0c; overflow:hidden; display:flex; flex-direction:column; position:relative; padding:16px 18px; }
+._dp { position:relative; width:280px; height:470px; border-radius:24px; padding:16px; background:linear-gradient(160deg,#3a3a42 0%,#1e1e24 40%,#18181c 100%); box-shadow:0 4px 0 #111,0 0 0 2px rgba(255,255,255,0.04),0 12px 40px rgba(0,0,0,0.6); flex-shrink:0; }
+._dp ._dsc { width:100%; height:100%; border-radius:14px; background:#0a0a0c; overflow-y:auto; display:flex; flex-direction:column; position:relative; padding:14px 18px 12px; scrollbar-width:none; }
+._dp ._dsc::-webkit-scrollbar { display:none; }
 ._dp ._dsc::before { content:''; position:absolute; inset:0; border-radius:14px; background:radial-gradient(ellipse at 50% 0%, rgba(0,150,240,0.06) 0%, transparent 60%); pointer-events:none; }
 
 /* Device physical button styling */
@@ -631,7 +632,33 @@ blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; ba
 <div class="_mtr" style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:10px 4px"><div class="_mv" style="color:#10b981">94%</div><div class="_ml">对称性</div></div></div>
 <div class="_gc" style="padding:10px">
 <div class="_gl" style="margin-bottom:6px">肌群激活热图 · 支撑相</div>
-<svg width="240" height="120" viewBox="0 0 240 120"><ellipse cx="50" cy="12" rx="12" ry="14" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><rect x="40" y="26" width="20" height="8" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><path d="M 30 34 L 70 34 L 78 72 L 22 72 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><rect x="28" y="40" width="18" height="16" rx="4" fill="rgba(0,150,240,0.15)"/><path d="M 30 38 L 12 58 L 10 64" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="7" stroke-linecap="round"/><path d="M 70 38 L 88 58 L 90 64" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="7" stroke-linecap="round"/><rect x="12" y="68" width="22" height="22" rx="5" fill="rgba(255,159,10,0.25)"/><rect x="46" y="68" width="22" height="22" rx="5" fill="rgba(16,185,129,0.3)"/><rect x="16" y="88" width="16" height="18" rx="4" fill="rgba(0,150,240,0.12)"/><rect x="48" y="88" width="16" height="18" rx="4" fill="rgba(16,185,129,0.2)"/><ellipse cx="24" cy="108" rx="8" ry="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><ellipse cx="56" cy="108" rx="8" ry="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><circle cx="20" cy="68" r="2.5" fill="rgba(255,255,255,0.4)" stroke="rgba(0,150,240,0.3)" stroke-width="0.6"/><circle cx="54" cy="68" r="2.5" fill="rgba(255,255,255,0.4)" stroke="rgba(0,150,240,0.3)" stroke-width="0.6"/><circle cx="22" cy="88" r="2" fill="rgba(255,255,255,0.4)" stroke="rgba(0,150,240,0.3)" stroke-width="0.6"/><circle cx="56" cy="88" r="2" fill="rgba(255,255,255,0.4)" stroke="rgba(0,150,240,0.3)" stroke-width="0.6"/><text x="26" y="98" font-size="7" fill="rgba(255,255,255,0.3)">左</text><text x="62" y="98" font-size="7" fill="rgba(255,255,255,0.3)">右</text><ellipse cx="150" cy="12" rx="12" ry="14" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><rect x="140" y="26" width="20" height="8" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><path d="M 130 34 L 170 34 L 178 72 L 122 72 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><rect x="128" y="40" width="18" height="16" rx="4" fill="rgba(0,150,240,0.12)"/><path d="M 130 38 L 112 58 L 110 64" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="7" stroke-linecap="round"/><path d="M 170 38 L 188 58 L 190 64" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="7" stroke-linecap="round"/><rect x="112" y="68" width="22" height="22" rx="5" fill="rgba(16,185,129,0.15)"/><rect x="146" y="68" width="22" height="22" rx="5" fill="rgba(16,185,129,0.15)"/><rect x="116" y="88" width="16" height="18" rx="4" fill="rgba(0,150,240,0.08)"/><rect x="148" y="88" width="16" height="18" rx="4" fill="rgba(0,150,240,0.08)"/><ellipse cx="124" cy="108" rx="8" ry="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><ellipse cx="156" cy="108" rx="8" ry="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/></svg>
+<svg width="240" height="130" viewBox="0 0 240 130"><!-- Single centered figure, symmetrical anatomy -->
+<ellipse cx="120" cy="12" rx="13" ry="15" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<rect x="110" y="27" width="20" height="9" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+<path d="M 96 36 L 144 36 L 152 72 L 88 72 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+<rect x="98" y="42" width="16" height="14" rx="3" fill="rgba(0,150,240,0.1)"/>
+<path d="M 96 38 L 78 54 L 76 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="7" stroke-linecap="round"/>
+<path d="M 144 38 L 162 54 L 164 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="7" stroke-linecap="round"/>
+<!-- LEFT quad: OA-affected, medium activation orange -->
+<rect x="78" y="70" width="24" height="28" rx="6" fill="rgba(255,159,10,0.25)" stroke="rgba(255,159,10,0.1)" stroke-width="0.5"/>
+<!-- RIGHT quad: compensating, high activation green -->
+<rect x="138" y="70" width="24" height="28" rx="6" fill="rgba(16,185,129,0.35)" stroke="rgba(16,185,129,0.1)" stroke-width="0.5"/>
+<!-- LEFT calf: low activation blue -->
+<rect x="84" y="96" width="16" height="22" rx="5" fill="rgba(0,150,240,0.15)" stroke="rgba(0,150,240,0.08)" stroke-width="0.5"/>
+<!-- RIGHT calf: high activation green -->
+<rect x="140" y="96" width="16" height="22" rx="5" fill="rgba(16,185,129,0.3)" stroke="rgba(16,185,129,0.08)" stroke-width="0.5"/>
+<!-- Feet -->
+<ellipse cx="90" cy="118" rx="9" ry="3.5" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+<ellipse cx="150" cy="118" rx="9" ry="3.5" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+<!-- Joint markers -->
+<circle cx="90" cy="70" r="2.5" fill="rgba(255,255,255,0.5)" stroke="rgba(0,150,240,0.3)" stroke-width="0.6"/>
+<circle cx="150" cy="70" r="2.5" fill="rgba(255,255,255,0.5)" stroke="rgba(0,150,240,0.3)" stroke-width="0.6"/>
+<circle cx="92" cy="96" r="2.2" fill="rgba(255,255,255,0.5)" stroke="rgba(0,150,240,0.3)" stroke-width="0.6"/>
+<circle cx="148" cy="96" r="2.2" fill="rgba(255,255,255,0.5)" stroke="rgba(0,150,240,0.3)" stroke-width="0.6"/>
+<circle cx="90" cy="116" r="2" fill="rgba(255,255,255,0.4)" stroke="rgba(0,150,240,0.2)" stroke-width="0.5"/>
+<circle cx="150" cy="116" r="2" fill="rgba(255,255,255,0.4)" stroke="rgba(0,150,240,0.2)" stroke-width="0.5"/>
+<text x="68" y="74" font-size="7" fill="rgba(255,255,255,0.35)">左</text>
+<text x="168" y="74" font-size="7" fill="rgba(255,255,255,0.35)">右</text></svg>
 <div style="display:flex;justify-content:center;gap:12px;margin-top:4px"><span style="font-size:8px;color:#10b981">■ 高度激活</span><span style="font-size:8px;color:#ff9f0a">■ 中度</span><span style="font-size:8px;color:#0096f0">■ 低度</span></div></div>
 <div class="_gc" style="margin-top:8px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span class="_gl">辅助等级</span><span style="font-size:14px;font-weight:700;color:#0096f0">Level 2</span></div><div style="height:6px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden"><div style="height:100%;width:40%;background:linear-gradient(135deg,#0096f0,#00b4d8);border-radius:3px;box-shadow:0 0 12px rgba(0,150,240,0.3)"></div></div><div style="display:flex;justify-content:space-between;margin-top:3px"><span style="font-size:8px;color:rgba(255,255,255,0.2)">0</span><span style="font-size:8px;color:rgba(255,255,255,0.2)">1</span><span style="font-size:8px;color:rgba(255,255,255,0.4)">2</span><span style="font-size:8px;color:rgba(255,255,255,0.2)">3</span><span style="font-size:8px;color:rgba(255,255,255,0.2)">4</span><span style="font-size:8px;color:rgba(255,255,255,0.2)">5</span></div></div>
 </div></div>
