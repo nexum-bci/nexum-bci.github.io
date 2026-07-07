@@ -527,11 +527,13 @@ blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; ba
 </div>
 </div>
 
-<!-- App UI Mockups — matching app.html design system -->
+<!-- App UI Mockups — Apple-quality design system from app.html -->
 <style>
-._pg { display:flex; gap:36px; justify-content:center; flex-wrap:wrap; margin:40px 0; }
-._pf { width:300px; height:648px; border-radius:42px; padding:10px; background:linear-gradient(145deg,#2c2c32 0%,#1a1a20 50%,#141418 100%); box-shadow:0 0 0 1px rgba(255,255,255,.08),0 20px 60px rgba(0,0,0,.6),0 8px 20px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.06); position:relative; flex-shrink:0; }
-._pf::before { content:''; position:absolute; top:12px; left:50%; transform:translateX(-50%); width:110px; height:28px; background:#000; border-radius:20px; z-index:20; box-shadow:0 0 0 1px rgba(255,255,255,.06); }
+._pg { display:flex; gap:32px; justify-content:center; flex-wrap:wrap; margin:40px 0; }
+
+/* Phone Frame — matches app.html phone-frame exactly */
+._pf { position:relative; width:300px; height:648px; border-radius:42px; padding:10px; background:linear-gradient(145deg,#2c2c32 0%,#1a1a20 50%,#141418 100%); box-shadow:0 0 0 1px rgba(255,255,255,0.08),0 20px 60px rgba(0,0,0,0.6),0 8px 20px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.06); flex-shrink:0; }
+._pf::before { content:''; position:absolute; top:12px; left:50%; transform:translateX(-50%); width:110px; height:28px; background:#000; border-radius:20px; z-index:20; box-shadow:0 0 0 1px rgba(255,255,255,0.06); }
 ._pf ._sc { width:100%; height:100%; border-radius:34px; background:#000; overflow:hidden; display:flex; flex-direction:column; position:relative; }
 ._pf ._sb { position:absolute; width:3px; background:linear-gradient(180deg,#2a2a30,#1e1e24); border-radius:1px; z-index:0; }
 ._pf ._st { display:flex; align-items:center; justify-content:space-between; padding:44px 24px 6px; position:relative; z-index:10; flex-shrink:0; }
@@ -539,137 +541,172 @@ blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; ba
 ._pf ._scc { flex:1; padding:0 16px 16px; overflow:hidden; display:flex; flex-direction:column; }
 ._pf ._scr { flex:1; overflow-y:auto; padding-bottom:8px; scrollbar-width:none; }
 ._pf ._scr::-webkit-scrollbar { display:none; }
-._pf ._hi { position:absolute; bottom:8px; left:50%; transform:translateX(-50%); width:120px; height:5px; background:rgba(255,255,255,.2); border-radius:3px; z-index:20; }
-._pf ._gc { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:14px; margin-bottom:10px; }
-._pf ._gl { font-size:11px; color:rgba(255,255,255,.45); font-family:-apple-system,PingFang SC,sans-serif; }
-._pf ._gn { font-size:32px; font-weight:800; font-family:-apple-system,sans-serif; color:#fff; line-height:1.1; }
-._pf ._ga { color:#0096f0; }
-._pf ._gs { color:#10b981; }
-._pf ._gw { color:#ff9f0a; }
-._pf ._gr { color:#ef4444; }
-._pf ._gb { background:linear-gradient(135deg,#0096f0,#00b4d8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-._pf ._btn { display:flex; align-items:center; justify-content:center; width:100%; padding:14px 20px; background:linear-gradient(135deg,#0096f0,#00b4d8); border:none; border-radius:14px; color:#fff; font-size:15px; font-weight:600; font-family:-apple-system,PingFang SC,sans-serif; }
-._pf ._btnd { display:flex; align-items:center; justify-content:center; width:100%; padding:16px; background:rgba(239,68,68,.08); border:1px solid rgba(239,68,68,.25); border-radius:28px; color:#ef4444; font-size:16px; font-weight:700; font-family:-apple-system,PingFang SC,sans-serif; }
-._pf ._ring { width:56px; height:56px; border-radius:50%; background:conic-gradient(#0096f0 0deg,#0096f0 280deg,rgba(255,255,255,.08) 280deg, rgba(255,255,255,.08) 360deg); display:flex; align-items:center; justify-content:center; }
-._pf ._ring::after { content:''; width:44px; height:44px; border-radius:50%; background:#000; }
-._pf ._dot { display:inline-block; width:5px; height:5px; border-radius:50%; margin-right:4px; }
-._pf ._row { display:flex; gap:8px; }
-._pf ._row>* { flex:1; }
+._pf ._hi { position:absolute; bottom:8px; left:50%; transform:translateX(-50%); width:120px; height:5px; background:rgba(255,255,255,0.2); border-radius:3px; z-index:20; }
+
+/* Glass Card — matches app.html glass-card */
+._gc { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:14px; margin-bottom:10px; }
+
+/* Typography */
+._gl { font-size:11px; color:rgba(255,255,255,0.45); font-family:-apple-system,PingFang SC,sans-serif; }
+._gn { font-size:32px; font-weight:800; font-family:-apple-system,sans-serif; color:#fff; line-height:1.1; }
+._ga { color:#0096f0; } ._gs { color:#10b981; } ._gw { color:#ff9f0a; } ._gr { color:#ef4444; }
+._gb { background:linear-gradient(135deg,#0096f0,#00b4d8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+/* Buttons — matches app.html */
+._btn { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:14px 20px; background:linear-gradient(135deg,#0096f0,#00b4d8); border:none; border-radius:14px; color:#fff; font-size:15px; font-weight:600; font-family:-apple-system,PingFang SC,sans-serif; box-shadow:0 4px 20px rgba(0,150,240,0.3); cursor:default; }
+._btn2 { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:12px 18px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:14px; color:rgba(255,255,255,0.7); font-size:13px; font-weight:500; font-family:-apple-system,PingFang SC,sans-serif; cursor:default; }
+._btnd { display:flex; align-items:center; justify-content:center; gap:6px; width:100%; padding:12px; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); border-radius:14px; color:#ef4444; font-size:13px; font-weight:600; font-family:-apple-system,PingFang SC,sans-serif; cursor:default; }
+
+/* Device Bar — matches app.html device-bar */
+._db { display:flex; align-items:center; justify-content:center; gap:8px; padding:6px 12px; margin-bottom:8px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.06); border-radius:20px; font-size:10px; color:rgba(255,255,255,0.45); }
+._db ._dd { width:1px; height:10px; background:rgba(255,255,255,0.1); }
+
+/* Utility */
+._row { display:flex; gap:8px; } ._row>* { flex:1; }
+._dot { display:inline-block; width:5px; height:5px; border-radius:50%; margin-right:4px; }
+._live { display:inline-flex; align-items:center; gap:5px; padding:4px 10px; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); border-radius:100px; font-size:11px; font-weight:600; color:#ef4444; }
+._live::before { content:''; width:6px; height:6px; border-radius:50%; background:#ef4444; animation:_pulse 1.5s ease-in-out infinite; }
+@keyframes _pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(0.7); } }
+
+/* Status bar icons (inline SVG) */
+._sig { display:flex; align-items:center; gap:6px; }
+
+/* Metric */
+._mtr { text-align:center; } ._mtr ._mv { font-size:20px; font-weight:700; line-height:1.2; } ._mtr ._ml { font-size:10px; color:rgba(255,255,255,0.45); margin-top:2px; }
+
+/* Label below phone */
 ._pc { text-align:center; font-size:11px; color:#888; font-weight:600; margin-top:12px; font-family:-apple-system,PingFang SC,sans-serif; }
+
+/* ===== DEVICE PANEL (elder physical interface — NOT a phone) ===== */
+._dp { position:relative; width:280px; height:420px; border-radius:24px; padding:16px; background:linear-gradient(160deg,#3a3a42 0%,#1e1e24 40%,#18181c 100%); box-shadow:0 4px 0 #111,0 0 0 2px rgba(255,255,255,0.04),0 12px 40px rgba(0,0,0,0.6); flex-shrink:0; }
+._dp ._dsc { width:100%; height:100%; border-radius:14px; background:#0a0a0c; overflow:hidden; display:flex; flex-direction:column; position:relative; padding:16px 18px; }
+._dp ._dsc::before { content:''; position:absolute; inset:0; border-radius:14px; background:radial-gradient(ellipse at 50% 0%, rgba(0,150,240,0.06) 0%, transparent 60%); pointer-events:none; }
+
+/* Device physical button styling */
+._dpbtn { display:flex; align-items:center; justify-content:center; border-radius:12px; font-family:-apple-system,PingFang SC,sans-serif; font-weight:700; cursor:default; transition:none; }
+._dpbtn-pri { width:100%; padding:14px; background:linear-gradient(180deg,#2a2a30,#1a1a1e); border:1px solid rgba(255,255,255,0.1); color:#fff; font-size:15px; box-shadow:0 2px 0 #0a0a0c,0 4px 8px rgba(0,0,0,0.4); }
+._dpbtn-em { width:100%; padding:16px; background:linear-gradient(180deg,#c0392b,#8b0000); border:1px solid rgba(255,255,255,0.08); color:#fff; font-size:17px; box-shadow:0 3px 0 #600000,0 0 12px rgba(255,0,0,0.3); letter-spacing:2px; }
+._dpbtn-sm { padding:10px 18px; background:linear-gradient(180deg,#2a2a30,#1a1a1e); border:1px solid rgba(255,255,255,0.1); color:#fff; font-size:16px; box-shadow:0 2px 0 #0a0a0c,0 4px 8px rgba(0,0,0,0.4); min-width:64px; }
 </style>
 
 <div class="_pg">
 
-<!-- PHONE 1: Dashboard -->
+<!-- ===== PHONE 1: Family Dashboard ===== -->
 <div class="_pf">
 <div class="_sb" style="right:-3px;top:150px;height:52px;border-radius:0 2px 2px 0"></div><div class="_sb" style="right:-3px;top:210px;height:36px;border-radius:0 2px 2px 0"></div><div class="_sb" style="left:-3px;top:160px;height:38px;border-radius:2px 0 0 2px"></div><div class="_sb" style="left:-3px;top:206px;height:38px;border-radius:2px 0 0 2px"></div><div class="_sb" style="left:-3px;top:252px;height:38px;border-radius:2px 0 0 2px"></div>
 <div class="_sc">
-<div class="_st"><span class="_stt">9:41</span><span style="font-size:10px;color:rgba(255,255,255,.45)">膝安</span></div>
+<div class="_st"><span class="_stt">9:41</span><div class="_sig"><svg width="15" height="11" viewBox="0 0 15 11"><rect x="0" y="7" width="3" height="3" rx="0.5" fill="rgba(255,255,255,0.3)"/><rect x="4" y="4" width="3" height="6" rx="0.5" fill="rgba(255,255,255,0.5)"/><rect x="8" y="1" width="3" height="9" rx="0.5" fill="#fff"/><rect x="12" y="0" width="2" height="10" rx="0.5" fill="#fff"/></svg><svg width="14" height="11" viewBox="0 0 14 11"><path d="M7 0C4.5 0 2.2 1 0.5 2.8L1.5 4C3 2.5 4.8 1.5 7 1.5C9.2 1.5 11 2.5 12.5 4L13.5 2.8C11.8 1 9.5 0 7 0Z" fill="#fff"/><path d="M7 3C5.4 3 4 3.7 3 4.8L4 6C4.8 5.1 5.9 4.5 7 4.5C8.1 4.5 9.2 5.1 10 6L11 4.8C10 3.7 8.6 3 7 3Z" fill="#fff"/><path d="M7 6C6.3 6 5.7 6.3 5.2 6.8L7 9L8.8 6.8C8.3 6.3 7.7 6 7 6Z" fill="#fff"/></svg><svg width="22" height="11" viewBox="0 0 22 11"><rect x="0" y="1" width="18" height="10" rx="2.5" stroke="#fff" stroke-width="1.2" fill="none"/><rect x="2" y="3" width="12" height="6" rx="1" fill="#10b981"/><rect x="19" y="3.5" width="2" height="4" rx="0.5" fill="rgba(255,255,255,0.3)"/></svg></div></div>
 <div class="_scc"><div class="_scr">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><div><div style="font-size:15px;font-weight:700;color:#fff">爸妈的膝关节</div><div class="_gl">7月7日 周一 · 今日摘要</div></div><div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#0096f0,#00b4d8);display:flex;align-items:center;justify-content:center;color:#000;font-weight:700;font-size:14px">父</div></div>
-<div class="_gc"><div class="_gl">左膝 KAM 指数</div><div style="display:flex;align-items:baseline;gap:6px;margin:2px 0"><span class="_gn" style="color:#0096f0">0.82</span><span style="font-size:11px;color:#10b981">↓8%</span></div><div class="_gl">正常 0.6–1.2 · 右膝 0.95 ↑2%</div><div style="height:20px;margin-top:4px;display:flex;align-items:flex-end;gap:2px"><div style="width:13px;height:8px;border-radius:2px;background:#0096f0;opacity:.5"></div><div style="width:13px;height:12px;border-radius:2px;background:#0096f0;opacity:.65"></div><div style="width:13px;height:14px;border-radius:2px;background:#0096f0;opacity:.8"></div><div style="width:13px;height:9px;border-radius:2px;background:#0096f0;opacity:.55"></div><div style="width:13px;height:16px;border-radius:2px;background:#0096f0;opacity:.9"></div><div style="width:13px;height:11px;border-radius:2px;background:#0096f0;opacity:.7"></div><div style="width:13px;height:18px;border-radius:2px;background:#0096f0"></div></div></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div><div style="font-size:17px;font-weight:700;color:#fff">爸妈的膝关节</div><div class="_gl">7月7日 周一 · 今日摘要</div></div><div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#0096f0,#0055aa);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:14px">父</div></div>
+<div class="_db"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="1" y="6" width="18" height="12" rx="2"/><path d="M6 22h12"/></svg> 膝安 Gen 1 <span style="color:#10b981;font-weight:600">87%</span><span class="_dd"></span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 同步 12分钟前</div>
+<div class="_gc"><div class="_gl">左膝 KAM 指数</div><div style="display:flex;align-items:baseline;gap:8px;margin:2px 0"><span style="font-size:32px;font-weight:800;color:#0096f0;line-height:1.1">0.82</span><span style="font-size:12px;color:#10b981;font-weight:600">↓8%</span></div><div class="_gl">正常范围 0.6–1.2 · 右膝 0.95 ↑2%</div><div style="display:flex;align-items:flex-end;gap:3px;height:22px;margin-top:4px"><div style="width:12px;height:8px;border-radius:2px;background:#0096f0;opacity:.4"></div><div style="width:12px;height:11px;border-radius:2px;background:#0096f0;opacity:.55"></div><div style="width:12px;height:14px;border-radius:2px;background:#0096f0;opacity:.7"></div><div style="width:12px;height:10px;border-radius:2px;background:#0096f0;opacity:.5"></div><div style="width:12px;height:16px;border-radius:2px;background:#0096f0;opacity:.8"></div><div style="width:12px;height:12px;border-radius:2px;background:#0096f0;opacity:.6"></div><div style="width:12px;height:20px;border-radius:2px;background:#0096f0"></div></div></div>
 <div class="_row" style="margin-bottom:8px">
-<div class="_gc" style="padding:10px 12px"><div class="_gl">步数</div><div style="font-size:20px;font-weight:800;color:#fff">3,847</div><div class="_gl">目标 5,000</div></div>
-<div class="_gc" style="padding:10px 12px"><div class="_gl">站立时间</div><div style="font-size:20px;font-weight:800;color:#fff">4.2h</div><div class="_gl">久坐提醒 2次</div></div>
-<div class="_gc" style="padding:10px 12px"><div class="_gl">上下楼</div><div style="font-size:20px;font-weight:800;color:#fff">14层</div><div class="_gl">下楼 8·上楼 6</div></div></div>
+<div class="_gc" style="padding:12px 10px"><div class="_gl">今日步数</div><div style="font-size:20px;font-weight:800;color:#fff">3,847</div><div class="_gl">目标 5,000</div></div>
+<div class="_gc" style="padding:12px 10px"><div class="_gl">站立时间</div><div style="font-size:20px;font-weight:800;color:#fff">4.2h</div><div class="_gl">久坐提醒 2次</div></div>
+<div class="_gc" style="padding:12px 10px"><div class="_gl">上下楼</div><div style="font-size:20px;font-weight:800;color:#fff">14层</div><div class="_gl">下楼8 · 上楼6</div></div></div>
 <div class="_row" style="margin-bottom:8px">
-<div class="_gc" style="padding:10px 12px"><div class="_gl">6 分钟步行</div><div style="font-size:20px;font-weight:800;color:#10b981">412m</div><div class="_gl">较上周 +22m</div></div>
-<div class="_gc" style="padding:10px 12px"><div class="_gl">步态不对称度</div><div style="font-size:20px;font-weight:800;color:#ff9f0a">6.8%</div><div class="_gl">目标 &lt;5%</div></div></div>
-<div class="_gc" style="display:flex;align-items:center;gap:12px"><div class="_ring" style="position:relative"><span style="position:relative;z-index:2;font-size:15px;font-weight:800;color:#fff">78%</span></div><div><span style="font-size:13px;color:#fff;font-weight:600">周目标完成</span><div class="_gl">连续 12 天 · 膝安 Gen 1 在线 · 87%</div></div></div>
-<div class="_gc" style="background:rgba(255,159,10,.08);border-color:rgba(255,159,10,.15);margin-top:8px"><span style="font-size:10px;color:#ff9f0a">左膝负荷昨日升高 12% · 建议减少上下楼 · 增加按摩模式</span></div>
+<div class="_gc" style="padding:12px 10px"><div class="_gl">6 分钟步行</div><div style="font-size:20px;font-weight:800;color:#10b981">412m</div><div class="_gl">较上周 +22m</div></div>
+<div class="_gc" style="padding:12px 10px"><div class="_gl">步态不对称度</div><div style="font-size:20px;font-weight:800;color:#ff9f0a">6.1%</div><div class="_gl">目标 &lt;5% · ↓趋势</div></div></div>
+<div class="_gc" style="display:flex;align-items:center;gap:16px"><svg width="56" height="56" viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="6"/><circle cx="28" cy="28" r="24" fill="none" stroke="url(#rg1)" stroke-width="6" stroke-dasharray="150.8" stroke-dashoffset="33.2" stroke-linecap="round" transform="rotate(-90 28 28)"/><defs><linearGradient id="rg1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0096f0"/><stop offset="100%" stop-color="#00b4d8"/></linearGradient></defs></svg><div style="position:relative;margin-left:-47px"><span style="font-size:16px;font-weight:800;color:#fff">78%</span><div class="_gl">本周目标</div></div><div style="flex:1"><span style="font-size:13px;color:#fff;font-weight:600">连续 12 天训练</span><div class="_gl">日均 45 分钟 · 完成率 87%</div></div></div>
+<div class="_gc" style="margin-top:8px;background:rgba(255,159,10,0.08);border-color:rgba(255,159,10,0.15)"><span style="font-size:10px;color:#ff9f0a;font-weight:600">⚠ 左膝负荷昨日升高 12%</span><span style="font-size:10px;color:rgba(255,255,255,0.6);margin-left:6px">建议减少上下楼 · 增加按摩模式</span></div>
 </div></div><div class="_hi"></div></div></div>
 <div class="_pc">子女端 · 首页 Dashboard</div>
 
-<!-- PHONE 2: Weekly Report -->
+<!-- ===== PHONE 2: Live Training Monitor ===== -->
 <div class="_pf">
-<div class="_sb" style="right:-3px;top:150px;height:52px;border-radius:0 2px 2px 0"></div><div class="_sb" style="right:-3px;top:210px;height:36px;border-radius:0 2px 2px 0"></div><div class="_sb" style="left:-3px;top:160px;height:38px;border-radius:2px 0 0 2px"></div>
+<div class="_sb" style="right:-3px;top:150px;height:52px;border-radius:0 2px 2px 0"></div><div class="_sb" style="right:-3px;top:210px;height:36px;border-radius:0 2px 2px 0"></div><div class="_sb" style="left:-3px;top:160px;height:38px;border-radius:2px 0 0 2px"></div><div class="_sb" style="left:-3px;top:206px;height:38px;border-radius:2px 0 0 2px"></div><div class="_sb" style="left:-3px;top:252px;height:38px;border-radius:2px 0 0 2px"></div>
 <div class="_sc">
-<div class="_st"><span class="_stt">9:41</span><span style="font-size:10px;color:rgba(255,255,255,.45)">周报</span></div>
+<div class="_st"><span class="_stt">9:41</span><div class="_sig"><svg width="15" height="11" viewBox="0 0 15 11"><rect x="0" y="7" width="3" height="3" rx="0.5" fill="rgba(255,255,255,0.3)"/><rect x="4" y="4" width="3" height="6" rx="0.5" fill="rgba(255,255,255,0.5)"/><rect x="8" y="1" width="3" height="9" rx="0.5" fill="#fff"/><rect x="12" y="0" width="2" height="10" rx="0.5" fill="#fff"/></svg><svg width="14" height="11" viewBox="0 0 14 11"><path d="M7 0C4.5 0 2.2 1 0.5 2.8L1.5 4C3 2.5 4.8 1.5 7 1.5C9.2 1.5 11 2.5 12.5 4L13.5 2.8C11.8 1 9.5 0 7 0Z" fill="#fff"/><path d="M7 3C5.4 3 4 3.7 3 4.8L4 6C4.8 5.1 5.9 4.5 7 4.5C8.1 4.5 9.2 5.1 10 6L11 4.8C10 3.7 8.6 3 7 3Z" fill="#fff"/><path d="M7 6C6.3 6 5.7 6.3 5.2 6.8L7 9L8.8 6.8C8.3 6.3 7.7 6 7 6Z" fill="#fff"/></svg><svg width="22" height="11" viewBox="0 0 22 11"><rect x="0" y="1" width="18" height="10" rx="2.5" stroke="#fff" stroke-width="1.2" fill="none"/><rect x="2" y="3" width="12" height="6" rx="1" fill="#10b981"/><rect x="19" y="3.5" width="2" height="4" rx="0.5" fill="rgba(255,255,255,0.3)"/></svg></div></div>
 <div class="_scc"><div class="_scr">
-<div style="margin-bottom:12px"><div style="font-size:15px;font-weight:700;color:#fff">周报</div><div class="_gl">6月30日 – 7月6日 · 第27周</div></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:17px;font-weight:700;color:#fff">实时训练</span><span class="_live">同步中</span></div>
+<div class="_db"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="1" y="6" width="18" height="12" rx="2"/><path d="M6 22h12"/></svg> 膝安 Gen 1 <span style="color:#10b981;font-weight:600">92%</span><span class="_dd"></span><svg width="14" height="10" viewBox="0 0 14 10"><rect x="0" y="6" width="2.5" height="4" rx="0.5" fill="#10b981"/><rect x="3.5" y="3" width="2.5" height="7" rx="0.5" fill="#10b981"/><rect x="7" y="1" width="2.5" height="9" rx="0.5" fill="#10b981"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5" fill="#10b981"/></svg> IMU <span style="color:rgba(255,255,255,0.6);font-weight:600">优秀</span></div>
+<div class="_gc" style="padding:16px;text-align:center">
+<div class="_gl" style="margin-bottom:4px">步态对称性</div>
+<svg width="180" height="90" viewBox="0 0 180 90"><path d="M 20 80 A 70 70 0 0 1 160 80" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="12" stroke-linecap="round"/><path d="M 20 80 A 70 70 0 0 1 160 80" fill="none" stroke="url(#gaugeGrad2)" stroke-width="12" stroke-linecap="round" stroke-dasharray="193.6 219.9"/><line x1="90" y1="80" x2="152" y2="66" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><circle cx="90" cy="80" r="4" fill="#fff"/><defs><linearGradient id="gaugeGrad2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ef4444"/><stop offset="35%" stop-color="#ff9f0a"/><stop offset="65%" stop-color="#ffd60a"/><stop offset="85%" stop-color="#10b981"/><stop offset="100%" stop-color="#10b981"/></linearGradient></defs></svg>
+<div style="font-size:32px;font-weight:800;color:#10b981;line-height:1;margin-top:-20px">94%</div>
+</div>
+<div class="_row" style="margin:8px 0">
+<div class="_mtr" style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:10px 4px"><div class="_mv">112</div><div class="_ml">步频 步/分</div></div>
+<div class="_mtr" style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:10px 4px"><div class="_mv">0.72</div><div class="_ml">步幅 m</div></div>
+<div class="_mtr" style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:10px 4px"><div class="_mv" style="color:#10b981">94%</div><div class="_ml">对称性</div></div></div>
+<div class="_gc" style="padding:10px">
+<div class="_gl" style="margin-bottom:6px">肌群激活热图 · 支撑相</div>
+<svg width="240" height="120" viewBox="0 0 240 120"><ellipse cx="50" cy="12" rx="12" ry="14" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><rect x="40" y="26" width="20" height="8" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><path d="M 30 34 L 70 34 L 78 72 L 22 72 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><rect x="28" y="40" width="18" height="16" rx="4" fill="rgba(0,150,240,0.15)"/><path d="M 30 38 L 12 58 L 10 64" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="7" stroke-linecap="round"/><path d="M 70 38 L 88 58 L 90 64" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="7" stroke-linecap="round"/><rect x="12" y="68" width="22" height="22" rx="5" fill="rgba(255,159,10,0.25)"/><rect x="46" y="68" width="22" height="22" rx="5" fill="rgba(16,185,129,0.3)"/><rect x="16" y="88" width="16" height="18" rx="4" fill="rgba(0,150,240,0.12)"/><rect x="48" y="88" width="16" height="18" rx="4" fill="rgba(16,185,129,0.2)"/><ellipse cx="24" cy="108" rx="8" ry="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><ellipse cx="56" cy="108" rx="8" ry="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><circle cx="20" cy="68" r="2.5" fill="rgba(255,255,255,0.4)" stroke="rgba(0,150,240,0.3)" stroke-width="0.6"/><circle cx="54" cy="68" r="2.5" fill="rgba(255,255,255,0.4)" stroke="rgba(0,150,240,0.3)" stroke-width="0.6"/><circle cx="22" cy="88" r="2" fill="rgba(255,255,255,0.4)" stroke="rgba(0,150,240,0.3)" stroke-width="0.6"/><circle cx="56" cy="88" r="2" fill="rgba(255,255,255,0.4)" stroke="rgba(0,150,240,0.3)" stroke-width="0.6"/><text x="26" y="98" font-size="7" fill="rgba(255,255,255,0.3)">左</text><text x="62" y="98" font-size="7" fill="rgba(255,255,255,0.3)">右</text><ellipse cx="150" cy="12" rx="12" ry="14" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><rect x="140" y="26" width="20" height="8" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><path d="M 130 34 L 170 34 L 178 72 L 122 72 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><rect x="128" y="40" width="18" height="16" rx="4" fill="rgba(0,150,240,0.12)"/><path d="M 130 38 L 112 58 L 110 64" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="7" stroke-linecap="round"/><path d="M 170 38 L 188 58 L 190 64" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="7" stroke-linecap="round"/><rect x="112" y="68" width="22" height="22" rx="5" fill="rgba(16,185,129,0.15)"/><rect x="146" y="68" width="22" height="22" rx="5" fill="rgba(16,185,129,0.15)"/><rect x="116" y="88" width="16" height="18" rx="4" fill="rgba(0,150,240,0.08)"/><rect x="148" y="88" width="16" height="18" rx="4" fill="rgba(0,150,240,0.08)"/><ellipse cx="124" cy="108" rx="8" ry="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><ellipse cx="156" cy="108" rx="8" ry="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/></svg>
+<div style="display:flex;justify-content:center;gap:12px;margin-top:4px"><span style="font-size:8px;color:#10b981">■ 高度激活</span><span style="font-size:8px;color:#ff9f0a">■ 中度</span><span style="font-size:8px;color:#0096f0">■ 低度</span></div></div>
+<div class="_gc" style="margin-top:8px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span class="_gl">辅助等级</span><span style="font-size:14px;font-weight:700;color:#0096f0">Level 2</span></div><div style="height:6px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden"><div style="height:100%;width:40%;background:linear-gradient(135deg,#0096f0,#00b4d8);border-radius:3px;box-shadow:0 0 12px rgba(0,150,240,0.3)"></div></div><div style="display:flex;justify-content:space-between;margin-top:3px"><span style="font-size:8px;color:rgba(255,255,255,0.2)">0</span><span style="font-size:8px;color:rgba(255,255,255,0.2)">1</span><span style="font-size:8px;color:rgba(255,255,255,0.4)">2</span><span style="font-size:8px;color:rgba(255,255,255,0.2)">3</span><span style="font-size:8px;color:rgba(255,255,255,0.2)">4</span><span style="font-size:8px;color:rgba(255,255,255,0.2)">5</span></div></div>
+</div></div>
+<div style="display:flex;gap:6px;padding:0 16px 10px"><button class="_btn2" style="flex:1;font-size:11px;padding:8px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> 暂停</button><button class="_btn" style="flex:1;font-size:11px;padding:8px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg> 结束</button></div>
+<button class="_btnd" style="margin:0 16px 10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> 紧急停止</button>
+<div class="_hi"></div></div></div>
+<div class="_pc">子女端 · 实时训练监控</div>
+
+<!-- ===== PHONE 3: Weekly Report ===== -->
+<div class="_pf">
+<div class="_sb" style="right:-3px;top:150px;height:52px;border-radius:0 2px 2px 0"></div><div class="_sb" style="right:-3px;top:210px;height:36px;border-radius:0 2px 2px 0"></div><div class="_sb" style="left:-3px;top:160px;height:38px;border-radius:2px 0 0 2px"></div><div class="_sb" style="left:-3px;top:206px;height:38px;border-radius:2px 0 0 2px"></div><div class="_sb" style="left:-3px;top:252px;height:38px;border-radius:2px 0 0 2px"></div>
+<div class="_sc">
+<div class="_st"><span class="_stt">9:41</span><div class="_sig"><svg width="15" height="11" viewBox="0 0 15 11"><rect x="0" y="7" width="3" height="3" rx="0.5" fill="rgba(255,255,255,0.3)"/><rect x="4" y="4" width="3" height="6" rx="0.5" fill="rgba(255,255,255,0.5)"/><rect x="8" y="1" width="3" height="9" rx="0.5" fill="#fff"/><rect x="12" y="0" width="2" height="10" rx="0.5" fill="#fff"/></svg><svg width="14" height="11" viewBox="0 0 14 11"><path d="M7 0C4.5 0 2.2 1 0.5 2.8L1.5 4C3 2.5 4.8 1.5 7 1.5C9.2 1.5 11 2.5 12.5 4L13.5 2.8C11.8 1 9.5 0 7 0Z" fill="#fff"/><path d="M7 3C5.4 3 4 3.7 3 4.8L4 6C4.8 5.1 5.9 4.5 7 4.5C8.1 4.5 9.2 5.1 10 6L11 4.8C10 3.7 8.6 3 7 3Z" fill="#fff"/><path d="M7 6C6.3 6 5.7 6.3 5.2 6.8L7 9L8.8 6.8C8.3 6.3 7.7 6 7 6Z" fill="#fff"/></svg><svg width="22" height="11" viewBox="0 0 22 11"><rect x="0" y="1" width="18" height="10" rx="2.5" stroke="#fff" stroke-width="1.2" fill="none"/><rect x="2" y="3" width="14" height="6" rx="1" fill="#10b981"/><rect x="19" y="3.5" width="2" height="4" rx="0.5" fill="rgba(255,255,255,0.3)"/></svg></div></div>
+<div class="_scc"><div class="_scr">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px"><div><div style="font-size:17px;font-weight:700;color:#fff">周报</div><div class="_gl">6月30日 – 7月6日</div></div><span style="display:inline-block;padding:4px 10px;background:rgba(0,150,240,0.12);border:1px solid rgba(0,150,240,0.2);border-radius:100px;font-size:10px;font-weight:600;color:#0096f0">第 27 周</span></div>
 <div class="_row" style="margin-bottom:8px">
-<div class="_gc" style="padding:10px 12px"><div class="_gl">总步数</div><div style="font-size:18px;font-weight:800;color:#fff">52,840</div><div style="font-size:9px;color:#10b981">↑12%</div></div>
-<div class="_gc" style="padding:10px 12px"><div class="_gl">训练天数</div><div style="font-size:18px;font-weight:800;color:#fff">6/7</div></div>
-<div class="_gc" style="padding:10px 12px"><div class="_gl">对称性</div><div style="font-size:18px;font-weight:800;color:#10b981">91%</div></div></div>
-<div class="_row" style="margin-bottom:8px">
-<div class="_gc" style="padding:10px 12px"><div class="_gl">6MWT 均值</div><div style="font-size:18px;font-weight:800;color:#fff">398m</div><div style="font-size:9px;color:#10b981">↑22m</div></div>
-<div class="_gc" style="padding:10px 12px"><div class="_gl">上下楼总计</div><div style="font-size:18px;font-weight:800;color:#fff">96层</div></div>
-<div class="_gc" style="padding:10px 12px"><div class="_gl">日均站立</div><div style="font-size:18px;font-weight:800;color:#fff">3.8h</div></div></div>
-<div class="_gc"><div class="_gl" style="margin-bottom:6px">KAM 周均值趋势</div><svg width="240" height="44"><polyline points="5,34 34,28 68,32 102,22 136,18 170,14 204,12 235,8" fill="none" stroke="#0096f0" stroke-width="2"/><polyline points="5,38 34,34 68,36 102,30 136,28 170,26 204,24 235,22" fill="none" stroke="#ff9f0a" stroke-width="2"/></svg><div style="display:flex;gap:16px;margin-top:2px"><span style="font-size:10px;color:#0096f0">左膝 ↓12%</span><span style="font-size:10px;color:#ff9f0a">右膝 ↓8%</span></div></div>
-<div class="_gc" style="margin-top:8px"><div class="_gl" style="margin-bottom:4px">步态不对称度趋势</div><svg width="240" height="30"><polyline points="5,22 34,18 68,20 102,14 136,12 170,10 204,8 235,6" fill="none" stroke="#10b981" stroke-width="2"/></svg><div style="font-size:10px;color:#10b981;margin-top:2px">从 8.2% 降至 6.1% · 接近正常阈值</div></div>
-<div class="_gc" style="margin-top:8px;background:rgba(0,150,240,.08);border-color:rgba(0,150,240,.15)"><div style="font-size:10px;color:#0096f0;font-weight:600">联邦学习策略更新</div><div style="font-size:10px;color:rgba(255,255,255,.7);margin-top:2px">下楼辅助力矩 → 14Nm · 基于 1,247 名相似用户聚合</div></div>
+<div class="_gc" style="padding:10px;text-align:center"><div class="_gl">总步数</div><div style="font-size:18px;font-weight:700;color:#fff">52,840</div><div style="font-size:9px;color:#10b981">↑12% vs 上周</div></div>
+<div class="_gc" style="padding:10px;text-align:center"><div class="_gl">训练天数</div><div style="font-size:18px;font-weight:700;color:#fff">6<span style="font-size:11px;font-weight:400;color:rgba(255,255,255,0.45)">/7</span></div><div style="font-size:9px;color:rgba(255,255,255,0.45)">休息 1 天</div></div>
+<div class="_gc" style="padding:10px;text-align:center"><div class="_gl">平均对称性</div><div style="font-size:18px;font-weight:700;color:#10b981">91%</div><div style="font-size:9px;color:#10b981">↑3% vs 上周</div></div></div>
+<div class="_gc">
+<div class="_gl" style="margin-bottom:6px">步数趋势</div>
+<svg viewBox="0 0 240 90" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="cf3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0096f0" stop-opacity="0.35"/><stop offset="100%" stop-color="#0096f0" stop-opacity="0.02"/></linearGradient></defs><line x1="8" y1="18" x2="232" y2="18" stroke="rgba(255,255,255,0.06)" stroke-width="0.5" stroke-dasharray="3 3"/><line x1="8" y1="36" x2="232" y2="36" stroke="rgba(255,255,255,0.06)" stroke-width="0.5" stroke-dasharray="3 3"/><line x1="8" y1="54" x2="232" y2="54" stroke="rgba(255,255,255,0.06)" stroke-width="0.5" stroke-dasharray="3 3"/><line x1="8" y1="72" x2="232" y2="72" stroke="rgba(255,255,255,0.06)" stroke-width="0.5" stroke-dasharray="3 3"/><polygon points="8,85 8,55 40,35 72,50 104,28 136,38 168,48 200,18 232,85" fill="url(#cf3)"/><polyline points="8,55 40,35 72,50 104,28 136,38 168,48 200,18" fill="none" stroke="#0096f0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="55" r="2.5" fill="#0096f0"/><circle cx="40" cy="35" r="2.5" fill="#0096f0"/><circle cx="72" cy="50" r="2.5" fill="#0096f0"/><circle cx="104" cy="28" r="2.5" fill="#0096f0"/><circle cx="136" cy="38" r="2.5" fill="#0096f0"/><circle cx="168" cy="48" r="2.5" fill="#0096f0"/><circle cx="200" cy="18" r="3.5" fill="#0096f0" stroke="#000" stroke-width="2"/></svg>
+<div style="display:flex;justify-content:space-between;margin-top:3px;padding:0 2px"><span style="font-size:10px;color:rgba(255,255,255,0.2)">一</span><span style="font-size:10px;color:rgba(255,255,255,0.2)">二</span><span style="font-size:10px;color:rgba(255,255,255,0.2)">三</span><span style="font-size:10px;color:rgba(255,255,255,0.2)">四</span><span style="font-size:10px;color:rgba(255,255,255,0.2)">五</span><span style="font-size:10px;color:rgba(255,255,255,0.2)">六</span><span style="font-size:10px;color:rgba(255,255,255,0.2)">日</span></div></div>
+<div style="display:flex;align-items:center;gap:8px;margin:8px 0;padding:8px 12px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.15);border-radius:12px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><span style="font-size:12px;color:#10b981;font-weight:500">较上周提升 12% · 持续改善</span></div>
+<div class="_gc" style="margin-top:8px"><div class="_gl" style="margin-bottom:6px">治疗师备注 · 王医生 7/6 14:30</div><div style="font-size:11px;color:rgba(255,255,255,0.7);line-height:1.7">本周步态对称性持续改善，左腿负重比升至87%（上周82%）。步频稳定。建议下周辅助等级调至Level 3，重点关注右腿摆动期控制。</div></div>
+<div class="_gc" style="margin-top:8px;background:rgba(0,150,240,0.08);border-color:rgba(0,150,240,0.15)"><div style="font-size:10px;color:#0096f0;font-weight:600">联邦学习策略更新</div><div style="font-size:10px;color:rgba(255,255,255,0.6);margin-top:2px">下楼辅助力矩 → 14Nm · 基于 1,247 名相似用户聚合</div></div>
 </div></div><div class="_hi"></div></div></div>
 <div class="_pc">子女端 · 周报</div>
 
-<!-- PHONE 3: Mobility Metrics -->
+<!-- ===== PHONE 4: Mobility Metrics ===== -->
 <div class="_pf">
 <div class="_sb" style="right:-3px;top:150px;height:52px;border-radius:0 2px 2px 0"></div><div class="_sb" style="right:-3px;top:210px;height:36px;border-radius:0 2px 2px 0"></div><div class="_sb" style="left:-3px;top:160px;height:38px;border-radius:2px 0 0 2px"></div>
 <div class="_sc">
-<div class="_st"><span class="_stt">9:41</span><span style="font-size:10px;color:rgba(255,255,255,.45)">活动能力</span></div>
+<div class="_st"><span class="_stt">9:41</span><div class="_sig"><svg width="15" height="11" viewBox="0 0 15 11"><rect x="0" y="7" width="3" height="3" rx="0.5" fill="rgba(255,255,255,0.3)"/><rect x="4" y="4" width="3" height="6" rx="0.5" fill="rgba(255,255,255,0.5)"/><rect x="8" y="1" width="3" height="9" rx="0.5" fill="#fff"/><rect x="12" y="0" width="2" height="10" rx="0.5" fill="#fff"/></svg><svg width="14" height="11" viewBox="0 0 14 11"><path d="M7 0C4.5 0 2.2 1 0.5 2.8L1.5 4C3 2.5 4.8 1.5 7 1.5C9.2 1.5 11 2.5 12.5 4L13.5 2.8C11.8 1 9.5 0 7 0Z" fill="#fff"/><path d="M7 3C5.4 3 4 3.7 3 4.8L4 6C4.8 5.1 5.9 4.5 7 4.5C8.1 4.5 9.2 5.1 10 6L11 4.8C10 3.7 8.6 3 7 3Z" fill="#fff"/><path d="M7 6C6.3 6 5.7 6.3 5.2 6.8L7 9L8.8 6.8C8.3 6.3 7.7 6 7 6Z" fill="#fff"/></svg><svg width="22" height="11" viewBox="0 0 22 11"><rect x="0" y="1" width="18" height="10" rx="2.5" stroke="#fff" stroke-width="1.2" fill="none"/><rect x="2" y="3" width="14" height="6" rx="1" fill="#10b981"/><rect x="19" y="3.5" width="2" height="4" rx="0.5" fill="rgba(255,255,255,0.3)"/></svg></div></div>
 <div class="_scc"><div class="_scr">
-<div style="margin-bottom:10px"><div style="font-size:15px;font-weight:700;color:#fff">活动能力评估</div><div class="_gl">基于 gait biomechanics 的临床级指标</div></div>
-<div class="_gc" style="text-align:center"><div class="_gl">6 分钟步行测试 (6MWT)</div><div style="font-size:44px;font-weight:800;color:#10b981;line-height:1.1;margin:2px 0">412 m</div><div class="_gl">MCID 阈值 30m · 较上周 +22m · 高于临床意义阈值</div><div style="margin-top:6px;display:flex;justify-content:center;gap:6px"><div style="width:8px;height:28px;border-radius:4px;background:#0096f0;opacity:.5;align-self:flex-end"></div><div style="width:8px;height:32px;border-radius:4px;background:#0096f0;opacity:.6"></div><div style="width:8px;height:36px;border-radius:4px;background:#0096f0;opacity:.7"></div><div style="width:8px;height:40px;border-radius:4px;background:#0096f0"></div></div><div class="_gl" style="margin-top:2px">第1周 390m → 第2周 398m → 第3周 405m → 本周 412m</div></div>
+<div style="margin-bottom:10px"><div style="font-size:17px;font-weight:700;color:#fff">活动能力评估</div><div class="_gl">基于 gait biomechanics 的临床级指标</div></div>
+<div class="_gc" style="text-align:center"><div class="_gl">6 分钟步行测试 (6MWT)</div><div style="font-size:40px;font-weight:800;color:#10b981;line-height:1.1;margin:2px 0">412 m</div><div class="_gl">MCID 阈值 30m · 较上周 +22m · 高于临床意义阈值</div><div style="display:flex;justify-content:center;gap:4px;margin-top:6px;align-items:flex-end;height:32px"><div style="width:8px;height:22px;border-radius:4px;background:#0096f0;opacity:.4"></div><div style="width:8px;height:26px;border-radius:4px;background:#0096f0;opacity:.55"></div><div style="width:8px;height:30px;border-radius:4px;background:#0096f0;opacity:.7"></div><div style="width:8px;height:32px;border-radius:4px;background:#0096f0"></div></div><div class="_gl" style="margin-top:2px">第1周 390m → 第2周 398m → 第3周 405m → 本周 412m</div></div>
 <div class="_row" style="margin:8px 0">
-<div class="_gc" style="padding:10px 12px;text-align:center"><div class="_gl">步速</div><div style="font-size:20px;font-weight:800;color:#fff">1.14</div><div class="_gl">m/s</div></div>
-<div class="_gc" style="padding:10px 12px;text-align:center"><div class="_gl">步幅</div><div style="font-size:20px;font-weight:800;color:#fff">0.68</div><div class="_gl">m</div></div>
-<div class="_gc" style="padding:10px 12px;text-align:center"><div class="_gl">步频</div><div style="font-size:20px;font-weight:800;color:#fff">108</div><div class="_gl">步/分</div></div></div>
-<div class="_gc"><div class="_gl" style="margin-bottom:4px">步态不对称度</div><div style="display:flex;align-items:baseline;gap:6px"><span style="font-size:28px;font-weight:800;color:#ff9f0a">6.1%</span><span style="font-size:11px;color:#10b981">↓ 从 8.2%</span></div><div class="_gl">正常 &lt;5% · 膝OA患者均值 8-15%</div></div>
-<div class="_gc" style="margin-top:8px"><div class="_gl" style="margin-bottom:4px">双膝力矩分布</div><div style="display:flex;height:12px;border-radius:6px;overflow:hidden"><div style="width:46%;background:#0096f0"></div><div style="width:6%;background:#2C2C2E"></div><div style="width:48%;background:#ff9f0a"></div></div><div style="display:flex;justify-content:space-between;margin-top:3px"><span style="font-size:9px;color:#0096f0">左膝 46%</span><span style="font-size:9px;color:#ff9f0a">右膝 48%</span></div></div>
+<div class="_gc" style="padding:10px;text-align:center"><div class="_gl">步速</div><div style="font-size:20px;font-weight:700;color:#fff">1.14</div><div class="_gl">m/s</div></div>
+<div class="_gc" style="padding:10px;text-align:center"><div class="_gl">步幅</div><div style="font-size:20px;font-weight:700;color:#fff">0.68</div><div class="_gl">m</div></div>
+<div class="_gc" style="padding:10px;text-align:center"><div class="_gl">步频</div><div style="font-size:20px;font-weight:700;color:#fff">108</div><div class="_gl">步/分</div></div></div>
+<div class="_gc"><div class="_gl" style="margin-bottom:4px">步态不对称度</div><div style="display:flex;align-items:baseline;gap:6px"><span style="font-size:28px;font-weight:800;color:#ff9f0a">6.1%</span><span style="font-size:11px;color:#10b981">↓ 从 8.2%</span></div><div class="_gl">正常 &lt;5% · 膝OA患者均值 8–15% · 从异常区间向正常收敛</div></div>
+<div class="_gc" style="margin-top:8px"><div class="_gl" style="margin-bottom:4px">双膝力矩分布 · 支撑相</div><div style="display:flex;height:10px;border-radius:5px;overflow:hidden"><div style="width:46%;background:#0096f0"></div><div style="width:6%;background:rgba(255,255,255,0.06)"></div><div style="width:48%;background:#ff9f0a"></div></div><div style="display:flex;justify-content:space-between;margin-top:3px"><span style="font-size:9px;color:#0096f0">左膝 46%</span><span style="font-size:9px;color:rgba(255,255,255,0.3)">差值 2%</span><span style="font-size:9px;color:#ff9f0a">右膝 48%</span></div></div>
+<div class="_gc" style="margin-top:8px"><div class="_gl" style="margin-bottom:4px">膝关节角度 · 步态周期</div><svg width="240" height="40"><path d="M0,30 Q30,10 60,35 Q100,38 150,12 Q200,35 240,28" fill="none" stroke="#10b981" stroke-width="2"/><path d="M0,28 Q30,12 60,32 Q100,35 150,15 Q200,32 240,30" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" stroke-dasharray="4,3"/></svg><div style="display:flex;gap:12px;margin-top:2px"><span style="font-size:9px;color:#10b981">当前</span><span style="font-size:9px;color:rgba(255,255,255,0.12)">上周</span></div></div>
 </div></div><div class="_hi"></div></div></div>
 <div class="_pc">子女端 · 活动能力评估</div>
 
-<!-- PHONE 4: Body Diagram + Muscle -->
-<div class="_pf">
-<div class="_sb" style="right:-3px;top:150px;height:52px;border-radius:0 2px 2px 0"></div><div class="_sb" style="right:-3px;top:210px;height:36px;border-radius:0 2px 2px 0"></div>
-<div class="_sc">
-<div class="_st"><span class="_stt">9:41</span><span style="font-size:10px;color:rgba(255,255,255,.45)">肌群分析</span></div>
-<div class="_scc"><div class="_scr">
-<div style="margin-bottom:10px"><div style="font-size:15px;font-weight:700;color:#fff">肌群激活热图</div><div class="_gl">实时 · 步态支撑相 · 左右对比</div></div>
-<div class="_gc" style="padding:8px">
-<svg width="240" height="180" viewBox="0 0 240 180">
-<ellipse cx="80" cy="30" rx="18" ry="20" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-<rect x="62" y="50" width="36" height="60" rx="18" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-<path d="M80,110 L65,170 L62,178" stroke="rgba(255,255,255,.1)" stroke-width="16" fill="none"/>
-<path d="M80,110 L95,170 L98,178" stroke="rgba(255,255,255,.1)" stroke-width="16" fill="none"/>
-<ellipse cx="160" cy="30" rx="18" ry="20" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-<rect x="142" y="50" width="36" height="60" rx="18" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-<path d="M160,110 L145,170 L142,178" stroke="rgba(255,255,255,.1)" stroke-width="16" fill="none"/>
-<path d="M160,110 L175,170 L178,178" stroke="rgba(255,255,255,.1)" stroke-width="16" fill="none"/>
-<ellipse cx="68" cy="75" rx="12" ry="6" fill="#ef4444" opacity=".7"/>
-<ellipse cx="92" cy="75" rx="12" ry="6" fill="#ff9f0a" opacity=".5"/>
-<ellipse cx="68" cy="95" rx="10" ry="5" fill="#10b981" opacity=".6"/>
-<ellipse cx="92" cy="95" rx="10" ry="5" fill="#0096f0" opacity=".4"/>
-<ellipse cx="148" cy="75" rx="12" ry="6" fill="#ff9f0a" opacity=".6"/>
-<ellipse cx="172" cy="75" rx="12" ry="6" fill="#ef4444" opacity=".4"/>
-<ellipse cx="148" cy="95" rx="10" ry="5" fill="#0096f0" opacity=".5"/>
-<ellipse cx="172" cy="95" rx="10" ry="5" fill="#10b981" opacity=".4"/>
-<text x="80" y="194" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="9">左腿</text>
-<text x="160" y="194" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="9">右腿</text></svg>
-<div style="display:flex;justify-content:center;gap:12px;margin-top:4px"><span style="font-size:8px;color:#ef4444">高激活</span><span style="font-size:8px;color:#ff9f0a">中</span><span style="font-size:8px;color:#0096f0">低</span><span style="font-size:8px;color:#10b981">正常</span></div></div>
-<div class="_row" style="margin:8px 0">
-<div class="_gc" style="padding:10px 12px;text-align:center"><div class="_gl">股四头肌</div><div style="font-size:18px;font-weight:800;color:#ff9f0a">72%</div><div class="_gl">激活度</div></div>
-<div class="_gc" style="padding:10px 12px;text-align:center"><div class="_gl">腘绳肌</div><div style="font-size:18px;font-weight:800;color:#10b981">88%</div><div class="_gl">激活度</div></div></div>
-<div class="_gc"><div class="_gl" style="margin-bottom:4px">股四头肌力矩贡献 · 支撑相</div><div style="height:40px;display:flex;align-items:flex-end;gap:3px"><div style="flex:1;background:#0096f0;border-radius:2px 2px 0 0;height:28px;opacity:.5"></div><div style="flex:1;background:#0096f0;border-radius:2px 2px 0 0;height:32px;opacity:.6"></div><div style="flex:1;background:#0096f0;border-radius:2px 2px 0 0;height:38px;opacity:.7"></div><div style="flex:1;background:#0096f0;border-radius:2px 2px 0 0;height:40px;opacity:.8"></div><div style="flex:1;background:#0096f0;border-radius:2px 2px 0 0;height:35px;opacity:.7"></div><div style="flex:1;background:#0096f0;border-radius:2px 2px 0 0;height:30px;opacity:.6"></div><div style="flex:1;background:#0096f0;border-radius:2px 2px 0 0;height:22px;opacity:.4"></div></div><div class="_gl" style="margin-top:2px">初始触地 → 支撑中期 → 足尖离地</div></div>
-<div class="_gc" style="margin-top:8px"><div class="_gl">步态周期力-角曲线</div><svg width="240" height="50"><path d="M5,40 Q40,10 80,45 Q120,48 160,15 Q200,42 235,38" fill="none" stroke="#0096f0" stroke-width="2"/></svg><div style="display:flex;justify-content:space-between;margin-top:2px"><span style="font-size:9px;color:rgba(255,255,255,.3)">0%</span><span style="font-size:9px;color:rgba(255,255,255,.3)">25%</span><span style="font-size:9px;color:rgba(255,255,255,.3)">50%</span><span style="font-size:9px;color:rgba(255,255,255,.3)">75%</span><span style="font-size:9px;color:rgba(255,255,255,.3)">100%</span></div></div>
-<div class="_gc" style="margin-top:8px"><div class="_gl" style="margin-bottom:4px">膝关节角度 · 步态周期</div><svg width="240" height="40"><path d="M0,30 Q30,10 60,35 Q100,38 150,12 Q200,35 240,28" fill="none" stroke="#10b981" stroke-width="2"/><path d="M0,28 Q30,12 60,32 Q100,35 150,15 Q200,32 240,30" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1.5" stroke-dasharray="4,3"/></svg><div style="display:flex;gap:10px;margin-top:2px"><span style="font-size:9px;color:#10b981">当前</span><span style="font-size:9px;color:rgba(255,255,255,.15)">上周</span></div></div>
-</div></div><div class="_hi"></div></div></div>
-<div class="_pc">子女端 · 肌群分析与步态</div>
-
-<!-- DEVICE 5: Elder Panel -->
-<div class="_pf">
-<div class="_sb" style="right:-3px;top:150px;height:52px;border-radius:0 2px 2px 0"></div><div class="_sb" style="left:-3px;top:160px;height:38px;border-radius:2px 0 0 2px"></div>
-<div class="_sc">
-<div class="_st"><span class="_stt">膝安 KneeEase</span><span style="font-size:10px;color:rgba(255,255,255,.45)">适老面板</span></div>
-<div class="_scc"><div class="_scr">
-<div style="text-align:center;margin-bottom:12px"><div style="font-size:14px;font-weight:700;color:#fff">老人无需 App</div><div class="_gl">三个物理按键 · 所有操作一键完成</div></div>
-<div class="_gc" style="text-align:center"><div class="_gl" style="margin-bottom:8px">模式切换 · 按一次循环</div><div style="display:flex;align-items:center;justify-content:center;gap:6px;margin:8px 0"><div style="width:48px;height:48px;border-radius:50%;background:rgba(0,150,240,.1);border:1.5px solid rgba(0,150,240,.3);display:flex;align-items:center;justify-content:center;color:#0096f0;font-size:11px;font-weight:700">助力</div><span style="color:rgba(255,255,255,.15)">→</span><span style="color:rgba(255,255,255,.6);font-size:12px">训练</span><span style="color:rgba(255,255,255,.15)">→</span><span style="color:rgba(255,255,255,.3);font-size:10px">按摩</span></div><div class="_gl">LED 色环确认 · 按键震动反馈</div></div>
-<div class="_gc" style="text-align:center;margin-top:10px"><div class="_gl" style="margin-bottom:8px">辅助力度 · 物理旋钮</div><div style="display:flex;gap:12px;justify-content:center;margin-bottom:8px"><div style="width:60px;height:60px;border-radius:14px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:600;color:#fff">+</div><div style="width:60px;height:60px;border-radius:14px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:600;color:#fff">−</div></div><div style="display:inline-block;padding:8px 24px;border-radius:20px;background:rgba(0,150,240,.1);border:1.5px solid rgba(0,150,240,.3);color:#0096f0;font-size:18px;font-weight:800">Level 2</div><div class="_gl" style="margin-top:6px">咔嗒触感 · 每级震动确认</div></div>
-<div class="_btnd" style="margin-top:14px">紧急停止</div>
-<div style="display:flex;justify-content:space-between;margin-top:12px;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.06)"><span style="font-size:10px;color:#30D158">● 已连接 · 87%</span><span style="font-size:10px;color:#0096f0">● 子女在线</span></div>
-</div></div><div class="_hi"></div></div></div>
-<div class="_pc">老人端 · 物理按键</div>
-
+<!-- ===== DEVICE 5: Elder Physical Panel (NOT a phone) ===== -->
+<div class="_dp">
+<div class="_dsc">
+<div style="text-align:center;margin-bottom:12px"><div style="font-size:15px;font-weight:700;color:#fff;letter-spacing:1px">膝安 KneeEase</div><div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:2px">GEN 1 · 适老控制面板</div></div>
+<div style="font-size:10px;color:rgba(255,255,255,0.35);text-align:center;margin-bottom:10px">模式选择 · 按一次循环</div>
+<div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px">
+<div class="_dpbtn _dpbtn-sm" style="background:rgba(0,150,240,0.15);border-color:rgba(0,150,240,0.3);color:#0096f0;box-shadow:0 0 12px rgba(0,150,240,0.2)">助力</div>
+<span style="font-size:8px;color:rgba(255,255,255,0.15)">→</span>
+<span style="font-size:11px;color:rgba(255,255,255,0.4)">训练</span>
+<span style="font-size:8px;color:rgba(255,255,255,0.15)">→</span>
+<span style="font-size:10px;color:rgba(255,255,255,0.2)">按摩</span>
 </div>
+<div style="display:flex;gap:2px;justify-content:center;margin-bottom:18px"><div style="width:6px;height:6px;border-radius:50%;background:#0096f0;box-shadow:0 0 6px rgba(0,150,240,0.4)"></div><div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.08)"></div><div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.08)"></div></div>
+<div style="font-size:10px;color:rgba(255,255,255,0.35);text-align:center;margin-bottom:10px">辅助力度调节</div>
+<div style="display:flex;gap:14px;justify-content:center;margin-bottom:10px">
+<div class="_dpbtn _dpbtn-sm" style="font-size:22px">+</div>
+<div class="_dpbtn _dpbtn-sm" style="font-size:22px">−</div>
+</div>
+<div style="display:inline-block;width:100%;text-align:center;padding:10px;border-radius:14px;background:rgba(0,150,240,0.08);border:1.5px solid rgba(0,150,240,0.25);color:#0096f0;font-size:20px;font-weight:800;letter-spacing:1px;margin-bottom:16px">LEVEL 2</div>
+<div class="_dpbtn _dpbtn-em" style="margin-bottom:14px">紧 急 停 止</div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.04);margin-top:auto">
+<span style="font-size:10px;color:rgba(255,255,255,0.6)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:#10b981;margin-right:4px;box-shadow:0 0 4px rgba(16,185,129,0.5)"></span>已连接 · 87%</span>
+<span style="font-size:10px;color:#0096f0"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:#0096f0;margin-right:4px;box-shadow:0 0 4px rgba(0,150,240,0.5)"></span>子女在线</span>
+</div>
+</div>
+</div>
+<div class="_pc">老人端 · 设备物理按键面板</div>
+
 </div>
 
 <!-- ============================================================ -->
