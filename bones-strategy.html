@@ -310,6 +310,7 @@ tr.row-highlight td { background:#f5f5f5 !important; font-weight:600; }
 tr.row-warning td { background:#f5f5f5 !important; }
 
 blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; background:#f8fafc; border-radius:0 6px 6px 0; color:#000; font-size:14px; }
+@media print { body { display:none !important; } html::after { content:'本文档为保密材料，禁止打印。'; display:block; text-align:center; font-size:24px; margin-top:40vh; color:#666; } }
 </style>
 </head>
 <body>
@@ -7246,6 +7247,23 @@ IMU欧拉角(滚转/俯仰/偏航·3维), 足底压力F_GRF(1), 历史τ_out(t�
 <p style="font-weight:700;color:var(--text);margin-bottom:8px">Bones & Manifold · 骨骼流形</p>
 <p style="margin-top:12px"><strong>Forward-Looking Statements:</strong> This document contains forward-looking statements. Actual results may differ materially. All figures are estimates derived from publicly available data and internal analysis.</p>
 <p style="margin-top:8px;font-size:11px;color:var(--text-secondary)">© 2026 Bones & Manifold. All rights reserved. Confidential — for qualified investor review only. 更新：2026-07-07 01:02:45 北京时间</p>
+</footer>
+<script>
+(function(){
+  var c = ['contextmenu','selectstart','dragstart','copy','cut'];
+  c.forEach(function(e){ document.addEventListener(e, function(ev){ ev.preventDefault(); return false; }); });
+  document.addEventListener('keydown', function(e){
+    if (e.ctrlKey && (e.key==='s'||e.key==='S'||e.key==='p'||e.key==='P'||e.key==='u'||e.key==='U'||e.key==='c'||e.key==='C')) { e.preventDefault(); return false; }
+    if (e.key==='F12'||(e.ctrlKey&&e.shiftKey&&(e.key==='I'||e.key==='i'||e.key==='J'||e.key==='j'||e.key==='C'||e.key==='c'))) { e.preventDefault(); return false; }
+    if (e.metaKey && (e.key==='s'||e.key==='S'||e.key==='p'||e.key==='P')) { e.preventDefault(); return false; }
+  });
+  document.addEventListener('keyup', function(e){
+    if (e.key==='F12'||(e.ctrlKey&&e.shiftKey&&(e.key==='I'||e.key==='i'))) { e.preventDefault(); return false; }
+  });
+  console.log('%c STOP %c 此页面受保护。禁止复制、保存、打印。如需获取文档请直接联系创始人。', 'font-size:20px;color:red', 'font-size:12px;color:#333');
+  console.log('%c Bones & Manifold %c Confidential Materials', 'font-weight:bold;color:#0096f0', 'color:#666');
+})();
+</script></p>
 </footer>
 
 </body>
