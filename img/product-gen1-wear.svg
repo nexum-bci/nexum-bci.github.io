@@ -1,412 +1,525 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 920" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 960" width="100%" height="100%">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FAFBFC"/>
-      <stop offset="100%" stop-color="#F2F4F7"/>
-    </linearGradient>
+    <!-- Background -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F0F2F5"/>
+    </radialGradient>
+    <!-- Waist belt metallic -->
     <linearGradient id="beltGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#4A4F56"/>
-      <stop offset="15%" stop-color="#3A3F47"/>
-      <stop offset="50%" stop-color="#2A2E33"/>
-      <stop offset="85%" stop-color="#1E2228"/>
-      <stop offset="100%" stop-color="#161A1F"/>
+      <stop offset="0%" stop-color="#5A6068"/><stop offset="12%" stop-color="#444950"/>
+      <stop offset="50%" stop-color="#2E3238"/><stop offset="88%" stop-color="#1A1D22"/>
+      <stop offset="100%" stop-color="#111318"/>
     </linearGradient>
+    <!-- Motor unit -->
     <linearGradient id="motorGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#555B63"/>
-      <stop offset="30%" stop-color="#3A3F47"/>
-      <stop offset="70%" stop-color="#2A2E33"/>
-      <stop offset="100%" stop-color="#1A1D23"/>
+      <stop offset="0%" stop-color="#5E646C"/><stop offset="25%" stop-color="#40454C"/>
+      <stop offset="65%" stop-color="#2C3036"/><stop offset="100%" stop-color="#181A1F"/>
     </linearGradient>
+    <linearGradient id="motorHighlight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF" stop-opacity="0.12"/><stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Carbon fiber rod cylindrical -->
     <linearGradient id="rodGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#2D3238"/>
-      <stop offset="25%" stop-color="#4A5058"/>
-      <stop offset="50%" stop-color="#555B63"/>
-      <stop offset="75%" stop-color="#4A5058"/>
-      <stop offset="100%" stop-color="#2D3238"/>
+      <stop offset="0%" stop-color="#25292E"/><stop offset="20%" stop-color="#4A5058"/>
+      <stop offset="50%" stop-color="#5E646C"/><stop offset="80%" stop-color="#4A5058"/>
+      <stop offset="100%" stop-color="#25292E"/>
     </linearGradient>
+    <!-- Knee brace -->
     <linearGradient id="braceGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#3D566E"/>
-      <stop offset="30%" stop-color="#34495E"/>
-      <stop offset="70%" stop-color="#2C3E50"/>
-      <stop offset="100%" stop-color="#1E2C3A"/>
+      <stop offset="0%" stop-color="#455E74"/><stop offset="25%" stop-color="#3A4F63"/>
+      <stop offset="60%" stop-color="#2F4152"/><stop offset="100%" stop-color="#1C2B38"/>
     </linearGradient>
-    <linearGradient id="braceSide" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#000" stop-opacity="0.2"/>
-      <stop offset="20%" stop-color="#000" stop-opacity="0"/>
-      <stop offset="80%" stop-color="#000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000" stop-opacity="0.25"/>
+    <linearGradient id="braceSideAO" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.25"/>
+      <stop offset="25%" stop-color="#000" stop-opacity="0.05"/>
+      <stop offset="75%" stop-color="#000" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.3"/>
     </linearGradient>
+    <!-- Cable -->
     <linearGradient id="cableGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#3A3F47"/>
-      <stop offset="40%" stop-color="#555B63"/>
-      <stop offset="100%" stop-color="#3A3F47"/>
+      <stop offset="0%" stop-color="#34383E"/><stop offset="35%" stop-color="#5A6068"/>
+      <stop offset="65%" stop-color="#5A6068"/><stop offset="100%" stop-color="#34383E"/>
     </linearGradient>
+    <!-- Calf strap -->
     <linearGradient id="strapGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#4A4F56"/>
-      <stop offset="100%" stop-color="#2A2E33"/>
+      <stop offset="0%" stop-color="#50555C"/><stop offset="100%" stop-color="#25292E"/>
     </linearGradient>
-    <pattern id="carbonWeave" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
-      <rect width="8" height="8" fill="#3D4249"/>
-      <path d="M0,8 L8,0" stroke="#2D3238" stroke-width="0.6"/>
-      <path d="M2,8 L8,2" stroke="#4A5058" stroke-width="0.3"/>
-      <path d="M0,6 L6,0" stroke="#4A5058" stroke-width="0.3"/>
-      <path d="M8,0 L0,8" stroke="#1A1D23" stroke-width="0.3"/>
+    <!-- Human body gradient (darker, visible) -->
+    <linearGradient id="bodyGrad" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#D8DADF"/><stop offset="100%" stop-color="#B8BCC4"/>
+    </linearGradient>
+    <linearGradient id="bodyEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#A0A4AC"/><stop offset="50%" stop-color="#C8CCD2"/>
+      <stop offset="100%" stop-color="#A0A4AC"/>
+    </linearGradient>
+
+    <!-- Carbon fiber weave pattern (enhanced) -->
+    <pattern id="carbonWeave" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+      <rect width="10" height="10" fill="#35393F"/>
+      <path d="M0,10 L10,0" stroke="#25292E" stroke-width="0.8"/>
+      <path d="M3,10 L10,3" stroke="#50565C" stroke-width="0.4"/>
+      <path d="M0,7 L7,0" stroke="#50565C" stroke-width="0.4"/>
+      <path d="M10,0 L0,10" stroke="#15181C" stroke-width="0.4"/>
+      <path d="M-2,5 L5,-2 M5,12 L12,5" stroke="#40454B" stroke-width="0.2" opacity="0.5"/>
     </pattern>
-    <pattern id="fabricTex" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
-      <rect width="4" height="4" fill="none"/>
-      <path d="M0,0 L4,4 M4,0 L0,4" stroke="#1A2A3A" stroke-width="0.3" opacity="0.25"/>
+    <!-- Fabric texture -->
+    <pattern id="fabricTex" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse">
+      <rect width="5" height="5" fill="none"/>
+      <path d="M0,0 L5,5 M5,0 L0,5" stroke="#16202A" stroke-width="0.4" opacity="0.3"/>
     </pattern>
-    <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E8EBF0" stroke-width="0.5"/>
+    <!-- Subtle grid -->
+    <pattern id="grid" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#E4E7EC" stroke-width="0.5"/>
     </pattern>
-    <filter id="shadowHeavy" x="-5%" y="-5%" width="115%" height="115%">
-      <feDropShadow dx="1" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.18"/>
+
+    <!-- Shadows -->
+    <filter id="shadowCard" x="-8%" y="-8%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+    <filter id="shadowBelt" x="-5%" y="-5%" width="115%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.22"/>
     </filter>
     <filter id="shadowLight" x="-5%" y="-5%" width="115%" height="115%">
-      <feDropShadow dx="0" dy="1.5" stdDeviation="2.5" flood-color="#000" flood-opacity="0.10"/>
+      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#000" flood-opacity="0.10"/>
     </filter>
-    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#0096f0" flood-opacity="0.15"/>
+    <filter id="glowBlue" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#0096F0" flood-opacity="0.25"/>
+    </filter>
+    <filter id="bodyShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.08"/>
     </filter>
   </defs>
 
   <!-- ============================================================ -->
-  <!-- BACKGROUND                                                    -->
+  <!-- BACKGROUND -->
   <!-- ============================================================ -->
-  <rect width="800" height="920" fill="url(#bgGrad)"/>
-  <g opacity="0.6">
-    <rect x="25" y="25" width="750" height="870" fill="none" stroke="#D5D8DC" stroke-width="0.8"/>
-    <rect x="28" y="28" width="744" height="864" fill="none" stroke="#E0E3E8" stroke-width="0.5"/>
-  </g>
-  <rect x="0" y="0" width="800" height="920" fill="url(#grid)" opacity="0.4"/>
-  <line x1="400" y1="40" x2="400" y2="880" stroke="#E0E3E8" stroke-width="0.5" stroke-dasharray="6,8" opacity="0.6"/>
+  <rect width="800" height="960" fill="url(#bgGrad)"/>
+  <rect x="0" y="0" width="800" height="960" fill="url(#grid)" opacity="0.35"/>
+
+  <!-- Outer frame -->
+  <rect x="20" y="20" width="760" height="920" fill="none" stroke="#D0D4D8" stroke-width="1.2" rx="2"/>
+  <rect x="24" y="24" width="752" height="912" fill="none" stroke="#E4E7EC" stroke-width="0.6" rx="1"/>
+
+  <!-- Center guideline -->
+  <line x1="400" y1="45" x2="400" y2="920" stroke="#D8DBE0" stroke-width="0.5" stroke-dasharray="8,10" opacity="0.6"/>
+
+  <!-- ============================================================ -->
+  <!-- TITLE BLOCK -->
+  <!-- ============================================================ -->
+  <rect x="180" y="28" width="440" height="42" rx="3" fill="#1A1D23" opacity="0.04"/>
+  <text x="400" y="50" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="17" font-weight="800" fill="#1A1D23" letter-spacing="4">Bones Gen 1 · 绳驱膝关节外骨骼</text>
+  <text x="400" y="68" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.5" fill="#7A8088" letter-spacing="2.5">绳驱（Bowden电缆）· 双向推拉（弹簧辅助）· 腰部电机 · 膝部护膝式柔性接口 · 正面视图</text>
 
   <!-- Ground shadow -->
-  <ellipse cx="400" cy="882" rx="130" ry="8" fill="#D0D4D8" opacity="0.3"/>
-  <ellipse cx="400" cy="882" rx="85" ry="4" fill="#C0C4C8" opacity="0.2"/>
+  <ellipse cx="400" cy="920" rx="145" ry="9" fill="#C8CCD2" opacity="0.28"/>
+  <ellipse cx="400" cy="920" rx="90" ry="4.5" fill="#B0B4BA" opacity="0.18"/>
 
   <!-- ============================================================ -->
-  <!-- TITLE AREA                                                    -->
+  <!-- HUMAN FIGURE — darker, properly visible                      -->
   <!-- ============================================================ -->
-  <text x="400" y="44" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif" font-size="16" font-weight="700" fill="#2C3E50" letter-spacing="3">Bones Gen 1 · 绳驱膝关节外骨骼</text>
-  <text x="400" y="62" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif" font-size="10" font-weight="400" fill="#8C939A" letter-spacing="2">绳驱（Bowden电缆）· 双向推拉（弹簧辅助）· 腰部电机 · 膝部护膝式柔性接口 · 正面视图</text>
+  <g id="human-figure" filter="url(#bodyShadow)">
+    <!-- Head (darker fill with edge) -->
+    <ellipse cx="400" cy="118" rx="30" ry="34" fill="#CFD2D8" stroke="#A8ACB4" stroke-width="0.8"/>
+    <!-- Hair suggestion -->
+    <path d="M 372,98 Q 400,78 428,98 Q 430,108 428,115 Q 400,105 372,115 Z" fill="#B0B4BC" opacity="0.5"/>
+    <!-- Eyes (subtle) -->
+    <ellipse cx="390" cy="116" rx="2.5" ry="1.8" fill="#90949C" opacity="0.4"/>
+    <ellipse cx="410" cy="116" rx="2.5" ry="1.8" fill="#90949C" opacity="0.4"/>
+    <!-- Mouth -->
+    <path d="M 394,128 Q 400,131 406,128" fill="none" stroke="#90949C" stroke-width="0.4" opacity="0.3"/>
 
-  <!-- ============================================================ -->
-  <!-- HUMAN FIGURE — full body, front view                          -->
-  <!-- ============================================================ -->
-  <g id="human-figure">
-    <!-- Head -->
-    <ellipse cx="400" cy="112" rx="28" ry="32" fill="#F0F1F3"/>
     <!-- Neck -->
-    <path d="M 376,142 Q 400,148 424,142 L 427,152 Q 400,160 373,152 Z" fill="#F0F1F3"/>
+    <path d="M 374,150 Q 400,157 426,150 L 429,162 Q 400,170 371,162 Z" fill="#CFD2D8"/>
+
     <!-- Torso -->
-    <path d="M 374,148 Q 325,156 305,168 Q 318,200 326,228 Q 336,278 340,318 Q 334,348 326,365 L 400,374 L 474,365 Q 466,348 460,318 Q 464,278 474,228 Q 482,200 495,168 Q 475,156 426,148 Z" fill="#F0F1F3"/>
-    <!-- Left arm -->
-    <path d="M 305,168 Q 280,230 283,300 Q 285,340 292,368" fill="none" stroke="#F0F1F3" stroke-width="16" stroke-linecap="round"/>
-    <!-- Right arm -->
-    <path d="M 495,168 Q 520,230 517,300 Q 515,340 508,368" fill="none" stroke="#F0F1F3" stroke-width="16" stroke-linecap="round"/>
-    <!-- Left hand -->
-    <ellipse cx="293" cy="380" rx="12" ry="16" fill="#F0F1F3"/>
-    <!-- Right hand -->
-    <ellipse cx="507" cy="380" rx="12" ry="16" fill="#F0F1F3"/>
+    <path d="M 372,156 Q 320,166 302,178 Q 316,212 324,242 Q 334,296 338,340 Q 332,372 324,390 L 400,400 L 476,390 Q 468,372 462,340 Q 466,296 476,242 Q 484,212 498,178 Q 480,166 428,156 Z" fill="#CFD2D8" stroke="#A8ACB4" stroke-width="0.7"/>
 
-    <!-- Left leg (full, down to foot) -->
-    <path d="M 342,362 Q 350,440 350,530 Q 350,620 342,710" fill="none" stroke="#F0F1F3" stroke-width="26" stroke-linecap="round"/>
-    <!-- Right leg -->
-    <path d="M 458,362 Q 450,440 450,530 Q 450,620 458,710" fill="none" stroke="#F0F1F3" stroke-width="26" stroke-linecap="round"/>
+    <!-- Arms -->
+    <path d="M 302,178 Q 276,244 279,320 Q 281,362 288,392" fill="none" stroke="#CFD2D8" stroke-width="18" stroke-linecap="round"/>
+    <path d="M 498,178 Q 524,244 521,320 Q 519,362 512,392" fill="none" stroke="#CFD2D8" stroke-width="18" stroke-linecap="round"/>
+    <!-- Hands -->
+    <ellipse cx="289" cy="406" rx="13" ry="18" fill="#CFD2D8"/>
+    <ellipse cx="511" cy="406" rx="13" ry="18" fill="#CFD2D8"/>
 
-    <!-- Left foot -->
-    <path d="M 336,710 L 318,732 L 332,744 L 362,744 L 364,730 L 356,710 Z" fill="#F0F1F3"/>
-    <!-- Right foot -->
-    <path d="M 464,710 L 482,732 L 468,744 L 438,744 L 436,730 L 444,710 Z" fill="#F0F1F3"/>
+    <!-- Legs -->
+    <path d="M 340,386 Q 348,470 348,555 Q 348,650 340,748" fill="none" stroke="#CFD2D8" stroke-width="28" stroke-linecap="round"/>
+    <path d="M 460,386 Q 452,470 452,555 Q 452,650 460,748" fill="none" stroke="#CFD2D8" stroke-width="28" stroke-linecap="round"/>
 
-    <!-- Anatomical landmarks -->
-    <g stroke="#D0D4D8" stroke-width="0.7" fill="none">
-      <path d="M 338,155 Q 400,162 462,155" stroke-dasharray="2,3" opacity="0.5"/>
-      <path d="M 338,318 Q 400,326 462,318" stroke-dasharray="2,3" opacity="0.5"/>
-      <circle cx="350" cy="530" r="6" stroke-width="1" opacity="0.4"/>
-      <circle cx="450" cy="530" r="6" stroke-width="1" opacity="0.4"/>
-      <circle cx="340" cy="708" r="3.5" stroke-width="0.7" opacity="0.3"/>
-      <circle cx="460" cy="708" r="3.5" stroke-width="0.7" opacity="0.3"/>
+    <!-- Feet with toes suggestion -->
+    <path d="M 332,748 L 314,772 L 328,786 L 364,786 L 366,770 L 356,748 Z" fill="#CFD2D8" stroke="#A8ACB4" stroke-width="0.7"/>
+    <path d="M 344,780 L 344,786" stroke="#A8ACB4" stroke-width="0.3" opacity="0.4"/>
+    <path d="M 468,748 L 486,772 L 472,786 L 436,786 L 434,770 L 444,748 Z" fill="#CFD2D8" stroke="#A8ACB4" stroke-width="0.7"/>
+    <path d="M 456,780 L 456,786" stroke="#A8ACB4" stroke-width="0.3" opacity="0.4"/>
+
+    <!-- Anatomical reference points (visible but subtle) -->
+    <g stroke="#90949C" fill="none" opacity="0.45">
+      <!-- Shoulder line -->
+      <line x1="336" y1="164" x2="464" y2="164" stroke-width="0.6" stroke-dasharray="3,4"/>
+      <!-- Waist line -->
+      <line x1="336" y1="340" x2="464" y2="340" stroke-width="0.6" stroke-dasharray="3,4"/>
+      <!-- Hip line -->
+      <line x1="330" y1="370" x2="470" y2="370" stroke-width="0.5" stroke-dasharray="2,4"/>
+      <!-- Knee centers -->
+      <circle cx="348" cy="555" r="7" stroke-width="0.8"/>
+      <circle cx="452" cy="555" r="7" stroke-width="0.8"/>
+      <!-- Ankle -->
+      <circle cx="336" cy="748" r="4" stroke-width="0.6"/>
+      <circle cx="464" cy="748" r="4" stroke-width="0.6"/>
     </g>
+    <!-- Knee center dots -->
+    <circle cx="348" cy="555" r="2.5" fill="#90949C" opacity="0.5"/>
+    <circle cx="452" cy="555" r="2.5" fill="#90949C" opacity="0.5"/>
   </g>
 
   <!-- ============================================================ -->
-  <!-- EXOSKELETON COMPONENTS                                       -->
+  <!-- EXOSKELETON — WAIST BELT -->
   <!-- ============================================================ -->
-
-  <!-- WAIST BELT -->
-  <g id="waist-belt" filter="url(#shadowHeavy)">
-    <path d="M 322,313 Q 400,330 478,313 L 480,348 Q 400,368 320,348 Z" fill="url(#beltGrad)"/>
-    <path d="M 322,313 Q 400,330 478,313" fill="none" stroke="#6B727A" stroke-width="1.2"/>
-    <path d="M 320,348 Q 400,368 480,348" fill="none" stroke="#161A1F" stroke-width="1.2"/>
-    <path d="M 321,330 Q 400,349 479,330" fill="none" stroke="#1A1D23" stroke-width="0.5" opacity="0.4"/>
-    <!-- Center control panel -->
-    <rect x="380" y="322" width="40" height="28" rx="3" fill="#1A1D23" stroke="#6B727A" stroke-width="0.8"/>
-    <circle cx="400" cy="332" r="4" fill="#555B63"/>
-    <circle cx="400" cy="332" r="2.5" fill="#0096F0" opacity="0.8" filter="url(#glow)"/>
-    <text x="400" y="344" text-anchor="middle" font-family="'Helvetica Neue',sans-serif" font-size="5" fill="#6B727A" font-weight="600">ON</text>
-    <!-- Stitching -->
-    <path d="M 328,320 Q 400,336 472,320" fill="none" stroke="#6B727A" stroke-width="0.5" stroke-dasharray="2,3" opacity="0.3"/>
-    <path d="M 326,342 Q 400,360 474,342" fill="none" stroke="#6B727A" stroke-width="0.5" stroke-dasharray="2,3" opacity="0.3"/>
+  <g id="waist-belt" filter="url(#shadowBelt)">
+    <path d="M 318,332 Q 400,352 482,332 L 484,372 Q 400,394 316,372 Z" fill="url(#beltGrad)"/>
+    <path d="M 318,332 Q 400,352 482,332" fill="none" stroke="#787E86" stroke-width="1.3"/>
+    <path d="M 316,372 Q 400,394 484,372" fill="none" stroke="#0D0F13" stroke-width="1.3"/>
+    <path d="M 317,352 Q 400,373 483,352" fill="none" stroke="#111318" stroke-width="0.6" opacity="0.5"/>
+    <!-- Control panel -->
+    <rect x="376" y="342" width="48" height="32" rx="4" fill="#111318" stroke="#787E86" stroke-width="1"/>
+    <rect x="380" y="346" width="40" height="24" rx="2" fill="#1A1D22" stroke="#50565C" stroke-width="0.5"/>
+    <circle cx="400" cy="354" r="5" fill="#40454B"/>
+    <circle cx="400" cy="354" r="3" fill="#0096F0" opacity="0.85" filter="url(#glowBlue)"/>
+    <text x="400" y="368" text-anchor="middle" font-family="'Helvetica Neue',sans-serif" font-size="5.5" fill="#787E86" font-weight="700">ON</text>
+    <!-- Belt stitching -->
+    <path d="M 326,340 Q 400,358 474,340" fill="none" stroke="#787E86" stroke-width="0.6" stroke-dasharray="2.5,3.5" opacity="0.35"/>
+    <path d="M 324,364 Q 400,384 476,364" fill="none" stroke="#787E86" stroke-width="0.6" stroke-dasharray="2.5,3.5" opacity="0.35"/>
   </g>
 
-  <!-- MOTOR UNITS (bilateral) -->
+  <!-- ============================================================ -->
+  <!-- EXOSKELETON — MOTOR UNITS -->
+  <!-- ============================================================ -->
   <g id="motor-units">
-    <!-- Left motor -->
-    <g filter="url(#shadowHeavy)">
-      <rect x="292" y="304" width="30" height="54" rx="6" fill="url(#motorGrad)"/>
-      <rect x="292" y="304" width="30" height="54" rx="6" fill="none" stroke="#6B727A" stroke-width="0.8"/>
-      <rect x="294" y="306" width="26" height="50" rx="4" fill="none" stroke="#4A5058" stroke-width="0.5"/>
-      <line x1="296" y1="315" x2="296" y2="348" stroke="#1A1D23" stroke-width="1.5" opacity="0.3"/>
-      <line x1="318" y1="315" x2="318" y2="348" stroke="#1A1D23" stroke-width="1.5" opacity="0.3"/>
-      <text x="307" y="326" text-anchor="middle" font-family="'Helvetica Neue',sans-serif" font-size="5.5" fill="#6B727A" font-weight="600">NM</text>
-      <circle cx="307" cy="354" r="4" fill="#555B63" stroke="#6B727A" stroke-width="0.5"/>
-      <circle cx="307" cy="354" r="2" fill="#2A2E33"/>
+    <!-- Left motor unit -->
+    <g filter="url(#shadowCard)">
+      <rect x="288" y="324" width="32" height="58" rx="7" fill="url(#motorGrad)"/>
+      <rect x="288" y="324" width="32" height="58" rx="7" fill="url(#motorHighlight)"/>
+      <rect x="288" y="324" width="32" height="58" rx="7" fill="none" stroke="#787E86" stroke-width="0.9"/>
+      <rect x="291" y="327" width="26" height="52" rx="5" fill="none" stroke="#50565C" stroke-width="0.6"/>
+      <!-- Cooling fins -->
+      <line x1="293" y1="336" x2="319" y2="336" stroke="#181A1F" stroke-width="1.2" opacity="0.35"/>
+      <line x1="293" y1="344" x2="319" y2="344" stroke="#181A1F" stroke-width="1.2" opacity="0.35"/>
+      <line x1="293" y1="352" x2="319" y2="352" stroke="#181A1F" stroke-width="1.2" opacity="0.35"/>
+      <line x1="293" y1="360" x2="319" y2="360" stroke="#181A1F" stroke-width="1.2" opacity="0.35"/>
+      <line x1="293" y1="368" x2="319" y2="368" stroke="#181A1F" stroke-width="1.2" opacity="0.35"/>
+      <!-- Motor label -->
+      <text x="304" y="348" text-anchor="middle" font-family="'Helvetica Neue',sans-serif" font-size="6" fill="#9EA4AC" font-weight="700" letter-spacing="1.5">M1</text>
+      <!-- Cable outlet -->
+      <circle cx="304" cy="378" r="4.5" fill="#25292E" stroke="#787E86" stroke-width="0.7"/>
+      <circle cx="304" cy="378" r="2.2" fill="#111318"/>
     </g>
-    <!-- Right motor -->
-    <g filter="url(#shadowHeavy)">
-      <rect x="478" y="304" width="30" height="54" rx="6" fill="url(#motorGrad)"/>
-      <rect x="478" y="304" width="30" height="54" rx="6" fill="none" stroke="#6B727A" stroke-width="0.8"/>
-      <rect x="480" y="306" width="26" height="50" rx="4" fill="none" stroke="#4A5058" stroke-width="0.5"/>
-      <line x1="482" y1="315" x2="482" y2="348" stroke="#1A1D23" stroke-width="1.5" opacity="0.3"/>
-      <line x1="504" y1="315" x2="504" y2="348" stroke="#1A1D23" stroke-width="1.5" opacity="0.3"/>
-      <text x="493" y="326" text-anchor="middle" font-family="'Helvetica Neue',sans-serif" font-size="5.5" fill="#6B727A" font-weight="600">NM</text>
-      <circle cx="493" cy="354" r="4" fill="#555B63" stroke="#6B727A" stroke-width="0.5"/>
-      <circle cx="493" cy="354" r="2" fill="#2A2E33"/>
+    <!-- Right motor unit -->
+    <g filter="url(#shadowCard)">
+      <rect x="480" y="324" width="32" height="58" rx="7" fill="url(#motorGrad)"/>
+      <rect x="480" y="324" width="32" height="58" rx="7" fill="url(#motorHighlight)"/>
+      <rect x="480" y="324" width="32" height="58" rx="7" fill="none" stroke="#787E86" stroke-width="0.9"/>
+      <rect x="483" y="327" width="26" height="52" rx="5" fill="none" stroke="#50565C" stroke-width="0.6"/>
+      <line x1="485" y1="336" x2="511" y2="336" stroke="#181A1F" stroke-width="1.2" opacity="0.35"/>
+      <line x1="485" y1="344" x2="511" y2="344" stroke="#181A1F" stroke-width="1.2" opacity="0.35"/>
+      <line x1="485" y1="352" x2="511" y2="352" stroke="#181A1F" stroke-width="1.2" opacity="0.35"/>
+      <line x1="485" y1="360" x2="511" y2="360" stroke="#181A1F" stroke-width="1.2" opacity="0.35"/>
+      <line x1="485" y1="368" x2="511" y2="368" stroke="#181A1F" stroke-width="1.2" opacity="0.35"/>
+      <text x="496" y="348" text-anchor="middle" font-family="'Helvetica Neue',sans-serif" font-size="6" fill="#9EA4AC" font-weight="700" letter-spacing="1.5">M2</text>
+      <circle cx="496" cy="378" r="4.5" fill="#25292E" stroke="#787E86" stroke-width="0.7"/>
+      <circle cx="496" cy="378" r="2.2" fill="#111318"/>
     </g>
   </g>
 
-  <!-- BATTERY PACK (rear, dashed outline) -->
+  <!-- Battery pack (rear, dashed) -->
   <g id="battery-pack">
-    <path d="M 386,302 Q 400,294 414,302" fill="none" stroke="#8C939A" stroke-width="0.8" stroke-dasharray="2,3"/>
-    <path d="M 384,296 Q 400,287 416,296" fill="none" stroke="#A0A6AE" stroke-width="0.5" stroke-dasharray="2,3"/>
+    <rect x="385" y="314" width="30" height="22" rx="3" fill="none" stroke="#90949C" stroke-width="0.9" stroke-dasharray="3,3" opacity="0.5"/>
+    <text x="400" y="327" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="5.5" fill="#90949C" opacity="0.6">电池</text>
   </g>
 
   <!-- ============================================================ -->
-  <!-- CABLE ASSEMBLIES — 碳纤维大腿连杆 + Bowden电缆                -->
+  <!-- CABLE ASSEMBLIES — Bowden Cable + 碳纤维大腿连杆              -->
   <!-- ============================================================ -->
   <g id="cable-assemblies">
-    <!-- LEFT SIDE -->
-    <!-- Carbon fiber rod shadow -->
-    <path d="M 336,366 L 348,540" stroke="#1A1D23" stroke-width="7" stroke-linecap="round" opacity="0.15" transform="translate(2,2)"/>
-    <!-- Carbon fiber rod -->
-    <path d="M 334,366 L 346,540" stroke="url(#carbonWeave)" stroke-width="7" stroke-linecap="round"/>
-    <path d="M 334,366 L 346,540" stroke="url(#rodGrad)" stroke-width="7" stroke-linecap="round" opacity="0.7"/>
-    <path d="M 332,366 L 344,540" stroke="#727980" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
-    <path d="M 336,366 L 348,540" stroke="#1A1D23" stroke-width="1.2" stroke-linecap="round" opacity="0.2"/>
-    <!-- Bowden cable -->
-    <path d="M 307,354 Q 320,366 334,366 L 346,540" stroke="url(#cableGrad)" stroke-width="5" fill="none" stroke-linecap="round"/>
-    <path d="M 307,354 Q 320,366 334,366 L 346,540" stroke="#2A2E33" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.3"/>
-    <!-- Cable inner wire at motor -->
-    <path d="M 307,348 L 307,354" stroke="#8C929A" stroke-width="1.5" fill="none"/>
-    <circle cx="307" cy="348" r="1.3" fill="#A0A6AE"/>
-    <!-- Cable ferrule at knee -->
-    <rect x="342" y="536" width="8" height="5" rx="1.5" fill="#2A2E33" stroke="#555B63" stroke-width="0.5"/>
-    <path d="M 346,540 L 348,547" stroke="#8C929A" stroke-width="1.2" fill="none"/>
-    <circle cx="348" cy="547" r="1" fill="#A0A6AE"/>
-    <!-- Cable clips -->
-    <rect x="332" y="418" width="14" height="3" rx="1" fill="#1A1D23" opacity="0.3"/>
-    <rect x="334" y="470" width="14" height="3" rx="1" fill="#1A1D23" opacity="0.3"/>
+    <!-- ===== LEFT SIDE ===== -->
+    <!-- Rod shadow -->
+    <path d="M 334,394 L 346,570" stroke="#000" stroke-width="8" stroke-linecap="round" opacity="0.12" transform="translate(3,3)"/>
+    <!-- Carbon fiber rod (weave pattern) -->
+    <path d="M 332,394 L 344,570" stroke="url(#carbonWeave)" stroke-width="8" stroke-linecap="round"/>
+    <!-- 3D overlay -->
+    <path d="M 332,394 L 344,570" stroke="url(#rodGrad)" stroke-width="8" stroke-linecap="round" opacity="0.65"/>
+    <!-- Edge highlight -->
+    <path d="M 330,394 L 342,570" stroke="#989EA6" stroke-width="1.4" stroke-linecap="round" opacity="0.3"/>
+    <!-- Edge shadow -->
+    <path d="M 334,394 L 346,570" stroke="#111318" stroke-width="1.4" stroke-linecap="round" opacity="0.25"/>
 
-    <!-- RIGHT SIDE -->
-    <path d="M 464,366 L 452,540" stroke="#1A1D23" stroke-width="7" stroke-linecap="round" opacity="0.15" transform="translate(-2,2)"/>
-    <path d="M 466,366 L 454,540" stroke="url(#carbonWeave)" stroke-width="7" stroke-linecap="round"/>
-    <path d="M 466,366 L 454,540" stroke="url(#rodGrad)" stroke-width="7" stroke-linecap="round" opacity="0.7"/>
-    <path d="M 468,366 L 456,540" stroke="#727980" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
-    <path d="M 464,366 L 452,540" stroke="#1A1D23" stroke-width="1.2" stroke-linecap="round" opacity="0.2"/>
-    <path d="M 493,354 Q 480,366 466,366 L 454,540" stroke="url(#cableGrad)" stroke-width="5" fill="none" stroke-linecap="round"/>
-    <path d="M 493,354 Q 480,366 466,366 L 454,540" stroke="#2A2E33" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.3"/>
-    <path d="M 493,348 L 493,354" stroke="#8C929A" stroke-width="1.5" fill="none"/>
-    <circle cx="493" cy="348" r="1.3" fill="#A0A6AE"/>
-    <rect x="450" y="536" width="8" height="5" rx="1.5" fill="#2A2E33" stroke="#555B63" stroke-width="0.5"/>
-    <path d="M 454,540 L 452,547" stroke="#8C929A" stroke-width="1.2" fill="none"/>
-    <circle cx="452" cy="547" r="1" fill="#A0A6AE"/>
-    <rect x="454" y="418" width="14" height="3" rx="1" fill="#1A1D23" opacity="0.3"/>
-    <rect x="452" y="470" width="14" height="3" rx="1" fill="#1A1D23" opacity="0.3"/>
+    <!-- Bowden cable (outer sheath) -->
+    <path d="M 304,378 Q 318,392 332,394 L 344,570" stroke="url(#cableGrad)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+    <path d="M 304,378 Q 318,392 332,394 L 344,570" stroke="#1A1D22" stroke-width="5.5" fill="none" stroke-linecap="round" opacity="0.3"/>
+    <!-- Cable spiral wrap texture -->
+    <path d="M 308,383 Q 314,384 320,382" stroke="#787E86" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <path d="M 325,386 Q 330,390 334,396" stroke="#787E86" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <path d="M 338,410 Q 340,425 342,440" stroke="#787E86" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <path d="M 343,460 Q 344,480 343,500" stroke="#787E86" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <path d="M 344,515 Q 345,530 344,550" stroke="#787E86" stroke-width="0.5" fill="none" opacity="0.3"/>
+
+    <!-- Inner wire at motor -->
+    <path d="M 304,370 L 304,378" stroke="#B8BCC2" stroke-width="1.8" fill="none"/>
+    <circle cx="304" cy="370" r="1.5" fill="#D0D4D8"/>
+
+    <!-- Ferrule at knee brace -->
+    <rect x="340" y="566" width="9" height="6" rx="2" fill="#25292E" stroke="#787E86" stroke-width="0.6"/>
+    <path d="M 344,570 L 346,578" stroke="#B8BCC2" stroke-width="1.4" fill="none"/>
+    <circle cx="346" cy="578" r="1.2" fill="#D0D4D8"/>
+
+    <!-- Cable clips -->
+    <rect x="330" y="440" width="16" height="4" rx="1.2" fill="#181A1F" opacity="0.35"/>
+    <rect x="332" y="500" width="16" height="4" rx="1.2" fill="#181A1F" opacity="0.35"/>
+
+    <!-- ===== RIGHT SIDE ===== -->
+    <path d="M 466,394 L 454,570" stroke="#000" stroke-width="8" stroke-linecap="round" opacity="0.12" transform="translate(-3,3)"/>
+    <path d="M 468,394 L 456,570" stroke="url(#carbonWeave)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 468,394 L 456,570" stroke="url(#rodGrad)" stroke-width="8" stroke-linecap="round" opacity="0.65"/>
+    <path d="M 470,394 L 458,570" stroke="#989EA6" stroke-width="1.4" stroke-linecap="round" opacity="0.3"/>
+    <path d="M 466,394 L 454,570" stroke="#111318" stroke-width="1.4" stroke-linecap="round" opacity="0.25"/>
+
+    <path d="M 496,378 Q 482,392 468,394 L 456,570" stroke="url(#cableGrad)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+    <path d="M 496,378 Q 482,392 468,394 L 456,570" stroke="#1A1D22" stroke-width="5.5" fill="none" stroke-linecap="round" opacity="0.3"/>
+    <path d="M 492,383 Q 486,384 480,382" stroke="#787E86" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <path d="M 475,386 Q 470,390 466,396" stroke="#787E86" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <path d="M 462,410 Q 460,425 458,440" stroke="#787E86" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <path d="M 457,460 Q 456,480 457,500" stroke="#787E86" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <path d="M 456,515 Q 455,530 456,550" stroke="#787E86" stroke-width="0.5" fill="none" opacity="0.3"/>
+
+    <path d="M 496,370 L 496,378" stroke="#B8BCC2" stroke-width="1.8" fill="none"/>
+    <circle cx="496" cy="370" r="1.5" fill="#D0D4D8"/>
+    <rect x="451" y="566" width="9" height="6" rx="2" fill="#25292E" stroke="#787E86" stroke-width="0.6"/>
+    <path d="M 456,570 L 454,578" stroke="#B8BCC2" stroke-width="1.4" fill="none"/>
+    <circle cx="454" cy="578" r="1.2" fill="#D0D4D8"/>
+    <rect x="454" y="440" width="16" height="4" rx="1.2" fill="#181A1F" opacity="0.35"/>
+    <rect x="452" y="500" width="16" height="4" rx="1.2" fill="#181A1F" opacity="0.35"/>
   </g>
 
   <!-- ============================================================ -->
-  <!-- KNEE BRACE INTERFACES — 膝部护膝式柔性接口（无铰链）           -->
+  <!-- KNEE BRACE INTERFACES — 护膝式柔性接口（无铰链）               -->
   <!-- ============================================================ -->
   <g id="knee-braces">
-    <!-- LEFT KNEE BRACE -->
-    <g filter="url(#shadowHeavy)">
-      <ellipse cx="348" cy="542" rx="30" ry="26" fill="#000" opacity="0.06"/>
-      <path d="M 322,512 Q 348,500 374,512 L 376,568 Q 348,580 320,568 Z" fill="url(#braceGrad)"/>
-      <path d="M 322,512 Q 348,500 374,512 L 376,568 Q 348,580 320,568 Z" fill="url(#fabricTex)"/>
-      <path d="M 322,512 Q 348,500 374,512 L 376,568 Q 348,580 320,568 Z" fill="url(#braceSide)"/>
-      <path d="M 322,512 Q 348,500 374,512" fill="none" stroke="#4A6274" stroke-width="4.5" stroke-linecap="round"/>
-      <path d="M 322,513 Q 348,501 374,513" fill="none" stroke="#5A7A8E" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
-      <path d="M 320,568 Q 348,580 376,568" fill="none" stroke="#1E2C3A" stroke-width="4" stroke-linecap="round"/>
-      <path d="M 320,567 Q 348,579 376,567" fill="none" stroke="#4A6274" stroke-width="0.8" stroke-linecap="round" opacity="0.3"/>
-      <ellipse cx="348" cy="540" rx="10" ry="12" fill="#1E2C3A" stroke="#4A6274" stroke-width="1"/>
-      <ellipse cx="348" cy="540" rx="5.5" ry="8" fill="#16202A" opacity="0.6"/>
-      <path d="M 328,522 Q 348,512 368,522" fill="none" stroke="#4A6274" stroke-width="0.6" stroke-dasharray="2,3" opacity="0.5"/>
-      <path d="M 326,558 Q 348,568 370,558" fill="none" stroke="#4A6274" stroke-width="0.6" stroke-dasharray="2,3" opacity="0.5"/>
-      <path d="M 330,514 L 328,564" stroke="#4A6274" stroke-width="1.2" fill="none" opacity="0.25"/>
-      <path d="M 366,514 L 368,564" stroke="#4A6274" stroke-width="1.2" fill="none" opacity="0.25"/>
-      <circle cx="348" cy="508" r="3.5" fill="#2A2E33" stroke="#555B63" stroke-width="0.6"/>
-      <circle cx="348" cy="508" r="1.8" fill="#555B63"/>
-      <circle cx="348" cy="508" r="5.5" fill="none" stroke="#4A6274" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.4"/>
-      <path d="M 330,528 Q 348,520 366,528" stroke="#1A2A3A" stroke-width="0.3" fill="none" opacity="0.3"/>
-      <path d="M 328,548 Q 348,540 368,548" stroke="#1A2A3A" stroke-width="0.3" fill="none" opacity="0.3"/>
+    <!-- ===== LEFT ===== -->
+    <g filter="url(#shadowCard)">
+      <ellipse cx="346" cy="572" rx="33" ry="28" fill="#000" opacity="0.07"/>
+      <!-- Main body -->
+      <path d="M 318,538 Q 346,524 374,538 L 376,602 Q 346,616 316,602 Z" fill="url(#braceGrad)"/>
+      <path d="M 318,538 Q 346,524 374,538 L 376,602 Q 346,616 316,602 Z" fill="url(#fabricTex)"/>
+      <path d="M 318,538 Q 346,524 374,538 L 376,602 Q 346,616 316,602 Z" fill="url(#braceSideAO)"/>
+      <!-- Top band -->
+      <path d="M 318,538 Q 346,524 374,538" fill="none" stroke="#557088" stroke-width="5" stroke-linecap="round"/>
+      <path d="M 318,539 Q 346,525 374,539" fill="none" stroke="#6888A4" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+      <!-- Bottom band -->
+      <path d="M 316,602 Q 346,616 376,602" fill="none" stroke="#15222E" stroke-width="4.5" stroke-linecap="round"/>
+      <path d="M 316,601 Q 346,615 376,601" fill="none" stroke="#557088" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+      <!-- Patella opening -->
+      <ellipse cx="346" cy="570" rx="11" ry="13.5" fill="#15222E" stroke="#557088" stroke-width="1.2"/>
+      <ellipse cx="346" cy="570" rx="6" ry="8.5" fill="#0D1620" opacity="0.6"/>
+      <!-- Stabilizer stays -->
+      <path d="M 326,540 L 324,598" stroke="#557088" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <path d="M 366,540 L 368,598" stroke="#557088" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <!-- Stitching -->
+      <path d="M 324,550 Q 346,540 368,550" fill="none" stroke="#557088" stroke-width="0.7" stroke-dasharray="2.5,3" opacity="0.45"/>
+      <path d="M 322,590 Q 346,602 370,590" fill="none" stroke="#557088" stroke-width="0.7" stroke-dasharray="2.5,3" opacity="0.45"/>
+      <!-- Cable anchor -->
+      <circle cx="346" cy="534" r="4" fill="#25292E" stroke="#787E86" stroke-width="0.7"/>
+      <circle cx="346" cy="534" r="2" fill="#50565C"/>
+      <circle cx="346" cy="534" r="6.5" fill="none" stroke="#557088" stroke-width="0.6" stroke-dasharray="2,2.5" opacity="0.4"/>
+      <!-- Texture lines -->
+      <path d="M 326,562 Q 346,554 366,562" stroke="#0D1620" stroke-width="0.4" fill="none" opacity="0.3"/>
+      <path d="M 324,580 Q 346,572 368,580" stroke="#0D1620" stroke-width="0.4" fill="none" opacity="0.3"/>
     </g>
 
-    <!-- RIGHT KNEE BRACE -->
-    <g filter="url(#shadowHeavy)">
-      <ellipse cx="452" cy="542" rx="30" ry="26" fill="#000" opacity="0.06"/>
-      <path d="M 426,512 Q 452,500 478,512 L 480,568 Q 452,580 424,568 Z" fill="url(#braceGrad)"/>
-      <path d="M 426,512 Q 452,500 478,512 L 480,568 Q 452,580 424,568 Z" fill="url(#fabricTex)"/>
-      <path d="M 426,512 Q 452,500 478,512 L 480,568 Q 452,580 424,568 Z" fill="url(#braceSide)"/>
-      <path d="M 426,512 Q 452,500 478,512" fill="none" stroke="#4A6274" stroke-width="4.5" stroke-linecap="round"/>
-      <path d="M 426,513 Q 452,501 478,513" fill="none" stroke="#5A7A8E" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
-      <path d="M 424,568 Q 452,580 480,568" fill="none" stroke="#1E2C3A" stroke-width="4" stroke-linecap="round"/>
-      <path d="M 424,567 Q 452,579 480,567" fill="none" stroke="#4A6274" stroke-width="0.8" stroke-linecap="round" opacity="0.3"/>
-      <ellipse cx="452" cy="540" rx="10" ry="12" fill="#1E2C3A" stroke="#4A6274" stroke-width="1"/>
-      <ellipse cx="452" cy="540" rx="5.5" ry="8" fill="#16202A" opacity="0.6"/>
-      <path d="M 432,522 Q 452,512 472,522" fill="none" stroke="#4A6274" stroke-width="0.6" stroke-dasharray="2,3" opacity="0.5"/>
-      <path d="M 430,558 Q 452,568 474,558" fill="none" stroke="#4A6274" stroke-width="0.6" stroke-dasharray="2,3" opacity="0.5"/>
-      <path d="M 434,514 L 432,564" stroke="#4A6274" stroke-width="1.2" fill="none" opacity="0.25"/>
-      <path d="M 470,514 L 472,564" stroke="#4A6274" stroke-width="1.2" fill="none" opacity="0.25"/>
-      <circle cx="452" cy="508" r="3.5" fill="#2A2E33" stroke="#555B63" stroke-width="0.6"/>
-      <circle cx="452" cy="508" r="1.8" fill="#555B63"/>
-      <circle cx="452" cy="508" r="5.5" fill="none" stroke="#4A6274" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.4"/>
-      <path d="M 434,528 Q 452,520 470,528" stroke="#1A2A3A" stroke-width="0.3" fill="none" opacity="0.3"/>
-      <path d="M 432,548 Q 452,540 472,548" stroke="#1A2A3A" stroke-width="0.3" fill="none" opacity="0.3"/>
+    <!-- ===== RIGHT ===== -->
+    <g filter="url(#shadowCard)">
+      <ellipse cx="454" cy="572" rx="33" ry="28" fill="#000" opacity="0.07"/>
+      <path d="M 426,538 Q 454,524 482,538 L 484,602 Q 454,616 424,602 Z" fill="url(#braceGrad)"/>
+      <path d="M 426,538 Q 454,524 482,538 L 484,602 Q 454,616 424,602 Z" fill="url(#fabricTex)"/>
+      <path d="M 426,538 Q 454,524 482,538 L 484,602 Q 454,616 424,602 Z" fill="url(#braceSideAO)"/>
+      <path d="M 426,538 Q 454,524 482,538" fill="none" stroke="#557088" stroke-width="5" stroke-linecap="round"/>
+      <path d="M 426,539 Q 454,525 482,539" fill="none" stroke="#6888A4" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+      <path d="M 424,602 Q 454,616 484,602" fill="none" stroke="#15222E" stroke-width="4.5" stroke-linecap="round"/>
+      <path d="M 424,601 Q 454,615 484,601" fill="none" stroke="#557088" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+      <ellipse cx="454" cy="570" rx="11" ry="13.5" fill="#15222E" stroke="#557088" stroke-width="1.2"/>
+      <ellipse cx="454" cy="570" rx="6" ry="8.5" fill="#0D1620" opacity="0.6"/>
+      <path d="M 434,540 L 432,598" stroke="#557088" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <path d="M 474,540 L 476,598" stroke="#557088" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <path d="M 432,550 Q 454,540 476,550" fill="none" stroke="#557088" stroke-width="0.7" stroke-dasharray="2.5,3" opacity="0.45"/>
+      <path d="M 430,590 Q 454,602 478,590" fill="none" stroke="#557088" stroke-width="0.7" stroke-dasharray="2.5,3" opacity="0.45"/>
+      <circle cx="454" cy="534" r="4" fill="#25292E" stroke="#787E86" stroke-width="0.7"/>
+      <circle cx="454" cy="534" r="2" fill="#50565C"/>
+      <circle cx="454" cy="534" r="6.5" fill="none" stroke="#557088" stroke-width="0.6" stroke-dasharray="2,2.5" opacity="0.4"/>
+      <path d="M 434,562 Q 454,554 474,562" stroke="#0D1620" stroke-width="0.4" fill="none" opacity="0.3"/>
+      <path d="M 432,580 Q 454,572 476,580" stroke="#0D1620" stroke-width="0.4" fill="none" opacity="0.3"/>
     </g>
   </g>
 
   <!-- ============================================================ -->
-  <!-- CALF STRAPS — 小腿绑带                                         -->
+  <!-- CALF STRAPS — 小腿绑带 -->
   <!-- ============================================================ -->
   <g id="calf-straps">
-    <!-- Left calf strap -->
+    <!-- Left -->
     <g filter="url(#shadowLight)">
-      <path d="M 334,620 Q 350,614 366,620 L 366,630 Q 350,624 334,630 Z" fill="url(#strapGrad)"/>
-      <path d="M 334,620 Q 350,614 366,620" fill="none" stroke="#6B727A" stroke-width="0.8"/>
-      <path d="M 334,630 Q 350,624 366,630" fill="none" stroke="#1A1D23" stroke-width="0.6"/>
-      <rect x="347" y="618" width="7" height="12" rx="1.5" fill="#1A1D23" stroke="#555B63" stroke-width="0.5"/>
-      <circle cx="338" cy="625" r="1" fill="#1A1D23" opacity="0.3"/>
-      <circle cx="342" cy="624" r="1" fill="#1A1D23" opacity="0.3"/>
+      <path d="M 330,650 Q 348,643 366,650 L 366,662 Q 348,655 330,662 Z" fill="url(#strapGrad)"/>
+      <path d="M 330,650 Q 348,643 366,650" fill="none" stroke="#787E86" stroke-width="0.9"/>
+      <path d="M 330,662 Q 348,655 366,662" fill="none" stroke="#15181C" stroke-width="0.7"/>
+      <rect x="345" y="648" width="8" height="14" rx="2" fill="#15181C" stroke="#787E86" stroke-width="0.5"/>
+      <circle cx="334" cy="656" r="1.2" fill="#15181C" opacity="0.3"/>
+      <circle cx="338" cy="655" r="1.2" fill="#15181C" opacity="0.3"/>
     </g>
-    <!-- Right calf strap -->
+    <!-- Right -->
     <g filter="url(#shadowLight)">
-      <path d="M 434,620 Q 450,614 466,620 L 466,630 Q 450,624 434,630 Z" fill="url(#strapGrad)"/>
-      <path d="M 434,620 Q 450,614 466,620" fill="none" stroke="#6B727A" stroke-width="0.8"/>
-      <path d="M 434,630 Q 450,624 466,630" fill="none" stroke="#1A1D23" stroke-width="0.6"/>
-      <rect x="446" y="618" width="7" height="12" rx="1.5" fill="#1A1D23" stroke="#555B63" stroke-width="0.5"/>
-      <circle cx="458" cy="625" r="1" fill="#1A1D23" opacity="0.3"/>
-      <circle cx="462" cy="624" r="1" fill="#1A1D23" opacity="0.3"/>
+      <path d="M 434,650 Q 452,643 470,650 L 470,662 Q 452,655 434,662 Z" fill="url(#strapGrad)"/>
+      <path d="M 434,650 Q 452,643 470,650" fill="none" stroke="#787E86" stroke-width="0.9"/>
+      <path d="M 434,662 Q 452,655 470,662" fill="none" stroke="#15181C" stroke-width="0.7"/>
+      <rect x="447" y="648" width="8" height="14" rx="2" fill="#15181C" stroke="#787E86" stroke-width="0.5"/>
+      <circle cx="462" cy="656" r="1.2" fill="#15181C" opacity="0.3"/>
+      <circle cx="466" cy="655" r="1.2" fill="#15181C" opacity="0.3"/>
     </g>
   </g>
 
   <!-- ============================================================ -->
-  <!-- 标注与引导线（科学插图风格·中文标注）                           -->
+  <!-- SCIENTIFIC LABELS with leader lines (enhanced typography)     -->
   <!-- ============================================================ -->
-  <g id="labels" font-family="'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif">
-    <!-- A: 腰带 -->
+  <g id="labels" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif">
+    <!-- A: Waist Belt -->
     <g>
-      <polyline points="250,310 280,310 320,316" fill="none" stroke="#7A8088" stroke-width="0.8"/>
-      <circle cx="320" cy="316" r="2.5" fill="#7A8088"/>
-      <circle cx="320" cy="316" r="1.2" fill="#FFF"/>
-      <text x="245" y="305" text-anchor="end" font-size="9" font-weight="700" fill="#3A3F47">A</text>
-      <text x="245" y="315" text-anchor="end" font-size="7" fill="#7A8088">腰带（含主控）</text>
+      <polyline points="242,328 275,328 316,340" fill="none" stroke="#60666E" stroke-width="0.9"/>
+      <circle cx="316" cy="340" r="3" fill="#60666E"/>
+      <circle cx="316" cy="340" r="1.4" fill="#FFF"/>
+      <text x="238" y="322" text-anchor="end" font-size="10" font-weight="800" fill="#1A1D23">A</text>
+      <text x="238" y="333" text-anchor="end" font-size="7.5" font-weight="600" fill="#3A3F47">腰带总成</text>
+      <text x="238" y="343" text-anchor="end" font-size="6.5" fill="#70757C">含主控·电池接口·绑带固定</text>
     </g>
 
-    <!-- B: 腰部电机 -->
+    <!-- B: Motor Unit -->
     <g>
-      <polyline points="250,338 275,338 294,334" fill="none" stroke="#7A8088" stroke-width="0.8"/>
-      <circle cx="294" cy="334" r="2.5" fill="#7A8088"/>
-      <circle cx="294" cy="334" r="1.2" fill="#FFF"/>
-      <text x="245" y="333" text-anchor="end" font-size="9" font-weight="700" fill="#3A3F47">B</text>
-      <text x="245" y="343" text-anchor="end" font-size="7" fill="#7A8088">腰部电机</text>
+      <polyline points="242,358 272,358 290,358" fill="none" stroke="#60666E" stroke-width="0.9"/>
+      <circle cx="290" cy="358" r="3" fill="#60666E"/>
+      <circle cx="290" cy="358" r="1.4" fill="#FFF"/>
+      <text x="238" y="352" text-anchor="end" font-size="10" font-weight="800" fill="#1A1D23">B</text>
+      <text x="238" y="363" text-anchor="end" font-size="7.5" font-weight="600" fill="#3A3F47">腰部电机单元</text>
+      <text x="238" y="373" text-anchor="end" font-size="6.5" fill="#70757C">BLDC·绳驱专用·左右各一</text>
     </g>
 
-    <!-- C: Bowden电缆 -->
+    <!-- C: Bowden Cable -->
     <g>
-      <polyline points="250,410 285,410 326,404" fill="none" stroke="#7A8088" stroke-width="0.8"/>
-      <circle cx="326" cy="404" r="2.5" fill="#7A8088"/>
-      <circle cx="326" cy="404" r="1.2" fill="#FFF"/>
-      <text x="245" y="405" text-anchor="end" font-size="9" font-weight="700" fill="#3A3F47">C</text>
-      <text x="245" y="415" text-anchor="end" font-size="7" fill="#7A8088">Bowden电缆（护套+内钢丝）</text>
+      <polyline points="242,420 280,420 322,414" fill="none" stroke="#60666E" stroke-width="0.9"/>
+      <circle cx="322" cy="414" r="3" fill="#60666E"/>
+      <circle cx="322" cy="414" r="1.4" fill="#FFF"/>
+      <text x="238" y="414" text-anchor="end" font-size="10" font-weight="800" fill="#1A1D23">C</text>
+      <text x="238" y="425" text-anchor="end" font-size="7.5" font-weight="600" fill="#3A3F47">Bowden电缆</text>
+      <text x="238" y="435" text-anchor="end" font-size="6.5" fill="#70757C">内钢丝+外护套·摩擦效率50–70%</text>
     </g>
 
-    <!-- D: 碳纤维大腿连杆 -->
+    <!-- D: Thigh Linkage -->
     <g>
-      <polyline points="250,455 285,455 338,444" fill="none" stroke="#7A8088" stroke-width="0.8"/>
-      <circle cx="338" cy="444" r="2.5" fill="#7A8088"/>
-      <circle cx="338" cy="444" r="1.2" fill="#FFF"/>
-      <text x="245" y="450" text-anchor="end" font-size="9" font-weight="700" fill="#3A3F47">D</text>
-      <text x="245" y="460" text-anchor="end" font-size="7" fill="#7A8088">碳纤维大腿连杆</text>
-      <text x="245" y="469" text-anchor="end" font-size="7" fill="#7A8088">（沿大腿中线传力）</text>
+      <polyline points="242,468 282,468 336,460" fill="none" stroke="#60666E" stroke-width="0.9"/>
+      <circle cx="336" cy="460" r="3" fill="#60666E"/>
+      <circle cx="336" cy="460" r="1.4" fill="#FFF"/>
+      <text x="238" y="462" text-anchor="end" font-size="10" font-weight="800" fill="#1A1D23">D</text>
+      <text x="238" y="473" text-anchor="end" font-size="7.5" font-weight="600" fill="#3A3F47">碳纤维大腿连杆</text>
+      <text x="238" y="483" text-anchor="end" font-size="6.5" fill="#70757C">T700预浸料·沿大腿中线布置</text>
     </g>
 
-    <!-- E: 膝部护膝式柔性接口 -->
+    <!-- E: Knee Brace Interface -->
     <g>
-      <polyline points="550,520 525,520 478,518" fill="none" stroke="#7A8088" stroke-width="0.8"/>
-      <circle cx="478" cy="518" r="2.5" fill="#7A8088"/>
-      <circle cx="478" cy="518" r="1.2" fill="#FFF"/>
-      <text x="555" y="515" text-anchor="start" font-size="9" font-weight="700" fill="#3A3F47">E</text>
-      <text x="555" y="525" text-anchor="start" font-size="7" fill="#7A8088">膝部护膝式柔性接口</text>
-      <text x="555" y="534" text-anchor="start" font-size="7" fill="#0096F0" font-weight="600">（无刚性铰链·不约束关节自然运动）</text>
+      <polyline points="558,532 525,532 484,530" fill="none" stroke="#60666E" stroke-width="0.9"/>
+      <circle cx="484" cy="530" r="3" fill="#60666E"/>
+      <circle cx="484" cy="530" r="1.4" fill="#FFF"/>
+      <text x="562" y="526" text-anchor="start" font-size="10" font-weight="800" fill="#1A1D23">E</text>
+      <text x="562" y="537" text-anchor="start" font-size="7.5" font-weight="600" fill="#3A3F47">膝部护膝式柔性接口</text>
+      <text x="562" y="547" text-anchor="start" font-size="7" font-weight="700" fill="#0096F0">无刚性铰链·不约束关节自然滚动−滑动</text>
+      <text x="562" y="558" text-anchor="start" font-size="6.5" fill="#70757C">电缆终端锚点·弹簧复位机构·护膝式包裹</text>
     </g>
 
-    <!-- F: 小腿绑带 -->
+    <!-- F: Calf Strap -->
     <g>
-      <polyline points="550,626 520,626 468,622" fill="none" stroke="#7A8088" stroke-width="0.8"/>
-      <circle cx="468" cy="622" r="2.5" fill="#7A8088"/>
-      <circle cx="468" cy="622" r="1.2" fill="#FFF"/>
-      <text x="555" y="621" text-anchor="start" font-size="9" font-weight="700" fill="#3A3F47">F</text>
-      <text x="555" y="631" text-anchor="start" font-size="7" fill="#7A8088">小腿绑带（可调）</text>
+      <polyline points="558,656 520,656 472,654" fill="none" stroke="#60666E" stroke-width="0.9"/>
+      <circle cx="472" cy="654" r="3" fill="#60666E"/>
+      <circle cx="472" cy="654" r="1.4" fill="#FFF"/>
+      <text x="562" y="650" text-anchor="start" font-size="10" font-weight="800" fill="#1A1D23">F</text>
+      <text x="562" y="661" text-anchor="start" font-size="7.5" font-weight="600" fill="#3A3F47">小腿绑带</text>
+      <text x="562" y="671" text-anchor="start" font-size="6.5" fill="#70757C">魔术贴无极调节·60mm宽分散压力</text>
     </g>
 
-    <!-- G: 主控板 -->
+    <!-- G: Controller -->
     <g>
-      <polyline points="550,342 510,342 422,340" fill="none" stroke="#7A8088" stroke-width="0.8"/>
-      <circle cx="422" cy="340" r="2.5" fill="#7A8088"/>
-      <circle cx="422" cy="340" r="1.2" fill="#FFF"/>
-      <text x="555" y="337" text-anchor="start" font-size="9" font-weight="700" fill="#3A3F47">G</text>
-      <text x="555" y="347" text-anchor="start" font-size="7" fill="#7A8088">主控板（STM32+ESP32）</text>
+      <polyline points="558,370 505,370 426,366" fill="none" stroke="#60666E" stroke-width="0.9"/>
+      <circle cx="426" cy="366" r="3" fill="#60666E"/>
+      <circle cx="426" cy="366" r="1.4" fill="#FFF"/>
+      <text x="562" y="364" text-anchor="start" font-size="10" font-weight="800" fill="#1A1D23">G</text>
+      <text x="562" y="375" text-anchor="start" font-size="7.5" font-weight="600" fill="#3A3F47">主控单元</text>
+      <text x="562" y="385" text-anchor="start" font-size="6.5" fill="#70757C">STM32G474+ESP32-S3·双MCU</text>
     </g>
 
-    <!-- H: 电池包（背部·虚线示意） -->
+    <!-- H: Battery -->
     <g>
-      <polyline points="550,300 490,300 410,300" fill="none" stroke="#A0A6AE" stroke-width="0.7" stroke-dasharray="2,2"/>
-      <circle cx="410" cy="300" r="2" fill="none" stroke="#A0A6AE" stroke-width="0.7"/>
-      <text x="555" y="295" text-anchor="start" font-size="7" font-weight="400" fill="#A0A6AE">H</text>
-      <text x="555" y="305" text-anchor="start" font-size="6.5" fill="#A0A6AE">电池包（背部·4S1P 72Wh）</text>
+      <polyline points="558,315 495,315 417,315" fill="none" stroke="#8C929A" stroke-width="0.7" stroke-dasharray="2.5,2.5"/>
+      <circle cx="417" cy="315" r="2.2" fill="none" stroke="#8C929A" stroke-width="0.7"/>
+      <text x="562" y="310" text-anchor="start" font-size="8" font-weight="400" fill="#8C929A">H</text>
+      <text x="562" y="321" text-anchor="start" font-size="6.8" fill="#8C929A">电池包（背部·4S1P 50E 72Wh）</text>
     </g>
   </g>
 
   <!-- ============================================================ -->
-  <!-- 图例                                                          -->
+  <!-- DIMENSION ARROWS (scientific diagram style)                   -->
   <!-- ============================================================ -->
-  <g id="legend" font-family="'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif">
-    <line x1="40" y1="888" x2="760" y2="888" stroke="#D5D8DC" stroke-width="0.8"/>
-    <line x1="40" y1="889" x2="760" y2="889" stroke="#E8EBF0" stroke-width="0.5"/>
+  <g stroke="#60666E" fill="#60666E" opacity="0.45" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+    <!-- Waist width -->
+    <line x1="318" y1="410" x2="482" y2="410" stroke-width="0.6"/>
+    <line x1="320" y1="406" x2="320" y2="414" stroke-width="0.5"/>
+    <line x1="480" y1="406" x2="480" y2="414" stroke-width="0.5"/>
+    <text x="400" y="420" text-anchor="middle" font-size="6" fill="#60666E">~360mm（腰带宽度）</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- LEGEND -->
+  <!-- ============================================================ -->
+  <g id="legend" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif">
+    <!-- Divider -->
+    <line x1="36" y1="926" x2="764" y2="926" stroke="#C8CCD2" stroke-width="1"/>
+    <line x1="36" y1="927" x2="764" y2="927" stroke="#E4E7EC" stroke-width="0.5"/>
 
     <!-- Row 1 -->
-    <text x="45" y="902" font-size="7" font-weight="700" fill="#3A3F47">A</text>
-    <text x="58" y="902" font-size="6.5" fill="#7A8088">腰带（含主控）</text>
-    <text x="200" y="902" font-size="7" font-weight="700" fill="#3A3F47">B</text>
-    <text x="213" y="902" font-size="6.5" fill="#7A8088">腰部电机（左右各一·绳驱专用）</text>
-    <text x="430" y="902" font-size="7" font-weight="700" fill="#3A3F47">C</text>
-    <text x="443" y="902" font-size="6.5" fill="#7A8088">Bowden电缆（护套+内钢丝·沿大腿中线布置）</text>
+    <text x="42" y="942" font-size="8" font-weight="800" fill="#1A1D23">A</text>
+    <text x="56" y="942" font-size="7" font-weight="600" fill="#50555C">腰带总成</text>
+
+    <text x="155" y="942" font-size="8" font-weight="800" fill="#1A1D23">B</text>
+    <text x="169" y="942" font-size="7" font-weight="600" fill="#50555C">腰部电机（BLDC·绳驱双向推拉）</text>
+
+    <text x="400" y="942" font-size="8" font-weight="800" fill="#1A1D23">C</text>
+    <text x="414" y="942" font-size="7" font-weight="600" fill="#50555C">Bowden电缆（护套+内钢丝·沿大腿中线）</text>
 
     <!-- Row 2 -->
-    <text x="45" y="916" font-size="7" font-weight="700" fill="#3A3F47">D</text>
-    <text x="58" y="916" font-size="6.5" fill="#7A8088">碳纤维大腿连杆</text>
-    <text x="200" y="916" font-size="7" font-weight="700" fill="#3A3F47">E</text>
-    <text x="213" y="916" font-size="6.5" fill="#0096F0" font-weight="600">膝部护膝式柔性接口（无铰链·不约束关节自然运动）</text>
-    <text x="620" y="916" font-size="7" font-weight="700" fill="#3A3F47">F</text>
-    <text x="633" y="916" font-size="6.5" fill="#7A8088">小腿绑带</text>
+    <text x="42" y="956" font-size="8" font-weight="800" fill="#1A1D23">D</text>
+    <text x="56" y="956" font-size="7" font-weight="600" fill="#50555C">碳纤维大腿连杆（T700·中轴线传力）</text>
+
+    <text x="290" y="956" font-size="8" font-weight="800" fill="#1A1D23">E</text>
+    <text x="304" y="956" font-size="7" font-weight="600" fill="#0096F0">膝部护膝式柔性接口</text>
+    <text x="442" y="956" font-size="6.5" fill="#60666E">（无铰链·瞬心自由迁移·弹簧复位双向推拉）</text>
+
+    <text x="705" y="956" font-size="8" font-weight="800" fill="#1A1D23">F</text>
+    <text x="719" y="956" font-size="7" font-weight="600" fill="#50555C">小腿绑带</text>
   </g>
 
   <!-- ============================================================ -->
-  <!-- 底部说明                                                      -->
+  <!-- ENGINEERING NOTE -->
   <!-- ============================================================ -->
-  <g font-family="'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif">
-    <text x="400" y="880" text-anchor="middle" font-size="6" fill="#A0A6AE" font-style="italic">绳驱架构：电机在腰部 · 电缆沿大腿中线传力至膝部护膝接口 · 膝部无刚性铰链 · 双向推拉（弹簧辅助）· Fail-Safe: 断电即电缆松弛=零阻力</text>
+  <g font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif">
+    <text x="400" y="918" text-anchor="middle" font-size="6.2" fill="#90949C" font-style="italic">工程注释：绳驱架构 — 电机在腰部 · Bowden电缆沿大腿中线传力至膝部护膝式接口 · 膝部无刚性铰链 · 双向推拉（弹簧辅助）· 断电即电缆松弛=零阻力 · 所有标注尺寸为设计目标值</text>
+  </g>
+
+  <!-- Scale bar -->
+  <g opacity="0.5">
+    <line x1="660" y1="900" x2="760" y2="900" stroke="#60666E" stroke-width="1.2"/>
+    <line x1="660" y1="896" x2="660" y2="904" stroke="#60666E" stroke-width="0.8"/>
+    <line x1="710" y1="898" x2="710" y2="902" stroke="#60666E" stroke-width="0.5"/>
+    <line x1="760" y1="896" x2="760" y2="904" stroke="#60666E" stroke-width="0.8"/>
+    <text x="710" y="912" text-anchor="middle" font-family="'Helvetica Neue',sans-serif" font-size="6" fill="#60666E">~200mm</text>
   </g>
 </svg>
