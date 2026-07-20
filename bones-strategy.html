@@ -3337,6 +3337,41 @@ s = [步态相位one-hot(6维), KAM估计值(1), 膝角速度(1), 膝角度(1), 
 
 <div class="note"><strong>替代路径（如果放弃仿真）：</strong>可以在真实硬件上使用在线贝叶斯优化（10步收敛·不需要预训练）或从零开始的阻抗控制。这两种方案都不需要仿真。但代价是：①Gen 0-1无法在6个月内完成RL验证 ②10人测试时RL策略可能表现不佳（需要更长的在线学习时间）③硬件迭代次数增加（因为没有仿真来预筛选差的RL策略）。仿真不是"必不可少的宗教"——它是"加速RL开发的工程工具"。</div>
 
+<h3 id="evt-m2-progress">6.8.3-A EVT-M2 当前仿真进展：站立→浅蹲→深蹲→异常步态采集</h3>
+<div class="callout callout-key" style="text-align:left;font-size:13px;line-height:1.9">
+<p><b>状态（2026-07-21）：</b>416肌肉Hill型肌骨模型在MyoWarp仿真环境中已完成站立和浅蹲的可靠训练，正在攻克深蹲底部稳定性。训练中的失败轨迹被系统采集为<b>异常步态负样本</b>——用于训练RL策略的安全响应能力。尚未开始人机交互（外骨骼+人体联合仿真）训练。</p>
+</div>
+
+<table><tr><th colspan="2">站立训练</th><th colspan="2">浅蹲训练</th><th colspan="3">深蹲与异常步态</th></tr>
+<tr>
+<td style="text-align:center;width:14%"><b>早期失败</b><br><span style="font-size:10px;color:#666">21-30步后失稳<br>肌肉decoder不提供<br>持续站立肌张力</span></td>
+<td style="text-align:center;width:14%"><b>可靠站立</b><br><span style="font-size:10px;color:#666">Attempt 12<br>5次×180步上限<br>timeout×5 ✅</span></td>
+<td style="text-align:center;width:14%"><b>浅蹲失败</b><br><span style="font-size:10px;color:#666">Attempt 14<br>恢复阶段足踝失稳<br>最大123步</span></td>
+<td style="text-align:center;width:14%"><b>稳定浅蹲</b><br><span style="font-size:10px;color:#666">Attempt 15<br>5次×180步上限<br>骨盆最低0.83m ✅</span></td>
+<td style="text-align:center;width:14%"><b>深蹲前倾摔倒</b><br><span style="font-size:10px;color:#666">Attempt 18<br>骨盆降28cm·膝屈1.8rad<br>深度达标·躯干前倾</span></td>
+<td style="text-align:center;width:14%"><b>足跟离地膝内扣</b><br><span style="font-size:10px;color:#666">Attempt 30<br>足跟接触0.62/1<br>膝间距缩小9.6cm</span></td>
+<td style="text-align:center;width:14%"><b>底部稳定仍跌倒</b><br><span style="font-size:10px;color:#666">Attempt 34<br>最大218步未达标<br>最终身体触地</span></td>
+</tr>
+<tr>
+<td><img src="img/evt-m2-01_early_standing_failure.gif" style="width:100%;border-radius:6px" alt="早期站立失败"></td>
+<td><img src="img/evt-m2-02_reliable_standing.gif" style="width:100%;border-radius:6px" alt="可靠站立"></td>
+<td><img src="img/evt-m2-03_shallow_squat_foot_ankle_failure.gif" style="width:100%;border-radius:6px" alt="浅蹲失败"></td>
+<td><img src="img/evt-m2-04_stable_shallow_squat.gif" style="width:100%;border-radius:6px" alt="稳定浅蹲"></td>
+<td><img src="img/evt-m2-05_full_depth_forward_collapse.gif" style="width:100%;border-radius:6px" alt="深蹲前倾摔倒"></td>
+<td><img src="img/evt-m2-06_heel_lift_knee_collapse.gif" style="width:100%;border-radius:6px" alt="足跟离地膝内扣"></td>
+<td><img src="img/evt-m2-07_bottom_stability_still_falls.gif" style="width:100%;border-radius:6px" alt="底部稳定仍跌倒"></td>
+</tr>
+</table>
+
+<div class="callout callout-insight" style="text-align:left;font-size:12px;line-height:1.9;margin-top:12px">
+<p><b>这些失败轨迹是Bones安全系统的数据资产——不是废数据。</b>当前模型是"身体能力正常的人"在学习控制自己的身体。失败发生在：意外姿态扰动、动态转换时控制没有及时跟上、深蹲底部需要持续肌张力但策略尚未学会。这些失败产生四类高价值数据：</p>
+<p><b>①意外失控数据：</b>策略在意外状态下没有及时控制住身体。可用于训练RL的"检测到异常→渐进降力"安全响应——策略在数百万次仿真试错中见过这些失败模式，学会在真实部署中提前识别并干预。</p>
+<p><b>②异常动作负样本：</b>足跟卸载/离地、膝内扣（双膝间距缩小9.6cm）、骨盆和质心水平漂移、躯干持续前倾或旋转——这些动作模式与膝OA患者的病态步态具有相似的外观和风险特征。策略学习"什么是不好的动作"和"什么样的人需要帮助"。</p>
+<p><b>③失败边界数据：</b>比较成功轨迹（可靠站立·稳定浅蹲）和失败轨迹（前倾摔倒·膝内扣·足跟离地），可以分析从"可恢复姿态"转入"不可恢复姿态"的临界状态——这是外骨骼介入时机的决策依据。</p>
+<p><b>④未来病态数据构造基础：</b>下一步将在仿真中构造"身体能力受损但意识正常"的人群：股四头肌无力、单侧肌力不对称、关节活动范围受限——这些是膝OA人群的真实生物力学特征。RL策略在见到真实老人之前，已经在仿真中训练处理过数万种"虚拟膝OA患者"的异常步态。</p>
+<p style="margin-top:8px;color:#0096f0"><b>这四类数据共同构成Bones安全系统的仿真训练基础——RL策略不是因为"算法更聪明"而安全，而是因为在仿真中见过、摔过、学会应对过这些失败。</b>详见下文6.8.4自适应安全机制。</p>
+</div>
+
 <h3>6.8.4 自适应安全机制——RL安全响应的完整技术链路</h3>
 <div class="flow-section">
 <p><b>这是RL区别于PID/FSM最本质的安全优势，也是Bones敢做老年市场的核心算法底气。Gen 0即可实现——不依赖在线学习或联邦学习。</b></p>
