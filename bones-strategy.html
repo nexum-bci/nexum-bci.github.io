@@ -955,7 +955,7 @@ blockquote { border-left:3px solid #0096f0; padding:14px 22px; margin:24px 0; ba
 <tr><td>资本</td><td>极壳$120M（蚂蚁集团+美团龙珠领投，估值$400M）、程天科技¥5亿+、傅利叶智能¥15亿+、强脑科技¥20亿+——<b>以上均发生在2024-2025年</b>。赛道已被验证，但膝关节专项+RL个性化路线尚无对标——资本充裕但标的稀缺。</td></tr>
 <tr><td>供应链</td><td><b>2025年：</b>碳纤维·无刷电机·行星减速器·锂电池·IMU传感器全链条国产化完成。消费外骨骼BOM首次降至$400-800区间。绿的谐波全球市占率>35%，比进口便宜50%。<b>三年前BOM>$2,000</b>——供应链成本下降是消费级定价的前提。</td></tr>
 <tr><td>责任险</td><td><b>2025年7月：</b>大家财险推出首单消费级外骨骼机器人责任险（WAIC发布）。<b>2025年8月：</b>平安产险跟进（四川分公司）。北京保费补贴50%、宁波80%。2025年之前，没有任何保险公司承保消费级外骨骼——进入老年市场意味着在产品责任上完全裸露。</td></tr>
-<tr><td>技术底座</td><td><b>2026年：</b>MyoSuite/MuJoCo Warp肌骨仿真达到工业级吞吐（2048并行世界）。pFedAC联邦强化学习论文发表于arXiv（2605.14423, 2026年5月，汪牧星一作）。416肌肉Hill型柔顺肌腱仿真管线完成验证——从肌肉激活→关节力矩→最优辅助的完整计算链路已跑通。<b>三年前：</b>MyoSuite刚发布（NeurIPS 2022），联邦学习在外骨骼RL场景无理论收敛保证，肌骨仿真仅限于学术demo。仿真基础设施+RL算法+联邦学习理论三者的成熟度在2026年首次交会——使三级智能架构 Core → Omni → Me 从概念变为可工程化落地。Bones的技术壁垒不在于任何单点，而在于这三个技术层次的形成时机恰好重合——2023年任何团队都做不到。</td></tr>
+<tr><td>技术底座</td><td><b>2026年：</b>MyoSuite/MuJoCo Warp肌骨仿真达到工业级吞吐（2048并行世界）。pFedAC联邦强化学习论文发表于arXiv。416肌肉Hill型柔顺肌腱仿真管线完成验证——从肌肉激活→关节力矩→最优辅助的完整计算链路已跑通。<b>三年前：</b>MyoSuite刚发布（NeurIPS 2022），联邦学习在外骨骼RL场景无理论收敛保证，肌骨仿真仅限于学术demo。仿真基础设施+RL算法+联邦学习理论三者的成熟度在2026年首次交会——使三级智能架构 Core → Omni → Me 从概念变为可工程化落地。Bones的技术壁垒不在于任何单点，而在于这三个技术层次的形成时机恰好重合——2023年任何团队都做不到。</td></tr>
 <tr><td>竞争窗口</td><td>膝关节外骨骼赛道约8家参与者全部处于原型/Kickstarter/早期量产阶段。无一家使用RL个性化力矩。无一家专为膝关节不适老年人群设计产品。<b>品类定义权尚未确立——先发者定义品类、建立品牌、积累数据飞轮。竞争格局预计2027-2028年明朗。</b></td></tr>
 </table>
 
@@ -5201,7 +5201,7 @@ Bones不是"一个膝关节公司"——是"一个人体运动健康平台"。
 <tr style="background:linear-gradient(135deg,#f8fbff,#eef4ff)"><td>Manifold Core</td><td>L0</td><td>Bones三级智能架构的第一层——技术底座。全身神经力学肌骨模型仿真（416肌肉Hill型柔顺肌腱），基于MyoSuite/MuJoCo Warp，2048并行仿真世界。学会全身平地走路，建立人体发力机制与柔性肌腱仿真基础。以仿真替代昂贵动捕数据，零人工标注生成训练样本</td></tr>
 <tr style="background:linear-gradient(135deg,#f8fbff,#eef4ff)"><td>Manifold Omni</td><td>L1</td><td>Bones三级智能架构的第二层——产品化重点。Core基座+任务无关TCN/RL多任务适应+pFedAC共享运动子空间。单一策略覆盖走、跑、上下楼、骑行等日常场景。Gen 1产品搭载Omni，与竞品PID方案形成代际差异</td></tr>
 <tr style="background:linear-gradient(135deg,#f8fbff,#eef4ff)"><td>Manifold Me</td><td>L2</td><td>Bones三级智能架构的第三层——千人千面。pFedAC本地个性化策略头+端侧持续学习。根据用户体征、步态、肌力和使用习惯生成个性化模型。端侧数据不出设备，通过联邦更新（上传梯度不上传原始数据）在保护隐私的前提下持续改进。设备越多策略越精准，形成长期数据飞轮</td></tr>
-<tr style="background:linear-gradient(135deg,#f8fbff,#eef4ff)"><td>个性化联邦演员-评论家</td><td>pFedAC</td><td>Personalized Federated Actor-Critic。Bones CRO汪牧星第一作者的联邦强化学习算法（arXiv:2605.14423, 2026年5月）。核心设计：共享运动子空间（trunk）联邦聚合+本地策略/评论家头个性化保留。理论保证：联邦协同训练随设备数K线性加速（1/√K scaling），有限时间收敛。实验验证：FedPer PPO在异构环境中比FedAvg高3.78倍、比单Agent高2.63倍</td></tr>
+<tr style="background:linear-gradient(135deg,#f8fbff,#eef4ff)"><td>个性化联邦演员-评论家</td><td>pFedAC</td><td>Personalized Federated Actor-Critic。Bones的联邦强化学习算法。核心设计：共享运动子空间（trunk）联邦聚合+本地策略/评论家头个性化保留。理论保证：联邦协同训练随设备数K线性加速（1/√K scaling），有限时间收敛。实验验证：FedPer PPO在异构环境中比FedAvg高3.78倍、比单Agent高2.63倍</td></tr>
 </table>
 
 <h3>B.3 医疗器械与监管</h3>
